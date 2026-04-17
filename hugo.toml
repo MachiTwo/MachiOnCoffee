@@ -1,0 +1,16 @@
+baseURL = 'https://machioncoffee.netlify.app/'
+languageCode = 'pt-br'
+title = 'MachiOnCoffee'
+
+[module]
+  [[module.imports]]
+    path = "github.com/imfing/hextra"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[params]
+  [params.navbar]
+    displayLogo = true
