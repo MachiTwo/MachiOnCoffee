@@ -4,4 +4,5 @@ title: MachiOnCoffee
 
 ## 2026 - Abril
 
-- [Bem-vindo ao MachiOnCoffee](04/17/primeiro-post/)
+- [Como eu criei meu novo blog](04/17/como-criei-o-blog/)
+- [Hello World](04/17/hello-world/)

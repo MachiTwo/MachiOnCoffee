@@ -1,7 +1,7 @@
 ---
-title: "Bem-vindo ao MachiOnCoffee"
+title: "Hello World"
 date: "2026-04-17T15:00:00-03:00"
-slug: primeiro-post
+slug: hello-world
 tags:
   - introducao
   - blog
