@@ -14,6 +14,10 @@ enableEmoji = true
     weight = 1
     [languages.pt-br.menu]
       [[languages.pt-br.menu.main]]
+        name = 'Documentação'
+        url = '/docs/vectora/'
+        weight = 1
+      [[languages.pt-br.menu.main]]
         name = 'Tema'
         weight = 0
         [languages.pt-br.menu.main.params]
@@ -48,6 +52,10 @@ enableEmoji = true
     weight = 2
     title = 'MachiOnCoffee'
     [languages.en.menu]
+      [[languages.en.menu.main]]
+        name = 'Documentation'
+        url = '/en/docs/vectora/'
+        weight = 1
       [[languages.en.menu.main]]
         name = 'Theme'
         weight = 0

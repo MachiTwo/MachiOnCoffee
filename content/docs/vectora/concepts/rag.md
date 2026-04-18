@@ -1,9 +1,6 @@
 ---
-title: "RAG Conectado: Por que o contexto isolado mata a sua produtividade"
-date: 2026-04-17T21:00:00-03:00
-draft: false
-categories: ["Deep Dive"]
-tags: ["rag", "infra", "ai", "vectora"]
+title: "RAG Conectado"
+type: docs
 ---
 
 Você já perguntou a um agente de IA sobre uma função no seu projeto e ele respondeu algo que parecia certo, mas que
@@ -51,4 +48,4 @@ O RAG tradicional te dá dados. O RAG Conectado do Vectora te dá **conhecimento
 
 ---
 
-_Este é um post de apoio ao projeto [Vectora](/04/17/vectora/)._
+_Este é um guia técnico do projeto [Vectora](../)._

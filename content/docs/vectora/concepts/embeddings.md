@@ -42,4 +42,4 @@ Com Embeddings + Qdrant, o [Vectora](/04/17/vectora/) consegue:
 
 ---
 
-_Este é um post de apoio ao projeto [Vectora](/04/17/vectora/)._
+_Este é um guia técnico do projeto [Vectora](../)._
