@@ -4,6 +4,7 @@ date: "2026-04-17T18:00:00-03:00"
 type: docs
 sidebar:
   open: true
+breadcrumbs: true
 ---
 
 {{< lang-toggle >}} The **Zyris Ability System** is a robust gameplay framework designed to manage abilities,

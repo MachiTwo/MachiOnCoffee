@@ -4,7 +4,7 @@ date: "2026-04-17T18:00:00-03:00"
 type: docs
 sidebar:
   open: true
-breadcrumbs: false
+breadcrumbs: true
 ---
 
 {{< lang-toggle >}} Agentes de IA tradicionais costumam alucinar porque operam em contextos fragmentados. O **Vectora**
