@@ -33,14 +33,14 @@ Um detalhe muito importante da infraestrutura que decidi seguir foi adotar o **G
 3. Em "Build and deployment", altere o "Source" (Fonte) para **GitHub Actions**.
 4. (Opcional) Configure o seu domínio personalizado logo abaixo se você tiver um.
 
-Feito isso, eu só precisei criar um arquivo `.github/workflows/deploy.yaml` que contém um passo de _GitHub Action_ instrucionado para fazer o build no Hugo. Assim, a cada `git push`, o deploy ocorre magicamente sem custo algum!
+Feito isso, eu só precisei criar um arquivo `.github/workflows/pages.yaml` que contém um passo de _GitHub Action_ instrucionado para fazer o build no Hugo. Assim, a cada `git push`, o deploy ocorre magicamente sem custo algum!
 
 ```yaml
 name: Deploy Hugo site to Pages
 
 on:
   push:
-    branches: ["master", "main"]
+    branches: ["master"]
   workflow_dispatch:
 
 permissions:
@@ -51,7 +51,6 @@ permissions:
 concurrency:
   group: "pages"
   cancel-in-progress: false
-
 defaults:
   run:
     shell: bash
@@ -67,29 +66,25 @@ jobs:
         with:
           fetch-depth: 0
           submodules: recursive
-
       - name: Setup Go
         uses: actions/setup-go@v5
         with:
           go-version: "1.24"
-
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v4
-
       - name: Setup Hugo
         run: |
           wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb \
           && sudo dpkg -i ${{ runner.temp }}/hugo.deb
-
       - name: Build with Hugo
         env:
           HUGO_ENVIRONMENT: production
           HUGO_ENV: production
         run: |
           hugo \
-            --gc --minify --buildFuture
-
+            --gc --minify \
+          --baseURL "https://${{ github.repository_owner }}.github.io/"
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

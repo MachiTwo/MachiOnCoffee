@@ -1,6 +1,75 @@
 baseURL = 'https://cafegame.dev/'
 languageCode = 'pt-br'
+defaultContentLanguage = 'pt-br'
 title = 'MachiOnCoffee'
+enableEmoji = true
+
+[outputs]
+  home = ['HTML', 'RSS', 'JSON']
+
+[languages]
+  [languages.pt-br]
+    languageName = 'Português'
+    languageCode = 'pt-br'
+    weight = 1
+    [languages.pt-br.menu]
+      [[languages.pt-br.menu.main]]
+        name = 'Tema'
+        weight = 0
+        [languages.pt-br.menu.main.params]
+          type = 'theme-toggle'
+      [[languages.pt-br.menu.main]]
+        name = 'GitHub ↗'
+        url = 'https://github.com/MachiTwo/'
+        weight = 2
+        [languages.pt-br.menu.main.params]
+          icon = 'github'
+      [[languages.pt-br.menu.main]]
+        name = 'Buscar'
+        weight = 3
+        [languages.pt-br.menu.main.params]
+          type = 'search'
+      [[languages.pt-br.menu.main]]
+        name = 'RSS'
+        url = '/index.xml'
+        weight = 4
+        [languages.pt-br.menu.main.params]
+          icon = 'rss'
+
+  [languages.en]
+    languageName = 'English'
+    languageCode = 'en'
+    weight = 2
+    title = 'MachiOnCoffee (EN)'
+    [languages.en.menu]
+      [[languages.en.menu.main]]
+        name = 'Theme'
+        weight = 0
+        [languages.en.menu.main.params]
+          type = 'theme-toggle'
+      [[languages.en.menu.main]]
+        name = 'GitHub'
+        url = 'https://github.com/MachiTwo/'
+        weight = 2
+        [languages.en.menu.main.params]
+          icon = 'github'
+      [[languages.en.menu.main]]
+        name = 'Search'
+        weight = 3
+        [languages.en.menu.main.params]
+          type = 'search'
+      [[languages.en.menu.main]]
+        name = 'RSS'
+        url = '/en/index.xml'
+        weight = 4
+        [languages.en.menu.main.params]
+          icon = 'rss'
+      [[languages.pt-br.menu.sidebar]]
+        name = 'GitHub'
+        weight = 1
+        url = 'https://github.com/MachiTwo/'
+        [languages.pt-br.menu.sidebar.params]
+          icon = 'github'
 
 [module]
   [[module.imports]]
@@ -10,7 +79,31 @@ title = 'MachiOnCoffee'
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
+  [markup.highlight]
+    noClasses = false
 
 [params]
   [params.navbar]
+    displayTitle = true
     displayLogo = true
+
+  [params.page]
+    [params.page.contextMenu]
+      enable = true
+      display = true
+      links = [
+        { name = "Compartilhar no X", icon = "x-twitter", url = "https://x.com/intent/tweet?url={url}&text={title}" },
+        { name = "Compartilhar no LinkedIn", icon = "linkedin", url = "https://www.linkedin.com/sharing/share-offsite/?url={url}" }
+      ]
+
+  [params.footer]
+    displayCopyright = true
+    displayPoweredBy = true
+
+  [params.theme]
+    default = 'light'
+
+  [params.author]
+    name = 'MachiTwo'
+
+  description = 'MachiOnCoffee - Um blog minimalista sobre tecnologia, café e cafés.'
