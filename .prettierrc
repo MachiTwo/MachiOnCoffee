@@ -3,7 +3,7 @@
   "semi": true,
   "singleQuote": false,
   "trailingComma": "all",
-  "proseWrap": "always",
+  "proseWrap": "preserve",
   "tabWidth": 2,
   "useTabs": false,
   "embeddedLanguageFormatting": "auto"
