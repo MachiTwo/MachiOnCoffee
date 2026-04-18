@@ -85,7 +85,7 @@ def render_months(grouped, lang='pt'):
     for year, month in sorted_months:
         lines.append(f"## {year} - {month_names[month]}\n")
         for post in grouped[(year, month)]:
-            lines.append(f"- [{escape_markdown(post['title'])}]({post['url']})")
+            lines.append(f"- **{post['date'].day:02d}** - [{escape_markdown(post['title'])}]({post['url']})")
         lines.append("")
     return "\n".join(lines)
 
