@@ -9,41 +9,38 @@ tags:
 draft: false
 ---
 
-Hello world! Today I want to introduce the **Zyris Engine**, a project born from the need for **structural control, predictability, and scalability** in professional game development.
+Welcome to the **Zyris Engine**. This project is not just a fork of Godot; it is a statement of intent on how to maintain a professional, stable, and scalable game architecture in the long term.
 
-## What is Zyris?
+## An Opinionated Philosophy (Convention over Configuration)
 
-**Zyris** is a **fork of the Godot Engine**. This means it maintains full compatibility with the Godot base—your projects, your GDScript knowledge, and your workflow remain familiar.
+While the Godot Engine prizes maximum flexibility—often allowing projects to grow chaotically—Zyris adopts an **"opinionated"** philosophy. We believe that developer time should be spent creating gameplay, not reinventing fundamental systems.
 
-However, Zyris has its own **governance and roadmap**. We do not blindly apply Godot updates; every change from the "upstream" is analyzed, filtered, and integrated in a controlled manner to ensure long-term stability.
+In Zyris, we establish clear architectural standards. If you are building a professional project, the engine expects certain structures, which facilitates teamwork and the maintenance of legacy codebases.
 
-## An Opinionated Philosophy
+## Core Engineering (Core Features)
 
-Unlike engines that offer absolute freedom and can eventually lead to chaotic codebases, Zyris is **intentionally opinionated**. We believe that clear conventions reduce the need to reinvent fundamental solutions in every project.
+Unlike conventional plugins, Zyris integrates critical functionality directly into its C++ core:
 
-You still have total freedom, but by default, Zyris offers:
-- **Predictable structures** for complex systems.
-- **Deterministic state management**.
-- **Consistent architectural foundation** for AI and gameplay.
+### Deterministic Save Server
+We implemented a high-performance persistence subsystem that operates on dedicated threads.
+- **Performance**: Zero blocking of the main gameplay loop.
+- **Compression**: Uses state-of-the-art **ZSTD** algorithms to drastically reduce file sizes.
+- **Security**: Native **AES-256** encryption integrated into the write flow.
 
-## Features Already Implemented
+### Virtual Input Devices
+An abstraction layer that allows treating physical inputs from any platform (Joysticks, D-Pads, Touch) as consistent virtual events. This removes the need for repetitive, complex mappings in every new project.
 
-Currently, the engine already features robust systems integrated into its core:
+### AOT Export System
+We are developing an **Ahead-of-Time (AOT)** export system that generates native binaries optimized for each target platform, removing virtual machine overhead and ensuring maximum performance on hardware-limited devices.
 
-- **Virtual Input Devices**: A multi-platform input abstraction layer (Joysticks, D-Pads) integrated directly into the core.
-- **Save Server**: A high-performance persistence orchestrator with **ZSTD** compression and **AES-256** encryption, running on dedicated threads to ensure fluid *autosaves*.
+## The Maturity Roadmap
 
-## The Future: Ability System and Beyond
+Zyris evolves with a focus on production tools:
+- **Integrated Behavior Tree**: Reactive AI flows via native node graphs.
+- **Camera System (vCam)**: Cinematic camera arbitration inspired by industry standards (Cinemachine).
+- **Authoritative Inventory System**: Item management integrated into the core with native network support.
 
-We are working on the native integration of the [**Ability System**](../ability-system/), a data-driven gameplay framework for scaling combat mechanics.
-
-Our development roadmap also includes:
-- **Behavior Tree**: Modular and reactive node-based AI.
-- **Inventory System**: Authoritative item and equipment management.
-- **Camera System (vCam)**: Cinematic arbitration for smooth transitions.
-- **AOT Export System**: Native binary generation for maximum performance without VM overhead.
-
-Zyris is focused on those seeking **technical maturity** and longevity for their projects.
+Zyris is the choice for developers who understand that **freedom without structure is just technical debt.**
 
 ---
-*Follow official development on [Machi](https://www.youtube.com/@machiatodev) and [Alen](https://www.youtube.com/@yatsuragames)'s channels.*
+*Stay informed about development on [Machi](https://www.youtube.com/@machiatodev) and [Alen](https://www.youtube.com/@yatsuragames)'s channels.*

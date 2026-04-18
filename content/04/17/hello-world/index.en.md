@@ -9,18 +9,33 @@ tags:
 draft: false
 ---
 
-Hello world! I'm Bruno, and I want to take this first post to tell you a bit more about myself and my journey.
+Hello world! I'm Bruno, and I decided this blog would be more than just a diary; it would be the safe harbor for the documentation and evolution of the systems I've been building. My journey started in 2020 with Java, moved through GameMaker, and consolidated in the Godot Engine, but today my focus lies at the intersection of **Engine Engineering** and **AI Agents**.
 
-It all started back in 2020 when I took my first steps in game development using Java. A few months later, I switched to GameMaker and, in parallel, started exploring WordPress. As time went on, I kept studying and eventually discovered the Godot Engine—a tool I fell in love with and still use today.
+Below, I detail the three pillars that define my current work:
 
-On the web development side, I ventured into FlutterFlow, learned UX Design in Figma, went back to WordPress, tried out WeWeb... but eventually decided I needed to learn HTML, CSS, and JavaScript for real. After that, I moved on to Next.js.
+### 1. Zyris Engine: The Next Level of Godot
+**Zyris** is not just a fork; it's an **opinionated** vision of what professional game development should be. While Godot prizes absolute freedom, Zyris focuses on **stability and convention**.
+- **Core Architecture**: We implemented a native C++ **Save Server** that uses **ZSTD** compression and **AES-256** encryption on dedicated threads, ensuring gameplay never suffers from stutter during data persistence.
+- **Input System**: **Virtual Input Devices** abstracts the complexity of multi-platform mapping directly in the core, offering a deterministic translation layer for Joysticks and D-Pads.
+- [**Read more about Zyris Engine here**](../zyris-engine/)
 
-Recently, I tried to contribute directly to the Godot Engine in C++ via Pull Requests. Unfortunately, my PRs were rejected due to AI usage (they are strictly against it; if they suspect you used AI even just to draft a text, they'll reject it). Because of this, I decided to maintain my own separate engine called [**Zyris Engine**](../zyris-engine/), which is a fork of Godot. Within it, I've created Virtual Input Devices, Save Server, and the [**Ability System**](../ability-system/)—which, in addition to being a module for the engine, is also a GDExtension plugin for the official Godot.
+### 2. Ability System: Data-Driven Gameplay
+Born as a module for Zyris, the **Ability System (AS)** is a high-performance gameplay framework that scales from micro-projects to massive RPGs.
+- **Dual Build**: Available both natively in Zyris and via **GDExtension** for the official Godot 4.x.
+- **Hierarchical Tags**: We use a rigorous Tag system (`NAME`, `CONDITIONAL`, `EVENT`) to orchestrate combat states without "spaghetti" code.
+- **Phase Logic**: Native support for ability phases (Windup, Execution, Recovery) and circular buffers ready for **Multiplayer with Rollback**.
+- [**Explore the Ability System in detail**](../ability-system/)
 
-I also started learning Go and absolutely love the language. After that, I began focusing on the development of an AI sub-agent called [**Vectora**](../vectora/).
+### 3. Vectora: The Contextual Knowledge Engine
+**Vectora** is my most ambitious project in the AI field. It's not a generic "chat"; it's a **Specialist Sub-Agent (Tier 2)** designed to connect your code's context to primary agents (like Claude Code or Gemini CLI).
+- **Runtime**: Built in **TypeScript/Node.js 20+**, integrating **MCP** and **ACP** protocols.
+- **Context Engine**: Unlike traditional RAG, Vectora performs **multi-hop reasoning** and structural analysis (via **Tree-sitter**) to understand how functions and dependencies connect globally.
+- **Harness Validation**: We created **Vectora Harness**, an objective metrics system that proves (through precision scores and token efficiency) how the delivered context improves AI performance.
+- **Security**: The **Hard-Coded Guardian** protects secrets (.env, .keys) directly in the runtime, ensuring sensitive data never leaves your environment.
+- [**Understand Vectora's architecture**](../vectora/)
 
-All of this happened while I was working side jobs outside of programming. I've worked in several markets, restaurants, bars, and currently in a bakery.
+---
 
-In this same launch series, you can read more details about [**Vectora**](../vectora/), the [**Zyris Engine**](../zyris-engine/), and the [**Ability System**](../ability-system/).
+All of this happens while I balance development with my reality outside the screens. I've been a shop clerk, a waiter, and today I work in a bakery. This duality between "dough and code" is what keeps my feet on the ground and my head focused on creating tools that truly solve real engineering problems.
 
-This post marks only the beginning!
+This blog is the start of this new phase of technical publication. Welcome to MachiOnCoffee.

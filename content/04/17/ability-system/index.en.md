@@ -9,34 +9,38 @@ tags:
 draft: false
 ---
 
-The **Ability System (AS)** is a powerful framework designed for creating modular combat, abilities, and attributes. It is built to scale from simple mechanics to complex RPG systems, all with **high performance in C++**.
+The **Ability System (AS)** is the backbone of combat gameplay. More than just managing abilities, it offers a data-driven framework to orchestrate complex states with **high C++ performance**.
 
-## Dual Build Architecture
+## Data-Driven Paradigm
 
-One of this system's greatest advantages is its integration flexibility, ensuring the best of both worlds:
+The great revolution of AS is moving gameplay logic from source code into the **Godot Editor**. Using resources (`.tres`), designers can configure complex behaviors without recompilation.
+- **ASAbitilies**: Define the "action"—costs, cooldowns, and requirements.
+- **ASEffects**: Manage attribute modification over time (Damage over time, Attribute buffs).
+- **ASContainers**: Function as archetypes that connect multiple effects and abilities to a character.
 
-- **Native (Zyris Engine):** Integrated directly into the engine's core, taking advantage of centralized automation and rigorous core validation.
-- **Plugin (GDExtension):** A dynamic library version for standard **Godot 4.x** projects. It offers 100% logic parity without requiring engine recompilation.
+## Tag Hierarchy: The Language of State
 
-## Key Concepts
+The system uses a strict vocabulary of **Hierarchical Tags** for communication between decoupled systems:
+- **$NAME**: Defines the unique identity of a gameplay element.
+- **$CONDITIONAL**: Represents persistent and logical states (e.g., `IsStunned`, `IsReloading`).
+- **$EVENT**: Instant triggers that fire reactions (e.g., `OnDamageTaken`, `OnJump`).
 
-The framework introduces advanced concepts to decouple gameplay logic:
+## Phase Logic and Gameplay Flow
 
-- **Hierarchical Tags**: Utilizes identifiers such as `NAME` (Identity), `CONDITIONAL` (Persistent state), and `EVENT` (Instant occurrence).
-- **Ability Phases**: Native breakdown of abilities into stages like `Windup`, `Execution`, and `Recovery`.
-- **Multiplayer with Rollback**: Designed for high network performance with **client prediction** and server reconciliation via circular state buffers.
+An ability in AS is not just a "trigger." It is divided into native stages that allow fine-tuned control of the experience:
+1. **Windup**: Preparation time (telegraphy).
+2. **Execution**: When the main logic and *hitbox* are activated.
+3. **Recovery**: The necessary action cooldown after use.
 
-## Data-Driven Logic
+## Network Engineering: Native Rollback
 
-In the **Ability System**, gameplay logic is transformed into data. This means designers can design complex mechanics by editing only resources (`.tres`) within the Godot editor:
+Developed with multiplayer in mind, the **Ability System** utilizes **circular state buffers**. This allows the system to support **Rollback Networking**, where the client can predict the game state and the server can reconcile prediction errors by going back in time and re-executing logic deterministically.
 
-1. **Define the Vocabulary**: Create the Tags that represent your game state.
-2. **Create the Schema**: Configure the `AttributeSet` with attributes like Health, Mana, or Strength.
-3. **Design the Ability**: Set up costs, cooldowns, and logic requirements directly in the `Ability` resource.
+## Dual Build Integration
 
-## Why Use It?
-
-By decoupling the logic of **"how an impact is calculated"** from **"who caused the impact"**, the system eliminates "spaghetti code" and ensures a clean, testable, and extremely performant architecture for projects of any size.
+To ensure no one is left behind, we maintain two ways of usage:
+- **Zyris Native**: Maximum integration with the engine's core tools.
+- **GDExtension**: Stable plugin for any official Godot 4.x project, bringing the power of C++ to GDScript developers.
 
 ---
 *Developed with ❤️ by **MachiTwo**.*

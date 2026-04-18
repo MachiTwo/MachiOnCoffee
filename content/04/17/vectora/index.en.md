@@ -9,30 +9,38 @@ tags:
 draft: false
 ---
 
-Traditional AI agents often operate in fragmented and disconnected contexts. **Vectora** arrives to solve this problem, delivering **structured and connected context** to developers.
+Traditional AI agents often hallucinate because they operate in fragmented contexts. **Vectora** solves this not by being "just another chat," but as a **Contextual Knowledge Engine** that functions as a **Sub-Agent Tier 2**.
 
-## What is Vectora?
+## Positioning: From RAG to Connected Knowledge
 
-**Vectora** is not just another autonomous agent; it is a **specialist sub-agent** focused on understanding real-world codebases. It integrates via **MCP (Model Context Protocol)** and **ACP (Agent Client Protocol)** with top-tier tools like Claude Code, Gemini CLI, Cursor, and various IDEs.
+Unlike traditional RAG (Retrieval-Augmented Generation) that only searches for isolated text fragments, Vectora understands the **systemic structure** of your code.
 
-Instead of competing with these agents, Vectora empowers them by delivering the context they need to stop hallucinating and truly understand your code.
+It doesn't compete with agents like Claude Code, Gemini CLI, or Cursor; it **empowers** them. Vectora acts as an intermediate intelligence layer that delivers structured context via open protocols (**MCP** and **ACP**).
 
-## Technical Highlights
+## Technical Architecture: Reliability in TypeScript
 
-The system was built with a focus on **speed, security, and precision**:
+The Vectora runtime was developed in **TypeScript (Node.js 20+)**, utilizing **Vercel's AI SDK** to ensure stable and provider-agnostic model routing (OpenRouter, Google, Anthropic, OpenAI).
 
-- **Intelligent Semantic Search**: Uses **Qdrant Cloud** (with HNSW and quantization) for precise semantic searches while the *Context Engine* decides what and how to search.
-- **Native Security (Guardian)**: Implements an immutable security middleware that blocks access to sensitive files (`.env`, `.key`, `.pem`) and performs real-time *output* sanitization.
-- **Provider-Agnostic**: You have total freedom to choose your AI engine from OpenAI, Gemini, Claude, OpenRouter, or even 100% local inference with **llama.cpp**.
-- **Vectora Harness**: An objective validation tool that generates structured evidence regarding context quality and efficient token usage.
+### Core Components:
+- **Context Engine**: Performs **multi-hop reasoning** and structural analysis via **AST (Tree-sitter)**. It doesn't just search for words; it follows dependencies, imports, and execution flows to build a graph of your codebase.
+- **Cloud & Local Native**: Integration with **Qdrant Cloud** for scalable vector search (using HNSW and scalar quantization) and optional support for 100% local inference via **llama.cpp**.
+- **Infrastructure**: Metadata and authentication backend via **Supabase**, with API layers running on **Vercel Edge Functions**.
 
-## Who is Vectora for?
+## Objective Validation: Vectora Harness
 
-- **Individual Developers**: To understand legacy codebases and refactor with absolute confidence.
-- **Engineering Teams**: To share internal documentation and technical decisions via **Shared Namespaces** with RBAC.
-- **Agent Integrators**: To add precise RAG to any Tier-1 agent without reinventing the context engine.
+How do you know if the AI actually improved? We created **Vectora Harness**, the "central nervous system" of our agent. It allows for:
+1. **Measuring Accuracy**: Objectively compares AI output with `vectora:on` vs `vectora:off`.
+2. **Token Efficiency**: Optimizes retrieval to avoid context "overfetch," reducing costs and latency.
+3. **Auditability**: Generates structured reports on how the agent used each tool to reach an answer.
 
-Vectora is the missing piece to make AI-assisted development truly professional and reliable.
+## Security: Hard-Coded Guardian
+
+AI security cannot rely solely on prompts. Vectora implements the **Guardian**, an immutable code-level middleware that:
+- **Blocks Sensitive Paths**: Files like `.env`, `.key`, `.pem`, and lockfiles are never read or embedded.
+- **Output Sanitization**: Native regex masks secrets and PATs before they leave your environment.
+- **Git Snapshots**: Automatic atomic commits before any write operation, ensuring total reversibility.
+
+Vectora is the trust layer that was missing to make AI-assisted development professional, secure, and measurable.
 
 ---
-*Vectora is part of the Kaffyn ecosystem · Open Source · Provider-Agnostic.*
+*Vectora is part of the Kaffyn ecosystem · Open Source · TypeScript · Provider-Agnostic.*
