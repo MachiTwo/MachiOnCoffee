@@ -51,7 +51,7 @@ Habilidades não precisam ser ativadas apenas por botões. Elas podem ser **Reat
 
 Designer define os dados no Inspector, e o programador implementa a lógica:
 
-```cpp
+````cpp
 void _on_activate_ability(Object* owner, RefCounted* spec) {
     // Lógica pura de gameplay aqui
     // Os custos e cooldowns já foram tratados pela engine!
@@ -60,3 +60,4 @@ void _on_activate_ability(Object* owner, RefCounted* spec) {
 
 > [!TIP] Use **Sub-Abilities** para criar habilidades compostas que são desbloqueadas em conjunto, mantendo a hierarquia
 > limpa.
+````

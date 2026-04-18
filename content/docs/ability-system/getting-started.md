@@ -17,7 +17,7 @@ Todas as tags devem ser registradas globalmente no `AbilitySystem` singleton.
 
 ## Registre o Vocabulário
 
-```gdscript
+````gdscript
 func _ready():
     # Abilities (tipo NAME)
     AbilitySystem.register_tag(&"ability.slash", AbilitySystem.ASTagType.NAME)
@@ -250,3 +250,4 @@ asc.apply_package(fireball_package)
 ---
 
 **v0.1.0 | Godot 4.6+ | Desenvolvido com ❤️ por MachiTwo**
+````

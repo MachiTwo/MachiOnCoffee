@@ -23,7 +23,7 @@ Instância runtime de um effect ativo.
 
 ## Herança
 
-```gdscript
+````gdscript
 RefCounted
  └─ ASEffectSpec
 ```gdscript
@@ -167,3 +167,4 @@ func calculate_custom_magnitude(effect_spec: ASEffectSpec) -> float:
 ---
 
 **Parte do Ability System v0.1.0 | Godot 4.6+**
+````

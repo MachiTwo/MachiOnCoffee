@@ -18,7 +18,7 @@ Ambos são `ASEffect` com duração.
 
 Abra **Project Settings → Ability System** e crie:
 
-```gdscript
+````gdscript
 state.empowered (CONDITIONAL)
 state.slowed (CONDITIONAL)
 state.burning (CONDITIONAL)
@@ -235,3 +235,4 @@ func apply_buff_scaled(level: float):
 ---
 
 **Próximo:** [Guia de Multiplayer](../guides/guide-multiplayer.md)
+````

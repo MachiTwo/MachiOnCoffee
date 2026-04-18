@@ -8,7 +8,7 @@ Controle o Ability System inteiramente via Behavior Trees.
 
 ## Arquitetura
 
-```gdscript
+````gdscript
 BehaviorTree
 ├─ Selector (decisão)
 │  ├─ Sequence (combo)
@@ -231,3 +231,4 @@ Para bosses/elite, BT é perfeito.
 ---
 
 **Relacionado:** [Guia de Multiplayer](guide-multiplayer.md)
+````

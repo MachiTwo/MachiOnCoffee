@@ -27,7 +27,7 @@ Deve ser **child de CharacterBody2D ou CharacterBody3D**.
 
 ## Herança
 
-```gdscript
+````gdscript
 Node
  └─ ASComponent
 ```gdscript
@@ -366,3 +366,4 @@ func request_activate_ability(tag: StringName):
 ---
 
 **Parte do Ability System v0.1.0 | Godot 4.6+**
+````

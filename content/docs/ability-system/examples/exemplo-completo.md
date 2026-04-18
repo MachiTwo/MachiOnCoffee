@@ -12,7 +12,7 @@ Código pronto para usar com player vs inimigo.
 
 Crie em `res://assets/ability-system/`:
 
-```gdscript
+````gdscript
 player_attributes.tres
 enemy_attributes.tres
 player_container.tres
@@ -357,3 +357,4 @@ func unlock_ability(ability_tag: StringName):
 ---
 
 **Próximo:** Customizar e expandir conforme sua necessidade!
+````

@@ -21,7 +21,7 @@ Buffer circular de alta performance (128 ticks) para rollback multiplayer.
 
 ## Uso em Rollback
 
-```gdscript
+````gdscript
 # Cliente detecta erro de predição
 if server_state != predicted_state:
     # Restaurar para tick anterior e re-simular
@@ -213,3 +213,4 @@ func load_checkpoint(asc: ASComponent):
 ---
 
 **Parte do Ability System v0.1.0 | Godot 4.6+**
+````

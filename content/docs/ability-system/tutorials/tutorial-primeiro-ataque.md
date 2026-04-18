@@ -14,7 +14,7 @@ Abra **Project Settings → Ability System** (painel do editor).
 
 Click **[Add Tag]** e crie:
 
-```gdscript
+````gdscript
 1. ability.slash (tipo: NAME)
 2. state.attacking (tipo: CONDITIONAL)
 3. event.hit (tipo: EVENT)
@@ -201,3 +201,4 @@ script ✅ Aplicar efeitos ✅ Verificar cooldown
 ---
 
 **Próximo Tutorial:** [Combate Avançado com Fases](tutorial-fases.md)
+````

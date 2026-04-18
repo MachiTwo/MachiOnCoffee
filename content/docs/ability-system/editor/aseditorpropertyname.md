@@ -26,7 +26,7 @@ Usado em propriedades tipo `StringName` marcadas para nomes únicos (ex: `abilit
 
 ## Herança
 
-```gdscript
+````gdscript
 EditorProperty
  └─ ASEditorPropertyName
 ```gdscript
@@ -157,3 +157,4 @@ func _validate_name(name: StringName) -> String:
 ---
 
 **Parte do Ability System v0.1.0 | Godot 4.6+**
+````

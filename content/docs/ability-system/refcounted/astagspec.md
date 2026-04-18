@@ -20,7 +20,7 @@ combina com `state`).
 
 ## Herança
 
-```gdscript
+````gdscript
 RefCounted
  └─ ASTagSpec
 ```gdscript
@@ -279,3 +279,4 @@ Você não interage diretamente—use API pública de `ASComponent`.
 ---
 
 **Parte do Ability System v0.1.0 | Godot 4.6+**
+````

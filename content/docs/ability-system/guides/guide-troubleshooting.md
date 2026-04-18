@@ -14,7 +14,7 @@ Soluções para problemas comuns.
 
 **Checklist:**
 
-```gdscript
+````gdscript
 # 1. Verificar se ASComponent existe
 var asc = AbilitySystem.resolve_component(self)
 if not asc:
@@ -285,3 +285,4 @@ ASLogger.error("ASComponent not found!")
 ---
 
 **Relacionado:** [Guia de Best Practices](guide-best-practices.md)
+````

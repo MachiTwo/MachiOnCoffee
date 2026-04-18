@@ -10,9 +10,9 @@ type: docs
 
 ## [AbilitySystem](singleton/ability-system.md)
 
-**Registro global central de tags e componentes**
+Registro global central de tags e componentes.
 
-```gdscript
+````gdscript
 # Tags
 AbilitySystem.register_tag(&"ability.fireball", ASTagType.NAME)
 AbilitySystem.is_tag_registered(&"state.stunned")
@@ -522,3 +522,4 @@ else:
 ---
 
 **v0.1.0 | Godot 4.6+ | Desenvolvido com ❤️ por MachiTwo**
+````

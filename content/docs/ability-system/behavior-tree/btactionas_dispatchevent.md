@@ -20,7 +20,7 @@ Usado para comunicação entre sistemas: habilidades dispararem eventos que trig
 
 ## Herança
 
-```gdscript
+````gdscript
 BTTask
  └─ BTAction
      └─ BTActionAS_DispatchEvent
@@ -307,3 +307,4 @@ asc.dispatch_event(
 ---
 
 **Parte do Ability System v0.1.0 | Godot 4.6+**
+````

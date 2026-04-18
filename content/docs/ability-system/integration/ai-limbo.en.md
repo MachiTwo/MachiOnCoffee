@@ -25,7 +25,7 @@ refers to the collection of:
 The main **AbilitySystem** Singleton now acts as the reference judge. Behavior trees use the `resolve_component()`
 method to find the agent's ASC, without needing to know where it is physically in the scene tree.
 
-```cpp
+````cpp
 // Internal example of Bridge tasks
 AbilitySystem::get_singleton()->resolve_component(agent);
 ```gdscript
@@ -51,3 +51,4 @@ without you having to write manual verification code in every frame.
 
 > [!CAUTION] > **Rigorous Decoupling**: Never let your AI manipulate attributes directly. It should always "ask" through
 > abilities or effects, respecting the Governance Contract.
+````

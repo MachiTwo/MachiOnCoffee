@@ -10,7 +10,7 @@ Aprenda a criar habilidades complexas divididas em fases de execução granular.
 
 ## Conceito: Fases
 
-```gdscript
+````gdscript
 Ataque de Espada com 3 Fases:
 
 [Windup]      [Execution]    [Recovery]
@@ -211,3 +211,4 @@ Debugar transições
 ---
 
 **Próximo Tutorial:** [Sistema de Buff/Debuff](tutorial-buffs.md)
+````

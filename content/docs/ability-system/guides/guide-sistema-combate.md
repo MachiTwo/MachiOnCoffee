@@ -8,7 +8,7 @@ Aprenda a montar um sistema de combate funcional com player vs inimigo.
 
 ## Arquitetura
 
-```gdscript
+````gdscript
 Player               Inimigo
 ├─ ASComponent      ├─ ASComponent
 ├─ AnimationPlayer  ├─ AnimationPlayer
@@ -260,3 +260,4 @@ func use_ability(ability_tag: StringName):
 ---
 
 **Relacionado:** [Guia de Multiplayer](guide-multiplayer.md)
+````

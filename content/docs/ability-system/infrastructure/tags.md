@@ -31,7 +31,7 @@ Para garantir a governança, as tags são divididas em tipos obrigatórios:
 As tags usam pontos (`.`) para definir ancestrais. Se um ator possui a tag `state.stunned.frozen`, ele tecnicamente
 também possui `state.stunned` e `state`. Isso permite verificações amplas:
 
-```gdscript
+````gdscript
 # Retorna true se o alvo estiver de alguma forma atordoado
 ASTagUtils.has_tag(target, "state.stunned")
 ```gdscript
@@ -63,3 +63,4 @@ ASTagUtils::event_did_occur("event.damage.block", target, 0.4f);
 2. **Registro no Singleton**: Todas as tags (exceto payloads de eventos) devem ser registradas no singleton global para
    garantir autocompletar e evitar erros de digitação.
 3. **Dispatch de Eventos**: Nunca dispare um evento cujo nome não esteja registrado com o tipo `EVENT`.
+````

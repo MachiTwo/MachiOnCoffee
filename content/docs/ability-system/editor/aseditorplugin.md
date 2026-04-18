@@ -24,7 +24,7 @@ Carregado automaticamente quando projeto abre (via plugin.cfg).
 
 ## Herança
 
-```gdscript
+````gdscript
 EditorPlugin
  └─ ASEditorPlugin
 ```gdscript
@@ -206,3 +206,4 @@ Se plugin não carrega:
 ---
 
 **Parte do Ability System v0.1.0 | Godot 4.6+**
+````

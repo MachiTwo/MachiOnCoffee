@@ -23,7 +23,7 @@ Acessível via: **Project Settings → Ability System**
 
 ## Herança
 
-```gdscript
+````gdscript
 VBoxContainer
  └─ ASTagsPanel
 ```gdscript
@@ -274,3 +274,4 @@ func sync_tags_to_panel():
 ---
 
 **Parte do Ability System v0.1.0 | Godot 4.6+**
+````

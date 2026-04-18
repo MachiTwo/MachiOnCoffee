@@ -8,7 +8,7 @@ Implementação de leveling, skill trees e progressão.
 
 ## 1. Sistema de Experiência e Leveling
 
-```gdscript
+````gdscript
 extends Node
 class_name ExperienceSystem
 
@@ -657,3 +657,4 @@ func update_inventory_display():
 ---
 
 Sistema RPG pronto para expandir com mais mecânicas.
+````

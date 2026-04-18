@@ -60,7 +60,7 @@ Leves, dinâmicas, mantêm estado mutável:
 
 ## 🔄 Fluxo Essencial (A Ordem Natural)
 
-```gdscript
+````gdscript
 INPUT (jogador pressiona "atacar")
   ↓
 TRIGGER (tag adicionada / evento disparado)
@@ -273,3 +273,4 @@ BTConditionAS_HasTag
 ---
 
 **v0.1.0 Stable | Godot 4.6+ | Desenvolvido com ❤️ por MachiTwo**
+````

@@ -25,7 +25,7 @@ Pode ser usado para:
 
 ## Herança
 
-```gdscript
+````gdscript
 Node
  └─ ASDelivery
 ```gdscript
@@ -209,3 +209,4 @@ target_asc.dispatch_event(&"event.fireball_hit")
 ---
 
 **Parte do Ability System v0.1.0 | Godot 4.6+**
+````

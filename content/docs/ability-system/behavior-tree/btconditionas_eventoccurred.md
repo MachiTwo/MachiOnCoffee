@@ -24,7 +24,7 @@ Usado para reações baseadas em eventos: "Se tomou dano há pouco, retreate. Se
 
 ## Herança
 
-```gdscript
+````gdscript
 BTTask
  └─ BTCondition
      └─ BTConditionAS_EventOccurred
@@ -327,3 +327,4 @@ if ASTagUtils.event_did_occur(&"event.damage", asc, 1.0):
 ---
 
 **Parte do Ability System v0.1.0 | Godot 4.6+**
+````

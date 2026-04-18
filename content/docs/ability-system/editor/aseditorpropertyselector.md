@@ -24,7 +24,7 @@ propriedades de array de tags (ex: `activation_required_all_tags`, `granted_tags
 
 ## Herança
 
-```gdscript
+````gdscript
 EditorProperty
  └─ ASEditorPropertySelector
 ```gdscript
@@ -216,3 +216,4 @@ Registre todas as tags em `AbilitySystem` antes de usar no selector.
 ---
 
 **Parte do Ability System v0.1.0 | Godot 4.6+**
+````

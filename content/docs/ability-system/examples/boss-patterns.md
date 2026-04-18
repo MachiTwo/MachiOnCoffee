@@ -8,7 +8,7 @@ Implementações de diferentes tipos de boss com Ability System.
 
 ## Boss 1: Simple Melee Boss
 
-```gdscript
+````gdscript
 extends CharacterBody3D
 class_name SimpleMeleeBoss
 
@@ -556,3 +556,4 @@ func _on_boss_defeated():
 ---
 
 Cada padrão pode ser customizado e combinado! 🎮
+````

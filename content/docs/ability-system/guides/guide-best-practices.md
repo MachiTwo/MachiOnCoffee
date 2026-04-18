@@ -10,7 +10,7 @@ Aprenda padrões verificados para o Ability System.
 
 **Estrutura de Pastas:**
 
-```gdscript
+````gdscript
 res://assets/ability-system/
 ├─ attributes/
 │  ├─ player_attributes.tres
@@ -379,3 +379,4 @@ Polish:
 ---
 
 **Relacionado:** [Troubleshooting](guide-troubleshooting.md)
+````

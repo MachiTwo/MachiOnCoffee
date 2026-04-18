@@ -31,7 +31,7 @@ entradas cada.
 
 Verifica se tag NAME foi adicionada nos últimos N segundos.
 
-```gdscript
+````gdscript
 if ASTagUtils.name_was_tag_added(&"state.stunned", target, 1.0):
     print("Ficou atordoado recentemente")
 ```gdscript
@@ -237,3 +237,4 @@ Eficiente mesmo para centenas de atores.
 ---
 
 **Parte do Ability System v0.1.0 | Godot 4.6+**
+````

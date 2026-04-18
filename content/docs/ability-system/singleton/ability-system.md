@@ -24,7 +24,7 @@ editor.
 
 ## Herança
 
-```gdscript
+````gdscript
 Object
  └─ AbilitySystem (Singleton)
 ```gdscript
@@ -375,3 +375,4 @@ for ability_tag in ability_tags:
 ---
 
 **Parte do Ability System v0.1.0 | Godot 4.6+**
+````

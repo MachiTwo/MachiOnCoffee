@@ -24,7 +24,7 @@ tipo `StringName` que requerem uma tag específica (ex: `ability_tag`, `effect_t
 
 ## Herança
 
-```gdscript
+````gdscript
 EditorProperty
  └─ ASEditorPropertyTagSelector
 ```gdscript
@@ -225,3 +225,4 @@ AbilitySystem.register_tag(&"ability.new_attack", ASTagType.NAME)
 ---
 
 **Parte do Ability System v0.1.0 | Godot 4.6+**
+````

@@ -26,7 +26,7 @@ O Singleton principal do **AbilitySystem** agora atua como o juiz de referência
 método `resolve_component()` para encontrar o ASC do agente, sem precisar saber onde ele está fisicamente na árvore de
 cena.
 
-```cpp
+````cpp
 // Exemplo interno das tarefas da Bridge
 AbilitySystem::get_singleton()->resolve_component(agente);
 ```gdscript
@@ -52,3 +52,4 @@ foi adicionada, sem que você precise escrever código de verificação manual e
 
 > [!CAUTION] > **Desacoplamento Rigoroso**: Nunca deixe sua IA manipular atributos diretamente. Ela deve sempre "pedir"
 > através de habilidades ou efeitos, respeitando o Contrato de Governança.
+````

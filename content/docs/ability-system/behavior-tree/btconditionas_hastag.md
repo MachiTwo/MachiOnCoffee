@@ -23,7 +23,7 @@ Usado para gating de comportamento: "Se está queimando, não pode congelar. Se 
 
 ## Herança
 
-```gdscript
+````gdscript
 BTTask
  └─ BTCondition
      └─ BTConditionAS_HasTag
@@ -340,3 +340,4 @@ if asc.has_tag(&"state", false):  # Qualquer state
 ---
 
 **Parte do Ability System v0.1.0 | Godot 4.6+**
+````

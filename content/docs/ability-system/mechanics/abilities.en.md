@@ -50,7 +50,7 @@ Abilities don't just have to be activated by buttons. They can be **Reactive**:
 
 Designers define data in the Inspector, and the programmer implements the logic:
 
-```cpp
+````cpp
 void _on_activate_ability(Object* owner, RefCounted* spec) {
     // Pure gameplay logic here
     // Costs and cooldowns are already handled by the engine!
@@ -58,3 +58,4 @@ void _on_activate_ability(Object* owner, RefCounted* spec) {
 ```gdscript
 
 > [!TIP] Use **Sub-Abilities** to create composed abilities that are unlocked together, keeping the hierarchy clean.
+````

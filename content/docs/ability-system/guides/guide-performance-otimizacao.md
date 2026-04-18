@@ -10,7 +10,7 @@ Técnicas comprovadas para otimizar Ability System em produção.
 
 Antes de otimizar, medir:
 
-```gdscript
+````gdscript
 # Criar baseline
 class_name PerformanceMonitor
 extends Node
@@ -535,3 +535,4 @@ Deployment:
 ---
 
 Performance é iterativo: medir → otimizar → verificar.
+````

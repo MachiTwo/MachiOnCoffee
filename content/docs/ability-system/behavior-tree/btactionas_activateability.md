@@ -24,7 +24,7 @@ Respeita todos os requisitos: tags de ativação, cooldowns, custos, nível.
 
 ## Herança
 
-```gdscript
+````gdscript
 BTTask
  └─ BTAction
      └─ BTActionAS_ActivateAbility
@@ -317,3 +317,4 @@ sequence: [
 ---
 
 **Parte do Ability System v0.1.0 | Godot 4.6+**
+````

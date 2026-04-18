@@ -14,7 +14,7 @@ mantém histórico de 128 ticks para rollback suave
 
 ## Arquitetura Base
 
-```gdscript
+````gdscript
 # Server.gd
 extends Node
 
@@ -537,3 +537,4 @@ Deployment:
 ---
 
 Padrões robustos para multiplayer escalável.
+````

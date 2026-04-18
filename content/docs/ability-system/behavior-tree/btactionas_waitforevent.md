@@ -25,7 +25,7 @@ Usado para sequências sincronizadas: "Ativar ability → aguardar conclusão �
 
 ## Herança
 
-```gdscript
+````gdscript
 BTTask
  └─ BTAction
      └─ BTActionAS_WaitForEvent
@@ -284,3 +284,4 @@ condition: BTConditionAS_EventOccurred
 ---
 
 **Parte do Ability System v0.1.0 | Godot 4.6+**
+````

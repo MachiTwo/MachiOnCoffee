@@ -24,7 +24,7 @@ Usado para guiar decisões da IA: "Se pode atacar, ataca. Senão, esquiva."
 
 ## Herança
 
-```gdscript
+````gdscript
 BTTask
  └─ BTCondition
      └─ BTConditionAS_CanActivate
@@ -321,3 +321,4 @@ if asc.can_activate_ability_by_tag(&"ability.fireball"):
 ---
 
 **Parte do Ability System v0.1.0 | Godot 4.6+**
+````

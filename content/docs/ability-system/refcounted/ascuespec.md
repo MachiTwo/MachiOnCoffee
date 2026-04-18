@@ -27,7 +27,7 @@ Criada automaticamente pelo `ASComponent`—raramente instanciada manualmente.
 
 ## Herança
 
-```gdscript
+````gdscript
 RefCounted
  └─ ASCueSpec
 ```gdscript
@@ -292,3 +292,4 @@ Sem alocações por frame na crítica.
 ---
 
 **Parte do Ability System v0.1.0 | Godot 4.6+**
+````
