@@ -22,7 +22,8 @@ repos:
     rev: v3.1.0
     hooks:
       - id: prettier
-        types: [markdown, yaml]
+        args: ["--write"]
+        verbose: false
 
   - repo: https://github.com/pre-commit/mirrors-mypy
     rev: v1.14.1

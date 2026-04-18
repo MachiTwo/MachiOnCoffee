@@ -25,7 +25,7 @@ enableEmoji = true
         [languages.pt-br.menu.main.params]
           icon = 'github'
       [[languages.pt-br.menu.main]]
-        name: 'YouTube ↗'
+        name = 'YouTube ↗'
         url = 'https://www.youtube.com/@machiatodev'
         weight = 3
         [languages.pt-br.menu.main.params]
