@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MachiOnCoffee</title><link>https://cafegame.dev/</link><description/><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 17 Apr 2026 23:39:22 GMT</lastBuildDate><atom:link href="https://cafegame.dev/index.xml" rel="self" type="application/rss+xml"/><item><title>Sub-Agents vs MCP: Passive tools vs Active governance</title><link>https://cafegame.dev/en/04/17/sub-agents-mcp/</link><guid isPermaLink="true">https://cafegame.dev/en/04/17/sub-agents-mcp/</guid><pubDate>Fri, 17 Apr 2026 21:15:00 GMT</pubDate><description>&lt;p&gt;Have you heard of the &lt;strong&gt;Model Context Protocol (MCP)&lt;/strong&gt;? It&amp;rsquo;s an open standard that allows AIs (like Claude) to use
+<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MachiOnCoffee</title><link>https://cafegame.dev/</link><description/><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 18 Apr 2026 00:26:45 GMT</lastBuildDate><atom:link href="https://cafegame.dev/index.xml" rel="self" type="application/rss+xml"/><item><title>Sub-Agents vs MCP: Passive tools vs Active governance</title><link>https://cafegame.dev/en/docs/vectora/concepts/sub-agents/</link><guid isPermaLink="true">https://cafegame.dev/en/docs/vectora/concepts/sub-agents/</guid><pubDate>Fri, 17 Apr 2026 21:15:00 GMT</pubDate><description>&lt;p&gt;Have you heard of the &lt;strong&gt;Model Context Protocol (MCP)&lt;/strong&gt;? It&amp;rsquo;s an open standard that allows AIs (like Claude) to use
 external tools. But being &amp;ldquo;just an MCP tool&amp;rdquo; is not enough for Vectora.&lt;/p&gt;
 &lt;h2&gt;What are MCP Tools?&lt;span class="hx:absolute hx:-mt-20" id="what-are-mcp-tools"&gt;&lt;/span&gt;
 &lt;a href="#what-are-mcp-tools" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Imagine MCP is a Swiss Army knife. Each tool (like &lt;code&gt;read_file&lt;/code&gt; or &lt;code&gt;google_search&lt;/code&gt;) is a blade. The primary Agent
@@ -59,8 +59,8 @@ Cursor).</li>
     <a href="#conclusion" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>Passive tools give <strong>functions</strong>. The Vectora Sub-Agent gives <strong>governance</strong>. It ensures your primary Agent receives the
 best possible context, in the safest and cheapest way, without you needing to configure every detail.</p>
 <hr>
-<p><em>This is a supporting post for the <a href="/en/04/17/vectora/">Vectora</a> project.</em></p>
-]]></content:encoded><category>mcp</category><category>acp</category><category>infra</category><category>vectora</category></item><item><title>Reranker: Why similarity isn't enough for code</title><link>https://cafegame.dev/en/04/17/reranker-contexto/</link><guid isPermaLink="true">https://cafegame.dev/en/04/17/reranker-contexto/</guid><pubDate>Fri, 17 Apr 2026 21:10:00 GMT</pubDate><description>&lt;p&gt;Often, a vector search (Embedding) returns 50 files that &amp;ldquo;look&amp;rdquo; relevant, but only 3 are actually useful for fixing the
+<p><em>This is a supporting post for the <a href="/en/docs/vectora/">Vectora</a> project.</em></p>
+]]></content:encoded><category>mcp</category><category>acp</category><category>infra</category><category>vectora</category></item><item><title>Reranker: Why similarity isn't enough for code</title><link>https://cafegame.dev/en/docs/vectora/concepts/reranker/</link><guid isPermaLink="true">https://cafegame.dev/en/docs/vectora/concepts/reranker/</guid><pubDate>Fri, 17 Apr 2026 21:10:00 GMT</pubDate><description>&lt;p&gt;Often, a vector search (Embedding) returns 50 files that &amp;ldquo;look&amp;rdquo; relevant, but only 3 are actually useful for fixing the
 bug. Sending all 50 to the LLM is a waste of tokens and can confuse the AI. This is where the &lt;strong&gt;Reranker&lt;/strong&gt; comes in.&lt;/p&gt;
 &lt;h2&gt;The Precision Filter&lt;span class="hx:absolute hx:-mt-20" id="the-precision-filter"&gt;&lt;/span&gt;
 &lt;a href="#the-precision-filter" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;While Embedding is excellent at quickly finding candidates in a giant database, it often brings a lot of noise (like
@@ -88,8 +88,8 @@ handling logic should come before a <code>README</code> file.</li>
 <li><strong>LLM</strong>: Acts on the refined context.</li>
 </ol>
 <hr>
-<p><em>This is a supporting post for the <a href="/en/04/17/vectora/">Vectora</a> project.</em></p>
-]]></content:encoded><category>reranker</category><category>rag</category><category>ai</category><category>vectora</category></item><item><title>Embeddings and Vector DBs: The heart of semantic search</title><link>https://cafegame.dev/en/04/17/embeddings-vector-db/</link><guid isPermaLink="true">https://cafegame.dev/en/04/17/embeddings-vector-db/</guid><pubDate>Fri, 17 Apr 2026 21:05:00 GMT</pubDate><description>&lt;p&gt;If you want a computer to understand that &lt;code&gt;create_user&lt;/code&gt; and &lt;code&gt;signUp&lt;/code&gt; have similar meanings, you need &lt;strong&gt;Embeddings&lt;/strong&gt;.&lt;/p&gt;
+<p><em>This is a supporting post for the <a href="/en/docs/vectora/">Vectora</a> project.</em></p>
+]]></content:encoded><category>reranker</category><category>rag</category><category>ai</category><category>vectora</category></item><item><title>Embeddings and Vector DBs: The heart of semantic search</title><link>https://cafegame.dev/en/docs/vectora/concepts/embeddings/</link><guid isPermaLink="true">https://cafegame.dev/en/docs/vectora/concepts/embeddings/</guid><pubDate>Fri, 17 Apr 2026 21:05:00 GMT</pubDate><description>&lt;p&gt;If you want a computer to understand that &lt;code&gt;create_user&lt;/code&gt; and &lt;code&gt;signUp&lt;/code&gt; have similar meanings, you need &lt;strong&gt;Embeddings&lt;/strong&gt;.&lt;/p&gt;
 &lt;h2&gt;What are Embeddings?&lt;span class="hx:absolute hx:-mt-20" id="what-are-embeddings"&gt;&lt;/span&gt;
 &lt;a href="#what-are-embeddings" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Embeddings are lists of numbers (vectors) that represent the meaning of a text in a multidimensional space.&lt;/p&gt;
 &lt;p&gt;Imagine a map where words with similar meanings are &amp;ldquo;close&amp;rdquo; to each other. In the world of 2026 AI models (like
@@ -113,15 +113,15 @@ losing precision.</li>
 <h2>Why is this vital for Vectora?<span class="hx:absolute hx:-mt-20" id="why-is-this-vital-for-vectora"></span>
     <a href="#why-is-this-vital-for-vectora" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>Without a vector database, your AI agent would have to read all your project files every time it received a question.
 This would be slow and absurdly expensive.</p>
-<p>With Embeddings + Qdrant, <a href="/en/04/17/vectora/">Vectora</a> can:</p>
+<p>With Embeddings + Qdrant, <a href="/en/docs/vectora/">Vectora</a> can:</p>
 <ol>
 <li>&ldquo;Remember&rdquo; your entire codebase instantly.</li>
 <li>Find code based on <strong>intent</strong>, not just keywords.</li>
 <li>Isolate contexts through <strong>Namespaces</strong>, ensuring search is fast and secure.</li>
 </ol>
 <hr>
-<p><em>This is a supporting post for the <a href="/en/04/17/vectora/">Vectora</a> project.</em></p>
-]]></content:encoded><category>embeddings</category><category>qdrant</category><category>ai</category><category>vectora</category></item><item><title>Connected RAG: Why isolated context kills your productivity</title><link>https://cafegame.dev/en/04/17/rag-conectado/</link><guid isPermaLink="true">https://cafegame.dev/en/04/17/rag-conectado/</guid><pubDate>Fri, 17 Apr 2026 21:00:00 GMT</pubDate><description>&lt;p&gt;Have you ever asked an AI agent about a function in your project, and it replied with something that looked right but
+<p><em>This is a supporting post for the <a href="/en/docs/vectora/">Vectora</a> project.</em></p>
+]]></content:encoded><category>embeddings</category><category>qdrant</category><category>ai</category><category>vectora</category></item><item><title>Connected RAG: Why isolated context kills your productivity</title><link>https://cafegame.dev/en/docs/vectora/concepts/rag/</link><guid isPermaLink="true">https://cafegame.dev/en/docs/vectora/concepts/rag/</guid><pubDate>Fri, 17 Apr 2026 21:00:00 GMT</pubDate><description>&lt;p&gt;Have you ever asked an AI agent about a function in your project, and it replied with something that looked right but
 completely ignored how that function was used in the rest of the system? This is the classic symptom of &lt;strong&gt;fragmented
 RAG&lt;/strong&gt;.&lt;/p&gt;
 &lt;h2&gt;What is RAG?&lt;span class="hx:absolute hx:-mt-20" id="what-is-rag"&gt;&lt;/span&gt;
@@ -160,174 +160,58 @@ of files, dependencies, and metadata.</li>
 </ul>
 <p>Traditional RAG gives you data. Vectora&rsquo;s Connected RAG gives you <strong>knowledge</strong>.</p>
 <hr>
-<p><em>This is a supporting post for the <a href="/en/04/17/vectora/">Vectora</a> project.</em></p>
-]]></content:encoded><category>rag</category><category>infra</category><category>ai</category><category>vectora</category></item><item><title>Vectora: The Sub-Agent Connecting Your Code's Context</title><link>https://cafegame.dev/en/04/17/vectora/</link><guid isPermaLink="true">https://cafegame.dev/en/04/17/vectora/</guid><pubDate>Fri, 17 Apr 2026 18:00:00 GMT</pubDate><description>&lt;div class="hx:flex hx:justify-center hx:my-8"&gt;
-&lt;img src="https://cafegame.dev/images/vectora.svg" alt="Vectora Logo" class="hx:max-w-[200px] hx:w-full hx:rounded-2xl hx:shadow-2xl hx:border hx:border-gray-200 hx:dark:border-gray-800"&gt;
-&lt;/div&gt;
-&lt;h2&gt;The Problem: Fragmented Context&lt;span class="hx:absolute hx:-mt-20" id="the-problem-fragmented-context"&gt;&lt;/span&gt;
-&lt;a href="#the-problem-fragmented-context" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Most agents today (Claude Code, Cursor, GitHub Copilot) suffer from the same issue: they view code as isolated snippets
-of text. They don&amp;rsquo;t understand the &lt;strong&gt;dependency tree&lt;/strong&gt;, past architectural decisions (ADRs), or the intent behind a
-module.&lt;/p&gt;
-&lt;p&gt;Vectora was born to be the intelligence layer that connects these dots, delivering what we call &lt;strong&gt;Connected Knowledge&lt;/strong&gt;.&lt;/p&gt;</description><content:encoded><![CDATA[<div class="hx:flex hx:justify-center hx:my-8">
-  <img src="/images/vectora.svg" alt="Vectora Logo" class="hx:max-w-[200px] hx:w-full hx:rounded-2xl hx:shadow-2xl hx:border hx:border-gray-200 hx:dark:border-gray-800">
-</div>
-<h2>The Problem: Fragmented Context<span class="hx:absolute hx:-mt-20" id="the-problem-fragmented-context"></span>
-    <a href="#the-problem-fragmented-context" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>Most agents today (Claude Code, Cursor, GitHub Copilot) suffer from the same issue: they view code as isolated snippets
-of text. They don&rsquo;t understand the <strong>dependency tree</strong>, past architectural decisions (ADRs), or the intent behind a
-module.</p>
-<p>Vectora was born to be the intelligence layer that connects these dots, delivering what we call <strong>Connected Knowledge</strong>.</p>
-<h2>🏗️ EndGame Architecture<span class="hx:absolute hx:-mt-20" id="-endgame-architecture"></span>
-    <a href="#-endgame-architecture" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>Vectora is not just a script; it&rsquo;s an ecosystem designed for low latency and high precision:</p>
-<ul>
-<li><strong>MCP &amp; ACP Protocols</strong>: Integration via <a href="/en/04/17/sub-agents-mcp/">Model Context Protocol (MCP)</a> for agents like
-Claude and Antigravity, and ACP for ultra-fast communication with IDEs.</li>
-<li><strong>Context Engine</strong>: The &ldquo;brain&rdquo; that decides <em>what</em>, <em>how</em>, and <em>when</em> to fetch information, avoiding the noise that
-consumes your tokens.</li>
-<li><strong>Vector DB (Qdrant Cloud)</strong>: Uses vector search with <a href="/en/04/17/embeddings-vector-db/">HNSW and Quantization</a> to find
-functional similarities in milliseconds.</li>
-<li><strong>Proven Reranker</strong>: A <a href="/en/04/17/reranker-contexto/">Reranking</a> layer that reorders results to ensure the most
-relevant code is at the top.</li>
-</ul>
-<h2>🔐 Security by Design: The Guardian<span class="hx:absolute hx:-mt-20" id="-security-by-design-the-guardian"></span>
-    <a href="#-security-by-design-the-guardian" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>Security in AI agents cannot just be &ldquo;system prompts&rdquo; (which are easily bypassed). In Vectora, security is
-<strong>hard-coded</strong>:</p>
-<ol>
-<li><strong>Hard-Coded Guardian</strong>: An immutable blocklist compiled into the binary that prevents access to sensitive files
-(<code>.env</code>, <code>.key</code>, <code>.pem</code>, binaries) regardless of what the user or agent asks for.</li>
-<li><strong>Namespaces with RBAC</strong>: Real isolation between projects. Your data from one project never leaks to another, and
-public namespaces can be mounted as ready-to-use &ldquo;skills&rdquo;.</li>
-<li><strong>Trust Folder</strong>: The agent only operates within directories explicitly authorized by you.</li>
-</ol>
-<h2>🧪 Vectora Harness: Objective Proof<span class="hx:absolute hx:-mt-20" id="-vectora-harness-objective-proof"></span>
-    <a href="#-vectora-harness-objective-proof" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>How do you know if the agent is actually improving? The <strong>Vectora Harness</strong> is our objective validation system. It
-allows you to run comparative tests: <code>vectora harness run --compare vectora:on,off</code></p>
-<p>This generates real metrics for precision gain, token reduction, and prevention of security violations. It&rsquo;s not
-intuition; it&rsquo;s quantitative evidence.</p>
-<hr>
-<h3>Want to dive deeper into the tech?<span class="hx:absolute hx:-mt-20" id="want-to-dive-deeper-into-the-tech"></span>
-    <a href="#want-to-dive-deeper-into-the-tech" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>Explore our core technical guides:</p>
-<ul>
-<li><a href="/en/04/17/rag-conectado/">What is RAG and why does connected context matter?</a></li>
-<li><a href="/en/04/17/embeddings-vector-db/">Embeddings and Vector DBs: The heart of semantic search</a></li>
-<li><a href="/en/04/17/reranker-contexto/">Reranker: Why similarity isn&rsquo;t enough for code</a></li>
-<li><a href="/en/04/17/sub-agents-mcp/">Sub-Agents vs MCP: Passive tools vs Active governance</a></li>
-</ul>
-<p>The Vectora runtime was developed in <strong>TypeScript (Node.js 20+)</strong>, utilizing <strong>Vercel&rsquo;s AI SDK</strong> to ensure stable and
-provider-agnostic model routing (OpenRouter, Google, Anthropic, OpenAI).</p>
-<h3>Core Components<span class="hx:absolute hx:-mt-20" id="core-components"></span>
-    <a href="#core-components" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
-<li><strong>Context Engine</strong>: Performs <strong>multi-hop reasoning</strong> and structural analysis via <strong>AST (Tree-sitter)</strong>. It doesn&rsquo;t
-just search for words; it follows dependencies, imports, and execution flows to build a graph of your codebase.</li>
-<li><strong>Cloud &amp; Local Native</strong>: Integration with <strong>Qdrant Cloud</strong> for scalable vector search (using HNSW and scalar
-quantization) and optional support for 100% local inference via <strong>llama.cpp</strong>.</li>
-<li><strong>Infrastructure</strong>: Metadata and authentication backend via <strong>Supabase</strong>, with API layers running on <strong>Vercel Edge
-Functions</strong>.</li>
-</ul>
-<h2>Objective Validation: Vectora Harness<span class="hx:absolute hx:-mt-20" id="objective-validation-vectora-harness"></span>
-    <a href="#objective-validation-vectora-harness" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>How do you know if the AI actually improved? We created <strong>Vectora Harness</strong>, the &ldquo;central nervous system&rdquo; of our agent.
-It allows for:</p>
-<ol>
-<li><strong>Measuring Accuracy</strong>: Objectively compares AI output with <code>vectora:on</code> vs <code>vectora:off</code>.</li>
-<li><strong>Token Efficiency</strong>: Optimizes retrieval to avoid context &ldquo;overfetch,&rdquo; reducing costs and latency.</li>
-<li><strong>Auditability</strong>: Generates structured reports on how the agent used each tool to reach an answer.</li>
-</ol>
-<h2>Security: Hard-Coded Guardian<span class="hx:absolute hx:-mt-20" id="security-hard-coded-guardian"></span>
-    <a href="#security-hard-coded-guardian" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>AI security cannot rely solely on prompts. Vectora implements the <strong>Guardian</strong>, an immutable code-level middleware that:</p>
-<ul>
-<li><strong>Blocks Sensitive Paths</strong>: Files like <code>.env</code>, <code>.key</code>, <code>.pem</code>, and lockfiles are never read or embedded.</li>
-<li><strong>Output Sanitization</strong>: Native regex masks secrets and PATs before they leave your environment.</li>
-<li><strong>Git Snapshots</strong>: Automatic atomic commits before any write operation, ensuring total reversibility.</li>
-</ul>
-<p>Vectora is the trust layer that was missing to make AI-assisted development professional, secure, and measurable.</p>
-<hr>
-<p><em>Vectora is part of the Kaffyn ecosystem · Open Source · TypeScript · Provider-Agnostic.</em></p>
-]]></content:encoded><category>ai</category><category>productivity</category><category>tools</category></item><item><title>Ability System: The Heart of Gameplay Mechanics in Zyris</title><link>https://cafegame.dev/en/04/17/ability-system/</link><guid isPermaLink="true">https://cafegame.dev/en/04/17/ability-system/</guid><pubDate>Fri, 17 Apr 2026 17:00:00 GMT</pubDate><description>&lt;p&gt;The &lt;strong&gt;Ability System (AS)&lt;/strong&gt; is the backbone of combat gameplay. More than just managing abilities, it offers a
-data-driven framework to orchestrate complex states with &lt;strong&gt;high C++ performance&lt;/strong&gt;.&lt;/p&gt;
-&lt;h2&gt;Data-Driven Paradigm&lt;span class="hx:absolute hx:-mt-20" id="data-driven-paradigm"&gt;&lt;/span&gt;
-&lt;a href="#data-driven-paradigm" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The great revolution of AS is moving gameplay logic from source code into the &lt;strong&gt;Godot Editor&lt;/strong&gt;. Using resources
-(&lt;code&gt;.tres&lt;/code&gt;), designers can configure complex behaviors without recompilation.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;ASAbitilies&lt;/strong&gt;: Define the &amp;ldquo;action&amp;rdquo;—costs, cooldowns, and requirements.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;ASEffects&lt;/strong&gt;: Manage attribute modification over time (Damage over time, Attribute buffs).&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;ASContainers&lt;/strong&gt;: Function as archetypes that connect multiple effects and abilities to a character.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;Tag Hierarchy: The Language of State&lt;span class="hx:absolute hx:-mt-20" id="tag-hierarchy-the-language-of-state"&gt;&lt;/span&gt;
-&lt;a href="#tag-hierarchy-the-language-of-state" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The system uses a strict vocabulary of &lt;strong&gt;Hierarchical Tags&lt;/strong&gt; for communication between decoupled systems:&lt;/p&gt;</description><content:encoded><![CDATA[<p>The <strong>Ability System (AS)</strong> is the backbone of combat gameplay. More than just managing abilities, it offers a
-data-driven framework to orchestrate complex states with <strong>high C++ performance</strong>.</p>
-<h2>Data-Driven Paradigm<span class="hx:absolute hx:-mt-20" id="data-driven-paradigm"></span>
-    <a href="#data-driven-paradigm" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>The great revolution of AS is moving gameplay logic from source code into the <strong>Godot Editor</strong>. Using resources
-(<code>.tres</code>), designers can configure complex behaviors without recompilation.</p>
-<ul>
-<li><strong>ASAbitilies</strong>: Define the &ldquo;action&rdquo;—costs, cooldowns, and requirements.</li>
-<li><strong>ASEffects</strong>: Manage attribute modification over time (Damage over time, Attribute buffs).</li>
-<li><strong>ASContainers</strong>: Function as archetypes that connect multiple effects and abilities to a character.</li>
-</ul>
-<h2>Tag Hierarchy: The Language of State<span class="hx:absolute hx:-mt-20" id="tag-hierarchy-the-language-of-state"></span>
-    <a href="#tag-hierarchy-the-language-of-state" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>The system uses a strict vocabulary of <strong>Hierarchical Tags</strong> for communication between decoupled systems:</p>
-<ul>
-<li><strong>$NAME</strong>: Defines the unique identity of a gameplay element.</li>
-<li><strong>$CONDITIONAL</strong>: Represents persistent and logical states (e.g., <code>IsStunned</code>, <code>IsReloading</code>).</li>
-<li><strong>$EVENT</strong>: Instant triggers that fire reactions (e.g., <code>OnDamageTaken</code>, <code>OnJump</code>).</li>
-</ul>
-<h2>Phase Logic and Gameplay Flow<span class="hx:absolute hx:-mt-20" id="phase-logic-and-gameplay-flow"></span>
-    <a href="#phase-logic-and-gameplay-flow" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>An ability in AS is not just a &ldquo;trigger.&rdquo; It is divided into native stages that allow fine-tuned control of the
-experience:</p>
-<ol>
-<li><strong>Windup</strong>: Preparation time (telegraphy).</li>
-<li><strong>Execution</strong>: When the main logic and <em>hitbox</em> are activated.</li>
-<li><strong>Recovery</strong>: The necessary action cooldown after use.</li>
-</ol>
-<h2>Network Engineering: Native Rollback<span class="hx:absolute hx:-mt-20" id="network-engineering-native-rollback"></span>
-    <a href="#network-engineering-native-rollback" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>Developed with multiplayer in mind, the <strong>Ability System</strong> utilizes <strong>circular state buffers</strong>. This allows the system
-to support <strong>Rollback Networking</strong>, where the client can predict the game state and the server can reconcile prediction
-errors by going back in time and re-executing logic deterministically.</p>
-<h2>Dual Build Integration<span class="hx:absolute hx:-mt-20" id="dual-build-integration"></span>
-    <a href="#dual-build-integration" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>To ensure no one is left behind, we maintain two ways of usage:</p>
-<ul>
-<li><strong>Zyris Native</strong>: Maximum integration with the engine&rsquo;s core tools.</li>
-<li><strong>GDExtension</strong>: Stable plugin for any official Godot 4.x project, bringing the power of C++ to GDScript developers.</li>
-</ul>
-<hr>
-<p><em>Developed with ❤️ by <strong>MachiTwo</strong>.</em></p>
-]]></content:encoded><category>gamedev</category><category>gameplay-system</category><category>zyris</category></item><item><title>Zyris Engine: Control, Performance, and Opinionated by Design</title><link>https://cafegame.dev/en/04/17/zyris-engine/</link><guid isPermaLink="true">https://cafegame.dev/en/04/17/zyris-engine/</guid><pubDate>Fri, 17 Apr 2026 16:00:00 GMT</pubDate><description>&lt;p&gt;Welcome to the &lt;strong&gt;Zyris Engine&lt;/strong&gt;. This project is not just a fork of Godot; it is a statement of intent on how to
-maintain a professional, stable, and scalable game architecture in the long term.&lt;/p&gt;
+<p><em>This is a supporting post for the <a href="/en/docs/vectora/">Vectora</a> project.</em></p>
+]]></content:encoded><category>rag</category><category>infra</category><category>ai</category><category>vectora</category></item><item><title>Zyris Engine: Control, Performance, and Opinionated by Design</title><link>https://cafegame.dev/en/04/17/zyris-engine/</link><guid isPermaLink="true">https://cafegame.dev/en/04/17/zyris-engine/</guid><pubDate>Fri, 17 Apr 2026 19:00:00 GMT</pubDate><description>&lt;p&gt;Welcome to the &lt;strong&gt;Zyris Engine&lt;/strong&gt;. This project is not just a fork of Godot; it is a statement of intent on how to
+maintain a professional, stable, and scalable game architecture in the long run.&lt;/p&gt;
 &lt;h2&gt;An Opinionated Philosophy (Convention over Configuration)&lt;span class="hx:absolute hx:-mt-20" id="an-opinionated-philosophy-convention-over-configuration"&gt;&lt;/span&gt;
-&lt;a href="#an-opinionated-philosophy-convention-over-configuration" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;While the Godot Engine prizes maximum flexibility—often allowing projects to grow chaotically—Zyris adopts an
+&lt;a href="#an-opinionated-philosophy-convention-over-configuration" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;While Godot Engine prizes maximum flexibility—often allowing projects to grow chaotically—Zyris adopts an
 &lt;strong&gt;&amp;ldquo;opinionated&amp;rdquo;&lt;/strong&gt; philosophy. We believe that developer time should be spent creating gameplay, not reinventing
 fundamental systems.&lt;/p&gt;</description><content:encoded><![CDATA[<p>Welcome to the <strong>Zyris Engine</strong>. This project is not just a fork of Godot; it is a statement of intent on how to
-maintain a professional, stable, and scalable game architecture in the long term.</p>
+maintain a professional, stable, and scalable game architecture in the long run.</p>
 <h2>An Opinionated Philosophy (Convention over Configuration)<span class="hx:absolute hx:-mt-20" id="an-opinionated-philosophy-convention-over-configuration"></span>
-    <a href="#an-opinionated-philosophy-convention-over-configuration" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>While the Godot Engine prizes maximum flexibility—often allowing projects to grow chaotically—Zyris adopts an
+    <a href="#an-opinionated-philosophy-convention-over-configuration" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>While Godot Engine prizes maximum flexibility—often allowing projects to grow chaotically—Zyris adopts an
 <strong>&ldquo;opinionated&rdquo;</strong> philosophy. We believe that developer time should be spent creating gameplay, not reinventing
 fundamental systems.</p>
-<p>In Zyris, we establish clear architectural standards. If you are building a professional project, the engine expects
-certain structures, which facilitates teamwork and the maintenance of legacy codebases.</p>
-<h2>Core Engineering (Core Features)<span class="hx:absolute hx:-mt-20" id="core-engineering-core-features"></span>
-    <a href="#core-engineering-core-features" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>Unlike conventional plugins, Zyris integrates critical functionality directly into its C++ core:</p>
-<h3>Deterministic Save Server<span class="hx:absolute hx:-mt-20" id="deterministic-save-server"></span>
-    <a href="#deterministic-save-server" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>We implemented a high-performance persistence subsystem that operates on dedicated threads.</p>
+<p>In Zyris, we establish clear architectural standards. If you are building a professional project, the engine offers
+predictable structures that facilitate teamwork and the maintenance of complex codebases.</p>
+<h2>Core Engineering Features<span class="hx:absolute hx:-mt-20" id="core-engineering-features"></span>
+    <a href="#core-engineering-features" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>Unlike conventional plugins, Zyris integrates critical functionalities directly into its C++ core:</p>
+<h3>Save Server: Persistence Orchestrator<span class="hx:absolute hx:-mt-20" id="save-server-persistence-orchestrator"></span>
+    <a href="#save-server-persistence-orchestrator" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>A robust and asynchronous persistence system integrated into the core.</p>
 <ul>
-<li><strong>Performance</strong>: Zero blocking of the main gameplay loop.</li>
-<li><strong>Compression</strong>: Uses state-of-the-art <strong>ZSTD</strong> algorithms to drastically reduce file sizes.</li>
-<li><strong>Security</strong>: Native <strong>AES-256</strong> encryption integrated into the write flow.</li>
+<li><strong>Declarative Protocol</strong>: Automation via <code>@persistent</code> in GDScript.</li>
+<li><strong>Threaded Architecture</strong>: ZSTD compression and AES-256 encryption running on dedicated threads.</li>
+<li><strong>Incremental System</strong>: Tracks modifications and applies surgical patches, reducing disk writing by up to 95%.</li>
 </ul>
 <h3>Virtual Input Devices<span class="hx:absolute hx:-mt-20" id="virtual-input-devices"></span>
-    <a href="#virtual-input-devices" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>An abstraction layer that allows treating physical inputs from any platform (Joysticks, D-Pads, Touch) as consistent
-virtual events. This removes the need for repetitive, complex mappings in every new project.</p>
-<h3>AOT Export System<span class="hx:absolute hx:-mt-20" id="aot-export-system"></span>
-    <a href="#aot-export-system" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>We are developing an <strong>Ahead-of-Time (AOT)</strong> export system that generates native binaries optimized for each target
-platform, removing virtual machine overhead and ensuring maximum performance on hardware-limited devices.</p>
-<h2>The Maturity Roadmap<span class="hx:absolute hx:-mt-20" id="the-maturity-roadmap"></span>
-    <a href="#the-maturity-roadmap" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>Zyris evolves with a focus on production tools:</p>
+    <a href="#virtual-input-devices" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>Total input abstraction. The system automatically detects whether the player is on Touch, Keyboard, or Gamepad and
+adapts the UI dynamically. Includes native nodes like <code>VirtualJoystick</code> and <code>VirtualDPad</code> integrated into Godot&rsquo;s
+InputMap.</p>
+<h3>Ability System (GAS)<span class="hx:absolute hx:-mt-20" id="ability-system-gas"></span>
+    <a href="#ability-system-gas" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>A high-performance gameplay framework for RPGs and combat games. Based on <code>Resources</code> to be data-driven, it allows
+designers to create complex abilities (Costs, Cooldowns, Effects) without touching code, with full processing in C++.</p>
+<h2>The Production Ecosystem<span class="hx:absolute hx:-mt-20" id="the-production-ecosystem"></span>
+    <a href="#the-production-ecosystem" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>Zyris expands the horizons of the base engine with systems designed for the &ldquo;EndGame&rdquo; of development:</p>
+<h3>Inventory &amp; Equipment System<span class="hx:absolute hx:-mt-20" id="inventory--equipment-system"></span>
+    <a href="#inventory--equipment-system" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>Authoritative item management with an <strong>Equipment Bridge</strong> that automatically injects GAS abilities when equipping
+items. Includes smart UI nodes and server-side validation to prevent cheating.</p>
+<h3>Camera System (vCam)<span class="hx:absolute hx:-mt-20" id="camera-system-vcam"></span>
+    <a href="#camera-system-vcam" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>Cinematic arbitration inspired by the Cinemachine standard. The <code>vCamServer</code> manages priorities between virtual cameras
+and performs smooth transitions (blends), in addition to having a shake system (Procedural Shake) based on Perlin noise.</p>
+<h3>Audio System Pro<span class="hx:absolute hx:-mt-20" id="audio-system-pro"></span>
+    <a href="#audio-system-pro" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>Expansion of the native audio system with support for event-based and contextual audio. Introduces DSP per stream and
+reactive mixing, where the game state directly influences the sound environment.</p>
+<h2>Maturity Roadmap<span class="hx:absolute hx:-mt-20" id="maturity-roadmap"></span>
+    <a href="#maturity-roadmap" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>Zyris continues to evolve with a focus on robustness:</p>
 <ul>
-<li><strong>Integrated Behavior Tree</strong>: Reactive AI flows via native node graphs.</li>
-<li><strong>Camera System (vCam)</strong>: Cinematic camera arbitration inspired by industry standards (Cinemachine).</li>
-<li><strong>Authoritative Inventory System</strong>: Item management integrated into the core with native network support.</li>
+<li><strong>Native Behavior Tree</strong>: Modular and reactive AI with a dedicated visual editor and live debugging.</li>
+<li><strong>Multiplayer Update</strong>: Layered replication (Network LOD) and native authoritative prediction.</li>
+<li><strong>Cloud Providers</strong>: Polymorphic abstraction for Steam, Epic Online Services (EOS), and PlayFab.</li>
 </ul>
 <p>Zyris is the choice for developers who understand that <strong>freedom without structure is just technical debt.</strong></p>
 <hr>
-<p><em>Stay informed about development on <a href="https://www.youtube.com/@machiatodev"target="_blank" rel="noopener">Machi</a> and
-<a href="https://www.youtube.com/@yatsuragames"target="_blank" rel="noopener">Alen</a>&rsquo;s channels.</em></p>
+<p><em>Keep up with development on <a href="https://www.youtube.com/@machiatodev"target="_blank" rel="noopener">Machi&rsquo;s</a> and
+<a href="https://www.youtube.com/@yatsuragames"target="_blank" rel="noopener">Alen&rsquo;s</a> channels.</em></p>
 ]]></content:encoded><category>engine</category><category>gamedev</category><category>zyris</category></item><item><title>How I created my new blog</title><link>https://cafegame.dev/en/04/17/how-i-created-the-blog/</link><guid isPermaLink="true">https://cafegame.dev/en/04/17/how-i-created-the-blog/</guid><pubDate>Fri, 17 Apr 2026 16:00:00 GMT</pubDate><description>&lt;h2&gt;The Inspiration&lt;span class="hx:absolute hx:-mt-20" id="the-inspiration"&gt;&lt;/span&gt;
 &lt;a href="#the-inspiration" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Recently I came across Fabio Akita&amp;rsquo;s article on how he architected the new version of his blog
 (&lt;a href="https://akitaonrails.com/2025/09/10/meu-novo-blog-como-eu-fiz/"target="_blank" rel="noopener"&gt;My New Blog - How I Did It&lt;/a&gt;), and I decided to follow
@@ -408,7 +292,7 @@ micro-projects to massive RPGs.</p>
 without &ldquo;spaghetti&rdquo; code.</li>
 <li><strong>Phase Logic</strong>: Native support for ability phases (Windup, Execution, Recovery) and circular buffers ready for
 <strong>Multiplayer with Rollback</strong>.</li>
-<li><a href="../ability-system/"><strong>Explore the Ability System in detail</strong></a></li>
+<li><a href="/en/docs/ability-system/"><strong>Explore the Ability System in detail</strong></a></li>
 </ul>
 <h3>3. Vectora: The Contextual Knowledge Engine<span class="hx:absolute hx:-mt-20" id="3-vectora-the-contextual-knowledge-engine"></span>
     <a href="#3-vectora-the-contextual-knowledge-engine" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p><strong>Vectora</strong> is my most ambitious project in the AI field. It&rsquo;s not a generic &ldquo;chat&rdquo;; it&rsquo;s a <strong>Specialist Sub-Agent
@@ -421,11 +305,490 @@ without &ldquo;spaghetti&rdquo; code.</li>
 scores and token efficiency) how the delivered context improves AI performance.</li>
 <li><strong>Security</strong>: The <strong>Hard-Coded Guardian</strong> protects secrets (.env, .keys) directly in the runtime, ensuring sensitive
 data never leaves your environment.</li>
-<li><a href="../vectora/"><strong>Understand Vectora&rsquo;s architecture</strong></a></li>
+<li><a href="/en/docs/vectora/"><strong>Understand Vectora&rsquo;s architecture</strong></a></li>
 </ul>
 <hr>
 <p>All of this happens while I balance development with my reality outside the screens. I&rsquo;ve been a shop clerk, a waiter,
 and today I work in a bakery. This duality between &ldquo;dough and code&rdquo; is what keeps my feet on the ground and my head
 focused on creating tools that truly solve real engineering problems.</p>
 <p>This blog is the start of this new phase of technical publication. Welcome to MachiOnCoffee.</p>
-]]></content:encoded><category>introduction</category><category>personal</category><category>journey</category></item></channel></rss>
+]]></content:encoded><category>introduction</category><category>personal</category><category>journey</category></item><item><title>Attributes: The Status System</title><link>https://cafegame.dev/en/docs/ability-system/mechanics/attributes/</link><guid isPermaLink="true">https://cafegame.dev/en/docs/ability-system/mechanics/attributes/</guid><pubDate>Mon, 01 Jan 0001 00:00:00 GMT</pubDate><description>&lt;p&gt;&lt;strong&gt;Attributes&lt;/strong&gt; are the numerical values that define an actor&amp;rsquo;s capabilities (HP, Mana, Strength, Speed).&lt;/p&gt;
+&lt;h2&gt;📊 ASAttributeSet&lt;span class="hx:absolute hx:-mt-20" id="-asattributeset"&gt;&lt;/span&gt;
+&lt;a href="#-asattributeset" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Unlike loose variables in a script, attributes are grouped in a &lt;strong&gt;Set&lt;/strong&gt;. This allows for:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Centralization&lt;/strong&gt;: All &amp;ldquo;Damage&amp;rdquo; or &amp;ldquo;Defense&amp;rdquo; logic stays in one place.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Security&lt;/strong&gt;: Values are protected against clamping (Min/Max).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Simulation&lt;/strong&gt;: The system knows exactly how to recalculate the current value based on active modifiers.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;🚗 Attribute Drivers (Derivation)&lt;span class="hx:absolute hx:-mt-20" id="-attribute-drivers-derivation"&gt;&lt;/span&gt;
+&lt;a href="#-attribute-drivers-derivation" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;One of the most potent features is the ability for one attribute to &amp;ldquo;drive&amp;rdquo; another.&lt;/p&gt;</description><content:encoded><![CDATA[<p><strong>Attributes</strong> are the numerical values that define an actor&rsquo;s capabilities (HP, Mana, Strength, Speed).</p>
+<h2>📊 ASAttributeSet<span class="hx:absolute hx:-mt-20" id="-asattributeset"></span>
+    <a href="#-asattributeset" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>Unlike loose variables in a script, attributes are grouped in a <strong>Set</strong>. This allows for:</p>
+<ul>
+<li><strong>Centralization</strong>: All &ldquo;Damage&rdquo; or &ldquo;Defense&rdquo; logic stays in one place.</li>
+<li><strong>Security</strong>: Values are protected against clamping (Min/Max).</li>
+<li><strong>Simulation</strong>: The system knows exactly how to recalculate the current value based on active modifiers.</li>
+</ul>
+<hr>
+<h2>🚗 Attribute Drivers (Derivation)<span class="hx:absolute hx:-mt-20" id="-attribute-drivers-derivation"></span>
+    <a href="#-attribute-drivers-derivation" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>One of the most potent features is the ability for one attribute to &ldquo;drive&rdquo; another.</p>
+<p><strong>Example: Strength increases Attack.</strong></p>
+<ul>
+<li>Attribute: <code>Strength</code></li>
+<li>Attribute: <code>AttackPower</code></li>
+<li>Driver: <code>AttackPower = Strength * 2.0</code></li>
+</ul>
+<p>Whenever your <code>Strength</code> changes, <code>AttackPower</code> will be automatically recalculated by the engine in the next tick.</p>
+<hr>
+<h2>📈 Calculation Order<span class="hx:absolute hx:-mt-20" id="-calculation-order"></span>
+    <a href="#-calculation-order" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>To ensure determinism (vital for multiplayer), attributes follow this order:</p>
+<ol>
+<li><strong>Base Value</strong>: The actor&rsquo;s &ldquo;pure&rdquo; value.</li>
+<li><strong>Drivers</strong>: Application of calculations derived from other attributes.</li>
+<li><strong>Flat Modifiers</strong>: Direct additions (e.g., +5 shield from an item).</li>
+<li><strong>Percentage Modifiers</strong>: Final multipliers (e.g., +10% fury).</li>
+</ol>
+<div class="hx:overflow-x-auto hx:mt-6 hx:flex hx:flex-col hx:rounded-lg hx:border hx:py-4 hx:px-4 hx:border-gray-200 hx:contrast-more:border-current hx:contrast-more:dark:border-current hx:border-blue-200 hx:bg-blue-100 hx:text-blue-900 hx:dark:border-blue-200/30 hx:dark:bg-blue-900/30 hx:dark:text-blue-200">
+  <p class="hx:flex hx:items-center hx:font-medium"><svg height=16px class="hx:inline-block hx:align-middle hx:mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Changes to the <code>Base Value</code> are permanent. Changes to <code>Modifiers</code> are temporary and linked to <code>ASEffects</code>.</p>
+
+  <div class="hx:w-full hx:min-w-0 hx:leading-7">
+    <div class="hx:mt-6 hx:leading-7 hx:first:mt-0"></div>
+  </div>
+</div>
+]]></content:encoded></item><item><title>Effects: State Modifiers</title><link>https://cafegame.dev/en/docs/ability-system/mechanics/effects/</link><guid isPermaLink="true">https://cafegame.dev/en/docs/ability-system/mechanics/effects/</guid><pubDate>Mon, 01 Jan 0001 00:00:00 GMT</pubDate><description>&lt;p&gt;&lt;strong&gt;Effects&lt;/strong&gt; (&lt;code&gt;ASEffect&lt;/code&gt;) are the agents of change. Anything that alters an attribute or adds a tag for a specific
+duration is an effect.&lt;/p&gt;
+&lt;h2&gt;🕒 Duration Policies&lt;span class="hx:absolute hx:-mt-20" id="-duration-policies"&gt;&lt;/span&gt;
+&lt;a href="#-duration-policies" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;INSTANT&lt;/strong&gt;: Applied in one frame and disappears (e.g., Direct Damage, Healing).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DURATION&lt;/strong&gt;: Lasts for a fixed time (e.g., Strength Buff for 5s).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;INFINITE&lt;/strong&gt;: Persists until manually removed or via other logic (e.g., Poison Aura).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;🥞 Stacking&lt;span class="hx:absolute hx:-mt-20" id="-stacking"&gt;&lt;/span&gt;
+&lt;a href="#-stacking" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;How does the system handle applying the same &amp;ldquo;Poison&amp;rdquo; twice?&lt;/p&gt;</description><content:encoded><![CDATA[<p><strong>Effects</strong> (<code>ASEffect</code>) are the agents of change. Anything that alters an attribute or adds a tag for a specific
+duration is an effect.</p>
+<h2>🕒 Duration Policies<span class="hx:absolute hx:-mt-20" id="-duration-policies"></span>
+    <a href="#-duration-policies" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li><strong>INSTANT</strong>: Applied in one frame and disappears (e.g., Direct Damage, Healing).</li>
+<li><strong>DURATION</strong>: Lasts for a fixed time (e.g., Strength Buff for 5s).</li>
+<li><strong>INFINITE</strong>: Persists until manually removed or via other logic (e.g., Poison Aura).</li>
+</ul>
+<hr>
+<h2>🥞 Stacking<span class="hx:absolute hx:-mt-20" id="-stacking"></span>
+    <a href="#-stacking" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>How does the system handle applying the same &ldquo;Poison&rdquo; twice?</p>
+<ol>
+<li><strong>STACK_NEW_INSTANCE</strong>: Each application is independent (two timers running).</li>
+<li><strong>STACK_OVERRIDE</strong>: The new application resets the old one&rsquo;s timer.</li>
+<li><strong>STACK_INTENSITY</strong>: Increases the &ldquo;level&rdquo; or magnitude (e.g., Poison x1 -&gt; Poison x2).</li>
+<li><strong>STACK_DURATION</strong>: Adds the new duration to the remaining time of the old one.</li>
+</ol>
+<hr>
+<h2>💓 Modifiers and Operations<span class="hx:absolute hx:-mt-20" id="-modifiers-and-operations"></span>
+    <a href="#-modifiers-and-operations" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>An effect can contain multiple modifiers acting on different attributes:</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">Operation</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><strong>OP_ADD</strong></td>
+          <td style="text-align: left">Adds the value to the base (e.g., +10 HP).</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>OP_MULTIPLY</strong></td>
+          <td style="text-align: left">Multiplies the value (e.g., x1.5 Damage).</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>OP_OVERRIDE</strong></td>
+          <td style="text-align: left">Ignores the base and sets a fixed value (e.g., Morphed -&gt; Speed = 0).</td>
+      </tr>
+  </tbody>
+</table>
+<h3>Periodicity (Ticking)<span class="hx:absolute hx:-mt-20" id="periodicity-ticking"></span>
+    <a href="#periodicity-ticking" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>Duration effects can have a <code>period</code>. This allows creating DoT (Damage over Time) or HoT (Heal over Time) effects that
+&ldquo;tick&rdquo; every X seconds.</p>
+<hr>
+<h2>🎨 Granted Tags<span class="hx:absolute hx:-mt-20" id="-granted-tags"></span>
+    <a href="#-granted-tags" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>Effects are the primary means of applying <strong>CONDITIONAL Tags</strong>. If you are under the &ldquo;Frozen&rdquo; effect, the effect grants
+you the <code>state.frozen</code> tag. As soon as the effect expires, the tag is automatically removed by the <strong>RefCount</strong> system.</p>
+]]></content:encoded></item><item><title>Identity Matrix: Tags</title><link>https://cafegame.dev/en/docs/ability-system/infrastructure/tags/</link><guid isPermaLink="true">https://cafegame.dev/en/docs/ability-system/infrastructure/tags/</guid><pubDate>Mon, 01 Jan 0001 00:00:00 GMT</pubDate><description>&lt;p&gt;In the Zyris Ability System, &lt;strong&gt;Tags&lt;/strong&gt; are not just labels; they are the absolute truth about your game&amp;rsquo;s state. They
+form an Actor&amp;rsquo;s &lt;strong&gt;Identity Matrix&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2&gt;🏷️ What Are Tags?&lt;span class="hx:absolute hx:-mt-20" id="-what-are-tags"&gt;&lt;/span&gt;
+&lt;a href="#-what-are-tags" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Tags are hierarchical identifiers based on &lt;code&gt;StringName&lt;/code&gt; (e.g., &lt;code&gt;state.stunned&lt;/code&gt;, &lt;code&gt;ability.warrior.powerhit&lt;/code&gt;). They allow
+for high-performance queries and automatic visual tree organization.&lt;/p&gt;
+&lt;h3&gt;The 3 Canonical Types&lt;span class="hx:absolute hx:-mt-20" id="the-3-canonical-types"&gt;&lt;/span&gt;
+&lt;a href="#the-3-canonical-types" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;To ensure governance, tags are divided into mandatory types:&lt;/p&gt;</description><content:encoded><![CDATA[<p>In the Zyris Ability System, <strong>Tags</strong> are not just labels; they are the absolute truth about your game&rsquo;s state. They
+form an Actor&rsquo;s <strong>Identity Matrix</strong>.</p>
+<h2>🏷️ What Are Tags?<span class="hx:absolute hx:-mt-20" id="-what-are-tags"></span>
+    <a href="#-what-are-tags" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>Tags are hierarchical identifiers based on <code>StringName</code> (e.g., <code>state.stunned</code>, <code>ability.warrior.powerhit</code>). They allow
+for high-performance queries and automatic visual tree organization.</p>
+<h3>The 3 Canonical Types<span class="hx:absolute hx:-mt-20" id="the-3-canonical-types"></span>
+    <a href="#the-3-canonical-types" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>To ensure governance, tags are divided into mandatory types:</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">Type</th>
+          <th style="text-align: left">Semantic Role</th>
+          <th style="text-align: left">Usage Restriction</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><code>NAME</code></td>
+          <td style="text-align: left"><strong>Who I Am</strong></td>
+          <td style="text-align: left">Used exclusively to identify Resources (<code>ASAbility</code>/<code>ASEffect</code>).</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>CONDITIONAL</code></td>
+          <td style="text-align: left"><strong>How I Am</strong></td>
+          <td style="text-align: left">Used for Logical Gates (<code>Required</code>/<code>Blocked</code>). Persist in RefCount.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>EVENT</code></td>
+          <td style="text-align: left"><strong>What Happened</strong></td>
+          <td style="text-align: left">Instantaneous occurrences (1 tick). Used for event dispatch.</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2>🏛️ Hierarchy and Groups<span class="hx:absolute hx:-mt-20" id="-hierarchy-and-groups"></span>
+    <a href="#-hierarchy-and-groups" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>Tags use dots (<code>.</code>) to define ancestors. If an actor has the <code>state.stunned.frozen</code> tag, they technically also have
+<code>state.stunned</code> and <code>state</code>. This allows for broad checks:</p>
+<div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code">
+
+<div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript" data-lang="gdscript"><span class="line"><span class="cl"><span class="c1"># Returns true if the target is stunned in any way</span>
+</span></span><span class="line"><span class="cl"><span class="n">ASTagUtils</span><span class="o">.</span><span class="nf">has_tag</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="s2">&#34;state.stunned&#34;</span><span class="p">)</span></span></span></code></pre></div></div><div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0">
+  <button
+    class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+    title="Copy code"
+    aria-label="Copy code"
+    data-copied-label="Copied!"
+  >
+    <div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"></div>
+<div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"></div>
+  </button>
+</div>
+</div>
+<hr>
+<h2>🕒 Temporal Memory (History)<span class="hx:absolute hx:-mt-20" id="-temporal-memory-history"></span>
+    <a href="#-temporal-memory-history" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>The <code>ASComponent</code> maintains circular buffers of <strong>128 entries</strong> to track the recent past:</p>
+<ul>
+<li><strong>NAME History</strong>: When identities were added/removed.</li>
+<li><strong>CONDITIONAL History</strong>: Changes in permissions and immunities.</li>
+<li><strong>EVENT History</strong>: What happened in recent frames (magnitude, instigator).</li>
+</ul>
+<h3>Reactivity Example<span class="hx:absolute hx:-mt-20" id="reactivity-example"></span>
+    <a href="#reactivity-example" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>Counter-attack abilities can ask: <em>&ldquo;Did a block event occur in the last 0.4 seconds?&rdquo;</em></p>
+<div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code">
+
+<div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">ASTagUtils</span><span class="o">::</span><span class="n">event_did_occur</span><span class="p">(</span><span class="s">&#34;event.damage.block&#34;</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="mf">0.4f</span><span class="p">);</span></span></span></code></pre></div></div><div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0">
+  <button
+    class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+    title="Copy code"
+    aria-label="Copy code"
+    data-copied-label="Copied!"
+  >
+    <div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"></div>
+<div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"></div>
+  </button>
+</div>
+</div>
+<hr>
+<h2>⚖️ Golden Rules (Security)<span class="hx:absolute hx:-mt-20" id="-golden-rules-security"></span>
+    <a href="#-golden-rules-security" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ol>
+<li><strong>Never use NAME tags for logic</strong>: Attempting to block an ability using a <code>NAME</code> tag is a security violation. Logic
+must only depend on <code>CONDITIONAL</code> tags.</li>
+<li><strong>Singleton Registration</strong>: All tags (except event payloads) must be registered in the global singleton to ensure
+autocomplete and prevent typos.</li>
+<li><strong>Event Dispatch</strong>: Never dispatch an event whose name is not registered with the <code>EVENT</code> type.</li>
+</ol>
+]]></content:encoded></item><item><title>Getting Started</title><link>https://cafegame.dev/en/docs/vectora/getting-started/</link><guid isPermaLink="true">https://cafegame.dev/en/docs/vectora/getting-started/</guid><pubDate>Mon, 01 Jan 0001 00:00:00 GMT</pubDate><description>&lt;h2&gt;🚀 Starting with Vectora&lt;span class="hx:absolute hx:-mt-20" id="-starting-with-vectora"&gt;&lt;/span&gt;
+&lt;a href="#-starting-with-vectora" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Vectora is designed to be plug-and-play yet extremely customizable.&lt;/p&gt;
+&lt;h3&gt;Installation&lt;span class="hx:absolute hx:-mt-20" id="installation"&gt;&lt;/span&gt;
+&lt;a href="#installation" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The Vectora runtime is developed in &lt;strong&gt;TypeScript (Node.js 20+)&lt;/strong&gt;, using the &lt;strong&gt;Vercel AI SDK&lt;/strong&gt;.&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;npx @kaffyn/vectora init&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3&gt;Core Configuration&lt;span class="hx:absolute hx:-mt-20" id="core-configuration"&gt;&lt;/span&gt;
+&lt;a href="#core-configuration" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Context Engine&lt;/strong&gt;: Performs multi-hop reasoning and structural analysis via &lt;strong&gt;AST (Tree-sitter)&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Vector DB&lt;/strong&gt;: Native integration with &lt;strong&gt;Qdrant Cloud&lt;/strong&gt; for scalable vector search.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Provider Router&lt;/strong&gt;: Stable and provider-agnostic support (OpenRouter, Google, Anthropic, OpenAI).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;🧪 Validation: Vectora Harness&lt;span class="hx:absolute hx:-mt-20" id="-validation-vectora-harness"&gt;&lt;/span&gt;
+&lt;a href="#-validation-vectora-harness" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;How do you know if the AI has actually improved? Use the &lt;strong&gt;Vectora Harness&lt;/strong&gt;:&lt;/p&gt;</description><content:encoded><![CDATA[<h2>🚀 Starting with Vectora<span class="hx:absolute hx:-mt-20" id="-starting-with-vectora"></span>
+    <a href="#-starting-with-vectora" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>Vectora is designed to be plug-and-play yet extremely customizable.</p>
+<h3>Installation<span class="hx:absolute hx:-mt-20" id="installation"></span>
+    <a href="#installation" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>The Vectora runtime is developed in <strong>TypeScript (Node.js 20+)</strong>, using the <strong>Vercel AI SDK</strong>.</p>
+<div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code">
+
+<div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">npx @kaffyn/vectora init</span></span></code></pre></div></div><div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0">
+  <button
+    class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+    title="Copy code"
+    aria-label="Copy code"
+    data-copied-label="Copied!"
+  >
+    <div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"></div>
+<div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"></div>
+  </button>
+</div>
+</div>
+<h3>Core Configuration<span class="hx:absolute hx:-mt-20" id="core-configuration"></span>
+    <a href="#core-configuration" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li><strong>Context Engine</strong>: Performs multi-hop reasoning and structural analysis via <strong>AST (Tree-sitter)</strong>.</li>
+<li><strong>Vector DB</strong>: Native integration with <strong>Qdrant Cloud</strong> for scalable vector search.</li>
+<li><strong>Provider Router</strong>: Stable and provider-agnostic support (OpenRouter, Google, Anthropic, OpenAI).</li>
+</ul>
+<h2>🧪 Validation: Vectora Harness<span class="hx:absolute hx:-mt-20" id="-validation-vectora-harness"></span>
+    <a href="#-validation-vectora-harness" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>How do you know if the AI has actually improved? Use the <strong>Vectora Harness</strong>:</p>
+<ol>
+<li><strong>Measure Accuracy</strong>: Objectively compares AI output with <code>vectora:on</code> vs <code>vectora:off</code>.</li>
+<li><strong>Token Efficiency</strong>: Optimizes retrieval to avoid &ldquo;overfetch&rdquo;.</li>
+<li><strong>Auditability</strong>: Structured reports on how the agent used each tool.</li>
+</ol>
+]]></content:encoded></item><item><title>ASComponent: The Central Hub</title><link>https://cafegame.dev/en/docs/ability-system/core/as-component/</link><guid isPermaLink="true">https://cafegame.dev/en/docs/ability-system/core/as-component/</guid><pubDate>Mon, 01 Jan 0001 00:00:00 GMT</pubDate><description>&lt;p&gt;The &lt;strong&gt;ASComponent&lt;/strong&gt; (ASC) is the brain of the ability system within your scene. It is the orchestrator that connects
+Attributes, Tags, and Abilities to an Actor.&lt;/p&gt;
+&lt;h2&gt;🧠 Role and Responsibility&lt;span class="hx:absolute hx:-mt-20" id="-role-and-responsibility"&gt;&lt;/span&gt;
+&lt;a href="#-role-and-responsibility" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The ASC does not contain the logic for &amp;ldquo;how&amp;rdquo; a sword cuts; it contains the list of &amp;ldquo;which&amp;rdquo; abilities this character can
+use and manages their state.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Collection Manager&lt;/strong&gt;: Maintains the list of &lt;code&gt;active_specs&lt;/code&gt; (active) and &lt;code&gt;unlocked_specs&lt;/code&gt; (known).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;State Owner&lt;/strong&gt;: The only one that can permanently add/remove tags.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Attribute Authority&lt;/strong&gt;: Contains the &lt;code&gt;ASAttributeSet&lt;/code&gt; and processes all status modifications.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;🛰️ Networking: Prediction and Rollback&lt;span class="hx:absolute hx:-mt-20" id="-networking-prediction-and-rollback"&gt;&lt;/span&gt;
+&lt;a href="#-networking-prediction-and-rollback" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The ASC was built from the ground up for authoritative multiplayer:&lt;/p&gt;</description><content:encoded><![CDATA[<p>The <strong>ASComponent</strong> (ASC) is the brain of the ability system within your scene. It is the orchestrator that connects
+Attributes, Tags, and Abilities to an Actor.</p>
+<h2>🧠 Role and Responsibility<span class="hx:absolute hx:-mt-20" id="-role-and-responsibility"></span>
+    <a href="#-role-and-responsibility" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>The ASC does not contain the logic for &ldquo;how&rdquo; a sword cuts; it contains the list of &ldquo;which&rdquo; abilities this character can
+use and manages their state.</p>
+<ul>
+<li><strong>Collection Manager</strong>: Maintains the list of <code>active_specs</code> (active) and <code>unlocked_specs</code> (known).</li>
+<li><strong>State Owner</strong>: The only one that can permanently add/remove tags.</li>
+<li><strong>Attribute Authority</strong>: Contains the <code>ASAttributeSet</code> and processes all status modifications.</li>
+</ul>
+<hr>
+<h2>🛰️ Networking: Prediction and Rollback<span class="hx:absolute hx:-mt-20" id="-networking-prediction-and-rollback"></span>
+    <a href="#-networking-prediction-and-rollback" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>The ASC was built from the ground up for authoritative multiplayer:</p>
+<h3>ASStateCache<span class="hx:absolute hx:-mt-20" id="asstatecache"></span>
+    <a href="#asstatecache" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>Maintains a lightweight circular buffer of the last <strong>128 ticks</strong>.</p>
+<ul>
+<li><strong>Prediction</strong>: The client executes the ability locally and buffers the result.</li>
+<li><strong>Rollback</strong>: If the server disagrees with a tick&rsquo;s result, the ASC reverts its entire state via <code>ASStateSnapshot</code> and
+re-simulates necessary frames.</li>
+</ul>
+<hr>
+<h2>🛠️ Main Methods<span class="hx:absolute hx:-mt-20" id="-main-methods"></span>
+    <a href="#-main-methods" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><table>
+  <thead>
+      <tr>
+          <th style="text-align: left">Method</th>
+          <th style="text-align: left">Intent</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><code>try_activate_ability</code></td>
+          <td style="text-align: left"><strong>Safe Execution</strong></td>
+          <td style="text-align: left">Attempts to activate an ability by checking all costs and tags.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>apply_effect_to_self</code></td>
+          <td style="text-align: left"><strong>Direct Mutation</strong></td>
+          <td style="text-align: left">Injects an <code>ASEffect</code> directly into the component.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>dispatch_event</code></td>
+          <td style="text-align: left"><strong>Reactivity</strong></td>
+          <td style="text-align: left">Emits a frame occurrence (EVENT type Tag).</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>resolve_component</code></td>
+          <td style="text-align: left"><strong>Smart Search</strong></td>
+          <td style="text-align: left">Static method to locate an ASC in a complex scene tree.</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2>🔒 Hard-Coded Security: Guardian<span class="hx:absolute hx:-mt-20" id="-hard-coded-security-guardian"></span>
+    <a href="#-hard-coded-security-guardian" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>Located within the ASC, the <strong>Guardian</strong> is a middleware that prevents:</p>
+<ul>
+<li>Sensitive file reading by AI agents.</li>
+<li>Access to namespaces of other projects.</li>
+<li>State modifications in invalid ticks.</li>
+</ul>
+<div class="hx:overflow-x-auto hx:mt-6 hx:flex hx:flex-col hx:rounded-lg hx:border hx:py-4 hx:px-4 hx:border-gray-200 hx:contrast-more:border-current hx:contrast-more:dark:border-current hx:border-purple-200 hx:bg-purple-100 hx:text-purple-900 hx:dark:border-purple-200/30 hx:dark:bg-purple-900/30 hx:dark:text-purple-200">
+  <p class="hx:flex hx:items-center hx:font-medium"><svg height=16px class="hx:inline-block hx:align-middle hx:mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>The ASC should never be accessed directly for manual variable mutation. Always use the <code>try_</code> or</p>
+
+  <div class="hx:w-full hx:min-w-0 hx:leading-7">
+    <div class="hx:mt-6 hx:leading-7 hx:first:mt-0"><p><code>request_</code> API to ensure the integrity of the Governance Contract.</p></div>
+  </div>
+</div>
+]]></content:encoded></item><item><title>AI: Integration with LimboAI</title><link>https://cafegame.dev/en/docs/ability-system/integration/ai-limbo/</link><guid isPermaLink="true">https://cafegame.dev/en/docs/ability-system/integration/ai-limbo/</guid><pubDate>Mon, 01 Jan 0001 00:00:00 GMT</pubDate><description>&lt;p&gt;Artificial Intelligence in the Zyris Engine does not operate in a vacuum. It interacts with the &lt;strong&gt;Ability System&lt;/strong&gt;
+through a logical layer called &lt;strong&gt;ASBridge&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2&gt;🌉 What is the ASBridge Layer?&lt;span class="hx:absolute hx:-mt-20" id="-what-is-the-asbridge-layer"&gt;&lt;/span&gt;
+&lt;a href="#-what-is-the-asbridge-layer" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Status v0.2.0 decommissioned the &lt;code&gt;ASBridge&lt;/code&gt; Singleton in favor of native and atomic integration. Now, &amp;ldquo;Bridge&amp;rdquo; strictly
+refers to the collection of:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;BT Actions&lt;/strong&gt;: Behavior Tree tasks (LimboAI).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;BT Conditions&lt;/strong&gt;: Logical conditions for tree branches.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;LimboState&lt;/strong&gt;: States for hierarchical state machines (HSM).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;🚦 The Resolution Authority&lt;span class="hx:absolute hx:-mt-20" id="-the-resolution-authority"&gt;&lt;/span&gt;
+&lt;a href="#-the-resolution-authority" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The main &lt;strong&gt;AbilitySystem&lt;/strong&gt; Singleton now acts as the reference judge. Behavior trees use the &lt;code&gt;resolve_component()&lt;/code&gt;
+method to find the agent&amp;rsquo;s ASC, without needing to know where it is physically in the scene tree.&lt;/p&gt;</description><content:encoded><![CDATA[<p>Artificial Intelligence in the Zyris Engine does not operate in a vacuum. It interacts with the <strong>Ability System</strong>
+through a logical layer called <strong>ASBridge</strong>.</p>
+<h2>🌉 What is the ASBridge Layer?<span class="hx:absolute hx:-mt-20" id="-what-is-the-asbridge-layer"></span>
+    <a href="#-what-is-the-asbridge-layer" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>Status v0.2.0 decommissioned the <code>ASBridge</code> Singleton in favor of native and atomic integration. Now, &ldquo;Bridge&rdquo; strictly
+refers to the collection of:</p>
+<ul>
+<li><strong>BT Actions</strong>: Behavior Tree tasks (LimboAI).</li>
+<li><strong>BT Conditions</strong>: Logical conditions for tree branches.</li>
+<li><strong>LimboState</strong>: States for hierarchical state machines (HSM).</li>
+</ul>
+<hr>
+<h2>🚦 The Resolution Authority<span class="hx:absolute hx:-mt-20" id="-the-resolution-authority"></span>
+    <a href="#-the-resolution-authority" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>The main <strong>AbilitySystem</strong> Singleton now acts as the reference judge. Behavior trees use the <code>resolve_component()</code>
+method to find the agent&rsquo;s ASC, without needing to know where it is physically in the scene tree.</p>
+<div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code">
+
+<div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// Internal example of Bridge tasks
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">AbilitySystem</span><span class="o">::</span><span class="n">get_singleton</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">resolve_component</span><span class="p">(</span><span class="n">agent</span><span class="p">);</span></span></span></code></pre></div></div><div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0">
+  <button
+    class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+    title="Copy code"
+    aria-label="Copy code"
+    data-copied-label="Copied!"
+  >
+    <div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"></div>
+<div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"></div>
+  </button>
+</div>
+</div>
+<hr>
+<h2>🤖 Common Tasks (BTNodes)<span class="hx:absolute hx:-mt-20" id="-common-tasks-btnodes"></span>
+    <a href="#-common-tasks-btnodes" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><table>
+  <thead>
+      <tr>
+          <th style="text-align: left">Node</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><code>BTActionAS_ActivateAbility</code></td>
+          <td style="text-align: left">Sends the activation command to the ASC.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>BTConditionAS_HasTag</code></td>
+          <td style="text-align: left">Checks if the target has a specific tag to decide the next branch.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>BTConditionAS_CanActivate</code></td>
+          <td style="text-align: left">Pre-checks if the ability has costs and tags to be used.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>BTActionAS_DispatchEvent</code></td>
+          <td style="text-align: left">Dispatches an event (e.g., <code>event.ai.spotted</code>) that can trigger reactions.</td>
+      </tr>
+  </tbody>
+</table>
+<h2>🔄 HSM Synergy (State Machines)<span class="hx:absolute hx:-mt-20" id="-hsm-synergy-state-machines"></span>
+    <a href="#-hsm-synergy-state-machines" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>The <code>ASComponent</code> interacts closely with <strong>LimboHSM</strong>. The state of the character&rsquo;s state machine can be driven
+reactively through <strong>Events</strong> and <strong>Tags</strong>.</p>
+<p>This means your AI can change state simply because the Ability System detected that the <code>state.stunned</code> tag was added,
+without you having to write manual verification code in every frame.</p>
+<div class="hx:overflow-x-auto hx:mt-6 hx:flex hx:flex-col hx:rounded-lg hx:border hx:py-4 hx:px-4 hx:border-gray-200 hx:contrast-more:border-current hx:contrast-more:dark:border-current hx:border-red-200 hx:bg-red-100 hx:text-red-900 hx:dark:border-red-200/30 hx:dark:bg-red-900/30 hx:dark:text-red-200">
+  <p class="hx:flex hx:items-center hx:font-medium"><svg height=16px class="hx:inline-block hx:align-middle hx:mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>&gt; <strong>Rigorous Decoupling</strong>: Never let your AI manipulate attributes directly. It should always &ldquo;ask&rdquo; through</p>
+
+  <div class="hx:w-full hx:min-w-0 hx:leading-7">
+    <div class="hx:mt-6 hx:leading-7 hx:first:mt-0"><p>abilities or effects, respecting the Governance Contract.</p></div>
+  </div>
+</div>
+]]></content:encoded></item><item><title>Abilities: Gameplay Logic</title><link>https://cafegame.dev/en/docs/ability-system/mechanics/abilities/</link><guid isPermaLink="true">https://cafegame.dev/en/docs/ability-system/mechanics/abilities/</guid><pubDate>Mon, 01 Jan 0001 00:00:00 GMT</pubDate><description>&lt;p&gt;&lt;strong&gt;Abilities&lt;/strong&gt; (&lt;code&gt;ASAbility&lt;/code&gt;) are the building blocks of action. They define what a character does, how much it costs, and
+how they are prevented from doing it.&lt;/p&gt;
+&lt;h2&gt;🧬 Anatomy of an Ability&lt;span class="hx:absolute hx:-mt-20" id="-anatomy-of-an-ability"&gt;&lt;/span&gt;
+&lt;a href="#-anatomy-of-an-ability" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;An ability in the Zyris System is divided between the &lt;strong&gt;Resource&lt;/strong&gt; (immutable DNA) and the &lt;strong&gt;Spec&lt;/strong&gt; (runtime instance).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Costs&lt;/strong&gt;: Attribute modifiers consumed at the start.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Requirements&lt;/strong&gt;: Tags (CONDITIONAL) that must or must not be present.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Cooldown&lt;/strong&gt;: Waiting time marked by specific Tags.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;🎭 Ability Phases (Complex Cycles)&lt;span class="hx:absolute hx:-mt-20" id="-ability-phases-complex-cycles"&gt;&lt;/span&gt;
+&lt;a href="#-ability-phases-complex-cycles" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;One of the most powerful features for designers is the &lt;strong&gt;Phases&lt;/strong&gt; system. If a standard ability is a &amp;ldquo;click&amp;rdquo;, an ability
+with Phases is a &amp;ldquo;ritual&amp;rdquo;.&lt;/p&gt;</description><content:encoded><![CDATA[<p><strong>Abilities</strong> (<code>ASAbility</code>) are the building blocks of action. They define what a character does, how much it costs, and
+how they are prevented from doing it.</p>
+<h2>🧬 Anatomy of an Ability<span class="hx:absolute hx:-mt-20" id="-anatomy-of-an-ability"></span>
+    <a href="#-anatomy-of-an-ability" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>An ability in the Zyris System is divided between the <strong>Resource</strong> (immutable DNA) and the <strong>Spec</strong> (runtime instance).</p>
+<ul>
+<li><strong>Costs</strong>: Attribute modifiers consumed at the start.</li>
+<li><strong>Requirements</strong>: Tags (CONDITIONAL) that must or must not be present.</li>
+<li><strong>Cooldown</strong>: Waiting time marked by specific Tags.</li>
+</ul>
+<hr>
+<h2>🎭 Ability Phases (Complex Cycles)<span class="hx:absolute hx:-mt-20" id="-ability-phases-complex-cycles"></span>
+    <a href="#-ability-phases-complex-cycles" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>One of the most powerful features for designers is the <strong>Phases</strong> system. If a standard ability is a &ldquo;click&rdquo;, an ability
+with Phases is a &ldquo;ritual&rdquo;.</p>
+<p>Example of a Heavy Attack:</p>
+<ol>
+<li><strong>Windup (0.5s)</strong>: The character prepares the strike. Applies <code>state.vulnerable</code> tag.</li>
+<li><strong>Execution</strong>: The strike occurs. Dispatches <code>event.damage</code>.</li>
+<li><strong>Recovery (0.3s)</strong>: The character recovers.</li>
+</ol>
+<h3>Transitions<span class="hx:absolute hx:-mt-20" id="transitions"></span>
+    <a href="#transitions" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>Phases can transition via <strong>Time</strong> (fixed duration) or <strong>Event</strong> (e.g., the animation master sends the <code>.Hit</code> signal).</p>
+<hr>
+<h2>⚡ Triggers: Reactive Automation<span class="hx:absolute hx:-mt-20" id="-triggers-reactive-automation"></span>
+    <a href="#-triggers-reactive-automation" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>Abilities don&rsquo;t just have to be activated by buttons. They can be <strong>Reactive</strong>:</p>
+<ul>
+<li><code>TRIGGER_ON_TAG_ADDED</code>: Automatically activates when the character receives a tag (e.g., &ldquo;Shield Activated&rdquo; when
+entering combat).</li>
+<li><code>TRIGGER_ON_EVENT</code>: Activates in response to an occurrence (e.g., &ldquo;Counter-attack&rdquo; upon taking damage).</li>
+</ul>
+<hr>
+<h2>💻 Implementation Example (Virtuals)<span class="hx:absolute hx:-mt-20" id="-implementation-example-virtuals"></span>
+    <a href="#-implementation-example-virtuals" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>Designers define data in the Inspector, and the programmer implements the logic:</p>
+<div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code">
+
+<div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">_on_activate_ability</span><span class="p">(</span><span class="n">Object</span><span class="o">*</span> <span class="n">owner</span><span class="p">,</span> <span class="n">RefCounted</span><span class="o">*</span> <span class="n">spec</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// Pure gameplay logic here
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// Costs and cooldowns are already handled by the engine!
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span></span></span></code></pre></div></div><div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0">
+  <button
+    class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+    title="Copy code"
+    aria-label="Copy code"
+    data-copied-label="Copied!"
+  >
+    <div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"></div>
+<div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"></div>
+  </button>
+</div>
+</div>
+<div class="hx:overflow-x-auto hx:mt-6 hx:flex hx:flex-col hx:rounded-lg hx:border hx:py-4 hx:px-4 hx:border-gray-200 hx:contrast-more:border-current hx:contrast-more:dark:border-current hx:border-green-200 hx:bg-green-100 hx:text-green-900 hx:dark:border-green-200/30 hx:dark:bg-green-900/30 hx:dark:text-green-200">
+  <p class="hx:flex hx:items-center hx:font-medium"><svg height=16px class="hx:inline-block hx:align-middle hx:mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>Use <strong>Sub-Abilities</strong> to create composed abilities that are unlocked together, keeping the hierarchy clean.</p>
+
+  <div class="hx:w-full hx:min-w-0 hx:leading-7">
+    <div class="hx:mt-6 hx:leading-7 hx:first:mt-0"></div>
+  </div>
+</div>
+]]></content:encoded></item></channel></rss>

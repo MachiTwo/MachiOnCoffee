@@ -36,7 +36,7 @@ de micro-projetos a RPGs massivos.
   de combate sem código "espaguete".
 - **Lógica de Fases**: Suporte nativo para fases de habilidade (Windup, Execution, Recovery) e buffers circulares
   prontos para **Multiplayer com Rollback**.
-- [**Explore o Ability System detalhadamente**](../ability-system/)
+- [**Explore o Ability System detalhadamente**](/docs/ability-system/)
 
 ### 3. Vectora: O Motor de Conhecimento Contextual
 
@@ -50,7 +50,7 @@ O **Vectora** é o meu projeto mais ambicioso no campo da IA. Ele não é um "ch
   scores de precisão e eficiência de tokens) como o contexto entregue melhora a performance da IA.
 - **Segurança**: O **Hard-Coded Guardian** protege segredos (.env, .keys) diretamente no runtime, garantindo que dados
   sensíveis nunca saiam do seu ambiente.
-- [**Entenda a arquitetura do Vectora**](../vectora/)
+- [**Entenda a arquitetura do Vectora**](/docs/vectora/)
 
 ---
 

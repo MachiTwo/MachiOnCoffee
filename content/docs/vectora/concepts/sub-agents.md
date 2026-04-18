@@ -45,4 +45,4 @@ receba o melhor contexto possível, da forma mais segura e barata, sem que você
 
 ---
 
-_Este é um post de apoio ao projeto [Vectora](/04/17/vectora/)._
+_Este é um post de apoio ao projeto [Vectora](/docs/vectora/)._

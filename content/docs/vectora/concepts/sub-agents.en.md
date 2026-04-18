@@ -45,4 +45,4 @@ best possible context, in the safest and cheapest way, without you needing to co
 
 ---
 
-_This is a supporting post for the [Vectora](/en/04/17/vectora/) project._
+_This is a supporting post for the [Vectora](/en/docs/vectora/) project._

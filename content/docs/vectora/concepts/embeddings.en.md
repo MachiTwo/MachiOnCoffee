@@ -33,7 +33,7 @@ In Vectora, we use **Qdrant Cloud**, which stands out for:
 Without a vector database, your AI agent would have to read all your project files every time it received a question.
 This would be slow and absurdly expensive.
 
-With Embeddings + Qdrant, [Vectora](/en/04/17/vectora/) can:
+With Embeddings + Qdrant, [Vectora](/en/docs/vectora/) can:
 
 1. "Remember" your entire codebase instantly.
 2. Find code based on **intent**, not just keywords.
@@ -41,4 +41,4 @@ With Embeddings + Qdrant, [Vectora](/en/04/17/vectora/) can:
 
 ---
 
-_This is a supporting post for the [Vectora](/en/04/17/vectora/) project._
+_This is a supporting post for the [Vectora](/en/docs/vectora/) project._

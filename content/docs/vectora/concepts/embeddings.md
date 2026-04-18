@@ -34,7 +34,7 @@ No Vectora, utilizamos o **Qdrant Cloud**, que se destaca por:
 Sem um banco vetorial, o seu agente de IA teria que ler todos os arquivos do seu projeto toda vez que recebesse uma
 pergunta. Isso seria lento e absurdamente caro.
 
-Com Embeddings + Qdrant, o [Vectora](/04/17/vectora/) consegue:
+Com Embeddings + Qdrant, o [Vectora](/docs/vectora/) consegue:
 
 1. "Lembrar" de todo o seu codebase instantaneamente.
 2. Encontrar código baseado na **intenção**, não apenas nas palavras-chave.
@@ -42,4 +42,4 @@ Com Embeddings + Qdrant, o [Vectora](/04/17/vectora/) consegue:
 
 ---
 
-_Este é um guia técnico do projeto [Vectora](../)._
+_Este é um guia técnico do projeto [Vectora](/docs/vectora/)._

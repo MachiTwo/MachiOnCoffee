@@ -37,4 +37,4 @@ pipeline uses models like **Cohere Rerank v3.5** or **Voyage Rerank 2** to:
 
 ---
 
-_This is a supporting post for the [Vectora](/en/04/17/vectora/) project._
+_This is a supporting post for the [Vectora](/en/docs/vectora/) project._

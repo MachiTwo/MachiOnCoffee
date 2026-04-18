@@ -174,3 +174,4 @@ mise.toml
 # Scratch / local notes (briefs, todo files, translation plans)
 tmp/
 /__pycache__
+*.txt

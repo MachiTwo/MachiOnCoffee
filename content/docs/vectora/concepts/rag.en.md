@@ -51,4 +51,4 @@ Traditional RAG gives you data. Vectora's Connected RAG gives you **knowledge**.
 
 ---
 
-_This is a supporting post for the [Vectora](/en/04/17/vectora/) project._
+_This is a supporting post for the [Vectora](/en/docs/vectora/) project._

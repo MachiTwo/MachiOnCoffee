@@ -39,4 +39,4 @@ O [Vectora](/04/17/vectora/) orquestra a trindade perfeita:
 
 ---
 
-_Este é um post de apoio ao projeto [Vectora](/04/17/vectora/)._
+_Este é um guia técnico do projeto [Vectora](/docs/vectora/)._

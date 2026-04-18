@@ -27,7 +27,7 @@ completo.
 
 ## A Solução: RAG Conectado (Context Engine)
 
-No [Vectora](/04/17/vectora/), o RAG não é apenas "buscar texto". Ele funciona através de um **Context Engine** que
+No [Vectora](/docs/vectora/), o RAG não é apenas "buscar texto". Ele funciona através de um **Context Engine** que
 entende a estrutura:
 
 1. **Busca Multimodal**: Combina busca vetorial (semântica) com busca estrutural (AST e Grep).

@@ -14,10 +14,13 @@ INDEX_FILE_EN = os.path.join(CONTENT_DIR, '_index.en.md')
 OFF_TOPIC_FILE = os.path.join(OFF_TOPIC_DIR, '_index.md')
 OFF_TOPIC_FILE_EN = os.path.join(OFF_TOPIC_DIR, '_index.en.md')
 
+# Localização de Datas
 MONTHNAMES_PT = ["", "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
                  "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]
 MONTHNAMES_EN = ["", "January", "February", "March", "April", "May", "June",
                  "July", "August", "September", "October", "November", "December"]
+DAY_PREFIX_PT = "Dia"
+DAY_PREFIX_EN = "Day"
 
 def escape_markdown(text):
     return str(text).replace('[', '\\[').replace(']', '\\]')
@@ -70,23 +73,34 @@ def parse_post(path, lang='pt'):
         print(f"Erro processando {path}: {e}")
         return None
 
-def group_by_month(posts):
+def group_by_day(posts):
     posts.sort(key=lambda p: p['date'], reverse=True)
-    grouped = defaultdict(list)
+    grouped = defaultdict(lambda: defaultdict(list))
     for p in posts:
-        grouped[(p['date'].year, p['date'].month)].append(p)
+        grouped[(p['date'].year, p['date'].month)][p['date'].day].append(p)
     return grouped
 
-def render_months(grouped, lang='pt'):
+def render_months(grouped_by_month, lang='pt'):
     lines = []
-    sorted_months = sorted(grouped.keys(), reverse=True)
+    # Ordenar meses (Ano, Mês) decrescente
+    sorted_months = sorted(grouped_by_month.keys(), reverse=True)
     month_names = MONTHNAMES_PT if lang == 'pt' else MONTHNAMES_EN
+    day_prefix = DAY_PREFIX_PT if lang == 'pt' else DAY_PREFIX_EN
 
     for year, month in sorted_months:
-        lines.append(f"## {year} - {month_names[month]}\n")
-        for post in grouped[(year, month)]:
-            lines.append(f"- **{post['date'].day:02d}** - [{escape_markdown(post['title'])}]({post['url']})")
+        lines.append(f"## {year} - {month_names[month]}")
         lines.append("")
+
+        days_in_month = grouped_by_month[(year, month)]
+        # Ordenar dias decrescente
+        sorted_days = sorted(days_in_month.keys(), reverse=True)
+
+        for day in sorted_days:
+            lines.append(f"### {day_prefix} {day:d}")
+            lines.append("")
+            for post in days_in_month[day]:
+                lines.append(f"- [{escape_markdown(post['title'])}]({post['url']})")
+            lines.append("")
     return "\n".join(lines)
 
 def write_if_changed(target, content):
@@ -134,14 +148,14 @@ def main():
 
     # 1. Index Principal (PT) - Todos os posts agora ficam aqui
     idx_content = "---\ntitle: MachiOnCoffee\n---\n\n"
-    idx_content += render_months(group_by_month(regular_posts_pt), lang='pt')
+    idx_content += render_months(group_by_day(regular_posts_pt), lang='pt')
     if write_if_changed(INDEX_FILE, idx_content):
         print(f"Generated {INDEX_FILE} with {len(regular_posts_pt)} posts.")
 
     # 2. Off-Topic (PT)
     ot_content = "---\ntitle: Off-Topic\n---\n\n"
     ot_content += "Assuntos fora da programação do dia a dia: café, filosofia e carreira.\n\n"
-    ot_content += render_months(group_by_month(off_topic_pt), lang='pt')
+    ot_content += render_months(group_by_day(off_topic_pt), lang='pt')
     if write_if_changed(OFF_TOPIC_FILE, ot_content):
         print(f"Generated {OFF_TOPIC_FILE} with {len(off_topic_pt)} posts.")
 
@@ -149,12 +163,12 @@ def main():
     if all_posts_en:
         # Index EN
         idx_en_content = "---\ntitle: MachiOnCoffee\n---\n\n"
-        idx_en_content += render_months(group_by_month(regular_posts_en), lang='en')
+        idx_en_content += render_months(group_by_day(regular_posts_en), lang='en')
         write_if_changed(INDEX_FILE_EN, idx_en_content)
 
         # Off-Topic EN
         ot_en_content = "---\ntitle: Off-Topic (EN)\n---\n\n"
-        ot_en_content += render_months(group_by_month(off_topic_en), lang='en')
+        ot_en_content += render_months(group_by_day(off_topic_en), lang='en')
         write_if_changed(OFF_TOPIC_FILE_EN, ot_en_content)
 
 if __name__ == "__main__":

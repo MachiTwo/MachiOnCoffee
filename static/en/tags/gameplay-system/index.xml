@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MachiOnCoffee</title><link>https://cafegame.dev/</link><description/><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 17 Apr 2026 23:39:22 GMT</lastBuildDate><atom:link href="https://cafegame.dev/index.xml" rel="self" type="application/rss+xml"/><item><title>Sub-Agents vs MCP: Passive tools vs Active governance</title><link>https://cafegame.dev/en/04/17/sub-agents-mcp/</link><guid isPermaLink="true">https://cafegame.dev/en/04/17/sub-agents-mcp/</guid><pubDate>Fri, 17 Apr 2026 21:15:00 GMT</pubDate><description>&lt;p&gt;Have you heard of the &lt;strong&gt;Model Context Protocol (MCP)&lt;/strong&gt;? It&amp;rsquo;s an open standard that allows AIs (like Claude) to use
+<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MachiOnCoffee</title><link>https://cafegame.dev/</link><description/><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 17 Apr 2026 23:54:24 GMT</lastBuildDate><atom:link href="https://cafegame.dev/index.xml" rel="self" type="application/rss+xml"/><item><title>Sub-Agents vs MCP: Passive tools vs Active governance</title><link>https://cafegame.dev/en/docs/vectora/concepts/sub-agents/</link><guid isPermaLink="true">https://cafegame.dev/en/docs/vectora/concepts/sub-agents/</guid><pubDate>Fri, 17 Apr 2026 21:15:00 GMT</pubDate><description>&lt;p&gt;Have you heard of the &lt;strong&gt;Model Context Protocol (MCP)&lt;/strong&gt;? It&amp;rsquo;s an open standard that allows AIs (like Claude) to use
 external tools. But being &amp;ldquo;just an MCP tool&amp;rdquo; is not enough for Vectora.&lt;/p&gt;
 &lt;h2&gt;What are MCP Tools?&lt;span class="hx:absolute hx:-mt-20" id="what-are-mcp-tools"&gt;&lt;/span&gt;
 &lt;a href="#what-are-mcp-tools" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Imagine MCP is a Swiss Army knife. Each tool (like &lt;code&gt;read_file&lt;/code&gt; or &lt;code&gt;google_search&lt;/code&gt;) is a blade. The primary Agent
@@ -60,7 +60,7 @@ Cursor).</li>
 best possible context, in the safest and cheapest way, without you needing to configure every detail.</p>
 <hr>
 <p><em>This is a supporting post for the <a href="/en/04/17/vectora/">Vectora</a> project.</em></p>
-]]></content:encoded><category>mcp</category><category>acp</category><category>infra</category><category>vectora</category></item><item><title>Reranker: Why similarity isn't enough for code</title><link>https://cafegame.dev/en/04/17/reranker-contexto/</link><guid isPermaLink="true">https://cafegame.dev/en/04/17/reranker-contexto/</guid><pubDate>Fri, 17 Apr 2026 21:10:00 GMT</pubDate><description>&lt;p&gt;Often, a vector search (Embedding) returns 50 files that &amp;ldquo;look&amp;rdquo; relevant, but only 3 are actually useful for fixing the
+]]></content:encoded><category>mcp</category><category>acp</category><category>infra</category><category>vectora</category></item><item><title>Reranker: Why similarity isn't enough for code</title><link>https://cafegame.dev/en/docs/vectora/concepts/reranker/</link><guid isPermaLink="true">https://cafegame.dev/en/docs/vectora/concepts/reranker/</guid><pubDate>Fri, 17 Apr 2026 21:10:00 GMT</pubDate><description>&lt;p&gt;Often, a vector search (Embedding) returns 50 files that &amp;ldquo;look&amp;rdquo; relevant, but only 3 are actually useful for fixing the
 bug. Sending all 50 to the LLM is a waste of tokens and can confuse the AI. This is where the &lt;strong&gt;Reranker&lt;/strong&gt; comes in.&lt;/p&gt;
 &lt;h2&gt;The Precision Filter&lt;span class="hx:absolute hx:-mt-20" id="the-precision-filter"&gt;&lt;/span&gt;
 &lt;a href="#the-precision-filter" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;While Embedding is excellent at quickly finding candidates in a giant database, it often brings a lot of noise (like
@@ -89,7 +89,7 @@ handling logic should come before a <code>README</code> file.</li>
 </ol>
 <hr>
 <p><em>This is a supporting post for the <a href="/en/04/17/vectora/">Vectora</a> project.</em></p>
-]]></content:encoded><category>reranker</category><category>rag</category><category>ai</category><category>vectora</category></item><item><title>Embeddings and Vector DBs: The heart of semantic search</title><link>https://cafegame.dev/en/04/17/embeddings-vector-db/</link><guid isPermaLink="true">https://cafegame.dev/en/04/17/embeddings-vector-db/</guid><pubDate>Fri, 17 Apr 2026 21:05:00 GMT</pubDate><description>&lt;p&gt;If you want a computer to understand that &lt;code&gt;create_user&lt;/code&gt; and &lt;code&gt;signUp&lt;/code&gt; have similar meanings, you need &lt;strong&gt;Embeddings&lt;/strong&gt;.&lt;/p&gt;
+]]></content:encoded><category>reranker</category><category>rag</category><category>ai</category><category>vectora</category></item><item><title>Embeddings and Vector DBs: The heart of semantic search</title><link>https://cafegame.dev/en/docs/vectora/concepts/embeddings/</link><guid isPermaLink="true">https://cafegame.dev/en/docs/vectora/concepts/embeddings/</guid><pubDate>Fri, 17 Apr 2026 21:05:00 GMT</pubDate><description>&lt;p&gt;If you want a computer to understand that &lt;code&gt;create_user&lt;/code&gt; and &lt;code&gt;signUp&lt;/code&gt; have similar meanings, you need &lt;strong&gt;Embeddings&lt;/strong&gt;.&lt;/p&gt;
 &lt;h2&gt;What are Embeddings?&lt;span class="hx:absolute hx:-mt-20" id="what-are-embeddings"&gt;&lt;/span&gt;
 &lt;a href="#what-are-embeddings" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Embeddings are lists of numbers (vectors) that represent the meaning of a text in a multidimensional space.&lt;/p&gt;
 &lt;p&gt;Imagine a map where words with similar meanings are &amp;ldquo;close&amp;rdquo; to each other. In the world of 2026 AI models (like
@@ -121,7 +121,7 @@ This would be slow and absurdly expensive.</p>
 </ol>
 <hr>
 <p><em>This is a supporting post for the <a href="/en/04/17/vectora/">Vectora</a> project.</em></p>
-]]></content:encoded><category>embeddings</category><category>qdrant</category><category>ai</category><category>vectora</category></item><item><title>Connected RAG: Why isolated context kills your productivity</title><link>https://cafegame.dev/en/04/17/rag-conectado/</link><guid isPermaLink="true">https://cafegame.dev/en/04/17/rag-conectado/</guid><pubDate>Fri, 17 Apr 2026 21:00:00 GMT</pubDate><description>&lt;p&gt;Have you ever asked an AI agent about a function in your project, and it replied with something that looked right but
+]]></content:encoded><category>embeddings</category><category>qdrant</category><category>ai</category><category>vectora</category></item><item><title>Connected RAG: Why isolated context kills your productivity</title><link>https://cafegame.dev/en/docs/vectora/concepts/rag/</link><guid isPermaLink="true">https://cafegame.dev/en/docs/vectora/concepts/rag/</guid><pubDate>Fri, 17 Apr 2026 21:00:00 GMT</pubDate><description>&lt;p&gt;Have you ever asked an AI agent about a function in your project, and it replied with something that looked right but
 completely ignored how that function was used in the rest of the system? This is the classic symptom of &lt;strong&gt;fragmented
 RAG&lt;/strong&gt;.&lt;/p&gt;
 &lt;h2&gt;What is RAG?&lt;span class="hx:absolute hx:-mt-20" id="what-is-rag"&gt;&lt;/span&gt;
@@ -161,87 +161,7 @@ of files, dependencies, and metadata.</li>
 <p>Traditional RAG gives you data. Vectora&rsquo;s Connected RAG gives you <strong>knowledge</strong>.</p>
 <hr>
 <p><em>This is a supporting post for the <a href="/en/04/17/vectora/">Vectora</a> project.</em></p>
-]]></content:encoded><category>rag</category><category>infra</category><category>ai</category><category>vectora</category></item><item><title>Vectora: The Sub-Agent Connecting Your Code's Context</title><link>https://cafegame.dev/en/04/17/vectora/</link><guid isPermaLink="true">https://cafegame.dev/en/04/17/vectora/</guid><pubDate>Fri, 17 Apr 2026 18:00:00 GMT</pubDate><description>&lt;div class="hx:flex hx:justify-center hx:my-8"&gt;
-&lt;img src="https://cafegame.dev/images/vectora.svg" alt="Vectora Logo" class="hx:max-w-[200px] hx:w-full hx:rounded-2xl hx:shadow-2xl hx:border hx:border-gray-200 hx:dark:border-gray-800"&gt;
-&lt;/div&gt;
-&lt;h2&gt;The Problem: Fragmented Context&lt;span class="hx:absolute hx:-mt-20" id="the-problem-fragmented-context"&gt;&lt;/span&gt;
-&lt;a href="#the-problem-fragmented-context" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Most agents today (Claude Code, Cursor, GitHub Copilot) suffer from the same issue: they view code as isolated snippets
-of text. They don&amp;rsquo;t understand the &lt;strong&gt;dependency tree&lt;/strong&gt;, past architectural decisions (ADRs), or the intent behind a
-module.&lt;/p&gt;
-&lt;p&gt;Vectora was born to be the intelligence layer that connects these dots, delivering what we call &lt;strong&gt;Connected Knowledge&lt;/strong&gt;.&lt;/p&gt;</description><content:encoded><![CDATA[<div class="hx:flex hx:justify-center hx:my-8">
-  <img src="/images/vectora.svg" alt="Vectora Logo" class="hx:max-w-[200px] hx:w-full hx:rounded-2xl hx:shadow-2xl hx:border hx:border-gray-200 hx:dark:border-gray-800">
-</div>
-<h2>The Problem: Fragmented Context<span class="hx:absolute hx:-mt-20" id="the-problem-fragmented-context"></span>
-    <a href="#the-problem-fragmented-context" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>Most agents today (Claude Code, Cursor, GitHub Copilot) suffer from the same issue: they view code as isolated snippets
-of text. They don&rsquo;t understand the <strong>dependency tree</strong>, past architectural decisions (ADRs), or the intent behind a
-module.</p>
-<p>Vectora was born to be the intelligence layer that connects these dots, delivering what we call <strong>Connected Knowledge</strong>.</p>
-<h2>🏗️ EndGame Architecture<span class="hx:absolute hx:-mt-20" id="-endgame-architecture"></span>
-    <a href="#-endgame-architecture" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>Vectora is not just a script; it&rsquo;s an ecosystem designed for low latency and high precision:</p>
-<ul>
-<li><strong>MCP &amp; ACP Protocols</strong>: Integration via <a href="/en/04/17/sub-agents-mcp/">Model Context Protocol (MCP)</a> for agents like
-Claude and Antigravity, and ACP for ultra-fast communication with IDEs.</li>
-<li><strong>Context Engine</strong>: The &ldquo;brain&rdquo; that decides <em>what</em>, <em>how</em>, and <em>when</em> to fetch information, avoiding the noise that
-consumes your tokens.</li>
-<li><strong>Vector DB (Qdrant Cloud)</strong>: Uses vector search with <a href="/en/04/17/embeddings-vector-db/">HNSW and Quantization</a> to find
-functional similarities in milliseconds.</li>
-<li><strong>Proven Reranker</strong>: A <a href="/en/04/17/reranker-contexto/">Reranking</a> layer that reorders results to ensure the most
-relevant code is at the top.</li>
-</ul>
-<h2>🔐 Security by Design: The Guardian<span class="hx:absolute hx:-mt-20" id="-security-by-design-the-guardian"></span>
-    <a href="#-security-by-design-the-guardian" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>Security in AI agents cannot just be &ldquo;system prompts&rdquo; (which are easily bypassed). In Vectora, security is
-<strong>hard-coded</strong>:</p>
-<ol>
-<li><strong>Hard-Coded Guardian</strong>: An immutable blocklist compiled into the binary that prevents access to sensitive files
-(<code>.env</code>, <code>.key</code>, <code>.pem</code>, binaries) regardless of what the user or agent asks for.</li>
-<li><strong>Namespaces with RBAC</strong>: Real isolation between projects. Your data from one project never leaks to another, and
-public namespaces can be mounted as ready-to-use &ldquo;skills&rdquo;.</li>
-<li><strong>Trust Folder</strong>: The agent only operates within directories explicitly authorized by you.</li>
-</ol>
-<h2>🧪 Vectora Harness: Objective Proof<span class="hx:absolute hx:-mt-20" id="-vectora-harness-objective-proof"></span>
-    <a href="#-vectora-harness-objective-proof" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>How do you know if the agent is actually improving? The <strong>Vectora Harness</strong> is our objective validation system. It
-allows you to run comparative tests: <code>vectora harness run --compare vectora:on,off</code></p>
-<p>This generates real metrics for precision gain, token reduction, and prevention of security violations. It&rsquo;s not
-intuition; it&rsquo;s quantitative evidence.</p>
-<hr>
-<h3>Want to dive deeper into the tech?<span class="hx:absolute hx:-mt-20" id="want-to-dive-deeper-into-the-tech"></span>
-    <a href="#want-to-dive-deeper-into-the-tech" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>Explore our core technical guides:</p>
-<ul>
-<li><a href="/en/04/17/rag-conectado/">What is RAG and why does connected context matter?</a></li>
-<li><a href="/en/04/17/embeddings-vector-db/">Embeddings and Vector DBs: The heart of semantic search</a></li>
-<li><a href="/en/04/17/reranker-contexto/">Reranker: Why similarity isn&rsquo;t enough for code</a></li>
-<li><a href="/en/04/17/sub-agents-mcp/">Sub-Agents vs MCP: Passive tools vs Active governance</a></li>
-</ul>
-<p>The Vectora runtime was developed in <strong>TypeScript (Node.js 20+)</strong>, utilizing <strong>Vercel&rsquo;s AI SDK</strong> to ensure stable and
-provider-agnostic model routing (OpenRouter, Google, Anthropic, OpenAI).</p>
-<h3>Core Components<span class="hx:absolute hx:-mt-20" id="core-components"></span>
-    <a href="#core-components" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
-<li><strong>Context Engine</strong>: Performs <strong>multi-hop reasoning</strong> and structural analysis via <strong>AST (Tree-sitter)</strong>. It doesn&rsquo;t
-just search for words; it follows dependencies, imports, and execution flows to build a graph of your codebase.</li>
-<li><strong>Cloud &amp; Local Native</strong>: Integration with <strong>Qdrant Cloud</strong> for scalable vector search (using HNSW and scalar
-quantization) and optional support for 100% local inference via <strong>llama.cpp</strong>.</li>
-<li><strong>Infrastructure</strong>: Metadata and authentication backend via <strong>Supabase</strong>, with API layers running on <strong>Vercel Edge
-Functions</strong>.</li>
-</ul>
-<h2>Objective Validation: Vectora Harness<span class="hx:absolute hx:-mt-20" id="objective-validation-vectora-harness"></span>
-    <a href="#objective-validation-vectora-harness" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>How do you know if the AI actually improved? We created <strong>Vectora Harness</strong>, the &ldquo;central nervous system&rdquo; of our agent.
-It allows for:</p>
-<ol>
-<li><strong>Measuring Accuracy</strong>: Objectively compares AI output with <code>vectora:on</code> vs <code>vectora:off</code>.</li>
-<li><strong>Token Efficiency</strong>: Optimizes retrieval to avoid context &ldquo;overfetch,&rdquo; reducing costs and latency.</li>
-<li><strong>Auditability</strong>: Generates structured reports on how the agent used each tool to reach an answer.</li>
-</ol>
-<h2>Security: Hard-Coded Guardian<span class="hx:absolute hx:-mt-20" id="security-hard-coded-guardian"></span>
-    <a href="#security-hard-coded-guardian" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>AI security cannot rely solely on prompts. Vectora implements the <strong>Guardian</strong>, an immutable code-level middleware that:</p>
-<ul>
-<li><strong>Blocks Sensitive Paths</strong>: Files like <code>.env</code>, <code>.key</code>, <code>.pem</code>, and lockfiles are never read or embedded.</li>
-<li><strong>Output Sanitization</strong>: Native regex masks secrets and PATs before they leave your environment.</li>
-<li><strong>Git Snapshots</strong>: Automatic atomic commits before any write operation, ensuring total reversibility.</li>
-</ul>
-<p>Vectora is the trust layer that was missing to make AI-assisted development professional, secure, and measurable.</p>
-<hr>
-<p><em>Vectora is part of the Kaffyn ecosystem · Open Source · TypeScript · Provider-Agnostic.</em></p>
-]]></content:encoded><category>ai</category><category>productivity</category><category>tools</category></item><item><title>Ability System: The Heart of Gameplay Mechanics in Zyris</title><link>https://cafegame.dev/en/04/17/ability-system/</link><guid isPermaLink="true">https://cafegame.dev/en/04/17/ability-system/</guid><pubDate>Fri, 17 Apr 2026 17:00:00 GMT</pubDate><description>&lt;p&gt;The &lt;strong&gt;Ability System (AS)&lt;/strong&gt; is the backbone of combat gameplay. More than just managing abilities, it offers a
+]]></content:encoded><category>rag</category><category>infra</category><category>ai</category><category>vectora</category></item><item><title>Ability System: The Heart of Gameplay Mechanics in Zyris</title><link>https://cafegame.dev/en/04/17/ability-system/</link><guid isPermaLink="true">https://cafegame.dev/en/04/17/ability-system/</guid><pubDate>Fri, 17 Apr 2026 17:00:00 GMT</pubDate><description>&lt;p&gt;The &lt;strong&gt;Ability System (AS)&lt;/strong&gt; is the backbone of combat gameplay. More than just managing abilities, it offers a
 data-driven framework to orchestrate complex states with &lt;strong&gt;high C++ performance&lt;/strong&gt;.&lt;/p&gt;
 &lt;h2&gt;Data-Driven Paradigm&lt;span class="hx:absolute hx:-mt-20" id="data-driven-paradigm"&gt;&lt;/span&gt;
 &lt;a href="#data-driven-paradigm" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The great revolution of AS is moving gameplay logic from source code into the &lt;strong&gt;Godot Editor&lt;/strong&gt;. Using resources
@@ -428,4 +348,59 @@ data never leaves your environment.</li>
 and today I work in a bakery. This duality between &ldquo;dough and code&rdquo; is what keeps my feet on the ground and my head
 focused on creating tools that truly solve real engineering problems.</p>
 <p>This blog is the start of this new phase of technical publication. Welcome to MachiOnCoffee.</p>
-]]></content:encoded><category>introduction</category><category>personal</category><category>journey</category></item></channel></rss>
+]]></content:encoded><category>introduction</category><category>personal</category><category>journey</category></item><item><title>Getting Started</title><link>https://cafegame.dev/en/docs/vectora/getting-started/</link><guid isPermaLink="true">https://cafegame.dev/en/docs/vectora/getting-started/</guid><pubDate>Mon, 01 Jan 0001 00:00:00 GMT</pubDate><description>&lt;h2&gt;🚀 Starting with Vectora&lt;span class="hx:absolute hx:-mt-20" id="-starting-with-vectora"&gt;&lt;/span&gt;
+&lt;a href="#-starting-with-vectora" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Vectora is designed to be plug-and-play yet extremely customizable.&lt;/p&gt;
+&lt;h3&gt;Installation&lt;span class="hx:absolute hx:-mt-20" id="installation"&gt;&lt;/span&gt;
+&lt;a href="#installation" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The Vectora runtime is developed in &lt;strong&gt;TypeScript (Node.js 20+)&lt;/strong&gt;, using the &lt;strong&gt;Vercel AI SDK&lt;/strong&gt;.&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;npx @kaffyn/vectora init&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3&gt;Core Configuration&lt;span class="hx:absolute hx:-mt-20" id="core-configuration"&gt;&lt;/span&gt;
+&lt;a href="#core-configuration" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Context Engine&lt;/strong&gt;: Performs multi-hop reasoning and structural analysis via &lt;strong&gt;AST (Tree-sitter)&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Vector DB&lt;/strong&gt;: Native integration with &lt;strong&gt;Qdrant Cloud&lt;/strong&gt; for scalable vector search.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Provider Router&lt;/strong&gt;: Stable and provider-agnostic support (OpenRouter, Google, Anthropic, OpenAI).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;🧪 Validation: Vectora Harness&lt;span class="hx:absolute hx:-mt-20" id="-validation-vectora-harness"&gt;&lt;/span&gt;
+&lt;a href="#-validation-vectora-harness" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;How do you know if the AI has actually improved? Use the &lt;strong&gt;Vectora Harness&lt;/strong&gt;:&lt;/p&gt;</description><content:encoded><![CDATA[<h2>🚀 Starting with Vectora<span class="hx:absolute hx:-mt-20" id="-starting-with-vectora"></span>
+    <a href="#-starting-with-vectora" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>Vectora is designed to be plug-and-play yet extremely customizable.</p>
+<h3>Installation<span class="hx:absolute hx:-mt-20" id="installation"></span>
+    <a href="#installation" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>The Vectora runtime is developed in <strong>TypeScript (Node.js 20+)</strong>, using the <strong>Vercel AI SDK</strong>.</p>
+<div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code">
+
+<div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">npx @kaffyn/vectora init</span></span></code></pre></div></div><div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0">
+  <button
+    class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+    title="Copy code"
+    aria-label="Copy code"
+    data-copied-label="Copied!"
+  >
+    <div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"></div>
+<div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"></div>
+  </button>
+</div>
+</div>
+<h3>Core Configuration<span class="hx:absolute hx:-mt-20" id="core-configuration"></span>
+    <a href="#core-configuration" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li><strong>Context Engine</strong>: Performs multi-hop reasoning and structural analysis via <strong>AST (Tree-sitter)</strong>.</li>
+<li><strong>Vector DB</strong>: Native integration with <strong>Qdrant Cloud</strong> for scalable vector search.</li>
+<li><strong>Provider Router</strong>: Stable and provider-agnostic support (OpenRouter, Google, Anthropic, OpenAI).</li>
+</ul>
+<h2>🧪 Validation: Vectora Harness<span class="hx:absolute hx:-mt-20" id="-validation-vectora-harness"></span>
+    <a href="#-validation-vectora-harness" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>How do you know if the AI has actually improved? Use the <strong>Vectora Harness</strong>:</p>
+<ol>
+<li><strong>Measure Accuracy</strong>: Objectively compares AI output with <code>vectora:on</code> vs <code>vectora:off</code>.</li>
+<li><strong>Token Efficiency</strong>: Optimizes retrieval to avoid &ldquo;overfetch&rdquo;.</li>
+<li><strong>Auditability</strong>: Structured reports on how the agent used each tool.</li>
+</ol>
+]]></content:encoded></item></channel></rss>

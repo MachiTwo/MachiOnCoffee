@@ -1,6 +1,6 @@
 ---
 title: "Zyris Engine: Control, Performance, and Opinionated by Design"
-date: "2026-04-17T16:00:00-03:00"
+date: "2026-04-17T19:00:00-03:00"
 slug: zyris-engine
 tags:
   - engine
@@ -10,50 +10,70 @@ draft: false
 ---
 
 Welcome to the **Zyris Engine**. This project is not just a fork of Godot; it is a statement of intent on how to
-maintain a professional, stable, and scalable game architecture in the long term.
+maintain a professional, stable, and scalable game architecture in the long run.
 
 ## An Opinionated Philosophy (Convention over Configuration)
 
-While the Godot Engine prizes maximum flexibility—often allowing projects to grow chaotically—Zyris adopts an
+While Godot Engine prizes maximum flexibility—often allowing projects to grow chaotically—Zyris adopts an
 **"opinionated"** philosophy. We believe that developer time should be spent creating gameplay, not reinventing
 fundamental systems.
 
-In Zyris, we establish clear architectural standards. If you are building a professional project, the engine expects
-certain structures, which facilitates teamwork and the maintenance of legacy codebases.
+In Zyris, we establish clear architectural standards. If you are building a professional project, the engine offers
+predictable structures that facilitate teamwork and the maintenance of complex codebases.
 
-## Core Engineering (Core Features)
+## Core Engineering Features
 
-Unlike conventional plugins, Zyris integrates critical functionality directly into its C++ core:
+Unlike conventional plugins, Zyris integrates critical functionalities directly into its C++ core:
 
-### Deterministic Save Server
+### Save Server: Persistence Orchestrator
 
-We implemented a high-performance persistence subsystem that operates on dedicated threads.
+A robust and asynchronous persistence system integrated into the core.
 
-- **Performance**: Zero blocking of the main gameplay loop.
-- **Compression**: Uses state-of-the-art **ZSTD** algorithms to drastically reduce file sizes.
-- **Security**: Native **AES-256** encryption integrated into the write flow.
+- **Declarative Protocol**: Automation via `@persistent` in GDScript.
+- **Threaded Architecture**: ZSTD compression and AES-256 encryption running on dedicated threads.
+- **Incremental System**: Tracks modifications and applies surgical patches, reducing disk writing by up to 95%.
 
 ### Virtual Input Devices
 
-An abstraction layer that allows treating physical inputs from any platform (Joysticks, D-Pads, Touch) as consistent
-virtual events. This removes the need for repetitive, complex mappings in every new project.
+Total input abstraction. The system automatically detects whether the player is on Touch, Keyboard, or Gamepad and
+adapts the UI dynamically. Includes native nodes like `VirtualJoystick` and `VirtualDPad` integrated into Godot's
+InputMap.
 
-### AOT Export System
+### Ability System (GAS)
 
-We are developing an **Ahead-of-Time (AOT)** export system that generates native binaries optimized for each target
-platform, removing virtual machine overhead and ensuring maximum performance on hardware-limited devices.
+A high-performance gameplay framework for RPGs and combat games. Based on `Resources` to be data-driven, it allows
+designers to create complex abilities (Costs, Cooldowns, Effects) without touching code, with full processing in C++.
 
-## The Maturity Roadmap
+## The Production Ecosystem
 
-Zyris evolves with a focus on production tools:
+Zyris expands the horizons of the base engine with systems designed for the "EndGame" of development:
 
-- **Integrated Behavior Tree**: Reactive AI flows via native node graphs.
-- **Camera System (vCam)**: Cinematic camera arbitration inspired by industry standards (Cinemachine).
-- **Authoritative Inventory System**: Item management integrated into the core with native network support.
+### Inventory & Equipment System
+
+Authoritative item management with an **Equipment Bridge** that automatically injects GAS abilities when equipping
+items. Includes smart UI nodes and server-side validation to prevent cheating.
+
+### Camera System (vCam)
+
+Cinematic arbitration inspired by the Cinemachine standard. The `vCamServer` manages priorities between virtual cameras
+and performs smooth transitions (blends), in addition to having a shake system (Procedural Shake) based on Perlin noise.
+
+### Audio System Pro
+
+Expansion of the native audio system with support for event-based and contextual audio. Introduces DSP per stream and
+reactive mixing, where the game state directly influences the sound environment.
+
+## Maturity Roadmap
+
+Zyris continues to evolve with a focus on robustness:
+
+- **Native Behavior Tree**: Modular and reactive AI with a dedicated visual editor and live debugging.
+- **Multiplayer Update**: Layered replication (Network LOD) and native authoritative prediction.
+- **Cloud Providers**: Polymorphic abstraction for Steam, Epic Online Services (EOS), and PlayFab.
 
 Zyris is the choice for developers who understand that **freedom without structure is just technical debt.**
 
 ---
 
-_Stay informed about development on [Machi](https://www.youtube.com/@machiatodev) and
-[Alen](https://www.youtube.com/@yatsuragames)'s channels._
+_Keep up with development on [Machi's](https://www.youtube.com/@machiatodev) and
+[Alen's](https://www.youtube.com/@yatsuragames) channels._
