@@ -11,6 +11,7 @@
 
 {{- $isHome := .IsHome -}}
 {{- $relPerm := .RelPermalink -}}
+{{- $isArchives := or (eq .Type "archives") (eq .RelPermalink "/archives/") (eq .RelPermalink "/en/archives/") -}}
 {{- $isOffTopic := or (eq $relPerm "/off-topic/") (eq $relPerm "/en/off-topic/") -}}
 {{- $isPost := .IsPage -}}
 {{- $hasTranslations := gt (len .Translations) 0 -}}

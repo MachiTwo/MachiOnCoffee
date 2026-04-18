@@ -15,9 +15,9 @@ It all started back in 2020 when I took my first steps in game development using
 
 On the web development side, I ventured into FlutterFlow, learned UX Design in Figma, went back to WordPress, tried out WeWeb... but eventually decided I needed to learn HTML, CSS, and JavaScript for real. After that, I moved on to Next.js.
 
-Recently, I tried to contribute directly to the Godot Engine in C++ via Pull Requests. Unfortunately, my PRs were rejected due to AI usage (they are strictly against it; if they suspect you used AI even just to draft a text, they'll reject it). Because of this, I decided to maintain my own separate engine called **Zyris**, which is a fork of Godot. Within it, I've created Virtual Input Devices, Save Server, and the Ability System—which, in addition to being a module for the engine, is also a GDExtension plugin for the official Godot.
+Recently, I tried to contribute directly to the Godot Engine in C++ via Pull Requests. Unfortunately, my PRs were rejected due to AI usage (they are strictly against it; if they suspect you used AI even just to draft a text, they'll reject it). Because of this, I decided to maintain my own separate engine called [**Zyris Engine**](../zyris-engine/), which is a fork of Godot. Within it, I've created Virtual Input Devices, Save Server, and the [**Ability System**](../ability-system/)—which, in addition to being a module for the engine, is also a GDExtension plugin for the official Godot.
 
-I also started learning Go and absolutely love the language. After that, I began focusing on the development of an AI sub-agent called **Vectora**.
+I also started learning Go and absolutely love the language. After that, I began focusing on the development of an AI sub-agent called [**Vectora**](../vectora/).
 
 All of this happened while I was working side jobs outside of programming. I've worked in several markets, restaurants, bars, and currently in a bakery.
 
