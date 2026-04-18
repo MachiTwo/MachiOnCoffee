@@ -207,11 +207,8 @@ func debug_phase_info():
 
 ## Conceitos Aprendidos
 
-✅ Criar ASAbilityPhase
-✅ Sequenciar múltiplas fases
-✅ Sincronizar com animação
-✅ Disparar triggers customizados
-✅ Debugar transições
+✅ Criar ASAbilityPhase ✅ Sequenciar múltiplas fases ✅ Sincronizar com animação ✅ Disparar triggers customizados ✅
+Debugar transições
 
 ---
 

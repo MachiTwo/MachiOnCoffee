@@ -4,11 +4,11 @@ date: "2026-04-18T12:00:00-03:00"
 type: docs
 ---
 
-# Exemplo Completo: Sistema de Combate Funcional
+## Exemplo Completo: Sistema de Combate Funcional
 
 Código pronto para usar com player vs inimigo.
 
-## Estrutura de Assets
+### Estrutura de Assets
 
 Crie em `res://assets/ability-system/`:
 
@@ -25,7 +25,7 @@ effect_heal.tres
 effect_bleed.tres
 ```
 
-## 1. Script do Player
+### 1. Script do Player
 
 ```gdscript
 extends CharacterBody3D
@@ -50,7 +50,7 @@ func _physics_process(_delta):
     if not is_in_combat or not target:
         return
 
-    # Input
+    ## Input
     if Input.is_action_just_pressed("ability_1"):
         use_ability(&"ability.slash")
     elif Input.is_action_just_pressed("ability_2"):
@@ -58,7 +58,7 @@ func _physics_process(_delta):
     elif Input.is_action_just_pressed("ability_3"):
         use_ability(&"ability.heal")
 
-    # Direcionar para alvo
+    ## Direcionar para alvo
     var direction = (target.global_position - global_position).normalized()
     if direction.length() > 2.0:
         velocity = direction * 5.0
@@ -71,7 +71,7 @@ func use_ability(ability_tag: StringName):
 
     asc.try_activate_ability_by_tag(ability_tag)
 
-    # Aplicar efeitos ao alvo
+    ## Aplicar efeitos ao alvo
     match ability_tag:
         &"ability.slash":
             target.asc.apply_effect_by_tag(&"effect.slash_damage", asc)
@@ -111,7 +111,7 @@ func _on_effect_applied(effect_spec):
         take_damage(-damage)
 ```
 
-## 2. Script do Enemy
+### 2. Script do Enemy
 
 ```gdscript
 extends CharacterBody3D
@@ -138,7 +138,7 @@ func _physics_process(delta):
 
     attack_cooldown -= delta
 
-    # Mover para alvo
+    ## Mover para alvo
     var distance = global_position.distance_to(target.global_position)
     if distance > 1.5:
         var direction = (target.global_position - global_position).normalized()
@@ -147,7 +147,7 @@ func _physics_process(delta):
     else:
         velocity = Vector3.ZERO
 
-    # Atacar
+    ## Atacar
     if attack_cooldown <= 0:
         attack_player()
         attack_cooldown = 2.0
@@ -176,7 +176,7 @@ func _on_ability_activated(spec):
     anim.play("attack")
 ```
 
-## 3. Manager de Combat
+### 3. Manager de Combat
 
 ```gdscript
 extends Node
@@ -209,7 +209,7 @@ func _on_enemy_defeated():
     get_tree().reload_current_scene()
 ```
 
-## 4. Script de UI
+### 4. Script de UI
 
 ```gdscript
 extends CanvasLayer
@@ -265,7 +265,7 @@ func _on_ability_button_pressed(index: int):
     player.use_ability(abilities[index])
 ```
 
-## 5. Scene Structure
+### 5. Scene Structure
 
 Crie a scene no editor:
 
@@ -296,7 +296,7 @@ CombatScene (Node)
 └─ CombatManager (Node)
 ```
 
-## 6. Input Map
+### 6. Input Map
 
 No Project Settings → Input Map, adicione:
 
@@ -307,22 +307,22 @@ ability_3: [E]
 ui_accept: [Enter]
 ```
 
-## 7. Executar
+### 7. Executar
 
 1. Save scene como `res://scenes/combat.tscn`
 2. Attach scripts aos nodes
 3. Configure container do ASComponent
 4. Play
 
-## Expandir
+### Expandir
 
 **Adicionar Mais Abilities:**
 
 ```gdscript
-# Em ability_charging_strike.tres (phased)
+## Em ability_charging_strike.tres (phased)
 phases: [windup, execution, recovery]
 
-# Em Player.use_ability()
+## Em Player.use_ability()
 &"ability.charging_strike":
     await anim.animation_finished
     target.asc.apply_effect_by_tag(&"effect.heavy_damage", asc)
@@ -336,7 +336,7 @@ func die():
     anim.play("death")
     await anim.animation_finished
 
-    # Drop loot
+    ## Drop loot
     var loot = preload("res://items/healing_potion.tscn").instantiate()
     get_parent().add_child(loot)
     loot.global_position = global_position
@@ -348,7 +348,7 @@ func die():
 **Skill Tree:**
 
 ```gdscript
-# Adicionar abilities ao player dinamicamente
+## Adicionar abilities ao player dinamicamente
 func unlock_ability(ability_tag: StringName):
     var ability = AbilitySystem.get_ability_resource(ability_tag)
     asc.add_ability(ability)

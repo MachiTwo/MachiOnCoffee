@@ -1,6 +1,8 @@
 ---
 title: Documentação
 type: docs
+sidebar:
+  open: false
 breadcrumbs: false
 ---
 

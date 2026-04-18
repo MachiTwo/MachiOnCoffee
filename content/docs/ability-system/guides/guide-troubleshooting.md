@@ -4,11 +4,11 @@ date: "2026-04-18T12:00:00-03:00"
 type: docs
 ---
 
-# Guia: Troubleshooting e Debugging
+## Guia: Troubleshooting e Debugging
 
 Soluções para problemas comuns.
 
-## Problema: "Ability não ativa"
+### Problema: "Ability não ativa"
 
 **Sintomas:** `try_activate_ability_by_tag()` retorna false
 
@@ -65,7 +65,7 @@ Issue: Requisito faltando
 Fix: Adicionar tag requisitada primeiro
 ```
 
-## Problema: "Efeito não aplicado"
+### Problema: "Efeito não aplicado"
 
 **Sintomas:** `apply_effect_by_tag()` executa mas nada acontece
 
@@ -101,7 +101,7 @@ Issue: Efeito é INSTANT e some imediatamente
 Fix: Verificar effect.duration_policy
 ```
 
-## Problema: "Animação não sincroniza com ability"
+### Problema: "Animação não sincroniza com ability"
 
 ```gdscript
 # Sincronizar com evento de ability
@@ -132,7 +132,7 @@ Issue: Fase avança muito rápido
 Fix: Aumentar phase_duration ou usar transition_trigger
 ```
 
-## Problema: "Tag não está funcionando"
+### Problema: "Tag não está funcionando"
 
 ```gdscript
 # 1. Verificar se está registrada
@@ -157,7 +157,7 @@ asc.tag_removed.connect(func(tag):
 )
 ```
 
-## Problema: "Multiplayer não sincroniza"
+### Problema: "Multiplayer não sincroniza"
 
 ```gdscript
 # 1. Verificar snapshot
@@ -185,12 +185,12 @@ else:
     asc.apply_snapshot(current_tick)
 ```
 
-## Performance Issues
+### Performance Issues
 
 **Problema:** Jogo lento com muitos atores AS
 
 ```gdscript
-# Profile
+## Profile
 var ms_start = Time.get_ticks_msec()
 for i in range(1000):
     var asc = asc_list[i]
@@ -212,7 +212,7 @@ Issue: ASDelivery com muitos alvos
 Fix: Use collision groups para filtrar
 ```
 
-## Debugging Úteis
+### Debugging Úteis
 
 ```gdscript
 # Print estado completo
@@ -241,14 +241,14 @@ func debug_full_state(asc: ASComponent):
         print("  - %s: %.1f (base: %.1f)" % [attr_name, current, base])
 ```
 
-## Logging Estruturado
+### Logging Estruturado
 
 ```gdscript
 # Criar logger customizado
 class_name ASLogger
 extends Node
 
-static var log_level = 0  # 0=all, 1=warn, 2=error
+static var log_level = 0  ## 0=all, 1=warn, 2=error
 
 static func debug(msg: String):
     if log_level <= 0:
@@ -267,7 +267,7 @@ ASLogger.warn("Cooldown active: %.2f" % remaining)
 ASLogger.error("ASComponent not found!")
 ```
 
-## Checklist de Debug
+### Checklist de Debug
 
 ```
 [ ] Ability tag registrada?

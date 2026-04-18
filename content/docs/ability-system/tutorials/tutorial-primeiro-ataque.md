@@ -181,25 +181,24 @@ func _process(_delta):
 ## Troubleshooting
 
 **Erro: "ability.slash" não registrada**
+
 - Verifique se você registrou a tag no painel do editor
 - Caminho: Project Settings → Ability System
 
 **Ability não ativa**
+
 - Verifique cooldown: `spec.get_cooldown_remaining() > 0`
 - Verifique custos: `asc.get_attribute_current_value(&"mana") >= 20`
 
 **Dano não aplicado**
+
 - Confirm que o enemy tem ASComponent
 - Verifique que enemy_asc não é null
 
 ## Conceitos Aprendidos
 
-✅ Criar e registrar tags
-✅ Criar ASAbility, ASEffect, ASContainer
-✅ Montar cena com ASComponent
-✅ Ativar ability via script
-✅ Aplicar efeitos
-✅ Verificar cooldown
+✅ Criar e registrar tags ✅ Criar ASAbility, ASEffect, ASContainer ✅ Montar cena com ASComponent ✅ Ativar ability via
+script ✅ Aplicar efeitos ✅ Verificar cooldown
 
 ---
 

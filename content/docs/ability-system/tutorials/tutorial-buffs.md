@@ -12,8 +12,7 @@ Aprenda a criar modificadores temporários que afetam personagens.
 
 ## Conceito
 
-**Buff:** Efeito positivo temporário (ex: aumenta dano)
-**Debuff:** Efeito negativo temporário (ex: reduz velocidade)
+**Buff:** Efeito positivo temporário (ex: aumenta dano) **Debuff:** Efeito negativo temporário (ex: reduz velocidade)
 
 Ambos são `ASEffect` com duração.
 
