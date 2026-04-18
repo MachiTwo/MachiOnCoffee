@@ -10,7 +10,7 @@ draft: false
 ---
 
 <div class="hx:flex hx:justify-center hx:my-8">
-  <img src="/images/vectora.svg" alt="Vectora Logo" class="hx:max-w-md hx:w-full hx:rounded-2xl hx:shadow-2xl hx:border hx:border-gray-200 hx:dark:border-gray-800">
+  <img src="/images/vectora.svg" alt="Vectora Logo" class="hx:max-w-[200px] hx:w-full hx:rounded-2xl hx:shadow-2xl hx:border hx:border-gray-200 hx:dark:border-gray-800">
 </div>
 
 ## The Problem: Fragmented Context

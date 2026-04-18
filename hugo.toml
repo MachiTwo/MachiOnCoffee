@@ -122,6 +122,8 @@ enableEmoji = true
   [params.theme]
     default = 'light'
 
+  favicon = "favicon.ico"
+
   [params.author]
     name = 'MachiTwo'
     twitter = 'BrunoSoarxz'
