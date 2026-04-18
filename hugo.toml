@@ -14,18 +14,11 @@ enableEmoji = true
     weight = 1
     [languages.pt-br.menu]
       [[languages.pt-br.menu.main]]
-        name = 'Documentação'
-        url = '/docs/'
+        name = 'YouTube ↗'
+        url = 'https://www.youtube.com/@machiatodev'
         weight = 1
-      [[languages.pt-br.menu.main]]
-        name = 'Blog'
-        url = '/'
-        weight = 2
-      [[languages.pt-br.menu.main]]
-        name = 'Tema'
-        weight = 3
         [languages.pt-br.menu.main.params]
-          type = 'theme-toggle'
+          icon = 'youtube'
       [[languages.pt-br.menu.main]]
         name = 'GitHub ↗'
         url = 'https://github.com/MachiTwo/'
@@ -33,22 +26,15 @@ enableEmoji = true
         [languages.pt-br.menu.main.params]
           icon = 'github'
       [[languages.pt-br.menu.main]]
-        name = 'YouTube ↗'
-        url = 'https://www.youtube.com/@machiatodev'
+        name = 'Tema'
         weight = 3
         [languages.pt-br.menu.main.params]
-          icon = 'youtube'
+          type = 'theme-toggle'
       [[languages.pt-br.menu.main]]
         name = 'Buscar'
         weight = 4
         [languages.pt-br.menu.main.params]
           type = 'search'
-      [[languages.pt-br.menu.main]]
-        name = 'RSS'
-        url = '/index.xml'
-        weight = 5
-        [languages.pt-br.menu.main.params]
-          icon = 'rss'
 
   [languages.en]
     languageName = 'English'
@@ -57,18 +43,11 @@ enableEmoji = true
     title = 'MachiOnCoffee'
     [languages.en.menu]
       [[languages.en.menu.main]]
-        name = 'Documentation'
-        url = '/en/docs/'
+        name = 'YouTube'
+        url = 'https://www.youtube.com/@machiatodev'
         weight = 1
-      [[languages.en.menu.main]]
-        name = 'Blog'
-        url = '/en/'
-        weight = 2
-      [[languages.en.menu.main]]
-        name = 'Theme'
-        weight = 3
         [languages.en.menu.main.params]
-          type = 'theme-toggle'
+          icon = 'youtube'
       [[languages.en.menu.main]]
         name = 'GitHub'
         url = 'https://github.com/MachiTwo/'
@@ -76,22 +55,15 @@ enableEmoji = true
         [languages.en.menu.main.params]
           icon = 'github'
       [[languages.en.menu.main]]
-        name = 'YouTube'
-        url = 'https://www.youtube.com/@machiatodev'
+        name = 'Theme'
         weight = 3
         [languages.en.menu.main.params]
-          icon = 'youtube'
+          type = 'theme-toggle'
       [[languages.en.menu.main]]
         name = 'Search'
         weight = 4
         [languages.en.menu.main.params]
           type = 'search'
-      [[languages.en.menu.main]]
-        name = 'RSS'
-        url = '/en/index.xml'
-        weight = 5
-        [languages.en.menu.main.params]
-          icon = 'rss'
       [[languages.pt-br.menu.sidebar]]
         name = 'GitHub'
         weight = 1
@@ -119,7 +91,7 @@ enableEmoji = true
     displayTitle = true
     displayLogo = true
     [params.navbar.logo]
-      path = "images/logo.jpg"
+      path = "images/logo.svg"
       link = "/"
 
   [params.page]

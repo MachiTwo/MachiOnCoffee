@@ -1,17 +1,17 @@
 ---
-title: "Vectora Documentation"
+title: "Vectora"
 date: "2026-04-17T18:00:00-03:00"
 type: docs
 sidebar:
   open: true
 ---
 
+{{< lang-toggle >}}
+
+[**Blog**](/en/) | [**Documentation**](/en/docs/)
+
 Traditional AI agents often hallucinate because they operate in fragmented contexts. **Vectora** solves this not by
 being "just another chat," but by being a **Contextual Knowledge Engine** that functions as a **Tier 2 Sub-Agent**.
-
-<div class="hx:flex hx:justify-center hx:my-8">
-  <img src="/images/vectora.svg" alt="Vectora Logo" class="hx:max-w-[200px] hx:w-full hx:rounded-2xl hx:shadow-2xl hx:border hx:border-gray-200 hx:dark:border-gray-800">
-</div>
 
 Vectora was born to be the intelligence layer that connects the dots, delivering what we call **Connected Knowledge**.
 

@@ -2,6 +2,10 @@
 title: MachiOnCoffee
 ---
 
+{{< lang-toggle >}}
+
+[**Blog**](/en/) | [**Documentation**](/en/docs/)
+
 ## 2026 - April
 
 ### Day 17

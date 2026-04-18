@@ -147,7 +147,11 @@ def main():
     off_topic_en = [p for p in all_posts_en if is_off_topic(p)]
 
     # 1. Index Principal (PT) - Todos os posts agora ficam aqui
-    idx_content = "---\ntitle: MachiOnCoffee\n---\n\n"
+    idx_content = "---"
+    idx_content += "\ntitle: MachiOnCoffee\n"
+    idx_content += "---\n\n"
+    idx_content += "{{< lang-toggle >}}\n\n"
+    idx_content += "[**Blog**](/) | [**Documentação**](/docs/)\n\n"
     idx_content += render_months(group_by_day(regular_posts_pt), lang='pt')
     if write_if_changed(INDEX_FILE, idx_content):
         print(f"Generated {INDEX_FILE} with {len(regular_posts_pt)} posts.")
@@ -162,7 +166,11 @@ def main():
     # 3. Suporte a Inglês (EN) se houver postagens
     if all_posts_en:
         # Index EN
-        idx_en_content = "---\ntitle: MachiOnCoffee\n---\n\n"
+        idx_en_content = "---"
+        idx_en_content += "\ntitle: MachiOnCoffee\n"
+        idx_en_content += "---\n\n"
+        idx_en_content += "{{< lang-toggle >}}\n\n"
+        idx_en_content += "[**Blog**](/en/) | [**Documentation**](/en/docs/)\n\n"
         idx_en_content += render_months(group_by_day(regular_posts_en), lang='en')
         write_if_changed(INDEX_FILE_EN, idx_en_content)
 
