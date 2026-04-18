@@ -5,8 +5,7 @@ draft: false
 categories: ["Deep Dive", "Arquitetura"]
 tags: ["mcp", "acp", "sub-agent", "governança", "vectora", "rag"]
 description:
-  "Por que o Vectora é um Sub-Agent completo e não apenas um conjunto de ferramentas MCP? Descubra a diferença entre
-  funções passivas e governança ativa no contexto de agentes de IA para código."
+  "Por que o Vectora é um Sub-Agent completo e não apenas um conjunto de ferramentas MCP? Descubra a diferença entre funções passivas e governança ativa no contexto de agentes de IA para código."
 ---
 
 {{< lang-toggle >}}
