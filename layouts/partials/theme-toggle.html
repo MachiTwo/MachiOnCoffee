@@ -16,6 +16,8 @@
     class="hextra-theme-toggle hx:cursor-pointer hx:rounded-md hx:text-left hx:font-medium {{ $class }} hx:grow"
     type="button"
     aria-label="{{ $changeTheme }}"
+    aria-haspopup="menu"
+    aria-expanded="false"
   >
     <div class="hx:flex hx:items-center hx:gap-2 hx:capitalize">
       {{- partial "utils/icon.html" (dict "name" "sun" "attributes" (printf `height=%d class="hx:group-data-[theme=dark]:hidden hx:group-data-[theme=system]:hidden"` $iconHeight)) -}}
@@ -30,11 +32,14 @@
     class="hextra-theme-toggle-options hx:hidden hx:z-20 hx:max-h-64 hx:overflow-auto hx:rounded-md hx:ring-1 hx:ring-black/5 hx:bg-white hx:py-1 hx:text-sm hx:shadow-lg hx:dark:ring-white/20 hx:dark:bg-neutral-800"
     style="position: fixed; inset: auto auto 0px 0px; margin: 0px; min-width: 100px;"
     data-theme="light"
+    role="menu"
   >
     <li class="hx:flex hx:flex-col">
       <button
         type="button"
         data-item="light"
+        role="menuitemradio"
+        aria-checked="false"
         class="hx:text-gray-800 hx:dark:text-gray-100 hx:hover:bg-primary-50 hx:hover:text-primary-600 hx:hover:dark:bg-primary-500/10 hx:hover:dark:text-primary-600 hx:relative hx:cursor-pointer hx:whitespace-nowrap hx:py-1.5 hx:transition-colors hx:ltr:pl-3 hx:ltr:pr-9 hx:rtl:pr-3 hx:rtl:pl-9 hx:text-left hx:w-full hx:bg-transparent hx:border-0"
       >
         {{ $light }}
@@ -47,6 +52,8 @@
       <button
         type="button"
         data-item="dark"
+        role="menuitemradio"
+        aria-checked="false"
         class="hx:text-gray-800 hx:dark:text-gray-100 hx:hover:bg-primary-50 hx:hover:text-primary-600 hx:hover:dark:bg-primary-500/10 hx:hover:dark:text-primary-600 hx:relative hx:cursor-pointer hx:whitespace-nowrap hx:py-1.5 hx:transition-colors hx:ltr:pl-3 hx:ltr:pr-9 hx:rtl:pr-3 hx:rtl:pl-9 hx:text-left hx:w-full hx:bg-transparent hx:border-0"
       >
         {{ $dark }}
@@ -59,6 +66,8 @@
       <button
         type="button"
         data-item="system"
+        role="menuitemradio"
+        aria-checked="false"
         class="hx:text-gray-800 hx:dark:text-gray-100 hx:hover:bg-primary-50 hx:hover:text-primary-600 hx:hover:dark:bg-primary-500/10 hx:hover:dark:text-primary-600 hx:relative hx:cursor-pointer hx:whitespace-nowrap hx:py-1.5 hx:transition-colors hx:ltr:pl-3 hx:ltr:pr-9 hx:rtl:pr-3 hx:rtl:pl-9 hx:text-left hx:w-full hx:bg-transparent hx:border-0"
       >
         {{ $system }}
