@@ -15,7 +15,7 @@ enableEmoji = true
     [languages.pt-br.menu]
       [[languages.pt-br.menu.main]]
         name = 'Documentação'
-        url = '/docs/vectora/'
+        url = '/docs/'
         weight = 1
       [[languages.pt-br.menu.main]]
         name = 'Blog'
@@ -58,7 +58,7 @@ enableEmoji = true
     [languages.en.menu]
       [[languages.en.menu.main]]
         name = 'Documentation'
-        url = '/en/docs/vectora/'
+        url = '/en/docs/'
         weight = 1
       [[languages.en.menu.main]]
         name = 'Blog'
