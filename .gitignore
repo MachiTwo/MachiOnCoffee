@@ -172,7 +172,6 @@ mise.toml
 .codex
 
 # Scratch / local notes (briefs, todo files, translation plans)
-tmp/
 /__pycache__
 *.txt
 *.xml
@@ -181,4 +180,3 @@ tmp/
 /static/css
 *.cast
 *.json
-/**temp
