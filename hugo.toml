@@ -35,6 +35,12 @@ enableEmoji = true
         weight = 4
         [languages.pt-br.menu.main.params]
           icon = 'rss'
+      [[languages.pt-br.menu.main]]
+        name = 'YouTube ↗'
+        url = 'https://www.youtube.com/@machiatodev'
+        weight = 5
+        [languages.pt-br.menu.main.params]
+          icon = 'youtube'
 
   [languages.en]
     languageName = 'English'
@@ -64,6 +70,12 @@ enableEmoji = true
         weight = 4
         [languages.en.menu.main.params]
           icon = 'rss'
+      [[languages.en.menu.main]]
+        name = 'YouTube'
+        url = 'https://www.youtube.com/@machiatodev'
+        weight = 5
+        [languages.en.menu.main.params]
+          icon = 'youtube'
       [[languages.pt-br.menu.sidebar]]
         name = 'GitHub'
         weight = 1
@@ -105,5 +117,7 @@ enableEmoji = true
 
   [params.author]
     name = 'MachiTwo'
+    twitter = 'BrunoSoarxz'
+    youtube = 'machiatodev'
 
   description = 'MachiOnCoffee - Um blog minimalista sobre tecnologia, café e cafés.'
