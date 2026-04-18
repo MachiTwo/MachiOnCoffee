@@ -262,7 +262,7 @@ def main():
     write_if_changed(OFF_TOPIC_FILE, ot_content)
 
     if all_posts_en:
-        idx_en_content = "---\ntitle: MachiOnCoffee (EN)\n---\n\n"
+        idx_en_content = "---\ntitle: MachiOnCoffee\n---\n\n"
         idx_en_content += render_months(group_by_month(regular_posts_en), lang='en')
         write_if_changed(INDEX_FILE_EN, idx_en_content)
 

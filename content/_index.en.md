@@ -1,5 +1,5 @@
 ---
-title: MachiOnCoffee (EN)
+title: MachiOnCoffee
 ---
 
 ## 2026 - April

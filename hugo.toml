@@ -25,28 +25,28 @@ enableEmoji = true
         [languages.pt-br.menu.main.params]
           icon = 'github'
       [[languages.pt-br.menu.main]]
-        name = 'Buscar'
+        name: 'YouTube ↗'
+        url = 'https://www.youtube.com/@machiatodev'
         weight = 3
+        [languages.pt-br.menu.main.params]
+          icon = 'youtube'
+      [[languages.pt-br.menu.main]]
+        name = 'Buscar'
+        weight = 4
         [languages.pt-br.menu.main.params]
           type = 'search'
       [[languages.pt-br.menu.main]]
         name = 'RSS'
         url = '/index.xml'
-        weight = 4
-        [languages.pt-br.menu.main.params]
-          icon = 'rss'
-      [[languages.pt-br.menu.main]]
-        name = 'YouTube ↗'
-        url = 'https://www.youtube.com/@machiatodev'
         weight = 5
         [languages.pt-br.menu.main.params]
-          icon = 'youtube'
+          icon = 'rss'
 
   [languages.en]
     languageName = 'English'
     languageCode = 'en'
     weight = 2
-    title = 'MachiOnCoffee (EN)'
+    title = 'MachiOnCoffee'
     [languages.en.menu]
       [[languages.en.menu.main]]
         name = 'Theme'
@@ -60,22 +60,22 @@ enableEmoji = true
         [languages.en.menu.main.params]
           icon = 'github'
       [[languages.en.menu.main]]
-        name = 'Search'
+        name = 'YouTube'
+        url = 'https://www.youtube.com/@machiatodev'
         weight = 3
+        [languages.en.menu.main.params]
+          icon = 'youtube'
+      [[languages.en.menu.main]]
+        name = 'Search'
+        weight = 4
         [languages.en.menu.main.params]
           type = 'search'
       [[languages.en.menu.main]]
         name = 'RSS'
         url = '/en/index.xml'
-        weight = 4
-        [languages.en.menu.main.params]
-          icon = 'rss'
-      [[languages.en.menu.main]]
-        name = 'YouTube'
-        url = 'https://www.youtube.com/@machiatodev'
         weight = 5
         [languages.en.menu.main.params]
-          icon = 'youtube'
+          icon = 'rss'
       [[languages.pt-br.menu.sidebar]]
         name = 'GitHub'
         weight = 1
@@ -89,6 +89,10 @@ enableEmoji = true
 
 [markup]
   [markup.goldmark]
+    [markup.goldmark.parser]
+      [markup.goldmark.parser.attribute]
+        block = true
+        title = true
     [markup.goldmark.renderer]
       unsafe = true
   [markup.highlight]
