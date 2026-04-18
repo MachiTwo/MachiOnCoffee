@@ -3,9 +3,10 @@ default_language_version:
 
 exclude: |
   (?x)^(
-    .*static/.*|
-    .*.pdf|
-    .*.temp/.*|
+    static/.*|
+    .*\.pdf$|
+    temp/.*|
+    .*/temp/.*
   )$
 
 repos:
