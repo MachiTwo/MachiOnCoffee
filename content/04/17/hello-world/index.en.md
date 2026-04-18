@@ -21,4 +21,6 @@ I also started learning Go and absolutely love the language. After that, I began
 
 All of this happened while I was working side jobs outside of programming. I've worked in several markets, restaurants, bars, and currently in a bakery.
 
-In the future, I plan to create dedicated posts for Vectora, Zyris, and the Ability System, but for now, this post marks the beginning!
+In this same launch series, you can read more details about [**Vectora**](../vectora/), the [**Zyris Engine**](../zyris-engine/), and the [**Ability System**](../ability-system/).
+
+This post marks only the beginning!

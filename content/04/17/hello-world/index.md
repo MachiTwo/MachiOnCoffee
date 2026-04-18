@@ -21,4 +21,6 @@ Também comecei a aprender Go, e adorei a linguagem. Depois disso, comecei a foc
 
 Tudo isso aconteceu enquanto faço trabalhos paralelos fora da área de programação. Já trabalhei em alguns mercados, restaurantes, bares e, atualmente, em uma padaria.
 
-No futuro, pretendo criar posts dedicados para o Vectora, Zyris e Ability System, mas no momento, este post é para marcar o início!
+Nesta mesma série de posts de lançamento, você pode ler mais detalhes sobre o [**Vectora**](../vectora/), a [**Zyris Engine**](../zyris-engine/) e o [**Ability System**](../ability-system/).
+
+Este post marca apenas o início!
