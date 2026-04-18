@@ -4,7 +4,9 @@ type: docs
 breadcrumbs: false
 ---
 
-{{< lang-toggle >}} {{< section-toggle >}}
+{{< lang-toggle >}}
+
+{{< section-toggle >}}
 
 Selecione um projeto para explorar:
 

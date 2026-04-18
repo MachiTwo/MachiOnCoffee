@@ -7,7 +7,9 @@ sidebar:
 breadcrumbs: true
 ---
 
-{{< lang-toggle >}} ## O Problema
+{{< lang-toggle >}}
+
+## O Problema
 
 Agentes de IA tradicionais costumam **alucinar** porque operam em contextos fragmentados, sem visão estruturada do
 codebase. Uma busca por "função de autenticação" retorna 50 resultados desconexos. O contexto entregue é raso, sem
