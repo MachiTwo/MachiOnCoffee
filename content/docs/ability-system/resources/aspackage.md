@@ -4,7 +4,6 @@ date: "2026-04-18T12:00:00-03:00"
 type: docs
 ---
 
-# ASPackage
 
 **Badge:** `Resource`
 
@@ -26,10 +25,10 @@ Permite:
 
 ## Herança
 
-```
+```gdscript
 Resource
  └─ ASPackage
-```
+```gdscript
 
 ## Propriedades
 
@@ -44,57 +43,57 @@ Resource
 
 ## Métodos Públicos
 
-### Gerenciamento de Effects Diretos
+## Gerenciamento de Effects Diretos
 
-#### `add_effect(effect: ASEffect) → void`
+## `add_effect(effect: ASEffect) → void`
 
 Adiciona effect direto (resource) ao package.
 
-#### `remove_effect(effect: ASEffect) → void`
+## `remove_effect(effect: ASEffect) → void`
 
 Remove effect direto.
 
-#### `clear_effects() → void`
+## `clear_effects() → void`
 
 Remove todos os effects diretos.
 
-### Gerenciamento de Tags de Effects
+## Gerenciamento de Tags de Effects
 
-#### `add_effect_tag(tag: StringName) → void`
+## `add_effect_tag(tag: StringName) → void`
 
 Adiciona tag de effect (será resolvido pelo alvo).
 
-#### `remove_effect_tag(tag: StringName) → void`
+## `remove_effect_tag(tag: StringName) → void`
 
 Remove tag de effect.
 
-### Gerenciamento de Cues Diretos
+## Gerenciamento de Cues Diretos
 
-#### `add_cue(cue: ASCue) → void`
+## `add_cue(cue: ASCue) → void`
 
 Adiciona cue direto (resource) ao package.
 
-#### `remove_cue(cue: ASCue) → void`
+## `remove_cue(cue: ASCue) → void`
 
 Remove cue direto.
 
-### Gerenciamento de Tags de Cues
+## Gerenciamento de Tags de Cues
 
-#### `add_cue_tag(tag: StringName) → void`
+## `add_cue_tag(tag: StringName) → void`
 
 Adiciona tag de cue (será resolvida pelo alvo).
 
-#### `remove_cue_tag(tag: StringName) → void`
+## `remove_cue_tag(tag: StringName) → void`
 
 Remove tag de cue.
 
-#### `clear_cues() → void`
+## `clear_cues() → void`
 
 Remove todas as cues.
 
 ## Casos de Uso
 
-### Payload de Fireball (Explosão)
+## Payload de Fireball (Explosão)
 
 ```gdscript
 var fireball_package = ASPackage.new()
@@ -112,9 +111,9 @@ fireball_package.add_cue(particles_cue)
 
 # Evento ao entregar
 fireball_package.events_on_deliver.append(&"event.fireball_hit")
-```
+```gdscript
 
-### Entrega via Projectile
+## Entrega via Projectile
 
 ```gdscript
 func _on_fireball_cast():
@@ -131,9 +130,9 @@ func _on_fireball_cast():
     delivery.activate()
 
     add_child(projectile)
-```
+```gdscript
 
-### Payload Mixto (Effects + Tags)
+## Payload Mixto (Effects + Tags)
 
 ```gdscript
 var poison_trap_package = ASPackage.new()
@@ -150,9 +149,9 @@ poison_trap_package.add_cue_tag(&"cue.poison_particle")
 
 # Evento
 poison_trap_package.events_on_deliver.append(&"event.poison_applied")
-```
+```gdscript
 
-### Aura Passiva (Area2D + Delivery)
+## Aura Passiva (Area2D + Delivery)
 
 ```gdscript
 # Uma aura aplicada a aliados dentro de um círculo
@@ -175,9 +174,9 @@ func _on_aura_tick():
         var asc = AbilitySystem.resolve_component(target)
         if asc:
             asc.apply_package(aura_package)
-```
+```gdscript
 
-### Payload Condicional (Múltiplos Effects)
+## Payload Condicional (Múltiplos Effects)
 
 ```gdscript
 # Magia que muda baseado no alvo
@@ -198,9 +197,9 @@ spell_package.add_cue(spell_visual_cue)
 
 # Evento genérico
 spell_package.events_on_deliver.append(&"event.spell_cast")
-```
+```gdscript
 
-### Integração com ASComponent.apply_package()
+## Integração com ASComponent.apply_package()
 
 ```gdscript
 # Direct application (não via projectile)
@@ -211,15 +210,15 @@ target_asc.apply_package(fireball_package, level=2.0)
 # - Confere activation_required_all_tags / blocked_any_tags
 # - Emite sinais: "effect_applied", "effect_failed"
 # - Retorna void (sempre tenta aplicar)
-```
+```gdscript
 
 ## Diferença: Apply vs Delivery
 
-### `apply_package()` (Direct)
+## `apply_package()` (Direct)
 
 ```gdscript
 asc.apply_package(package)  # Aplica direto, sem física/delay
-```
+```gdscript
 
 Usado para:
 
@@ -227,12 +226,12 @@ Usado para:
 - Habilidades de self-cast
 - AoE instantânea
 
-### `ASDelivery` (Via Projectile/Trigger)
+## `ASDelivery` (Via Projectile/Trigger)
 
 ```gdscript
 delivery.package = package  # Atribuir
 delivery.activate()         # Disparar quando colidir
-```
+```gdscript
 
 Usado para:
 

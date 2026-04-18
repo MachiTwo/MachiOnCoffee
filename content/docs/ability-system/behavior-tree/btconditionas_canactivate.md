@@ -4,8 +4,6 @@ date: "2026-04-18T12:00:00-03:00"
 type: docs
 ---
 
-# BTConditionAS_CanActivate
-
 **Badge:** `BTCondition` • `LimboAI`
 
 ## Descrição Breve
@@ -26,11 +24,11 @@ Usado para guiar decisões da IA: "Se pode atacar, ataca. Senão, esquiva."
 
 ## Herança
 
-```
+```gdscript
 BTTask
  └─ BTCondition
      └─ BTConditionAS_CanActivate
-```
+```gdscript
 
 ## Propriedades
 
@@ -41,23 +39,23 @@ BTTask
 
 ## Métodos
 
-### Getters
+## Getters
 
-#### `get_ability_tag() → StringName` (const)
+## `get_ability_tag() → StringName` (const)
 
 Retorna tag da ability.
 
-#### `get_asc_node_path() → NodePath` (const)
+## `get_asc_node_path() → NodePath` (const)
 
 Retorna caminho customizado.
 
-### Setters
+## Setters
 
-#### `set_ability_tag(tag: StringName) → void`
+## `set_ability_tag(tag: StringName) → void`
 
 Define tag da ability.
 
-#### `set_asc_node_path(path: NodePath) → void`
+## `set_asc_node_path(path: NodePath) → void`
 
 Define caminho para ASComponent.
 
@@ -85,7 +83,7 @@ Se **qualquer** validação falha → **BT.FAILURE**
 
 ## Casos de Uso
 
-### Guard Clause
+## Guard Clause
 
 ```gdscript
 sequence: [
@@ -99,9 +97,9 @@ sequence: [
 #   Sequence falha (não tenta ativar)
 # Se pode ativar:
 #   Ativa fireball, sequence continua
-```
+```gdscript
 
-### Decision Logic
+## Decision Logic
 
 ```gdscript
 selector: [
@@ -119,9 +117,9 @@ selector: [
 ]
 
 # Tenta heavy (se disponível) → Se não, light → Se não, move
-```
+```gdscript
 
-### Priority Selection
+## Priority Selection
 
 ```gdscript
 selector: [
@@ -140,9 +138,9 @@ selector: [
 ]
 
 # Prioridade: Ultimate (se pode) > Special > Basic
-```
+```gdscript
 
-### Multi-Ability Combos
+## Multi-Ability Combos
 
 ```gdscript
 sequence: [
@@ -160,9 +158,9 @@ sequence: [
 ]
 
 # Combo inteiro só executa se TODAS habilidades disponíveis
-```
+```gdscript
 
-### Resource-Limited Abilities
+## Resource-Limited Abilities
 
 ```gdscript
 # Ability com cost:
@@ -183,7 +181,7 @@ selector: [
 ]
 
 # Se mana insuficiente: condição falha → próxima opção
-```
+```gdscript
 
 ## Comparação: Condition vs Action
 
@@ -195,7 +193,7 @@ condition: BTConditionAS_CanActivate
 # Verifica requisitos
 # Retorna true/false
 # SEM side effects
-```
+```gdscript
 
 **BTActionAS_ActivateAbility:** Ativa (com side effects)
 
@@ -206,7 +204,7 @@ action: BTActionAS_ActivateAbility
 # Consome resources
 # Dispara events
 # Retorna SUCCESS/FAILURE
-```
+```gdscript
 
 **Pattern:** Condition → Action
 
@@ -215,7 +213,7 @@ sequence: [
     condition: can_activate  # Verifica
     action: activate         # Ativa (se condição passou)
 ]
-```
+```gdscript
 
 ## Requisitos Possíveis
 
@@ -234,7 +232,7 @@ costs: {
 }
 
 cooldown_duration: 2.0
-```
+```gdscript
 
 `BTConditionAS_CanActivate` valida tudo isso automaticamente.
 
@@ -250,37 +248,37 @@ O(1) operação—nenhuma busca ou iteração.
 
 ## Casos de Falha
 
-### 1. Cooldown
+## 1. Cooldown
 
 ```gdscript
 # Ability disponível agora?
 # Cooldown expirado?
 # Condição retorna false se cooldown ativo
-```
+```gdscript
 
-### 2. Custos Insuficientes
+## 2. Custos Insuficientes
 
 ```gdscript
 # Mana >= 100 necessário?
 # Tem 50 mana?
 # Condição falha
-```
+```gdscript
 
-### 3. Tags Bloqueadas
+## 3. Tags Bloqueadas
 
 ```gdscript
 # Ability bloqueada por "state.stunned"?
 # Tem estado stunned?
 # Condição falha
-```
+```gdscript
 
-### 4. Tags Faltando
+## 4. Tags Faltando
 
 ```gdscript
 # Ability requer "class.warrior"?
 # Não é warrior?
 # Condição falha
-```
+```gdscript
 
 ## Debugging
 
@@ -300,7 +298,7 @@ func _tick(agent, blackboard):
         print("  Has state.stunned: %s" % asc.has_tag(&"state.stunned"))
 
     return super._tick(agent, blackboard)
-```
+```gdscript
 
 ## Integração com ASComponent
 
@@ -309,7 +307,7 @@ func _tick(agent, blackboard):
 ```gdscript
 if asc.can_activate_ability_by_tag(&"ability.fireball"):
     print("Pode ativar!")
-```
+```gdscript
 
 `BTConditionAS_CanActivate` simplesmente chama isso via Behavior Tree.
 

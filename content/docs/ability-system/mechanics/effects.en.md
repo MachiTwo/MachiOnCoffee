@@ -38,7 +38,7 @@ An effect can contain multiple modifiers acting on different attributes:
 | **OP_MULTIPLY** | Multiplies the value (e.g., x1.5 Damage).                             |
 | **OP_OVERRIDE** | Ignores the base and sets a fixed value (e.g., Morphed -> Speed = 0). |
 
-### Periodicity (Ticking)
+## Periodicity (Ticking)
 
 Duration effects can have a `period`. This allows creating DoT (Damage over Time) or HoT (Heal over Time) effects that
 "tick" every X seconds.

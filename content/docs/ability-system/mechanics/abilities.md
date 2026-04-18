@@ -30,7 +30,7 @@ Exemplo de um Ataque Pesado:
 2. **Execution**: O golpe ocorre. Dispara `event.damage`.
 3. **Recovery (0.3s)**: O personagem se recupera.
 
-### Transições
+## Transições
 
 As fases podem transicionais por **Tempo** (duração fixa) ou por **Evento** (ex: o mestre de animação envia o sinal
 `.Hit`).
@@ -56,7 +56,7 @@ void _on_activate_ability(Object* owner, RefCounted* spec) {
     // Lógica pura de gameplay aqui
     // Os custos e cooldowns já foram tratados pela engine!
 }
-```
+```gdscript
 
 > [!TIP] Use **Sub-Abilities** para criar habilidades compostas que são desbloqueadas em conjunto, mantendo a hierarquia
 > limpa.

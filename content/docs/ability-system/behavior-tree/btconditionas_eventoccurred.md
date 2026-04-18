@@ -4,8 +4,6 @@ date: "2026-04-18T12:00:00-03:00"
 type: docs
 ---
 
-# BTConditionAS_EventOccurred
-
 **Badge:** `BTCondition` • `LimboAI`
 
 ## Descrição Breve
@@ -26,11 +24,11 @@ Usado para reações baseadas em eventos: "Se tomou dano há pouco, retreate. Se
 
 ## Herança
 
-```
+```gdscript
 BTTask
  └─ BTCondition
      └─ BTConditionAS_EventOccurred
-```
+```gdscript
 
 ## Propriedades
 
@@ -42,31 +40,31 @@ BTTask
 
 ## Métodos
 
-### Getters
+## Getters
 
-#### `get_event_tag() → StringName` (const)
+## `get_event_tag() → StringName` (const)
 
 Retorna tag do evento.
 
-#### `get_time_window() → float` (const)
+## `get_time_window() → float` (const)
 
 Retorna janela de tempo.
 
-#### `get_asc_node_path() → NodePath` (const)
+## `get_asc_node_path() → NodePath` (const)
 
 Retorna caminho customizado.
 
-### Setters
+## Setters
 
-#### `set_event_tag(tag: StringName) → void`
+## `set_event_tag(tag: StringName) → void`
 
 Define tag do evento.
 
-#### `set_time_window(seconds: float) → void`
+## `set_time_window(seconds: float) → void`
 
 Define janela (em segundos).
 
-#### `set_asc_node_path(path: NodePath) → void`
+## `set_asc_node_path(path: NodePath) → void`
 
 Define caminho para ASComponent.
 
@@ -88,11 +86,11 @@ Representa quantos segundos olhar para trás:
 time_window: 0.5   # Últimos 0.5 segundos
 time_window: 2.0   # Últimos 2.0 segundos
 time_window: 10.0  # Últimos 10.0 segundos
-```
+```gdscript
 
 ## Casos de Uso
 
-### Reação a Dano
+## Reação a Dano
 
 ```gdscript
 selector: [
@@ -107,9 +105,9 @@ selector: [
 
 # Se tomou dano nos últimos 0.5s → pain anim
 # Senão → idle
-```
+```gdscript
 
-### Combate Responsivo
+## Combate Responsivo
 
 ```gdscript
 selector: [
@@ -124,9 +122,9 @@ selector: [
 
 # Se parrou nos últimos 0.2s → contra-ataca
 # Senão → continua
-```
+```gdscript
 
-### Multi-Evento Logic
+## Multi-Evento Logic
 
 ```gdscript
 sequence: [
@@ -140,9 +138,9 @@ sequence: [
 ]
 
 # Se tomou dano recente E saúde baixa → heal
-```
+```gdscript
 
-### Boss Phase Transition
+## Boss Phase Transition
 
 ```gdscript
 selector: [
@@ -156,9 +154,9 @@ selector: [
 ]
 
 # Após 3 hits em 2 segundos → mudar fase
-```
+```gdscript
 
-### Chaining Events
+## Chaining Events
 
 ```gdscript
 sequence: [
@@ -172,7 +170,7 @@ sequence: [
 ]
 
 # Verifica se próprio evento ainda está em histórico
-```
+```gdscript
 
 ## Window Time Importante
 
@@ -182,7 +180,7 @@ sequence: [
 time_window: 0.1  # Apenas 100ms
 # Evento ocorreu 150ms atrás?
 # Já fora do histórico → falha
-```
+```gdscript
 
 **Muito Grande:** Muitos falsos positivos
 
@@ -190,7 +188,7 @@ time_window: 0.1  # Apenas 100ms
 time_window: 60.0  # 1 minuto inteiro
 # Dano tomado há 50s atrás?
 # Ainda conta como recente → pode ser indesejado
-```
+```gdscript
 
 **Bom:** Baseado em use case
 
@@ -198,7 +196,7 @@ time_window: 60.0  # 1 minuto inteiro
 # Para reações imediatas: 0.2s - 0.5s
 # Para combate normal: 1.0s - 2.0s
 # Para eventos duráveis: 5.0s+
-```
+```gdscript
 
 ## Histórico Automático
 
@@ -213,7 +211,7 @@ event_history = {
 }
 
 # TTL automático: remove eventos após 60s (configurável)
-```
+```gdscript
 
 ## Resolução de ASComponent
 
@@ -229,7 +227,7 @@ var last_magnitude = ASTagUtils.event_get_last_magnitude(&"event.damage", asc)
 if last_magnitude > 50:
     # Dano > 50: retreate
     action_retreat()
-```
+```gdscript
 
 Mas `BTConditionAS_EventOccurred` apenas verifica **ocorrência**, não magnitude.
 
@@ -249,7 +247,7 @@ func _tick(agent, blackboard):
         print("  Last magnitude: %.2f" % magnitude)
 
     return super._tick(agent, blackboard)
-```
+```gdscript
 
 ## Comparação: Condition vs Action
 
@@ -261,7 +259,7 @@ condition: BTConditionAS_EventOccurred
   time_window: 0.5
 # Apenas verifica se evento já ocorreu
 # Retorna true/false
-```
+```gdscript
 
 **BTActionAS_WaitForEvent:** Aguarda evento
 
@@ -271,11 +269,11 @@ action: BTActionAS_WaitForEvent
   time_window: 0.5
 # Entra em RUNNING até evento ocorrer
 # Bloqueia execução
-```
+```gdscript
 
 ## Casos de Uso Avançado
 
-### Reactive Chain
+## Reactive Chain
 
 ```gdscript
 selector: [
@@ -289,9 +287,9 @@ selector: [
 ]
 
 # Se foi atingido por fogo recente → toma água
-```
+```gdscript
 
-### Stateful Logic
+## Stateful Logic
 
 ```gdscript
 sequence: [
@@ -306,7 +304,7 @@ sequence: [
 ]
 
 # Verifica se inimigo contra-atacou durante espera
-```
+```gdscript
 
 ## Integração com ASComponent
 
@@ -315,7 +313,7 @@ sequence: [
 ```gdscript
 if ASTagUtils.event_did_occur(&"event.damage", asc, 1.0):
     print("Tomou dano recentemente")
-```
+```gdscript
 
 `BTConditionAS_EventOccurred` simplesmente chama isso via Behavior Tree.
 

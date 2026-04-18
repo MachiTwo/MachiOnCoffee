@@ -24,7 +24,7 @@ use and manages their state.
 
 The ASC was built from the ground up for authoritative multiplayer:
 
-### ASStateCache
+## ASStateCache
 
 Maintains a lightweight circular buffer of the last **128 ticks**.
 

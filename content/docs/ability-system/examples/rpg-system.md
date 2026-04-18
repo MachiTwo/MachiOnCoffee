@@ -63,7 +63,7 @@ func get_xp_for_next_level() -> float:
 func get_xp_progress() -> float:
     var needed = get_xp_for_next_level()
     return current_xp / needed
-```
+```gdscript
 
 ## 2. Árvore de Habilidades (Skill Tree)
 
@@ -224,7 +224,7 @@ func get_skill_tree_paths() -> Dictionary:
                 paths[skill_id].append(other_id)
 
     return paths
-```
+```gdscript
 
 ## 3. Sistema de Classes
 
@@ -277,7 +277,7 @@ func apply_to_player(player: Player):
 func select_class(class_type: CharacterClass.CLASS_TYPE):
     var class_resource = preload("res://assets/classes/warrior.tres") if class_type == CharacterClass.CLASS_TYPE.WARRIOR else preload("res://assets/classes/mage.tres")
     class_resource.apply_to_player(self)
-```
+```gdscript
 
 ## 4. Sistema de Equipamento
 
@@ -393,7 +393,7 @@ func unequip_item(slot_type: EquipmentSlot.SLOT_TYPE):
         _remove_item_bonuses(slot.current_item)
         inventory.append(slot.current_item)
         slot.current_item = null
-```
+```gdscript
 
 ## 5. Sistema de Inventário
 
@@ -456,7 +456,7 @@ func get_item_by_id(item_id: StringName) -> Variant:
 
 func get_inventory_size() -> int:
     return inventory.size()
-```
+```gdscript
 
 ## 6. Exemplo Completo: Character Setup
 
@@ -565,7 +565,7 @@ func use_ability(ability_tag: StringName):
         return
 
     asc.try_activate_ability_by_tag(ability_tag)
-```
+```gdscript
 
 ## 7. UI do RPG
 
@@ -652,7 +652,7 @@ func update_inventory_display():
             player.inventory_system.use_consumable(item.id)
         )
         inventory_panel.add_child(button)
-```
+```gdscript
 
 ---
 

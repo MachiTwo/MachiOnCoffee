@@ -4,13 +4,11 @@ date: "2026-04-18T12:00:00-03:00"
 type: docs
 ---
 
-# Guia: Integração com LimboAI (Behavior Trees)
-
 Controle o Ability System inteiramente via Behavior Trees.
 
 ## Arquitetura
 
-```
+```gdscript
 BehaviorTree
 ├─ Selector (decisão)
 │  ├─ Sequence (combo)
@@ -18,7 +16,7 @@ BehaviorTree
 │  │  └─ Action: ActivateAbility
 │  └─ Sequence (fallback)
 │     └─ Action: Move
-```
+```gdscript
 
 ## Passo 1: Criar Behavior Tree Simples
 
@@ -26,35 +24,35 @@ No editor, crie uma cena com **LimboAIPlayer**.
 
 Crie BT:
 
-```
+```gdscript
 Root: Selector
 ├─ Sequence: "Attack"
 │  ├─ Condition: BTConditionAS_CanActivate (ability.slash)
 │  ├─ Action: BTActionAS_ActivateAbility (ability.slash)
 │  └─ Action: Wait (0.5s)
 └─ Action: Move Towards Target
-```
+```gdscript
 
 ## Passo 2: Configurar Nós BT
 
 **BTConditionAS_CanActivate:**
 
-```
+```gdscript
 ability_tag: &"ability.slash"
 asc_node_path: (vazio para auto-resolve)
-```
+```gdscript
 
 **BTActionAS_ActivateAbility:**
 
-```
+```gdscript
 ability_tag: &"ability.slash"
 activation_level: 1.0
 asc_node_path: (vazio)
-```
+```gdscript
 
 ## Passo 3: Padrão Decisional Avançado
 
-```
+```gdscript
 Selector (escolhe primeira opção)
 ├─ Sequence: "Critical Health"
 │  ├─ Condition: health < 25%
@@ -71,19 +69,19 @@ Selector (escolhe primeira opção)
 │  └─ Action: ActivateAbility (ability.slash)
 │
 └─ Action: Idle
-```
+```gdscript
 
 ## Passo 4: Event-Driven Behavior
 
 Dispara evento → BT reage:
 
-```
+```gdscript
 Sequence:
 ├─ Action: DispatchEvent (event.player_hit)
 ├─ Action: WaitForEvent (event.player_hit_back)
 │  time_window: 1.0
 └─ Action: Counter Attack
-```
+```gdscript
 
 Script para sincronizar:
 
@@ -92,24 +90,24 @@ func _on_player_hit(damage):
     asc.dispatch_event(&"event.player_hit")
     # BT aguarda "player_hit_back" por até 1s
     # Se receber, executa contra-ataque
-```
+```gdscript
 
 ## Passo 5: Combo Tree
 
-```
+```gdscript
 Sequence: "Combo Chain"
 ├─ Action: ActivateAbility (combo.1)
 ├─ Action: WaitForEvent (combo.1_finished, timeout: 2.0)
 ├─ Action: ActivateAbility (combo.2)
 ├─ Action: WaitForEvent (combo.2_finished, timeout: 2.0)
 └─ Action: ActivateAbility (combo.3_finisher)
-```
+```gdscript
 
 Se qualquer passo falha (timeout), sequence falha.
 
 ## Passo 6: Tag-Based Decision Tree
 
-```
+```gdscript
 Selector:
 ├─ Sequence: "Is Burning"
 │  ├─ Condition: HasTag (state.burning)
@@ -122,23 +120,23 @@ Selector:
 │  └─ Action: Move To Heat Source
 │
 └─ Action: Continue Normal Behavior
-```
+```gdscript
 
 ## Passo 7: Parallel Tasks (Simultâneos)
 
-```
+```gdscript
 Parallel:
 ├─ Action: MoveWhileAttacking
 ├─ Sequence:
 │  ├─ WaitForEvent (enemy_near)
 │  └─ ActivateAbility (ability.slash)
-```
+```gdscript
 
 Ambos rodam simultaneamente.
 
 ## Caso de Uso: Boss Multi-Fase
 
-```
+```gdscript
 Root: Sequence
 ├─ Action: Initialize (phase = 1)
 ├─ Sequence: "Phase 1"
@@ -161,7 +159,7 @@ Root: Sequence
 │        └─ Defensive Stance
 │
 └─ Action: Die (when health == 0)
-```
+```gdscript
 
 ## Passo 8: Custom BT Action
 
@@ -187,7 +185,7 @@ func _tick(agent, blackboard):
             return BT.FAILURE
     else:
         return BT.FAILURE
-```
+```gdscript
 
 ## Debugging BT
 
@@ -197,16 +195,16 @@ Enable debug no LimboAI:
 # No script do agent:
 func _ready():
     limbo_ai_player.debug_enabled = true
-```
+```gdscript
 
 Output:
 
-```
+```gdscript
 [BTSelector] → trying option 0
   [BTConditionAS_CanActivate] slash → SUCCESS
   [BTActionAS_ActivateAbility] slash → SUCCESS
   [BTActionWait] 0.5s → RUNNING
-```
+```gdscript
 
 ## Performance
 
@@ -220,7 +218,7 @@ Para bosses/elite, BT é perfeito.
 
 ## Checklist
 
-```
+```gdscript
 [ ] Instalar/ativar LimboAI plugin
 [ ] Criar behavior tree root
 [ ] Adicionar nós AS (CanActivate, Activate, DispatchEvent)
@@ -228,7 +226,7 @@ Para bosses/elite, BT é perfeito.
 [ ] Sincronizar com abilities do AS
 [ ] Implementar fallbacks
 [ ] Balancear complexidade vs performance
-```
+```gdscript
 
 ---
 

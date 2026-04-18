@@ -4,7 +4,6 @@ date: "2026-04-18T12:00:00-03:00"
 type: docs
 ---
 
-# ASCueAnimation
 
 **Badge:** `Resource` • `ASCue`
 
@@ -27,11 +26,11 @@ Crie um resource `.tres` do tipo `ASCueAnimation`, configure a propriedade `anim
 
 ## Herança
 
-```
+```gdscript
 Resource
  └─ ASCue
      └─ ASCueAnimation
-```
+```gdscript
 
 ## Propriedades
 
@@ -44,15 +43,15 @@ Resource
 
 ## Métodos
 
-### Getters
+## Getters
 
-#### `get_animation_name() → String` (const)
+## `get_animation_name() → String` (const)
 
 Retorna nome da animação configurada.
 
-### Setters
+## Setters
 
-#### `set_animation_name(name: String) → void`
+## `set_animation_name(name: String) → void`
 
 Define a animação a ser tocada. Deve corresponder a uma animação existente no AnimationPlayer alvo.
 
@@ -74,7 +73,7 @@ Se `node_name` vazio, ASCueAnimation tenta nesta ordem:
 
 ## Casos de Uso
 
-### Ability com Animação de Ataque
+## Ability com Animação de Ataque
 
 ```gdscript
 # attack_animation.tres (ASCueAnimation)
@@ -85,9 +84,9 @@ Se `node_name` vazio, ASCueAnimation tenta nesta ordem:
 # Na ASAbility:
 ability.cues.append(attack_animation_resource)
 # Quando ativa ability → toca "attack" automaticamente
-```
+```gdscript
 
-### Multi-Fase com Animações Diferentes
+## Multi-Fase com Animações Diferentes
 
 ```gdscript
 # Fase 1: Windup (charging animation)
@@ -98,18 +97,18 @@ phase2.effects.append(impact_cue)  # toca "impact" no ON_EXECUTE
 
 # Fase 3: Recovery (recovery animation)
 phase3.effects.append(recovery_cue)  # toca "recover" no ON_ACTIVE
-```
+```gdscript
 
-### Cue Condicional por Node Path
+## Cue Condicional por Node Path
 
 ```gdscript
 # Para NPC com AnimationPlayer em caminho específico
 cue_anim.node_name = &"Skeleton3D/AnimationPlayer"
 cue_anim.animation_name = "death"
 cue_anim.event_type = ASCue.ON_REMOVE  # Toca ao morrer
-```
+```gdscript
 
-### Cue Trigger no Effect
+## Cue Trigger no Effect
 
 ```gdscript
 # Efeito que concede animação de estado
@@ -119,7 +118,7 @@ burn_effect.cues.append(burn_loop_animation)
 # Enquanto "state.burning" ativo → animação loop reproduz
 
 # Quando state removido → ON_REMOVE dispara cleanup animation
-```
+```gdscript
 
 ## Performance
 
@@ -137,7 +136,7 @@ ability2.cues.append(punch_animation)  # Mesmo resource
 # ❌ Overhead desnecessário
 ability1.cues.append(punch_animation.duplicate())
 ability2.cues.append(punch_animation.duplicate())
-```
+```gdscript
 
 ## Integração com ASComponent
 
@@ -147,7 +146,7 @@ asc.try_activate_ability_by_tag(&"ability.slash")
 # → Ability dispara cue trigger
 # → ASCueAnimation busca AnimationPlayer automaticamente
 # → Toca "slash_animation"
-```
+```gdscript
 
 Sinais relacionados:
 
@@ -156,7 +155,7 @@ asc.ability_activated.connect(func(spec):
     # Cues já foram disparadas internamente
     print("Ability ativada - animação tocando agora")
 )
-```
+```gdscript
 
 ## Referências Relacionadas
 

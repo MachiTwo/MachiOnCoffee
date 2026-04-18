@@ -58,7 +58,7 @@ monitor.measure_operation("tag_query", func():
     return asc.has_tag(&"state.burning")
 )
 monitor.print_report()
-```
+```gdscript
 
 ## 1. Tag System Optimization
 
@@ -102,7 +102,7 @@ class TagCache:
 
     func invalidate():
         dirty = true
-```
+```gdscript
 
 ## 2. Ability Activation Optimization
 
@@ -131,7 +131,7 @@ func _physics_process(_delta):
         var spec = get_ability_spec_cached(npc.asc, &"ability.attack")
         if spec and not spec.is_on_cooldown():
             npc.asc.try_activate_ability_by_tag(&"ability.attack")
-```
+```gdscript
 
 ## 3. Effect Application Optimization
 
@@ -163,7 +163,7 @@ class ASEffectBatch:
     func apply_all():
         for item in queued:
             item["target"].apply_effect_by_tag(item["effect"])
-```
+```gdscript
 
 ## 4. Attribute System Optimization
 
@@ -195,7 +195,7 @@ if asc.has_tag(&"state.dead"):
     die()
 
 # E aplicar effect quando health <= 0 que concede state.dead
-```
+```gdscript
 
 ## 5. Snapshot System Optimization
 
@@ -234,7 +234,7 @@ class CompressedSnapshot:
 
         snapshot.tags = PackedStringArray(critical_tags)
         return snapshot
-```
+```gdscript
 
 ## 6. Delivery System Optimization
 
@@ -266,7 +266,7 @@ func apply_aoe_effect(center: Vector3, radius: float):
     for result in results:
         var target = result["collider"]
         apply_effect(target)
-```
+```gdscript
 
 ## 7. Memory Pooling
 
@@ -308,7 +308,7 @@ func use_ability():
     var spec = pool.get_spec(ability)
     # ...
     pool.return_spec(spec)
-```
+```gdscript
 
 ## 8. Update Frequency Optimization
 
@@ -345,7 +345,7 @@ func get_update_frequency(distance: float) -> float:
         if distance <= dist:
             return update_distances[dist]
     return 1  # 1 FPS para muito longe
-```
+```gdscript
 
 ## 9. Batch Processing
 
@@ -382,7 +382,7 @@ class SpatialHash:
 
     func get_cell_key(pos: Vector3) -> Vector2i:
         return Vector2i(pos.x / cell_size, pos.z / cell_size)
-```
+```gdscript
 
 ## 10. Async Processing
 
@@ -407,7 +407,7 @@ func _process(_delta):
     if ResourceLoader.is_cached("res://effects/1.tres"):
         var effect = ResourceLoader.load_threaded_get("res://effects/1.tres")
         register_effect(effect)
-```
+```gdscript
 
 ## 11. GC Pressure Reduction
 
@@ -439,7 +439,7 @@ func update_burning_ids():
     for enemy in enemies:
         if enemy.asc.has_tag(&"state.burning"):
             burning_ids.append(enemy.get_instance_id())
-```
+```gdscript
 
 ## 12. Benchmark Completo
 
@@ -497,11 +497,11 @@ func benchmark(name: String, callable: Callable, iterations: int = 10000):
     var per_call = float(elapsed) / iterations
 
     print("%s: %.3f µs/call (total: %d µs)" % [name, per_call, elapsed])
-```
+```gdscript
 
 ## Performance Checklist
 
-```
+```gdscript
 Profiling:
 [ ] Baseline measurements
 [ ] Identify bottlenecks
@@ -530,7 +530,7 @@ Deployment:
 [ ] Set performance budgets
 [ ] Monitor runtime metrics
 [ ] Alert on regressions
-```
+```gdscript
 
 ---
 

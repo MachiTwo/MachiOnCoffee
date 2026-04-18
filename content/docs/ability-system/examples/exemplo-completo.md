@@ -8,11 +8,11 @@ type: docs
 
 Código pronto para usar com player vs inimigo.
 
-### Estrutura de Assets
+## Estrutura de Assets
 
 Crie em `res://assets/ability-system/`:
 
-```
+```gdscript
 player_attributes.tres
 enemy_attributes.tres
 player_container.tres
@@ -23,9 +23,9 @@ ability_heal.tres
 effect_slash_damage.tres
 effect_heal.tres
 effect_bleed.tres
-```
+```gdscript
 
-### 1. Script do Player
+## 1. Script do Player
 
 ```gdscript
 extends CharacterBody3D
@@ -109,9 +109,9 @@ func _on_effect_applied(effect_spec):
     var damage = effect_spec.get_magnitude(&"health")
     if damage < 0:
         take_damage(-damage)
-```
+```gdscript
 
-### 2. Script do Enemy
+## 2. Script do Enemy
 
 ```gdscript
 extends CharacterBody3D
@@ -174,9 +174,9 @@ func die():
 
 func _on_ability_activated(spec):
     anim.play("attack")
-```
+```gdscript
 
-### 3. Manager de Combat
+## 3. Manager de Combat
 
 ```gdscript
 extends Node
@@ -207,9 +207,9 @@ func _on_enemy_defeated():
     ui.show_message("Vitória! +100 XP")
     await get_tree().create_timer(2.0).timeout
     get_tree().reload_current_scene()
-```
+```gdscript
 
-### 4. Script de UI
+## 4. Script de UI
 
 ```gdscript
 extends CanvasLayer
@@ -263,13 +263,13 @@ func _on_ability_button_pressed(index: int):
     var player = get_tree().root.get_child(0).player
     var abilities = [&"ability.slash", &"ability.heavy_attack", &"ability.heal"]
     player.use_ability(abilities[index])
-```
+```gdscript
 
-### 5. Scene Structure
+## 5. Scene Structure
 
 Crie a scene no editor:
 
-```
+```gdscript
 CombatScene (Node)
 ├─ Player (CharacterBody3D)
 │  ├─ CollisionShape3D
@@ -294,27 +294,27 @@ CombatScene (Node)
 │        └─ Button3 (Heal)
 │
 └─ CombatManager (Node)
-```
+```gdscript
 
-### 6. Input Map
+## 6. Input Map
 
 No Project Settings → Input Map, adicione:
 
-```
+```gdscript
 ability_1: [Space]
 ability_2: [Q]
 ability_3: [E]
 ui_accept: [Enter]
-```
+```gdscript
 
-### 7. Executar
+## 7. Executar
 
 1. Save scene como `res://scenes/combat.tscn`
 2. Attach scripts aos nodes
 3. Configure container do ASComponent
 4. Play
 
-### Expandir
+## Expandir
 
 **Adicionar Mais Abilities:**
 
@@ -326,7 +326,7 @@ phases: [windup, execution, recovery]
 &"ability.charging_strike":
     await anim.animation_finished
     target.asc.apply_effect_by_tag(&"effect.heavy_damage", asc)
-```
+```gdscript
 
 **Sistema de Loot:**
 
@@ -343,7 +343,7 @@ func die():
 
     defeated.emit()
     queue_free()
-```
+```gdscript
 
 **Skill Tree:**
 
@@ -352,7 +352,7 @@ func die():
 func unlock_ability(ability_tag: StringName):
     var ability = AbilitySystem.get_ability_resource(ability_tag)
     asc.add_ability(ability)
-```
+```gdscript
 
 ---
 

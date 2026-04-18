@@ -4,8 +4,6 @@ date: "2026-04-18T12:00:00-03:00"
 type: docs
 ---
 
-# Tutorial: Criar Seu Primeiro Ataque
-
 Neste tutorial, você criará uma habilidade simples de ataque (slash) do zero até executá-la.
 
 **Tempo:** ~10 minutos | **Nível:** Iniciante
@@ -16,11 +14,11 @@ Abra **Project Settings → Ability System** (painel do editor).
 
 Click **[Add Tag]** e crie:
 
-```
+```gdscript
 1. ability.slash (tipo: NAME)
 2. state.attacking (tipo: CONDITIONAL)
 3. event.hit (tipo: EVENT)
-```
+```gdscript
 
 ## Passo 2: Criar AttributeSet
 
@@ -30,12 +28,12 @@ Salve como `res://assets/attributes/base_attributes.tres`
 
 No Inspector:
 
-```
+```gdscript
 attributes: (clique "New Dictionary")
   health: 100.0
   mana: 50.0
   strength: 10.0
-```
+```gdscript
 
 ## Passo 3: Criar ASAbility
 
@@ -45,7 +43,7 @@ Salve como `res://assets/abilities/slash.tres`
 
 Configure:
 
-```
+```gdscript
 ability_tag: &"ability.slash"
 ability_duration_policy: 0 (INSTANT)
 cooldown_duration: 0.5
@@ -54,7 +52,7 @@ requirements: []
 activation_required_all_tags: []
 activation_owned_tags: [&"state.attacking"]
 effects: []
-```
+```gdscript
 
 ## Passo 4: Criar ASEffect
 
@@ -64,7 +62,7 @@ Salve como `res://assets/effects/slash_damage.tres`
 
 Configure:
 
-```
+```gdscript
 effect_tag: &"effect.slash_damage"
 duration_policy: 0 (INSTANT)
 target_type: 1 (OTHERS)
@@ -75,7 +73,7 @@ modifiers: (clique "New Array Element")
     attribute: &"health"
     operation: 0 (ADD)
     magnitude: -20.0
-```
+```gdscript
 
 ## Passo 5: Criar ASContainer
 
@@ -85,29 +83,29 @@ Salve como `res://assets/archetypes/player.tres`
 
 Configure:
 
-```
+```gdscript
 attribute_set: (drag base_attributes.tres)
 initial_abilities:
   - (drag slash.tres)
 initial_effects: []
 initial_cues: []
-```
+```gdscript
 
 ## Passo 6: Criar Cena do Player
 
 Nova Scene:
 
-```
+```gdscript
 Player (CharacterBody3D)
 ├─ AbilityComponent (ASComponent)
 └─ MeshInstance3D
-```
+```gdscript
 
 No **AbilityComponent**:
 
-```
+```gdscript
 container: (drag player.tres)
-```
+```gdscript
 
 ## Passo 7: Script do Player
 
@@ -123,7 +121,7 @@ func _physics_process(_delta):
             print("Ataque ativado!")
         else:
             print("Não pode atacar agora (cooldown?)")
-```
+```gdscript
 
 ## Passo 8: Testar
 
@@ -135,7 +133,7 @@ Aguarde 0.5s (cooldown), pressione novamente.
 
 ## Próximas Adições
 
-### Adicionar Dano Real
+## Adicionar Dano Real
 
 Modifique o script:
 
@@ -149,9 +147,9 @@ func _physics_process(_delta):
                 var enemy_asc = AbilitySystem.resolve_component(enemy)
                 ability_component.apply_effect_by_tag(&"effect.slash_damage", enemy_asc)
                 print("Dano aplicado!")
-```
+```gdscript
 
-### Adicionar Animação
+## Adicionar Animação
 
 Crie AnimationPlayer no player:
 
@@ -162,9 +160,9 @@ func _physics_process(_delta):
     if Input.is_action_just_pressed("ui_accept"):
         if ability_component.try_activate_ability_by_tag(&"ability.slash"):
             anim.play("slash")
-```
+```gdscript
 
-### Adicionar Cooldown Visual
+## Adicionar Cooldown Visual
 
 ```gdscript
 @onready var label = $CooldownLabel
@@ -176,7 +174,7 @@ func _process(_delta):
         label.text = "%.1f" % remaining
     else:
         label.text = ""
-```
+```gdscript
 
 ## Troubleshooting
 

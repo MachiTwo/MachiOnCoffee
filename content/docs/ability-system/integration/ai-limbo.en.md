@@ -28,7 +28,7 @@ method to find the agent's ASC, without needing to know where it is physically i
 ```cpp
 // Internal example of Bridge tasks
 AbilitySystem::get_singleton()->resolve_component(agent);
-```
+```gdscript
 
 ---
 

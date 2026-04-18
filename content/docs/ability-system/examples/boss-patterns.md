@@ -85,7 +85,7 @@ func die():
     await anim.animation_finished
     defeated.emit()
     queue_free()
-```
+```gdscript
 
 ## Boss 2: Caster Boss (AoE + Phases)
 
@@ -208,7 +208,7 @@ func _on_ability_cast(spec):
         anim.play("cast_fireball")
     elif ability.ability_tag == &"boss.heal":
         anim.play("cast_heal")
-```
+```gdscript
 
 ## Boss 3: Reactive Boss (Adapts to Player)
 
@@ -296,7 +296,7 @@ func die():
     await anim.animation_finished
     defeated.emit()
     queue_free()
-```
+```gdscript
 
 ## Boss 4: Multi-Phase Mega Boss
 
@@ -407,7 +407,7 @@ func spawn_loot(item_tag: StringName):
     get_parent().add_child(loot)
     loot.global_position = global_position + Vector3(randf_range(-2, 2), 1, randf_range(-2, 2))
     loot.item_tag = item_tag
-```
+```gdscript
 
 ## Boss 5: Puzzle Boss (Mechanics-Heavy)
 
@@ -521,7 +521,7 @@ func _on_player_damage(effect_spec):
         ## Player is damaging in vulnerable window
         var damage = -effect_spec.get_magnitude(&"health")
         take_damage(damage)
-```
+```gdscript
 
 ## Integration na Scene
 
@@ -551,7 +551,7 @@ func _on_boss_defeated():
     ui.show_message("Victory! Boss defeated!")
     await get_tree().create_timer(3.0).timeout
     get_tree().reload_current_scene()
-```
+```gdscript
 
 ---
 

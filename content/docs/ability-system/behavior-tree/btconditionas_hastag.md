@@ -4,8 +4,6 @@ date: "2026-04-18T12:00:00-03:00"
 type: docs
 ---
 
-# BTConditionAS_HasTag
-
 **Badge:** `BTCondition` • `LimboAI`
 
 ## Descrição Breve
@@ -25,11 +23,11 @@ Usado para gating de comportamento: "Se está queimando, não pode congelar. Se 
 
 ## Herança
 
-```
+```gdscript
 BTTask
  └─ BTCondition
      └─ BTConditionAS_HasTag
-```
+```gdscript
 
 ## Propriedades
 
@@ -41,31 +39,31 @@ BTTask
 
 ## Métodos
 
-### Getters
+## Getters
 
-#### `get_tag() → StringName` (const)
+## `get_tag() → StringName` (const)
 
 Retorna tag.
 
-#### `get_exact_match() → bool` (const)
+## `get_exact_match() → bool` (const)
 
 Retorna modo de match.
 
-#### `get_asc_node_path() → NodePath` (const)
+## `get_asc_node_path() → NodePath` (const)
 
 Retorna caminho customizado.
 
-### Setters
+## Setters
 
-#### `set_tag(tag: StringName) → void`
+## `set_tag(tag: StringName) → void`
 
 Define tag.
 
-#### `set_exact_match(exact: bool) → void`
+## `set_exact_match(exact: bool) → void`
 
 Define modo de match.
 
-#### `set_asc_node_path(path: NodePath) → void`
+## `set_asc_node_path(path: NodePath) → void`
 
 Define caminho para ASComponent.
 
@@ -79,7 +77,7 @@ Define caminho para ASComponent.
 
 ## Matching Modes
 
-### Hierárquico (exact_match = false)
+## Hierárquico (exact_match = false)
 
 ```gdscript
 # Ator tem: &"state.stunned.freeze"
@@ -88,11 +86,11 @@ asc.has_tag(&"state.stunned.freeze")  # true (exato)
 asc.has_tag(&"state.stunned")         # true (parent)
 asc.has_tag(&"state")                 # true (raiz)
 asc.has_tag(&"other")                 # false
-```
+```gdscript
 
 **Use:** Comportamentos amplos que se aplicam a categorias.
 
-### Exato (exact_match = true)
+## Exato (exact_match = true)
 
 ```gdscript
 # Ator tem: &"state.stunned.freeze"
@@ -100,13 +98,13 @@ asc.has_tag(&"other")                 # false
 asc.has_tag(&"state.stunned.freeze", true)  # true
 asc.has_tag(&"state.stunned", true)         # false
 asc.has_tag(&"state", true)                 # false
-```
+```gdscript
 
 **Use:** Comportamentos específicos para estado exato.
 
 ## Casos de Uso
 
-### Guard Clause: Impedir Ação
+## Guard Clause: Impedir Ação
 
 ```gdscript
 sequence: [
@@ -117,9 +115,9 @@ sequence: [
 
 # Se está stunned → sequence falha, não ataca
 # Se não stunned → ataca
-```
+```gdscript
 
-### Categoria Gating
+## Categoria Gating
 
 ```gdscript
 sequence: [
@@ -130,9 +128,9 @@ sequence: [
 ]
 
 # Se tem qualquer "state.*" → animar status
-```
+```gdscript
 
-### Class/Type Check
+## Class/Type Check
 
 ```gdscript
 selector: [
@@ -150,9 +148,9 @@ selector: [
 ]
 
 # Baseia ação na classe do ator
-```
+```gdscript
 
-### Buff/Debuff Response
+## Buff/Debuff Response
 
 ```gdscript
 selector: [
@@ -170,9 +168,9 @@ selector: [
 ]
 
 # Comportamento muda com debuffs
-```
+```gdscript
 
-### Multi-Tag Requirements
+## Multi-Tag Requirements
 
 ```gdscript
 sequence: [
@@ -184,9 +182,9 @@ sequence: [
 ]
 
 # Ultimate requer 2 tags
-```
+```gdscript
 
-### Inverted Logic
+## Inverted Logic
 
 ```gdscript
 # NÃO tem tag:
@@ -198,7 +196,7 @@ sequence: [
 
 # Se está silenciado → não casteia
 # Se não silenciado → casteia
-```
+```gdscript
 
 ## Resolução de ASComponent
 
@@ -210,7 +208,7 @@ Auto-discovery se `asc_node_path` vazio.
 
 ## Casos de Uso Avançado
 
-### Stat-Based Behavior
+## Stat-Based Behavior
 
 ```gdscript
 selector: [
@@ -226,9 +224,9 @@ selector: [
     ],
     action: balanced_behavior
 ]
-```
+```gdscript
 
-### Phase Transitions
+## Phase Transitions
 
 ```gdscript
 selector: [
@@ -244,9 +242,9 @@ selector: [
     ],
     action: use_basic_attacks
 ]
-```
+```gdscript
 
-### Environmental Awareness
+## Environmental Awareness
 
 ```gdscript
 selector: [
@@ -262,9 +260,9 @@ selector: [
     ],
     action: ground_behavior
 ]
-```
+```gdscript
 
-### Immunities and Resistances
+## Immunities and Resistances
 
 ```gdscript
 sequence: [
@@ -275,7 +273,7 @@ sequence: [
 ]
 
 # Apenas "immune.fire", não "immune" genérico
-```
+```gdscript
 
 ## Debugging
 
@@ -292,7 +290,7 @@ func _tick(agent, blackboard):
         print("  All tags on actor: %s" % asc.get_all_tags())
 
     return super._tick(agent, blackboard)
-```
+```gdscript
 
 ## Comparação: Exact vs Hierarchical
 
@@ -304,7 +302,7 @@ condition: BTConditionAS_HasTag
   tag: &"state"
   exact_match: false
 # Resultado: SUCCESS (combina parent)
-```
+```gdscript
 
 **Exact (exact_match = true):**
 
@@ -314,7 +312,7 @@ condition: BTConditionAS_HasTag
   tag: &"state"
   exact_match: true
 # Resultado: FAILURE (não é match exato)
-```
+```gdscript
 
 **Regra:** Usar hierárquico para categorias, exato para específicos.
 
@@ -328,7 +326,7 @@ if asc.has_tag(&"state.burning"):
 
 if asc.has_tag(&"state", false):  # Qualquer state
     print("Tem algum estado")
-```
+```gdscript
 
 `BTConditionAS_HasTag` simplesmente chama isso via Behavior Tree.
 

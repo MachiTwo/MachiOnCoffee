@@ -36,7 +36,7 @@ func _on_peer_disconnected(peer_id: int):
         players[peer_id].queue_free()
         players.erase(peer_id)
     print("Player %d disconnected" % peer_id)
-```
+```gdscript
 
 ## 1. Client-Side Prediction
 
@@ -82,7 +82,7 @@ func try_use_ability(ability_tag: StringName):
 
     # 6. Requisitar ao servidor
     request_ability_activation.rpc_id(1, ability_tag, Engine.get_physics_frames())
-```
+```gdscript
 
 ## 2. Server-Side Validation
 
@@ -134,7 +134,7 @@ func confirm_ability_activation(ability_tag: StringName, peer_id: int):
     var peer_asc = get_node("../Player%d/AbilityComponent" % peer_id)
     if peer_asc:
         peer_asc.try_activate_ability_by_tag(ability_tag)
-```
+```gdscript
 
 ## 3. Snapshot e Rollback
 
@@ -158,7 +158,7 @@ func use_snapshot_system():
         var tick_to_restore = Engine.get_physics_frames() - 5
         asc.apply_snapshot(tick_to_restore)
         print("Rolledback to tick %d" % tick_to_restore)
-```
+```gdscript
 
 **Estrutura Interna:**
 
@@ -190,7 +190,7 @@ func apply_snapshot(target_tick: int):
         var state = ticks[idx]
         # Restaura atributos, tags, cooldowns
         print("Restored to frame %d" % state["frame"])
-```
+```gdscript
 
 ## 4. Sincronização de Efeitos
 
@@ -218,7 +218,7 @@ func broadcast_effect_applied(effect_tag: StringName, target_peer: int, caster_p
         var target_asc = target.get_node("AbilityComponent")
         var caster_asc = get_node("../Player%d/AbilityComponent" % caster_peer)
         target_asc.apply_effect_by_tag(effect_tag, caster_asc)
-```
+```gdscript
 
 ## 5. Atributos Replicados
 
@@ -250,7 +250,7 @@ func broadcast_attributes(attrs: Dictionary):
     for attr_name in attrs:
         var value = attrs[attr_name]
         asc.set_attribute_current_value(attr_name, value)
-```
+```gdscript
 
 ## 6. Lag Compensation
 
@@ -280,7 +280,7 @@ func receive_server_update(new_pos: Vector3, new_vel: Vector3):
     else:
         # Smooth blend
         global_position = global_position.lerp(new_pos, 0.2)
-```
+```gdscript
 
 ## 7. Transição de Autoridade
 
@@ -300,7 +300,7 @@ func _on_peer_disconnected(peer_id: int):
             player.asc.set_multiplayer_authority(new_server)
 
         print("New server elected: %d" % new_server)
-```
+```gdscript
 
 ## 8. Cheat Prevention
 
@@ -338,7 +338,7 @@ func request_ability_activation(ability_tag: StringName, client_frame: int):
     # Aprovado
     asc.try_activate_ability_by_tag(ability_tag)
     confirm_ability_activation.rpc_id(peer_id, ability_tag, client_frame)
-```
+```gdscript
 
 ## 9. Sincronização de Tags
 
@@ -368,7 +368,7 @@ func broadcast_tag_changed(operation: String, tag: StringName):
         asc.add_tag(tag)
     elif operation == "remove":
         asc.remove_tag(tag)
-```
+```gdscript
 
 ## 10. Exemplo Completo: Batalha 1v1
 
@@ -433,7 +433,7 @@ func end_battle(winner_num: int):
 @rpc("authority")
 func broadcast_battle_end(winner_num: int):
     ui.show_winner(winner_num)
-```
+```gdscript
 
 ## 11. Performance em Multiplayer
 
@@ -470,7 +470,7 @@ func flush_updates():
 
     broadcast_batch_updates.rpc(pending_updates)
     pending_updates.clear()
-```
+```gdscript
 
 ## 12. Debugging Multiplayer
 
@@ -503,11 +503,11 @@ static func log_rollback(peer_id: int, from_tick: int, to_tick: int):
 MultiplayerDebug.log_action(1, "ability_used", &"ability.slash")
 MultiplayerDebug.log_sync(1, frame_count, {"health": 100})
 MultiplayerDebug.log_rollback(2, 150, 140)
-```
+```gdscript
 
 ## Checklist Multiplayer
 
-```
+```gdscript
 Design:
 [ ] Identificar client vs server actions
 [ ] Definir taxa de sync (10-20 Hz típico)
@@ -532,7 +532,7 @@ Deployment:
 [ ] Cheat detection
 [ ] Logging centralizado
 [ ] Monitoring
-```
+```gdscript
 
 ---
 

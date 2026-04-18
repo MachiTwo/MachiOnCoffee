@@ -4,15 +4,13 @@ date: "2026-04-18T12:00:00-03:00"
 type: docs
 ---
 
-# Guia: Best Practices e Padrões
-
 Aprenda padrões verificados para o Ability System.
 
 ## 1. Organização de Assets
 
 **Estrutura de Pastas:**
 
-```
+```gdscript
 res://assets/ability-system/
 ├─ attributes/
 │  ├─ player_attributes.tres
@@ -48,7 +46,7 @@ res://assets/ability-system/
    ├─ animations/
    ├─ sounds/
    └─ particles/
-```
+```gdscript
 
 ## 2. Naming Conventions
 
@@ -79,18 +77,18 @@ event.death
 immune.fire
 immune.cold
 immune.magic
-```
+```gdscript
 
 **Resources:**
 
-```
+```gdscript
 ✅ slash_damage_effect.tres
 ✅ fire_burst_ability.tres
 ✅ warrior_equipment_container.tres
 
 ❌ ability.tres  # Vago
 ❌ e1.tres       # Sem contexto
-```
+```gdscript
 
 ## 3. Container Patterns
 
@@ -102,7 +100,7 @@ attribute_set: base_attributes
 initial_abilities: []  # Vazio, abilities adicionadas via items
 initial_effects: []
 initial_cues: []
-```
+```gdscript
 
 **Entity Templates:**
 
@@ -116,7 +114,7 @@ initial_effects: []
 attribute_set: goblin_mage_attributes
 initial_abilities: [claw_swipe, fireball, heal]
 initial_effects: [burn_aura]  # Sempre ativo
-```
+```gdscript
 
 ## 4. Ability Design Pattern
 
@@ -131,7 +129,7 @@ requirements: []
 activation_required_all_tags: []
 activation_owned_tags: []
 effects: [slash_damage]
-```
+```gdscript
 
 **Medium Ability (Channeled):**
 
@@ -143,7 +141,7 @@ costs: [{"mana": 30}]
 requirements: [{"health": 1}]  # Precisa estar vivo
 activation_owned_tags: [&"state.channeling"]
 effects: [heal_effect]
-```
+```gdscript
 
 **Complex Ability (Phased):**
 
@@ -154,7 +152,7 @@ phases: [windup, execution, recovery]
 cooldown_duration: 10.0
 costs: [{"rage": 100}]
 requirements: [{"health": 50}]  # Min 50 HP
-```
+```gdscript
 
 ## 5. Effect Stacking Strategy
 
@@ -163,14 +161,14 @@ requirements: [{"health": 50}]  # Min 50 HP
 ```gdscript
 stacking_policy: OVERRIDE  # Apenas 1 ativa por vez
 duration_magnitude: 5.0
-```
+```gdscript
 
 **Stackable com Límite:**
 
 ```gdscript
 stacking_policy: INTENSITY  # Múltiplas instâncias
 max_stacks: 5
-```
+```gdscript
 
 **DoT Customizado:**
 
@@ -179,7 +177,7 @@ stacking_policy: NEW_INSTANCE
 period: 1.0
 duration_magnitude: 3.0
 # Cada aplicação = novo tick a cada 1s por 3s
-```
+```gdscript
 
 ## 6. Attribute System Pattern
 
@@ -191,7 +189,7 @@ health: 100 → 1000 (escala com nível)
 mana: 50 → 300
 stamina: 100 → 200
 strength: 10 → 50
-```
+```gdscript
 
 **Derived (Drivers):**
 
@@ -202,7 +200,7 @@ attribute_set.add_driver(&"damage", &"strength", MULTIPLY, 2.0)
 
 attribute_set.add_driver(&"health", &"constitution", MULTIPLY, 10.0)
 # Saúde = Constituição * 10
-```
+```gdscript
 
 ## 7. Multiplayer Pattern
 
@@ -231,7 +229,7 @@ func deny_ability(tag: StringName):
     # Client rollback
     var tick = get_tick_count()
     asc.apply_snapshot(tick)
-```
+```gdscript
 
 ## 8. Event Patterns
 
@@ -243,7 +241,7 @@ asc.dispatch_event(&"event.request_heal", 50.0)
 
 # Server responde:
 asc.dispatch_event(&"event.heal_applied", actual_heal)
-```
+```gdscript
 
 **State Change:**
 
@@ -257,7 +255,7 @@ asc.dispatch_event(&"event.status_change", {
 # Listeners reagem:
 if ASTagUtils.event_did_occur(&"event.status_change", asc, 0.1):
     update_ui()
-```
+```gdscript
 
 ## 9. Combat Flow
 
@@ -278,7 +276,7 @@ if asc.can_activate_ability_by_tag(ability_tag):
         "ability": ability_tag,
         "target": target_asc
     })
-```
+```gdscript
 
 ## 10. Performance Optimization
 
@@ -296,7 +294,7 @@ func get_ability_spec_cached(tag: StringName):
 asc.ability_activated.connect(func(spec):
     cached_specs.clear()
 )
-```
+```gdscript
 
 **Batch Queries:**
 
@@ -310,7 +308,7 @@ for enemy in enemies:
 var burning_enemies = enemies.filter(func(e):
     return e.asc.has_tag(&"state.burning")
 )
-```
+```gdscript
 
 **Use Tags Cleverly:**
 
@@ -324,7 +322,7 @@ if asc.has_tag(&"state.dead"):
     die()
 
 # Quando health <= 0, aplicar effect que concede state.dead
-```
+```gdscript
 
 ## 11. Testing Pattern
 
@@ -347,11 +345,11 @@ func test_effect_applies():
     var spec = asc.get_effect_spec_by_tag(&"test.effect")
 
     assert_not_null(spec)
-```
+```gdscript
 
 ## 12. Checklist de Projeto
 
-```
+```gdscript
 Design Phase:
 [ ] Listar todas as abilities
 [ ] Definir stats base
@@ -376,7 +374,7 @@ Polish:
 [ ] Feedback audio
 [ ] Partículas
 [ ] UI elementos
-```
+```gdscript
 
 ---
 

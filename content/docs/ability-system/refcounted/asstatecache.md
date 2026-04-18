@@ -4,41 +4,39 @@ date: "2026-04-18T12:00:00-03:00"
 type: docs
 ---
 
-# ASStateCache & ASStateSnapshot
-
 **Badge:** `RefCounted` (Cache) | `Resource` (Snapshot)
 
 ## ASStateCache
 
-### Descrição Breve
+## Descrição Breve
 
 Buffer circular de alta performance (128 ticks) para rollback multiplayer.
 
-### Descrição Completa
+## Descrição Completa
 
 `ASStateCache` é um buffer interno automático que armazena snapshots de estado a cada `_physics_process` tick. Mantém os
 últimos 128 ticks para permitir rollback instantâneo sem alocação de memória.
 
 **Automaticamente gerenciado**—você não cria nem popula manualmente. O `ASComponent` cuida disso.
 
-### Uso em Rollback
+## Uso em Rollback
 
 ```gdscript
 # Cliente detecta erro de predição
 if server_state != predicted_state:
     # Restaurar para tick anterior e re-simular
     asc.apply_snapshot(server_tick_id)
-```
+```gdscript
 
-### Estrutura Interna
+## Estrutura Interna
 
-```
+```gdscript
 Tick 0   → [Attrs, Tags, Effects]
 Tick 1   → [Attrs, Tags, Effects]
 ...
 Tick 127 → [Attrs, Tags, Effects] ← Buffer circular
          ↻ (volta para tick 0 ao overflow)
-```
+```gdscript
 
 Cada entrada armazena:
 
@@ -51,11 +49,11 @@ Cada entrada armazena:
 
 ## ASStateSnapshot
 
-### Descrição Breve
+## Descrição Breve
 
 Resource para persistência de estado (saves e multiplayer).
 
-### Descrição Completa
+## Descrição Completa
 
 `ASStateSnapshot` é um Resource que armazena um snapshot completo e serializable do estado de um ator:
 
@@ -71,7 +69,7 @@ Permite:
 - **Multiplayer**: Sincronização de estado entre cliente/servidor
 - **Rollback**: Restaurar a estado anterior
 
-### ⚠️ Uso Restrito
+## ⚠️ Uso Restrito
 
 **Regra Crítica**: Use apenas em **players/personagens controláveis**. NPCs massivos não devem usar snapshots (overhead
 de performance).
@@ -83,28 +81,28 @@ player_asc.snapshot_state = player_snapshot_resource
 # ❌ INCORRETO: 1000 inimigos com snapshots = lag
 for enemy in enemy_list:
     enemy_asc.snapshot_state = snapshot_resource  # NÃO FAÇA ISTO!
-```
+```gdscript
 
-### Métodos
+## Métodos
 
-#### `capture_snapshot(asc: ASComponent) → void`
+## `capture_snapshot(asc: ASComponent) → void`
 
 Congela estado atual em snapshot.
 
 ```gdscript
 asc.capture_snapshot()  # Salva estado antes de ação preditiva
-```
+```gdscript
 
-#### `load_snapshot(asc: ASComponent) → void`
+## `load_snapshot(asc: ASComponent) → void`
 
 Restaura estado de snapshot.
 
 ```gdscript
 asc.apply_snapshot(tick_id)  # Carrega de ASStateCache se disponível
 # Ou carrega de snapshot_state se tick mais antigo
-```
+```gdscript
 
-### Serialização
+## Serialização
 
 Snapshots são nativamente serializáveis:
 
@@ -120,11 +118,11 @@ var load_data = load_from_file()
 asc.snapshot_state = ASStateSnapshot.new()
 asc.snapshot_state.from_dict(load_data["player_snapshot"])
 asc.apply_snapshot(-1)  # -1 = use snapshot_state
-```
+```gdscript
 
 ## Casos de Uso
 
-### Multiplayer Client Prediction + Rollback
+## Multiplayer Client Prediction + Rollback
 
 ```gdscript
 func _physics_process(delta):
@@ -149,9 +147,9 @@ func request_activate_ability(tag: StringName):
             # Predição falhou—cliente rollback
             asc.apply_snapshot(current_tick)  # ASStateCache
             asc.deny_ability_activation.rpc(tag)
-```
+```gdscript
 
-### Game Save/Load
+## Game Save/Load
 
 ```gdscript
 func save_game():
@@ -173,9 +171,9 @@ func load_game():
         # Fallback: restaurar valores manualmente
         asc.set_attribute_base_value(&"health", save_data["player_health"])
         asc.set_attribute_base_value(&"mana", save_data["player_mana"])
-```
+```gdscript
 
-### Nó de Checkpoint
+## Nó de Checkpoint
 
 ```gdscript
 class_name Checkpoint
@@ -195,7 +193,7 @@ func load_checkpoint(asc: ASComponent):
     if checkpoint_snapshot:
         asc.apply_snapshot_data(checkpoint_snapshot)
         print("Checkpoint restaurado!")
-```
+```gdscript
 
 ## Performance Considerations
 

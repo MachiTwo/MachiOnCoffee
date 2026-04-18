@@ -4,7 +4,6 @@ date: "2026-04-18T12:00:00-03:00"
 type: docs
 ---
 
-# ASContainer
 
 **Badge:** `Resource`
 
@@ -30,10 +29,10 @@ Quando um `ASComponent` chama `apply_container(container)`, ele:
 
 ## Herança
 
-```
+```gdscript
 Resource
  └─ ASContainer
-```
+```gdscript
 
 ## Propriedades
 
@@ -47,13 +46,13 @@ Resource
 
 ## Métodos Públicos
 
-### Gerenciamento de Abilities
+## Gerenciamento de Abilities
 
-#### `add_ability(ability: ASAbility) → void`
+## `add_ability(ability: ASAbility) → void`
 
 Adiciona ability ao catálogo do container.
 
-#### `has_ability(ability: ASAbility) → bool` (const)
+## `has_ability(ability: ASAbility) → bool` (const)
 
 Verifica se ability está no catálogo.
 
@@ -62,11 +61,11 @@ Verifica se ability está no catálogo.
 ```gdscript
 if container.has_ability(fireball_ability):
     print("Container tem fireball!")
-```
+```gdscript
 
-### Gerenciamento de Effects
+## Gerenciamento de Effects
 
-#### `add_effect(effect: ASEffect) → void`
+## `add_effect(effect: ASEffect) → void`
 
 Adiciona effect à lista de effects iniciais.
 
@@ -74,23 +73,23 @@ Adiciona effect à lista de effects iniciais.
 
 ```gdscript
 container.add_effect(passive_aura_effect)  # Aplicado ao spawn
-```
+```gdscript
 
-#### `has_effect(effect: ASEffect) → bool` (const)
+## `has_effect(effect: ASEffect) → bool` (const)
 
 Verifica se effect está na lista inicial.
 
-### Gerenciamento de Cues
+## Gerenciamento de Cues
 
-#### `add_cue(cue: ASCue) → void`
+## `add_cue(cue: ASCue) → void`
 
 Adiciona cue ao catálogo.
 
-#### `has_cue(tag: StringName) → bool` (const)
+## `has_cue(tag: StringName) → bool` (const)
 
 Verifica se cue com tag existe.
 
-#### `has_cue_resource(cue: ASCue) → bool` (const)
+## `has_cue_resource(cue: ASCue) → bool` (const)
 
 Verifica se recurso específico existe.
 
@@ -99,11 +98,11 @@ Verifica se recurso específico existe.
 ```gdscript
 if container.has_cue(&"cue.hit_animation"):
     # Pode usar este cue
-```
+```gdscript
 
 ## Casos de Uso
 
-### Arquétipo de Guerreiro
+## Arquétipo de Guerreiro
 
 ```gdscript
 var warrior_container = ASContainer.new()
@@ -124,9 +123,9 @@ warrior_container.add_cue(cue_shield_block_sound)
 # Eventos
 warrior_container.events.append(&"event.warrior.combat")
 warrior_container.events.append(&"event.warrior.shield_active")
-```
+```gdscript
 
-### Arquétipo de NPC Inimigo
+## Arquétipo de NPC Inimigo
 
 ```gdscript
 var enemy_container = ASContainer.new()
@@ -141,9 +140,9 @@ enemy_container.add_effect(effect_enemy_armor_buff)
 
 # Sem cues complexas (simples)
 enemy_container.add_cue(cue_basic_hit)
-```
+```gdscript
 
-### Uso em ASComponent
+## Uso em ASComponent
 
 ```gdscript
 @onready var asc = $ASComponent
@@ -155,9 +154,9 @@ func _ready():
     # Agora guerreiro tem seus atributos e abilities
     if asc.can_activate_ability_by_tag(&"ability.slash"):
         asc.try_activate_ability_by_tag(&"ability.slash")
-```
+```gdscript
 
-### Instanciar Múltiplos Atores de Mesmo Tipo
+## Instanciar Múltiplos Atores de Mesmo Tipo
 
 ```gdscript
 func spawn_warrior(position: Vector2) -> Node:
@@ -175,9 +174,9 @@ func spawn_warrior(position: Vector2) -> Node:
 # Spawn 5 guerreiros—cada um com AttributeSet único, abilities compartilhadas
 for i in range(5):
     spawn_warrior(Vector2(i * 100, 0))
-```
+```gdscript
 
-### Deep Clone Safety
+## Deep Clone Safety
 
 Importante: Quando `apply_container()` é chamado, o `AttributeSet` é **deep-cloned**:
 
@@ -193,7 +192,7 @@ asc2.apply_container(container)
 # asc2 tem seu próprio AttributeSet (não compartilhado com asc)
 asc.set_attribute_base_value(&"health", 50.0)  # Afeta apenas asc
 asc2.get_attribute_current_value(&"health")    # Ainda é 100
-```
+```gdscript
 
 ## Referências Relacionadas
 

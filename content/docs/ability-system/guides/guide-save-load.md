@@ -101,7 +101,7 @@ static func from_json(json: String) -> GameSaveData:
     data.rotation = str_to_var(dict.get("rotation", "Vector3(0, 0, 0)"))
 
     return data
-```
+```gdscript
 
 ## 2. Capturar Estado
 
@@ -209,7 +209,7 @@ func _on_auto_save_timeout():
     var player = get_tree().root.get_child(0).find_child("Player", true, false)
     if player:
         save_game(player, 0)  # Auto-save no slot 0
-```
+```gdscript
 
 ## 3. Carregar Estado
 
@@ -308,7 +308,7 @@ func _recreate_equipment_item(item_data: Dictionary):
 
 func _recreate_inventory_item(item_data: Dictionary):
     return load("res://assets/items/%s.tres" % item_data["id"])
-```
+```gdscript
 
 ## 4. Versioning de Save
 
@@ -351,7 +351,7 @@ func _dict_to_save_data(data: Dictionary) -> GameSaveData:
     var save_data = GameSaveData.new()
     # ... (preencher campos)
     return save_data
-```
+```gdscript
 
 ## 5. Cloud Save Integration
 
@@ -410,7 +410,7 @@ func _download_steam(slot: int):
     # var content = Steam.fileRead(file_path)
     # var save_data = GameSaveData.from_json(content.get_string_from_utf8())
     print("Downloaded from Steam Cloud: %s" % file_path)
-```
+```gdscript
 
 ## 6. Validação de Save
 
@@ -459,7 +459,7 @@ func validate_save(save_data: GameSaveData) -> bool:
 
     print("✅ Save is valid")
     return true
-```
+```gdscript
 
 ## 7. Exemplo Completo: Save/Load Menu
 
@@ -521,7 +521,7 @@ func _on_load_pressed(slot: int):
         status_label.text = "Loaded from slot %d" % slot
     else:
         status_label.text = "Load failed!"
-```
+```gdscript
 
 ## 8. Encryption (Opcional)
 
@@ -565,11 +565,11 @@ func _derive_key(password: String, size: int) -> PackedByteArray:
 func _get_iv() -> PackedByteArray:
     # Usar IV fixo ou armazenar junto do save
     return PackedByteArray([0] * 16)
-```
+```gdscript
 
 ## Checklist Save/Load
 
-```
+```gdscript
 Design:
 [ ] Definir que dados salvar
 [ ] Estrutura de save data
@@ -597,7 +597,7 @@ Deployment:
 [ ] Backup system
 [ ] Save location (user://)
 [ ] Encryption em produção
-```
+```gdscript
 
 ---
 

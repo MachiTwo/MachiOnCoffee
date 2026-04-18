@@ -4,7 +4,6 @@ date: "2026-04-18T12:00:00-03:00"
 type: docs
 ---
 
-# ASCueAudio
 
 **Badge:** `Resource` • `ASCue`
 
@@ -27,11 +26,11 @@ Crie um resource `.tres` do tipo `ASCueAudio`, atribua um `AudioStream` (.wav, .
 
 ## Herança
 
-```
+```gdscript
 Resource
  └─ ASCue
      └─ ASCueAudio
-```
+```gdscript
 
 ## Propriedades
 
@@ -44,15 +43,15 @@ Resource
 
 ## Métodos
 
-### Getters
+## Getters
 
-#### `get_audio_stream() → AudioStream` (const)
+## `get_audio_stream() → AudioStream` (const)
 
 Retorna o AudioStream configurado.
 
-### Setters
+## Setters
 
-#### `set_audio_stream(stream: AudioStream) → void`
+## `set_audio_stream(stream: AudioStream) → void`
 
 Define o áudio a ser tocado.
 
@@ -76,7 +75,7 @@ Se encontra primeira match, usa aquela instância.
 
 ## Casos de Uso
 
-### Som de Ataque
+## Som de Ataque
 
 ```gdscript
 # sword_hit.tres (ASCueAudio)
@@ -87,9 +86,9 @@ Se encontra primeira match, usa aquela instância.
 # Na ASAbility:
 ability.cues.append(sword_hit_resource)
 # Quando ataque executa → som de impacto toca
-```
+```gdscript
 
-### Som Contínuo (Habilidade Ativa)
+## Som Contínuo (Habilidade Ativa)
 
 ```gdscript
 # channeling_loop.tres (ASCueAudio)
@@ -101,9 +100,9 @@ ability.cues.append(sword_hit_resource)
 ability.duration_policy = ASAbility.DURATION
 ability.cues.append(channeling_loop_resource)
 # Enquanto ability ativa → som toca continuamente
-```
+```gdscript
 
-### Som de Cleanup (Effect Removido)
+## Som de Cleanup (Effect Removido)
 
 ```gdscript
 # burn_end.tres (ASCueAudio)
@@ -113,9 +112,9 @@ ability.cues.append(channeling_loop_resource)
 
 burn_effect.cues.append(burn_end_resource)
 # Quando estado burning removido → som de extinção
-```
+```gdscript
 
-### Feedback Auditivo com Variação
+## Feedback Auditivo com Variação
 
 ```gdscript
 # Criar múltiplas cues para variedade
@@ -130,9 +129,9 @@ hit_sound_3.audio_stream = load("res://sounds/hit3.ogg")
 
 # Aleatoriamente escolher durante ativação (via custom code)
 # Ou atribuir diferentes cues a diferentes effects
-```
+```gdscript
 
-### Som 3D Espacializado
+## Som 3D Espacializado
 
 ```gdscript
 # Para áudio que varia por distância/direção
@@ -142,7 +141,7 @@ hit_sound_3.audio_stream = load("res://sounds/hit3.ogg")
 
 # ASComponent automaticamente usa AudioStreamPlayer3D se `node_name` vazio
 # Som varia por posição relativa do jogador
-```
+```gdscript
 
 ## Performance
 
@@ -158,7 +157,7 @@ cue2.audio_stream = footstep_audio
 
 # Pool de AudioStreamPlayers
 # Godot cuida de multiplex automático se múltiplos toques simultâneos
-```
+```gdscript
 
 ## Integração com ASComponent
 
@@ -167,7 +166,7 @@ asc.try_activate_ability_by_tag(&"ability.fireball")
 # → Ability cues disparadas
 # → ASCueAudio busca AudioStreamPlayer
 # → Som de explosion toca
-```
+```gdscript
 
 Conecte a sinais para feedback adicional:
 
@@ -175,7 +174,7 @@ Conecte a sinais para feedback adicional:
 asc.ability_activated.connect(func(spec):
     print("Som já disparado por cue")
 )
-```
+```gdscript
 
 ## Configuração de Stream
 

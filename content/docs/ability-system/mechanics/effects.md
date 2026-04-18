@@ -38,7 +38,7 @@ Um efeito pode conter múltiplos modificadores que agem sobre atributos diferent
 | **OP_MULTIPLY** | Multiplica o valor (ex: x1.5 de Dano).                        |
 | **OP_OVERRIDE** | Ignora a base e fixa um valor (ex: Morfou -> Velocidade = 0). |
 
-### Periodicidade (Ticking)
+## Periodicidade (Ticking)
 
 Efeitos de duração podem ter um `period`. Isso permite criar efeitos de DoT (Damage over Time) ou HoT (Heal over Time)
 que "ticam" a cada X segundos.

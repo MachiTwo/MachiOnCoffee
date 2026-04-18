@@ -14,7 +14,7 @@ form an Actor's **Identity Matrix**.
 Tags are hierarchical identifiers based on `StringName` (e.g., `state.stunned`, `ability.warrior.powerhit`). They allow
 for high-performance queries and automatic visual tree organization.
 
-### The 3 Canonical Types
+## The 3 Canonical Types
 
 To ensure governance, tags are divided into mandatory types:
 
@@ -34,7 +34,7 @@ Tags use dots (`.`) to define ancestors. If an actor has the `state.stunned.froz
 ```gdscript
 # Returns true if the target is stunned in any way
 ASTagUtils.has_tag(target, "state.stunned")
-```
+```gdscript
 
 ---
 
@@ -46,13 +46,13 @@ The `ASComponent` maintains circular buffers of **128 entries** to track the rec
 - **CONDITIONAL History**: Changes in permissions and immunities.
 - **EVENT History**: What happened in recent frames (magnitude, instigator).
 
-### Reactivity Example
+## Reactivity Example
 
 Counter-attack abilities can ask: _"Did a block event occur in the last 0.4 seconds?"_
 
 ```cpp
 ASTagUtils::event_did_occur("event.damage.block", target, 0.4f);
-```
+```gdscript
 
 ---
 

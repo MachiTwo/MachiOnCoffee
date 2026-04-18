@@ -4,8 +4,6 @@ date: "2026-04-18T12:00:00-03:00"
 type: docs
 ---
 
-# ASTagsPanel
-
 **Badge:** `VBoxContainer` • `EditorUI`
 
 ## Descrição Breve
@@ -25,16 +23,16 @@ Acessível via: **Project Settings → Ability System**
 
 ## Herança
 
-```
+```gdscript
 VBoxContainer
  └─ ASTagsPanel
-```
+```gdscript
 
 ## Interface
 
 **Estrutura:**
 
-```
+```gdscript
 ┌─────────────────────────────────────────┐
 │ Ability System Tags                     │
 ├─────────────────────────────────────────┤
@@ -60,16 +58,16 @@ VBoxContainer
 │ [Add Tag] [Remove Selected] [Clear All] │
 │                                         │
 └─────────────────────────────────────────┘
-```
+```gdscript
 
 ## Funcionalidades
 
-### Adicionar Tag
+## Adicionar Tag
 
 1. Click **[Add Tag]**
 2. Dialog aparece:
 
-```
+```gdscript
 ┌──────────────────────────────┐
 │ New Tag                      │
 ├──────────────────────────────┤
@@ -81,7 +79,7 @@ VBoxContainer
 │                              │
 │         [Add] [Cancel]       │
 └──────────────────────────────┘
-```
+```gdscript
 
 3. Insira nome (ex: `ability.fireball`)
 4. Selecione tipo (NAME, CONDITIONAL, ou EVENT)
@@ -94,25 +92,25 @@ VBoxContainer
 - ❌ Tag duplicada: Aviso "Already exists"
 - ✅ Nome único + tipo válido: Registra
 
-### Remover Tag
+## Remover Tag
 
 1. Selecione tag na lista
 2. Click **[Remove Selected]**
 3. Confirmação:
 
-```
+```gdscript
 Are you sure you want to remove "ability.fireball"?
 [Remove] [Cancel]
-```
+```gdscript
 
 4. Se confirm: Tag removida do registry
 5. Se referenciada: Aviso "Tag still in use by X properties"
 
-### Hierarquia Automática
+## Hierarquia Automática
 
 Tags organizadas por raiz:
 
-```
+```gdscript
 ☐ ability           (COLLAPSE/EXPAND)
   ☐ ability.fireball
   ☐ ability.slash
@@ -124,30 +122,30 @@ Tags organizadas por raiz:
 
 ☐ event
   ☐ event.on_hit
-```
+```gdscript
 
 Click arrow para expandir/colapsar grupo.
 
-### Busca (Opcional)
+## Busca (Opcional)
 
 Campo de filtro pode existir:
 
-```
+```gdscript
 ┌──────────────────────┐
 │ Search: [ability____] │
 │ ☐ ability.fireball    │
 │ ☐ ability.slash       │
 │ ☐ ability.shield      │
 └──────────────────────┘
-```
+```gdscript
 
 Filtra tags em tempo real por texto.
 
 ## Métodos
 
-### Refresh
+## Refresh
 
-#### `update_tags() → void`
+## `update_tags() → void`
 
 Recarrega lista de tags do registry global (`AbilitySystem`).
 
@@ -161,7 +159,7 @@ Você pode chamar manualmente para force-refresh:
 
 ```gdscript
 tags_panel.update_tags()
-```
+```gdscript
 
 ## Persistência
 
@@ -171,7 +169,7 @@ Tags são salvas em `project.godot`:
 [ability_system]
 tags = ["ability.fireball", "state.burning", "event.damage"]
 tag_types = [0, 1, 2]  # NAME, CONDITIONAL, EVENT
-```
+```gdscript
 
 Ao reabrir projeto: tags automaticamente restauradas.
 
@@ -188,11 +186,11 @@ AbilitySystem.unregister_tag(&"ability.old")
 
 # Panel monitora sinais:
 AbilitySystem.tags_changed.connect(_on_tags_changed)
-```
+```gdscript
 
 ## Casos de Uso
 
-### Projeto Novo: Setup Inicial
+## Projeto Novo: Setup Inicial
 
 1. Abra Project Settings → Ability System
 2. Click **[Add Tag]**:
@@ -203,7 +201,7 @@ AbilitySystem.tags_changed.connect(_on_tags_changed)
    - `event.on_hit` (EVENT)
 3. Tags registradas globalmente para todo projeto
 
-### Adicionar Feature: Novas Habilidades
+## Adicionar Feature: Novas Habilidades
 
 1. Design nova ability (ex: "ice blast")
 2. No painel, **[Add Tag]**:
@@ -212,7 +210,7 @@ AbilitySystem.tags_changed.connect(_on_tags_changed)
    - `state.frozen` (CONDITIONAL)
 3. Agora editor permite usar estas tags em dropdowns de ASAbility
 
-### Audit: Verificar Tags Não Usadas
+## Audit: Verificar Tags Não Usadas
 
 1. Abra painel
 2. Visualize todas as tags registradas
@@ -222,9 +220,9 @@ AbilitySystem.tags_changed.connect(_on_tags_changed)
 
 ## Melhor Prática
 
-### Estrutura Recomendada
+## Estrutura Recomendada
 
-```
+```gdscript
 ability.*
   ├─ warrior.*
   ├─ mage.*
@@ -244,11 +242,11 @@ event.*
   ├─ damage.*
   ├─ heal.*
   └─ control.*
-```
+```gdscript
 
 Hierarquia facilita navegação no painel.
 
-### Criação em Bulk
+## Criação em Bulk
 
 Se projeto grande, considere criar tags via script em `_ready()`:
 
@@ -257,14 +255,14 @@ func _ready():
     if not AbilitySystem.is_tag_registered(&"ability.fireball"):
         AbilitySystem.register_tag(&"ability.fireball", ASTagType.NAME)
     # ... etc
-```
+```gdscript
 
 Depois sincronize com painel:
 
 ```gdscript
 func sync_tags_to_panel():
     tags_panel.update_tags()
-```
+```gdscript
 
 ## Referências Relacionadas
 

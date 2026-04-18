@@ -4,7 +4,6 @@ date: "2026-04-18T12:00:00-03:00"
 type: docs
 ---
 
-# ASCue (Base Class)
 
 **Badge:** `Resource`
 
@@ -28,17 +27,17 @@ extends ASCue
 
 func _on_execute(spec: ASCueSpec):
     print("Custom cue triggered!")
-```
+```gdscript
 
 ## Herança
 
-```
+```gdscript
 Resource
  └─ ASCue (Base)
      ├─ ASCueAnimation
      ├─ ASCueAudio
      └─ (Custom subclasses)
-```
+```gdscript
 
 ## Propriedades
 
@@ -55,7 +54,7 @@ Resource
 
 ## Constantes (Enums)
 
-### CueEventType
+## CueEventType
 
 ```gdscript
 enum CueEventType {
@@ -63,25 +62,25 @@ enum CueEventType {
     ON_ACTIVE = 1,   # Disparado quando effect/ability ativa
     ON_REMOVE = 2    # Disparado quando effect/ability termina
 }
-```
+```gdscript
 
 ## Callbacks Virtuais
 
-### `_on_execute(spec: ASCueSpec) → void` (virtual)
+## `_on_execute(spec: ASCueSpec) → void` (virtual)
 
 Chamado para effects instant. Use para hit impacts, explosões.
 
-### `_on_active(spec: ASCueSpec) → void` (virtual)
+## `_on_active(spec: ASCueSpec) → void` (virtual)
 
 Chamado quando effect/ability ativa. Use para buffs, auras.
 
-### `_on_remove(spec: ASCueSpec) → void` (virtual)
+## `_on_remove(spec: ASCueSpec) → void` (virtual)
 
 Chamado quando effect/ability termina. Use para cleanup.
 
 ## Casos de Uso (Custom Subclass)
 
-### Custom Particle Cue
+## Custom Particle Cue
 
 ```gdscript
 extends ASCue
@@ -104,9 +103,9 @@ func get_target_node(spec: ASCueSpec) -> Node:
     if node_name:
         return asc.get_node(node_name)
     return asc
-```
+```gdscript
 
-### Custom Shockwave Cue
+## Custom Shockwave Cue
 
 ```gdscript
 extends ASCue
@@ -124,7 +123,7 @@ func _on_execute(spec: ASCueSpec):
 
     await shockwave.finish()
     shockwave.queue_free()
-```
+```gdscript
 
 ## Referências Relacionadas
 

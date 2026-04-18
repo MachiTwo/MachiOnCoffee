@@ -4,7 +4,6 @@ date: "2026-04-18T12:00:00-03:00"
 type: docs
 ---
 
-# ASAbility
 
 **Badge:** `Resource`
 
@@ -28,21 +27,21 @@ Resource que define a lógica e dados de uma ação específica.
 
 ## Herança
 
-```
+```gdscript
 Resource
  └─ ASAbility
-```
+```gdscript
 
 ## Propriedades
 
-### Identidade
+## Identidade
 
 | Propriedade | Tipo | Padrão | Descrição |
 |------------|------|--------|----------|
 | `ability_name` | String | `""` | Nome único da ability |
 | `ability_tag` | StringName | `&""` | Tag identificadora (tipo NAME) |
 
-### Duração
+## Duração
 
 | Propriedade | Tipo | Padrão | Descrição |
 |------------|------|--------|----------|
@@ -50,7 +49,7 @@ Resource
 | `ability_duration` | float | `0.0` | Base duration quando `POLICY_DURATION` |
 | `ability_use_custom_duration` | bool | `false` | Se `true`, trigger callback customizado para cálculo de duração |
 
-### Custos e Requisitos
+## Custos e Requisitos
 
 | Propriedade | Tipo | Padrão | Descrição |
 |------------|------|--------|----------|
@@ -58,7 +57,7 @@ Resource
 | `costs_use_custom` | bool | `false` | Se `true`, trigger callback para cálculo customizado |
 | `requirements` | Dictionary[] | `[]` | Array de requisitos (atributo → amount mínimo) |
 
-### Cooldown
+## Cooldown
 
 | Propriedade | Tipo | Padrão | Descrição |
 |------------|------|--------|----------|
@@ -66,7 +65,7 @@ Resource
 | `cooldown_tags` | StringName[] | `[]` | Tags aplicadas durante cooldown |
 | `cooldown_use_custom` | bool | `false` | Se `true`, trigger callback customizado |
 
-### Validação de Ativação (Tags)
+## Validação de Ativação (Tags)
 
 | Propriedade | Tipo | Padrão | Descrição |
 |------------|------|--------|----------|
@@ -75,14 +74,14 @@ Resource
 | `activation_blocked_any_tags` | StringName[] | `[]` | Falha se owner tiver QUALQUER UMA (OR) |
 | `activation_blocked_all_tags` | StringName[] | `[]` | Falha se owner tiver TODAS SIMULTANEAMENTE (AND) |
 
-### Estado Enquanto Ativa
+## Estado Enquanto Ativa
 
 | Propriedade | Tipo | Padrão | Descrição |
 |------------|------|--------|----------|
 | `activation_owned_tags` | StringName[] | `[]` | Tags concedidas enquanto ability está ativa |
 | `activation_cancel_tags` | StringName[] | `[]` | Tags de abilities ativas que serão canceladas ao ativar esta |
 
-### Conteúdo
+## Conteúdo
 
 | Propriedade | Tipo | Padrão | Descrição |
 |------------|------|--------|----------|
@@ -92,7 +91,7 @@ Resource
 | `sub_abilities` | ASAbility[] | `[]` | Sub-abilities desbloqueadas junto |
 | `sub_abilities_auto_activate` | StringName[] | `[]` | Tags de sub-abilities que ativam automaticamente |
 
-### Eventos
+## Eventos
 
 | Propriedade | Tipo | Padrão | Descrição |
 |------------|------|--------|----------|
@@ -102,7 +101,7 @@ Resource
 
 ## Constantes (Enums)
 
-### DurationPolicy
+## DurationPolicy
 
 ```gdscript
 enum DurationPolicy {
@@ -110,9 +109,9 @@ enum DurationPolicy {
     POLICY_DURATION = 1,  # Tem duração fixa
     POLICY_INFINITE = 2   # Permanece até explicitamente cancelada
 }
-```
+```gdscript
 
-### TriggerType
+## TriggerType
 
 ```gdscript
 enum TriggerType {
@@ -120,13 +119,13 @@ enum TriggerType {
     TRIGGER_ON_TAG_REMOVED = 1,  # Ativa quando tag é removida
     TRIGGER_ON_EVENT = 2         # Ativa quando evento é disparado (preferido)
 }
-```
+```gdscript
 
 ## Métodos Públicos (Gameplay)
 
-### Ativação Segura
+## Ativação Segura
 
-#### `try_activate_ability(owner: ASComponent, spec: ASAbilitySpec = null, target_node: Object = null) → void`
+## `try_activate_ability(owner: ASComponent, spec: ASAbilitySpec = null, target_node: Object = null) → void`
 
 Tenta ativar a ability com todas as validações. Integra verificação e ação.
 
@@ -147,7 +146,7 @@ Tenta ativar a ability com todas as validações. Integra verificação e ação
 - `ability_activated` se sucesso
 - `ability_failed` se falha
 
-#### `can_activate_ability(owner: ASComponent, spec: ASAbilitySpec = null) → bool` (const)
+## `can_activate_ability(owner: ASComponent, spec: ASAbilitySpec = null) → bool` (const)
 
 Pré-validação sem efeitos colaterais. Retorna se ativação é teoricamente permitida.
 
@@ -158,65 +157,65 @@ if ability.can_activate_ability(owner, spec):
     ability.activate_ability(owner, spec)
 else:
     print("Faltam recursos ou não pode ativar")
-```
+```gdscript
 
-#### `activate_ability(owner: ASComponent, spec: ASAbilitySpec = null, target_node: Object = null) → void`
+## `activate_ability(owner: ASComponent, spec: ASAbilitySpec = null, target_node: Object = null) → void`
 
 Inicia execução. Aplica custos e cooldown automaticamente. **Uso de infraestrutura**—prefer `try_activate_ability` para gameplay.
 
-### Validações
+## Validações
 
-#### `can_afford_costs(owner: ASComponent, spec: ASAbilitySpec = null) → bool` (const)
+## `can_afford_costs(owner: ASComponent, spec: ASAbilitySpec = null) → bool` (const)
 
 Verifica se owner tem atributos suficientes para os custos.
 
-#### `can_satisfy_requirements(owner: ASComponent, spec: ASAbilitySpec = null) → bool` (const)
+## `can_satisfy_requirements(owner: ASComponent, spec: ASAbilitySpec = null) → bool` (const)
 
 Verifica se owner satisfaz requisitos de atributo.
 
-### Cálculos
+## Cálculos
 
-#### `calculate_ability_duration(owner: ASComponent) → float` (const)
+## `calculate_ability_duration(owner: ASComponent) → float` (const)
 
 Calcula duração final (considerando `ability_use_custom_duration`).
 
-#### `apply_costs(owner: ASComponent, spec: ASAbilitySpec = null) → void` (const)
+## `apply_costs(owner: ASComponent, spec: ASAbilitySpec = null) → void` (const)
 
 Aplica custos de atributo ao owner. Chamado automaticamente por `activate_ability`.
 
-### Gerenciamento de Custos e Requisitos (Runtime)
+## Gerenciamento de Custos e Requisitos (Runtime)
 
-#### `add_cost(attribute: StringName, amount: float) → void`
+## `add_cost(attribute: StringName, amount: float) → void`
 
 Adiciona custo de atributo em runtime.
 
-#### `remove_cost(attribute: StringName) → bool`
+## `remove_cost(attribute: StringName) → bool`
 
 Remove custo. Retorna `true` se existia.
 
-#### `get_cost_amount(attribute: StringName) → float` (const)
+## `get_cost_amount(attribute: StringName) → float` (const)
 
 Retorna valor do custo para um atributo.
 
-#### `add_requirement(attribute: StringName, amount: float) → void`
+## `add_requirement(attribute: StringName, amount: float) → void`
 
 Adiciona requisito de atributo em runtime.
 
-#### `remove_requirement(attribute: StringName) → bool`
+## `remove_requirement(attribute: StringName) → bool`
 
 Remove requisito. Retorna `true` se existia.
 
-#### `get_requirement_amount(attribute: StringName) → float` (const)
+## `get_requirement_amount(attribute: StringName) → float` (const)
 
 Retorna valor mínimo requerido.
 
-#### `get_requirement_count() → int` (const)
+## `get_requirement_count() → int` (const)
 
 Retorna total de requisitos.
 
-### Triggers (Automação)
+## Triggers (Automação)
 
-#### `add_trigger(tag: StringName, type: int) → void`
+## `add_trigger(tag: StringName, type: int) → void`
 
 Registra ativação automática baseada em evento/tag.
 
@@ -233,31 +232,31 @@ ability.add_trigger(&"state.on_fire", ASAbility.TRIGGER_ON_TAG_ADDED)
 
 # Ativa quando evento "event.parry_success" dispara
 ability.add_trigger(&"event.parry_success", ASAbility.TRIGGER_ON_EVENT)
-```
+```gdscript
 
-### Callbacks Virtuais (Para Subclasses)
+## Callbacks Virtuais (Para Subclasses)
 
-#### `_on_can_activate_ability(owner: Object, spec: RefCounted) → bool` (virtual const)
+## `_on_can_activate_ability(owner: Object, spec: RefCounted) → bool` (virtual const)
 
 Override para lógica customizada de validação.
 
-#### `_on_activate_ability(owner: Object, spec: RefCounted) → void` (virtual)
+## `_on_activate_ability(owner: Object, spec: RefCounted) → void` (virtual)
 
 Override para lógica customizada de ativação.
 
-#### `_on_end_ability(owner: Object, spec: RefCounted) → void` (virtual)
+## `_on_end_ability(owner: Object, spec: RefCounted) → void` (virtual)
 
 Override para cleanup customizado.
 
-### Encerramento
+## Encerramento
 
-#### `end_ability(owner: ASComponent, spec: ASAbilitySpec = null) → void`
+## `end_ability(owner: ASComponent, spec: ASAbilitySpec = null) → void`
 
 Encerra execução e limpa owned tags.
 
 ## Casos de Uso
 
-### Ability de Combate Simples
+## Ability de Combate Simples
 
 ```gdscript
 var slash = ASAbility.new()
@@ -279,9 +278,9 @@ slash.activation_owned_tags.append(&"state.attacking")
 
 # Aplica efeito de dano
 slash.effects.append(damage_effect)
-```
+```gdscript
 
-### Ability com Custo e Requisito
+## Ability com Custo e Requisito
 
 ```gdscript
 var fireball = ASAbility.new()
@@ -300,9 +299,9 @@ fireball.cooldown_duration = 3.0
 
 # Dispara evento ao ativar
 fireball.events_on_activate.append(&"event.fireball_cast")
-```
+```gdscript
 
-### Ability com Fases
+## Ability com Fases
 
 ```gdscript
 var charged_strike = ASAbility.new()
@@ -327,9 +326,9 @@ var recovery = ASAbilityPhase.new()
 recovery.phase_duration = 0.25
 # Sem tags—estado normal
 charged_strike.phases.append(recovery)
-```
+```gdscript
 
-### Trigger Reativo (Counter-Attack)
+## Trigger Reativo (Counter-Attack)
 
 ```gdscript
 var parry = ASAbility.new()
@@ -346,7 +345,7 @@ parry.activation_cancel_tags.append(&"ability.attack")
 
 # Aplica invulnerabilidade durante parry
 parry.granted_tags.append(&"state.parrying")
-```
+```gdscript
 
 ## Referências Relacionadas
 

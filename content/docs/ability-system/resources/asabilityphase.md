@@ -4,7 +4,6 @@ date: "2026-04-18T12:00:00-03:00"
 type: docs
 ---
 
-# ASAbilityPhase
 
 **Badge:** `Resource` (herda de ASAbility)
 
@@ -22,7 +21,7 @@ Define uma fase granular de execução de uma ability.
 
 **Exemplo de Charged Strike:**
 
-```
+```gdscript
 Windup (200ms)
   ├─ Aplica: state.charging
   └─ Avança por tempo
@@ -34,15 +33,15 @@ Execution (50ms)
 Recovery (250ms)
   ├─ Sem effects transitórios
   └─ Retorna a normal
-```
+```gdscript
 
 ## Herança
 
-```
+```gdscript
 Resource
  └─ ASAbility
      └─ ASAbilityPhase
-```
+```gdscript
 
 ## Propriedades (Fase-Específicas)
 
@@ -65,7 +64,7 @@ Herdados de `ASAbility`. Nenhum método específico de fase.
 
 ## Casos de Uso
 
-### Charged Attack (3 Phases)
+## Charged Attack (3 Phases)
 
 ```gdscript
 var charged_strike = ASAbility.new()
@@ -92,9 +91,9 @@ var recovery = ASAbilityPhase.new()
 recovery.phase_duration = 0.25
 # Sem effects—retorna a normal
 charged_strike.phases.append(recovery)
-```
+```gdscript
 
-### Channeled Spell (2 Phases)
+## Channeled Spell (2 Phases)
 
 ```gdscript
 var channel_spell = ASAbility.new()
@@ -114,9 +113,9 @@ cast.effects.append(massive_damage_effect)
 cast.effects.append(stun_effect)
 cast.transition_trigger = &"animation.cast_finished"
 channel_spell.phases.append(cast)
-```
+```gdscript
 
-### Multi-Hit Combo (4 Phases)
+## Multi-Hit Combo (4 Phases)
 
 ```gdscript
 var combo = ASAbility.new()
@@ -138,7 +137,7 @@ for i in range(4):
     phase.effects.append(damages[i])
     phase.transition_trigger = &"animation.hit_frame_%d" % (i + 1)
     combo.phases.append(phase)
-```
+```gdscript
 
 ## Integração com ASComponent
 
@@ -157,11 +156,11 @@ func _on_tag_added(tag: StringName):
         play_charging_animation()
     elif tag == &"state.attacking.hit1":
         play_first_hit_animation()
-```
+```gdscript
 
 ## Lifecycle da Fase
 
-```
+```gdscript
 Ativa (fase 0)
   ├─ Aplicar effects da fase
   ├─ Aplicar granted_tags
@@ -179,7 +178,7 @@ Termina (última fase)
   ├─ Remove effects/tags finais
   ├─ Emite ability_ended signal
   └─ Cooldown inicia
-```
+```gdscript
 
 ## Referências Relacionadas
 

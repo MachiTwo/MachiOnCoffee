@@ -4,8 +4,6 @@ date: "2026-04-18T12:00:00-03:00"
 type: docs
 ---
 
-# BTActionAS_WaitForEvent
-
 **Badge:** `BTAction` • `LimboAI`
 
 ## Descrição Breve
@@ -27,11 +25,11 @@ Usado para sequências sincronizadas: "Ativar ability → aguardar conclusão �
 
 ## Herança
 
-```
+```gdscript
 BTTask
  └─ BTAction
      └─ BTActionAS_WaitForEvent
-```
+```gdscript
 
 ## Propriedades
 
@@ -43,31 +41,31 @@ BTTask
 
 ## Métodos
 
-### Getters
+## Getters
 
-#### `get_event_tag() → StringName` (const)
+## `get_event_tag() → StringName` (const)
 
 Retorna tag do evento.
 
-#### `get_time_window() → float` (const)
+## `get_time_window() → float` (const)
 
 Retorna timeout em segundos.
 
-#### `get_asc_node_path() → NodePath` (const)
+## `get_asc_node_path() → NodePath` (const)
 
 Retorna caminho customizado.
 
-### Setters
+## Setters
 
-#### `set_event_tag(tag: StringName) → void`
+## `set_event_tag(tag: StringName) → void`
 
 Define tag do evento.
 
-#### `set_time_window(seconds: float) → void`
+## `set_time_window(seconds: float) → void`
 
 Define timeout.
 
-#### `set_asc_node_path(path: NodePath) → void`
+## `set_asc_node_path(path: NodePath) → void`
 
 Define caminho para ASComponent.
 
@@ -90,7 +88,7 @@ Define caminho para ASComponent.
 
 ## Casos de Uso
 
-### Sincronizar Ativações
+## Sincronizar Ativações
 
 ```gdscript
 behavior_tree = [
@@ -109,9 +107,9 @@ behavior_tree = [
 # 2. Aguarda até 3s por "ability_finished"
 # 3. Se recebe evento dentro 3s → play_victory_animation
 # 4. Se timeout → sequence falha
-```
+```gdscript
 
-### Combo com Timing
+## Combo com Timing
 
 ```gdscript
 behavior_tree = [
@@ -128,9 +126,9 @@ behavior_tree = [
           time_window: 0.5
     ]
 ]
-```
+```gdscript
 
-### Casting com Delay
+## Casting com Delay
 
 ```gdscript
 sequence = [
@@ -143,9 +141,9 @@ sequence = [
 ]
 
 # Cast leva até 2s para completar
-```
+```gdscript
 
-### Reaction Chain
+## Reaction Chain
 
 ```gdscript
 # Após levar dano, retaliar com timing
@@ -158,7 +156,7 @@ sequence = [
       time_window: 1.0
     action: play_stun_animation
 ]
-```
+```gdscript
 
 ## Window Time vs Timeout
 
@@ -170,7 +168,7 @@ time_window: 2.0
 
 # ASTagUtils verifica se evento ocorreu nos últimos 2 segundos
 ASTagUtils.event_did_occur(&"event.damage", asc, 2.0)
-```
+```gdscript
 
 **Evento Ocorrido Antes?** Se evento ocorreu ANTES desta ação iniciar:
 
@@ -181,7 +179,7 @@ ASTagUtils.event_did_occur(&"event.damage", asc, 2.0)
 
 # Verifica últimos 0.5 segundos → evento FORA da window
 # Retorna FAILURE (evento já passou)
-```
+```gdscript
 
 Use `time_window` suficiente para sua use case.
 
@@ -195,7 +193,7 @@ time_window: 1.0
 
 # Retorna BT.FAILURE
 # Sequência interrompida
-```
+```gdscript
 
 Para recuperar falha:
 
@@ -208,7 +206,7 @@ selector: [
     ],
     action: fallback_action  # Se timeout
 ]
-```
+```gdscript
 
 ## Performance
 
@@ -236,7 +234,7 @@ func _tick(agent, blackboard):
     elif result == BT.FAILURE:
         print("Timeout—evento não ocorreu")
     return result
-```
+```gdscript
 
 ## Debugging
 
@@ -254,7 +252,7 @@ func _tick(agent, blackboard):
     print("Waiting for %s - did_occur: %s, elapsed: %.2f / %.2f" %
           [event_tag, did_occur, elapsed, time_window])
     return super._tick(agent, blackboard)
-```
+```gdscript
 
 ## Comparação: Wait vs Condition
 
@@ -265,7 +263,7 @@ action: BTActionAS_WaitForEvent
   event_tag: &"event.finished"
   time_window: 2.0
 # Bloqueia execução até evento ou timeout
-```
+```gdscript
 
 **BTConditionAS_EventOccurred:** Verifica instantaneamente
 
@@ -273,7 +271,7 @@ action: BTActionAS_WaitForEvent
 condition: BTConditionAS_EventOccurred
   event_tag: &"event.finished"
 # Retorna true/false imediatamente (não aguarda)
-```
+```gdscript
 
 ## Referências Relacionadas
 

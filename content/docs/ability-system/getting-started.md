@@ -4,20 +4,18 @@ date: "2026-04-18T12:00:00-03:00"
 type: docs
 ---
 
-# Getting Started com Ability System
-
 Guia passo-a-passo para começar a usar o framework.
 
 ## 1️⃣ Registre suas Tags
 
 Todas as tags devem ser registradas globalmente no `AbilitySystem` singleton.
 
-### Abra o Painel de Tags
+## Abra o Painel de Tags
 
 - **GDExtension**: Procure pela aba **Ability System Tags** no **Painel Inferior** (ao lado de Output)
 - **Ou**: Acesse `AbilitySystem` singleton → método `register_tag()`
 
-### Registre o Vocabulário
+## Registre o Vocabulário
 
 ```gdscript
 func _ready():
@@ -32,7 +30,7 @@ func _ready():
     # Events (tipo EVENT)
     AbilitySystem.register_tag(&"event.damage", AbilitySystem.ASTagType.EVENT)
     AbilitySystem.register_tag(&"event.hit", AbilitySystem.ASTagType.EVENT)
-```
+```gdscript
 
 ## 2️⃣ Crie um AttributeSet
 
@@ -65,7 +63,7 @@ strength.min_value = 0.0
 strength.max_value = 100.0
 strength.base_value = 10.0
 attribute_set.add_attribute(strength)
-```
+```gdscript
 
 ## 3️⃣ Crie uma Ability
 
@@ -93,7 +91,7 @@ slash.activation_owned_tags.append(&"state.attacking")
 
 # Aplica efeito de dano
 slash.effects.append(damage_effect)
-```
+```gdscript
 
 ## 4️⃣ Crie um Effect
 
@@ -110,7 +108,7 @@ damage_effect.duration_policy = ASEffect.POLICY_INSTANT
 
 # -30 health
 damage_effect.add_modifier(&"health", ASEffect.OP_ADD, -30.0)
-```
+```gdscript
 
 ## 5️⃣ Crie um Container (Archetype)
 
@@ -129,7 +127,7 @@ container.add_ability(ability_fireball)
 
 # Add initial effects (passive auras)
 # container.add_effect(passive_effect)
-```
+```gdscript
 
 ## 6️⃣ Adicione ASComponent ao Character
 
@@ -139,7 +137,7 @@ Adicione o Node `ASComponent` como child do seu `CharacterBody2D`/`CharacterBody
 # Cena do personagem
 Player (CharacterBody2D)
   └─ ASComponent
-```
+```gdscript
 
 ## 7️⃣ Carregue o Container na Inicialização
 
@@ -153,7 +151,7 @@ func _ready():
     # Conecta sinais
     asc.ability_activated.connect(_on_ability_activated)
     asc.tag_added.connect(_on_tag_added)
-```
+```gdscript
 
 ## 8️⃣ Ative Abilities via Input
 
@@ -171,7 +169,7 @@ func _physics_process(delta):
             print("Falhou—em cooldown?")
 
     move_and_slide()
-```
+```gdscript
 
 ## 9️⃣ Reaja a Mudanças de Estado
 
@@ -189,7 +187,7 @@ func _on_tag_added(tag: StringName):
 func _on_attribute_changed(attribute: StringName, new_value: float):
     if attribute == &"health":
         update_health_bar(new_value)
-```
+```gdscript
 
 ---
 
@@ -210,34 +208,34 @@ func _on_attribute_changed(attribute: StringName, new_value: float):
 
 ## ⚡ Referência Rápida de Métodos
 
-### Ativação (Gameplay)
+## Ativação (Gameplay)
 
 ```gdscript
 asc.try_activate_ability_by_tag(&"ability.slash")    # Seguro
 asc.can_activate_ability_by_tag(&"ability.fireball")  # Verificar
-```
+```gdscript
 
-### Estado
+## Estado
 
 ```gdscript
 asc.has_tag(&"state.stunned")
 asc.add_tag(&"state.burning")
 asc.remove_tag(&"state.burning")
-```
+```gdscript
 
-### Atributos
+## Atributos
 
 ```gdscript
 asc.set_attribute_base_value(&"health", 100.0)
 asc.get_attribute_current_value(&"health")
-```
+```gdscript
 
-### Effects
+## Effects
 
 ```gdscript
 asc.apply_effect_by_tag(&"effect.burn")
 asc.apply_package(fireball_package)
-```
+```gdscript
 
 ---
 

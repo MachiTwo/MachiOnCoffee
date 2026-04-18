@@ -23,7 +23,7 @@ arquitetura baseada em dados (v0.1.0 Stable).
 
 ## 🏗️ 3 Pilares Arquiteturais
 
-### 1. **Tags** — A Matriz de Identidade
+## 1. **Tags** — A Matriz de Identidade
 
 Identificadores hierárquicos (`StringName`) que representam verdade absoluta do estado:
 
@@ -35,7 +35,7 @@ Identificadores hierárquicos (`StringName`) que representam verdade absoluta do
 
 **Regra de Ouro**: NAME identifica. CONDITIONAL bloqueia. EVENT dispara. Nunca misturar.
 
-### 2. **Blueprints** — O "DNA" Imutável
+## 2. **Blueprints** — O "DNA" Imutável
 
 Resources estáticos (`.tres`) compartilhados entre centenas de instâncias:
 
@@ -48,7 +48,7 @@ Resources estáticos (`.tres`) compartilhados entre centenas de instâncias:
 | **ASPackage**      | Envelope de entrega (effects + cues)           | `apply_package()` via ASDelivery  |
 | **ASCue**          | Feedback audiovisual                           | Emitido automaticamente por Specs |
 
-### 3. **Specs** — Instâncias de Runtime
+## 3. **Specs** — Instâncias de Runtime
 
 Leves, dinâmicas, mantêm estado mutável:
 
@@ -60,7 +60,7 @@ Leves, dinâmicas, mantêm estado mutável:
 
 ## 🔄 Fluxo Essencial (A Ordem Natural)
 
-```
+```gdscript
 INPUT (jogador pressiona "atacar")
   ↓
 TRIGGER (tag adicionada / evento disparado)
@@ -74,15 +74,15 @@ MUTAÇÃO (activate_ability → aplica efeitos, tags owned, cooldowns)
 SINAIS (ability_activated, effect_applied, tag_changed)
   ↓
 FEEDBACK (Cues—animação, som, partículas)
-```
+```gdscript
 
 ## 📚 Categorias de API
 
-### [🔐 Singleton](singleton/) — Registro Global
+## [🔐 Singleton](singleton/) — Registro Global
 
 - **AbilitySystem**: Registro central de tags, resolutor de componentes
 
-### [📦 Resources](resources/) — Blueprints Imutáveis
+## [📦 Resources](resources/) — Blueprints Imutáveis
 
 - **ASAbility**: Lógica de ação com fases, custos, cooldowns, triggers
 - **ASAbilityPhase**: Fases granulares (Windup → Execution → Recovery)
@@ -93,12 +93,12 @@ FEEDBACK (Cues—animação, som, partículas)
 - **ASPackage**: Envelope de entrega (effects + cues)
 - **ASCue**: Base de feedback (AnimationPlayer, Audio, Partículas)
 
-### [🎬 Nodes](nodes/) — Componentes de Cena
+## [🎬 Nodes](nodes/) — Componentes de Cena
 
 - **ASComponent**: Hub orquestrador (abilities, effects, atributos, tags)
 - **ASDelivery**: Injetor de física (projéteis, AoEs)
 
-### [⚙️ RefCounted](refcounted/) — Instâncias Leves
+## [⚙️ RefCounted](refcounted/) — Instâncias Leves
 
 - **ASAbilitySpec**, **ASEffectSpec**, **ASCueSpec**: Executores de runtime
 - **ASTagSpec**: Refcount de tags
@@ -107,14 +107,14 @@ FEEDBACK (Cues—animação, som, partículas)
 - **ASTagUtils**: Utilitários tag-histórico (was_added, did_occur, etc)
 - **ASStateUtils**: Utilitários estado
 
-### [🎮 Behavior Tree](behavior-tree/) — Integração IA
+## [🎮 Behavior Tree](behavior-tree/) — Integração IA
 
 - **BTActionAS_ActivateAbility**: Ativar via behavior tree
 - **BTActionAS_DispatchEvent**: Disparar evento
 - **BTConditionAS_CanActivate**: Verificar se pode ativar
 - **BTConditionAS_HasTag**, **BTConditionAS_EventOccurred**: Condições
 
-### [✏️ Editor](editor/) — Ferramentas de Edição
+## [✏️ Editor](editor/) — Ferramentas de Edição
 
 - **ASEditorPlugin**: Bootloader
 - **ASInspectorPlugin**: Seletores inteligentes (dropdowns de tags)
@@ -122,7 +122,7 @@ FEEDBACK (Cues—animação, som, partículas)
 
 ## ⚡ Padrões de API (Crítico)
 
-### Nomenclatura Gameplay (Público)
+## Nomenclatura Gameplay (Público)
 
 - `try_activate_...`: Ativação segura (verifica requisitos, aplica custos)
 - `can_...`: Pré-autorização sem efeitos colaterais
@@ -131,7 +131,7 @@ FEEDBACK (Cues—animação, som, partículas)
 - `request_...`: Intenção em rede (RPC multiplayer)
 - `cancel_...`: Interrupção voluntária
 
-### Nomenclatura Infraestrutura (Privado)
+## Nomenclatura Infraestrutura (Privado)
 
 - `apply_...`: Força aplicação (ignora validações)
 - `add_...` / `remove_...`: Mutação baixo nível
@@ -149,7 +149,7 @@ Cada tag é **registrada globalmente** com tipo obrigatório:
 AbilitySystem.register_tag(&"ability.fireball", AbilitySystem.ASTagType.NAME)
 AbilitySystem.register_tag(&"state.burning", AbilitySystem.ASTagType.CONDITIONAL)
 AbilitySystem.register_tag(&"event.damage", AbilitySystem.ASTagType.EVENT)
-```
+```gdscript
 
 **Inspector garante type-safety**:
 
@@ -159,18 +159,18 @@ AbilitySystem.register_tag(&"event.damage", AbilitySystem.ASTagType.EVENT)
 
 **Hierarquia automática** (pontos criam ramos):
 
-```
+```gdscript
 state.stunned
 state.burning    → agrupa visualmente sob "state"
 state.frozen
-```
+```gdscript
 
 Consultas funcionam em qualquer nível:
 
 ```gdscript
 has_tag(&"state.stunned")  # específico
 has_tag(&"state")           # qualquer sub-state
-```
+```gdscript
 
 ## 🔗 Multiplayer: Predição & Rollback
 
@@ -182,7 +182,7 @@ Construído nativamente para determinismo online:
 asc.capture_snapshot()                          # Estado pre-pred
 asc.try_activate_ability_by_tag(&"ability.hit")  # Executa local
 asc.request_activate_ability.rpc_id(1, tag)    # Informa server
-```
+```gdscript
 
 **Server Reconciliation:**
 
@@ -192,13 +192,13 @@ if asc.can_activate_ability_by_tag(tag):
     asc.confirm_ability_activation.rpc(tag)    # Confirma client
 else:
     # Predição falhou—client vai rollback
-```
+```gdscript
 
 **Automatic Rollback:**
 
 ```gdscript
 asc.apply_snapshot(tick_id)  # Restaura de ASStateCache (128 ticks)
-```
+```gdscript
 
 ASStateCache mantém buffer automático em `_physics_process`, permitindo rollback instantâneo sem alocação.
 
@@ -210,26 +210,26 @@ Cada ator = **ASAttributeSet** único (deep-cloned):
 asc.set_attribute_base_value(&"health", 100.0)
 effect.add_modifier(&"health", ASEffect.OP_MULTIPLY, 0.5)  # Reduz 50%
 var hp = asc.get_attribute_current_value(&"health")        # 50.0
-```
+```gdscript
 
 **Drivers** (Attribute Derivation):
 
 ```gdscript
 attribute_set.add_driver(&"health", &"strength", ASAttributeSet.DRIVER_MULTIPLY, 2.0)
 # Health base = 2 * Strength (recalcula automaticamente)
-```
+```gdscript
 
 ## 🎬 Ability Phases (Máquinas de Estado)
 
 Habilidades complexas divididas em fases:
 
-```
+```gdscript
 Windup [200ms, Slow tag]
   ↓ (advancement por tempo)
 Execution [50ms, Apply damage]
   ↓ (advancement por evento: animation_finished)
 Recovery [300ms, Normal speed]
-```
+```gdscript
 
 Cada fase: duração própria, effects transitórios, triggers de avanço.
 
@@ -245,7 +245,7 @@ BTActionAS_ActivateAbility
 BTConditionAS_HasTag
   tag: &"state.stunned"
   expect_true: false  # Pode atacar se NÃO atordoado
-```
+```gdscript
 
 **ASBridge** (pasta `src/bridge/`) = camada de tradução nativa LimboAI → ASComponent.
 

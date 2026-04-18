@@ -4,8 +4,6 @@ date: "2026-04-18T12:00:00-03:00"
 type: docs
 ---
 
-# ASDelivery
-
 **Badge:** `Node`
 
 ## Descrição Breve
@@ -27,10 +25,10 @@ Pode ser usado para:
 
 ## Herança
 
-```
+```gdscript
 Node
  └─ ASDelivery
-```
+```gdscript
 
 ## Propriedades
 
@@ -47,9 +45,9 @@ Node
 
 ## Métodos Públicos
 
-### Ativação
+## Ativação
 
-#### `activate(duration: float = -1.0) → void`
+## `activate(duration: float = -1.0) → void`
 
 Ativa a entrega. Se `duration` > 0, substitui `life_span`.
 
@@ -58,15 +56,15 @@ Ativa a entrega. Se `duration` > 0, substitui `life_span`.
 ```gdscript
 delivery.activate()           # Ativa indefinidamente
 delivery.activate(5.0)        # Ativa por 5 segundos
-```
+```gdscript
 
-#### `deactivate() → void`
+## `deactivate() → void`
 
 Desativa a entrega.
 
-### Entrega
+## Entrega
 
-#### `deliver(target: Node) → void`
+## `deliver(target: Node) → void`
 
 Entrega o payload a um alvo específico.
 
@@ -81,31 +79,31 @@ Automaticamente:
 
 ```gdscript
 delivery.deliver(enemy_node)
-```
+```gdscript
 
-#### `can_deliver_to(target: Node) → bool` (const)
+## `can_deliver_to(target: Node) → bool` (const)
 
 Verifica se pode entregar a um target (valida grupos).
 
-### Validação
+## Validação
 
-#### `is_delivery_valid() → bool` (const)
+## `is_delivery_valid() → bool` (const)
 
 Retorna se ativa e não expirou.
 
 ## Sinais
 
-#### `delivered(target: Object) → void`
+## `delivered(target: Object) → void`
 
 Emitido após entrega bem-sucedida.
 
-#### `expired() → void`
+## `expired() → void`
 
 Emitido quando `life_span` atinge zero.
 
 ## Casos de Uso
 
-### Projétil de Fireball
+## Projétil de Fireball
 
 ```gdscript
 # Cena: FireballProjectile
@@ -122,9 +120,9 @@ func _ready():
 
 func _physics_process(delta):
     position += velocity * delta
-```
+```gdscript
 
-### Auto-Connect via Area2D
+## Auto-Connect via Area2D
 
 ```gdscript
 # Area2D com ASDelivery como child
@@ -136,9 +134,9 @@ func _physics_process(delta):
 # ASDelivery conecta automaticamente:
 # Area2D.area_entered → delivery.deliver(area)
 # Sem código necessário!
-```
+```gdscript
 
-### Armadilha Passiva
+## Armadilha Passiva
 
 ```gdscript
 # Cena: PoisonTrapTile
@@ -154,9 +152,9 @@ func _ready():
     delivery.auto_connect = true
 
 # Qualquer thing que entrar recebe poison!
-```
+```gdscript
 
-### Entrega Manual com Validação
+## Entrega Manual com Validação
 
 ```gdscript
 func _on_explosion_triggered(position: Vector2):
@@ -169,9 +167,9 @@ func _on_explosion_triggered(position: Vector2):
     for target in targets:
         if delivery.can_deliver_to(target):
             delivery.deliver(target)
-```
+```gdscript
 
-### Hit Box Melee Temporário
+## Hit Box Melee Temporário
 
 ```gdscript
 # Durante animação de ataque
@@ -185,7 +183,7 @@ func _on_attack_animation_hit_frame():
     delivery.activate(0.1)  # Ativo por 100ms
 
     # Colisões durante este tempo entregam damage
-```
+```gdscript
 
 ## Integração com ASComponent
 
@@ -199,7 +197,7 @@ target_asc.apply_package(
 
 # E emite events do package:
 target_asc.dispatch_event(&"event.fireball_hit")
-```
+```gdscript
 
 ## Referências Relacionadas
 

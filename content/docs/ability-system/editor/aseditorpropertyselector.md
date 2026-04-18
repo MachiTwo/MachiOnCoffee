@@ -4,8 +4,6 @@ date: "2026-04-18T12:00:00-03:00"
 type: docs
 ---
 
-# ASEditorPropertySelector
-
 **Badge:** `EditorProperty`
 
 ## Descrição Breve
@@ -26,25 +24,25 @@ propriedades de array de tags (ex: `activation_required_all_tags`, `granted_tags
 
 ## Herança
 
-```
+```gdscript
 EditorProperty
  └─ ASEditorPropertySelector
-```
+```gdscript
 
 ## Interface
 
 **Inspector:**
 
-```
+```gdscript
 [activation_required_all_tags: Array]
 ┌───────────────────────┐
 │ [Select Tags...] [X]  │  ← Botão abre dialog
 └───────────────────────┘
-```
+```gdscript
 
 **Dialog:**
 
-```
+```gdscript
 ┌─────────────────────────┐
 │ Select Tags             │
 ├─────────────────────────┤
@@ -57,34 +55,34 @@ EditorProperty
 │                         │
 │     [OK] [Cancel]       │
 └─────────────────────────┘
-```
+```gdscript
 
 ## Funcionalidades
 
-### Seleção Múltipla
+## Seleção Múltipla
 
 - **Checkbox Individual:** Seleciona/deseleciona tag
 - **CTRL+Click:** Adiciona/remove da seleção
 - **Shift+Click:** Range selection
 
-### Filtragem Opcional
+## Filtragem Opcional
 
 Dialog pode incluir campo de busca:
 
-```
+```gdscript
 ┌──────────────────────┐
 │ Search: [ability____] │  ← Filtra por texto
 │ ☐ ability.fireball   │
 │ ☐ ability.slash      │
 │ ☐ ability.shield     │
 └──────────────────────┘
-```
+```gdscript
 
-### Agrupamento Hierárquico
+## Agrupamento Hierárquico
 
 Tags agrupadas por raiz:
 
-```
+```gdscript
 ☐ ability
   ☐ ability.fireball
   ☐ ability.slash
@@ -94,26 +92,26 @@ Tags agrupadas por raiz:
   ☐ state.frozen
 ☐ event
   ☐ event.on_hit
-```
+```gdscript
 
 ## Validação de Tipo
 
 `ASEditorPropertySelector` valida tipos:
 
-```
+```gdscript
 activation_required_all_tags: Array[StringName]
   Aceita: CONDITIONAL tags (states)
   Rejeita: NAME tags (abilities)
   Rejeita: EVENT tags (events)
-```
+```gdscript
 
 Campo exibe apenas tags compatíveis.
 
 ## Casos de Uso
 
-### Requisitos de Ability
+## Requisitos de Ability
 
-```
+```gdscript
 # ASAbility.activation_required_all_tags
 ┌──────────────────────┐
 │ Select Tags...       │
@@ -122,11 +120,11 @@ Campo exibe apenas tags compatíveis.
 │ ☑ state.not_silenced │ ← Requer não estar silenciado
 │ ☐ state.empowered    │
 └──────────────────────┘
-```
+```gdscript
 
-### Tags Concedidas por Effect
+## Tags Concedidas por Effect
 
-```
+```gdscript
 # ASEffect.granted_tags
 ┌──────────────────────┐
 │ Select Tags...       │
@@ -135,11 +133,11 @@ Campo exibe apenas tags compatíveis.
 │ ☑ immune.fire        │ ← Concede imunidade fogo
 │ ☐ state.stunned      │
 └──────────────────────┘
-```
+```gdscript
 
-### Tags Removidas no Cancel
+## Tags Removidas no Cancel
 
-```
+```gdscript
 # ASAbility.activation_cancel_tags
 ┌──────────────────────┐
 │ Select Tags...       │
@@ -148,7 +146,7 @@ Campo exibe apenas tags compatíveis.
 │ ☑ state.charging     │ ← Remove state
 │ ☐ state.burning      │
 └──────────────────────┘
-```
+```gdscript
 
 ## Integração com ASInspectorPlugin
 
@@ -159,7 +157,7 @@ Registrado automaticamente:
 func _handles_type(type):
     if property in ["activation_required_all_tags", "granted_tags"]:
         return ASEditorPropertySelector.new()
-```
+```gdscript
 
 ## Filtragem por Tipo de Tag
 
@@ -177,15 +175,15 @@ func _handles_type(type):
 # Campo: "event_dispatch"
 # Tipo esperado: EVENT
 # Dialog exibe APENAS: event.* tags
-```
+```gdscript
 
 ## Melhor Prática
 
-### Organizando Seleções
+## Organizando Seleções
 
 Agrupe tags semanticamente:
 
-```
+```gdscript
 Requisitos para Ultimate:
 ☑ class.mage
 ☑ mana >= 100
@@ -194,16 +192,16 @@ Requisitos para Ultimate:
 Requisitos para Dodge:
 ☑ state.not_stunned
 ☑ stamina >= 20
-```
+```gdscript
 
-### Validação no Projeto
+## Validação no Projeto
 
 Após selecionar tags, `AbilitySystem` valida:
 
 ```gdscript
 # Se seleciona tag não-registrada:
 # ⚠️ Aviso: "Tag 'unknown' não está registrada no AbilitySystem"
-```
+```gdscript
 
 Registre todas as tags em `AbilitySystem` antes de usar no selector.
 

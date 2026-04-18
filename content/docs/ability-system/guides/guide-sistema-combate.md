@@ -4,19 +4,17 @@ date: "2026-04-18T12:00:00-03:00"
 type: docs
 ---
 
-# Guia: Sistema de Combate Completo
-
 Aprenda a montar um sistema de combate funcional com player vs inimigo.
 
 ## Arquitetura
 
-```
+```gdscript
 Player               Inimigo
 ├─ ASComponent      ├─ ASComponent
 ├─ AnimationPlayer  ├─ AnimationPlayer
 ├─ Ability A        ├─ Ability B (IA)
 └─ Input            └─ Behavior Tree
-```
+```gdscript
 
 ## Passo 1: Setup Base
 
@@ -24,22 +22,22 @@ Crie ASContainer para ambos (Player e Enemy):
 
 **player.tres:**
 
-```
+```gdscript
 attribute_set: player_attributes
 initial_abilities:
   - ability.slash
   - ability.heavy_attack
   - ability.dodge
-```
+```gdscript
 
 **enemy.tres:**
 
-```
+```gdscript
 attribute_set: enemy_attributes
 initial_abilities:
   - ability.claw_swipe
   - ability.roar
-```
+```gdscript
 
 ## Passo 2: Script do Player (Combate Manual)
 
@@ -88,7 +86,7 @@ func _on_ability_activated(spec):
 func _on_effect_applied(effect_spec):
     var damage = effect_spec.get_magnitude(&"health")
     print("Dano: ", damage)
-```
+```gdscript
 
 ## Passo 3: Script do Inimigo (IA Simples)
 
@@ -136,7 +134,7 @@ func die():
     anim.play("death")
     await anim.animation_finished
     queue_free()
-```
+```gdscript
 
 ## Passo 4: Estado de Combate
 
@@ -156,7 +154,7 @@ enemy.health_changed.connect(_on_enemy_health_changed)
 func _on_enemy_health_changed(new_health):
     if new_health <= 0:
         _on_combat_ended()
-```
+```gdscript
 
 ## Passo 5: Sistema de Recompensa
 
@@ -178,11 +176,11 @@ func _ready():
 func _on_enemy_defeated():
     print("Victory! Gained 100 XP")
     get_tree().reload_current_scene()
-```
+```gdscript
 
 ## Casos de Uso Avançados
 
-### 1. Sistema de Bloqueio
+## 1. Sistema de Bloqueio
 
 ```gdscript
 func use_ability(ability_tag: StringName):
@@ -192,9 +190,9 @@ func use_ability(ability_tag: StringName):
 
     if asc.can_activate_ability_by_tag(ability_tag):
         asc.try_activate_ability_by_tag(ability_tag)
-```
+```gdscript
 
-### 2. Direcionamento
+## 2. Direcionamento
 
 ```gdscript
 func _apply_to_enemy(ability_tag: StringName):
@@ -206,9 +204,9 @@ func _apply_to_enemy(ability_tag: StringName):
 
     # Aplicar efeito
     enemy.asc.apply_effect_by_tag(&"effect.slash_damage", asc)
-```
+```gdscript
 
-### 3. Sistema de Resistência
+## 3. Sistema de Resistência
 
 ```gdscript
 # Em Enemy.gd
@@ -217,9 +215,9 @@ func take_damage(amount: float, damage_type: StringName = &"physical"):
     var final_damage = amount * (1.0 - resistance * 0.01)
 
     health -= final_damage
-```
+```gdscript
 
-### 4. Combo System
+## 4. Combo System
 
 ```gdscript
 var combo_counter = 0
@@ -242,11 +240,11 @@ func use_ability(ability_tag: StringName):
     if combo_counter >= 3:
         print("Combo x3! Dano crítico!")
         combo_counter = 0
-```
+```gdscript
 
 ## Checklist de Implementação
 
-```
+```gdscript
 [ ] Setup ASComponent para player e inimigo
 [ ] Criar abilities básicas
 [ ] Implementar input do player
@@ -257,7 +255,7 @@ func use_ability(ability_tag: StringName):
 [ ] Sistema de recompensa
 [ ] Feedback visual/sonoro
 [ ] Balanceamento de dano
-```
+```gdscript
 
 ---
 

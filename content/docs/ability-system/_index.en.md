@@ -33,7 +33,7 @@ Documentation is divided into fundamental pillars:
 
 ---
 
-### Where to start?
+## Where to start?
 
 If you are new to the system, we recommend reading about the [**Identity Matrix: Tags**](./infrastructure/tags/) first,
 which is the foundation of all game logic flow.

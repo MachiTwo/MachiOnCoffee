@@ -4,8 +4,6 @@ date: "2026-04-18T12:00:00-03:00"
 type: docs
 ---
 
-# BTActionAS_ActivateAbility
-
 **Badge:** `BTAction` • `LimboAI`
 
 ## Descrição Breve
@@ -26,11 +24,11 @@ Respeita todos os requisitos: tags de ativação, cooldowns, custos, nível.
 
 ## Herança
 
-```
+```gdscript
 BTTask
  └─ BTAction
      └─ BTActionAS_ActivateAbility
-```
+```gdscript
 
 ## Propriedades
 
@@ -42,31 +40,31 @@ BTTask
 
 ## Métodos
 
-### Getters
+## Getters
 
-#### `get_ability_tag() → StringName` (const)
+## `get_ability_tag() → StringName` (const)
 
 Retorna tag da ability.
 
-#### `get_activation_level() → float` (const)
+## `get_activation_level() → float` (const)
 
 Retorna power level.
 
-#### `get_asc_node_path() → NodePath` (const)
+## `get_asc_node_path() → NodePath` (const)
 
 Retorna caminho customizado.
 
-### Setters
+## Setters
 
-#### `set_ability_tag(tag: StringName) → void`
+## `set_ability_tag(tag: StringName) → void`
 
 Define tag da ability.
 
-#### `set_activation_level(level: float) → void`
+## `set_activation_level(level: float) → void`
 
 Define power level para scaling.
 
-#### `set_asc_node_path(path: NodePath) → void`
+## `set_asc_node_path(path: NodePath) → void`
 
 Define caminho para ASComponent.
 
@@ -90,7 +88,7 @@ Se qualquer validação falhar → **BT.FAILURE**
 
 ## Casos de Uso
 
-### Sequência Simples
+## Sequência Simples
 
 ```gdscript
 behavior_tree = [
@@ -103,9 +101,9 @@ behavior_tree = [
 
 # Ativa "slash" → Se sucesso, anima
 # Se falhar (cooldown?), sequence inteira falha
-```
+```gdscript
 
-### Selector com Fallback
+## Selector com Fallback
 
 ```gdscript
 selector: [
@@ -117,9 +115,9 @@ selector: [
 ]
 
 # Tenta fireball → Se falhar, fire_bolt → Se falhar, move
-```
+```gdscript
 
-### Ativação com Level Scale
+## Ativação com Level Scale
 
 ```gdscript
 behavior_tree = [
@@ -129,9 +127,9 @@ behavior_tree = [
 ]
 
 # Ativa com level 2.0 (damage scaling, duration scaling, etc)
-```
+```gdscript
 
-### Boss Ability Rotation
+## Boss Ability Rotation
 
 ```gdscript
 selector: [
@@ -150,7 +148,7 @@ selector: [
 ]
 
 # Boss escolhe ability baseado em condições
-```
+```gdscript
 
 ## Validação de Requisitos
 
@@ -168,7 +166,7 @@ costs: {
 }
 
 cooldown_duration: 2.0
-```
+```gdscript
 
 `BTActionAS_ActivateAbility` valida TUDO automaticamente.
 
@@ -185,7 +183,7 @@ cooldown_duration: 2.0
 ```gdscript
 asc_node_path: NodePath("Subnode/AbilityComponent")
 # Busca caminho específico relativo ao agent
-```
+```gdscript
 
 ## Integração com ASComponent
 
@@ -199,14 +197,14 @@ if asc.can_activate_ability_by_tag(ability_tag):
     return BT.SUCCESS
 else:
     return BT.FAILURE
-```
+```gdscript
 
 Sinais de `ASComponent` emitidos:
 
 ```gdscript
 asc.ability_activated.emit(spec)  # Se sucesso
 asc.ability_failed.emit(ability_tag)  # Se falha
-```
+```gdscript
 
 ## Debugging
 
@@ -222,7 +220,7 @@ func _tick(agent, blackboard):
     var result = super._tick(agent, blackboard)
     print("Result: %s" % BT.status_to_string(result))
     return result
-```
+```gdscript
 
 ## Performance
 
@@ -239,7 +237,7 @@ action: BTActionAS_ActivateAbility
   ability_tag: &"ability.fireball"
 # Ativa fireball IMEDIATAMENTE, consumindo recursos
 # Retorna SUCCESS/FAILURE baseado validação
-```
+```gdscript
 
 **BTConditionAS_CanActivate:** Valida apenas
 
@@ -248,47 +246,47 @@ condition: BTConditionAS_CanActivate
   ability_tag: &"ability.fireball"
 # Verifica se PODE ativar (sem efeitos colaterais)
 # Retorna true/false—NÃO ativa
-```
+```gdscript
 
 ## Casos de Falha Comum
 
-### 1. Ability Não Registrada
+## 1. Ability Não Registrada
 
 ```gdscript
 ability_tag: &"ability.unknown_attack"
 # AbilitySystem não tem recurso
 # Resultado: BT.FAILURE
-```
+```gdscript
 
 **Fix:** Registre ability em ASContainer ou globalmente.
 
-### 2. Cooldown Ativo
+## 2. Cooldown Ativo
 
 ```gdscript
 # Ability tem cooldown_duration: 2.0
 # Apenas ativada 0.5 segundos atrás
 # Resultado: BT.FAILURE
-```
+```gdscript
 
 **Fix:** Aguarde com `BTActionAS_WaitForEvent` ou verifique com `BTConditionAS_CanActivate`.
 
-### 3. Custos Insuficientes
+## 3. Custos Insuficientes
 
 ```gdscript
 # Ability custa 100 mana
 # Personagem tem 50 mana
 # Resultado: BT.FAILURE
-```
+```gdscript
 
 **Fix:** Verifique atributos antes com condição customizada.
 
-### 4. Bloqueado por Tag
+## 4. Bloqueado por Tag
 
 ```gdscript
 # Ability tem activation_blocked_any_tags: [&"state.stunned"]
 # Personagem tem estado "stunned"
 # Resultado: BT.FAILURE
-```
+```gdscript
 
 **Fix:** Remova estado bloqueador antes.
 
@@ -306,7 +304,7 @@ sequence: [
 
 # Se condição falha, sequence inteira pula
 # Se ativação falha, sequence falha
-```
+```gdscript
 
 ## Referências Relacionadas
 

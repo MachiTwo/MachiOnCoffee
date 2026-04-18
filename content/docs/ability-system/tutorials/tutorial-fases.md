@@ -4,71 +4,69 @@ date: "2026-04-18T12:00:00-03:00"
 type: docs
 ---
 
-# Tutorial: Habilidades com Fases
-
 Aprenda a criar habilidades complexas divididas em fases de execução granular.
 
 **Tempo:** ~15 minutos | **Nível:** Intermediário
 
 ## Conceito: Fases
 
-```
+```gdscript
 Ataque de Espada com 3 Fases:
 
 [Windup]      [Execution]    [Recovery]
 [0.3s]        [0.1s]         [0.2s]
 Slow tag      Apply damage   Back to normal
-```
+```gdscript
 
 ## Passo 1: Criar ASAbilityPhase
 
 Crie 3 resources de fase:
 
-### Phase 1: Windup
+## Phase 1: Windup
 
 New Resource → **ASAbilityPhase**
 
 Salve como `res://assets/phases/slash_windup.tres`
 
-```
+```gdscript
 phase_duration: 0.3
 granted_tags: [&"state.attacking"]
 effects: []
 transition_trigger: &"animation.slash_frame_15"
-```
+```gdscript
 
-### Phase 2: Execution
+## Phase 2: Execution
 
 New Resource → **ASAbilityPhase**
 
 Salve como `res://assets/phases/slash_execution.tres`
 
-```
+```gdscript
 phase_duration: 0.1
 granted_tags: []
 effects: (array com 1 elemento)
   [0]: (drag slash_damage.tres)
 transition_trigger: &"animation.slash_finished"
-```
+```gdscript
 
-### Phase 3: Recovery
+## Phase 3: Recovery
 
 New Resource → **ASAbilityPhase**
 
 Salve como `res://assets/phases/slash_recovery.tres`
 
-```
+```gdscript
 phase_duration: 0.2
 granted_tags: []
 effects: []
 transition_trigger: ""
-```
+```gdscript
 
 ## Passo 2: Criar ASAbility com Fases
 
 Modifique `slash.tres`:
 
-```
+```gdscript
 ability_tag: &"ability.slash"
 ability_duration_policy: 1 (DURATION)
 cooldown_duration: 1.0
@@ -76,7 +74,7 @@ phases: (array com 3 elementos)
   [0]: (drag slash_windup.tres)
   [1]: (drag slash_execution.tres)
   [2]: (drag slash_recovery.tres)
-```
+```gdscript
 
 ## Passo 3: Script para Sincronizar com Animação
 
@@ -101,7 +99,7 @@ func _on_animation_finished(anim_name):
         if spec:
             var phase = spec.get_current_phase_index()
             print("Finalizou fase: %d" % phase)
-```
+```gdscript
 
 ## Passo 4: Entender Transições
 
@@ -119,7 +117,7 @@ transition_trigger: &"animation.slash_finished"
 # Phase 3 (Recovery):
 transition_trigger: ""
 # Usa duração (0.2s)
-```
+```gdscript
 
 Para disparar triggers customizados:
 
@@ -129,7 +127,7 @@ func _on_animation_frame_changed():
     if anim.current_animation == "slash_attack":
         if anim.current_animation_position >= 0.15:  # Frame 15
             asc.dispatch_event(&"animation.slash_frame_15")
-```
+```gdscript
 
 ## Passo 5: Testar Fluxo Completo
 
@@ -142,16 +140,16 @@ func _process(_delta):
         var phase = spec.get_current_phase_index()
         var duration = spec.get_duration_remaining()
         print("Fase: %d, Duração: %.2f" % [phase, duration])
-```
+```gdscript
 
 Output esperado:
 
-```
+```gdscript
 Fase 0, Duração: 0.29  # Windup (0.3s)
 Fase 0, Duração: 0.05
 Fase 1, Duração: 0.09  # Execution (0.1s)
 Fase 2, Duração: 0.18  # Recovery (0.2s)
-```
+```gdscript
 
 ## Caso de Uso: Habilidade Canalizável
 
@@ -171,7 +169,7 @@ func _physics_process(_delta):
             asc.cancel_ability_by_spec(current_ability_spec)
             print("Casting cancelado!")
             current_ability_spec = null
-```
+```gdscript
 
 ## Caso de Uso: Combo Multi-Fase
 
@@ -190,7 +188,7 @@ func _process(_delta):
                 asc.dispatch_event(&"combo.confirmed_phase_1")
             elif phase == 1:
                 asc.dispatch_event(&"combo.confirmed_phase_2")
-```
+```gdscript
 
 ## Debugging Fases
 
@@ -203,7 +201,7 @@ func debug_phase_info():
         print("Fase: ", phase_resource.granted_tags)
         print("Duração: ", phase_resource.phase_duration)
         print("Trigger: ", phase_resource.transition_trigger)
-```
+```gdscript
 
 ## Conceitos Aprendidos
 

@@ -29,7 +29,7 @@ cena.
 ```cpp
 // Exemplo interno das tarefas da Bridge
 AbilitySystem::get_singleton()->resolve_component(agente);
-```
+```gdscript
 
 ---
 

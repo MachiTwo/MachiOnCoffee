@@ -4,8 +4,6 @@ date: "2026-04-18T12:00:00-03:00"
 type: docs
 ---
 
-# ASTagSpec
-
 **Badge:** `RefCounted`
 
 ## Descrição Breve
@@ -22,16 +20,16 @@ combina com `state`).
 
 ## Herança
 
-```
+```gdscript
 RefCounted
  └─ ASTagSpec
-```
+```gdscript
 
 ## Métodos Públicos
 
-### Adição e Remoção
+## Adição e Remoção
 
-#### `add_tag(tag: StringName) → bool`
+## `add_tag(tag: StringName) → bool`
 
 Adiciona tag ao container.
 
@@ -48,9 +46,9 @@ tag_spec.add_tag(&"state.stunned")  # refcount = 1
 tag_spec.add_tag(&"state.stunned")  # refcount = 2
 tag_spec.remove_tag(&"state.stunned")  # refcount = 1
 tag_spec.remove_tag(&"state.stunned")  # refcount = 0, removida
-```
+```gdscript
 
-#### `remove_tag(tag: StringName) → bool`
+## `remove_tag(tag: StringName) → bool`
 
 Remove tag (decrementa refcount).
 
@@ -62,11 +60,11 @@ if was_removed:
     print("State burning foi realmente removido")
 else:
     print("Ainda há referências a state.burning")
-```
+```gdscript
 
-### Consultas
+## Consultas
 
-#### `has_tag(tag: StringName, exact: bool = false) → bool` (const)
+## `has_tag(tag: StringName, exact: bool = false) → bool` (const)
 
 Verifica se container possui tag.
 
@@ -84,7 +82,7 @@ tag_spec.has_tag(&"state.stunned.freeze")  # true (exato)
 tag_spec.has_tag(&"state.stunned")         # true (parent)
 tag_spec.has_tag(&"state")                 # true (raiz)
 tag_spec.has_tag(&"other")                 # false
-```
+```gdscript
 
 **Match Exato (exact=true):**
 
@@ -94,9 +92,9 @@ tag_spec.add_tag(&"state.stunned.freeze")
 tag_spec.has_tag(&"state.stunned.freeze", true)  # true
 tag_spec.has_tag(&"state.stunned", true)         # false
 tag_spec.has_tag(&"state", true)                 # false
-```
+```gdscript
 
-#### `has_any_tags(tags: StringName[], exact: bool = false) → bool` (const)
+## `has_any_tags(tags: StringName[], exact: bool = false) → bool` (const)
 
 Verifica se container possui QUALQUER UM das tags.
 
@@ -104,9 +102,9 @@ Verifica se container possui QUALQUER UM das tags.
 var blocking_tags = [&"state.stunned", &"state.silenced"]
 if tag_spec.has_any_tags(blocking_tags):
     print("Pode atacar? Não—está stunned ou silenced")
-```
+```gdscript
 
-#### `has_all_tags(tags: StringName[], exact: bool = false) → bool` (const)
+## `has_all_tags(tags: StringName[], exact: bool = false) → bool` (const)
 
 Verifica se container possui TODAS as tags.
 
@@ -114,29 +112,29 @@ Verifica se container possui TODAS as tags.
 var required_tags = [&"state.empowered", &"state.focused"]
 if tag_spec.has_all_tags(required_tags):
     print("Todos os buffs ativos—pode usar ultimate")
-```
+```gdscript
 
-### Iteração
+## Iteração
 
-#### `get_all_tags() → StringName[]` (const)
+## `get_all_tags() → StringName[]` (const)
 
 Retorna array de todas as tags no container.
 
 ```gdscript
 for tag in tag_spec.get_all_tags():
     print("Tag ativa: ", tag)
-```
+```gdscript
 
-### Limpeza
+## Limpeza
 
-#### `clear() → void`
+## `clear() → void`
 
 Remove todas as tags (reseta refcounts para zero).
 
 ```gdscript
 tag_spec.clear()
 # Útil para reset de estado ou respawn
-```
+```gdscript
 
 ## Comportamento de Reference Counting
 
@@ -158,7 +156,7 @@ tags.remove_tag(&"state.burning")  # refcount = 1, tag PERMANECE
 
 # Após 10s, Fonte B remove:
 tags.remove_tag(&"state.burning")  # refcount = 0, tag REMOVIDA
-```
+```gdscript
 
 **Aplicação Prática:**
 
@@ -176,11 +174,11 @@ ability2.effects.append(create_effect_with_tag(&"state.vulnerable", 5.0))
 # - Tag PERMANECE (efeito 2 ainda ativo)
 # - Após 5s (efeito 2 expira): remove chamado, refcount = 0
 # - Tag REMOVIDA
-```
+```gdscript
 
 ## Casos de Uso
 
-### Verificar Requisito de Ability
+## Verificar Requisito de Ability
 
 ```gdscript
 func can_perform_ultimate(tag_spec: ASTagSpec) -> bool:
@@ -190,9 +188,9 @@ func can_perform_ultimate(tag_spec: ASTagSpec) -> bool:
         &"state.focused",
         &"class.mage"
     ])
-```
+```gdscript
 
-### Aplicar Effect Condicional
+## Aplicar Effect Condicional
 
 ```gdscript
 func apply_defensive_effect(tag_spec: ASTagSpec):
@@ -202,9 +200,9 @@ func apply_defensive_effect(tag_spec: ASTagSpec):
     elif tag_spec.has_tag(&"state.frozen"):
         # Se congelado, fogo descongela
         apply_effect(&"effect.unfreeze")
-```
+```gdscript
 
-### Gerenciar Buffs Mutualmente Exclusivos
+## Gerenciar Buffs Mutualmente Exclusivos
 
 ```gdscript
 func apply_buff(tag_spec: ASTagSpec, buff_tag: StringName):
@@ -218,9 +216,9 @@ func apply_buff(tag_spec: ASTagSpec, buff_tag: StringName):
 
     # Adiciona nova
     tag_spec.add_tag(buff_tag)
-```
+```gdscript
 
-### Implementar Imunidade Condicional
+## Implementar Imunidade Condicional
 
 ```gdscript
 func can_apply_effect(tag_spec: ASTagSpec, effect: ASEffect) -> bool:
@@ -234,16 +232,16 @@ func can_apply_effect(tag_spec: ASTagSpec, effect: ASEffect) -> bool:
             return false  # Bloqueado por tag
 
     return true
-```
+```gdscript
 
-### Debug: Listar Todos os Estados Ativos
+## Debug: Listar Todos os Estados Ativos
 
 ```gdscript
 func debug_print_active_tags(tag_spec: ASTagSpec):
     print("Estados ativos:")
     for tag in tag_spec.get_all_tags():
         print("  - ", tag)
-```
+```gdscript
 
 ## Integração com ASComponent
 
@@ -258,7 +256,7 @@ func debug_print_active_tags(tag_spec: ASTagSpec):
 
 # ASComponent.has_tag chama:
 # tag_container.has_tag(tag, exact_match)
-```
+```gdscript
 
 Você não interage diretamente—use API pública de `ASComponent`.
 

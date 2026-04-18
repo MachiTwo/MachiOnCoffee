@@ -4,8 +4,6 @@ date: "2026-04-18T12:00:00-03:00"
 type: docs
 ---
 
-# ASEditorPropertyName
-
 **Badge:** `EditorProperty`
 
 ## Descrição Breve
@@ -28,10 +26,10 @@ Usado em propriedades tipo `StringName` marcadas para nomes únicos (ex: `abilit
 
 ## Herança
 
-```
+```gdscript
 EditorProperty
  └─ ASEditorPropertyName
-```
+```gdscript
 
 ## Validação em Tempo Real
 
@@ -48,7 +46,7 @@ EditorProperty
 
 ## Casos de Uso
 
-### Nomear ASAbility
+## Nomear ASAbility
 
 ```gdscript
 # No inspector:
@@ -58,9 +56,9 @@ EditorProperty
 # Editor valida em tempo real:
 # ✅ "ability.fireball" → Novo? Aceita
 # ⚠️ "ability.fireball" → Já existe? Aviso
-```
+```gdscript
 
-### Nomear ASEffect
+## Nomear ASEffect
 
 ```gdscript
 # No inspector:
@@ -68,9 +66,9 @@ EditorProperty
 # Campo: "effect.burn"
 
 # Validação automática
-```
+```gdscript
 
-### Nomear ASContainer (Arquétipos)
+## Nomear ASContainer (Arquétipos)
 
 ```gdscript
 # No inspector:
@@ -78,7 +76,7 @@ EditorProperty
 # Campo: "archetype.warrior"
 
 # Se tentar duplicar: Aviso
-```
+```gdscript
 
 ## Integração com ASEditorPlugin
 
@@ -91,13 +89,13 @@ if property == "ability_tag":
 if property == "effect_tag":
     return ASEditorPropertyName.new()
 # ... (todas as propriedades de naming)
-```
+```gdscript
 
 ## Melhor Prática
 
 **Convenção de Nomes:**
 
-```
+```gdscript
 ability.wizard_fireball
 ability.warrior_slash
 effect.burn_damage
@@ -106,11 +104,11 @@ state.stunned
 state.empowered
 event.on_hit
 event.on_death
-```
+```gdscript
 
 Usar dotação hierárquica facilita organização:
 
-```
+```gdscript
 ability
   ├─ wizard.*
   ├─ warrior.*
@@ -120,7 +118,7 @@ effect
   ├─ damage.*
   ├─ heal.*
   └─ debuff.*
-```
+```gdscript
 
 ## Validação Customizada
 
@@ -148,7 +146,7 @@ func _validate_name(name: StringName) -> String:
         return "Nome muito longo (máx 50 chars)"
 
     return ""  # Válido
-```
+```gdscript
 
 ## Referências Relacionadas
 

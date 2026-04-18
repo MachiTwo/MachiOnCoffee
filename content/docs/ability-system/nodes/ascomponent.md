@@ -4,8 +4,6 @@ date: "2026-04-18T12:00:00-03:00"
 type: docs
 ---
 
-# ASComponent
-
 **Badge:** `Node`
 
 ## Descrição Breve
@@ -29,10 +27,10 @@ Deve ser **child de CharacterBody2D ou CharacterBody3D**.
 
 ## Herança
 
-```
+```gdscript
 Node
  └─ ASComponent
-```
+```gdscript
 
 ## Propriedades
 
@@ -43,9 +41,9 @@ Node
 
 ## Métodos Principais (Gameplay)
 
-### Inicialização
+## Inicialização
 
-#### `apply_container(container: ASContainer, level: int = 1) → void`
+## `apply_container(container: ASContainer, level: int = 1) → void`
 
 Carrega container completo:
 
@@ -62,11 +60,11 @@ Carrega container completo:
 
 ```gdscript
 asc.apply_container(warrior_container, level=5)
-```
+```gdscript
 
-### Ativação de Abilities
+## Ativação de Abilities
 
-#### `try_activate_ability_by_tag(tag: StringName) → bool`
+## `try_activate_ability_by_tag(tag: StringName) → bool`
 
 Ativação segura de ability por tag. **Método preferido para gameplay.**
 
@@ -87,13 +85,13 @@ if asc.try_activate_ability_by_tag(&"ability.fireball"):
     print("Fireball lançada!")
 else:
     print("Falhou—faltam recursos/cooldown/requisitos")
-```
+```gdscript
 
-#### `try_activate_ability_by_resource(ability: ASAbility) → bool`
+## `try_activate_ability_by_resource(ability: ASAbility) → bool`
 
 Ativação segura por referência direta (menos comum).
 
-#### `can_activate_ability_by_tag(tag: StringName) → bool` (const)
+## `can_activate_ability_by_tag(tag: StringName) → bool` (const)
 
 Pré-validação sem efeitos colaterais.
 
@@ -102,19 +100,19 @@ Pré-validação sem efeitos colaterais.
 ```gdscript
 if asc.can_activate_ability_by_tag(&"ability.slash"):
     # UI pode habilitar botão
-```
+```gdscript
 
-### Aplicação de Effects
+## Aplicação de Effects
 
-#### `apply_effect_by_tag(tag: StringName, level: float = 1.0, target_node: Object = null) → void`
+## `apply_effect_by_tag(tag: StringName, level: float = 1.0, target_node: Object = null) → void`
 
 Aplica effect do container por tag. **Sem validações** (uso de infraestrutura).
 
-#### `apply_effect_by_resource(effect: ASEffect, level: float = 1.0, target_node: Object = null) → void`
+## `apply_effect_by_resource(effect: ASEffect, level: float = 1.0, target_node: Object = null) → void`
 
 Aplica effect por referência. **Sem validações.**
 
-#### `apply_package(package: ASPackage, level: float = 1.0, source_component: ASComponent = null) → void`
+## `apply_package(package: ASPackage, level: float = 1.0, source_component: ASComponent = null) → void`
 
 Aplica todos effects e cues de um package.
 
@@ -127,19 +125,19 @@ Aplica todos effects e cues de um package.
 
 ```gdscript
 asc.apply_package(fireball_package)
-```
+```gdscript
 
-#### `apply_effect_spec_to_self(spec: ASEffectSpec) → void`
+## `apply_effect_spec_to_self(spec: ASEffectSpec) → void`
 
 Aplica spec já-construído com validação de tags.
 
-#### `apply_effect_spec_to_target(spec: ASEffectSpec, target: ASComponent) → void`
+## `apply_effect_spec_to_target(spec: ASEffectSpec, target: ASComponent) → void`
 
 Aplica effect a outro componente.
 
-### Gerenciamento de Tags
+## Gerenciamento de Tags
 
-#### `add_tag(tag: StringName) → void`
+## `add_tag(tag: StringName) → void`
 
 Adiciona tag ao ator.
 
@@ -150,15 +148,15 @@ Adiciona tag ao ator.
 ```gdscript
 asc.add_tag(&"state.burning")
 asc.add_tag(&"class.warrior")
-```
+```gdscript
 
-#### `remove_tag(tag: StringName) → void`
+## `remove_tag(tag: StringName) → void`
 
 Remove tag.
 
 **Emite:** `tag_removed` signal
 
-#### `has_tag(tag: StringName) → bool` (const)
+## `has_tag(tag: StringName) → bool` (const)
 
 Verifica se ator tem tag.
 
@@ -168,23 +166,23 @@ Verifica se ator tem tag.
 asc.has_tag(&"state.stunned.freeze")  # true se tem
 asc.has_tag(&"state.stunned")         # true se tem stunned.freeze
 asc.has_tag(&"state")                 # true se tem qualquer state
-```
+```gdscript
 
-#### `get_all_tags() → StringName[]` (const)
+## `get_all_tags() → StringName[]` (const)
 
 Retorna todas as tags do ator.
 
-### Atributos
+## Atributos
 
-#### `set_attribute_base_value(attribute: StringName, value: float) → void`
+## `set_attribute_base_value(attribute: StringName, value: float) → void`
 
 Define valor base de atributo (antes de modificadores).
 
-#### `get_attribute_base_value(attribute: StringName) → float` (const)
+## `get_attribute_base_value(attribute: StringName) → float` (const)
 
 Lê valor base.
 
-#### `get_attribute_current_value(attribute: StringName) → float` (const)
+## `get_attribute_current_value(attribute: StringName) → float` (const)
 
 Lê valor atual (base + modificadores, clamped min/max).
 
@@ -196,11 +194,11 @@ asc.set_attribute_base_value(&"mana", 50.0)
 
 var hp = asc.get_attribute_current_value(&"health")  # 100
 var mana = asc.get_attribute_current_value(&"mana")  # 50
-```
+```gdscript
 
-### Multiplayer (Predição/Rollback)
+## Multiplayer (Predição/Rollback)
 
-#### `capture_snapshot() → void`
+## `capture_snapshot() → void`
 
 Congela estado atual para rollback.
 
@@ -210,9 +208,9 @@ Congela estado atual para rollback.
 asc.capture_snapshot()  # Salva estado atual
 asc.try_activate_ability_by_tag(&"ability.attack")  # Local prediction
 asc.request_activate_ability.rpc_id(1, &"ability.attack")  # Envia server
-```
+```gdscript
 
-#### `apply_snapshot(tick: int) → void`
+## `apply_snapshot(tick: int) → void`
 
 Restaura estado de tick anterior.
 
@@ -222,21 +220,21 @@ Tenta recuperar de **ASStateCache** (128 ticks) primeiro. Se mais antigo, carreg
 
 ```gdscript
 asc.apply_snapshot(authoritative_tick_id)
-```
+```gdscript
 
-### Cálculos
+## Cálculos
 
-#### `calculate_effect_duration(spec: ASEffectSpec) → float` (const)
+## `calculate_effect_duration(spec: ASEffectSpec) → float` (const)
 
 Calcula duração final considerando customizações.
 
-#### `calculate_modifier_magnitude(index: int, spec: ASEffectSpec) → float` (const)
+## `calculate_modifier_magnitude(index: int, spec: ASEffectSpec) → float` (const)
 
 Calcula magnitude final de modificador.
 
-### Callbacks Virtuais
+## Callbacks Virtuais
 
-#### `_on_calculate_custom_magnitude(effect_spec: ASEffectSpec, modifier_index: int) → float` (virtual const)
+## `_on_calculate_custom_magnitude(effect_spec: ASEffectSpec, modifier_index: int) → float` (virtual const)
 
 Override para cálculo customizado de magnitude (ex: scaling com inteligência).
 
@@ -247,7 +245,7 @@ func _on_calculate_custom_magnitude(effect_spec: ASEffectSpec, modifier_index: i
     if modifier_index == 0:  # Primeiro modificador
         return get_attribute_current_value(&"intelligence") * 0.5
     return 0.0
-```
+```gdscript
 
 ## Sinais
 
@@ -276,11 +274,11 @@ func _on_ability_activated(tag: StringName):
 func _on_tag_added(tag: StringName):
     if tag == &"state.burning":
         $Sprite.modulate = Color.RED  # Visual feedback
-```
+```gdscript
 
 ## Casos de Uso
 
-### Setup Inicial
+## Setup Inicial
 
 ```gdscript
 @onready var asc = $ASComponent
@@ -293,9 +291,9 @@ func _ready():
     asc.ability_activated.connect(_on_ability_activated)
     asc.tag_added.connect(_on_tag_added)
     asc.attribute_changed.connect(_on_attribute_changed)
-```
+```gdscript
 
-### Input Handling
+## Input Handling
 
 ```gdscript
 func _physics_process(delta):
@@ -304,9 +302,9 @@ func _physics_process(delta):
             velocity = Vector2.ZERO  # Freeze durante cast
         else:
             print_debug("Falhou—sem mana?")
-```
+```gdscript
 
-### Efeito de Dano
+## Efeito de Dano
 
 ```gdscript
 func take_damage(amount: float):
@@ -320,9 +318,9 @@ func take_damage(amount: float):
     # Verificar morte
     if asc.get_attribute_current_value(&"health") <= 0:
         die()
-```
+```gdscript
 
-### Multiplayer (Client Prediction)
+## Multiplayer (Client Prediction)
 
 ```gdscript
 func _physics_process(delta):
@@ -332,9 +330,9 @@ func _physics_process(delta):
         if Input.is_action_just_pressed("fire"):
             asc.try_activate_ability_by_tag(&"ability.slash")
             asc.request_activate_ability.rpc_id(1, &"ability.slash")
-```
+```gdscript
 
-### Server Reconciliation
+## Server Reconciliation
 
 ```gdscript
 @rpc("any_peer", "call_local")
@@ -347,7 +345,7 @@ func request_activate_ability(tag: StringName):
             # Predição falhou
             asc.apply_snapshot(correct_tick_id)
             asc.deny_ability_activation.rpc(tag)
-```
+```gdscript
 
 ## Performance Tips
 

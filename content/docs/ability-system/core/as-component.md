@@ -24,7 +24,7 @@ usar e gerencia o estado delas.
 
 O ASC foi construído do zero para multiplayer autoritativo:
 
-### ASStateCache
+## ASStateCache
 
 Mantém um buffer circular leve dos últimos **128 ticks**.
 

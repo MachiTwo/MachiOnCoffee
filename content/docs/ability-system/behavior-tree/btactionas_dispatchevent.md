@@ -4,8 +4,6 @@ date: "2026-04-18T12:00:00-03:00"
 type: docs
 ---
 
-# BTActionAS_DispatchEvent
-
 **Badge:** `BTAction` • `LimboAI`
 
 ## Descrição Breve
@@ -22,11 +20,11 @@ Usado para comunicação entre sistemas: habilidades dispararem eventos que trig
 
 ## Herança
 
-```
+```gdscript
 BTTask
  └─ BTAction
      └─ BTActionAS_DispatchEvent
-```
+```gdscript
 
 ## Propriedades
 
@@ -39,39 +37,39 @@ BTTask
 
 ## Métodos
 
-### Getters
+## Getters
 
-#### `get_event_tag() → StringName` (const)
+## `get_event_tag() → StringName` (const)
 
 Retorna tag do evento.
 
-#### `get_magnitude() → float` (const)
+## `get_magnitude() → float` (const)
 
 Retorna magnitude.
 
-#### `get_custom_payload() → Dictionary` (const)
+## `get_custom_payload() → Dictionary` (const)
 
 Retorna payload customizado.
 
-#### `get_asc_node_path() → NodePath` (const)
+## `get_asc_node_path() → NodePath` (const)
 
 Retorna caminho customizado.
 
-### Setters
+## Setters
 
-#### `set_event_tag(tag: StringName) → void`
+## `set_event_tag(tag: StringName) → void`
 
 Define tag do evento.
 
-#### `set_magnitude(mag: float) → void`
+## `set_magnitude(mag: float) → void`
 
 Define magnitude.
 
-#### `set_custom_payload(payload: Dictionary) → void`
+## `set_custom_payload(payload: Dictionary) → void`
 
 Define payload customizado.
 
-#### `set_asc_node_path(path: NodePath) → void`
+## `set_asc_node_path(path: NodePath) → void`
 
 Define caminho para ASComponent.
 
@@ -88,7 +86,7 @@ Define caminho para ASComponent.
 
 ## Casos de Uso
 
-### Sinalizar Conclusão de Ability
+## Sinalizar Conclusão de Ability
 
 ```gdscript
 sequence: [
@@ -102,9 +100,9 @@ sequence: [
 
 # Dispara evento que outros systems podem escutar
 # Ex: Triggers damage application, visual feedback, etc
-```
+```gdscript
 
-### Sinalizar Dano Tomado
+## Sinalizar Dano Tomado
 
 ```gdscript
 action: BTActionAS_DispatchEvent
@@ -113,9 +111,9 @@ action: BTActionAS_DispatchEvent
 
 # AI behaviors podem escutar:
 # "Se receber dano > 50 → retreater"
-```
+```gdscript
 
-### Sinalizar Estado Crítico
+## Sinalizar Estado Crítico
 
 ```gdscript
 sequence: [
@@ -126,9 +124,9 @@ sequence: [
 ]
 
 # Triggers: Música mudar, inimigos agressivos, etc
-```
+```gdscript
 
-### Disparo com Payload Customizado
+## Disparo com Payload Customizado
 
 ```gdscript
 action: BTActionAS_DispatchEvent
@@ -141,9 +139,9 @@ action: BTActionAS_DispatchEvent
   }
 
 # Listeners recebem dados estruturados
-```
+```gdscript
 
-### Coordenar Múltiplos NPCs
+## Coordenar Múltiplos NPCs
 
 ```gdscript
 # Boss dispara:
@@ -155,7 +153,7 @@ action: BTActionAS_DispatchEvent
 # listener: on_event_boss_summon_minions(magnitude=5.0)
 #   spawn 5 minions
 #   coordinate attack formation
-```
+```gdscript
 
 ## Magnitude vs Payload
 
@@ -165,7 +163,7 @@ action: BTActionAS_DispatchEvent
 magnitude: 30.0  # 30 damage
 magnitude: 0.5   # 50% slow
 magnitude: 3.0   # 3 stuns
-```
+```gdscript
 
 **Payload:** Dados estruturados complexos
 
@@ -176,7 +174,7 @@ custom_payload: {
   "damage_type": "fire",
   "crit_chance": 0.25
 }
-```
+```gdscript
 
 Use magnitude para valores simples, payload para estruturas.
 
@@ -195,7 +193,7 @@ event_history[event_tag] = {
 # Consultável via ASTagUtils:
 ASTagUtils.event_did_occur(&"event.on_damaged", asc, 1.0)
 ASTagUtils.event_get_last_magnitude(&"event.on_damaged", asc)
-```
+```gdscript
 
 ## Resolução de ASComponent
 
@@ -203,7 +201,7 @@ Auto-discovery se `asc_node_path` vazio.
 
 ## Casos de Uso Avançado
 
-### Trigger Chain
+## Trigger Chain
 
 ```gdscript
 sequence: [
@@ -218,9 +216,9 @@ sequence: [
 ]
 
 # Cadeia de eventos sequenciais
-```
+```gdscript
 
-### Conditional Dispatch
+## Conditional Dispatch
 
 ```gdscript
 selector: [
@@ -237,9 +235,9 @@ selector: [
 ]
 
 # Dispara diferentes eventos baseado em contexto
-```
+```gdscript
 
-### Synchronizing with Animations
+## Synchronizing with Animations
 
 ```gdscript
 sequence: [
@@ -251,7 +249,7 @@ sequence: [
 ]
 
 # Garante dano aplicado no frame visual correto
-```
+```gdscript
 
 ## Performance
 
@@ -270,7 +268,7 @@ func _tick(agent, blackboard):
     var result = super._tick(agent, blackboard)
     print("Dispatch complete")
     return result
-```
+```gdscript
 
 ## Listeners
 
@@ -283,7 +281,7 @@ asc.event_occurred.connect(_on_event)
 # Via ASTagUtils query:
 if ASTagUtils.event_did_occur(&"event.on_hit", asc, 0.5):
     # Evento ocorreu nos últimos 0.5 segundos
-```
+```gdscript
 
 ## Integração com ASComponent
 
@@ -295,7 +293,7 @@ asc.dispatch_event(
     50.0,
     {"extra": "data"}
 )
-```
+```gdscript
 
 `BTActionAS_DispatchEvent` simplesmente chama isso via Behavior Tree.
 

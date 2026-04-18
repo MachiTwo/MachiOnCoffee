@@ -4,8 +4,6 @@ date: "2026-04-18T12:00:00-03:00"
 type: docs
 ---
 
-# ASEffectSpec
-
 **Badge:** `RefCounted`
 
 ## Descrição Breve
@@ -25,44 +23,44 @@ Instância runtime de um effect ativo.
 
 ## Herança
 
-```
+```gdscript
 RefCounted
  └─ ASEffectSpec
-```
+```gdscript
 
 ## Métodos Públicos
 
-### Inicialização
+## Inicialização
 
-#### `init(effect: ASEffect, level: float = 1.0) → void`
+## `init(effect: ASEffect, level: float = 1.0) → void`
 
 Inicializa o spec com effect e nível.
 
-### Duração
+## Duração
 
-#### `get_duration_remaining() → float` (const)
+## `get_duration_remaining() → float` (const)
 
 Tempo restante até terminus.
 
-#### `get_total_duration() → float` (const)
+## `get_total_duration() → float` (const)
 
 Duração total inicial calculada.
 
-#### `set_duration_remaining(value: float) → void`
+## `set_duration_remaining(value: float) → void`
 
 Define tempo restante (para testes/debug).
 
-### Nível e Magnitude
+## Nível e Magnitude
 
-#### `get_level() → float` (const)
+## `get_level() → float` (const)
 
 Power level da instância.
 
-#### `set_level(level: float) → void`
+## `set_level(level: float) → void`
 
 Muda nível (recalcula magnitudes).
 
-#### `get_magnitude(attribute: StringName) → float` (const)
+## `get_magnitude(attribute: StringName) → float` (const)
 
 Magnitude calculada de um modificador.
 
@@ -70,45 +68,45 @@ Magnitude calculada de um modificador.
 
 ```gdscript
 var health_mod = spec.get_magnitude(&"health")  # -30.0 (ADD)
-```
+```gdscript
 
-### Stacking
+## Stacking
 
-#### `get_stack_count() → int` (const)
+## `get_stack_count() → int` (const)
 
 Quantas vezes foi aplicado (stacking).
 
-### Período (DoT/HoT)
+## Período (DoT/HoT)
 
-#### `get_period_timer() → float` (const)
+## `get_period_timer() → float` (const)
 
 Tempo até próximo tick periódico.
 
-### Componentes
+## Componentes
 
-#### `get_effect() → ASEffect` (const)
+## `get_effect() → ASEffect` (const)
 
 Resource definition.
 
-#### `get_source_component() → ASComponent` (const)
+## `get_source_component() → ASComponent` (const)
 
 Quem aplicou o effect (pode ser null).
 
-#### `get_target_component() → ASComponent` (const)
+## `get_target_component() → ASComponent` (const)
 
 Quem recebe o effect.
 
-#### `get_source_attribute_value(attribute: StringName) → float` (const)
+## `get_source_attribute_value(attribute: StringName) → float` (const)
 
 Valor de atributo no source.
 
-#### `get_target_attribute_value(attribute: StringName) → float` (const)
+## `get_target_attribute_value(attribute: StringName) → float` (const)
 
 Valor de atributo no target.
 
 ## Casos de Uso
 
-### Verificar Duration no \_process
+## Verificar Duration no \_process
 
 ```gdscript
 func _process(_delta):
@@ -118,9 +116,9 @@ func _process(_delta):
         if remaining < 0.5:
             print("Effect quase terminando")
             play_end_animation(spec.get_effect())
-```
+```gdscript
 
-### DoT com Período
+## DoT com Período
 
 ```gdscript
 func _process(delta):
@@ -133,9 +131,9 @@ func _process(delta):
 
         # Resetar período
         # (ASComponent cuida disso automaticamente)
-```
+```gdscript
 
-### Stacking Visual Feedback
+## Stacking Visual Feedback
 
 ```gdscript
 func _on_effect_applied(effect_spec: ASEffectSpec):
@@ -147,9 +145,9 @@ func _on_effect_applied(effect_spec: ASEffectSpec):
     # Escala visual com stacks
     var scale = 1.0 + (stacks * 0.1)
     vfx_node.scale = Vector3.ONE * scale
-```
+```gdscript
 
-### Scaling com Source Attribute
+## Scaling com Source Attribute
 
 ```gdscript
 func calculate_custom_magnitude(effect_spec: ASEffectSpec) -> float:
@@ -158,7 +156,7 @@ func calculate_custom_magnitude(effect_spec: ASEffectSpec) -> float:
     var level = effect_spec.get_level()
 
     return source_intelligence * 0.5 * level
-```
+```gdscript
 
 ## Referências Relacionadas
 

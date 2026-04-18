@@ -30,7 +30,7 @@ Example of a Heavy Attack:
 2. **Execution**: The strike occurs. Dispatches `event.damage`.
 3. **Recovery (0.3s)**: The character recovers.
 
-### Transitions
+## Transitions
 
 Phases can transition via **Time** (fixed duration) or **Event** (e.g., the animation master sends the `.Hit` signal).
 
@@ -55,6 +55,6 @@ void _on_activate_ability(Object* owner, RefCounted* spec) {
     // Pure gameplay logic here
     // Costs and cooldowns are already handled by the engine!
 }
-```
+```gdscript
 
 > [!TIP] Use **Sub-Abilities** to create composed abilities that are unlocked together, keeping the hierarchy clean.

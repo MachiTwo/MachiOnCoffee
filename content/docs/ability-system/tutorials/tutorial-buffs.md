@@ -4,8 +4,6 @@ date: "2026-04-18T12:00:00-03:00"
 type: docs
 ---
 
-# Tutorial: Sistema de Buff/Debuff
-
 Aprenda a criar modificadores temporários que afetam personagens.
 
 **Tempo:** ~10 minutos | **Nível:** Intermediário
@@ -20,7 +18,7 @@ Ambos são `ASEffect` com duração.
 
 Abra **Project Settings → Ability System** e crie:
 
-```
+```gdscript
 state.empowered (CONDITIONAL)
 state.slowed (CONDITIONAL)
 state.burning (CONDITIONAL)
@@ -29,7 +27,7 @@ effect.empower (NAME)
 effect.slow (NAME)
 effect.burn (NAME)
 effect.freeze (NAME)
-```
+```gdscript
 
 ## Passo 2: Criar ASEffect de Buff
 
@@ -37,7 +35,7 @@ New Resource → **ASEffect**
 
 Salve como `res://assets/effects/empower.tres`
 
-```
+```gdscript
 effect_tag: &"effect.empower"
 duration_policy: 1 (DURATION)
 duration_magnitude: 5.0
@@ -49,7 +47,7 @@ modifiers: (1 elemento)
     attribute: &"damage"
     operation: 1 (MULTIPLY)
     magnitude: 1.5
-```
+```gdscript
 
 **Resultado:** Aumenta dano em 50% por 5 segundos.
 
@@ -59,7 +57,7 @@ New Resource → **ASEffect**
 
 Salve como `res://assets/effects/slow.tres`
 
-```
+```gdscript
 effect_tag: &"effect.slow"
 duration_policy: 1 (DURATION)
 duration_magnitude: 3.0
@@ -71,7 +69,7 @@ modifiers: (1 elemento)
     attribute: &"movement_speed"
     operation: 0 (ADD)
     magnitude: -3.0
-```
+```gdscript
 
 **Resultado:** Reduz velocidade em 3.0 por 3 segundos.
 
@@ -87,7 +85,7 @@ func _process(_delta):
     if asc.has_tag(&"state.empowered"):
         var remaining_duration = # calcular
         print("Empowered para mais %.1f segundos" % remaining_duration)
-```
+```gdscript
 
 ## Passo 5: Aplicar Debuff a Inimigo
 
@@ -99,7 +97,7 @@ func use_ability(ability_tag: StringName):
         if ability_tag == &"ability.ice_bolt":
             var enemy_asc = AbilitySystem.resolve_component(enemy)
             asc.apply_effect_by_tag(&"effect.slow", enemy_asc)
-```
+```gdscript
 
 ## Passo 6: Debuff Contínuo (DoT)
 
@@ -107,7 +105,7 @@ New Resource → **ASEffect**
 
 Salve como `res://assets/effects/burning.tres`
 
-```
+```gdscript
 effect_tag: &"effect.burning"
 duration_policy: 1 (DURATION)
 duration_magnitude: 5.0
@@ -120,7 +118,7 @@ modifiers: (1 elemento)
     attribute: &"health"
     operation: 0 (ADD)
     magnitude: -10.0
-```
+```gdscript
 
 **Resultado:** -10 HP a cada 1 segundo por 5 segundos (total -50 HP).
 
@@ -143,7 +141,7 @@ func update_buff_ui():
             label.modulate = Color.BLUE
 
         buff_container.add_child(label)
-```
+```gdscript
 
 ## Passo 8: Immunidade
 
@@ -162,7 +160,7 @@ func apply_effect_to_target(effect, target_asc):
 
     target_asc.apply_effect_by_tag(effect.effect_tag)
     return true
-```
+```gdscript
 
 ## Passo 9: Cleanup Automático
 
@@ -180,19 +178,19 @@ func _on_effect_removed(effect_spec):
 
     if effect_tag == &"effect.empower":
         print("Empowered finalizou!")
-```
+```gdscript
 
 ## Casos de Uso Avançados
 
-### 1. Buff Stacking
+## 1. Buff Stacking
 
 ```gdscript
 # Aplicar empower 3 vezes = 1.5x * 1.5x * 1.5x = 3.375x damage
 for i in range(3):
     asc.apply_effect_by_tag(&"effect.empower")
-```
+```gdscript
 
-### 2. Conflicting Effects
+## 2. Conflicting Effects
 
 ```gdscript
 # Congelamento remove burning
@@ -201,28 +199,28 @@ func apply_freeze(target_asc):
 
 # Em ASEffect de freeze:
 removed_tags: [&"state.burning"]
-```
+```gdscript
 
-### 3. Buff que Concede Ability
+## 3. Buff que Concede Ability
 
 ```gdscript
 # Effect concede nova ability temporariamente
 effect.granted_tags: [&"ability.enhanced_strike"]
 
 # Quando buff expira, ability desaparece
-```
+```gdscript
 
-### 4. Escalonamento de Buff por Nível
+## 4. Escalonamento de Buff por Nível
 
 ```gdscript
 func apply_buff_scaled(level: float):
     var damage_boost = 1.0 + (level * 0.1)  # +10% por nível
     asc.apply_effect_by_tag(&"effect.empower", level)
-```
+```gdscript
 
 ## Checklist
 
-```
+```gdscript
 [ ] Criar tags de status
 [ ] Criar 1-2 buffs básicos
 [ ] Criar 1-2 debuffs básicos
@@ -232,7 +230,7 @@ func apply_buff_scaled(level: float):
 [ ] UI de status ativo
 [ ] Remover ao expirar
 [ ] Debugar duração
-```
+```gdscript
 
 ---
 

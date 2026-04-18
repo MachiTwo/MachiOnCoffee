@@ -8,7 +8,7 @@ type: docs
 
 Soluções para problemas comuns.
 
-### Problema: "Ability não ativa"
+## Problema: "Ability não ativa"
 
 **Sintomas:** `try_activate_ability_by_tag()` retorna false
 
@@ -47,11 +47,11 @@ print("Has required tags: ", has_required)
 # 7. Verificar bloqueios
 var blocked_by = asc.has_any_tags(ability.activation_blocked_any_tags)
 print("Blocked by tags: ", blocked_by)
-```
+```gdscript
 
 **Soluções Comuns:**
 
-```
+```gdscript
 Issue: Cooldown
 Fix: Aguarde ou use longer_cooldown em ASAbility
 
@@ -63,9 +63,9 @@ Fix: Remover tag bloqueadora antes
 
 Issue: Requisito faltando
 Fix: Adicionar tag requisitada primeiro
-```
+```gdscript
 
-### Problema: "Efeito não aplicado"
+## Problema: "Efeito não aplicado"
 
 **Sintomas:** `apply_effect_by_tag()` executa mas nada acontece
 
@@ -86,11 +86,11 @@ var specs = target_asc.get_all_effect_specs()
 for spec in specs:
     if spec.get_effect().effect_tag == &"effect.burn":
         print("Effect applied! Duration: ", spec.get_duration_remaining())
-```
+```gdscript
 
 **Soluções:**
 
-```
+```gdscript
 Issue: Target_asc é null
 Fix: Certificar que target é Node válido
 
@@ -99,9 +99,9 @@ Fix: Remover bloqueios ou adicionar requisitos
 
 Issue: Efeito é INSTANT e some imediatamente
 Fix: Verificar effect.duration_policy
-```
+```gdscript
 
-### Problema: "Animação não sincroniza com ability"
+## Problema: "Animação não sincroniza com ability"
 
 ```gdscript
 # Sincronizar com evento de ability
@@ -117,11 +117,11 @@ asc.effect_applied.connect(func(effect_spec):
     var phase = asc.get_ability_spec_by_tag(&"ability.slash").get_current_phase_index()
     print("Phase: ", phase, " Effect: ", effect_spec.get_effect().effect_tag)
 )
-```
+```gdscript
 
 **Soluções:**
 
-```
+```gdscript
 Issue: Animation player desincronizado
 Fix: Usar callbacks de animation_finished
 
@@ -130,9 +130,9 @@ Fix: Sincronizar com frame exato via dispatch_event
 
 Issue: Fase avança muito rápido
 Fix: Aumentar phase_duration ou usar transition_trigger
-```
+```gdscript
 
-### Problema: "Tag não está funcionando"
+## Problema: "Tag não está funcionando"
 
 ```gdscript
 # 1. Verificar se está registrada
@@ -155,9 +155,9 @@ asc.tag_added.connect(func(tag):
 asc.tag_removed.connect(func(tag):
     print("Tag removed: ", tag)
 )
-```
+```gdscript
 
-### Problema: "Multiplayer não sincroniza"
+## Problema: "Multiplayer não sincroniza"
 
 ```gdscript
 # 1. Verificar snapshot
@@ -183,9 +183,9 @@ else:
     # Rollback
     var current_tick = Engine.get_frame_count()
     asc.apply_snapshot(current_tick)
-```
+```gdscript
 
-### Performance Issues
+## Performance Issues
 
 **Problema:** Jogo lento com muitos atores AS
 
@@ -197,11 +197,11 @@ for i in range(1000):
     asc.has_tag(&"state.burning")
 var ms_end = Time.get_ticks_msec()
 print("1000 queries: %dms" % (ms_end - ms_start))
-```
+```gdscript
 
 **Soluções:**
 
-```
+```gdscript
 Issue: Muitos ASComponent com snapshots
 Fix: Apenas player/NPCs importantes usam snapshots
 
@@ -210,9 +210,9 @@ Fix: Cache resultado se não muda frequentemente
 
 Issue: ASDelivery com muitos alvos
 Fix: Use collision groups para filtrar
-```
+```gdscript
 
-### Debugging Úteis
+## Debugging Úteis
 
 ```gdscript
 # Print estado completo
@@ -239,9 +239,9 @@ func debug_full_state(asc: ASComponent):
         var base = asc.get_attribute_base_value(attr_name)
         var current = asc.get_attribute_current_value(attr_name)
         print("  - %s: %.1f (base: %.1f)" % [attr_name, current, base])
-```
+```gdscript
 
-### Logging Estruturado
+## Logging Estruturado
 
 ```gdscript
 # Criar logger customizado
@@ -265,11 +265,11 @@ static func error(msg: String):
 ASLogger.debug("Ability activated: %s" % ability_tag)
 ASLogger.warn("Cooldown active: %.2f" % remaining)
 ASLogger.error("ASComponent not found!")
-```
+```gdscript
 
-### Checklist de Debug
+## Checklist de Debug
 
-```
+```gdscript
 [ ] Ability tag registrada?
 [ ] ASComponent presente?
 [ ] Pode ativar? (cooldown, requisitos, custos)
@@ -280,7 +280,7 @@ ASLogger.error("ASComponent not found!")
 [ ] Animações sincronizadas?
 [ ] Snapshots funcionando?
 [ ] Performance aceitável?
-```
+```gdscript
 
 ---
 

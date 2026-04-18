@@ -4,8 +4,6 @@ date: "2026-04-18T12:00:00-03:00"
 type: docs
 ---
 
-# ASEditorPropertyTagSelector
-
 **Badge:** `EditorProperty`
 
 ## Descrição Breve
@@ -26,24 +24,24 @@ tipo `StringName` que requerem uma tag específica (ex: `ability_tag`, `effect_t
 
 ## Herança
 
-```
+```gdscript
 EditorProperty
  └─ ASEditorPropertyTagSelector
-```
+```gdscript
 
 ## Interface
 
 **Inspector:**
 
-```
+```gdscript
 ┌──────────────────────────────┐
 │ ability_tag: [ability.slash ↓] │
 └──────────────────────────────┘
-```
+```gdscript
 
 **Dropdown Aberto:**
 
-```
+```gdscript
 ┌──────────────────────┐
 │ (None)               │
 │ ability.fireball     │
@@ -54,7 +52,7 @@ EditorProperty
 │ event.on_hit         │
 │ event.on_damage      │
 └──────────────────────┘
-```
+```gdscript
 
 ## Validação de Tipo
 
@@ -68,15 +66,15 @@ EditorProperty
 # Campo: "event_dispatch_tag"
 # Tipo esperado: EVENT
 # Dropdown exibe: event.* (EVENT tags APENAS)
-```
+```gdscript
 
 Tipos inválidos aparecem desabilitados (greyed out).
 
 ## Casos de Uso
 
-### Seleção de Ability Tag
+## Seleção de Ability Tag
 
-```
+```gdscript
 # ASAbility.ability_tag
 ┌──────────────────────┐
 │ (None)               │
@@ -84,11 +82,11 @@ Tipos inválidos aparecem desabilitados (greyed out).
 │ ability.slash        │
 │ ability.shield       │
 └──────────────────────┘
-```
+```gdscript
 
-### Seleção de Effect Tag
+## Seleção de Effect Tag
 
-```
+```gdscript
 # ASEffect.effect_tag
 ┌──────────────────────┐
 │ (None)               │
@@ -96,11 +94,11 @@ Tipos inválidos aparecem desabilitados (greyed out).
 │ effect.heal          │
 │ effect.stun          │
 └──────────────────────┘
-```
+```gdscript
 
-### Seleção de Event Tag
+## Seleção de Event Tag
 
-```
+```gdscript
 # ASComponent.event_dispatch_tag
 ┌──────────────────────┐
 │ (None)               │
@@ -108,11 +106,11 @@ Tipos inválidos aparecem desabilitados (greyed out).
 │ event.on_death       │
 │ event.on_cast        │
 └──────────────────────┘
-```
+```gdscript
 
-### Seleção em Triggers
+## Seleção em Triggers
 
-```
+```gdscript
 # ASAbility.triggers[].trigger_tag
 # Quando seleciona qual evento ativa a ability
 ┌──────────────────────┐
@@ -121,7 +119,7 @@ Tipos inválidos aparecem desabilitados (greyed out).
 │ event.on_parry       │
 │ event.on_crit        │
 └──────────────────────┘
-```
+```gdscript
 
 ## Filtragem Dinâmica
 
@@ -137,7 +135,7 @@ Dropdown atualiza dinamicamente quando:
 
 # Dropdown imediatamente mostra:
 # ☐ ability.new_ability
-```
+```gdscript
 
 ## Integração com ASInspectorPlugin
 
@@ -151,7 +149,7 @@ func _handles_type(type):
     if property == "effect_tag":
         return ASEditorPropertyTagSelector.new()
     # ... etc
-```
+```gdscript
 
 ## Sincronização com AbilitySystem
 
@@ -161,16 +159,16 @@ Selector lê sempre do registry global:
 # Ao abrir dropdown:
 var all_tags = AbilitySystem.get_all_registered_tags()
 # Popula com todas as tags registradas
-```
+```gdscript
 
 Se tag removida de registry mas ainda referenciada:
 
-```
+```gdscript
 # Campo tem: &"ability.old_ability"
 # Tag foi removida do registry
 # Dropdown mostra: "(None) [ability.old_ability]"
 # ⚠️ Aviso: "Tag não registrada"
-```
+```gdscript
 
 ## Validação de Seleção
 
@@ -183,26 +181,26 @@ var tag_type = AbilitySystem.get_tag_type(selected_tag)
 if tag_type != expected_type:
     # ⚠️ Aviso: "Wrong tag type for this field"
     # Rejeita seleção, mantém valor anterior
-```
+```gdscript
 
 ## Melhor Prática
 
-### Convenção de Nomes
+## Convenção de Nomes
 
 Use hierarquia clara:
 
-```
+```gdscript
 ability.wizard_*
 ability.warrior_*
 effect.damage_*
 effect.heal_*
 state.condition_*
 event.trigger_*
-```
+```gdscript
 
 Facilita encontrar tags no dropdown.
 
-### Criar Tag Antes de Usar
+## Criar Tag Antes de Usar
 
 Registre tag em `AbilitySystem` antes de atribuir em property:
 
@@ -214,7 +212,7 @@ AbilitySystem.register_tag(&"ability.new_attack", ASTagType.NAME)
 # ❌ Incorreto
 # Tenta atribuir tag não registrada
 # Dropdown não a exibe
-```
+```gdscript
 
 ## Referências Relacionadas
 
