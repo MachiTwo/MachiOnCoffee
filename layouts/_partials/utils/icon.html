@@ -1,6 +1,7 @@
 {{/* Render raw svg icon from site.Data — overrides the vendored Hextra partial. */}}
+{{- $icon := "" -}}
 {{- if .name -}}
-  {{- $icon := index site.Data.icons .name -}}
+  {{- $icon = index site.Data.icons .name -}}
 
   {{- if not $icon -}}
     {{- errorf "icon %q not found" .name -}}
@@ -11,6 +12,5 @@
   {{- if .attributes -}}
     {{- $icon = replaceRE "<svg" (printf "<svg %s" .attributes) $icon -}}
   {{- end -}}
-
-  {{- return ($icon | safeHTML) -}}
 {{- end -}}
+{{- return ($icon | safeHTML) -}}

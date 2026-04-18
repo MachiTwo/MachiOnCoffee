@@ -59,7 +59,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      HUGO_VERSION: 0.160.1
+      HUGO_VERSION: 0.148.1
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -286,9 +286,7 @@ No Hugo, tudo que é jogado na pasta `static/` é transportado magicamente para 
 
 Para garantir que eu não precise nunca lembrar de rodar o `generate_index.py` ou de ter que formatar meus textos Markdown (acredite, espaçamentos importam), eu configurei o framework **Pre-Commit** em Python.
 
-Simplesmente adicionei o Prettier (para auto-formatação) e um hook local que roda o indexador. A cada tentativa de `git commit`, o sistema roda as verificações na minha máquina, arruma meus arquivos, re-gera a árvore de posts, e aí sim joga pro GitHub!
-
-Com toda essa base setada, o único esforço que eu terei agora será criar esse arquivo (que neste momento tem o nome de `index.md`), abri-lo, editar o texto, e commitar. A indexação, a formatação e o publish pra página acontecem sozinhos!
+Simplesmente adicionei o Prettier (para auto-formatação) e um hook local que roda o indexador. A cada tentativa de `git commit`, o sistema roda as verificações na minha máquina, arruma meus arquivos e re-gera a árvore de posts. O build final e o deploy ficam por conta do GitHub Actions de forma totalmente transparente!
 
 Para que você possa copiar, esse é o código final do meu `.pre-commit-config.yaml`:
 

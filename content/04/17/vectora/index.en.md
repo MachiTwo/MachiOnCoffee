@@ -11,6 +11,8 @@ draft: false
 
 Traditional AI agents often hallucinate because they operate in fragmented contexts. **Vectora** solves this not by being "just another chat," but as a **Contextual Knowledge Engine** that functions as a **Sub-Agent Tier 2**.
 
+![Vectora Logo](/images/vectora.svg)
+
 ## Positioning: From RAG to Connected Knowledge
 
 Unlike traditional RAG (Retrieval-Augmented Generation) that only searches for isolated text fragments, Vectora understands the **systemic structure** of your code.

@@ -1,6 +1,6 @@
 {{- /* Override of the Hextra language-switch partial. Replaces the deprecated
-    site.Languages with hugo.Sites (which iterates the same set of language
-    sites with the new Hugo 0.156+ API). */ -}}
+    site.Languages with site.Sites (which iterates the same set of language
+    sites). */ -}}
 {{- $page := .context -}}
 {{- $iconName := .iconName | default "globe-alt" -}}
 {{- $iconHeight := .iconHeight | default 12 -}}
@@ -32,7 +32,7 @@
       class="hextra-language-options hx:hidden hx:z-20 hx:max-h-64 hx:overflow-auto hx:rounded-md hx:ring-1 hx:ring-black/5 hx:bg-white hx:py-1 hx:text-sm hx:shadow-lg hx:dark:ring-white/20 hx:dark:bg-neutral-800"
       style="position: fixed; inset: auto auto 0px 0px; margin: 0px; min-width: 100px;"
     >
-      {{ range hugo.Sites }}
+      {{ range site.Sites }}
         {{ $link := partial "utils/lang-link" (dict "lang" .Language.Lang "context" $page) }}
         <li class="hx:flex hx:flex-col">
           <a

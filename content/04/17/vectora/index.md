@@ -11,6 +11,8 @@ draft: false
 
 Agentes de IA tradicionais costumam alucinar porque operam em contextos fragmentados. O **Vectora** resolve isso não sendo "mais um chat", mas sim um **Motor de Conhecimento Contextual** que funciona como um **Sub-Agent Tier 2**.
 
+![Vectora Logo](/images/vectora.svg)
+
 ## O Posicionamento: De RAG para Conhecimento Conectado
 
 Diferente do RAG (Retrieval-Augmented Generation) tradicional que apenas busca fragmentos isolados de texto, o Vectora entende a **estrutura sistêmica** do seu código.

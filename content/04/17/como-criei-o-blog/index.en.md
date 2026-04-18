@@ -50,6 +50,6 @@ I decided to **simplify**. Everything thrown into the `static/` folder is magica
 
 To ensure I never have to remember to run `generate_index.py` or format my Markdown texts, I configured the **Pre-Commit** framework in Python.
 
-I simply added Prettier (for auto-formatting) and a local hook that runs the indexer. Every time I try to `git commit`, the system runs the checks on my machine, fixes my files, regenerates the post tree, and then pushes it to GitHub!
+I simply added Prettier (for auto-formatting) and local hooks that run the indexer and the **full Hugo Build**. Every time I try to `git commit`, the system runs the checks on my machine, fixes my files, regenerates the post tree, executes the optimized build, and places the ready pages into the `static/` folder. This way, GitHub Pages receives the site already processed and ready for deployment!
 
-With this foundation set, my only effort now will be creating the content. Indexing, formatting, and publishing happen on their own!
+With this foundation set, my only effort now will be creating the content. Indexing, formatting, building, and publishing happen on their own!

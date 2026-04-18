@@ -1,0 +1,163 @@
+<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MachiOnCoffee (EN)</title><link>https://cafegame.dev/</link><description/><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 17 Apr 2026 22:50:21 GMT</lastBuildDate><atom:link href="https://cafegame.dev/index.xml" rel="self" type="application/rss+xml"/><item><title>Vectora: The Sub-Agent Connecting Your Code's Context</title><link>https://cafegame.dev/en/04/17/vectora/</link><guid isPermaLink="true">https://cafegame.dev/en/04/17/vectora/</guid><pubDate>Fri, 17 Apr 2026 18:00:00 GMT</pubDate><description>&lt;p&gt;Traditional AI agents often hallucinate because they operate in fragmented contexts. &lt;strong&gt;Vectora&lt;/strong&gt; solves this not by being &amp;ldquo;just another chat,&amp;rdquo; but as a &lt;strong&gt;Contextual Knowledge Engine&lt;/strong&gt; that functions as a &lt;strong&gt;Sub-Agent Tier 2&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://cafegame.dev/images/vectora.svg" alt="Vectora Logo" loading="lazy" /&gt;&lt;/p&gt;
+&lt;h2&gt;Positioning: From RAG to Connected Knowledge&lt;span class="hx:absolute hx:-mt-20" id="positioning-from-rag-to-connected-knowledge"&gt;&lt;/span&gt;
+&lt;a href="#positioning-from-rag-to-connected-knowledge" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Unlike traditional RAG (Retrieval-Augmented Generation) that only searches for isolated text fragments, Vectora understands the &lt;strong&gt;systemic structure&lt;/strong&gt; of your code.&lt;/p&gt;
+&lt;p&gt;It doesn&amp;rsquo;t compete with agents like Claude Code, Gemini CLI, or Cursor; it &lt;strong&gt;empowers&lt;/strong&gt; them. Vectora acts as an intermediate intelligence layer that delivers structured context via open protocols (&lt;strong&gt;MCP&lt;/strong&gt; and &lt;strong&gt;ACP&lt;/strong&gt;).&lt;/p&gt;</description><content:encoded><![CDATA[<p>Traditional AI agents often hallucinate because they operate in fragmented contexts. <strong>Vectora</strong> solves this not by being &ldquo;just another chat,&rdquo; but as a <strong>Contextual Knowledge Engine</strong> that functions as a <strong>Sub-Agent Tier 2</strong>.</p>
+<p><img src="/images/vectora.svg" alt="Vectora Logo"  loading="lazy" /></p>
+<h2>Positioning: From RAG to Connected Knowledge<span class="hx:absolute hx:-mt-20" id="positioning-from-rag-to-connected-knowledge"></span>
+    <a href="#positioning-from-rag-to-connected-knowledge" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>Unlike traditional RAG (Retrieval-Augmented Generation) that only searches for isolated text fragments, Vectora understands the <strong>systemic structure</strong> of your code.</p>
+<p>It doesn&rsquo;t compete with agents like Claude Code, Gemini CLI, or Cursor; it <strong>empowers</strong> them. Vectora acts as an intermediate intelligence layer that delivers structured context via open protocols (<strong>MCP</strong> and <strong>ACP</strong>).</p>
+<h2>Technical Architecture: Reliability in TypeScript<span class="hx:absolute hx:-mt-20" id="technical-architecture-reliability-in-typescript"></span>
+    <a href="#technical-architecture-reliability-in-typescript" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>The Vectora runtime was developed in <strong>TypeScript (Node.js 20+)</strong>, utilizing <strong>Vercel&rsquo;s AI SDK</strong> to ensure stable and provider-agnostic model routing (OpenRouter, Google, Anthropic, OpenAI).</p>
+<h3>Core Components:<span class="hx:absolute hx:-mt-20" id="core-components"></span>
+    <a href="#core-components" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li><strong>Context Engine</strong>: Performs <strong>multi-hop reasoning</strong> and structural analysis via <strong>AST (Tree-sitter)</strong>. It doesn&rsquo;t just search for words; it follows dependencies, imports, and execution flows to build a graph of your codebase.</li>
+<li><strong>Cloud &amp; Local Native</strong>: Integration with <strong>Qdrant Cloud</strong> for scalable vector search (using HNSW and scalar quantization) and optional support for 100% local inference via <strong>llama.cpp</strong>.</li>
+<li><strong>Infrastructure</strong>: Metadata and authentication backend via <strong>Supabase</strong>, with API layers running on <strong>Vercel Edge Functions</strong>.</li>
+</ul>
+<h2>Objective Validation: Vectora Harness<span class="hx:absolute hx:-mt-20" id="objective-validation-vectora-harness"></span>
+    <a href="#objective-validation-vectora-harness" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>How do you know if the AI actually improved? We created <strong>Vectora Harness</strong>, the &ldquo;central nervous system&rdquo; of our agent. It allows for:</p>
+<ol>
+<li><strong>Measuring Accuracy</strong>: Objectively compares AI output with <code>vectora:on</code> vs <code>vectora:off</code>.</li>
+<li><strong>Token Efficiency</strong>: Optimizes retrieval to avoid context &ldquo;overfetch,&rdquo; reducing costs and latency.</li>
+<li><strong>Auditability</strong>: Generates structured reports on how the agent used each tool to reach an answer.</li>
+</ol>
+<h2>Security: Hard-Coded Guardian<span class="hx:absolute hx:-mt-20" id="security-hard-coded-guardian"></span>
+    <a href="#security-hard-coded-guardian" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>AI security cannot rely solely on prompts. Vectora implements the <strong>Guardian</strong>, an immutable code-level middleware that:</p>
+<ul>
+<li><strong>Blocks Sensitive Paths</strong>: Files like <code>.env</code>, <code>.key</code>, <code>.pem</code>, and lockfiles are never read or embedded.</li>
+<li><strong>Output Sanitization</strong>: Native regex masks secrets and PATs before they leave your environment.</li>
+<li><strong>Git Snapshots</strong>: Automatic atomic commits before any write operation, ensuring total reversibility.</li>
+</ul>
+<p>Vectora is the trust layer that was missing to make AI-assisted development professional, secure, and measurable.</p>
+<hr>
+<p><em>Vectora is part of the Kaffyn ecosystem · Open Source · TypeScript · Provider-Agnostic.</em></p>
+]]></content:encoded><category>ai</category><category>productivity</category><category>tools</category></item><item><title>Ability System: The Heart of Gameplay Mechanics in Zyris</title><link>https://cafegame.dev/en/04/17/ability-system/</link><guid isPermaLink="true">https://cafegame.dev/en/04/17/ability-system/</guid><pubDate>Fri, 17 Apr 2026 17:00:00 GMT</pubDate><description>&lt;p&gt;The &lt;strong&gt;Ability System (AS)&lt;/strong&gt; is the backbone of combat gameplay. More than just managing abilities, it offers a data-driven framework to orchestrate complex states with &lt;strong&gt;high C++ performance&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2&gt;Data-Driven Paradigm&lt;span class="hx:absolute hx:-mt-20" id="data-driven-paradigm"&gt;&lt;/span&gt;
+&lt;a href="#data-driven-paradigm" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The great revolution of AS is moving gameplay logic from source code into the &lt;strong&gt;Godot Editor&lt;/strong&gt;. Using resources (&lt;code&gt;.tres&lt;/code&gt;), designers can configure complex behaviors without recompilation.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;ASAbitilies&lt;/strong&gt;: Define the &amp;ldquo;action&amp;rdquo;—costs, cooldowns, and requirements.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ASEffects&lt;/strong&gt;: Manage attribute modification over time (Damage over time, Attribute buffs).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ASContainers&lt;/strong&gt;: Function as archetypes that connect multiple effects and abilities to a character.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Tag Hierarchy: The Language of State&lt;span class="hx:absolute hx:-mt-20" id="tag-hierarchy-the-language-of-state"&gt;&lt;/span&gt;
+&lt;a href="#tag-hierarchy-the-language-of-state" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The system uses a strict vocabulary of &lt;strong&gt;Hierarchical Tags&lt;/strong&gt; for communication between decoupled systems:&lt;/p&gt;</description><content:encoded><![CDATA[<p>The <strong>Ability System (AS)</strong> is the backbone of combat gameplay. More than just managing abilities, it offers a data-driven framework to orchestrate complex states with <strong>high C++ performance</strong>.</p>
+<h2>Data-Driven Paradigm<span class="hx:absolute hx:-mt-20" id="data-driven-paradigm"></span>
+    <a href="#data-driven-paradigm" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>The great revolution of AS is moving gameplay logic from source code into the <strong>Godot Editor</strong>. Using resources (<code>.tres</code>), designers can configure complex behaviors without recompilation.</p>
+<ul>
+<li><strong>ASAbitilies</strong>: Define the &ldquo;action&rdquo;—costs, cooldowns, and requirements.</li>
+<li><strong>ASEffects</strong>: Manage attribute modification over time (Damage over time, Attribute buffs).</li>
+<li><strong>ASContainers</strong>: Function as archetypes that connect multiple effects and abilities to a character.</li>
+</ul>
+<h2>Tag Hierarchy: The Language of State<span class="hx:absolute hx:-mt-20" id="tag-hierarchy-the-language-of-state"></span>
+    <a href="#tag-hierarchy-the-language-of-state" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>The system uses a strict vocabulary of <strong>Hierarchical Tags</strong> for communication between decoupled systems:</p>
+<ul>
+<li><strong>$NAME</strong>: Defines the unique identity of a gameplay element.</li>
+<li><strong>$CONDITIONAL</strong>: Represents persistent and logical states (e.g., <code>IsStunned</code>, <code>IsReloading</code>).</li>
+<li><strong>$EVENT</strong>: Instant triggers that fire reactions (e.g., <code>OnDamageTaken</code>, <code>OnJump</code>).</li>
+</ul>
+<h2>Phase Logic and Gameplay Flow<span class="hx:absolute hx:-mt-20" id="phase-logic-and-gameplay-flow"></span>
+    <a href="#phase-logic-and-gameplay-flow" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>An ability in AS is not just a &ldquo;trigger.&rdquo; It is divided into native stages that allow fine-tuned control of the experience:</p>
+<ol>
+<li><strong>Windup</strong>: Preparation time (telegraphy).</li>
+<li><strong>Execution</strong>: When the main logic and <em>hitbox</em> are activated.</li>
+<li><strong>Recovery</strong>: The necessary action cooldown after use.</li>
+</ol>
+<h2>Network Engineering: Native Rollback<span class="hx:absolute hx:-mt-20" id="network-engineering-native-rollback"></span>
+    <a href="#network-engineering-native-rollback" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>Developed with multiplayer in mind, the <strong>Ability System</strong> utilizes <strong>circular state buffers</strong>. This allows the system to support <strong>Rollback Networking</strong>, where the client can predict the game state and the server can reconcile prediction errors by going back in time and re-executing logic deterministically.</p>
+<h2>Dual Build Integration<span class="hx:absolute hx:-mt-20" id="dual-build-integration"></span>
+    <a href="#dual-build-integration" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>To ensure no one is left behind, we maintain two ways of usage:</p>
+<ul>
+<li><strong>Zyris Native</strong>: Maximum integration with the engine&rsquo;s core tools.</li>
+<li><strong>GDExtension</strong>: Stable plugin for any official Godot 4.x project, bringing the power of C++ to GDScript developers.</li>
+</ul>
+<hr>
+<p><em>Developed with ❤️ by <strong>MachiTwo</strong>.</em></p>
+]]></content:encoded><category>gamedev</category><category>gameplay-system</category><category>zyris</category></item><item><title>Zyris Engine: Control, Performance, and Opinionated by Design</title><link>https://cafegame.dev/en/04/17/zyris-engine/</link><guid isPermaLink="true">https://cafegame.dev/en/04/17/zyris-engine/</guid><pubDate>Fri, 17 Apr 2026 16:00:00 GMT</pubDate><description>&lt;p&gt;Welcome to the &lt;strong&gt;Zyris Engine&lt;/strong&gt;. This project is not just a fork of Godot; it is a statement of intent on how to maintain a professional, stable, and scalable game architecture in the long term.&lt;/p&gt;
+&lt;h2&gt;An Opinionated Philosophy (Convention over Configuration)&lt;span class="hx:absolute hx:-mt-20" id="an-opinionated-philosophy-convention-over-configuration"&gt;&lt;/span&gt;
+&lt;a href="#an-opinionated-philosophy-convention-over-configuration" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;While the Godot Engine prizes maximum flexibility—often allowing projects to grow chaotically—Zyris adopts an &lt;strong&gt;&amp;ldquo;opinionated&amp;rdquo;&lt;/strong&gt; philosophy. We believe that developer time should be spent creating gameplay, not reinventing fundamental systems.&lt;/p&gt;</description><content:encoded><![CDATA[<p>Welcome to the <strong>Zyris Engine</strong>. This project is not just a fork of Godot; it is a statement of intent on how to maintain a professional, stable, and scalable game architecture in the long term.</p>
+<h2>An Opinionated Philosophy (Convention over Configuration)<span class="hx:absolute hx:-mt-20" id="an-opinionated-philosophy-convention-over-configuration"></span>
+    <a href="#an-opinionated-philosophy-convention-over-configuration" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>While the Godot Engine prizes maximum flexibility—often allowing projects to grow chaotically—Zyris adopts an <strong>&ldquo;opinionated&rdquo;</strong> philosophy. We believe that developer time should be spent creating gameplay, not reinventing fundamental systems.</p>
+<p>In Zyris, we establish clear architectural standards. If you are building a professional project, the engine expects certain structures, which facilitates teamwork and the maintenance of legacy codebases.</p>
+<h2>Core Engineering (Core Features)<span class="hx:absolute hx:-mt-20" id="core-engineering-core-features"></span>
+    <a href="#core-engineering-core-features" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>Unlike conventional plugins, Zyris integrates critical functionality directly into its C++ core:</p>
+<h3>Deterministic Save Server<span class="hx:absolute hx:-mt-20" id="deterministic-save-server"></span>
+    <a href="#deterministic-save-server" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>We implemented a high-performance persistence subsystem that operates on dedicated threads.</p>
+<ul>
+<li><strong>Performance</strong>: Zero blocking of the main gameplay loop.</li>
+<li><strong>Compression</strong>: Uses state-of-the-art <strong>ZSTD</strong> algorithms to drastically reduce file sizes.</li>
+<li><strong>Security</strong>: Native <strong>AES-256</strong> encryption integrated into the write flow.</li>
+</ul>
+<h3>Virtual Input Devices<span class="hx:absolute hx:-mt-20" id="virtual-input-devices"></span>
+    <a href="#virtual-input-devices" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>An abstraction layer that allows treating physical inputs from any platform (Joysticks, D-Pads, Touch) as consistent virtual events. This removes the need for repetitive, complex mappings in every new project.</p>
+<h3>AOT Export System<span class="hx:absolute hx:-mt-20" id="aot-export-system"></span>
+    <a href="#aot-export-system" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>We are developing an <strong>Ahead-of-Time (AOT)</strong> export system that generates native binaries optimized for each target platform, removing virtual machine overhead and ensuring maximum performance on hardware-limited devices.</p>
+<h2>The Maturity Roadmap<span class="hx:absolute hx:-mt-20" id="the-maturity-roadmap"></span>
+    <a href="#the-maturity-roadmap" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>Zyris evolves with a focus on production tools:</p>
+<ul>
+<li><strong>Integrated Behavior Tree</strong>: Reactive AI flows via native node graphs.</li>
+<li><strong>Camera System (vCam)</strong>: Cinematic camera arbitration inspired by industry standards (Cinemachine).</li>
+<li><strong>Authoritative Inventory System</strong>: Item management integrated into the core with native network support.</li>
+</ul>
+<p>Zyris is the choice for developers who understand that <strong>freedom without structure is just technical debt.</strong></p>
+<hr>
+<p><em>Stay informed about development on <a href="https://www.youtube.com/@machiatodev"target="_blank" rel="noopener">Machi</a> and <a href="https://www.youtube.com/@yatsuragames"target="_blank" rel="noopener">Alen</a>&rsquo;s channels.</em></p>
+]]></content:encoded><category>engine</category><category>gamedev</category><category>zyris</category></item><item><title>How I created my new blog</title><link>https://cafegame.dev/en/04/17/how-i-created-the-blog/</link><guid isPermaLink="true">https://cafegame.dev/en/04/17/how-i-created-the-blog/</guid><pubDate>Fri, 17 Apr 2026 16:00:00 GMT</pubDate><description>&lt;h2&gt;The Inspiration&lt;span class="hx:absolute hx:-mt-20" id="the-inspiration"&gt;&lt;/span&gt;
+&lt;a href="#the-inspiration" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Recently I came across Fabio Akita&amp;rsquo;s article on how he architected the new version of his blog (&lt;a href="https://akitaonrails.com/2025/09/10/meu-novo-blog-como-eu-fiz/"target="_blank" rel="noopener"&gt;My New Blog - How I Did It&lt;/a&gt;), and I decided to follow the same path of adopting the simplicity of static pages and avoiding database headaches!&lt;/p&gt;
+&lt;p&gt;The problem programmers often encounter is tool fatigue. Everyone wants to build the &amp;ldquo;ideal blog engine&amp;rdquo; and in the end, we forget to write actual content. This time I decided to use a strategy that focuses purely on text with a super simple infrastructure.&lt;/p&gt;</description><content:encoded><![CDATA[<h2>The Inspiration<span class="hx:absolute hx:-mt-20" id="the-inspiration"></span>
+    <a href="#the-inspiration" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>Recently I came across Fabio Akita&rsquo;s article on how he architected the new version of his blog (<a href="https://akitaonrails.com/2025/09/10/meu-novo-blog-como-eu-fiz/"target="_blank" rel="noopener">My New Blog - How I Did It</a>), and I decided to follow the same path of adopting the simplicity of static pages and avoiding database headaches!</p>
+<p>The problem programmers often encounter is tool fatigue. Everyone wants to build the &ldquo;ideal blog engine&rdquo; and in the end, we forget to write actual content. This time I decided to use a strategy that focuses purely on text with a super simple infrastructure.</p>
+<h3>The Tool: Hugo + Hextra<span class="hx:absolute hx:-mt-20" id="the-tool-hugo--hextra"></span>
+    <a href="#the-tool-hugo--hextra" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>Hugo is incredibly fast and efficient since it&rsquo;s built in Go. And it supports the developer&rsquo;s format: Markdown!
+Instead of Jekyll or trying to configure a massive NextJS framework for a CMS I&rsquo;ll barely use, I utilized Hugo with the minimalist <strong>Hextra</strong> theme.</p>
+<p>The big trick is that my workflow has now become just creating folders and files inside <code>content/{MM}/{DD}/{slug}/index.md</code>, writing everything in Markdown, and committing.</p>
+<h3>Free Hosting: GitHub Pages<span class="hx:absolute hx:-mt-20" id="free-hosting-github-pages"></span>
+    <a href="#free-hosting-github-pages" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>A very important detail of the infrastructure I decided to follow was adopting <strong>GitHub Pages</strong> to host the blog. While some tools require integration with Vercel or Netlify, GitHub Pages provides an amazing environment natively and 100% free.</p>
+<p><strong>But beware, there&rsquo;s a trick to make the Action work without giving a <code>404 Not Found</code> error:</strong></p>
+<ol>
+<li>First, your repository needs to be <strong>Public</strong>.</li>
+<li>Go to the <code>Settings</code> &gt; <code>Pages</code> tab of your repository.</li>
+<li>Under &ldquo;Build and deployment&rdquo;, change the &ldquo;Source&rdquo; to <strong>GitHub Actions</strong>.</li>
+</ol>
+<p>Once that&rsquo;s done, I just needed to create a <code>.github/workflows/pages.yaml</code> file containing a <em>GitHub Action</em> step instructed to build with Hugo. Thus, on every <code>git push</code>, the deploy happens magically without any cost!</p>
+<h3>Python Saving the Day (Bye, Ruby!)<span class="hx:absolute hx:-mt-20" id="python-saving-the-day-bye-ruby"></span>
+    <a href="#python-saving-the-day-bye-ruby" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>Akita used Ruby to generate the indexing script. I didn&rsquo;t have Ruby installed and wanted the entire engine to be more compatible with my local scripts.</p>
+<p>So instead of using the same Ruby script as the original article to group folders based on the <code>Year - Month</code> date, I transformed it all into pure Python, using only the standard library and the <code>yaml</code> package. Python is incredibly good at reading files and manipulating text effortlessly.</p>
+<h3>Handling Images (Bye, AWS S3!)<span class="hx:absolute hx:-mt-20" id="handling-images-bye-aws-s3"></span>
+    <a href="#handling-images-bye-aws-s3" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>In the original setup, Akita maintained a complex bash script tied to the Linux Nautilus file manager to upload photos directly to an AWS S3 bucket.</p>
+<p>I decided to <strong>simplify</strong>. Everything thrown into the <code>static/</code> folder is magically transported to the root of the site during build. This means we can keep all images inside the project directory, let GitHub host it all for us for free, and reference them via relative paths!</p>
+<h3>Automating everything with Pre-Commit<span class="hx:absolute hx:-mt-20" id="automating-everything-with-pre-commit"></span>
+    <a href="#automating-everything-with-pre-commit" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>To ensure I never have to remember to run <code>generate_index.py</code> or format my Markdown texts, I configured the <strong>Pre-Commit</strong> framework in Python.</p>
+<p>I simply added Prettier (for auto-formatting) and local hooks that run the indexer and the <strong>full Hugo Build</strong>. Every time I try to <code>git commit</code>, the system runs the checks on my machine, fixes my files, regenerates the post tree, executes the optimized build, and places the ready pages into the <code>static/</code> folder. This way, GitHub Pages receives the site already processed and ready for deployment!</p>
+<p>With this foundation set, my only effort now will be creating the content. Indexing, formatting, building, and publishing happen on their own!</p>
+]]></content:encoded><category>infra</category><category>python</category><category>hugo</category></item><item><title>Hello World!</title><link>https://cafegame.dev/en/04/17/hello-world/</link><guid isPermaLink="true">https://cafegame.dev/en/04/17/hello-world/</guid><pubDate>Fri, 17 Apr 2026 15:00:00 GMT</pubDate><description>&lt;p&gt;Hello world! I&amp;rsquo;m Bruno, and I decided this blog would be more than just a diary; it would be the safe harbor for the documentation and evolution of the systems I&amp;rsquo;ve been building. My journey started in 2020 with Java, moved through GameMaker, and consolidated in the Godot Engine, but today my focus lies at the intersection of &lt;strong&gt;Engine Engineering&lt;/strong&gt; and &lt;strong&gt;AI Agents&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Below, I detail the three pillars that define my current work:&lt;/p&gt;</description><content:encoded><![CDATA[<p>Hello world! I&rsquo;m Bruno, and I decided this blog would be more than just a diary; it would be the safe harbor for the documentation and evolution of the systems I&rsquo;ve been building. My journey started in 2020 with Java, moved through GameMaker, and consolidated in the Godot Engine, but today my focus lies at the intersection of <strong>Engine Engineering</strong> and <strong>AI Agents</strong>.</p>
+<p>Below, I detail the three pillars that define my current work:</p>
+<h3>1. Zyris Engine: The Next Level of Godot<span class="hx:absolute hx:-mt-20" id="1-zyris-engine-the-next-level-of-godot"></span>
+    <a href="#1-zyris-engine-the-next-level-of-godot" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p><strong>Zyris</strong> is not just a fork; it&rsquo;s an <strong>opinionated</strong> vision of what professional game development should be. While Godot prizes absolute freedom, Zyris focuses on <strong>stability and convention</strong>.</p>
+<ul>
+<li><strong>Core Architecture</strong>: We implemented a native C++ <strong>Save Server</strong> that uses <strong>ZSTD</strong> compression and <strong>AES-256</strong> encryption on dedicated threads, ensuring gameplay never suffers from stutter during data persistence.</li>
+<li><strong>Input System</strong>: <strong>Virtual Input Devices</strong> abstracts the complexity of multi-platform mapping directly in the core, offering a deterministic translation layer for Joysticks and D-Pads.</li>
+<li><a href="../zyris-engine/"><strong>Read more about Zyris Engine here</strong></a></li>
+</ul>
+<h3>2. Ability System: Data-Driven Gameplay<span class="hx:absolute hx:-mt-20" id="2-ability-system-data-driven-gameplay"></span>
+    <a href="#2-ability-system-data-driven-gameplay" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>Born as a module for Zyris, the <strong>Ability System (AS)</strong> is a high-performance gameplay framework that scales from micro-projects to massive RPGs.</p>
+<ul>
+<li><strong>Dual Build</strong>: Available both natively in Zyris and via <strong>GDExtension</strong> for the official Godot 4.x.</li>
+<li><strong>Hierarchical Tags</strong>: We use a rigorous Tag system (<code>NAME</code>, <code>CONDITIONAL</code>, <code>EVENT</code>) to orchestrate combat states without &ldquo;spaghetti&rdquo; code.</li>
+<li><strong>Phase Logic</strong>: Native support for ability phases (Windup, Execution, Recovery) and circular buffers ready for <strong>Multiplayer with Rollback</strong>.</li>
+<li><a href="../ability-system/"><strong>Explore the Ability System in detail</strong></a></li>
+</ul>
+<h3>3. Vectora: The Contextual Knowledge Engine<span class="hx:absolute hx:-mt-20" id="3-vectora-the-contextual-knowledge-engine"></span>
+    <a href="#3-vectora-the-contextual-knowledge-engine" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p><strong>Vectora</strong> is my most ambitious project in the AI field. It&rsquo;s not a generic &ldquo;chat&rdquo;; it&rsquo;s a <strong>Specialist Sub-Agent (Tier 2)</strong> designed to connect your code&rsquo;s context to primary agents (like Claude Code or Gemini CLI).</p>
+<ul>
+<li><strong>Runtime</strong>: Built in <strong>TypeScript/Node.js 20+</strong>, integrating <strong>MCP</strong> and <strong>ACP</strong> protocols.</li>
+<li><strong>Context Engine</strong>: Unlike traditional RAG, Vectora performs <strong>multi-hop reasoning</strong> and structural analysis (via <strong>Tree-sitter</strong>) to understand how functions and dependencies connect globally.</li>
+<li><strong>Harness Validation</strong>: We created <strong>Vectora Harness</strong>, an objective metrics system that proves (through precision scores and token efficiency) how the delivered context improves AI performance.</li>
+<li><strong>Security</strong>: The <strong>Hard-Coded Guardian</strong> protects secrets (.env, .keys) directly in the runtime, ensuring sensitive data never leaves your environment.</li>
+<li><a href="../vectora/"><strong>Understand Vectora&rsquo;s architecture</strong></a></li>
+</ul>
+<hr>
+<p>All of this happens while I balance development with my reality outside the screens. I&rsquo;ve been a shop clerk, a waiter, and today I work in a bakery. This duality between &ldquo;dough and code&rdquo; is what keeps my feet on the ground and my head focused on creating tools that truly solve real engineering problems.</p>
+<p>This blog is the start of this new phase of technical publication. Welcome to MachiOnCoffee.</p>
+]]></content:encoded><category>introduction</category><category>personal</category><category>journey</category></item></channel></rss>

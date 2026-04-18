@@ -98,6 +98,9 @@ enableEmoji = true
   [params.navbar]
     displayTitle = true
     displayLogo = true
+    [params.navbar.logo]
+      path = "images/logo.jpg"
+      link = "/"
 
   [params.page]
     [params.page.contextMenu]

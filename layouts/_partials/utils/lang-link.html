@@ -15,7 +15,7 @@
 {{ end }}
 
 {{ if not $link }}
-  {{ range where hugo.Sites ".Language.Lang" $lang }}
+  {{ range where site.Sites ".Language.Lang" $lang }}
     {{ $link = .Home.RelPermalink }}
   {{ end }}
 {{ end }}
