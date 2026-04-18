@@ -6,6 +6,8 @@ sidebar:
   open: true
 ---
 
+{{< lang-toggle >}}
+
 Understand the technological pillars that underpin Vectora and how it solves the fragmented context problem.
 
 ### What to Explore?

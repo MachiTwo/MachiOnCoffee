@@ -4,6 +4,8 @@ type: docs
 weight: 3
 ---
 
+{{< lang-toggle >}}
+
 Os **Attributes** são os valores numéricos que definem as capacidades de um ator (Vida, Mana, Força, Velocidade).
 
 ## 📊 ASAttributeSet

@@ -4,6 +4,8 @@ type: docs
 weight: 1
 ---
 
+{{< lang-toggle >}}
+
 The **ASComponent** (ASC) is the brain of the ability system within your scene. It is the orchestrator that connects
 Attributes, Tags, and Abilities to an Actor.
 

@@ -9,6 +9,8 @@ tags:
 draft: false
 ---
 
+{{< lang-toggle >}}
+
 ## A Inspiração
 
 Recentemente me deparei com o artigo do grande Fabio Akita sobre como ele arquitetou a nova versão do blog dele

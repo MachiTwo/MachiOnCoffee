@@ -3,6 +3,8 @@ title: "RAG Conectado"
 type: docs
 ---
 
+{{< lang-toggle >}}
+
 Você já perguntou a um agente de IA sobre uma função no seu projeto e ele respondeu algo que parecia certo, mas que
 ignorava completamente como aquela função era usada no resto do sistema? Isso é o sintoma clássico do **RAG
 fragmentado**.

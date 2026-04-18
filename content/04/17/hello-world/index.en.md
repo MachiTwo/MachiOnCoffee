@@ -9,6 +9,8 @@ tags:
 draft: false
 ---
 
+{{< lang-toggle >}}
+
 Hello world! I'm Bruno, and I decided this blog would be more than just a diary; it would be the safe harbor for the
 documentation and evolution of the systems I've been building. My journey started in 2020 with Java, moved through
 GameMaker, and consolidated in the Godot Engine, but today my focus lies at the intersection of **Engine Engineering**

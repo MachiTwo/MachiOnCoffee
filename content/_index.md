@@ -4,7 +4,7 @@ title: MachiOnCoffee
 
 {{< lang-toggle >}}
 
-[**Blog**](/) | [**Documentação**](/docs/)
+{{< section-toggle >}}
 
 ## 2026 - Abril
 

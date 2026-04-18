@@ -6,6 +6,8 @@ categories: ["Deep Dive"]
 tags: ["reranker", "rag", "ai", "vectora"]
 ---
 
+{{< lang-toggle >}}
+
 Often, a vector search (Embedding) returns 50 files that "look" relevant, but only 3 are actually useful for fixing the
 bug. Sending all 50 to the LLM is a waste of tokens and can confuse the AI. This is where the **Reranker** comes in.
 

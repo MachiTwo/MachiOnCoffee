@@ -9,6 +9,8 @@ tags:
 draft: false
 ---
 
+{{< lang-toggle >}}
+
 Bem-vindos à **Zyris Engine**. Este projeto não é apenas um fork da Godot; é uma declaração de intenção sobre como
 manter uma arquitetura de jogo profissional, estável e escalável em longo prazo.
 

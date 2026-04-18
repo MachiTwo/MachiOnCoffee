@@ -4,6 +4,8 @@ type: docs
 weight: 1
 ---
 
+{{< lang-toggle >}}
+
 O **ASComponent** (ASC) é o cérebro do sistema de habilidades dentro da sua cena. Ele é o orquestrador que conecta
 Atributos, Tags e Habilidades a um Ator.
 

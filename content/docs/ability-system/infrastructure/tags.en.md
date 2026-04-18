@@ -4,6 +4,8 @@ type: docs
 weight: 1
 ---
 
+{{< lang-toggle >}}
+
 In the Zyris Ability System, **Tags** are not just labels; they are the absolute truth about your game's state. They
 form an Actor's **Identity Matrix**.
 

@@ -6,6 +6,8 @@ categories: ["Deep Dive"]
 tags: ["mcp", "acp", "infra", "vectora"]
 ---
 
+{{< lang-toggle >}}
+
 Você já ouviu falar do **Model Context Protocol (MCP)**? É um padrão aberto que permite que IAs (como o Claude) usem
 ferramentas externas. Mas ser "apenas uma ferramenta MCP" não é o suficiente para o Vectora.
 

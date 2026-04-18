@@ -1,0 +1,29 @@
+{{- $currentLang := .Site.Language.Lang -}}
+{{- $isDocs := eq (index (split .RelPermalink "/") 1) "docs" -}}
+{{- if eq (index (split .RelPermalink "/") 2) "docs" }}{{ $isDocs = true }}{{ end -}}
+
+<div class="section-toggle hx:text-sm hx:text-gray-500 hx:dark:text-gray-400 hx:text-center hx:mt-2 hx:mb-4">
+  <a href="{{ if eq $currentLang "pt-br" }}/{{ else }}/en/{{ end }}"
+     class="section-toggle-link{{ if not $isDocs }} section-toggle-active{{ end }}">
+     {{ if eq $currentLang "pt-br" }}Blog{{ else }}Blog{{ end }}
+  </a>
+  <span class="hx:mx-1">|</span>
+  <a href="{{ if eq $currentLang "pt-br" }}/docs/{{ else }}/en/docs/{{ end }}"
+     class="section-toggle-link{{ if $isDocs }} section-toggle-active{{ end }}">
+     {{ if eq $currentLang "pt-br" }}Documentação{{ else }}Documentation{{ end }}
+  </a>
+</div>
+
+<style>
+  .section-toggle-link {
+    text-decoration: none;
+    color: #6b7280;
+    font-weight: 500;
+  }
+  .section-toggle-link:hover { color: #3b82f6; }
+  .section-toggle-active {
+    color: #1f2937;
+    font-weight: 700;
+  }
+  .dark .section-toggle-active { color: #f3f4f6; }
+</style>

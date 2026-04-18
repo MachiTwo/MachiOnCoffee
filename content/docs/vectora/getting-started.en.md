@@ -4,6 +4,8 @@ weight: 1
 type: docs
 ---
 
+{{< lang-toggle >}}
+
 ## 🚀 Starting with Vectora
 
 Vectora is designed to be plug-and-play yet extremely customizable.

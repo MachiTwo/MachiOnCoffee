@@ -9,6 +9,8 @@ tags:
 draft: false
 ---
 
+{{< lang-toggle >}}
+
 Olá mundo! Sou o Bruno, e decidi que este blog seria mais do que um diário; seria o porto seguro para a documentação e
 evolução dos sistemas que venho construindo. Minha jornada começou em 2020 com Java, passou pelo GameMaker e se
 consolidou na Godot Engine, mas hoje meu foco está na interseção entre **Engenharia de Engines** e **Agentes de IA**.

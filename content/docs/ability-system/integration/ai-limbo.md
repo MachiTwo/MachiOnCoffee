@@ -4,6 +4,8 @@ type: docs
 weight: 1
 ---
 
+{{< lang-toggle >}}
+
 A inteligência artificial na Zyris Engine não opera no vácuo. Ela interage com o **Ability System** através de uma
 camada lógica chamada **ASBridge**.
 

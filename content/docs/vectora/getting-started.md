@@ -4,6 +4,8 @@ weight: 1
 type: docs
 ---
 
+{{< lang-toggle >}}
+
 ## 🚀 Iniciando com o Vectora
 
 O Vectora foi desenhado para ser plug-and-play mas extremamente customizável.

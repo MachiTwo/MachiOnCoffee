@@ -6,12 +6,9 @@ sidebar:
   open: true
 ---
 
-{{< lang-toggle >}}
-
-[**Blog**](/) | [**Documentação**](/docs/)
-
-Agentes de IA tradicionais costumam alucinar porque operam em contextos fragmentados. O **Vectora** resolve isso não
-sendo "mais um chat", mas sim um **Motor de Conhecimento Contextual** que funciona como um **Sub-Agent Tier 2**.
+{{< lang-toggle >}} Agentes de IA tradicionais costumam alucinar porque operam em contextos fragmentados. O **Vectora**
+resolve isso não sendo "mais um chat", mas sim um **Motor de Conhecimento Contextual** que funciona como um **Sub-Agent
+Tier 2**.
 
 O Vectora nasceu para ser a camada de inteligência que conecta os pontos, entregando o que chamamos de **Conhecimento
 Conectado**.

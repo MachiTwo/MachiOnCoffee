@@ -6,6 +6,8 @@ sidebar:
   open: true
 ---
 
+{{< lang-toggle >}}
+
 Entenda os pilares tecnológicos que sustentam o Vectora e como ele resolve o problema do contexto fragmentado.
 
 ### O Que Explorar?

@@ -2,6 +2,7 @@
 public/
 resources/
 static/
+!static/images/
 .hugo_build.lock
 
 # Docker

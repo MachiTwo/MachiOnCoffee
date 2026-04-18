@@ -6,6 +6,8 @@ categories: ["Deep Dive"]
 tags: ["reranker", "rag", "ai", "vectora"]
 ---
 
+{{< lang-toggle >}}
+
 Muitas vezes, uma busca vetorial (Embedding) te devolve 50 arquivos que "parecem" relevantes, mas apenas 3 realmente são
 úteis para resolver o bug. Enviar os 50 para o LLM é um desperdício de tokens e pode confundir a IA. É aqui que entra o
 **Reranker**.

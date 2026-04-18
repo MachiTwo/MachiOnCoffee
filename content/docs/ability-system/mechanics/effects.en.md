@@ -4,6 +4,8 @@ type: docs
 weight: 2
 ---
 
+{{< lang-toggle >}}
+
 **Effects** (`ASEffect`) are the agents of change. Anything that alters an attribute or adds a tag for a specific
 duration is an effect.
 

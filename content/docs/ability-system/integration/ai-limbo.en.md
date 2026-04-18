@@ -4,6 +4,8 @@ type: docs
 weight: 1
 ---
 
+{{< lang-toggle >}}
+
 Artificial Intelligence in the Zyris Engine does not operate in a vacuum. It interacts with the **Ability System**
 through a logical layer called **ASBridge**.
 

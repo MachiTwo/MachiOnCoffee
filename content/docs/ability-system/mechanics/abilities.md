@@ -4,6 +4,8 @@ type: docs
 weight: 1
 ---
 
+{{< lang-toggle >}}
+
 As **Abilities** (`ASAbility`) são os blocos de construção da ação. Elas definem o que um personagem faz, quanto custa e
 como ele é impedido de fazê-lo.
 

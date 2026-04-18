@@ -6,6 +6,8 @@ categories: ["Deep Dive"]
 tags: ["embeddings", "qdrant", "ai", "vectora"]
 ---
 
+{{< lang-toggle >}}
+
 Se você quer que um computador entenda que `create_user` e `signUp` têm significados parecidos, você precisa de
 **Embeddings**.
 

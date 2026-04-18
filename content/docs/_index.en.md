@@ -3,9 +3,7 @@ title: Documentation
 type: docs
 ---
 
-{{< lang-toggle >}}
-
-[**Blog**](/en/) | [**Documentation**](/en/docs/)
+{{< lang-toggle >}} {{< section-toggle >}}
 
 Welcome to the technical documentation library of the **Zyris Ecosystem**.
 

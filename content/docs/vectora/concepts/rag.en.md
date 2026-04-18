@@ -6,6 +6,8 @@ categories: ["Deep Dive"]
 tags: ["rag", "infra", "ai", "vectora"]
 ---
 
+{{< lang-toggle >}}
+
 Have you ever asked an AI agent about a function in your project, and it replied with something that looked right but
 completely ignored how that function was used in the rest of the system? This is the classic symptom of **fragmented
 RAG**.

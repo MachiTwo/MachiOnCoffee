@@ -4,6 +4,8 @@ type: docs
 weight: 1
 ---
 
+{{< lang-toggle >}}
+
 The **Core** layer contains the fundamental building blocks of the Ability System. These are the components and
 singletons that must be present for any gameplay logic to function.
 

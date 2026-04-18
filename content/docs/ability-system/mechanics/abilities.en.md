@@ -4,6 +4,8 @@ type: docs
 weight: 1
 ---
 
+{{< lang-toggle >}}
+
 **Abilities** (`ASAbility`) are the building blocks of action. They define what a character does, how much it costs, and
 how they are prevented from doing it.
 

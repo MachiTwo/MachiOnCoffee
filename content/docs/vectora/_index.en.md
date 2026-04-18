@@ -8,8 +8,6 @@ sidebar:
 
 {{< lang-toggle >}}
 
-[**Blog**](/en/) | [**Documentation**](/en/docs/)
-
 Traditional AI agents often hallucinate because they operate in fragmented contexts. **Vectora** solves this not by
 being "just another chat," but by being a **Contextual Knowledge Engine** that functions as a **Tier 2 Sub-Agent**.
 

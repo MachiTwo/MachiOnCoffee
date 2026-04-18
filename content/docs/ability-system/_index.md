@@ -6,13 +6,10 @@ sidebar:
   open: true
 ---
 
-{{< lang-toggle >}}
-
-[**Blog**](/) | [**Documentação**](/docs/)
-
-O **Zyris Ability System** é um framework robusto de gameplay, desenhado para gerenciar habilidades, atributos e estados
-(Tags) de forma profissional e escalável. Inspirado no _Gameplay Ability System (GAS)_ da Unreal, mas otimizado para a
-**Zyris Engine** e **Godot**, ele rejeita o "Vibe-Coding" em favor de contratos de engenharia rigorosos.
+{{< lang-toggle >}} O **Zyris Ability System** é um framework robusto de gameplay, desenhado para gerenciar habilidades,
+atributos e estados (Tags) de forma profissional e escalável. Inspirado no _Gameplay Ability System (GAS)_ da Unreal,
+mas otimizado para a **Zyris Engine** e **Godot**, ele rejeita o "Vibe-Coding" em favor de contratos de engenharia
+rigorosos.
 
 ## 🛡️ O Contrato de Governança
 

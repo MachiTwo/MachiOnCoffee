@@ -4,6 +4,8 @@ type: docs
 weight: 3
 ---
 
+{{< lang-toggle >}}
+
 **Attributes** are the numerical values that define an actor's capabilities (HP, Mana, Strength, Speed).
 
 ## 📊 ASAttributeSet

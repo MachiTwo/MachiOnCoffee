@@ -9,6 +9,8 @@ tags:
 draft: false
 ---
 
+{{< lang-toggle >}}
+
 ## The Inspiration
 
 Recently I came across Fabio Akita's article on how he architected the new version of his blog
