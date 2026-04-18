@@ -11,19 +11,13 @@ repos:
     rev: v6.0.0
     hooks:
       - id: trailing-whitespace
+        args: [--markdown-linebreak-ext=md]
       - id: end-of-file-fixer
       - id: check-yaml
         args: ["--allow-multiple-documents"]
       - id: check-json
       - id: check-merge-conflict
       - id: check-added-large-files
-
-  - repo: https://github.com/pre-commit/mirrors-prettier
-    rev: v3.1.0
-    hooks:
-      - id: prettier
-        args: ["--write"]
-        verbose: false
 
   - repo: https://github.com/pre-commit/mirrors-mypy
     rev: v1.14.1
@@ -46,3 +40,18 @@ repos:
         entry: python generate_index.py
         language: system
         pass_filenames: false
+
+  - repo: https://github.com/igorshubovych/markdownlint-cli
+    rev: v0.44.0
+    hooks:
+      - id: markdownlint
+        args: ["--config", ".markdownlint.json", "--fix"]
+
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: v3.1.0
+    hooks:
+      - id: prettier
+        args: ["--write"]
+        files: \.(md|yaml|yml|css)$
+        types_or: [text]
+        verbose: true

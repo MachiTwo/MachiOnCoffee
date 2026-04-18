@@ -11,29 +11,39 @@ draft: false
 
 ## A Inspiração
 
-Recentemente me deparei com o artigo do grande Fabio Akita sobre como ele arquitetou a nova versão do blog dele ([Meu Novo Blog - Como Eu Fiz](https://akitaonrails.com/2025/09/10/meu-novo-blog-como-eu-fiz/)), e decidi seguir o mesmo caminho de adotar a simplicidade de páginas estáticas e fugir de dores de cabeça com banco de dados!
+Recentemente me deparei com o artigo do grande Fabio Akita sobre como ele arquitetou a nova versão do blog dele
+([Meu Novo Blog - Como Eu Fiz](https://akitaonrails.com/2025/09/10/meu-novo-blog-como-eu-fiz/)), e decidi seguir o mesmo
+caminho de adotar a simplicidade de páginas estáticas e fugir de dores de cabeça com banco de dados!
 
-O problema que programadores encontram frequentemente é a fadiga da ferramenta. Todo mundo quer construir a "engine de blog ideal" e no final esquecemos de escrever o conteúdo real. Dessa vez eu decidi usar a estratégia que foca puramente nos textos com uma infraestrutura super simples.
+O problema que programadores encontram frequentemente é a fadiga da ferramenta. Todo mundo quer construir a "engine de
+blog ideal" e no final esquecemos de escrever o conteúdo real. Dessa vez eu decidi usar a estratégia que foca puramente
+nos textos com uma infraestrutura super simples.
 
 ### A Ferramenta: Hugo + Hextra
 
 O Hugo é incrivelmente rápido e eficiente, pois é construído em Go. E ele suporta o formato do desenvolvedor: Markdown!
-Ao invés do Jekyll ou tentar configurar um framework NextJS imenso para um CMS que mal vou usar as features, eu utilizei Hugo junto do tema minimalista **Hextra**.
+Ao invés do Jekyll ou tentar configurar um framework NextJS imenso para um CMS que mal vou usar as features, eu utilizei
+Hugo junto do tema minimalista **Hextra**.
 
-A grande sacada é que o meu workflow agora virou apenas criar pastas e arquivos dentro de `content/{MM}/{DD}/{slug}/index.md`, escrever tudo em Markdown e fazer commit.
+A grande sacada é que o meu workflow agora virou apenas criar pastas e arquivos dentro de
+`content/{MM}/{DD}/{slug}/index.md`, escrever tudo em Markdown e fazer commit.
 
 ### Hospedagem Gratuita: GitHub Pages
 
-Um detalhe muito importante da infraestrutura que decidi seguir foi adotar o **GitHub Pages** para hospedar o blog. Enquanto algumas ferramentas exigem integração com o Vercel ou Netlify, o GitHub Pages nos fornece um ambiente incrível de forma nativa e 100% gratuita.
+Um detalhe muito importante da infraestrutura que decidi seguir foi adotar o **GitHub Pages** para hospedar o blog.
+Enquanto algumas ferramentas exigem integração com o Vercel ou Netlify, o GitHub Pages nos fornece um ambiente incrível
+de forma nativa e 100% gratuita.
 
 **Mas atenção, tem um pulo do gato para o Action funcionar sem dar erro `404 Not Found`:**
 
-1. Primeiro o seu repositório precisa ser **Público** (A hospedagem do Github Pages só é de graça para repositórios públicos).
+1. Primeiro o seu repositório precisa ser **Público** (A hospedagem do Github Pages só é de graça para repositórios
+   públicos).
 2. Vá na aba `Settings` > `Pages` do seu repositório.
 3. Em "Build and deployment", altere o "Source" (Fonte) para **GitHub Actions**.
 4. (Opcional) Configure o seu domínio personalizado logo abaixo se você tiver um.
 
-Feito isso, eu só precisei criar um arquivo `.github/workflows/pages.yaml` que contém um passo de _GitHub Action_ instrucionado para fazer o build no Hugo. Assim, a cada `git push`, o deploy ocorre magicamente sem custo algum!
+Feito isso, eu só precisei criar um arquivo `.github/workflows/pages.yaml` que contém um passo de _GitHub Action_
+instrucionado para fazer o build no Hugo. Assim, a cada `git push`, o deploy ocorre magicamente sem custo algum!
 
 ```yaml
 name: Deploy Hugo site to Pages
@@ -104,22 +114,34 @@ jobs:
 
 #### Usando Domínio Customizado no Cloudflare
 
-Uma dica de ouro se você, assim como eu, quiser colocar o seu próprio domínio apontando pro GitHub Pages passando pela CDN maravilhosa (e gratuita) da Cloudflare:
+Uma dica de ouro se você, assim como eu, quiser colocar o seu próprio domínio apontando pro GitHub Pages passando pela
+CDN maravilhosa (e gratuita) da Cloudflare:
 
-1. No painel do Cloudflare (aba de **DNS**), crie 4 registros do tipo `A` apontando o seu domínio raiz para os IPs centrais do GitHub: `185.199.108.153`, `185.199.109.153`, `185.199.110.153` e `185.199.111.153`.
+1. No painel do Cloudflare (aba de **DNS**), crie 4 registros do tipo `A` apontando o seu domínio raiz para os IPs
+   centrais do GitHub: `185.199.108.153`, `185.199.109.153`, `185.199.110.153` e `185.199.111.153`.
 2. Crie 1 registro `CNAME` chamado `www` apontando para a sua url do GitHub (ex: `seu_usuario.github.io`).
-3. **O grande truque:** Na hora de criar esses registros, deixe a "Nuvenzinha" laranja do Cloudflare **inativa (Cinza - DNS Only)** momentaneamente. Acesse a tela do repositório no GitHub, coloque seu domínio em `Settings` > `Pages` e espere ficar verdinho informando _DNS check successful_.
-4. Somente após a checagem passar no GitHub, volte no Cloudflare e ative/ligue a nuvem laranja (indo para o modo _Proxied_). Para evitar a famosa tela preta de "Too Many Redirects", acesse obrigatoriamente a aba de Segurança **SSL/TLS -> Overview** do Cloudflare e force o modo de criptografia para **"Full (strict)"**.
+3. **O grande truque:** Na hora de criar esses registros, deixe a "Nuvenzinha" laranja do Cloudflare **inativa (Cinza -
+   DNS Only)** momentaneamente. Acesse a tela do repositório no GitHub, coloque seu domínio em `Settings` > `Pages` e
+   espere ficar verdinho informando _DNS check successful_.
+4. Somente após a checagem passar no GitHub, volte no Cloudflare e ative/ligue a nuvem laranja (indo para o modo
+   _Proxied_). Para evitar a famosa tela preta de "Too Many Redirects", acesse obrigatoriamente a aba de Segurança
+   **SSL/TLS -> Overview** do Cloudflare e force o modo de criptografia para **"Full (strict)"**.
 
-Para arrematar a segurança, vá na seção Edge Certificates e ligue a chavinha _Always Use HTTPS_. O Cloudflare cuidará milagrosamente de encriptar todos os cantos do seu blog em altíssima velocidade!
+Para arrematar a segurança, vá na seção Edge Certificates e ligue a chavinha _Always Use HTTPS_. O Cloudflare cuidará
+milagrosamente de encriptar todos os cantos do seu blog em altíssima velocidade!
 
 ### Python salvando o dia (Tchau, Ruby!)
 
-O Akita usou Ruby pra gerar o script de indexação porque... bom, ele literalmente tem o nome da linguagem tatuado na carreira dele. Eu não tinha o Ruby instalado e queria que a engine inteira fosse mais compatível com os meus scripts locais.
+O Akita usou Ruby pra gerar o script de indexação porque... bom, ele literalmente tem o nome da linguagem tatuado na
+carreira dele. Eu não tinha o Ruby instalado e queria que a engine inteira fosse mais compatível com os meus scripts
+locais.
 
-Então, ao invés de usar o mesmo _script_ Ruby do artigo original para agrupar as pastas baseadas na data `Ano - Mês`, eu transformei ele todo em Python puro, usando apenas lib standard e o pacote yaml. O Python é incrivelmente bom pra ler arquivos e manipular textos sem esforço.
+Então, ao invés de usar o mesmo _script_ Ruby do artigo original para agrupar as pastas baseadas na data `Ano - Mês`, eu
+transformei ele todo em Python puro, usando apenas lib standard e o pacote yaml. O Python é incrivelmente bom pra ler
+arquivos e manipular textos sem esforço.
 
-E, assim como ele deixou os blocos do GitHub Actions dele no post original, segue aqui o código do meu `generate_index.py` que eu uso para parsear tudo e cuspir os links perfeitamente!
+E, assim como ele deixou os blocos do GitHub Actions dele no post original, segue aqui o código do meu
+`generate_index.py` que eu uso para parsear tudo e cuspir os links perfeitamente!
 
 ```python
 import os
@@ -276,17 +298,24 @@ if __name__ == "__main__":
 
 ### Lidando com Imagens (Tchau, AWS S3!)
 
-No setup original do Akita, ele mantinha um script em bash complexo atado ao gerenciador de arquivos Nautilus do Linux para fazer upload das fotos e capturas de tela diretamente para um bucket S3 da AWS.
+No setup original do Akita, ele mantinha um script em bash complexo atado ao gerenciador de arquivos Nautilus do Linux
+para fazer upload das fotos e capturas de tela diretamente para um bucket S3 da AWS.
 
 Eu decidi **simplificar**. Para quê ter complexidade na nuvem se podemos armazenar tudo localmente no repositório?
 
-No Hugo, tudo que é jogado na pasta `static/` é transportado magicamente para a raiz do site na pasta `public/` durante o build. Isso significa que podemos guardar todas as imagens dentro do diretório do projeto, deixar o Github hospedar isso tudo para nós de graça dentro do mesmo repositório e referenciar via caminhos relativos sem pagar nenhum centavo extra nem dependermos dos serviços da Amazon!
+No Hugo, tudo que é jogado na pasta `static/` é transportado magicamente para a raiz do site na pasta `public/` durante
+o build. Isso significa que podemos guardar todas as imagens dentro do diretório do projeto, deixar o Github hospedar
+isso tudo para nós de graça dentro do mesmo repositório e referenciar via caminhos relativos sem pagar nenhum centavo
+extra nem dependermos dos serviços da Amazon!
 
 ### Automatizando tudo com Pre-Commit
 
-Para garantir que eu não precise nunca lembrar de rodar o `generate_index.py` ou de ter que formatar meus textos Markdown (acredite, espaçamentos importam), eu configurei o framework **Pre-Commit** em Python.
+Para garantir que eu não precise nunca lembrar de rodar o `generate_index.py` ou de ter que formatar meus textos
+Markdown (acredite, espaçamentos importam), eu configurei o framework **Pre-Commit** em Python.
 
-Simplesmente adicionei o Prettier (para auto-formatação) e um hook local que roda o indexador. A cada tentativa de `git commit`, o sistema roda as verificações na minha máquina, arruma meus arquivos e re-gera a árvore de posts. O build final e o deploy ficam por conta do GitHub Actions de forma totalmente transparente!
+Simplesmente adicionei o Prettier (para auto-formatação) e um hook local que roda o indexador. A cada tentativa de
+`git commit`, o sistema roda as verificações na minha máquina, arruma meus arquivos e re-gera a árvore de posts. O build
+final e o deploy ficam por conta do GitHub Actions de forma totalmente transparente!
 
 Para que você possa copiar, esse é o código final do meu `.pre-commit-config.yaml`:
 

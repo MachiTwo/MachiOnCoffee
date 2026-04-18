@@ -71,7 +71,7 @@ Explore nossos guias técnicos de base:
 O runtime do Vectora foi desenvolvido em **TypeScript (Node.js 20+)**, utilizando a **AI SDK da Vercel** para garantir
 um roteamento de modelos estável e agnóstico de provedores (OpenRouter, Google, Anthropic, OpenAI).
 
-### Componentes Core:
+### Componentes Core
 
 - **Context Engine**: Realiza **raciocínio multi-hop** e análise estrutural via **AST (Tree-sitter)**. Ele não busca
   apenas palavras; ele segue dependências, imports e fluxos de execução para montar um grafo da sua codebase.
