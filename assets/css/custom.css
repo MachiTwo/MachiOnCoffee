@@ -1,0 +1,24 @@
+/* Optimize navbar for mobile to avoid cutting the site title */
+@media screen and (max-width: 768px) {
+  /* Site title font size reduction */
+  .hx-site-name {
+    font-size: 0.85rem !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    max-width: 120px !important;
+  }
+
+  /* Hide non-essential navbar items on mobile to make room */
+  /* Target the links that contain social icons */
+  .hextra-navbar-container .hx-flex.hx-items-center > a[href*="github.com"],
+  .hextra-navbar-container .hx-flex.hx-items-center > a[href*="youtube.com"],
+  .hextra-navbar-container .hx-flex.hx-items-center > a[href*="index.xml"] {
+    display: none !important;
+  }
+
+  /* Adjust theme toggle for mobile if it's too large */
+  .hextra-theme-toggle {
+    padding: 0.25rem !important;
+  }
+}
