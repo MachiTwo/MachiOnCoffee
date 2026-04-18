@@ -4,11 +4,9 @@ date: "2026-04-18T12:00:00-03:00"
 type: docs
 ---
 
-## Exemplos: Padrões de Boss
-
 Implementações de diferentes tipos de boss com Ability System.
 
-### Boss 1: Simple Melee Boss
+## Boss 1: Simple Melee Boss
 
 ```gdscript
 extends CharacterBody3D
@@ -89,7 +87,7 @@ func die():
     queue_free()
 ```
 
-### Boss 2: Caster Boss (AoE + Phases)
+## Boss 2: Caster Boss (AoE + Phases)
 
 ```gdscript
 extends Node3D
@@ -212,7 +210,7 @@ func _on_ability_cast(spec):
         anim.play("cast_heal")
 ```
 
-### Boss 3: Reactive Boss (Adapts to Player)
+## Boss 3: Reactive Boss (Adapts to Player)
 
 ```gdscript
 extends CharacterBody3D
@@ -300,7 +298,7 @@ func die():
     queue_free()
 ```
 
-### Boss 4: Multi-Phase Mega Boss
+## Boss 4: Multi-Phase Mega Boss
 
 ```gdscript
 extends CharacterBody3D
@@ -411,7 +409,7 @@ func spawn_loot(item_tag: StringName):
     loot.item_tag = item_tag
 ```
 
-### Boss 5: Puzzle Boss (Mechanics-Heavy)
+## Boss 5: Puzzle Boss (Mechanics-Heavy)
 
 ```gdscript
 extends Node3D
@@ -525,7 +523,7 @@ func _on_player_damage(effect_spec):
         take_damage(damage)
 ```
 
-### Integration na Scene
+## Integration na Scene
 
 ```gdscript
 ## Em BossScene.gd

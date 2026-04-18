@@ -4,8 +4,6 @@ date: "2026-04-18T12:00:00-03:00"
 type: docs
 ---
 
-# Guia: Multiplayer Avançado
-
 Padrões comprovados para sincronização de Ability System em multiplayer.
 
 ## Conceitos Fundamentais

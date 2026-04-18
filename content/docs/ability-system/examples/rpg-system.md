@@ -4,11 +4,9 @@ date: "2026-04-18T12:00:00-03:00"
 type: docs
 ---
 
-## Exemplos: Sistema RPG Completo
-
 Implementação de leveling, skill trees e progressão.
 
-### 1. Sistema de Experiência e Leveling
+## 1. Sistema de Experiência e Leveling
 
 ```gdscript
 extends Node
@@ -67,7 +65,7 @@ func get_xp_progress() -> float:
     return current_xp / needed
 ```
 
-### 2. Árvore de Habilidades (Skill Tree)
+## 2. Árvore de Habilidades (Skill Tree)
 
 ```gdscript
 extends Node
@@ -228,7 +226,7 @@ func get_skill_tree_paths() -> Dictionary:
     return paths
 ```
 
-### 3. Sistema de Classes
+## 3. Sistema de Classes
 
 ```gdscript
 extends Resource
@@ -281,7 +279,7 @@ func select_class(class_type: CharacterClass.CLASS_TYPE):
     class_resource.apply_to_player(self)
 ```
 
-### 4. Sistema de Equipamento
+## 4. Sistema de Equipamento
 
 ```gdscript
 extends Node
@@ -397,7 +395,7 @@ func unequip_item(slot_type: EquipmentSlot.SLOT_TYPE):
         slot.current_item = null
 ```
 
-### 5. Sistema de Inventário
+## 5. Sistema de Inventário
 
 ```gdscript
 extends Node
@@ -460,7 +458,7 @@ func get_inventory_size() -> int:
     return inventory.size()
 ```
 
-### 6. Exemplo Completo: Character Setup
+## 6. Exemplo Completo: Character Setup
 
 ```gdscript
 extends CharacterBody3D
@@ -569,7 +567,7 @@ func use_ability(ability_tag: StringName):
     asc.try_activate_ability_by_tag(ability_tag)
 ```
 
-### 7. UI do RPG
+## 7. UI do RPG
 
 ```gdscript
 extends CanvasLayer

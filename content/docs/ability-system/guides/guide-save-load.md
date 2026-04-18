@@ -4,8 +4,6 @@ date: "2026-04-18T12:00:00-03:00"
 type: docs
 ---
 
-# Guia: Sistema de Salvamento e Carregamento
-
 Padrões para persistência de estado Ability System.
 
 ## Conceitos

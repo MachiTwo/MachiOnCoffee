@@ -4,8 +4,6 @@ date: "2026-04-18T12:00:00-03:00"
 type: docs
 ---
 
-# Guia: Performance e Otimização
-
 Técnicas comprovadas para otimizar Ability System em produção.
 
 ## Profiling Baseline
