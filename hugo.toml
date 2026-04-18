@@ -18,8 +18,12 @@ enableEmoji = true
         url = '/docs/vectora/'
         weight = 1
       [[languages.pt-br.menu.main]]
+        name = 'Blog'
+        url = '/'
+        weight = 2
+      [[languages.pt-br.menu.main]]
         name = 'Tema'
-        weight = 0
+        weight = 3
         [languages.pt-br.menu.main.params]
           type = 'theme-toggle'
       [[languages.pt-br.menu.main]]
@@ -57,8 +61,12 @@ enableEmoji = true
         url = '/en/docs/vectora/'
         weight = 1
       [[languages.en.menu.main]]
+        name = 'Blog'
+        url = '/en/'
+        weight = 2
+      [[languages.en.menu.main]]
         name = 'Theme'
-        weight = 0
+        weight = 3
         [languages.en.menu.main.params]
           type = 'theme-toggle'
       [[languages.en.menu.main]]
