@@ -124,101 +124,154 @@ E, assim como ele deixou os blocos do GitHub Actions dele no post original, segu
 ```python
 import os
 import yaml
+import sys
 from datetime import datetime
 from collections import defaultdict
+
+# Configurações de Diretórios
+CONTENT_DIR = 'content'
+OFF_TOPIC_DIR = os.path.join(CONTENT_DIR, 'off-topic')
+
+# Configurações de Arquivos
+INDEX_FILE = os.path.join(CONTENT_DIR, '_index.md')
+INDEX_FILE_EN = os.path.join(CONTENT_DIR, '_index.en.md')
+OFF_TOPIC_FILE = os.path.join(OFF_TOPIC_DIR, '_index.md')
+OFF_TOPIC_FILE_EN = os.path.join(OFF_TOPIC_DIR, '_index.en.md')
+
+MONTHNAMES_PT = ["", "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
+                 "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]
+MONTHNAMES_EN = ["", "January", "February", "March", "April", "May", "June",
+                 "July", "August", "September", "October", "November", "December"]
 
 def escape_markdown(text):
     return str(text).replace('[', '\\[').replace(']', '\\]')
 
-entries = []
+def parse_post(path, lang='pt'):
+    try:
+        with open(path, 'r', encoding='utf-8') as f:
+            content = f.read()
 
-for root, _, files in os.walk('content'):
-    for file in files:
-        if file != 'index.md':
-            continue
+        if not content.startswith('---'):
+            return None
 
-        path = os.path.join(root, file)
+        parts = content.split('---')
+        if len(parts) < 3:
+            return None
 
-        # Ignorar o index principal e o _index.md
-        if path.replace('\\', '/') in ['content/index.md', 'content/_index.md']:
-            continue
+        front = yaml.safe_load(parts[1])
+        if not (front and front.get('title') and front.get('date')):
+            return None
 
-        try:
-            with open(path, 'r', encoding='utf-8') as f:
-                lines = f.readlines()
+        date_str = str(front['date']).replace('Z', '+00:00')
+        date_obj = datetime.fromisoformat(date_str)
 
-            if not lines or lines[0].strip() != '---':
-                continue
+        base_path = os.path.dirname(path)
+        dir_url = base_path.replace(CONTENT_DIR, '').replace('\\', '/').strip('/')
 
-            fm_lines = []
-            i = 1
-            while i < len(lines) and lines[i].strip() != '---':
-                fm_lines.append(lines[i])
-                i += 1
+        if front.get('slug'):
+            parts_url = dir_url.split('/')
+            parts_url[-1] = str(front['slug'])
+            dir_url = '/'.join(parts_url)
 
-            if i < len(lines) and lines[i].strip() == '---':
-                front = yaml.safe_load(''.join(fm_lines))
-                if front and front.get('title') and front.get('date'):
-                    try:
-                        # Hugo usa formato RFC 3339, usando fromisoformat do python
-                        # Algumas vezes pode ter Z ao inves de +00:00
-                        date_str = str(front['date']).replace('Z', '+00:00')
-                        date_obj = datetime.fromisoformat(date_str)
+        url = f"/{dir_url}/"
+        if lang == 'en':
+            url = f"/en{url}"
 
-                        url = path.replace('\\', '/').replace('content/', '').replace('/index.md', '/')
-                        entries.append({
-                            'title': front['title'],
-                            'url': url,
-                            'date': date_obj
-                        })
-                    except ValueError:
-                        pass
-        except Exception as err:
-            print(f"Erro processando {path}: {err}")
+        tags = [str(t) for t in front.get('tags', [])]
 
-# Ordenar mais recentes primeiro
-entries.sort(key=lambda e: e['date'], reverse=True)
+        return {
+            'title': front['title'],
+            'url': url,
+            'date': date_obj,
+            'tags': tags,
+            'lang': lang,
+            'path': path
+        }
+    except Exception as e:
+        print(f"Erro processando {path}: {e}")
+        return None
 
-# Agrupar por ano e mes
-grouped = defaultdict(list)
-for e in entries:
-    grouped[(e['date'].year, e['date'].month)].append(e)
+def group_by_month(posts):
+    posts.sort(key=lambda p: p['date'], reverse=True)
+    grouped = defaultdict(list)
+    for p in posts:
+        grouped[(p['date'].year, p['date'].month)].append(p)
+    return grouped
 
-# Meses em pt-br para ficar mais legal (ou ingles como no original)
-MONTHNAMES = ["", "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]
+def render_months(grouped, lang='pt'):
+    lines = []
+    sorted_months = sorted(grouped.keys(), reverse=True)
+    month_names = MONTHNAMES_PT if lang == 'pt' else MONTHNAMES_EN
 
-sorted_keys = sorted(grouped.keys(), reverse=True)
+    for year, month in sorted_months:
+        lines.append(f"## {year} - {month_names[month]}\n")
+        for post in grouped[(year, month)]:
+            lines.append(f"- [{escape_markdown(post['title'])}]({post['url']})")
+        lines.append("")
+    return "\n".join(lines)
 
-new_content = "---\ntitle: MachiOnCoffee\n---\n\n"
+def write_if_changed(target, content):
+    content = content.rstrip() + "\n"
+    if os.path.exists(target):
+        with open(target, 'r', encoding='utf-8') as f:
+            if f.read() == content:
+                return False
 
-for year, month in sorted_keys:
-    month_name = MONTHNAMES[month]
-    new_content += f"## {year} - {month_name}\n\n"
+    os.makedirs(os.path.dirname(target), exist_ok=True)
+    with open(target, 'w', encoding='utf-8', newline='\n') as f:
+        f.write(content)
+    return True
 
-    for post in grouped[(year, month)]:
-        new_content += f"- [{escape_markdown(post['title'])}]({post['url']})\n"
+def main():
+    include_future = '--future' in sys.argv
+    now = datetime.now().astimezone() if datetime.now().tzinfo else datetime.now()
 
-    new_content += "\n"
+    all_posts_pt = []
+    all_posts_en = []
 
-# Remove todos os \n sobrando do fim e garante que o arquivo acabe só com 1 \n
-# Isso previne que o end-of-file-fixer do pre-commit fique brigando com o nosso script o tempo todo!
-new_content = new_content.rstrip() + "\n"
+    for root, _, files in os.walk(CONTENT_DIR):
+        for file in files:
+            if file == 'index.md':
+                p = parse_post(os.path.join(root, file), lang='pt')
+                if p: all_posts_pt.append(p)
+            elif file == 'index.en.md':
+                p = parse_post(os.path.join(root, file), lang='en')
+                if p: all_posts_en.append(p)
 
-target_file = 'content/_index.md'
-write_file = True
+    if not include_future:
+        all_posts_pt = [p for p in all_posts_pt if p['date'].timestamp() <= now.timestamp()]
+        all_posts_en = [p for p in all_posts_en if p['date'].timestamp() <= now.timestamp()]
 
-if os.path.exists(target_file):
-    with open(target_file, 'r', encoding='utf-8') as f:
-        existing_content = f.read()
-    if existing_content == new_content:
-        write_file = False
+    def is_off_topic(p): return 'off-topic' in p['tags']
 
-if write_file:
-    with open(target_file, 'w', encoding='utf-8', newline='\n') as f:
-        f.write(new_content)
-    print("Generated content/_index.md with posts grouped by year & month.")
-else:
-    print("content/_index.md is already up to date.")
+    regular_posts_pt = [p for p in all_posts_pt if not is_off_topic(p)]
+    regular_posts_en = [p for p in all_posts_en if not is_off_topic(p)]
+
+    off_topic_pt = [p for p in all_posts_pt if is_off_topic(p)]
+    off_topic_en = [p for p in all_posts_en if is_off_topic(p)]
+
+    # Index Principal (PT)
+    idx_content = "---\ntitle: MachiOnCoffee\n---\n\n"
+    idx_content += render_months(group_by_month(regular_posts_pt), lang='pt')
+    write_if_changed(INDEX_FILE, idx_content)
+
+    # Off-Topic (PT)
+    ot_content = "---\ntitle: Off-Topic\n---\n\n"
+    ot_content += "Assuntos fora da programação do dia a dia: café, filosofia e carreira.\n\n"
+    ot_content += render_months(group_by_month(off_topic_pt), lang='pt')
+    write_if_changed(OFF_TOPIC_FILE, ot_content)
+
+    if all_posts_en:
+        idx_en_content = "---\ntitle: MachiOnCoffee (EN)\n---\n\n"
+        idx_en_content += render_months(group_by_month(regular_posts_en), lang='en')
+        write_if_changed(INDEX_FILE_EN, idx_en_content)
+
+        ot_en_content = "---\ntitle: Off-Topic (EN)\n---\n\n"
+        ot_en_content += render_months(group_by_month(off_topic_en), lang='en')
+        write_if_changed(OFF_TOPIC_FILE_EN, ot_en_content)
+
+if __name__ == "__main__":
+    main()
 ```
 
 ### Lidando com Imagens (Tchau, AWS S3!)

@@ -6,20 +6,13 @@ from collections import defaultdict
 
 # Configurações de Diretórios
 CONTENT_DIR = 'content'
-ARCHIVES_DIR = os.path.join(CONTENT_DIR, 'archives')
 OFF_TOPIC_DIR = os.path.join(CONTENT_DIR, 'off-topic')
 
 # Configurações de Arquivos
 INDEX_FILE = os.path.join(CONTENT_DIR, '_index.md')
 INDEX_FILE_EN = os.path.join(CONTENT_DIR, '_index.en.md')
-ARCHIVES_FILE = os.path.join(ARCHIVES_DIR, '_index.md')
-ARCHIVES_FILE_EN = os.path.join(ARCHIVES_DIR, '_index.en.md')
 OFF_TOPIC_FILE = os.path.join(OFF_TOPIC_DIR, '_index.md')
 OFF_TOPIC_FILE_EN = os.path.join(OFF_TOPIC_DIR, '_index.en.md')
-
-# Posts de Janeiro do ano passado em diante aparecem no index principal.
-# O que for mais antigo vai para a página de arquivos.
-CUTOFF_YEAR = datetime.now().year - 1
 
 MONTHNAMES_PT = ["", "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
                  "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]
@@ -139,23 +132,11 @@ def main():
     off_topic_pt = [p for p in all_posts_pt if is_off_topic(p)]
     off_topic_en = [p for p in all_posts_en if is_off_topic(p)]
 
-    # 1. Index Principal e Arquivos (PT)
-    recent_pt = [p for p in regular_posts_pt if p['date'].year >= CUTOFF_YEAR]
-    archived_pt = [p for p in regular_posts_pt if p['date'].year < CUTOFF_YEAR]
-
-    # Gerar _index.md
+    # 1. Index Principal (PT) - Todos os posts agora ficam aqui
     idx_content = "---\ntitle: MachiOnCoffee\n---\n\n"
-    idx_content += render_months(group_by_month(recent_pt), lang='pt')
-    idx_content += f"\n[Arquivo completo →](/archives/)\n"
+    idx_content += render_months(group_by_month(regular_posts_pt), lang='pt')
     if write_if_changed(INDEX_FILE, idx_content):
-        print(f"Generated {INDEX_FILE} with {len(recent_pt)} recent posts.")
-
-    # Gerar archives/_index.md
-    arc_content = "---\ntitle: Arquivo do Blog\n---\n\n"
-    arc_content += "Aqui você encontra todas as postagens antigas do MachiOnCoffee.\n\n"
-    arc_content += render_months(group_by_month(archived_pt), lang='pt')
-    if write_if_changed(ARCHIVES_FILE, arc_content):
-        print(f"Generated {ARCHIVES_FILE} with {len(archived_pt)} archived posts.")
+        print(f"Generated {INDEX_FILE} with {len(regular_posts_pt)} posts.")
 
     # 2. Off-Topic (PT)
     ot_content = "---\ntitle: Off-Topic\n---\n\n"
@@ -168,7 +149,7 @@ def main():
     if all_posts_en:
         # Index EN
         idx_en_content = "---\ntitle: MachiOnCoffee (EN)\n---\n\n"
-        idx_en_content += render_months(group_by_month(p for p in regular_posts_en if p['date'].year >= CUTOFF_YEAR), lang='en')
+        idx_en_content += render_months(group_by_month(regular_posts_en), lang='en')
         write_if_changed(INDEX_FILE_EN, idx_en_content)
 
         # Off-Topic EN
