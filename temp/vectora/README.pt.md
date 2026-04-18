@@ -5,147 +5,152 @@
 > [English](README.md) | [Português](README.pt.md)
 
 > [!NOTE]
->
 > **Contexto correto + execução confiável para desenvolvedores.**
 > O sub-agent especialista que potencializa qualquer agent principal em codebases reais.
 
 ---
 
-**Agents tradicionais operam em contexto fragmentado.
-O Vectora entrega contexto conectado.**
+## 🎯 O Que é o Vectora
 
-- busca semântica via Qdrant (HNSW + quantization)
-- estrutura de código (arquivos, funções, dependências)
-- namespaces isolados com RBAC via Supabase
-- raciocínio multi-hop com Context Engine
+> **Vectora não é um agent autônomo. É a camada que faz qualquer agent funcionar melhor em código.**
 
-Resultado: agents que entendem como seu sistema realmente funciona — não apenas trechos isolados.
+Agents tradicionais operam em contexto fragmentado. O Vectora entrega **contexto conectado**:
+
+- ✅ Busca semântica via **Voyage 4** + MongoDB Atlas Vector Search
+- ✅ Estrutura de código (arquivos, funções, dependências) com AST parsing
+- ✅ Namespaces isolados com RBAC na aplicação (não no banco)
+- ✅ Raciocínio multi-hop com **Context Engine** inteligente
+- ✅ Segurança por código: **Guardian** hard-coded (.env, .key, .pem nunca processados)
+
+**Resultado**: Agents que entendem como seu sistema realmente funciona — não apenas trechos isolados.
+
+> [!IMPORTANT] **Stack Curada**: Vectora opera exclusivamente com `Gemini 3` (inferência) + `Voyage 4`
+> (embeddings/reranking).  
+> Isso não é uma limitação — é uma garantia de qualidade, consistência e manutenção focada.
 
 ---
 
 ## ✨ Destaques
 
-- **Sub-Agent Specialist**: Integra-se via MCP/ACP a Claude Code, Gemini CLI, Cursor e IDEs — sem competir, apenas potencializando.
-- **Context Engine Inteligente**: Decide _o que_, _como_ e _quando_ buscar — evita ruído, reduz tokens, entrega contexto estruturado.
-- **Namespaces com RBAC**: Isolamento real entre projetos; namespaces públicos compartilhados (Godot, TypeScript, Rust) como "skills" prontas.
-- **Hard-Coded Guardian**: Blocklist imutável (.env, .key, .pem, binários) — segurança por código, não por prompt.
-- **Provider-Agnostic**: OpenAI, Gemini, Claude, OpenRouter ou llama.cpp local — escolha sua stack, mantenha a mesma interface.
-- **Harness de Validação**: Prova objetiva de qualidade com `vectora harness run --compare vectora:on,off`.
-- **Cloud-First, Local-Optional**: Qdrant + Supabase + Vercel gerenciados; opção de inferência local via llama.cpp para privacidade extrema.
-- **Zero Infra para o Usuário**: `npm install -g vectora-agent` — sem Kubernetes, sem gerenciamento de banco de dados.
+| Recurso                        | Descrição                                                                                                         | Por que importa                                               |
+| ------------------------------ | ----------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
+| **Sub-Agent via MCP**          | Integra-se silenciosamente a Claude Code, Gemini CLI, Cursor — sem competir, apenas potencializando               | Zero atrito de adoção; você mantém seu agent principal        |
+| **Context Engine Inteligente** | Decide _o que_, _como_ e _quando_ buscar; aplica compaction para evitar context rot [[28]]                        | Menos tokens, respostas mais rápidas, menos ruído             |
+| **Harness Runtime**            | Infraestrutura que conecta o LLM ao mundo real: tool execution, state management, verification hooks [[16]]       | Governança ativa, não validação post-hoc                      |
+| **Guardian Hard-Coded**        | Blocklist imutável (.env, .key, .pem, binários) executada antes de qualquer tool call                             | Segurança por código, não por prompt — impossível de bypassar |
+| **Backend Unificado**          | MongoDB Atlas gerenciado pela Kaffyn: vetores + metadados + estado em uma única plataforma                        | Zero gestão de infra para o usuário; escala automática        |
+| **BYOK + Fallback**            | Você fornece `GEMINI_API_KEY` + `VOYAGE_API_KEY`; planos pagos adicionam quota gerenciada com fallback automático | Controle total sobre custos; zero vendor lock-in              |
+| **Retenção Transparente**      | Free: 30 dias inatividade = exclusão do índice vetorial; metadados preservados 90 dias para exportação            | Recursos justos para todos; exportação sempre disponível      |
 
 ---
 
-## 🎯 Para Quem é o Vectora?
-
-| Perfil                       | Por que usar                                                                                                                                     |
-| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Desenvolvedor Individual** | Entenda codebases legados, refatore com confiança, gere testes contextualizados — sem perder tempo navegando manualmente.                        |
-| **Equipes de Engenharia**    | Namespaces compartilhados com RBAC: documentação interna, padrões de arquitetura e decisões técnicas disponíveis como contexto para todo o time. |
-| **Integradores de Agents**   | Adicione RAG preciso e execução confiável ao seu agent Tier-1 via MCP — sem reconstruir o motor de contexto.                                     |
-| **Privacy-First Users**      | Modo local opcional com llama.cpp: inferência 100% offline, dados nunca saem da sua máquina.                                                     |
-
-> 💡 **Vectora não é um agent autônomo.**  
-> É a camada que faz qualquer agent funcionar melhor em código.
-
----
-
-## 🏗️ Arquitetura EndGame
+## 🏗️ Arquitetura Atual
 
 ```
-[IDE / Agent Principal]
-         ↓ MCP / ACP (stdio)
-[Vectora Agent - TypeScript Runtime]
-         ├── Protocol Layer: @modelcontextprotocol/server + JSON-RPC
-         ├── Tool Router + Guardian Middleware (security first)
-         ├── Context Engine: decide o que/como/quando buscar
-         ├── Provider Adapter: OpenAI/Gemini/Claude/OpenRouter/llama.cpp
+[Agent Principal] (Claude Code, Gemini CLI, Cursor, etc.)
+         ↓ MCP Protocol (stdio)
+[Vectora Sub-Agent] (TypeScript Runtime)
+         ├── Tool Execution Layer
+         │   • Intercepta tool calls MCP
+         │   • Valida args via Zod
+         │   • Sanitiza output (Guardian)
          │
-         ├── Qdrant Cloud → Vector Search (payload filtering por namespace)
-         └── Supabase → Auth, Projects, Metadata, RLS policies
+         ├── Context Engine
+         │   • Decide escopo: filesystem / vector / hybrid
+         │   • Embedding via Voyage 4
+         │   • Compaction: head/tail + pointers
+         │   • Namespace isolation (RBAC na aplicação)
+         │
+         ├── Provider Router (Stack Curada)
+         │   • Gemini 3 SDK (@google/genai)
+         │   • Voyage 4 SDK (voyageai)
+         │   • Fallback: gemini-embedding-2
+         │   • Quota tracking + BYOK fallback
+         │
+         └── State & Memory
+             • Persiste sessões no MongoDB Atlas
+             • AGENTS.md para continual learning [[16]]
+             • Audit logs (metadados apenas)
+                   ↓
+         [MongoDB Atlas] (Gerenciado pela Kaffyn)
+             • Vector Search Index (HNSW + filtros por namespace)
+             • Documents Collection (metadata, AST, paths)
+             • State Collection (sessões, memória operacional)
+             • Audit Collection (tool calls, decisões)
 ```
 
-### Stack Oficial
-
-| Camada              | Tecnologia                              | Por que escolhemos                                                                   |
-| ------------------- | --------------------------------------- | ------------------------------------------------------------------------------------ |
-| **Runtime**         | TypeScript + Node.js 20+                | Ecossistema maduro para MCP/ACP, AI SDK da Vercel pronto para streaming/tool calling |
-| **Vector DB**       | Qdrant Cloud (multi-tenant)             | HNSW nativo, payload filtering, quantization, escala sem operação                    |
-| **Metadata/Auth**   | Supabase (Postgres + Auth + RLS)        | Row Level Security nativo, realtime, integração simples com Next.js                  |
-| **API/Edge**        | Vercel Functions + AI Gateway           | Serverless, edge-ready, billing integrado, zero infra para gerenciar                 |
-| **Dashboard**       | Next.js 14 + Tailwind                   | Landing + configuração + billing em um único app, deploy automático                  |
-| **Local Inference** | llama.cpp via `@vectora/llama-provider` | Privacidade total opcional, sem depender de APIs externas                            |
+> [!IMPORTANT] **Posicionamento Correto**:
+>
+> - **MongoDB Atlas** = infraestrutura de armazenamento (vetores + documentos + estado).
+> - **Segurança** = implementada na aplicação: `Guardian` (blocklist), `RBAC Logic` (validação de namespace),
+>   `Privacy Shielding` (sanitização).
+> - O banco armazena; a aplicação decide o que pode ser indexado, buscado ou retornado via MCP.
 
 ---
 
-## 🔌 Protocolos de Integração
+## 🔌 Integração via MCP (Única Interface)
 
-### MCP (Model Context Protocol)
+Vectora é exposto **exclusivamente via Model Context Protocol (MCP)**. Não há CLI de chat, TUI ou app de conversação.
 
-Para integração com agents Tier-1: Claude Code, Gemini CLI, Antigravity, etc.
+### Configuração no Claude Desktop
 
-```bash
-# No seu config.json do Claude Desktop:
+```json
 {
   "mcpServers": {
     "vectora": {
       "command": "npx",
       "args": ["vectora-agent", "mcp-serve"],
       "env": {
-        "VECTORA_API_KEY": "sua_chave_aqui"
+        "VECTORA_API_KEY": "seu_token_kaffyn",
+        "GEMINI_API_KEY": "${GEMINI_API_KEY}",
+        "VOYAGE_API_KEY": "${VOYAGE_API_KEY}"
       }
     }
   }
 }
 ```
 
-- **Foco em Contexto**: O Vectora expõe tools de RAG, filesystem e análise de código.
-- **Tool Calling Estável**: AI SDK + adapter layer normaliza respostas entre providers.
-- **Streaming Nativo**: Tokens chegam em tempo real, sem buffering artificial.
+### Fluxo de Operação
 
-### ACP (Agent Client Protocol)
+```mermaid
+sequenceDiagram
+    participant U as Usuário
+    participant MA as Agent Principal (MCP Client)
+    participant V as Vectora Sub-Agent (Harness Runtime)
+    participant DB as MongoDB Atlas (Kaffyn)
 
-Para integração direta com IDEs via JSON-RPC 2.0 over stdio/Unix Sockets.
+    U->>MA: "Como funciona o módulo de autenticação?"
+    MA->>MA: Detecta necessidade de contexto profundo
+    MA->>V: MCP: context_search(query="auth module", namespace="my-project")
 
-- **Baixa Latência**: Alvo <100ms do evento da IDE até resposta do contexto.
-- **Escopo Restrito**: Todas as operations validam Trust Folder + namespace antes de executar.
-- **Fallback Transparente**: Se o provider primário falhar, roteia automaticamente para o fallback configurado.
+    rect rgb(240, 248, 255)
+        note right of V: Harness: Validação Pré-Execução
+        V->>V: preExecute(): valida namespace + Guardian blocklist
+    end
 
----
+    V->>V: Context Engine: decide escopo + embedding via Voyage 4
+    V->>DB: Atlas Vector Search com filtro namespace
+    DB-->>V: Resultados + metadados
+    V->>V: Compaction: head/tail + pointers para outputs grandes
 
-## 🤖 IA Agnóstica: Escolha Seu Provider
+    rect rgb(240, 255, 240)
+        note right of V: Harness: Verificação Pós-Execução
+        V->>V: postExecute(): valida relevance score + sanitiza output
+    end
 
-O Vectora não te prende a nenhum provedor. Configure via CLI ou dashboard:
-
-```bash
-# Exemplo: OpenRouter como gateway unificado
-vectora config --provider openrouter --key $OPENROUTER_KEY
-
-# Exemplo: Gemini para multimodalidade
-vectora config --provider gemini --key $GEMINI_KEY
-
-# Exemplo: Modo local com llama.cpp
-vectora config --provider local --model ~/.vectora/models/qwen3-1.7b-instruct.Q4_K_M.gguf
+    V-->>MA: Retorna contexto estruturado + métricas
+    MA->>MA: Processa contexto + gera resposta
+    MA-->>U: "O módulo usa JWT com validação em middleware.go..."
 ```
 
-### Providers Suportados
-
-| Provider       | SDK                       | Modelos                                 | Modo         |
-| -------------- | ------------------------- | --------------------------------------- | ------------ |
-| **OpenRouter** | `ai` + OpenAI compat.     | Qualquer modelo no gateway              | Cloud        |
-| **Google**     | `@google/genai`           | Gemini 2.0 Flash/Pro, Embedding 2.0     | Cloud        |
-| **Anthropic**  | `@anthropic-ai/sdk`       | Claude 3.5/3.7 Sonnet/Opus              | Cloud        |
-| **Alibaba**    | `openai` compat.          | Qwen3.5, Qwen3-Embedding                | Cloud        |
-| **Local**      | `@vectora/llama-provider` | Qwen3-1.7B, Gemma3, Phi-4 via llama.cpp | 100% Offline |
-
-> [!TIP]
-> **Gateway Support**: Aponte para OpenRouter ou qualquer gateway OpenAI-compatible para fazer load balancing entre modelos sem mudar configuração.
+> 💡 **Insight**: O Harness intercepta **duas vezes** por tool call: antes (validação) e depois (self-verification).
+> Isso é harness engineering, não testing. [[19]]
 
 ---
 
-## 🧩 Toolkit Agêntico (Core Tools)
+## 🧩 Tools MCP Disponíveis
 
-Todas as tools são expostas via schema JSON, validadas por Zod antes da execução:
+Todas as tools são expostas via schema JSON, validadas por Zod antes da execução.
 
 ### Filesystem & Code
 
@@ -162,33 +167,26 @@ Todas as tools são expostas via schema JSON, validadas por Zod antes da execuç
 
 | Tool             | Descrição                                     | Diferencial                             |
 | ---------------- | --------------------------------------------- | --------------------------------------- |
-| `context_search` | Busca semântica + estrutural no codebase      | Context Engine decide o que buscar      |
-| `context_ingest` | Indexação sob demanda de arquivos/diretórios  | Multi-modal: texto, PDF, imagem, áudio  |
+| `context_search` | Busca semântica + estrutural no codebase      | Context Engine decide o que/como buscar |
+| `context_ingest` | Indexação sob demanda de arquivos/diretórios  | Voyage 4 + compaction inteligente       |
 | `context_build`  | Composição de contexto estruturado para o LLM | Evita overfetch, entrega só o relevante |
-
-### Web & External
-
-| Tool         | Descrição                                       | Segurança                                             |
-| ------------ | ----------------------------------------------- | ----------------------------------------------------- |
-| `web_fetch`  | Fetch de URL com extração de conteúdo relevante | Sanitização de output, bloqueio de domains maliciosos |
-| `web_search` | Busca web para contexto externo atualizado      | Resultados filtrados por relevância e frescor         |
 
 ### System & Memory
 
-| Tool           | Descrição                                                  | Uso                                             |
-| -------------- | ---------------------------------------------------------- | ----------------------------------------------- |
-| `terminal_run` | Execução de comandos com stdout/stderr em tempo real       | Timeout configurável, approval opcional         |
-| `memory_save`  | Persistência de fatos/preferências (global ou por projeto) | Isolado por namespace, criptografado em repouso |
-| `plan_mode`    | Modo estruturado para validar plano antes de executar      | UX para revisão humana de ações complexas       |
+| Tool          | Descrição                                                  | Uso                                             |
+| ------------- | ---------------------------------------------------------- | ----------------------------------------------- |
+| `memory_save` | Persistência de fatos/preferências (global ou por projeto) | Isolado por namespace, criptografado em repouso |
+| `plan_mode`   | Modo estruturado para validar plano antes de executar      | UX para revisão humana de ações complexas       |
 
-> [!IMPORTANT]
-> **Hard-Coded Guardian**: Todas as tools validam paths contra blocklist imutável (.env, .key, .pem, binários, lockfiles). Arquivos bloqueados nunca são lidos, embedados ou enviados ao LLM — independente do provider ou prompt.
+> [!IMPORTANT] **Hard-Coded Guardian**: Todas as tools validam paths contra blocklist imutável (`.env`, `.key`, `.pem`,
+> binários, lockfiles). Arquivos bloqueados **nunca** são lidos, embedados ou enviados ao LLM — independente do prompt
+> ou provider.
 
 ---
 
-## 🔐 Segurança por Design
+## 🔐 Segurança por Design (Na Aplicação, Não no Banco)
 
-### Hard-Coded Guardian (TypeScript Middleware)
+### Guardian: Blocklist Hard-Coded
 
 ```ts
 // packages/core/src/security/guardian.ts
@@ -212,125 +210,80 @@ export class Guardian {
 
   static sanitizeOutput(content: string): string {
     return content
-      .replace(
-        /(?:aws_access_key_id|aws_secret_access_key)\s*[:=]\s*['"]?[\w+/]{20,}['"]?/gi,
-        "[REDACTED_AWS]",
-      )
+      .replace(/(?:aws_access_key_id|aws_secret_access_key)\s*[:=]\s*['"]?[\w+/]{20,}['"]?/gi, "[REDACTED_AWS]")
       .replace(/ghp_[\w]{36}/g, "[REDACTED_GITHUB]")
       .replace(/sk-[a-zA-Z0-9]{48}/g, "[REDACTED_OPENAI]");
   }
 }
 ```
 
-### Namespaces com RBAC (Supabase + Qdrant)
-
-```yaml
-# Exemplo: namespace público godot-4.6-api
-namespace:
-  id: "godot-4.6-api"
-  visibility: "public" # public | team | private
-  owner: "kaffyn"
-  rbac:
-    read: ["*"] # qualquer usuário autenticado pode ler
-    write: ["org:kaffyn"] # só a organização dona pode atualizar
-    delete: ["org:kaffyn"]
-```
-
-- **Supabase RLS**: Row Level Security no Postgres para controle de metadados e permissões.
-- **Qdrant Payload Filtering**: Todas as queries vetoriais incluem filtro obrigatório por `namespace_id` + `visibility`.
-- **Isolamento Real**: Contextos nunca vazam entre namespaces; você controla quais estão "montados" na sessão.
-
-### Trust Folder + Symlink Protection
+### RBAC na Aplicação (Não no Banco)
 
 ```ts
-// Validação de escopo antes de qualquer operação
-export function validateTrustFolder(
-  requestedPath: string,
-  trustFolder: string,
-): boolean {
+// packages/core/src/rbac.ts
+export function validateNamespace(requestedPath: string, userNamespace: string): boolean {
+  // Trust Folder: path deve estar dentro do escopo autorizado
   const resolved = fs.realpathSync(requestedPath);
-  const normalizedTrust = path.resolve(trustFolder);
-  return resolved.startsWith(normalizedTrust);
+  const allowedRoot = `/namespaces/${userNamespace}/`;
+  return resolved.startsWith(allowedRoot) && !Guardian.isBlocked(requestedPath);
 }
 ```
 
+| Camada           | Implementação                                               | Por que na aplicação                                       |
+| ---------------- | ----------------------------------------------------------- | ---------------------------------------------------------- |
+| **Blocklist**    | `Guardian.ts`: regex compilados para `.env`, `.key`, `.pem` | O banco não sabe o que é "sensível" — só a aplicação       |
+| **Trust Folder** | Validação de paths com `fs.realpath` + escopo por namespace | RBAC no banco é por usuário, não por contexto de execução  |
+| **Sanitização**  | Mascaramento de segredos antes de retornar ao LLM           | O LLM não pode "desaprender" o que viu — prevenir é melhor |
+| **Git Snapshot** | Hook pré-escrita que cria commit atômico                    | Versionamento é lógica de aplicação, não storage           |
+
+> [!IMPORTANT] **Política de Privacidade**: A Kaffyn **nunca acessa o conteúdo** dos workspaces privados. Logs armazenam
+> apenas metadados de operação MCP (`tool`, `timestamp`, `status`, `namespace`), jamais queries, código ou embeddings
+> brutos.
+
 ---
 
-## 🧪 Vectora Harness: Validação Objetiva
+## 🤖 Stack Curada: Por Que Apenas Gemini + Voyage?
 
-> [!NOTE]
-> O Harness NÃO valida "inteligência geral". Ele valida **consistência operacional + uso correto de contexto + segurança de execução**.
+Vectora **não é provider-agnóstico**. Operamos exclusivamente com:
 
-### Objetivo
+| Componente             | Modelo Curado                       | Provider  | BYOK Obrigatório    |
+| ---------------------- | ----------------------------------- | --------- | ------------------- |
+| **LLM (Inferência)**   | `gemini-3-flash` / `gemini-3.1-pro` | Google AI | ✅ `GEMINI_API_KEY` |
+| **Embedding**          | `voyage-4-code`                     | Voyage AI | ✅ `VOYAGE_API_KEY` |
+| **Reranker**           | `voyage-rerank-3`                   | Voyage AI | ✅ (mesma chave)    |
+| **Fallback Embedding** | `gemini-embedding-2`                | Google AI | ✅ (mesma chave)    |
 
-Garantir que qualquer agent usando o Vectora → se comporte melhor, mais seguro e mais previsível.
+### Por Que Essa Escolha?
 
-### Feature Chave: Comparativo Objetivo
+| Razão                       | Impacto                                                                                                            |
+| --------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| **Harness calibrado**       | LLM-as-a-Judge usa `gemini-3-flash` com temperatura 0.1 → scores comparáveis ao longo do tempo                     |
+| **Embeddings consistentes** | `voyage-4-code` usa dimensão fixa (1024) → índice MongoDB criado uma vez, nunca quebra                             |
+| **Tool calling estável**    | Gemini 3 tem schema de functions documentado → parsing determinístico, sem quirks de providers múltiplos           |
+| **Custo previsível**        | Dois providers = duas faturas. Simplicidade operacional máxima.                                                    |
+| **Qualidade comprovada**    | `gemini-3-flash` para raciocínio rápido + `voyage-4-code` para embeddings de código = combo validado em benchmarks |
 
-```bash
-# Executa suite de testes com e sem Vectora, gera diff estruturado
-vectora harness run ./tests --compare vectora:on,vectora:off
-```
+> 💡 **Posicionamento claro**:  
+> _"Vectora não é um gateway genérico de LLMs. É um sub-agent calibrado para Gemini 3 + Voyage 4. Isso garante que nosso
+> Harness prove qualidade de forma consistente — e que você tenha uma experiência previsível, do free tier ao
+> enterprise."_
 
-Resultado:
+### Fallback Automático (Mesmo Provider, Mesma Chave)
 
-```json
-{
-  "suite_score_delta": "+22%",
-  "retrieval_precision_delta": "+31%",
-  "token_usage_delta": "-18%",
-  "security_violations": { "with_vectora": 0, "without_vectora": 3 },
-  "failures": { "with_vectora": 1, "without_vectora": 7 }
+```ts
+// packages/core/src/providers/embedding-router.ts
+export async function embedWithFallback(query: string, config: ProviderConfig): Promise<EmbeddingResult> {
+  try {
+    return await voyage.embed(query, { model: "voyage-4-code" });
+  } catch (error) {
+    if (error.code === "SERVICE_UNAVAILABLE" || error.code === "RATE_LIMITED") {
+      logger.warn("Voyage unavailable, falling back to Gemini embedding");
+      return await gemini.embed(query, { model: "gemini-embedding-2" });
+    }
+    throw error;
+  }
 }
 ```
-
-### Tipos de Testes
-
-| Tipo           | Valida                                        | Exemplo YAML                                                        |
-| -------------- | --------------------------------------------- | ------------------------------------------------------------------- |
-| **Tooling**    | Sequência correta de tools, args válidos      | `strict_sequence: [{tool: "file_read", args: {path: "auth.go"}}]`   |
-| **Retrieval**  | Achou os arquivos certos, ignorou ruído       | `must_include: ["auth.go"], must_exclude: ["unrelated/logger.go"]`  |
-| **Reasoning**  | Resposta correta, conclusão válida            | `semantic_checks: [{pattern: "expiration", case_sensitive: false}]` |
-| **Safety**     | Não vaza segredos, não acessa .env            | `blocked_tools: ["terminal_run"], blocked_paths: [".env"]`          |
-| **Resilience** | Recupera-se de falhas (timeout, erro parcial) | `fault_injection: [{type: "timeout", tool: "file_read"}]`           |
-
-> 💡 **Isso é arma de produto**: Prova objetiva de que Vectora melhora qualidade, reduz custos e aumenta segurança.
-
----
-
-## 🌐 Shared Namespaces: Asset Library
-
-O **Vectora Assets** é um catálogo de namespaces compartilhados com RBAC — não um marketplace tradicional.
-
-### Namespaces Públicos (Curated)
-
-Disponíveis para montagem instantânea em qualquer workspace:
-
-| Namespace         | Conteúdo                                    | Uso                                               |
-| ----------------- | ------------------------------------------- | ------------------------------------------------- |
-| `godot-4.6-api`   | Documentação oficial + exemplos de GDScript | "Como implementar um estado machine em Godot?"    |
-| `typescript-docs` | Specs da linguagem + padrões de tipagem     | "Qual a diferença entre `unknown` e `any`?"       |
-| `rust-patterns`   | Idiomas, traits e padrões de concorrência   | "Como compartilhar estado entre threads em Rust?" |
-| `web-security`    | OWASP Top 10, headers, CSP, autenticação    | "Quais headers de segurança devo configurar?"     |
-
-### Como Usar
-
-```bash
-# Listar namespaces públicos disponíveis
-vectora assets list
-
-# Montar um namespace público no workspace atual
-vectora assets mount godot-4.6-api
-
-# Desmontar
-vectora assets unmount godot-4.6-api
-
-# Publicar um namespace como público (requer aprovação)
-vectora assets publish ./my-docs --namespace my-lib --visibility public
-```
-
-> [!IMPORTANT]
-> **Política de Privacidade**: Namespaces `private` e `team` permanecem exclusivamente na sua instância do Qdrant/Supabase. **Nem a Kaffyn tem acesso aos dados contidos em workspaces privados ou de equipe.**
 
 ---
 
@@ -346,100 +299,191 @@ npm install -g vectora-agent
 vectora-agent --version
 ```
 
-### Configuração Inicial
+### Configuração (BYOK Obrigatório)
 
 ```bash
-# Configurar provider (ex: OpenRouter)
-vectora-agent config --provider openrouter --key $OPENROUTER_KEY
+# Obter chaves gratuitas
+# → https://aistudio.google.com/app/apikey (Gemini)
+# → https://dash.voyageai.com/api-keys (Voyage)
 
-# Configurar backend cloud (opcional, padrão já vem pré-configurado)
-vectora-agent config --qdrant-url $QDRANT_URL --supabase-url $SUPABASE_URL
+# Configurar Vectora
+vectora config --gemini $GEMINI_API_KEY --voyage $VOYAGE_API_KEY
 
-# Ou ativar modo local com llama.cpp
-vectora-agent setup-local --model qwen3-1.7b-instruct
+# Autenticar (provisiona backend MongoDB gerenciado automaticamente)
+vectora auth login
 ```
 
-### Execução
+### Integração com Seu Agent Principal
 
-```bash
-# Iniciar como MCP server (para Claude Code, Gemini CLI, etc)
-vectora-agent mcp-serve
+1. **Claude Code**: Adicione ao `claude_desktop_config.json` (veja acima)
+2. **Gemini CLI**: Use `--mcp vectora` ao iniciar
+3. **Cursor / VS Code**: Instale a extensão Vectora (já inclui o runtime MCP)
+4. **Agent Customizado**: Conecte via MCP client padrão
 
-# Ou iniciar como ACP client para um projeto específico
-vectora-agent acp-start --workspace ./my-project
+### Uso (Via Seu Agent Principal)
 
-# Usar CLI básico para tarefas rápidas
-vectora-agent ask "Quais funções dependem do módulo de autenticação?"
-vectora-agent embed --path ./docs/
-vectora-agent search "padrão repository pattern"
+```
+Usuário: "Como funciona a autenticação JWT neste projeto?"
+→ Agent Principal detecta necessidade de contexto profundo
+→ Chama Vectora via MCP: context_search(query="JWT auth", namespace="my-project")
+→ Vectora retorna contexto estruturado + métricas
+→ Agent Principal responde ao usuário com evidências validadas
 ```
 
-### Integração com VS Code
-
-1. Instale a extensão **Vectora** da marketplace
-2. A extensão já inclui o binário do Agent — sem setup adicional
-3. Use o painel dedicado para chat interativo ou invoque como sub-agent via comando
+> [!TIP] **Não existe `vectora ask`**. Vectora não conversa com usuários finais. Ele entrega contexto ao seu agent
+> principal via MCP.
 
 ---
 
-## 💰 Modelos de Uso
+## 💰 Planos e Preços
 
-### 🟢 Free (BYOK - Bring Your Own Keys)
+### 🟢 Free (BYOK - Bring Your Own Key)
 
-- Todas as tools e Context Engine incluídos
-- Você fornece suas próprias chaves de API (OpenRouter, Gemini, etc.)
-- Qdrant + Supabase: use suas próprias instâncias ou o tier free da Kaffyn
-- Harness completo para validação local
-- **Custo**: $0 + suas APIs
+| Recurso        | Detalhes                                                                                                                   |
+| -------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| **Preço**      | $0/mês                                                                                                                     |
+| **API**        | Você fornece `GEMINI_API_KEY` + `VOYAGE_API_KEY` (free tiers dos providers)                                                |
+| **Backend**    | MongoDB Atlas gerenciado pela Kaffyn — **limite de 512MB de armazenamento total** (vetores + metadados + índices)          |
+| **Retenção**   | ⚠️ **30 dias de inatividade = exclusão automática do índice vetorial**. Metadados preservados por 90 dias para exportação. |
+| **Ideal para** | Desenvolvedores individuais, validação técnica, testes pontuais                                                            |
 
-### 🔵 Pro (~$20/mês)
+### 🔵 Pro (~$20/mês ou $0.10/1k tokens)
 
-- Qdrant + Supabase gerenciados pela Kaffyn (multi-tenant, auto-scaling)
-- Embeddings limitados incluídos (ex: 100k tokens/mês)
-- Dashboard com usage tracking, billing e gestão de API keys
-- Suporte prioritário e acesso antecipado a features
-- **Ideal para**: Desenvolvedores profissionais que querem zero configuração
+| Recurso           | Detalhes                                                                                       |
+| ----------------- | ---------------------------------------------------------------------------------------------- |
+| **Preço**         | $20/mês **ou** pay-as-you-go ($0.10/1k tokens + $0.05/1k vetores)                              |
+| **API Quota**     | 500k tokens/mês (`gemini-3-flash`) + 100k vetores/mês (`voyage-4-code`) inclusos               |
+| **Backend**       | MongoDB Atlas gerenciado — **limite de 10GB de armazenamento total**                           |
+| **Fallback BYOK** | ✅ Quando a quota de API esgota, usa automaticamente suas chaves BYOK                          |
+| **Retenção**      | Dados preservados enquanto a assinatura estiver ativa. Cancelamento → 90 dias para exportação. |
+| **Ideal para**    | Desenvolvedores profissionais que querem zero configuração + previsibilidade                   |
 
-### 🟣 Team (Custom)
+### 🟣 Team ($5 base + $15/usuário/mês)
 
-- Namespaces compartilhados com RBAC granular
-- Múltiplos usuários, isolamento por projeto/time
-- Audit logs, SSO opcional, SLA garantido
-- **Ideal para**: Equipes de engenharia que precisam de conhecimento compartilhado seguro
+| Recurso        | Detalhes                                                                      |
+| -------------- | ----------------------------------------------------------------------------- |
+| **Preço**      | **$5/mês base + $15/usuário/mês** + consumo excedente de API                  |
+| **Exemplo**    | Time com 5 devs: $5 + (5 × $15) = **$80/mês**                                 |
+| **Backend**    | MongoDB Atlas dedicado — **limite de 50GB de armazenamento total**            |
+| **RBAC**       | Roles na aplicação: `reader`, `contributor`, `admin`, `auditor`               |
+| **Namespaces** | `private` + `team` + `public` + `shared` (cross-projects)                     |
+| **Retenção**   | 180 dias pós-cancelamento para exportação controlada                          |
+| **Ideal para** | Equipes de 3-50 desenvolvedores que precisam de contexto compartilhado seguro |
+
+> 💡 **Por que $5 base + $15/usuário?**  
+> Baixa barreira de entrada ($20/mês para 1 usuário adicional), escalabilidade justa, competitivo vs. ferramentas
+> similares ($20-30/usuário), previsibilidade para orçamento.
 
 ---
 
-## 📦 Estrutura do Projeto (Monorepo)
+## 🔄 Migração, Retenção e Gestão de Dados
+
+### Inatividade no Plano Free
+
+```
+Dia 0: Último uso do Vectora (chamada MCP bem-sucedida)
+Dia 30: Notificação: "Conta inativa há 30 dias. Índice vetorial será excluído em 24h."
+Dia 31: Exclusão automática do índice vetorial (embeddings removidos do Atlas)
+Dia 31-120: Metadados preservados para exportação (`vectora export`)
+Dia 121: Exclusão completa se não houver nova atividade ou exportação
+```
+
+### Downgrade Pro/Team → Free
+
+```bash
+# 1. Cancela/altera plano no dashboard
+# 2. Sistema notifica: "Limite reduzido para 512MB. Uso atual: X MB.
+#    Excedentes serão excluídos em 7 dias se não exportados."
+# 3. Usuário executa: `vectora export --output ./backup`
+# 4. Após 7 dias: exclusão automática de dados excedentes
+# 5. Dados dentro do limite free permanecem disponíveis para MCP
+```
+
+### Exportação de Dados (Sempre Disponível)
+
+```bash
+# Exportar todos os dados do namespace
+vectora export --namespace my-project --output ./backup.json
+
+# O arquivo inclui:
+# - Metadados estruturados (paths, AST, timestamps)
+# - Embeddings como base64 (portable)
+# - Audit logs (metadados apenas)
+# - Configurações do namespace
+```
+
+---
+
+## 🧪 Harness: Runtime de Orquestração (Não Framework de Testes)
+
+> [!IMPORTANT] **Definição Correta**: O Harness **não é um framework de testes**. É a infraestrutura de runtime que
+> envolve o LLM para transformá-lo em um agente funcional.  
+> **Fórmula**: `Agente = Modelo + Harness` [[24]]
+
+### O Que o Harness Faz
+
+| Camada                  | Responsabilidade                             | Exemplo                                                        |
+| ----------------------- | -------------------------------------------- | -------------------------------------------------------------- |
+| **Tool Execution**      | Intercepta, valida e executa tool calls MCP  | Zod validation + Guardian blocklist + retry logic              |
+| **Context Engineering** | Decide o que/como/quando injetar contexto    | Voyage 4 embedding + compaction + hybrid ranking               |
+| **State Management**    | Persiste estado entre sessões MCP            | `AGENTS.md` + MongoDB Atlas para working state                 |
+| **Provider Router**     | Roteia para Gemini 3 + Voyage 4 com fallback | `voyage-4-code` → `gemini-embedding-2` se indisponível         |
+| **Verification Hooks**  | Validação em tempo real, não post-hoc        | `preExecute`: blocklist; `postExecute`: lint + relevance check |
+
+### Exemplo: Tool Execution com Validação
+
+```ts
+// packages/harness/src/tool-executor.ts
+async function executeTool(call: MCPToolCall, context: ExecutionContext): Promise<ToolResult> {
+  // 1. Validar contra Guardian blocklist (ANTES da execução)
+  if (Guardian.isBlocked(call.args.path)) {
+    throw new SecurityError(`GUARDIAN_BLOCKED: ${call.args.path}`);
+  }
+
+  // 2. Validar args via Zod schema
+  const tool = registry.get(call.name);
+  const validatedArgs = tool.schema.parse(call.args);
+
+  // 3. Executar com timeout + retry
+  const result = await withRetry(() => tool.impl(validatedArgs, context), { maxAttempts: 3, backoff: "exponential" });
+
+  // 4. Sanitizar output ANTES de retornar ao LLM
+  return {
+    ...result,
+    content: Guardian.sanitizeOutput(result.content),
+  };
+}
+```
+
+> 💡 **Diferença crucial**: Estes hooks validam **comportamento operacional**, não "inteligência". O harness é
+> infraestrutura; a validação garante que a infraestrutura funciona. [[24]]
+
+---
+
+## 📦 Estrutura do Projeto (Monorepo TypeScript)
 
 ```
 vectora/
 ├── packages/
-│   ├── core/          # Agent runtime: protocols, tools, security, context engine
-│   ├── llm/           # Providers: openai, gemini, claude, openrouter, llama.cpp
-│   ├── context/       # Context Engine + RAG multi-namespace + multi-hop
-│   ├── harness/       # Validation system: runner, judge, schema (Zod)
-│   └── shared/        # Types, utils, config, logger, constants
+│   ├── core/          # Harness runtime: tool execution, context engine, guardian, rbac
+│   ├── providers/     # SDKs oficiais: @google/genai, voyageai (sem AI SDK)
+│   ├── harness/       # Verification hooks, state management, audit logging
+│   └── shared/        # Types, utils, config schema (Zod), constants
 │
 ├── apps/
-│   ├── agent/         # Entry point: MCP/ACP server, CLI commands
-│   └── web/           # Next.js: landing + dashboard + billing + auth
+│   ├── agent/         # Entry point: MCP server (npx vectora-agent mcp-serve)
+│   └── web/           # Next.js: dashboard de configuração + billing (sem chat)
 │
 ├── infra/
-│   ├── qdrant/        # Collections config, quantization, payload indexes
-│   ├── supabase/      # Migrations, RLS policies, auth/projects schema
-│   └── vercel/        # Functions config, AI Gateway, edge settings
-│
-├── assets/            # Shared namespaces definitions (YAML)
-│   ├── public/
-│   │   ├── godot-4.6-api.yaml
-│   │   ├── typescript-docs.yaml
-│   │   └── rust-patterns.yaml
-│   └── README.md      # Como publicar um namespace público
+│   └── mongodb/       # Collections schema, vector search indexes, RLS policies
 │
 ├── tests/
-│   ├── e2e/           # MCP/ACP integration tests
-│   ├── harness-suites/# YAML test cases (security, retrieval, resilience)
-│   └── fixtures/      # Small codebases for testing
+│   ├── harness/       # Testes de regressão do runtime (não do "agente")
+│   └── fixtures/      # Codebases mínimos para validação
+│
+├── config/
+│   ├── vectora.config.yaml  # Schema de configuração validado por Zod
+│   └── menu.yaml            # Navegação da documentação
 │
 ├── package.json       # pnpm workspace + turbo
 ├── tsconfig.json      # Base config + paths aliases
@@ -462,46 +506,62 @@ cd Vectora
 # Instale dependências (pnpm + turbo)
 pnpm install
 
-# Rode o agent em modo desenvolvimento
+# Rode o agent em modo desenvolvimento (MCP server)
 pnpm --filter agent dev
 
-# Rode os testes do Harness
+# Rode testes de regressão do Harness
 pnpm --filter harness test
 ```
 
 ### Diretrizes
 
 - **TypeScript estrito**: Sem `any`, tipos explícitos, Zod para validation boundaries
-- **Tests primeiro**: Nova tool? Escreva o teste no Harness antes da implementação
+- **Stack curada**: Novos providers só são aceitos se calibrados no Harness (processo de RFC)
 - **Security by default**: Nenhuma feature que bypass o Guardian ou Trust Folder
-- **Docs atualizadas**: Mudou a API? Atualize o schema e os exemplos
+- **Docs atualizadas**: Mudou a API? Atualize o schema Zod e os exemplos
 
 ### Roadmap Público
 
-- [ ] Harness: LLM-as-a-Judge com cache de julgamentos
-- [ ] Context Engine: Multi-hop com ranking híbrido (semântico + estrutural)
-- [ ] Assets: Sistema de curadoria comunitária para namespaces públicos
-- [ ] IDEs: Suporte nativo para JetBrains via ACP estrito
-- [ ] Local: Otimizações para llama.cpp em Apple Silicon / NVIDIA CUDA
+- [ ] Harness: Self-verification hooks para lint/type-check automático
+- [ ] Context Engine: Hybrid ranking (vetorial + estrutural + relacional)
+- [ ] Namespaces: Sistema de curadoria comunitária para assets públicos
+- [ ] IDEs: Suporte nativo para JetBrains via MCP
+- [ ] Observabilidade: Métricas de retrieval precision + tool accuracy em tempo real
 
 ---
 
 ## ❓ FAQ
 
-**P: Vectora é um agent autônomo?**  
-R: Não. Vectora é um sub-agent especialista em contexto de código. Você o aciona via MCP/ACP durante o desenvolvimento — ele não roda 24/7 nem toma decisões sem seu comando.
+**P: Posso conversar diretamente com o Vectora?**  
+R: Não. Vectora é um sub-agent silencioso exposto via MCP. Você interage com seu agent principal (Claude Code, Gemini
+CLI, Cursor, etc.), que delega automaticamente tarefas de contexto, busca semântica e indexação ao Vectora. Não há
+`vectora ask`, chat ou interface de conversação.
 
-**P: Preciso de conta na Kaffyn?**  
-R: Para o modo Free (BYOK), não. Para Pro/Team ou para usar namespaces públicos, sim — autenticação via Supabase Auth.
+**P: Posso usar outros modelos, como Claude ou Qwen?**  
+R: Não. O Harness é calibrado exclusivamente para `gemini-3-flash` + `voyage-4-code`. Adicionar outros providers
+introduziria variância nos scores, quebraria a comparabilidade de `retrieval_precision` e exigiria revalidação massiva.
+Foco em qualidade > quantidade.
 
-**P: Meus dados vão para a nuvem?**  
-R: Apenas se você configurar o backend cloud. No modo local, tudo roda na sua máquina. Namespaces `private` nunca saem da sua instância, mesmo no cloud.
+**P: No plano Free, eu preciso configurar meu próprio MongoDB?**  
+R: Não. O backend (MongoDB Atlas) é gerenciado pela Kaffyn em todos os planos. No Free, você tem 512MB de armazenamento
+total (vetores + metadados + índices) inclusos. Zero configuração de infra.
 
-**P: Posso usar Vectora com Cursor / Copilot / Antigravity?**  
-R: Sim! Via MCP, qualquer client compatível pode usar o Vectora como sub-agent. Para IDEs com ACP nativo (VS Code), a integração é ainda mais profunda.
+**P: O que acontece se eu ficar 30 dias sem usar o Vectora no plano Free?**  
+R: O índice vetorial será excluído automaticamente. Metadados preservados por +90 dias para exportação. Basta reconectar
+via MCP para restaurar o índice (indexação sob demanda).
 
-**P: E se o provider de IA cair?**  
-R: O Agent tem failover automático. Configure um provider secundário e, em caso de erro (429, timeout, outage), a requisição é roteada transparentemente — sua IDE não percebe a troca.
+**P: Por que o fallback é apenas para embeddings e não para inferência?**  
+R: Porque a inferência (`gemini-3-flash` ↔ `gemini-3.1-pro`) já é do mesmo provider (Google), com mesma chave e mesma
+infraestrutura. O fallback crítico é para embeddings: `voyage-4-code` → `gemini-embedding-2`, garantindo continuidade
+mesmo se a Voyage estiver indisponível.
+
+**P: A segurança dos meus dados depende do MongoDB?**  
+R: Não. A segurança é implementada na camada de aplicação: `Guardian` (blocklist hard-coded), validação de namespace por
+`userId`/`teamId`, e sanitização de output. O MongoDB armazena; a aplicação controla acesso e processamento.
+
+**P: E se o Google ou Voyage mudarem preços/limites?**  
+R: Monitoramos ativamente. Mudanças significativas serão comunicadas com 30 dias de antecedência. Como o fallback BYOK é
+obrigatório em todos os planos, você sempre mantém controle sobre custos de API.
 
 ---
 
@@ -510,8 +570,15 @@ R: O Agent tem failover automático. Configure um provider secundário e, em cas
 Vectora é distribuído sob a licença **MIT**. Veja [LICENSE](LICENSE) para detalhes.
 
 > 💡 **Frase para guardar**:  
-> _"Vectora não compete com o agent. Ele torna qualquer agent competente em código."_
+> _"Vectora não responde ao usuário. Ele entrega contexto ao seu agent. Backend gerenciado, API sob sua chave, segurança
+> na aplicação, dados sempre seus."_
 
 ---
 
-_Parte do ecossistema Kaffyn · Open Source · TypeScript · Provider-Agnostic_  
+_Parte do ecossistema Vectora · Open Source · TypeScript_  
+_Backend Unificado: MongoDB Atlas (vetores + metadados + estado) — gerenciado pela Kaffyn_  
+_Modelos Curados: Gemini 3 Flash/Pro (LLM) + Voyage 4 (embeddings/reranking)_  
+_Interface: Exclusivamente MCP. Sub-agent silencioso._  
+_Segurança: Camada de aplicação (Guardian + RBAC lógico) + criptografia de infra_  
+_Retenção Free: 30 dias inatividade = exclusão índice vetorial; +90 dias exportação metadados_  
+_Versão: 2.0.0 | Próxima revisão: Q3 2026_
