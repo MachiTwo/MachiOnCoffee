@@ -1,8 +1,6 @@
 # Hugo
 public/
 resources/
-static/
-!static/images/
 .hugo_build.lock
 
 # Docker
@@ -177,3 +175,9 @@ mise.toml
 tmp/
 /__pycache__
 *.txt
+*.xml
+*.html
+*.js
+/static/css
+*.cast
+*.json
