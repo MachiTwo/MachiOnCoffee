@@ -1,6 +1,7 @@
 ---
 title: Documentação
 type: docs
+breadcrumbs: false
 ---
 
 {{< lang-toggle >}} {{< section-toggle >}}

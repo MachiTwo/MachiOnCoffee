@@ -16,15 +16,15 @@
 {{- $isPost := .IsPage -}}
 {{- $hasTranslations := gt (len .Translations) 0 -}}
 {{- $showOnPost := and $isPost $hasTranslations -}}
-{{- $show := or $isHome $isArchives $isOffTopic $showOnPost -}}
+{{- $show := or $isHome $isArchives $isOffTopic $showOnPost .IsSection -}}
 
 {{- if $show -}}
   {{- $currentLang := .Site.Language.Lang -}}
 
   {{/* Resolve the URL for each language */}}
-  {{- $ptUrl := "/" -}}
-  {{- $enUrl := "/en/" -}}
-  {{- if $isPost -}}
+  {{- $ptUrl := (path.Join "/" site.LanguagePrefix) | printf "%s/" -}}
+  {{- $enUrl := (path.Join "/" "en") | printf "%s/" -}}
+  {{- if or $isPost .IsSection -}}
     {{- if eq $currentLang "pt-br" -}}
       {{- $ptUrl = .RelPermalink -}}
       {{- range .Translations -}}
