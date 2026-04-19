@@ -42,7 +42,9 @@
     {{ $desc = replace $desc "[/i]" "*" }}
     {{ $desc = replace $desc "[code]" "`" }}
     {{ $desc = replace $desc "[/code]" "`" }}
-    <div class="api-description-content">{{ $desc | markdownify }}</div>
+    <div class="api-description-content" style="margin-top: 1.25rem;">
+      {{ $desc | markdownify }}
+    </div>
   </div>
   {{ end }}
 
