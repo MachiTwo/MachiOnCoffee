@@ -97,7 +97,7 @@ permissions:
   - index
   - delete
   - configure
-  - manage_users              # SEM manage_roles
+  - manage_users # SEM manage_roles
   - audit_logs
   - api_tokens
   - webhooks
@@ -137,7 +137,7 @@ Somente leitura.
 role: viewer
 permissions:
   - search
-  - api_tokens                # Para leitura
+  - api_tokens # Para leitura
 
 cannot_perform:
   - index
@@ -153,7 +153,7 @@ Read-only com rate limiting.
 ```yaml
 role: guest
 permissions:
-  - search (limited)          # 100 req/day
+  - search (limited) # 100 req/day
 
 cannot_perform:
   - index
@@ -166,23 +166,23 @@ cannot_perform:
 
 ## 15 Permissões Granulares
 
-| Permissão | Descrição | Roles |
-|-----------|-----------|-------|
-| `search` | Buscar contexto | Owner, Admin, Editor, Viewer, Guest |
-| `index` | Indexar arquivos | Owner, Admin, Editor |
-| `delete` | Deletar chunks/namespace | Owner, Admin, Editor |
-| `configure` | Alterar config | Owner, Admin |
-| `manage_users` | Criar/deletar users | Owner, Admin |
-| `manage_roles` | Alterar roles de users | Owner |
-| `audit_logs` | Ver logs completos | Owner, Admin |
-| `api_tokens` | Criar/revogar tokens | Owner, Admin, Editor, Viewer |
-| `webhooks` | Criar/gerenciar webhooks | Owner, Admin |
-| `sso_config` | Configurar SSO/LDAP | Owner |
-| `backup_restore` | Backup e restore | Owner |
-| `advanced_analytics` | Dashboard avançado | Owner, Admin |
-| `custom_integrations` | Custom endpoints | Owner |
-| `support_priority` | Suporte prioritário | Owner |
-| `billing` | Ver/alterar billing | Owner |
+| Permissão             | Descrição                | Roles                               |
+| --------------------- | ------------------------ | ----------------------------------- |
+| `search`              | Buscar contexto          | Owner, Admin, Editor, Viewer, Guest |
+| `index`               | Indexar arquivos         | Owner, Admin, Editor                |
+| `delete`              | Deletar chunks/namespace | Owner, Admin, Editor                |
+| `configure`           | Alterar config           | Owner, Admin                        |
+| `manage_users`        | Criar/deletar users      | Owner, Admin                        |
+| `manage_roles`        | Alterar roles de users   | Owner                               |
+| `audit_logs`          | Ver logs completos       | Owner, Admin                        |
+| `api_tokens`          | Criar/revogar tokens     | Owner, Admin, Editor, Viewer        |
+| `webhooks`            | Criar/gerenciar webhooks | Owner, Admin                        |
+| `sso_config`          | Configurar SSO/LDAP      | Owner                               |
+| `backup_restore`      | Backup e restore         | Owner                               |
+| `advanced_analytics`  | Dashboard avançado       | Owner, Admin                        |
+| `custom_integrations` | Custom endpoints         | Owner                               |
+| `support_priority`    | Suporte prioritário      | Owner                               |
+| `billing`             | Ver/alterar billing      | Owner                               |
 
 ---
 
@@ -233,19 +233,19 @@ rbac:
       max_users: 1
       can_create_namespaces: true
       can_delete_namespaces: true
-    
+
     admin:
       max_users: 5
       can_create_namespaces: false
-    
+
     editor:
       max_users: unlimited
       can_index: true
-    
+
     viewer:
       max_users: unlimited
       can_search: true
-    
+
     guest:
       max_users: unlimited
       rate_limit: 100/day
@@ -296,11 +296,11 @@ vectora user create \
 vectora user list [--namespace <ns>]
 
 # Output:
-# Email                    | Role      | Joined     | Last Active
+# Email | Role | Joined | Last Active
 # ─────────────────────────┼───────────┼────────────┼─────────────
-# owner@company.com        | owner     | 2026-01-10 | 5 min ago
-# admin@company.com        | admin     | 2026-02-15 | 2 hours ago
-# dev@company.com          | editor    | 2026-03-20 | offline
+# owner@company.com | owner | 2026-01-10 | 5 min ago
+# admin@company.com | admin | 2026-02-15 | 2 hours ago
+# dev@company.com | editor | 2026-03-20 | offline
 ```
 
 ### Revogar Acesso
@@ -327,11 +327,11 @@ users:
   - email: dev@company.com
     namespaces:
       kaffyn-vectora-prod:
-        role: viewer         # Só lê em prod
+        role: viewer # Só lê em prod
       kaffyn-vectora-staging:
-        role: editor         # Edita em staging
+        role: editor # Edita em staging
       kaffyn-vectora-dev:
-        role: owner          # Controla em dev
+        role: owner # Controla em dev
 ```
 
 Setup:
@@ -358,30 +358,30 @@ vectora user assign-namespace \
 User Request
     ↓
 ┌──────────────────────────┐
-│ RBAC Check               │ Role permite? 
-│ - User role: editor?     │
-│ - Permission: search?    │
+│ RBAC Check │ Role permite?
+│ - User role: editor? │
+│ - Permission: search? │
 └────────┬─────────────────┘
          │ SIM
          ↓
 ┌──────────────────────────┐
-│ Guardian Check           │ Trust folder + patterns
+│ Guardian Check │ Trust folder + patterns
 │ - Trust folder violation?│
-│ - Pattern match?         │
+│ - Pattern match? │
 └────────┬─────────────────┘
          │ ALLOW
          ↓
 ┌──────────────────────────┐
-│ Harness Validation       │ Pre/post execution
-│ - Metrics captured       │
-│ - Audit logged           │
+│ Harness Validation │ Pre/post execution
+│ - Metrics captured │
+│ - Audit logged │
 └────────┬─────────────────┘
          │ SUCCESS
          ↓
 ┌──────────────────────────┐
-│ Response to User         │
-│ - Chunks returned        │
-│ - Metrics included       │
+│ Response to User │
+│ - Chunks returned │
+│ - Metrics included │
 └──────────────────────────┘
 
 Se qualquer check falha → Deny + Log
@@ -397,12 +397,12 @@ Se qualquer check falha → Deny + Log
 vectora audit --filter "rbac" --since 7d
 
 # Output:
-# Timestamp            | Action              | User                | Details
+# Timestamp | Action | User | Details
 # ─────────────────────┼─────────────────────┼──────────────────────┼─────────────
-# 2026-04-19 10:30:00 | user_created        | owner@company.com    | role=editor
-# 2026-04-19 11:15:00 | role_changed        | owner@company.com    | dev@co → admin
-# 2026-04-19 14:22:00 | access_denied       | dev@company.com      | permission=configure
-# 2026-04-19 16:45:00 | user_deleted        | admin@company.com    | alice@company.com
+# 2026-04-19 10:30:00 | user_created | owner@company.com | role=editor
+# 2026-04-19 11:15:00 | role_changed | owner@company.com | dev@co → admin
+# 2026-04-19 14:22:00 | access_denied | dev@company.com | permission=configure
+# 2026-04-19 16:45:00 | user_deleted | admin@company.com | alice@company.com
 ```
 
 ### Compliance Reports
@@ -426,7 +426,7 @@ vectora report rbac --format pdf --output rbac-report.pdf
 Sempre comece com role mais restritivo:
 
 ```bash
-# ✅ Crie como viewer
+# Crie como viewer
 vectora user create ... --role viewer
 
 # Depois promova conforme necessário
@@ -439,11 +439,11 @@ vectora user update ... --role editor
 prod:
   owner: 1 person
   roles: owner, viewer
-  
+
 staging:
   owner: 2 people
   roles: owner, editor
-  
+
 dev:
   owner: team
   roles: owner, admin, editor
@@ -464,10 +464,10 @@ vectora user list --inactive 60d
 Cada pessoa = 1 conta. Nunca compartilhe:
 
 ```bash
-# ❌ Ruim
+# Ruim
 export VECTORA_TOKEN="shared-token-for-team"
 
-# ✅ Bem
+# Bem
 # Cada dev tem seu próprio:
 export VECTORA_TOKEN="sk-proj-$(whoami)-..."
 ```
@@ -523,7 +523,7 @@ vectora token revoke-all-old
 
 ---
 
-> 💡 **Próximo**: [BYOK & Privacy](./byok-privacy.md)
+> **Próximo**: [BYOK & Privacy](./byok-privacy.md)
 
 ---
 

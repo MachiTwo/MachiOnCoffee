@@ -21,48 +21,48 @@ Vectora é uma **arquitetura modular** em camadas que combina embedding (Voyage)
 
 ```text
 ┌─────────────────────────────────────────────────────┐
-│           IDEs (Claude Code, Cursor, VS Code)       │
+│ IDEs (Claude Code, Cursor, VS Code) │
 └────────────────────┬────────────────────────────────┘
                      │ MCP Protocol
                      ▼
 ┌─────────────────────────────────────────────────────┐
-│              Vectora MCP Server                      │
-│  (search_context, analyze_dependencies, etc)        │
+│ Vectora MCP Server │
+│ (search_context, analyze_dependencies, etc) │
 └────────┬──────────────────────────────────────────┬─┘
-         │                                          │
-         ▼                                          ▼
-┌──────────────────────┐         ┌──────────────────────┐
-│  Context Engine      │         │  Harness Runtime     │
-│  - Embedding (V4)    │         │  - Pre-execution     │
-│  - Search (HNSW)     │         │  - Validation        │
-│  - Reranking (V2.5)  │         │  - Metrics           │
-└────────┬─────────────┘         └──────────┬───────────┘
-         │                                   │
-         ▼                                   ▼
-┌──────────────────────┐         ┌──────────────────────┐
-│  Guardian Blocklist  │         │  RBAC System         │
-│  - Path isolation    │         │  - 5 roles           │
-│  - Trust folder      │         │  - 15 permissions    │
-│  - Pattern matching  │         │  - User management   │
-└────────┬─────────────┘         └──────────┬───────────┘
-         │                                   │
+         │ │
+         ▼ ▼
+┌──────────────────────┐ ┌──────────────────────┐
+│ Context Engine │ │ Harness Runtime │
+│ - Embedding (V4) │ │ - Pre-execution │
+│ - Search (HNSW) │ │ - Validation │
+│ - Reranking (V2.5) │ │ - Metrics │
+└────────┬─────────────┘ └──────────┬───────────┘
+         │ │
+         ▼ ▼
+┌──────────────────────┐ ┌──────────────────────┐
+│ Guardian Blocklist │ │ RBAC System │
+│ - Path isolation │ │ - 5 roles │
+│ - Trust folder │ │ - 15 permissions │
+│ - Pattern matching │ │ - User management │
+└────────┬─────────────┘ └──────────┬───────────┘
+         │ │
          ▼──────────────┬───────────────────▼
                         │
                         ▼
             ┌──────────────────────┐
-            │   Qdrant Vector DB   │
-            │  - Collections       │
-            │  - HNSW Index        │
-            │  - Namespaces        │
-            │  - Metadata Filters  │
+            │ Qdrant Vector DB │
+            │ - Collections │
+            │ - HNSW Index │
+            │ - Namespaces │
+            │ - Metadata Filters │
             └──────────────────────┘
                         │
                         ▼
             ┌──────────────────────┐
-            │   File Storage       │
-            │  - Trust folder      │
-            │  - Vector index      │
-            │  - Cache (.vectora)  │
+            │ File Storage │
+            │ - Trust folder │
+            │ - Vector index │
+            │ - Cache (.vectora) │
             └──────────────────────┘
 ```
 
@@ -131,13 +131,13 @@ Segurança hard-coded:
 Owner
   ├─ Edit namespace, manage users
   ├─ Admin
-  │   ├─ Configure server, manage keys
-  │   ├─ Editor
-  │   │   ├─ Index, search, analyze
-  │   │   ├─ Viewer
-  │   │   │   └─ Search only
-  │   │   └─ Guest
-  │   │       └─ Limited search (rate limited)
+  │ ├─ Configure server, manage keys
+  │ ├─ Editor
+  │ │ ├─ Index, search, analyze
+  │ │ ├─ Viewer
+  │ │ │ └─ Search only
+  │ │ └─ Guest
+  │ │ └─ Limited search (rate limited)
 ```
 
 15 permissões granulares: `search`, `index`, `delete`, `configure`, etc.
@@ -193,9 +193,9 @@ vectors:
    Mantém contexto, reduz tokens
         ▼
 6. Validation (Harness)
-   - Output schema ✓
-   - Security checks ✓
-   - Metrics captured ✓
+   - Output schema
+   - Security checks
+   - Metrics captured
         ▼
 7. Response
    {chunks: [...], precision: 0.87}
@@ -207,7 +207,7 @@ vectors:
 ### Rate Limiting & SLA
 
 ```text
-Request → Guardian (check blocklist) → 
+Request → Guardian (check blocklist) →
 Rate Limiter (60 req/min free tier) →
 Timeout (30s default) →
 Retry (3 tentativas) →
@@ -218,15 +218,15 @@ Circuit Breaker (fail-open depois de 5 erros)
 
 ## Componentes-Chave
 
-| Componente | Função | Provider |
-|-----------|--------|----------|
-| **Embedding** | Converter texto→vetor | Voyage 4 |
-| **Vector Store** | Armazenar/buscar vetores | Qdrant |
-| **Reranking** | Refinar relevância | Voyage Rerank 2.5 |
-| **LLM** | Reasoning + análise | Gemini 3 Flash |
-| **Auth** | Validação de tokens | JWT + RBAC |
-| **Namespace** | Isolamento lógico | Qdrant collections |
-| **Trust Folder** | Path isolation | Guardian |
+| Componente       | Função                   | Provider           |
+| ---------------- | ------------------------ | ------------------ |
+| **Embedding**    | Converter texto→vetor    | Voyage 4           |
+| **Vector Store** | Armazenar/buscar vetores | Qdrant             |
+| **Reranking**    | Refinar relevância       | Voyage Rerank 2.5  |
+| **LLM**          | Reasoning + análise      | Gemini 3 Flash     |
+| **Auth**         | Validação de tokens      | JWT + RBAC         |
+| **Namespace**    | Isolamento lógico        | Qdrant collections |
+| **Trust Folder** | Path isolation           | Guardian           |
 
 ---
 
@@ -284,15 +284,15 @@ rbac:
 
 ## Performance Targets
 
-| Métrica | Target | Típico |
-|---------|--------|--------|
-| **Search Latency** | <500ms | ~234ms |
-| **Embedding** | <200ms | ~120ms |
-| **Reranking** | <100ms | ~50ms |
-| **Retrieval Precision** | ≥ 0.65 | ~0.78 |
-| **Tool Accuracy** | ≥ 0.95 | ~0.98 |
-| **Security Events** | 0 | 0 |
-| **Availability** | 99.9% | 99.95% |
+| Métrica                 | Target | Típico |
+| ----------------------- | ------ | ------ |
+| **Search Latency**      | <500ms | ~234ms |
+| **Embedding**           | <200ms | ~120ms |
+| **Reranking**           | <100ms | ~50ms  |
+| **Retrieval Precision** | ≥ 0.65 | ~0.78  |
+| **Tool Accuracy**       | ≥ 0.95 | ~0.98  |
+| **Security Events**     | 0      | 0      |
+| **Availability**        | 99.9%  | 99.95% |
 
 ---
 
@@ -334,7 +334,7 @@ rbac:
 
 ---
 
-> 💡 **Próximo**: [Plans - Free](../plans/free.md)
+> **Próximo**: [Plans - Free](../plans/free.md)
 
 ---
 

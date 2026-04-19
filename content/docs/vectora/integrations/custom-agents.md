@@ -20,11 +20,11 @@ Integrar Vectora com agents customizados em Python, Node.js, Go ou qualquer ling
 
 ## Opções de Integração
 
-| Método | Caso de Uso | Complexidade |
-|--------|------------|-------------|
-| **MCP** | Agent roda localmente em Go/Rust | ⭐⭐⭐ |
-| **REST API** | Agent remoto em Python/Node/Go | ⭐⭐ |
-| **ACP (Beta)** | Inter-agent communication distribuída | ⭐⭐⭐⭐ |
+| Método         | Caso de Uso                           | Complexidade |
+| -------------- | ------------------------------------- | ------------ |
+| **MCP**        | Agent roda localmente em Go/Rust      |              |
+| **REST API**   | Agent remoto em Python/Node/Go        |              |
+| **ACP (Beta)** | Inter-agent communication distribuída |              |
 
 ## REST API (Recomendado para Começar)
 
@@ -66,4 +66,4 @@ Veja [MCP Integration](./mcp-protocol.md) para detalhes.
 
 ---
 
-> 💡 Precisa de uma integração específica? [Abra uma Issue](https://github.com/vectora/vectora/issues)
+> Precisa de uma integração específica? [Abra uma Issue](https://github.com/vectora/vectora/issues)

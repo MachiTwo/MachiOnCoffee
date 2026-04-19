@@ -28,11 +28,13 @@ Namespaces são **isoladores lógicos** de índices vetoriais dentro de um únic
 ## O Problema
 
 Sem namespaces:
+
 - Busca por "login" retorna chunks de 50 projetos diferentes
 - Fácil "vazar" contexto entre equipes
 - Impossível gerenciar índices por projeto ou ambiente
 
 Com namespaces:
+
 - Busca é isolada: "login" retorna APENAS do projeto X
 - Múltiplas equipes podem compartilhar uma instância Qdrant sem contaminação
 - Escalabilidade: adiciona novo projeto = novo namespace
@@ -50,31 +52,32 @@ Com namespaces:
 Exemplos:
 
 ```yaml
-kaffyn-vectora-prod          # Organização-Projeto-Env
-kaffyn-vectora-dev           # Mesmo projeto, ambiente diferente
-acme-backend-staging         # Outro projeto
-acme-docs-prod               # Documentação do mesmo org
+kaffyn-vectora-prod # Organização-Projeto-Env
+kaffyn-vectora-dev # Mesmo projeto, ambiente diferente
+acme-backend-staging # Outro projeto
+acme-docs-prod # Documentação do mesmo org
 ```
 
 ### Validação
 
 Namespaces devem:
+
 - Ter 3-63 caracteres
 - Usar apenas `[a-z0-9-]` (lowercase, números, hífens)
 - Começar com letra
 - NÃO incluir underscores ou espaços
 
 ```bash
-# ✅ Válidos
+# Válidos
 kaffyn-vectora-prod
 my-app-v2
 docs-search
 
-# ❌ Inválidos
-Kaffyn-Vectora-Prod      # Maiúscula
-my_app_prod              # Underscore
-my-app-prod!             # Caractere especial
-my.app.prod              # Ponto
+# Inválidos
+Kaffyn-Vectora-Prod # Maiúscula
+my_app_prod # Underscore
+my-app-prod! # Caractere especial
+my.app.prod # Ponto
 ```
 
 ---
@@ -94,6 +97,7 @@ vectora.config.yaml:
 ```
 
 Quando criado:
+
 1. Qdrant cria uma nova collection
 2. Indices vazios são inicializados (HNSW para embeddings)
 3. Guardian registra namespace em audit log
@@ -111,13 +115,13 @@ paths:
 namespace: kaffyn-vectora-prod
 # Chunks são inseridos como:
 # {
-#   id: "uuid",
-#   vector: [0.12, 0.45, ...],
-#   payload: {
-#     namespace: "kaffyn-vectora-prod",
-#     file: "src/context-engine.ts",
-#     ...
-#   }
+# id: "uuid",
+# vector: [0.12, 0.45, ...],
+# payload: {
+# namespace: "kaffyn-vectora-prod",
+# file: "src/context-engine.ts",
+# ...
+# }
 # }
 ```
 
@@ -130,7 +134,7 @@ Toda busca especifica namespace:
 const results = await vectoraClient.search({
   query: "Como validar tokens?",
   namespace: "kaffyn-vectora-prod",
-  top_k: 10
+  top_k: 10,
 });
 // Retorna APENAS chunks com namespace === "kaffyn-vectora-prod"
 ```
@@ -145,7 +149,7 @@ vectora namespace delete --name kaffyn-vectora-prod
 vectora namespace reset --name kaffyn-vectora-prod
 ```
 
-> ⚠️ Deletar namespace é PERMANENTE e não recuperável.
+> Deletar namespace é PERMANENTE e não recuperável.
 
 ---
 
@@ -160,8 +164,8 @@ namespace: acme-backend-prod
 # Team B
 namespace: acme-frontend-prod
 
-# Isolation: ✅ Completa
-# Sharing: ❌ Impossível
+# Isolation: Completa
+# Sharing: Impossível
 ```
 
 Use quando: Times completamente separados, compliance/segurança rigorosa.
@@ -178,8 +182,8 @@ namespace: acme-backend-staging
 # Dev
 namespace: acme-backend-dev
 
-# Isolation: ✅ Por environment
-# Sharing: ✅ Mesmo projeto em dev/prod
+# Isolation: Por environment
+# Sharing: Mesmo projeto em dev/prod
 ```
 
 Use quando: Mesmo projeto, múltiplos environments.
@@ -196,8 +200,8 @@ namespace: acme-teamA-prod
 # Team B (isolada)
 namespace: acme-teamB-prod
 
-# Isolation: ✅ Por time
-# Sharing: ✅ Via namespace acme-shared-docs
+# Isolation: Por time
+# Sharing: Via namespace acme-shared-docs
 ```
 
 Use quando: Equipes paralelas com uma base comum.
@@ -260,21 +264,22 @@ namespaces:
 
 ## Limitações & Considerar
 
-| Recurso | Limite |
-|---------|--------|
-| Namespaces por cluster | 1000+ |
-| Chunks por namespace | Unlimited (disk) |
-| Latência de busca | O(log n) em HNSW |
-| Isolamento | Lógico (mesmo cluster físico) |
+| Recurso                | Limite                        |
+| ---------------------- | ----------------------------- |
+| Namespaces por cluster | 1000+                         |
+| Chunks por namespace   | Unlimited (disk)              |
+| Latência de busca      | O(log n) em HNSW              |
+| Isolamento             | Lógico (mesmo cluster físico) |
 
 Para isolamento **físico** (compliance rigorosa):
+
 - Use clusters Qdrant separados
 - Configure endpoints diferentes por namespace
 - Implemente network isolation
 
 ---
 
-> 💡 **Próximo**: [Trust Folder](./trust-folder.md)
+> **Próximo**: [Trust Folder](./trust-folder.md)
 
 ---
 

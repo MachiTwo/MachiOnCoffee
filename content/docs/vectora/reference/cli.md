@@ -33,13 +33,13 @@ vectora [GLOBAL_OPTIONS] COMMAND [COMMAND_OPTIONS]
 ## Global Options
 
 ```bash
---version, -v           # Mostra versão
---help, -h             # Mostra ajuda
---config PATH          # Caminho customizado ao vectora.config.yaml
---namespace NS         # Override namespace padrão
---debug                # Ativa modo debug (verbose logging)
---quiet, -q            # Suprime output (exceto erros)
---json                 # Output em JSON (para parsing)
+--version, -v # Mostra versão
+--help, -h # Mostra ajuda
+--config PATH # Caminho customizado ao vectora.config.yaml
+--namespace NS # Override namespace padrão
+--debug # Ativa modo debug (verbose logging)
+--quiet, -q # Suprime output (exceto erros)
+--json # Output em JSON (para parsing)
 ```
 
 Exemplos:
@@ -63,11 +63,11 @@ Inicializa um novo projeto Vectora.
 vectora init [OPTIONS]
 
 OPTIONS:
-  --name NAME              # Nome do projeto (default: diretório)
-  --type TYPE              # Tipo: codebase|docs|hybrid (default: codebase)
-  --namespace NS           # Namespace customizado (default: org-project-env)
-  --trust-folder PATH      # Trust folder (default: .)
-  --providers YAML         # Config de providers (veja config docs)
+  --name NAME # Nome do projeto (default: diretório)
+  --type TYPE # Tipo: codebase|docs|hybrid (default: codebase)
+  --namespace NS # Namespace customizado (default: org-project-env)
+  --trust-folder PATH # Trust folder (default: .)
+  --providers YAML # Config de providers (veja config docs)
 ```
 
 **Exemplos**:
@@ -90,13 +90,13 @@ Indexa arquivos no namespace.
 vectora index [OPTIONS]
 
 OPTIONS:
-  --force                  # Reindexar mesmo se não mudou
-  --incremental            # Apenas arquivos novos/modificados (default: true)
-  --exclude PATTERN        # Excluir globs (ex: node_modules/**)
-  --include PATTERN        # Incluir apenas globs (ex: src/**)
-  --dry-run                # Mostra o que seria indexado, sem fazer
-  --progress               # Mostra barra de progresso
-  --watch                  # Fica observando mudanças (dev mode)
+  --force # Reindexar mesmo se não mudou
+  --incremental # Apenas arquivos novos/modificados (default: true)
+  --exclude PATTERN # Excluir globs (ex: node_modules/**)
+  --include PATTERN # Incluir apenas globs (ex: src/**)
+  --dry-run # Mostra o que seria indexado, sem fazer
+  --progress # Mostra barra de progresso
+  --watch # Fica observando mudanças (dev mode)
 ```
 
 **Exemplos**:
@@ -128,11 +128,11 @@ Busca semântica pela CLI.
 vectora search QUERY [OPTIONS]
 
 OPTIONS:
-  --strategy STRATEGY      # semantic|structural|hybrid (default: semantic)
-  --top-k NUM             # Quantidade de resultados (default: 10)
-  --format FORMAT         # text|json|markdown (default: text)
-  --include-snippets      # Incluir trecho de código
-  --compare-baseline      # Comparar com versão anterior
+  --strategy STRATEGY # semantic|structural|hybrid (default: semantic)
+  --top-k NUM # Quantidade de resultados (default: 10)
+  --format FORMAT # text|json|markdown (default: text)
+  --include-snippets # Incluir trecho de código
+  --compare-baseline # Comparar com versão anterior
 ```
 
 **Exemplos**:
@@ -161,10 +161,10 @@ Análise profunda com LLM (Gemini).
 vectora analyze QUERY [OPTIONS]
 
 OPTIONS:
-  --model MODEL            # llm a usar (default: gemini-3-flash)
-  --context NUM            # Quantos chunks usar (default: 10)
-  --output FILE            # Salvar em arquivo (ex: report.md)
-  --compare-baseline       # Comparar com análise anterior
+  --model MODEL # llm a usar (default: gemini-3-flash)
+  --context NUM # Quantos chunks usar (default: 10)
+  --output FILE # Salvar em arquivo (ex: report.md)
+  --compare-baseline # Comparar com análise anterior
 ```
 
 **Exemplos**:
@@ -190,12 +190,12 @@ Gerencia configuração.
 vectora config [SUBCOMMAND]
 
 SUBCOMMANDS:
-  get KEY                  # Obter valor
-  set KEY VALUE           # Definir valor
-  list                    # Listar tudo
-  validate                # Validar config atual
-  reset                   # Reset para padrão
-  show-schema             # Mostrar schema YAML
+  get KEY # Obter valor
+  set KEY VALUE # Definir valor
+  list # Listar tudo
+  validate # Validar config atual
+  reset # Reset para padrão
+  show-schema # Mostrar schema YAML
 ```
 
 **Exemplos**:
@@ -227,11 +227,11 @@ Gerenciar namespaces.
 vectora namespace [SUBCOMMAND]
 
 SUBCOMMANDS:
-  create --name NS        # Criar novo namespace
-  delete --name NS        # Deletar namespace (PERMANENTE)
-  list                    # Listar todos os namespaces
-  info --name NS          # Detalhes de um namespace
-  reset --name NS         # Limpar chunks de um namespace
+  create --name NS # Criar novo namespace
+  delete --name NS # Deletar namespace (PERMANENTE)
+  list # Listar todos os namespaces
+  info --name NS # Detalhes de um namespace
+  reset --name NS # Limpar chunks de um namespace
 ```
 
 **Exemplos**:
@@ -260,10 +260,10 @@ Inicia servidor MCP para Claude Code, Cursor, etc.
 vectora mcp [OPTIONS]
 
 OPTIONS:
-  --port PORT              # Porta (default: 9090)
-  --host HOST             # Host (default: localhost)
-  --namespace NS          # Namespace padrão
-  --no-auth               # Desabilitar autenticação (dev only)
+  --port PORT # Porta (default: 9090)
+  --host HOST # Host (default: localhost)
+  --namespace NS # Namespace padrão
+  --no-auth # Desabilitar autenticação (dev only)
 ```
 
 **Exemplos**:
@@ -289,12 +289,12 @@ Inicia HTTP server completo (com UI, webhooks).
 vectora server [OPTIONS]
 
 OPTIONS:
-  --port PORT              # Porta (default: 3000)
-  --host HOST             # Host (default: localhost)
-  --ui                    # Ativar dashboard web
-  --webhooks              # Ativar suporte a webhooks
-  --cert FILE             # Certificado SSL/TLS
-  --key FILE              # Chave SSL/TLS
+  --port PORT # Porta (default: 3000)
+  --host HOST # Host (default: localhost)
+  --ui # Ativar dashboard web
+  --webhooks # Ativar suporte a webhooks
+  --cert FILE # Certificado SSL/TLS
+  --key FILE # Chave SSL/TLS
 ```
 
 **Exemplos**:
@@ -320,12 +320,12 @@ Gerenciar tokens e autenticação.
 vectora auth [SUBCOMMAND]
 
 SUBCOMMANDS:
-  login                   # Login interativo
-  logout                  # Logout
-  token create            # Gerar novo token
-  token list              # Listar tokens
-  token delete ID         # Revogar token
-  token validate TOKEN    # Validar token
+  login # Login interativo
+  logout # Logout
+  token create # Gerar novo token
+  token list # Listar tokens
+  token delete ID # Revogar token
+  token validate TOKEN # Validar token
 ```
 
 **Exemplos**:
@@ -351,11 +351,11 @@ Ver logs de execução.
 vectora logs [OPTIONS]
 
 OPTIONS:
-  --level LEVEL            # debug|info|warn|error (default: info)
-  --service SERVICE        # Filtrar por serviço
-  --since DURATION         # Últimas N horas (ex: 24h)
-  --follow, -f            # Stream logs em tempo real
-  --format FORMAT         # text|json (default: text)
+  --level LEVEL # debug|info|warn|error (default: info)
+  --service SERVICE # Filtrar por serviço
+  --since DURATION # Últimas N horas (ex: 24h)
+  --follow, -f # Stream logs em tempo real
+  --format FORMAT # text|json (default: text)
 ```
 
 **Exemplos**:
@@ -384,9 +384,9 @@ Ver métricas de operação.
 vectora metrics [OPTIONS]
 
 OPTIONS:
-  --period PERIOD          # 24h|7d|30d (default: 24h)
-  --export FORMAT         # csv|json|prometheus (default: text)
-  --output FILE           # Salvar em arquivo
+  --period PERIOD # 24h|7d|30d (default: 24h)
+  --export FORMAT # csv|json|prometheus (default: text)
+  --output FILE # Salvar em arquivo
 ```
 
 **Ejemplos**:
@@ -412,10 +412,10 @@ Ver log de auditoria (quem fez o quê).
 vectora audit [OPTIONS]
 
 OPTIONS:
-  --action ACTION          # Filtrar por ação (search|index|delete)
-  --user USER             # Filtrar por usuário
-  --since DURATION        # Desde quando (ex: 7d)
-  --limit NUM             # Limite de linhas (default: 100)
+  --action ACTION # Filtrar por ação (search|index|delete)
+  --user USER # Filtrar por usuário
+  --since DURATION # Desde quando (ex: 7d)
+  --limit NUM # Limite de linhas (default: 100)
 ```
 
 **Exemplos**:
@@ -441,8 +441,8 @@ Verifica saúde do sistema.
 vectora health [OPTIONS]
 
 OPTIONS:
-  --detailed               # Mostrar detalhes de cada componente
-  --fix                   # Tentar corrigir problemas
+  --detailed # Mostrar detalhes de cada componente
+  --fix # Tentar corrigir problemas
 ```
 
 **Exemplos**:
@@ -463,12 +463,12 @@ vectora health --fix
 ## Exit Codes
 
 ```text
-0       # Sucesso
-1       # Erro genérico
-2       # Erro de configuração
-3       # API error
-4       # Autenticação falhou
-5       # Namespace não encontrado
+0 # Sucesso
+1 # Erro genérico
+2 # Erro de configuração
+3 # API error
+4 # Autenticação falhou
+5 # Namespace não encontrado
 ```
 
 ---
@@ -486,7 +486,7 @@ VECTORA_TRUST_FOLDER=./src vectora index
 
 ---
 
-> 💡 **Próximo**: [Architecture Overview](./overview.md)
+> **Próximo**: [Architecture Overview](./overview.md)
 
 ---
 

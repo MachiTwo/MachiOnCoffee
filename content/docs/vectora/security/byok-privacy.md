@@ -57,12 +57,12 @@ Seu Código
 
 ### APIs que Você Controla
 
-| Serviço | Onde Roda | Você Controla |
-|---------|-----------|---------------|
-| **Voyage 4** | Servers Voyage | ✅ Via sua API key |
-| **Voyage Rerank** | Servers Voyage | ✅ Via sua API key |
-| **Gemini 3** | Servers Google | ✅ Via sua API key |
-| **Qdrant** | Seu servidor local | ✅ Completamente |
+| Serviço           | Onde Roda          | Você Controla   |
+| ----------------- | ------------------ | --------------- |
+| **Voyage 4**      | Servers Voyage     | Via sua API key |
+| **Voyage Rerank** | Servers Voyage     | Via sua API key |
+| **Gemini 3**      | Servers Google     | Via sua API key |
+| **Qdrant**        | Seu servidor local | Completamente   |
 
 ### O Que Vectora Pode Ver
 
@@ -78,11 +78,11 @@ Via seus logs:
 ### O Que Vectora NÃO Pode Ver
 
 ```text
-❌ Código-fonte (em .git, arquivos)
-❌ Dados privados (.env, secrets)
-❌ Histórico de chat/análise
-❌ Metadados sobre seu projeto
-❌ User activity (sem Harness)
+ Código-fonte (em .git, arquivos)
+ Dados privados (.env, secrets)
+ Histórico de chat/análise
+ Metadados sobre seu projeto
+ User activity (sem Harness)
 ```
 
 ---
@@ -92,6 +92,7 @@ Via seus logs:
 ### Passo 1: Obter Chaves
 
 **Gemini** (Google):
+
 ```bash
 # https://aistudio.google.com/app/apikey
 # Free tier: 60 req/min, 1.5M tokens/mês
@@ -99,6 +100,7 @@ GEMINI_API_KEY="AIzaSyD..."
 ```
 
 **Voyage** (VoyageAI):
+
 ```bash
 # https://dash.voyageai.com/api-keys
 # Free tier: 50 req/min, 100M tokens/mês
@@ -106,10 +108,11 @@ VOYAGE_API_KEY="pa-..."
 ```
 
 **Qdrant** (você hospeda):
+
 ```bash
 # Local ou cloud
 QDRANT_URL="http://localhost:6333"
-QDRANT_API_KEY="qdrant-key-xyz"  # Se auth habilitada
+QDRANT_API_KEY="qdrant-key-xyz" # Se auth habilitada
 ```
 
 ### Passo 2: Configurar Vectora
@@ -133,9 +136,9 @@ vectora config set --key VOYAGE_API_KEY
 vectora config validate
 
 # Output:
-# ✅ GEMINI_API_KEY: Valid (free tier)
-# ✅ VOYAGE_API_KEY: Valid (free tier)
-# ✅ QDRANT_URL: Connected (healthy)
+# GEMINI_API_KEY: Valid (free tier)
+# VOYAGE_API_KEY: Valid (free tier)
+# QDRANT_URL: Connected (healthy)
 ```
 
 ---
@@ -148,11 +151,11 @@ Tudo roda localmente (máxima privacidade):
 
 ```text
 ┌─────────────────────────────────────┐
-│ Seu Servidor Local                  │
-│ ├─ Vectora (indexação, search)      │
-│ ├─ Qdrant (vector DB)               │
-│ ├─ Redis (cache)                    │
-│ └─ PostgreSQL (metadata)             │
+│ Seu Servidor Local │
+│ ├─ Vectora (indexação, search) │
+│ ├─ Qdrant (vector DB) │
+│ ├─ Redis (cache) │
+│ └─ PostgreSQL (metadata) │
 └─────────────────────────────────────┘
     │
     ├─ API Voyage (embedding)
@@ -198,7 +201,7 @@ encryption:
   at_rest:
     enabled: true
     cipher: "AES-256-GCM"
-    key_management: "envelope_encryption"  # Key separated
+    key_management: "envelope_encryption" # Key separated
     key_rotation: "automatic_90d"
 ```
 
@@ -211,7 +214,7 @@ ls -la .vectora/index/
 
 # Decriptado apenas em memória durante busca
 vectora search "query" --verify-encryption
-# ✅ Encryption verified
+# Encryption verified
 ```
 
 ### In Transit
@@ -230,24 +233,24 @@ ssl:
 
 ## Privacy Guarantees
 
-### Vectora Nunca:
+### Vectora Nunca
 
-- ❌ Armazena seu código
-- ❌ Armazena embeddings
-- ❌ Armazena respostas
-- ❌ Compartilha dados
-- ❌ Treina modelos com seus dados
-- ❌ Vende dados
-- ❌ Faz correlação entre usuários
+- Armazena seu código
+- Armazena embeddings
+- Armazena respostas
+- Compartilha dados
+- Treina modelos com seus dados
+- Vende dados
+- Faz correlação entre usuários
 
-### Você Sempre:
+### Você Sempre
 
-- ✅ Controla suas chaves
-- ✅ Pode deletar tudo
-- ✅ Pode auditar acessos
-- ✅ Pode usar local/on-prem
-- ✅ Pode usar seus próprios modelos
-- ✅ Pode exportar dados
+- Controla suas chaves
+- Pode deletar tudo
+- Pode auditar acessos
+- Pode usar local/on-prem
+- Pode usar seus próprios modelos
+- Pode exportar dados
 
 ---
 
@@ -259,10 +262,10 @@ Vectora respeita:
 
 ```yaml
 gdpr:
-  data_residency: "EU"          # Dados na EU
-  right_to_deletion: true        # Deletar tudo
-  data_portability: true         # Exportar dados
-  audit_logs: true               # Rastrear acesso
+  data_residency: "EU" # Dados na EU
+  right_to_deletion: true # Deletar tudo
+  data_portability: true # Exportar dados
+  audit_logs: true # Rastrear acesso
 ```
 
 Setup:
@@ -276,16 +279,16 @@ vectora config set --key DATA_RESIDENCY "EU"
 
 ```yaml
 hipaa:
-  phi_encryption: "required"     # PHI sempre criptografado
-  audit_logging: "required"      # Todos os acessos logged
-  data_isolation: "required"     # Dados isolados
+  phi_encryption: "required" # PHI sempre criptografado
+  audit_logging: "required" # Todos os acessos logged
+  data_isolation: "required" # Dados isolados
 ```
 
 ### PCI-DSS (Payment Cards)
 
 ```yaml
 pci_dss:
-  credit_card_blocking: true     # CC números bloqueados
+  credit_card_blocking: true # CC números bloqueados
   encryption_transit: "TLS 1.2+"
   audit_retention: "1 year"
 ```
@@ -294,7 +297,7 @@ pci_dss:
 
 ```yaml
 soc2:
-  security: true                 # Implementado
+  security: true # Implementado
   availability: true
   processing_integrity: true
   confidentiality: true
@@ -333,7 +336,7 @@ Output:
 ```bash
 # Deletar namespace
 vectora namespace delete --name seu-namespace
-# ⚠️ PERMANENTE - não recuperável
+# PERMANENTE - não recuperável
 
 # Deletar usuário
 vectora user delete --email user@company.com
@@ -379,37 +382,37 @@ vectora privacy report
 # Privacy Report
 # ══════════════════════════════════════
 # Data Classification:
-#   - Public: 50%
-#   - Internal: 40%
-#   - Sensitive: 10%
+# - Public: 50%
+# - Internal: 40%
+# - Sensitive: 10%
 #
 # Encryption:
-#   - At rest: ✅ AES-256
-#   - In transit: ✅ TLS 1.3
+# - At rest: AES-256
+# - In transit: TLS 1.3
 #
 # Compliance:
-#   - GDPR: ✅ Compliant
-#   - SOC 2: ✅ Attestation
+# - GDPR: Compliant
+# - SOC 2: Attestation
 #
 # Third-party APIs:
-#   - Gemini: 342 calls (your key)
-#   - Voyage: 128 calls (your key)
+# - Gemini: 342 calls (your key)
+# - Voyage: 128 calls (your key)
 ```
 
 ---
 
 ## FAQs
 
-**P: Vectora pode acessar minhas chaves?**  
+**P: Vectora pode acessar minhas chaves?**
 R: Não. Suas chaves são suas. Criptografadas localmente em `~/.vectora/credentials.enc`. Vectora usa apenas para fazer requisições em seu nome.
 
-**P: Meus dados são compartilhados?**  
+**P: Meus dados são compartilhados?**
 R: Não. BYOK significa isolamento total. Seus dados nunca saem de seus servidores, exceto para APIs que você controla.
 
-**P: Como migro para BYOK?**  
+**P: Como migro para BYOK?**
 R: Todos os planos usam BYOK. Configure suas chaves e pronto.
 
-**P: Posso usar modelos locais?**  
+**P: Posso usar modelos locais?**
 R: Sim. Use Ollama ou Hugging Face para embedding local (100% offline).
 
 ```bash
@@ -419,7 +422,7 @@ vectora config set --key EMBEDDING_PROVIDER "ollama"
 vectora config set --key EMBEDDING_MODEL "all-MiniLM-L6-v2"
 ```
 
-**P: Qual é sua política de retenção?**  
+**P: Qual é sua política de retenção?**
 R: Você controla. Local storage = você mantém backups. Cloud storage = você escolhe retenção.
 
 ---
@@ -439,7 +442,7 @@ R: Você controla. Local storage = você mantém backups. Cloud storage = você 
 
 ---
 
-> 💡 **Próximo**: [FAQ - General](../faq/general.md)
+> **Próximo**: [FAQ - General](../faq/general.md)
 
 ---
 

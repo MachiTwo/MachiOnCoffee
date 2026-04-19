@@ -37,18 +37,19 @@ Parece perfeito, certo? Mas para código, o RAG comum é perigoso.
 
 ## O Problema: RAG Tradicional vs Código
 
-| Aspecto | RAG Tradicional | Problema para Código |
-|---------|-----------------|----------------------|
-| **Busca** | Similaridade semântica | Ignora dependências implícitas |
-| **Contexto** | Fragmentos isolados | Sem visão de fluxo de dados |
-| **Resultado** | "5 blocos de texto" | LLM não vê padrões arquiteturais |
-| **Uso** | Documentação, artigos | ❌ Não funciona para código |
+| Aspecto       | RAG Tradicional        | Problema para Código             |
+| ------------- | ---------------------- | -------------------------------- |
+| **Busca**     | Similaridade semântica | Ignora dependências implícitas   |
+| **Contexto**  | Fragmentos isolados    | Sem visão de fluxo de dados      |
+| **Resultado** | "5 blocos de texto"    | LLM não vê padrões arquiteturais |
+| **Uso**       | Documentação, artigos  | Não funciona para código         |
 
 **Exemplo Real:**
 
 Busca: "Como faço login?"
 
 RAG Tradicional retorna:
+
 ```javascript
 // Trecho 1: loginUser function
 async function loginUser(email, password) {
@@ -58,6 +59,7 @@ async function loginUser(email, password) {
 ```
 
 Mas **não retorna**:
+
 - O middleware de autenticação que chama `loginUser`
 - A interface `User` que define os tipos
 - A configuração de JWT que usa as credenciais
@@ -110,9 +112,7 @@ O contexto retornado não é lista de strings:
     { "file": "src/models/User.ts", "why": "Defines User type" }
   ],
   "tests": ["spec/jwt.test.ts (8 tests)"],
-  "usage_locations": [
-    { "file": "src/middleware/auth.ts", "line": 34 }
-  ]
+  "usage_locations": [{ "file": "src/middleware/auth.ts", "line": 34 }]
 }
 ```
 
@@ -120,23 +120,25 @@ O contexto retornado não é lista de strings:
 
 Quando o contexto é **conectado**:
 
-| Métrica | RAG Tradicional | RAG Conectado |
-|---------|-----------------|-------------|
-| **Alucinações** | Alto (30%+) | Baixo (<5%) |
-| **Quebra de sistema** | Frequente | Raro |
-| **Tokens gastos** | Alto (dump arquivo) | Otimizado (cirúrgico) |
-| **Tempo resposta** | Inconsistente | Previsível <300ms |
+| Métrica               | RAG Tradicional     | RAG Conectado         |
+| --------------------- | ------------------- | --------------------- |
+| **Alucinações**       | Alto (30%+)         | Baixo (<5%)           |
+| **Quebra de sistema** | Frequente           | Raro                  |
+| **Tokens gastos**     | Alto (dump arquivo) | Otimizado (cirúrgico) |
+| **Tempo resposta**    | Inconsistente       | Previsível <300ms     |
 
 ## Exemplo Comparativo
 
 ### Cenário: Refatorar autenticação
 
 **RAG Tradicional:**
+
 - "Mude de JWT para OAuth2"
 - LLM não vê que a mudança quebra 47 places
 - Resultado: Sistema quebra em produção
 
 **RAG Conectado (Vectora):**
+
 - Busca "authenticação"
 - Retorna: auth middleware (3 places), JWT validation (47 places), config (1 place)
 - LLM vê contexto completo
@@ -152,4 +154,4 @@ Quando o contexto é **conectado**:
 
 ---
 
-> 💡 RAG Conectado é o diferencial do Vectora para código.
+> RAG Conectado é o diferencial do Vectora para código.

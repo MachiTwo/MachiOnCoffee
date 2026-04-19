@@ -87,7 +87,7 @@ info:
   title: Vectora API
   version: 1.0.0
 servers:
-  - url: https://xxxx-xx-xxx-xx-x.ngrok.io  # Seu endpoint
+  - url: https://xxxx-xx-xxx-xx-x.ngrok.io # Seu endpoint
 paths:
   /search:
     post:
@@ -109,7 +109,7 @@ paths:
                   type: integer
                   default: 10
       responses:
-        '200':
+        "200":
           description: Search results
           content:
             application/json:
@@ -135,7 +135,7 @@ paths:
                 namespace:
                   type: string
       responses:
-        '200':
+        "200":
           description: Dependency analysis
   /file-summary:
     post:
@@ -152,7 +152,7 @@ paths:
                 namespace:
                   type: string
       responses:
-        '200':
+        "200":
           description: File summary
 ```
 
@@ -229,8 +229,8 @@ Clique em qualquer arquivo → abre em editor/navegador.
 **Cenário**: Você tem um erro e precisa entender causa raiz.
 
 ```text
-Você: "Teste 'should create user' está falhando com 
-      'Cannot read property id of undefined'. 
+Você: "Teste 'should create user' está falhando com
+      'Cannot read property id of undefined'.
       Onde é o problema?"
 
 ChatGPT (com Vectora):
@@ -245,10 +245,10 @@ Arquivo: src/__tests__/user.service.test.ts:145
   })
 
 Analisando userService.create():
-  
+
   // src/services/user.service.ts:23
   create(data: CreateUserInput) {
-    // ❌ Problema: não retorna o user criado
+    // Problema: não retorna o user criado
     db.insert(users).values(data);
     // Deveria ser:
     return db.insert(users).values(data).returning();
@@ -267,7 +267,7 @@ Analisando userService.create():
 **Cenário**: Revisando uma PR que toca múltiplos arquivos de auth.
 
 ```text
-Você: "Revise essa PR que refactora auth middleware. 
+Você: "Revise essa PR que refactora auth middleware.
        [cola 50 linhas de código]"
 
 ChatGPT (com Vectora):
@@ -280,25 +280,25 @@ Analisando mudanças...
 
 **Problemas detectados**:
 
-1. ⚠️ Comportamento mudou em linha 23
+1. Comportamento mudou em linha 23
    ANTES: guard.canActivate() retorna boolean
    AGORA: retorna Promise<boolean>
-   
+
    Isso quebra em 4 lugares:
    - src/routes/admin.ts:45
    - src/routes/api.ts:78
    - src/middleware/verify.ts:12
    - src/guards/optional.ts:3
 
-2. ✓ Positivo: Novo método isTokenValid() é reutilizado bem
+2. Positivo: Novo método isTokenValid() é reutilizado bem
    (encontrei 6 usos)
 
-3. ✓ Segurança: GuardBlacklist está sendo respeitado
+3. Segurança: GuardBlacklist está sendo respeitado
    (verifica todos os 4 patterns)
 
 **Testes relacionados que DEVEM passar**:
 □ auth.guard.test.ts
-□ jwt.validation.test.ts  
+□ jwt.validation.test.ts
 □ permission.test.ts
 □ integration/auth-flow.test.ts
 
@@ -330,6 +330,7 @@ security:
 ```
 
 Configure no GPT:
+
 ```text
 Vá para "Configure" → "Authentication"
 Selecione "API Key"
@@ -385,6 +386,7 @@ vectora server --cert cert.pem --key key.pem
 **Causa**: Servidor Vectora offline.
 
 **Solução**:
+
 ```bash
 # Verificar se está rodando
 curl https://seu-endpoint/health
@@ -398,6 +400,7 @@ vectora mcp
 **Causa**: Token inválido ou expirado.
 
 **Solução**:
+
 ```bash
 # Gerar novo token
 vectora auth create-token --name "ChatGPT Plugin" --ttl 365d
@@ -410,6 +413,7 @@ vectora auth create-token --name "ChatGPT Plugin" --ttl 365d
 **Causa**: Busca muito lenta.
 
 **Solução**:
+
 ```bash
 # Reduzir top_k
 # Na instrução do GPT, modifique para:
@@ -425,12 +429,12 @@ curl -X POST https://seu-endpoint/search \
 
 ## Performance & Limits
 
-| Recurso | Limite | Upgrade |
-|---------|--------|---------|
-| Busca/dia | 10,000 | Plano Pro |
-| Latência | <2s | SSD + mais CPU |
-| Tamanho resposta | 5MB | Compaction |
-| Usuários simultâneos | 10 | Managed Vectora |
+| Recurso              | Limite | Upgrade         |
+| -------------------- | ------ | --------------- |
+| Busca/dia            | 10,000 | Plano Pro       |
+| Latência             | <2s    | SSD + mais CPU  |
+| Tamanho resposta     | 5MB    | Compaction      |
+| Usuários simultâneos | 10     | Managed Vectora |
 
 ---
 
@@ -478,7 +482,7 @@ vectora logs --service chatgpt_plugin --level info
 
 ---
 
-> 💡 **Próximo**: [Gemini API](./gemini-api.md)
+> **Próximo**: [Gemini API](./gemini-api.md)
 
 ---
 

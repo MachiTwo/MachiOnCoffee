@@ -55,6 +55,7 @@ vectora init --name "Seu Projeto"
 ### Passo 2: Configurar MCP em Sua IDE
 
 **Arquivo de config** (localização varia por IDE):
+
 - Claude Code: `~/.claude/claude_desktop_config.json`
 - Cursor: `~/.cursor/cursor_config.json`
 - Outras IDEs: Consulte documentação do MCP
@@ -87,20 +88,20 @@ vectora init --name "Seu Projeto"
 
 ## 12 Ferramentas Disponíveis
 
-| Tool | Função |
-|------|--------|
-| `search_context` | Busca semântica por chunks |
-| `search_tests` | Busca testes relacionados |
+| Tool                   | Função                       |
+| ---------------------- | ---------------------------- |
+| `search_context`       | Busca semântica por chunks   |
+| `search_tests`         | Busca testes relacionados    |
 | `analyze_dependencies` | Encontra quem chama função X |
-| `find_similar_code` | Encontra código similar |
-| `get_file_structure` | Resume estrutura do arquivo |
-| `list_files` | Lista arquivos indexados |
-| `list_namespaces` | Lista namespaces |
-| `get_namespace_stats` | Estatísticas do namespace |
-| `index_status` | Status do índice |
-| `reindex` | Força re-indexação |
-| `get_config` | Retorna config atual |
-| `get_metrics` | Métricas de execução |
+| `find_similar_code`    | Encontra código similar      |
+| `get_file_structure`   | Resume estrutura do arquivo  |
+| `list_files`           | Lista arquivos indexados     |
+| `list_namespaces`      | Lista namespaces             |
+| `get_namespace_stats`  | Estatísticas do namespace    |
+| `index_status`         | Status do índice             |
+| `reindex`              | Força re-indexação           |
+| `get_config`           | Retorna config atual         |
+| `get_metrics`          | Métricas de execução         |
 
 ---
 
@@ -144,7 +145,7 @@ IDE: Compara com código existente
   "mcpServers": {
     "vectora": {
       "env": {
-        "VECTORA_NAMESPACE": "staging"  // Use namespace diferente
+        "VECTORA_NAMESPACE": "staging" // Use namespace diferente
       }
     }
   }
@@ -239,13 +240,13 @@ echo $VOYAGE_API_KEY
 
 ## IDEs Compatíveis
 
-| IDE | Suporte | Status |
-|-----|---------|--------|
-| **Claude Code** | ✅ MCP nativo | ✅ Testado |
-| **Cursor** | ✅ MCP nativo | ✅ Testado |
-| **VS Code** | ❌ MCP não nativo | ⚠️ Use extension própria |
-| **Zed** | ✅ MCP suportado | ⚠️ Não testado |
-| **Neovim** | ✅ MCP via plugin | ⚠️ Não testado |
+| IDE             | Suporte        | Status                |
+| --------------- | -------------- | --------------------- |
+| **Claude Code** | MCP nativo     | Testado               |
+| **Cursor**      | MCP nativo     | Testado               |
+| **VS Code**     | MCP não nativo | Use extension própria |
+| **Zed**         | MCP suportado  | Não testado           |
+| **Neovim**      | MCP via plugin | Não testado           |
 
 Para VS Code, use [VS Code Extension](./vscode-extension.md).
 

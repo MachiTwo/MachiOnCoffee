@@ -88,19 +88,19 @@ VS Code mostra um painel "Vectora" na sidebar:
 
 ```text
 ┌─────────────────────────┐
-│ Vectora                 │
+│ Vectora │
 ├─────────────────────────┤
-│ 📁 Indexed Files        │
-│ • src/ (2847 chunks)    │
-│ • docs/ (312 chunks)    │
-│                         │
-│ 🔍 Search              │
-│ [Search box]            │
-│                         │
-│ 📊 Stats               │
-│ Precision: 0.72        │
-│ Latency: 120ms         │
-│ Indexed: 3159 chunks   │
+│ Indexed Files │
+│ • src/ (2847 chunks) │
+│ • docs/ (312 chunks) │
+│ │
+│ Search │
+│ [Search box] │
+│ │
+│ Stats │
+│ Precision: 0.72 │
+│ Latency: 120ms │
+│ Indexed: 3159 chunks │
 └─────────────────────────┘
 ```
 
@@ -121,7 +121,7 @@ Vectora: Show Metrics
 Passe o mouse sobre um identificador para ver contexto:
 
 ```typescript
-function getUserById(|id: string) {  ← Hover aqui
+function getUserById(|id: string) { ← Hover aqui
   // Mostra:
   // - Tipo: função
   // - Definida em: src/user-service.ts:45
@@ -142,33 +142,33 @@ Os workflows abaixo mostram a experiência típica de uso da extensão Vectora n
 ```text
 1. Pressione Cmd/Ctrl + Shift + P (Command Palette)
    → Mostra: caixa de entrada vazia com ">" no topo
-   
+
 2. Digite: "Vectora: Search Context"
    → Autocomplete mostra opção Vectora
-   
+
 3. Pressione Enter
    → Abre painel de busca (direita da sidebar)
-   
+
 4. Digite: "Como faz validação de tokens?"
    → Em tempo real: mostra resultados conforme digita
-   
+
 5. Resultados aparecem em 120-250ms
    ┌─────────────────────────────────┐
-   │ Vectora Results (8 chunks)      │
+   │ Vectora Results (8 chunks) │
    ├─────────────────────────────────┤
-   │ ✓ src/auth/jwt.ts:45            │ ← Clique para ir
-   │   validateToken() { ...          │
-   │   precision: 0.92 | latency 240ms│
-   │                                 │
-   │ ✓ src/auth/guards.ts:12         │
-   │   VerifyJWT middleware { ...     │
-   │   precision: 0.88 | latency 240ms│
-   │                                 │
-   │ ✓ src/auth/types.ts:3           │
-   │   interface JWTPayload { ...     │
-   │   precision: 0.76               │
-   │                                 │
-   │ [Mostrar mais]                  │
+   │ src/auth/jwt.ts:45 │ ← Clique para ir
+   │ validateToken() { ... │
+   │ precision: 0.92 | latency 240ms│
+   │ │
+   │ src/auth/guards.ts:12 │
+   │ VerifyJWT middleware { ... │
+   │ precision: 0.88 | latency 240ms│
+   │ │
+   │ src/auth/types.ts:3 │
+   │ interface JWTPayload { ... │
+   │ precision: 0.76 │
+   │ │
+   │ [Mostrar mais] │
    └─────────────────────────────────┘
 ```
 
@@ -182,27 +182,28 @@ Clique em qualquer resultado → editor salta para o arquivo.
 1. Posicione cursor em: getUserById
 2. Pressione Cmd/Ctrl + Shift + H (Find References)
 3. VS Code mostra painel "Find All References":
-   
+
    ┌─────────────────────────────────┐
-   │ 62 References to getUserById    │
+   │ 62 References to getUserById │
    ├─────────────────────────────────┤
-   │ DIRECT CALLS (47)               │
-   │ • src/routes/user.ts:23         │
-   │ • src/middleware/auth.ts:34     │
-   │ • src/services/profile.ts:12    │
-   │                                 │
-   │ INDIRECT via getUserData (12)   │
-   │ • src/handlers/index.ts:5       │
-   │ • src/cache/service.ts:99       │
-   │                                 │
-   │ TESTS (3)                       │
+   │ DIRECT CALLS (47) │
+   │ • src/routes/user.ts:23 │
+   │ • src/middleware/auth.ts:34 │
+   │ • src/services/profile.ts:12 │
+   │ │
+   │ INDIRECT via getUserData (12) │
+   │ • src/handlers/index.ts:5 │
+   │ • src/cache/service.ts:99 │
+   │ │
+   │ TESTS (3) │
    │ • src/__tests__/user.test.ts:45 │
-   │                                 │
-   │ [Expandir com Vectora] ← Novo   │
+   │ │
+   │ [Expandir com Vectora] ← Novo │
    └─────────────────────────────────┘
 ```
 
 Clique em "Expandir com Vectora" → mostra contexto semântico:
+
 ```text
 Referências semelhantes não encontradas por AST:
 • getUserByEmail() [85% similar]
@@ -220,23 +221,23 @@ Referências semelhantes não encontradas por AST:
 3. Painel mostra:
 
    ┌────────────────────────────────────┐
-   │ Vectora: Changes & Impact          │
+   │ Vectora: Changes & Impact │
    ├────────────────────────────────────┤
-   │ LINHAS MODIFICADAS                 │
-   │ L45: function validateToken        │
-   │ L52: if (!token.verified)          │
-   │                                    │
-   │ ARQUIVOS QUE USAM ESSAS FUNÇÕES   │
-   │ • src/guards/auth.guard.ts (5)    │
-   │ • src/routes/api.ts (3)            │
-   │ • src/middleware/verify.ts (8)     │
-   │                                    │
-   │ TESTES RELACIONADOS               │
-   │ • auth.guard.test.ts               │
-   │ • jwt.validation.test.ts           │
-   │                                    │
-   │ ⚠️ ALERT: 16 dependências         │
-   │ Recomenda rodar testes completos  │
+   │ LINHAS MODIFICADAS │
+   │ L45: function validateToken │
+   │ L52: if (!token.verified) │
+   │ │
+   │ ARQUIVOS QUE USAM ESSAS FUNÇÕES │
+   │ • src/guards/auth.guard.ts (5) │
+   │ • src/routes/api.ts (3) │
+   │ • src/middleware/verify.ts (8) │
+   │ │
+   │ TESTES RELACIONADOS │
+   │ • auth.guard.test.ts │
+   │ • jwt.validation.test.ts │
+   │ │
+   │ ALERT: 16 dependências │
+   │ Recomenda rodar testes completos │
    └────────────────────────────────────┘
 ```
 
@@ -273,12 +274,12 @@ vectora:
     strategy: "semantic"
     max_depth: 3
     timeout_ms: 2000
-  
+
   ui:
     show_metrics: true
-    position: "right"  # ou "left"
+    position: "right" # ou "left"
     width_percent: 30
-  
+
   indexing:
     auto_index: true
     on_save: true
@@ -306,6 +307,7 @@ Para melhor experiência, instale:
 **Causa**: Não está ativada.
 
 **Solução**:
+
 ```text
 Cmd/Ctrl + Shift + X → Procure "Vectora" → Clique em "Enable"
 ```
@@ -315,6 +317,7 @@ Cmd/Ctrl + Shift + X → Procure "Vectora" → Clique em "Enable"
 **Causa**: VS Code usa PATH diferente.
 
 **Solução**:
+
 ```bash
 # No terminal integrado
 which vectora
@@ -336,6 +339,7 @@ npm install -g @kaffyn/vectora
 ### Extension muito lenta
 
 **Reduzir escopo**:
+
 ```json
 {
   "vectora.trustFolder": "./src",
@@ -344,6 +348,7 @@ npm install -g @kaffyn/vectora
 ```
 
 **Desabilitar auto-index**:
+
 ```json
 {
   "vectora.autoIndex": false,
@@ -356,12 +361,14 @@ npm install -g @kaffyn/vectora
 ## Performance Tips
 
 1. **Incremental Index**: Apenas arquivos mudados são re-indexados.
+
    ```bash
    # No terminal VS Code
    vectora index --incremental
    ```
 
 2. **Filter by Extension**:
+
    ```json
    {
      "vectora.includePatterns": ["**/*.ts", "**/*.tsx"],
@@ -370,6 +377,7 @@ npm install -g @kaffyn/vectora
    ```
 
 3. **Local Embedding**: Para máxima privacidade + performance:
+
    ```json
    {
      "vectora.embeddingProvider": "local",
@@ -381,12 +389,12 @@ npm install -g @kaffyn/vectora
 
 ## Hotkeys
 
-| Atalho | Ação |
-|--------|------|
+| Atalho                 | Ação                  |
+| ---------------------- | --------------------- |
 | `Cmd/Ctrl + Shift + P` | Abrir comando Vectora |
 | `Cmd/Ctrl + Shift + V` | Abrir Vectora sidebar |
-| `Cmd/Ctrl + Alt + F` | Find via Vectora |
-| `Cmd/Ctrl + Alt + D` | Analyze dependencies |
+| `Cmd/Ctrl + Alt + F`   | Find via Vectora      |
+| `Cmd/Ctrl + Alt + D`   | Analyze dependencies  |
 
 Customize em: **Code** → **Preferences** → **Keyboard Shortcuts**
 
@@ -394,13 +402,13 @@ Customize em: **Code** → **Preferences** → **Keyboard Shortcuts**
 
 ## Comparação: Extension vs MCP
 
-| Feature | VS Code Extension | MCP (Cursor/Claude) |
-|---------|-------------------|-------------------|
-| Install | Marketplace | Config JSON |
-| UI Panel | ✅ Native | ⚠️ Chat-based |
-| Hotkeys | ✅ Customizable | ❌ Fixed |
-| Performance | ✅ Local | ⚠️ Network |
-| Privacy | ✅ Full (local embeddings) | ⚠️ APIs |
+| Feature     | VS Code Extension       | MCP (Cursor/Claude) |
+| ----------- | ----------------------- | ------------------- |
+| Install     | Marketplace             | Config JSON         |
+| UI Panel    | Native                  | Chat-based          |
+| Hotkeys     | Customizable            | Fixed               |
+| Performance | Local                   | Network             |
+| Privacy     | Full (local embeddings) | APIs                |
 
 **Recomendação**: Use VS Code Extension para melhor UX. Use MCP para Cursor/Claude.
 
@@ -408,16 +416,16 @@ Customize em: **Code** → **Preferences** → **Keyboard Shortcuts**
 
 ## Limitações
 
-| Recurso | Limite |
-|---------|--------|
-| Busca simultânea | 1 |
-| Context window | 4K-8K tokens (configurável) |
-| Index size | Unlimited (disk) |
-| Latency target | < 300ms |
+| Recurso          | Limite                      |
+| ---------------- | --------------------------- |
+| Busca simultânea | 1                           |
+| Context window   | 4K-8K tokens (configurável) |
+| Index size       | Unlimited (disk)            |
+| Latency target   | < 300ms                     |
 
 ---
 
-> 💡 **Próximo**: [ChatGPT Plugin](./chatgpt-plugin.md)
+> **Próximo**: [ChatGPT Plugin](./chatgpt-plugin.md)
 
 ---
 

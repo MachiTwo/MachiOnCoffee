@@ -19,6 +19,7 @@ tags:
 ## O que é ACP?
 
 ACP permite que:
+
 - **Vectora seja sub-agent** de um sistema maior (ex: IA orquestradora multi-agent)
 - **Múltiplos agents trabalhem juntos** compartilhando contexto
 - **Arquiteturas distribuídas** com Vectora em múltiplas instâncias
@@ -27,16 +28,16 @@ Diferente de MCP (IDE ↔ Vectora), ACP é para **agent ↔ agent**.
 
 ## Casos de Uso
 
-| Caso | Descrição |
-|------|-----------|
-| **Multi-agent system** | Vectora + Code Agent + Test Agent coordenados |
-| **Distributed search** | Vectora em múltiplos namespaces/datacenters |
-| **Custom workflows** | Agent orquestradora chama Vectora dinamicamente |
-| **Hybrid systems** | Vectora + GenAI + Traditional APIs juntos |
+| Caso                   | Descrição                                       |
+| ---------------------- | ----------------------------------------------- |
+| **Multi-agent system** | Vectora + Code Agent + Test Agent coordenados   |
+| **Distributed search** | Vectora em múltiplos namespaces/datacenters     |
+| **Custom workflows**   | Agent orquestradora chama Vectora dinamicamente |
+| **Hybrid systems**     | Vectora + GenAI + Traditional APIs juntos       |
 
 ## Status
 
-🔄 **Beta** - Especificação em evolução. Aceita early adopters e feedback.
+**Beta** - Especificação em evolução. Aceita early adopters e feedback.
 
 - Protocolista: RPC baseado em JSON (similar a MCP)
 - Auth: JWT com refresh tokens
@@ -53,14 +54,14 @@ ACP ainda não tem documentação pública completa. Para early access:
 
 ## Comparação: MCP vs ACP
 
-| Aspecto | MCP | ACP |
-|---------|-----|-----|
-| **Caso de uso** | IDE local | Inter-agent distribuído |
-| **Transporte** | STDIO (IPC) | HTTP/2 ou WebSocket |
-| **Latência** | <10ms | 50-100ms |
-| **State** | Persistente (session) | Compartilhado entre agents |
-| **Status** | ✅ Stable | 🔄 Beta |
+| Aspecto         | MCP                   | ACP                        |
+| --------------- | --------------------- | -------------------------- |
+| **Caso de uso** | IDE local             | Inter-agent distribuído    |
+| **Transporte**  | STDIO (IPC)           | HTTP/2 ou WebSocket        |
+| **Latência**    | <10ms                 | 50-100ms                   |
+| **State**       | Persistente (session) | Compartilhado entre agents |
+| **Status**      | Stable                | Beta                       |
 
 ---
 
-> 💡 Interessado em ACP? [Abra uma Discussion](https://github.com/vectora/vectora/discussions)
+> Interessado em ACP? [Abra uma Discussion](https://github.com/vectora/vectora/discussions)

@@ -42,11 +42,11 @@ npm run dev
 
 ### PR Requirements
 
-- ✅ Tests passing
-- ✅ TypeScript strict
-- ✅ No console.log
-- ✅ Updated docs
-- ✅ PR description explains WHY
+- Tests passing
+- TypeScript strict
+- No console.log
+- Updated docs
+- PR description explains WHY
 
 ### Commit Message Format
 
@@ -69,9 +69,9 @@ Types: `feat`, `fix`, `docs`, `test`, `refactor`, `perf`, `chore`
 ### Testing
 
 ```bash
-npm run test                 # Run all tests
-npm run test:watch         # Watch mode
-npm run test:coverage      # Coverage report
+npm run test # Run all tests
+npm run test:watch # Watch mode
+npm run test:coverage # Coverage report
 ```
 
 ### Performance

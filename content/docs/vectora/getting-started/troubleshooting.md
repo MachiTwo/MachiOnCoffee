@@ -29,10 +29,11 @@ Guia de solução de problemas mais frequentes durante instalação, configuraç
 **Causa**: Node.js não está instalado ou não está no PATH.
 
 **Solução**:
+
 ```bash
 # Instale Node.js: https://nodejs.org (LTS recomendado)
-node --version  # Deve retornar v18+
-npm --version   # Deve retornar 9+
+node --version # Deve retornar v18+
+npm --version # Deve retornar 9+
 ```
 
 ### Erro: `EACCES: permission denied`
@@ -40,6 +41,7 @@ npm --version   # Deve retornar 9+
 **Causa**: Permissão insuficiente para instalar globalmente.
 
 **Solução**:
+
 ```bash
 # Configure npm para local installation
 mkdir ~/.npm-global
@@ -55,6 +57,7 @@ npm install -g @kaffyn/vectora
 **Causa**: Vectora instalado mas não no PATH.
 
 **Solução**:
+
 ```bash
 # Verifique instalação
 npm list -g @kaffyn/vectora
@@ -75,6 +78,7 @@ vectora --version
 **Causa**: Variáveis de ambiente não configuradas.
 
 **Solução**:
+
 ```bash
 # Verifique se as chaves estão definidas
 echo $GEMINI_API_KEY
@@ -96,6 +100,7 @@ EOF
 **Causa**: Sintaxe YAML inválida em `vectora.config.yaml`.
 
 **Solução**:
+
 ```bash
 # Valide YAML
 yamllint vectora.config.yaml
@@ -113,10 +118,11 @@ yamllint vectora.config.yaml
 **Causa**: Caminho em `trust_folder` não existe.
 
 **Solução**:
+
 ```yaml
 # Atualize vectora.config.yaml
 namespace:
-  trust_folder: "."  # ou caminho válido
+  trust_folder: "." # ou caminho válido
 ```
 
 ---
@@ -128,6 +134,7 @@ namespace:
 **Causa**: `claude_desktop_config.json` mal formatado.
 
 **Solução**:
+
 ```json
 {
   "mcpServers": {
@@ -140,6 +147,7 @@ namespace:
 ```
 
 Verifique:
+
 - JSON é válido (use [jsonlint.com](https://jsonlint.com))
 - Arquivo em local correto: `~/.claude/claude_desktop_config.json`
 - Reinicie Claude Desktop após salvar
@@ -149,6 +157,7 @@ Verifique:
 **Causa**: Vectora não consegue conectar à API.
 
 **Solução**:
+
 ```bash
 # Verifique chaves de API
 echo $GEMINI_API_KEY
@@ -166,6 +175,7 @@ curl https://generativelanguage.googleapis.com/v1beta/models
 **Causa**: Claude não detecta que a ferramenta é relevante.
 
 **Solução**: Seja explícito na requisição:
+
 ```text
 Use Vectora para buscar contexto sobre autenticação.
 Procure no codebase por implementações de JWT.
@@ -180,6 +190,7 @@ Procure no codebase por implementações de JWT.
 **Causa**: Limite de requisições excedido (60/min no tier gratuito).
 
 **Solução**:
+
 ```bash
 # Aguarde o reset do quota (próximo minuto)
 # Ou faça upgrade para plano Pro em https://vectora.dev/plans
@@ -193,6 +204,7 @@ vectora stats --provider gemini
 **Causa**: Chave de API inválida ou expirada.
 
 **Solução**:
+
 ```bash
 # Gere nova chave em https://dash.voyageai.com/api-keys
 vectora config set --key VOYAGE_API_KEY --value "nova_chave"
@@ -206,6 +218,7 @@ vectora test --provider voyage
 **Causa**: Conexão lenta ou API indisponível.
 
 **Solução**:
+
 ```bash
 # Aumenta timeout (padrão: 30s)
 export VECTORA_TIMEOUT_MS=60000
@@ -227,6 +240,7 @@ export HTTPS_PROXY=https://proxy:port
 **Causa**: Namespace não existe.
 
 **Solução**:
+
 ```bash
 # Inicialize projeto
 vectora init --name "Meu Projeto"
@@ -240,6 +254,7 @@ vectora init --name "Meu Projeto"
 **Causa**: Codebase não indexado ou query irrelevante.
 
 **Solução**:
+
 ```bash
 # Force reindexing
 vectora ingest --project . --force
@@ -256,9 +271,10 @@ vectora status --project .
 **Causa**: Codebase grande ou conexão lenta.
 
 **Solução**:
+
 ```bash
 # Use batch processing
-vectora ingest --batch-size 16  # default: 32
+vectora ingest --batch-size 16 # default: 32
 
 # Ou configure em vectora.config.yaml
 indexing:
@@ -267,7 +283,7 @@ indexing:
 # Para desenvolvimento local, use fallback
 providers:
   embedding:
-    fallback: "local"  # local embedding via ollama
+    fallback: "local" # local embedding via ollama
 ```
 
 ---
@@ -279,6 +295,7 @@ providers:
 **Causa**: Muitas requisições simultâneas ou codebase grande.
 
 **Solução**:
+
 ```bash
 # Limite indexação automática
 vectora config set VECTORA_AUTO_INGEST=false
@@ -292,6 +309,7 @@ vectora schedule ingest --time 02:00 --recurring daily
 **Causa**: Cache local grande ou índices não limpos.
 
 **Solução**:
+
 ```bash
 # Limpe cache
 vectora cache clear
@@ -341,21 +359,25 @@ vectora index --list --verbose
 ## Onde Buscar Ajuda
 
 1. **FAQ Específicos**:
+
    - [General FAQ](../faq/general.md)
    - [Security FAQ](../faq/security.md)
    - [Billing FAQ](../faq/billing.md)
 
 2. **Documentação**:
+
    - [Configuration Guide](./configuration.md)
    - [MCP Integration](../integrations/claude-code.md)
    - [Security & Guardian](../security/guardian.md)
 
 3. **Comunidade**:
+
    - GitHub Issues: [vectora/issues](https://github.com/kaffyn/vectora/issues)
    - Discussions: [vectora/discussions](https://github.com/kaffyn/vectora/discussions)
    - Discord: [Vectora Community](https://discord.gg/vectora)
 
 4. **Reportar Bug**:
+
    ```bash
    vectora bug-report --include-logs --include-config
    # Gera arquivo com informações sanitizadas para enviar
@@ -365,18 +387,18 @@ vectora index --list --verbose
 
 ## FAQ
 
-**P: Onde estão meus dados?**  
+**P: Onde estão meus dados?**
 R: Localmente em `.vectora/` (cache) e Qdrant (embeddings indexados). Kaffyn nunca acessa seu código bruto.
 
-**P: Como resetar tudo?**  
+**P: Como resetar tudo?**
 R: Use `vectora reset --full --confirm`. Isso remove cache, índices e config local.
 
-**P: Posso usar Vectora sem internet?**  
+**P: Posso usar Vectora sem internet?**
 R: Parcialmente. Busca semântica precisa de API. File operations funcionam offline.
 
 ---
 
-> 💡 **Próximo**: Aprenda sobre [Context Engine](../concepts/context-engine.md).
+> **Próximo**: Aprenda sobre [Context Engine](../concepts/context-engine.md).
 
 ---
 

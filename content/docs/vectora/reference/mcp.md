@@ -48,6 +48,7 @@ Authorization: Bearer sk-proj-vectora-abc123...
 ```
 
 Token gerado via:
+
 ```bash
 vectora auth token create --name "Claude Code"
 ```
@@ -132,13 +133,13 @@ Erros retornam no padrão JSON-RPC 2.0:
 
 ### Códigos de Erro MCP
 
-| Código | Significado | HTTP |
-|--------|------------|------|
-| -32700 | Parse error | 400 |
-| -32600 | Invalid request | 400 |
-| -32602 | Invalid params | 400 |
-| -32601 | Method not found | 404 |
-| -32603 | Internal error | 500 |
+| Código | Significado      | HTTP |
+| ------ | ---------------- | ---- |
+| -32700 | Parse error      | 400  |
+| -32600 | Invalid request  | 400  |
+| -32602 | Invalid params   | 400  |
+| -32601 | Method not found | 404  |
+| -32603 | Internal error   | 500  |
 
 Vectora retorna também `error_code` customizado (ex: `NAMESPACE_NOT_FOUND`).
 
@@ -182,7 +183,7 @@ MCP suporta caching automático via `cache_control`:
 {
   "type": "text",
   "text": "resultado",
-  "cache_control": {"type": "ephemeral"}  // TTL 5min
+  "cache_control": { "type": "ephemeral" } // TTL 5min
 }
 ```
 
@@ -192,16 +193,16 @@ Economiza latência em queries repetidas.
 
 ```yaml
 tools:
-  listChanged: true      # Avisar quando tools mudam
-  implementation: 12     # Número de tools
+  listChanged: true # Avisar quando tools mudam
+  implementation: 12 # Número de tools
 
 logging:
-  enabled: true          # Log de todas calls
-  level: info            # info, debug, warn
+  enabled: true # Log de todas calls
+  level: info # info, debug, warn
 
 performance:
-  latency_p95: 250ms     # 95th percentile
-  timeout: 30000ms       # 30s máximo
+  latency_p95: 250ms # 95th percentile
+  timeout: 30000ms # 30s máximo
 ```
 
 ## Exemplo Completo: Fluxo MCP
@@ -241,4 +242,4 @@ Logs mostram todos os messages JSON trocados.
 
 ---
 
-> 📖 Especificação completa: [Model Context Protocol Spec](https://modelcontextprotocol.io)
+> Especificação completa: [Model Context Protocol Spec](https://modelcontextprotocol.io)

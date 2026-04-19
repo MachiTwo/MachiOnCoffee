@@ -29,18 +29,18 @@ tags:
 
 ```text
 ┌─────────────┐
-│  IDE        │  (Claude Code, Cursor, etc)
-│  (MCP Client)
+│ IDE │ (Claude Code, Cursor, etc)
+│ (MCP Client)
 └──────┬──────┘
        │ {"jsonrpc": "2.0", "method": "resources/list"}
        ▼
 ┌──────────────────────────┐
-│ Vectora MCP Server       │
-│ (mcp service running)    │
-│                          │
-│ • Tool: search_context   │
-│ • Tool: analyze_file     │
-│ • Tool: find_references  │
+│ Vectora MCP Server │
+│ (mcp service running) │
+│ │
+│ • Tool: search_context │
+│ • Tool: analyze_file │
+│ • Tool: find_references │
 └──────────────────────────┘
        ▲
        │ {"result": [...], "tools": [...]}
@@ -51,12 +51,12 @@ tags:
 
 ## Por Que Vectora Usa MCP?
 
-| Alternativa | Problema | Como MCP Resolve |
-|-------------|----------|-----------------|
-| **REST API** | SDK em cada IDE, configuração complexa | MCP é nativo em Claude Code/Cursor |
-| **CLI Tool** | Sem context compartilhado entre IDE e ferramenta | MCP mantém state entre chamadas |
-| **Subprocess** | Lento, sem structured output | MCP é eficiente + JSON nativo |
-| **LSP (Language Server)** | Projetado para autocompletar, não IA | MCP é genérico para qualquer ferramenta |
+| Alternativa               | Problema                                         | Como MCP Resolve                        |
+| ------------------------- | ------------------------------------------------ | --------------------------------------- |
+| **REST API**              | SDK em cada IDE, configuração complexa           | MCP é nativo em Claude Code/Cursor      |
+| **CLI Tool**              | Sem context compartilhado entre IDE e ferramenta | MCP mantém state entre chamadas         |
+| **Subprocess**            | Lento, sem structured output                     | MCP é eficiente + JSON nativo           |
+| **LSP (Language Server)** | Projetado para autocompletar, não IA             | MCP é genérico para qualquer ferramenta |
 
 **Resultado**: Uma IDE (Claude Code) ↔ Múltiplos MCPs (Vectora, pytest, git, file-system).
 
@@ -78,13 +78,13 @@ IDE (Claude Code)
          └─→ Vectora MCP Server
               │
               ├─→ Harness Runtime (validação)
-              │    ├─→ Guardian (segurança)
-              │    └─→ Preconditions (verificação)
+              │ ├─→ Guardian (segurança)
+              │ └─→ Preconditions (verificação)
               │
               ├─→ Context Engine (busca)
-              │    ├─→ Embeddings (Voyage 4)
-              │    ├─→ Search (HNSW + Qdrant)
-              │    └─→ Reranking (Voyage 2.5)
+              │ ├─→ Embeddings (Voyage 4)
+              │ ├─→ Search (HNSW + Qdrant)
+              │ └─→ Reranking (Voyage 2.5)
               │
               └─→ Tool Executor
                    ├─→ search_context
@@ -142,7 +142,7 @@ O fluxo MCP em Vectora passa por três fases: inicialização onde IDE e servido
   "result": {
     "protocolVersion": "2024-11-05",
     "capabilities": {
-      "tools": {}  // Ferramentas disponíveis
+      "tools": {} // Ferramentas disponíveis
     },
     "serverInfo": {
       "name": "vectora",
@@ -226,20 +226,20 @@ O fluxo MCP em Vectora passa por três fases: inicialização onde IDE e servido
 
 ## Vectora MCP Tools (12 Total)
 
-| Tool | Input | Output | Latência SLA |
-|------|-------|--------|--------------|
-| `search_context` | query, top_k | chunks, precision | <300ms |
-| `analyze_file` | file_path | structure, imports, exports | <200ms |
-| `find_references` | symbol_name | call sites, types | <250ms |
-| `file_summary` | file_path | summary, key functions | <150ms |
-| `list_workspace` | filter (opt) | files, structure | <100ms |
-| `get_dependencies` | file_path | direct, indirect deps | <200ms |
-| `analyze_changes` | file_paths[] | impact analysis | <400ms |
-| `validate_imports` | file_paths[] | validation results | <300ms |
-| `search_by_type` | type_name | usages of type | <250ms |
-| `get_config` | key (opt) | config value | <50ms |
-| `index_status` | none | status, size, chunks | <100ms |
-| `execute_query` | query_type, params | generic query | <500ms |
+| Tool               | Input              | Output                      | Latência SLA |
+| ------------------ | ------------------ | --------------------------- | ------------ |
+| `search_context`   | query, top_k       | chunks, precision           | <300ms       |
+| `analyze_file`     | file_path          | structure, imports, exports | <200ms       |
+| `find_references`  | symbol_name        | call sites, types           | <250ms       |
+| `file_summary`     | file_path          | summary, key functions      | <150ms       |
+| `list_workspace`   | filter (opt)       | files, structure            | <100ms       |
+| `get_dependencies` | file_path          | direct, indirect deps       | <200ms       |
+| `analyze_changes`  | file_paths[]       | impact analysis             | <400ms       |
+| `validate_imports` | file_paths[]       | validation results          | <300ms       |
+| `search_by_type`   | type_name          | usages of type              | <250ms       |
+| `get_config`       | key (opt)          | config value                | <50ms        |
+| `index_status`     | none               | status, size, chunks        | <100ms       |
+| `execute_query`    | query_type, params | generic query               | <500ms       |
 
 Ver [MCP Tools Reference](../reference/mcp-tools.md) para detalhes completos.
 
@@ -321,6 +321,7 @@ MCP define erros estruturados:
 ```
 
 Códigos de erro Vectora:
+
 - `NAMESPACE_NOT_FOUND` (404)
 - `AUTHENTICATION_FAILED` (401)
 - `RATE_LIMIT_EXCEEDED` (429)
@@ -345,9 +346,9 @@ MCP suporta streaming de tool results:
   "id": 3,
   "result": {
     "content": [
-      {"type": "text", "text": "Chunk 1...", "partial": true},
-      {"type": "text", "text": "Chunk 2...", "partial": true},
-      {"type": "text", "text": "Chunk 3...", "partial": false}  // fim
+      { "type": "text", "text": "Chunk 1...", "partial": true },
+      { "type": "text", "text": "Chunk 2...", "partial": true },
+      { "type": "text", "text": "Chunk 3...", "partial": false } // fim
     ]
   }
 }
@@ -408,7 +409,7 @@ vectora mcp --debug
   "tool_duration_ms": 234,
   "error_code": null,
   "precision": 0.87,
-  "chunks_returned": 5
+  "chunks_returned": 5,
 }
 ```
 
@@ -416,13 +417,13 @@ vectora mcp --debug
 
 ## Comparação: MCP vs Alternativas
 
-| Aspecto | MCP | REST API | LSP |
-|---------|-----|----------|-----|
-| **Setup** | Automático em IDE | Config manual | Config manual |
-| **Discovery** | Dinâmico (tools/list) | Documentação estática | Estático |
-| **State** | Persistente (session) | Stateless | Stateless |
-| **Latência** | <10ms IPC | >100ms network | <50ms IPC |
-| **Suporte IDE** | Claude Code, Cursor, Zed | Todas | Algumas |
+| Aspecto         | MCP                      | REST API              | LSP           |
+| --------------- | ------------------------ | --------------------- | ------------- |
+| **Setup**       | Automático em IDE        | Config manual         | Config manual |
+| **Discovery**   | Dinâmico (tools/list)    | Documentação estática | Estático      |
+| **State**       | Persistente (session)    | Stateless             | Stateless     |
+| **Latência**    | <10ms IPC                | >100ms network        | <50ms IPC     |
+| **Suporte IDE** | Claude Code, Cursor, Zed | Todas                 | Algumas       |
 
 **Conclusão**: MCP é ideal para ferramentas que precisam de contexto persistente + discovery.
 
@@ -431,6 +432,7 @@ vectora mcp --debug
 ## Especificação Completa
 
 MCP é definido por Anthropic. Ver:
+
 - [MCP Specification](https://modelcontextprotocol.io/docs)
 - [GitHub: anthropics/mcp](https://github.com/anthropics/mcp)
 

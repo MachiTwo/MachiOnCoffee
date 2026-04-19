@@ -32,7 +32,7 @@ Nos comprometemos a agir e interagir de formas que contribuam para uma comunidad
 
 ## Aplicação
 
-Instâncias de comportamento abusivo podem ser reportadas aos líderes do projeto responsáveis pela aplicação em: **conduct@vectora.app**
+Instâncias de comportamento abusivo podem ser reportadas aos líderes do projeto responsáveis pela aplicação em: **<conduct@vectora.app>**
 
 Todos os reclamantes receberão resposta rápida e justa.
 
@@ -43,4 +43,4 @@ Todos os reclamantes receberão resposta rápida e justa.
 
 ---
 
-> 🤝 Dúvidas sobre conduta? Entre em contato: conduct@vectora.app
+> Dúvidas sobre conduta? Entre em contato: <conduct@vectora.app>

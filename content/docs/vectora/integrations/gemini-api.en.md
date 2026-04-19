@@ -62,14 +62,14 @@ vectora config list
 
 ## Available Models
 
-| Model | Tokens | Latency | Cost | Use Case |
-|-------|--------|---------|------|----------|
-| `gemini-3-flash` | 1M | <500ms | Free* | Default, fast analysis |
-| `gemini-2-flash` | 1M | <500ms | $$ | Legacy (deprecated) |
-| `gemini-pro` | 32K | <1s | $$ | Deep analysis |
-| `gemini-vision` | 4K | <2s | $$ | Visual analysis (screenshots) |
+| Model            | Tokens | Latency | Cost   | Use Case                      |
+| ---------------- | ------ | ------- | ------ | ----------------------------- |
+| `gemini-3-flash` | 1M     | <500ms  | Free\* | Default, fast analysis        |
+| `gemini-2-flash` | 1M     | <500ms  | $$     | Legacy (deprecated)           |
+| `gemini-pro`     | 32K    | <1s     | $$     | Deep analysis                 |
+| `gemini-vision`  | 4K     | <2s     | $$     | Visual analysis (screenshots) |
 
-*Free tier: 60 req/min, 1.5M tokens/month
+\*Free tier: 60 req/min, 1.5M tokens/month
 
 ### Selecting Model
 
@@ -78,7 +78,7 @@ vectora config list
 providers:
   llm:
     model: "gemini-3-flash"
-    
+
     # Fallback if primary fails
     fallback_model: "gemini-pro"
     fallback_on:
@@ -111,30 +111,35 @@ vectora review \
 # Code Review: src/cache/redis.ts
 
 ## Security
-✅ Redis PASSWORD in .env (not hardcoded)
-✅ TTL implemented (prevents stale cache)
-⚠️ No rate limiting for invalidation
-  Compared with: src/cache/memory.ts (better implemented)
 
-## Performance  
-✓ Cache hit rate 89% (project has 3 similar implementations)
-✓ Avoids N+1 queries (pattern followed in order.service.ts)
+Redis PASSWORD in .env (not hardcoded)
+TTL implemented (prevents stale cache)
+No rate limiting for invalidation
+Compared with: src/cache/memory.ts (better implemented)
+
+## Performance
+
+Cache hit rate 89% (project has 3 similar implementations)
+Avoids N+1 queries (pattern followed in order.service.ts)
 
 ## Testability
-⚠️ Missing RedisClient mocks
-  See example at: src/__tests__/cache.mock.ts:23
+
+Missing RedisClient mocks
+See example at: src/**tests**/cache.mock.ts:23
 
 ## Recommendations
+
 1. Add event-based invalidation
    (See patterns in src/events/cache-invalidator.ts)
-   
+
 2. Implement circuit breaker
    (Similar to: src/resilience/circuit-breaker.ts)
 
 3. Add fallback tests when Redis fails
-   Test example: src/__tests__/cache-fallback.test.ts
+   Test example: src/**tests**/cache-fallback.test.ts
 
 ## Alignment
+
 This code follows 95% of project patterns.
 Ready to merge after feedback above.
 ```
@@ -173,15 +178,15 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/SearchRequest'
+              $ref: "#/components/schemas/SearchRequest"
       responses:
-        '200':
+        "200":
           description: Success
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SearchResponse'
-        '429':
+                $ref: "#/components/schemas/SearchResponse"
+        "429":
           description: "Rate limited (see: src/middleware/rate-limit.ts)"
 ```
 
@@ -203,39 +208,45 @@ vectora analyze-performance \
 # Performance Analysis Report
 
 ## Problem Identified
+
 Search taking 2000ms when SLA is 300ms.
 
 ## Root Cause
+
 Reranking via Voyage Rerank 2.5 taking 1.2s.
 
 **Evidence in code:**
-- src/context-engine.ts:145 
+
+- src/context-engine.ts:145
   `const reranked = await reranker.rank(topK=100, maxTokens=2048)`
-  
+
 - Problem: maxTokens too high
 - Comparison: another project uses maxTokens=512 (src/search/optimized.ts:23)
   Result: 180ms vs your 1200ms
 
 ## Solutions
+
 1. **Quick win** (implement today)
    Reduce maxTokens from 2048 → 512
    Expected result: 1.8s → 0.8s
-   
+
 2. **Medium-term** (next sprint)
    Implement embedding cache
    See pattern at: src/cache/embedding-cache.ts
-   
-3. **Long-term** 
+
+3. **Long-term**
    Use Gemini 3 Flash as reranker instead of Voyage
    Trade-off: faster but less precise
-   Test: src/__tests__/reranker-comparison.ts
+   Test: src/**tests**/reranker-comparison.ts
 
 ## Impact
+
 - Current: p95=2000ms, p99=3000ms
 - After fix #1: p95=800ms, p99=1500ms
 - After fix #2: p95=400ms, p99=600ms
 
 ## Recommendation
+
 Apply fix #1 today (10 min change), measure before #2.
 ```
 
@@ -272,13 +283,13 @@ export interface SearchChunk {
   line_start: number;
   line_end: number;
   content: string;
-  precision: number;  // 0.0 - 1.0
+  precision: number; // 0.0 - 1.0
   // Compatible with: src/__tests__/search.mock.ts
 }
 
-// ✓ Generated types 98% compatible with existing codebase
-// ✓ Follows conventions from src/types/* 
-// ✓ Includes guardrail types (src/security/guardian.types.ts)
+// Generated types 98% compatible with existing codebase
+// Follows conventions from src/types/*
+// Includes guardrail types (src/security/guardian.types.ts)
 ```
 
 ---
@@ -304,8 +315,8 @@ providers:
 providers:
   llm:
     model: "gemini-3-flash"
-    temperature: 0.7       # 0=deterministic, 1=creative
-    top_p: 0.95            # Nucleus sampling
+    temperature: 0.7 # 0=deterministic, 1=creative
+    top_p: 0.95 # Nucleus sampling
     max_tokens: 2048
     stop_sequences:
       - "\n---\n"
@@ -318,7 +329,7 @@ For real-time responses:
 ```bash
 vectora analyze \
   --query "Explain the authentication module" \
-  --stream                    # Output in real-time
+  --stream # Output in real-time
   --model gemini-pro
 ```
 
@@ -354,7 +365,7 @@ Optionally use Gemini as reranker instead of Voyage:
 ```yaml
 providers:
   reranker:
-    name: "gemini"      # Instead of "voyage"
+    name: "gemini" # Instead of "voyage"
     model: "gemini-3-flash"
     # Gemini evaluates relevance of each chunk
     # More accurate, but slower
@@ -367,6 +378,7 @@ providers:
 ### Built-in Guardrails
 
 Gemini has protections against:
+
 - Generating malicious code
 - Leaking sensitive data
 - Offensive content
@@ -381,7 +393,7 @@ providers:
         - "api_key"
         - "password"
         - "secret"
-      
+
       block_keywords:
         - "exploit"
         - "malware"
@@ -451,6 +463,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-f
 **Cause**: Reached free tier limit.
 
 **Solution**:
+
 1. Upgrade to Pro plan
 2. Or wait for monthly reset (1st of month)
 3. Or use local fallback model:
@@ -459,12 +472,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-f
 providers:
   llm:
     name: "gemini"
-    fallback_model: "local-mistral"    # Ollama local
+    fallback_model: "local-mistral" # Ollama local
 ```
 
 ### "Model not found"
 
 **Check available models**:
+
 ```bash
 vectora models list
 # Shows: gemini-3-flash, gemini-pro, ...
@@ -474,18 +488,18 @@ vectora models list
 
 ## Comparison: Gemini vs Alternatives
 
-| Model | Speed | Quality | Cost | Context |
-|-------|-------|---------|------|---------|
-| **Gemini 3 Flash** | ⚡⚡⚡ | ⭐⭐⭐ | 🟢 Free | 1M tokens |
-| Claude 3 Opus | ⚡⚡ | ⭐⭐⭐⭐⭐ | 🟡 $$ | 200K tokens |
-| GPT-4 | ⚡⚡ | ⭐⭐⭐⭐ | 🟡 $$ | 128K tokens |
-| Llama 2 (local) | ⚡⚡⚡⚡ | ⭐⭐⭐ | 🟢 Free | 4K tokens |
+| Model              | Speed | Quality | Cost | Context     |
+| ------------------ | ----- | ------- | ---- | ----------- |
+| **Gemini 3 Flash** |       |         | Free | 1M tokens   |
+| Claude 3 Opus      |       |         | $$   | 200K tokens |
+| GPT-4              |       |         | $$   | 128K tokens |
+| Llama 2 (local)    |       |         | Free | 4K tokens   |
 
 **Recommendation**: Gemini is best for RAG (fast + efficient).
 
 ---
 
-> 💡 **Next**: [MCP Tools Reference](../reference/mcp-tools.md)
+> **Next**: [MCP Tools Reference](../reference/mcp-tools.md)
 
 ---
 

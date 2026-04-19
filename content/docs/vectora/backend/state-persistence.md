@@ -45,16 +45,16 @@ graph TD
 
 Estado de curta duração que rastreia o contexto de execução atual:
 
-| Campo | Tipo | Descrição |
-|-------|------|-------------|
-| `session_id` | string | Identificador único para a sessão MCP |
-| `user_id` | string | Usuário autenticado através do Kaffyn SSO |
-| `namespace` | string | Contexto isolado de projeto/workspace |
-| `current_plan` | object | Plano de execução ativo com etapas e dependências |
-| `tool_history` | array | Sequência de chamadas de ferramentas com entradas, saídas e timing |
-| `context_cache` | object | Embeddings pré-buscados, ASTs analisadas e dependências resolvidas |
-| `created_at` | timestamp | Hora de início da sessão |
-| `last_activity` | timestamp | Última interação MCP (usada para limpeza TTL) |
+| Campo           | Tipo      | Descrição                                                          |
+| --------------- | --------- | ------------------------------------------------------------------ |
+| `session_id`    | string    | Identificador único para a sessão MCP                              |
+| `user_id`       | string    | Usuário autenticado através do Kaffyn SSO                          |
+| `namespace`     | string    | Contexto isolado de projeto/workspace                              |
+| `current_plan`  | object    | Plano de execução ativo com etapas e dependências                  |
+| `tool_history`  | array     | Sequência de chamadas de ferramentas com entradas, saídas e timing |
+| `context_cache` | object    | Embeddings pré-buscados, ASTs analisadas e dependências resolvidas |
+| `created_at`    | timestamp | Hora de início da sessão                                           |
+| `last_activity` | timestamp | Última interação MCP (usada para limpeza TTL)                      |
 
 ### Camada de Memória (AGENTS.md + embeddings)
 
@@ -68,15 +68,15 @@ Conhecimento de longo prazo que persiste além de sessões individuais:
 
 Registros imutáveis de ações do agente para compliance e depuração:
 
-| Campo | Tipo | Descrição |
-|-------|------|-------------|
-| `log_id` | string | Identificador único de registro de auditoria |
-| `session_id` | string | Referência à sessão de origem |
-| `action` | string | Nome da ferramenta ou evento de sistema |
-| `input_hash` | string | SHA-256 dos argumentos da ferramenta (nunca armazena segredos brutos) |
-| `output_metadata` | object | Metadados de resultado não sensíveis (status, duração, contagem de tokens) |
-| `security_flags` | array | Validações do Guardian, verificações de blocklist, eventos de sanitização |
-| `timestamp` | timestamp | Hora precisa do evento com resolução de milissegundos |
+| Campo             | Tipo      | Descrição                                                                  |
+| ----------------- | --------- | -------------------------------------------------------------------------- |
+| `log_id`          | string    | Identificador único de registro de auditoria                               |
+| `session_id`      | string    | Referência à sessão de origem                                              |
+| `action`          | string    | Nome da ferramenta ou evento de sistema                                    |
+| `input_hash`      | string    | SHA-256 dos argumentos da ferramenta (nunca armazena segredos brutos)      |
+| `output_metadata` | object    | Metadados de resultado não sensíveis (status, duração, contagem de tokens) |
+| `security_flags`  | array     | Validações do Guardian, verificações de blocklist, eventos de sanitização  |
+| `timestamp`       | timestamp | Hora precisa do evento com resolução de milissegundos                      |
 
 ## Gerenciamento de Ciclo de Vida da Sessão
 
@@ -108,11 +108,11 @@ Manutenção automática via índices TTL do MongoDB:
 # Configuração TTL do MongoDB Atlas
 sessions:
   ttl_field: "last_activity"
-  ttl_seconds: 86400  # 24 horas de inatividade
+  ttl_seconds: 86400 # 24 horas de inatividade
 
 audit_logs:
   ttl_field: "timestamp"
-  ttl_seconds: 7776000  # retenção de 90 dias (configurável por plano)
+  ttl_seconds: 7776000 # retenção de 90 dias (configurável por plano)
 ```
 
 Limpeza manual via CLI:
@@ -138,16 +138,19 @@ O AGENTS.md serve como ponte entre a compreensão humana e a memória do agente:
 # Memória do Projeto: meu-projeto
 
 ## Padrões Aprendidos
+
 - Fluxos de autenticação usam JWT com expiração de 1 hora
 - Conexões de banco de dados usam connection pooling com máximo de 10 conexões
 - Tratamento de erros segue o padrão Result<T, E>
 
 ## Preferências
+
 - Preferir composição funcional sobre herança de classes
 - Usar modo estrito de TypeScript para todos os novos arquivos
 - Níveis de log: debug para desenvolvimento, info para produção
 
 ## Diretrizes do Projeto
+
 - Todos os endpoints de API devem incluir anotações OpenAPI
 - Testes devem atingir 80% de cobertura de ramificação
 - Revisões de segurança necessárias para qualquer alteração relacionada a autenticação
@@ -218,22 +221,22 @@ evaluation:
 state:
   # Gerenciamento de sessão
   session:
-    ttl_hours: 24  # Tempo limite de inatividade antes da limpeza
-    max_concurrent: 5  # Limite de sessões por usuário/namespace
-    persist_on_exit: true  # Salva o estado quando a conexão MCP fecha
+    ttl_hours: 24 # Tempo limite de inatividade antes da limpeza
+    max_concurrent: 5 # Limite de sessões por usuário/namespace
+    persist_on_exit: true # Salva o estado quando a conexão MCP fecha
 
   # Camada de memória
   memory:
-    agents_file: "AGENTS.md"  # Caminho relativo à raiz do projeto
-    auto_update: true  # Atualiza automaticamente embeddings de novo conteúdo do AGENTS.md
-    embedding_model: "voyage-4"  # Modelo para embeddings de memória
-    max_memory_tokens: 4096  # Limite de contexto injetado a partir da memória
+    agents_file: "AGENTS.md" # Caminho relativo à raiz do projeto
+    auto_update: true # Atualiza automaticamente embeddings de novo conteúdo do AGENTS.md
+    embedding_model: "voyage-4" # Modelo para embeddings de memória
+    max_memory_tokens: 4096 # Limite de contexto injetado a partir da memória
 
   # Configurações de auditoria
   audit:
     enabled: true
-    retain_days: 90  # Período de retenção para logs de auditoria
-    redact_patterns:  # Padrões regex adicionais para redigir
+    retain_days: 90 # Período de retenção para logs de auditoria
+    redact_patterns: # Padrões regex adicionais para redigir
       - "password\\s*[:=]\\s*['\"]?[^'\"\\s]+"
       - "api[_-]?key\\s*[:=]\\s*['\"]?[^'\"\\s]+"
 
@@ -262,18 +265,15 @@ Operações do MongoDB são feitas em lote para maior eficiência:
 
 ```typescript
 // packages/core/src/state/batch-operations.ts
-export async function updateSessionState(
-  sessionId: string,
-  updates: StateUpdate[]
-): Promise<void> {
+export async function updateSessionState(sessionId: string, updates: StateUpdate[]): Promise<void> {
   // Agrupa atualizações por coleção para operações em lote
   const byCollection = groupByCollection(updates);
-  
+
   // Executa bulk writes com ordered=false para paralelismo
   await Promise.all(
     Object.entries(byCollection).map(([collection, ops]) =>
-      mongodb.collection(collection).bulkWrite(ops, { ordered: false })
-    )
+      mongodb.collection(collection).bulkWrite(ops, { ordered: false }),
+    ),
   );
 }
 ```
@@ -287,11 +287,13 @@ Error: Session sess_abc123 not found for namespace auth-service
 ```
 
 Causas possíveis:
+
 - Sessão expirada devido à limpeza TTL (verifique o timestamp `last_activity`).
 - Incompatibilidade de namespace entre a solicitação do cliente e a sessão armazenada.
 - Problema de conectividade com o MongoDB Atlas.
 
 Resolução:
+
 ```bash
 # Verificar se a sessão existe
 vectora state list --namespace auth-service
@@ -310,11 +312,13 @@ Warning: AGENTS.md changes detected but memory not updated
 ```
 
 Causas possíveis:
+
 - Cota de embedding esgotada (verifique os limites do plano).
 - Blocklist do Guardian impediu o embedding do novo conteúdo.
 - API da Voyage temporariamente indisponível.
 
 Resolução:
+
 ```bash
 # Verificar o status da cota de embedding
 vectora quota status --component embeddings
@@ -333,11 +337,13 @@ Warning: Expected audit entry for tool_call not found
 ```
 
 Causas possíveis:
+
 - Log de auditoria desabilitado na configuração.
 - Write concern do MongoDB não atingido (problema de rede).
 - Limpeza de sessão deletou registros de auditoria relacionados prematuramente.
 
 Resolução:
+
 ```bash
 # Verificar configuração de auditoria
 vectora config get state.audit.enabled
@@ -365,6 +371,7 @@ R: Sim, dentro do mesmo namespace. O AGENTS.md tem escopo de projeto, não de us
 
 P: Como faço para migrar o estado entre regiões do MongoDB Atlas?
 R: Use o fluxo de exportação/importação:
+
 ```bash
 # Exportar da região de origem
 vectora state export --namespace meu-projeto --output ./state-backup.json

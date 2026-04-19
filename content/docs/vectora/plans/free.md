@@ -18,10 +18,10 @@ tags:
 
 O plano **Free** de Vectora é totalmente **open source e sem limite de tempo**. Use localmente, em qualquer codebase, sem pagar nada. Perfeito para:
 
-- 👨‍💻 Desenvolvedores individuais
-- 🏢 Pequenos times (< 10 pessoas)
-- 📚 Projetos educacionais
-- 🧪 Prototipagem e testes
+- ‍ Desenvolvedores individuais
+- Pequenos times (< 10 pessoas)
+- Projetos educacionais
+- Prototipagem e testes
 
 ---
 
@@ -29,43 +29,43 @@ O plano **Free** de Vectora é totalmente **open source e sem limite de tempo**.
 
 ### Core Features
 
-| Feature | Free |
-|---------|------|
-| **Search Semântica** | ✅ |
-| **Análise de Dependências** | ✅ |
-| **Indexação Completa** | ✅ |
-| **Namespaces Ilimitados** | ✅ |
-| **Trust Folder + Guardian** | ✅ |
-| **RBAC (5 roles)** | ✅ |
-| **CLI Completo** | ✅ |
-| **Harness Runtime** | ✅ |
-| **Webhooks** | ❌ |
-| **SSO/LDAP** | ❌ |
-| **SLA Uptime** | ❌ |
+| Feature                     | Free |
+| --------------------------- | ---- |
+| **Search Semântica**        |      |
+| **Análise de Dependências** |      |
+| **Indexação Completa**      |      |
+| **Namespaces Ilimitados**   |      |
+| **Trust Folder + Guardian** |      |
+| **RBAC (5 roles)**          |      |
+| **CLI Completo**            |      |
+| **Harness Runtime**         |      |
+| **Webhooks**                |      |
+| **SSO/LDAP**                |      |
+| **SLA Uptime**              |      |
 
 ### Integrações
 
-| Plataforma | Free |
-|-----------|------|
-| **Claude Code (MCP)** | ✅ |
-| **Cursor (MCP)** | ✅ |
-| **VS Code Extension** | ✅ |
-| **CLI** | ✅ |
-| **ChatGPT Custom GPT** | ⚠️ (self-hosted) |
-| **Gemini Integration** | ⚠️ (BYOK) |
+| Plataforma             | Free          |
+| ---------------------- | ------------- |
+| **Claude Code (MCP)**  |               |
+| **Cursor (MCP)**       |               |
+| **VS Code Extension**  |               |
+| **CLI**                |               |
+| **ChatGPT Custom GPT** | (self-hosted) |
+| **Gemini Integration** | (BYOK)        |
 
 ### Modelos de IA (BYOK)
 
 Use seus próprios:
 
-| Componente | Opção | Custo |
-|-----------|-------|-------|
-| **Embedding** | Voyage 4 | Grátis* |
-| **Reranking** | Voyage Rerank 2.5 | Grátis* |
-| **LLM** | Gemini 3 Flash | Grátis* |
-| **Local** | Ollama (all-MiniLM) | Grátis |
+| Componente    | Opção               | Custo    |
+| ------------- | ------------------- | -------- |
+| **Embedding** | Voyage 4            | Grátis\* |
+| **Reranking** | Voyage Rerank 2.5   | Grátis\* |
+| **LLM**       | Gemini 3 Flash      | Grátis\* |
+| **Local**     | Ollama (all-MiniLM) | Grátis   |
 
-*Free tier com limites: 60 req/min (Gemini), 50 req/min (Voyage)
+\*Free tier com limites: 60 req/min (Gemini), 50 req/min (Voyage)
 
 ---
 
@@ -78,11 +78,11 @@ free_tier_limits:
   gemini_api:
     requests_per_minute: 60
     tokens_per_month: 1.5M
-  
+
   voyage_api:
     requests_per_minute: 50
     tokens_per_month: 100M
-  
+
   vectora_server:
     concurrent_users: 1
     searches_per_day: 1000
@@ -160,7 +160,7 @@ vectora search "Como funciona login?"
 
 ## Casos de Uso Recomendados
 
-### ✅ Melhor em Free
+### Melhor em Free
 
 - **Codebase < 100K linhas**: Indexação em minutos
 - **1 projeto**: 1 namespace, Trust Folder isolado
@@ -168,7 +168,7 @@ vectora search "Como funciona login?"
 - **Desenvolvimento local**: Sem infraestrutura
 - **Educação/pesquisa**: Open source MIT
 
-### ⚠️ Considere Upgrade
+### Considere Upgrade
 
 - **Múltiplos projetos grandes**: > 5 projetos
 - **Equipes > 10 pessoas**: Precisa LDAP/SSO
@@ -185,6 +185,7 @@ vectora search "Como funciona login?"
 Você atingiu o limite mensal de API (Gemini ou Voyage).
 
 **Soluções**:
+
 1. Aguarde reset no 1º do próximo mês
 2. Use modelo local (Ollama)
 3. Upgrade para Pro (unlimited)
@@ -203,6 +204,7 @@ vectora config set --key EMBEDDING_MODEL "all-MiniLM-L6-v2"
 Você fez muitas requisições em 1 minuto.
 
 **Solução**: Aguarde ou use espacing:
+
 ```bash
 # Esperar entre buscas
 for query in "login" "auth" "token"; do
@@ -216,6 +218,7 @@ done
 Apenas 1 usuário por vez no free tier (1 IDE).
 
 **Soluções**:
+
 1. Fechar outras instâncias
 2. Upgrade para Pro (até 100 usuários)
 
@@ -250,7 +253,7 @@ Nenhuma migração necessária - upgrade é automático.
 
 ---
 
-> 💡 **Próximo**: [Pro Plan](./pro.md)
+> **Próximo**: [Pro Plan](./pro.md)
 
 ---
 

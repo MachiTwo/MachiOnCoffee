@@ -17,33 +17,33 @@ tags:
 
 Segurança no Vectora é implementada em 3 camadas: aplicação (Guardian blocklist), isolamento (Trust Folder), e controle de acesso (RBAC). Dados são seus - Vectora é BYOK (Bring Your Own Key).
 
-## 🔒 Pilares de Segurança
+## Pilares de Segurança
 
-| Camada | Componente | Função | Docs |
-|--------|-----------|--------|------|
-| **Aplicação** | Guardian | Blocklist hard-coded para .env, secrets, binários | [→ Guardian](./guardian.md) |
-| **Filesystem** | Trust Folder | Isolamento de path contra directory traversal | [→ Trust Folder](../concepts/trust-folder.md) |
-| **Acesso** | RBAC | 5 roles (Owner→Guest) com 15 permissões | [→ RBAC](./rbac.md) |
-| **Dados** | BYOK + Encryption | Chaves do usuário, criptografia AES-256-GCM | [→ BYOK & Privacy](./byok-privacy.md) |
+| Camada         | Componente        | Função                                            | Docs                                          |
+| -------------- | ----------------- | ------------------------------------------------- | --------------------------------------------- |
+| **Aplicação**  | Guardian          | Blocklist hard-coded para .env, secrets, binários | [→ Guardian](./guardian.md)                   |
+| **Filesystem** | Trust Folder      | Isolamento de path contra directory traversal     | [→ Trust Folder](../concepts/trust-folder.md) |
+| **Acesso**     | RBAC              | 5 roles (Owner→Guest) com 15 permissões           | [→ RBAC](./rbac.md)                           |
+| **Dados**      | BYOK + Encryption | Chaves do usuário, criptografia AES-256-GCM       | [→ BYOK & Privacy](./byok-privacy.md)         |
 
 ## Compliance & Certificações
 
 Suporta frameworks de conformidade:
 
-- ✅ **GDPR** — Direito ao esquecimento, portabilidade de dados
-- ✅ **HIPAA** — Criptografia, auditoria, acesso controlado
-- ✅ **SOC 2 Type II** — Em progresso para 2026
-- ✅ **PCI-DSS** — Se não indexar dados de cartão
+- **GDPR** — Direito ao esquecimento, portabilidade de dados
+- **HIPAA** — Criptografia, auditoria, acesso controlado
+- **SOC 2 Type II** — Em progresso para 2026
+- **PCI-DSS** — Se não indexar dados de cartão
 
 ## Segurança Shared Responsibility
 
-| Responsabilidade | Vectora | Você |
-|-----------------|---------|------|
-| Guardian blocklist | ✅ | - |
-| Trust Folder config | - | ✅ Configurar |
-| API keys | - | ✅ Proteger |
-| Senha | - | ✅ Usar 2FA |
-| Rede (firewall) | - | ✅ (opcional) |
+| Responsabilidade    | Vectora | Você       |
+| ------------------- | ------- | ---------- |
+| Guardian blocklist  |         | -          |
+| Trust Folder config | -       | Configurar |
+| API keys            | -       | Proteger   |
+| Senha               | -       | Usar 2FA   |
+| Rede (firewall)     | -       | (opcional) |
 
 ## Próximos Passos
 
@@ -54,4 +54,4 @@ Suporta frameworks de conformidade:
 
 ---
 
-> 🔐 Vulnerabilidade de segurança? [Reporte aqui](https://github.com/vectora/vectora/security)
+> Vulnerabilidade de segurança? [Reporte aqui](https://github.com/vectora/vectora/security)

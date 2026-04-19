@@ -55,6 +55,7 @@ vectora init --name "Your Project"
 ### Step 2: Configure MCP in Your IDE
 
 **Config file** (location varies by IDE):
+
 - Claude Code: `~/.claude/claude_desktop_config.json`
 - Cursor: `~/.cursor/cursor_config.json`
 - Other IDEs: See MCP documentation
@@ -87,20 +88,20 @@ vectora init --name "Your Project"
 
 ## 12 Available Tools
 
-| Tool | Function |
-|------|----------|
-| `search_context` | Semantic search for chunks |
-| `search_tests` | Find related tests |
-| `analyze_dependencies` | Find function callers |
-| `find_similar_code` | Find similar code patterns |
-| `get_file_structure` | Summarize file structure |
-| `list_files` | List indexed files |
-| `list_namespaces` | List namespaces |
-| `get_namespace_stats` | Namespace statistics |
-| `index_status` | Index status |
-| `reindex` | Force re-indexing |
-| `get_config` | Get current config |
-| `get_metrics` | Execution metrics |
+| Tool                   | Function                   |
+| ---------------------- | -------------------------- |
+| `search_context`       | Semantic search for chunks |
+| `search_tests`         | Find related tests         |
+| `analyze_dependencies` | Find function callers      |
+| `find_similar_code`    | Find similar code patterns |
+| `get_file_structure`   | Summarize file structure   |
+| `list_files`           | List indexed files         |
+| `list_namespaces`      | List namespaces            |
+| `get_namespace_stats`  | Namespace statistics       |
+| `index_status`         | Index status               |
+| `reindex`              | Force re-indexing          |
+| `get_config`           | Get current config         |
+| `get_metrics`          | Execution metrics          |
 
 ---
 
@@ -144,7 +145,7 @@ IDE: Compares with existing code
   "mcpServers": {
     "vectora": {
       "env": {
-        "VECTORA_NAMESPACE": "staging"  // Use different namespace
+        "VECTORA_NAMESPACE": "staging" // Use different namespace
       }
     }
   }
@@ -239,13 +240,13 @@ echo $VOYAGE_API_KEY
 
 ## Compatible IDEs
 
-| IDE | Support | Status |
-|-----|---------|--------|
-| **Claude Code** | ✅ Native MCP | ✅ Tested |
-| **Cursor** | ✅ Native MCP | ✅ Tested |
-| **VS Code** | ❌ No native MCP | ⚠️ Use own extension |
-| **Zed** | ✅ MCP supported | ⚠️ Not tested |
-| **Neovim** | ✅ MCP via plugin | ⚠️ Not tested |
+| IDE             | Support        | Status            |
+| --------------- | -------------- | ----------------- |
+| **Claude Code** | Native MCP     | Tested            |
+| **Cursor**      | Native MCP     | Tested            |
+| **VS Code**     | No native MCP  | Use own extension |
+| **Zed**         | MCP supported  | Not tested        |
+| **Neovim**      | MCP via plugin | Not tested        |
 
 For VS Code, use [VS Code Extension](./vscode-extension.md).
 

@@ -31,26 +31,26 @@ tags:
 Request para ler arquivo
     ↓
 ┌─────────────────┐
-│  Trust Folder   │ Está dentro do perímetro?
-│  Check          │
+│ Trust Folder │ Está dentro do perímetro?
+│ Check │
 └────────┬────────┘
          │ SIM
          ↓
 ┌─────────────────────┐
-│  Guardian Rules     │ Matches allow/deny pattern?
-│  Pattern Matching   │
+│ Guardian Rules │ Matches allow/deny pattern?
+│ Pattern Matching │
 └────────┬────────────┘
          │ ALLOW (ou SEM MATCH)
          ↓
 ┌──────────────────┐
-│  RBAC Check      │ Usuário tem permissão?
-│                  │
+│ RBAC Check │ Usuário tem permissão?
+│ │
 └────────┬─────────┘
          │ SIM
          ↓
 ┌──────────────────────┐
-│  File Access         │ Arquivo pode ser lido
-│  Permitido           │
+│ File Access │ Arquivo pode ser lido
+│ Permitido │
 └──────────────────────┘
 
 Se qualquer check FALHA → Request é BLOQUEADO + Audit Log
@@ -76,7 +76,7 @@ Qualquer tentativa de ler fora deste diretório é bloqueada:
 ```text
 Request: ../../../.env
 Trust Folder: ./src
-Resultado: ❌ BLOQUEADO (fora do périmetro)
+Resultado: BLOQUEADO (fora do périmetro)
 ```
 
 ### Guardian Rules (Camada 2)
@@ -89,17 +89,17 @@ guardian:
   rules:
     # DENY tem prioridade
     - name: "block_env"
-      pattern: "\.env.*"              # .env, .env.local, .env.production
+      pattern: "\.env.*" # .env, .env.local, .env.production
       action: "deny"
-    
+
     - name: "block_secrets"
       pattern: "secrets/.*"
       action: "deny"
-    
+
     - name: "block_credentials"
-      pattern: ".*credentials.*"      # Any file with "credentials"
+      pattern: ".*credentials.*" # Any file with "credentials"
       action: "deny"
-    
+
     # ALLOW (opcional, mais específico)
     - name: "allow_src_docs"
       pattern: "^(src|docs)/.*"
@@ -146,7 +146,7 @@ defaults:
     - ".*secret.*"
     - "\.git/.*"
     - "\.ssh/.*"
-    - "node_modules/.*"              # Opcional
+    - "node_modules/.*" # Opcional
     - "__pycache__/.*"
     - "\.venv/.*"
 ```
@@ -183,7 +183,7 @@ Log output:
   "trust_folder": "/home/user/project/src",
   "status": "BLOCKED",
   "reason": "matches_deny_pattern",
-  "pattern": "\.env.*",
+  "pattern": ".env.*",
   "user": "dev@company.com",
   "user_role": "editor",
   "ip": "192.168.1.100"
@@ -227,7 +227,7 @@ guardian:
     - name: "block_private"
       pattern: "private/.*"
       action: "deny"
-    
+
     - name: "block_test_data"
       pattern: "test_data/.*\.csv"
       action: "deny"
@@ -237,7 +237,7 @@ guardian:
 
 ```yaml
 project:
-  trust_folder: "."                  # Confio em tudo
+  trust_folder: "." # Confio em tudo
 
 guardian:
   rules:
@@ -245,7 +245,7 @@ guardian:
     - name: "allow_src_docs"
       pattern: "^(src|docs)/"
       action: "allow"
-    
+
     # Tudo mais é bloqueado
     - name: "deny_everything_else"
       pattern: ".*"
@@ -262,7 +262,7 @@ guardian:
 Tentativa: ../../.env
 Resolução: Normalizado para /absolute/path/.env
 Trust Folder: /absolute/path/src
-Resultado: ❌ BLOQUEADO (fora do perímetro)
+Resultado: BLOQUEADO (fora do perímetro)
 ```
 
 ### Symlink Attacks
@@ -271,14 +271,14 @@ Resultado: ❌ BLOQUEADO (fora do perímetro)
 File: ./src/link-to-secret → ../../secret.key
 Resolução: Resolvido para /absolute/path/secret.key
 Trust Folder: /absolute/path/src
-Resultado: ❌ BLOQUEADO (symlink fora do perímetro)
+Resultado: BLOQUEADO (symlink fora do perímetro)
 ```
 
 Para permitir symlinks específicos:
 
 ```yaml
 guardian:
-  symlink_handling: "follow"         # ou "deny"
+  symlink_handling: "follow" # ou "deny"
   symlink_whitelist:
     - "./src/allowed-link"
 ```
@@ -289,7 +289,7 @@ Windows é case-insensitive, padrões são case-sensitive por padrão:
 
 ```yaml
 guardian:
-  case_sensitive: false              # Match .ENV, .Env, .env
+  case_sensitive: false # Match .ENV, .Env, .env
 ```
 
 ---
@@ -308,9 +308,9 @@ Output:
 
 ```text
 Guardian Validation Report
-├─ Trust Folder: ./src ✓
-├─ Default Deny Patterns: 9 ✓
-├─ Custom Rules: 3 ✓
+├─ Trust Folder: ./src
+├─ Default Deny Patterns: 9
+├─ Custom Rules: 3
 └─ Test Cases:
    ├─ .env → BLOCKED (pattern: \.env.*)
    ├─ src/main.ts → ALLOWED
@@ -348,12 +348,12 @@ guardian_metrics:
   total_checks: 12543
   allowed: 12500
   blocked: 43
-  
+
   blocked_by_reason:
     deny_pattern: 35
     outside_trust_folder: 8
     rbac_violation: 0
-  
+
   top_blocked_patterns:
     - "\.env.*": 15
     - "\.key$": 12
@@ -369,7 +369,7 @@ guardian:
   alerts:
     enabled: true
     notify_on_violations: true
-    threshold_per_hour: 10            # Alerta se > 10 bloqueios/h
+    threshold_per_hour: 10 # Alerta se > 10 bloqueios/h
     webhook: "https://your-slack.com/webhook"
 ```
 
@@ -382,11 +382,11 @@ guardian:
 Não confie em `./` - seja específico:
 
 ```yaml
-# ❌ Inseguro
+# Inseguro
 project:
   trust_folder: "."
 
-# ✅ Seguro
+# Seguro
 project:
   trust_folder: "./src"
 ```
@@ -401,7 +401,7 @@ guardian:
     - name: "allow_src_docs"
       pattern: "^(src|docs)/"
       action: "allow"
-    
+
     - name: "deny_everything"
       pattern: ".*"
       action: "deny"
@@ -419,14 +419,14 @@ vectora audit --since 7d --filter "BLOCKED" | wc -l
 Não crie "exception rules" para .env - use valores default:
 
 ```yaml
-# ❌ Ruim - exceção
+# Ruim - exceção
 guardian:
   rules:
     - name: "allow_local_env"
-      pattern: "\.env\.local"        # Exceção!
+      pattern: "\.env\.local" # Exceção!
       action: "allow"
 
-# ✅ Melhor - usar variáveis
+# Melhor - usar variáveis
 guardian:
   rules:
     - name: "block_env"
@@ -448,22 +448,25 @@ Error: ./src/config.secrets.ts is blocked by pattern
 ```
 
 **Diagnóstico**:
+
 ```bash
 vectora guardian explain "./src/config.secrets.ts"
 # Output: Matches deny_pattern ".*secret.*"
 ```
 
 **Solução 1**: Renomear arquivo
+
 ```bash
 mv src/config.secrets.ts src/config.secure.ts
 ```
 
 **Solução 2**: Ajustar padrão (menos recomendado)
+
 ```yaml
 guardian:
   rules:
     - name: "block_secrets"
-      pattern: "secret_keys/.*"       # Mais específico
+      pattern: "secret_keys/.*" # Mais específico
       action: "deny"
 ```
 
@@ -498,13 +501,13 @@ guardian:
   rules:
     - pattern: "patient_data/.*"
       action: "deny"
-    - pattern: ".*\.phi\..*"           # Protected Health Info
+    - pattern: ".*\.phi\..*" # Protected Health Info
       action: "deny"
 ```
 
 ---
 
-> 💡 **Próximo**: [RBAC System](./rbac.md)
+> **Próximo**: [RBAC System](./rbac.md)
 
 ---
 

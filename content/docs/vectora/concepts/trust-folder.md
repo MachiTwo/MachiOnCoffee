@@ -29,11 +29,13 @@ Trust Folder é o **perímetro de segurança** que limita quais arquivos o Vecto
 ## O Problema
 
 Sem Trust Folder:
+
 - Vectora indexa tudo no disco: `/etc/passwd`, `~/.ssh/id_rsa`, `.env`
 - Sensível a directory traversal: `../../sensitive/file.txt`
 - Sem auditoria de quis acessou qual arquivo
 
 Com Trust Folder:
+
 - Indexação confinada a `./src`, `./docs` (configurável)
 - Directory traversal é bloqueado: `../../../.env` é rejeitado
 - Audit log rastreia todas as leituras
@@ -49,7 +51,7 @@ Trust Folder é configurado em vectora.config.yaml e pode usar caminhos relativo
 ```yaml
 # vectora.config.yaml
 project:
-  trust_folder: "."          # Padrão: raiz do projeto
+  trust_folder: "." # Padrão: raiz do projeto
 ```
 
 Significa: "Confio em tudo dentro deste diretório e subdiretórios".
@@ -58,8 +60,8 @@ Significa: "Confio em tudo dentro deste diretório e subdiretórios".
 
 ```yaml
 project:
-  trust_folder: "./src"      # APENAS ./src
-  
+  trust_folder: "./src" # APENAS ./src
+
 # Ou múltiplas pastas
 project:
   trust_folders:
@@ -101,7 +103,7 @@ File Requested: ./src/auth/login.ts
 Resolução:
 1. ./src/auth/login.ts → /absolute/path/to/src/auth/login.ts
 2. Is /absolute/path/to/src/auth/login.ts dentro de /absolute/path/to/src?
-3. SIM ✅ → Permitido
+3. SIM → Permitido
 ```
 
 ### Block List (Directory Traversal)
@@ -113,7 +115,7 @@ File Requested: ../../../.env
 Resolução:
 1. Normaliza: ../../../.env → /absolute/path/.env
 2. Is /absolute/path/.env dentro de /absolute/path/to/src?
-3. NÃO ❌ → BLOQUEADO
+3. NÃO → BLOQUEADO
 ```
 
 ```text
@@ -123,7 +125,7 @@ File Requested: ./src/../../.env
 Resolução:
 1. Normaliza: ./src/../../.env → /absolute/path/.env
 2. Is /absolute/path/.env dentro de /absolute/path/to/src?
-3. NÃO ❌ → BLOQUEADO
+3. NÃO → BLOQUEADO
 ```
 
 ---
@@ -137,12 +139,12 @@ Abaixo apresentamos três padrões de configuração real: monorepo com isolamen
 ```text
 project/
 ├── packages/
-│   ├── backend/
-│   │   ├── src/
-│   │   └── docs/
-│   └── frontend/
-│       ├── src/
-│       └── docs/
+│ ├── backend/
+│ │ ├── src/
+│ │ └── docs/
+│ └── frontend/
+│ ├── src/
+│ └── docs/
 ├── shared/
 └── .env (SENSÍVEL)
 ```
@@ -166,6 +168,7 @@ project:
 ```
 
 Resultado:
+
 - Backend não consegue ler frontend code
 - Frontend não consegue ler backend code
 - Ambos podem acessar shared
@@ -175,11 +178,11 @@ Resultado:
 
 ```text
 docs-website/
-├── content/           ← Público
-│   ├── getting-started/
-│   └── api-reference/
-├── src/               ← Código do site (config, templates)
-├── private/           ← Rascunhos privados (SENSÍVEL)
+├── content/ ← Público
+│ ├── getting-started/
+│ └── api-reference/
+├── src/ ← Código do site (config, templates)
+├── private/ ← Rascunhos privados (SENSÍVEL)
 └── .env
 ```
 
@@ -200,7 +203,6 @@ Para máxima segurança (ex: CI/CD):
 ```yaml
 project:
   trust_folder: "./sanitized"
-
 # Antes de rodar, copie APENAS o que é permitido:
 # mkdir sanitized
 # cp -r src/ sanitized/
@@ -220,7 +222,7 @@ guardian:
     - name: "block_env_files"
       pattern: "\.env.*"
       action: "block"
-    
+
     - name: "block_secrets"
       pattern: "secrets/"
       action: "block"
@@ -231,6 +233,7 @@ guardian:
 ```
 
 **Ordem**: Trust Folder → Guardian → Indexing
+
 - Trust Folder nega: arquivo bloqueado imediatamente
 - Trust Folder permite: Guardian valida pattern
 - Ambos passam: arquivo é indexado
@@ -278,22 +281,25 @@ Abaixo mostramos 4 ataques potenciais e como Trust Folder previne cada um deles,
 ### Ataque 1: Path Traversal Simples
 
 **Sem Trust Folder:**
+
 ```bash
 # LLM pede (ou usuário injeta)
 vectora search --file "../../.env"
-# Resultado: .env é lido ❌ VULNERABILITY
+# Resultado: .env é lido VULNERABILITY
 ```
 
 **Com Trust Folder (`./src`):**
+
 ```bash
 vectora search --file "../../.env"
 # Resolução: /project/.env (fora de /project/src)
-# Resultado: BLOQUEADO ✓ SAFE
+# Resultado: BLOQUEADO SAFE
 ```
 
 ### Ataque 2: Symlink Escape
 
 **Cenário:**
+
 ```text
 project/src/link → ../../sensitive/secrets.yml
 ```
@@ -303,13 +309,14 @@ Vectora vê `src/link` (parece seguro) e indexa.
 
 **Com resolução (padrão):**
 Vectora resolve: `src/link` → `../../sensitive/secrets.yml` → `/project/sensitive/secrets.yml`
-Detecta: fora de trust folder → BLOQUEADO ✓
+Detecta: fora de trust folder → BLOQUEADO
 
 ### Ataque 3: Injection via LLM Context
 
 **Cenário:**
+
 ```text
-Usuário: "Meu código importa de 'os.system'. 
+Usuário: "Meu código importa de 'os.system'.
          Busque em ../../../../etc/passwd"
 
 LLM (sem Trust Folder):
@@ -322,18 +329,20 @@ LLM (com Trust Folder):
 ### Ataque 4: CI/CD Exposure
 
 **Sem Trust Folder:**
+
 ```text
 CI/CD runner executa: vectora index
 Indices: /home/runner/secrets.json (com API keys!)
 Vectora Cloud sync: secrets.json é enviado
-Resultado: Keys expostas ❌
+Resultado: Keys expostas
 ```
 
 **Com Trust Folder `./src`:**
+
 ```text
 CI/CD runner executa: vectora index --trust-folder ./src
 Indices: APENAS ./src/
-Resultado: secrets.json ignorado ✓
+Resultado: secrets.json ignorado
 ```
 
 ---
@@ -375,7 +384,7 @@ INDEXED=$(vectora index --list-files)
 OUTSIDE=$(echo "$INDEXED" | grep -v "^${TRUST}" | wc -l)
 
 if [ "$OUTSIDE" -gt 0 ]; then
-  echo "❌ FAIL: $OUTSIDE files outside trust folder"
+  echo " FAIL: $OUTSIDE files outside trust folder"
   exit 1
 fi
 
@@ -384,11 +393,11 @@ SENSITIVE=(".env" ".secrets" "*.pem" "*.key")
 for pattern in "${SENSITIVE[@]}"; do
   FOUND=$(vectora search --file "*/$pattern" 2>&1 | grep "outside_trust_folder" | wc -l)
   if [ "$FOUND" -eq 0 ]; then
-    echo "⚠️ WARNING: Pattern $pattern may be exposed"
+    echo " WARNING: Pattern $pattern may be exposed"
   fi
 done
 
-echo "✅ PASS: Trust Folder is properly configured"
+echo " PASS: Trust Folder is properly configured"
 ```
 
 ---
@@ -407,7 +416,7 @@ Error: ./src/utils/helpers.ts is outside trust folder
 
 ```bash
 # Acheck paths
-pwd                                    # Seu CWD
+pwd # Seu CWD
 cat vectora.config.yaml | grep trust_folder
 
 # Verify com --dry-run
@@ -427,7 +436,7 @@ File: ./src/link-to-config.ts (symlink → ../../../.env)
 Resolução:
 1. Resolve symlink: /home/user/.env
 2. Is /home/user/.env dentro de /home/user/project/src?
-3. NÃO ❌ → BLOQUEADO
+3. NÃO → BLOQUEADO
 ```
 
 Para permitir symlinks específicos:
@@ -435,9 +444,9 @@ Para permitir symlinks específicos:
 ```yaml
 project:
   trust_folder: "./src"
-  symlink_mode: "follow"         # default: "deny"
+  symlink_mode: "follow" # default: "deny"
   symlink_whitelist:
-    - "./src/link-to-shared"     # Exceção explícita
+    - "./src/link-to-shared" # Exceção explícita
 ```
 
 ---
@@ -448,24 +457,24 @@ project:
 # vectora.config.yaml
 project:
   trust_folder: "./src"
-  
+
   # Comportamento de path resolution
   path_resolution:
-    normalize_case: false              # Windows: case-insensitive?
+    normalize_case: false # Windows: case-insensitive?
     resolve_symlinks: true
     follow_mountpoints: false
-  
+
   # Auditoria
   audit:
     enabled: true
-    log_all_accesses: false            # true = muito verbose
+    log_all_accesses: false # true = muito verbose
     log_denied_accesses: true
     retention_days: 30
 ```
 
 ---
 
-> 💡 **Próximo**: [Vector Search](./vector-search.md)
+> **Próximo**: [Vector Search](./vector-search.md)
 
 ---
 

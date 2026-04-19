@@ -29,6 +29,7 @@ Harness Runtime é o módulo de **validação e proteção** que roda imediatame
 ## O Problema
 
 Agentes genéricos executam ferramentas "cegamente":
+
 - Sem validar se a saída é relevante
 - Sem checar se houve violação de segurança
 - Sem medir latência ou qualidade
@@ -77,11 +78,11 @@ Harness captura 5 métricas-chave de cada execução e define limites para degra
 ### Core Metrics
 
 ```yaml
-retrieval_precision: >= 0.65      # Relevância da busca
-tool_accuracy: >= 0.95             # Taxa de sucesso
-security_events: 0                 # Zero violações
-latency_p95: < 2000ms              # 95º percentil em ms
-token_efficiency: >= 0.85           # Úteis / totais
+retrieval_precision: >= 0.65 # Relevância da busca
+tool_accuracy: >= 0.95 # Taxa de sucesso
+security_events: 0 # Zero violações
+latency_p95: < 2000ms # 95º percentil em ms
+token_efficiency: >= 0.85 # Úteis / totais
 
 # Exemplo de execução bem-sucedida
 execution:
@@ -98,12 +99,12 @@ execution:
 
 Se métricas caem abaixo do SLA:
 
-| Métrica | Ação |
-|---------|------|
+| Métrica                      | Ação                         |
+| ---------------------------- | ---------------------------- |
 | `retrieval_precision < 0.65` | Rerank com model mais pesado |
-| `tool_accuracy < 0.95` | Retry até 3x |
-| `security_events > 0` | Bloqueia execução + Alert |
-| `latency_p95 > 3000ms` | Ativa compaction + timeout |
+| `tool_accuracy < 0.95`       | Retry até 3x                 |
+| `security_events > 0`        | Bloqueia execução + Alert    |
+| `latency_p95 > 3000ms`       | Ativa compaction + timeout   |
 
 ---
 
@@ -117,23 +118,23 @@ A diferença fundamental é que Harness adiciona validação, observabilidade e 
 Agent → Tool → Output (confiar que é bom) → Response
 ```
 
-- ❌ Sem validação pré-execução
-- ❌ Sem captura de métricas
-- ❌ Sem verificação de segurança inline
-- ❌ Falhas silenciosas possíveis
+- Sem validação pré-execução
+- Sem captura de métricas
+- Sem verificação de segurança inline
+- Falhas silenciosas possíveis
 
 ### Com Harness
 
 ```text
-Agent → Guardian ✓ → Preconditions ✓ → Tool (Wrapped) ✓ → 
-Output Validation ✓ → Metrics ✓ → Decision (use/retry/fail)
+Agent → Guardian → Preconditions → Tool (Wrapped) →
+Output Validation → Metrics → Decision (use/retry/fail)
 ```
 
-- ✅ Guardian blocklist enforcement
-- ✅ Métricas por execução
-- ✅ Retry automático em falhas transitórias
-- ✅ Reranking se precision cai
-- ✅ Circuit breaker em cascata
+- Guardian blocklist enforcement
+- Métricas por execução
+- Retry automático em falhas transitórias
+- Reranking se precision cai
+- Circuit breaker em cascata
 
 ---
 
@@ -151,7 +152,7 @@ Use comparison mode para validar mudanças de performance após alterar reranker
 vectora execute search_context \
   --query "Como validar tokens JWT em middleware?" \
   --compare baseline \
-  --reranker voyage-rerank-2.5       # Novo reranker vs anterior
+  --reranker voyage-rerank-2.5 # Novo reranker vs anterior
 ```
 
 Output detalhado:
@@ -161,26 +162,26 @@ execution_id: "harness_20260419_abc123"
 tool: search_context
 query: "Como validar tokens JWT em middleware?"
 
-baseline:  # Versão anterior (voyage-rerank-2.4 ou BM25)
+baseline: # Versão anterior (voyage-rerank-2.4 ou BM25)
   precision: 0.68
   latency_ms: 1520
   chunks_returned: 8
-  top_chunk: {file: "src/auth/jwt.ts", relevance: 0.64}
-  top_chunk_2: {file: "src/utils/crypto.ts", relevance: 0.52}  # Ruído
+  top_chunk: { file: "src/auth/jwt.ts", relevance: 0.64 }
+  top_chunk_2: { file: "src/utils/crypto.ts", relevance: 0.52 } # Ruído
   token_efficiency: 0.71
 
-current:   # Nova config (voyage-rerank-2.5)
+current: # Nova config (voyage-rerank-2.5)
   precision: 0.87
   latency_ms: 1240
   chunks_returned: 8
-  top_chunk: {file: "src/auth/guards.ts", relevance: 0.92}
-  top_chunk_2: {file: "src/auth/jwt.ts", relevance: 0.84}       # Relevante
+  top_chunk: { file: "src/auth/guards.ts", relevance: 0.92 }
+  top_chunk_2: { file: "src/auth/jwt.ts", relevance: 0.84 } # Relevante
   token_efficiency: 0.89
 
 delta:
-  precision: +0.19 ✓✓✓ (28% improvement)
-  latency: -280ms ✓ (faster)
-  token_efficiency: +0.18 ✓
+  precision: +0.19 (28% improvement)
+  latency: -280ms (faster)
+  token_efficiency: +0.18
   verdict: "APPROVE - Reranker upgrade recommended"
 ```
 
@@ -193,7 +194,7 @@ vectora index --namespace "meu-projeto" --force
 # Comparar contra versão anterior (backup automático)
 vectora execute search_context \
   --query "handlers de autenticação" \
-  --compare backup-20260418               # Compara vs índice anterior
+  --compare backup-20260418 # Compara vs índice anterior
 ```
 
 **Caso 3: Monitorar degradação de performance**
@@ -203,10 +204,11 @@ vectora execute search_context \
 vectora execute search_context \
   --query "rate limiting" \
   --compare last-1h \
-  --fail-if-precision-drops 0.10          # Falha se cair >10%
+  --fail-if-precision-drops 0.10 # Falha se cair >10%
 ```
 
 Se `precision < 0.55` (abaixo do SLA 0.65):
+
 ```yaml
 status: FAILED
 reason: "precision degradation detected"
@@ -226,6 +228,7 @@ VECTORA_LOG_FORMAT=json
 ```
 
 Logs incluem:
+
 - Pre-execution: Guardian checks, preconditions
 - Execution: Timeouts, retries, chunks
 - Post-execution: Validation, metrics, decisions
@@ -249,7 +252,7 @@ context_engine:
     post_execution:
       validate_output: true
       capture_metrics: true
-      comparison_mode: false        # true para --compare
+      comparison_mode: false # true para --compare
     thresholds:
       min_retrieval_precision: 0.65
       min_tool_accuracy: 0.95
@@ -265,7 +268,7 @@ context_engine:
 
 ---
 
-> 💡 **Próximo**: [Namespaces](./namespaces.md)
+> **Próximo**: [Namespaces](./namespaces.md)
 
 ---
 

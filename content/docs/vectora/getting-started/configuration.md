@@ -19,6 +19,7 @@ tags:
 ## Visão Geral
 
 A configuração do Vectora é controlada por:
+
 1. **`vectora.config.yaml`** — Configuração do projeto (local)
 2. **Variáveis de Ambiente** — Chaves e credenciais (global)
 3. **CLI Commands** — Configuração dinâmica via terminal
@@ -36,28 +37,28 @@ Criado automaticamente com `vectora init`, este arquivo controla o comportamento
 project:
   name: "Meu Projeto"
   id: "proj_auth_service"
-  type: "codebase"           # ou 'documentation', 'api'
+  type: "codebase" # ou 'documentation', 'api'
   description: "Backend de autenticação em Go"
 
 # Configuração de Namespace e Segurança
 namespace:
-  id: "backend"              # Isolamento lógico
-  trust_folder: "."          # Raiz permitida para operações
-  visibility: "private"      # 'private', 'team', 'public'
+  id: "backend" # Isolamento lógico
+  trust_folder: "." # Raiz permitida para operações
+  visibility: "private" # 'private', 'team', 'public'
 
 # Providers de IA (Stack Curada)
 providers:
   embedding:
     provider: "voyage"
-    model: "voyage-4"        # ou fallback: "gemini-embedding-2"
+    model: "voyage-4" # ou fallback: "gemini-embedding-2"
     dimension: 1024
     batch_size: 32
-  
+
   reranker:
     enabled: true
-    provider: "voyage"       # ou "cohere", "local-bge"
+    provider: "voyage" # ou "cohere", "local-bge"
     model: "voyage-rerank-2.5"
-  
+
   llm:
     primary:
       provider: "gemini"
@@ -72,10 +73,10 @@ providers:
 
 # Context Engine (RAG Inteligente)
 context_engine:
-  strategy: "auto"           # ou 'semantic', 'structural', 'hybrid'
-  max_depth: 3               # Para buscas multi-hop
+  strategy: "auto" # ou 'semantic', 'structural', 'hybrid'
+  max_depth: 3 # Para buscas multi-hop
   compaction: true
-  include_ast: true          # Metadados de AST
+  include_ast: true # Metadados de AST
   include_dependencies: true # Grafo de imports
 
 # Segurança (Guardian + RBAC)
@@ -89,7 +90,7 @@ security:
       - "node_modules/**"
       - ".git/**"
     sanitize_output: true
-  
+
   rbac:
     enabled: true
     roles:
@@ -102,7 +103,7 @@ security:
 
 # Indexação (Qdrant)
 indexing:
-  auto_ingest: true          # Monitora mudanças de arquivo
+  auto_ingest: true # Monitora mudanças de arquivo
   watch_patterns:
     - "src/**/*.{ts,js,go,py}"
     - "docs/**/*.md"
@@ -110,8 +111,8 @@ indexing:
     - "node_modules/**"
     - ".git/**"
     - "*.test.*"
-  chunk_size: 512            # Tokens por chunk
-  overlap: 50                # Sobreposição entre chunks
+  chunk_size: 512 # Tokens por chunk
+  overlap: 50 # Sobreposição entre chunks
 
 # Harness (Validação + Métricas)
 harness:
@@ -122,9 +123,9 @@ harness:
 
 # Logging
 logging:
-  level: "info"              # 'debug', 'info', 'warn', 'error'
-  format: "json"             # ou 'text'
-  output: "console"          # ou "file", "both"
+  level: "info" # 'debug', 'info', 'warn', 'error'
+  format: "json" # ou 'text'
+  output: "console" # ou "file", "both"
 ```
 
 ---
@@ -134,19 +135,19 @@ logging:
 ### Obrigatórias
 
 ```bash
-GEMINI_API_KEY=sk-xxx...     # Google AI Studio
-VOYAGE_API_KEY=pa-xxx...     # Voyage AI
+GEMINI_API_KEY=sk-xxx... # Google AI Studio
+VOYAGE_API_KEY=pa-xxx... # Voyage AI
 ```
 
 ### Opcionais
 
 ```bash
 VECTORA_NAMESPACE=my-project # Sobrescreve vectora.config.yaml
-VECTORA_TRUST_FOLDER=/path   # Sobrescreve trust_folder
-VECTORA_LOG_LEVEL=debug      # 'debug', 'info', 'warn', 'error'
+VECTORA_TRUST_FOLDER=/path # Sobrescreve trust_folder
+VECTORA_LOG_LEVEL=debug # 'debug', 'info', 'warn', 'error'
 VECTORA_CACHE_DIR=~/.vectora # Diretório de cache
-QDRANT_URL=http://localhost:6333  # Se usar Qdrant local
-SUPABASE_URL=https://xxx.supabase.co  # Para auth customizada
+QDRANT_URL=http://localhost:6333 # Se usar Qdrant local
+SUPABASE_URL=https://xxx.supabase.co # Para auth customizada
 ```
 
 ### Arquivo `.env`
@@ -210,12 +211,12 @@ project:
 
 providers:
   embedding:
-    model: "voyage-4"        # Especializado em código
+    model: "voyage-4" # Especializado em código
   reranker:
     enabled: true
 
 context_engine:
-  strategy: "hybrid"         # Código + documentação
+  strategy: "hybrid" # Código + documentação
   include_dependencies: true # Importante para Go imports
 
 indexing:
@@ -250,22 +251,22 @@ indexing:
 providers:
   embedding:
     provider: "voyage"
-    fallback: "gemini"        # Fallback rápido
-  
+    fallback: "gemini" # Fallback rápido
+
   llm:
     primary:
       provider: "local"
-      model: "qwen3-1.7b-instruct"  # Rodando via ollama
+      model: "qwen3-1.7b-instruct" # Rodando via ollama
     fallback:
       - provider: "gemini"
         model: "gemini-3-flash"
 
 context_engine:
-  compaction: true            # Economize memória
-  max_depth: 2                # Menos hops
+  compaction: true # Economize memória
+  max_depth: 2 # Menos hops
 
 harness:
-  enabled: false              # Desative métricas para ganho de speed
+  enabled: false # Desative métricas para ganho de speed
 ```
 
 ---
@@ -277,10 +278,10 @@ harness:
 vectora config validate
 
 # Output esperado:
-# ✓ vectora.config.yaml is valid
-# ✓ All required keys present
-# ✓ Environment variables loaded
-# ✓ API keys accessible
+# vectora.config.yaml is valid
+# All required keys present
+# Environment variables loaded
+# API keys accessible
 ```
 
 ---
@@ -292,6 +293,7 @@ vectora config validate
 **Causa**: Arquivo YAML inválido.
 
 **Solução**: Valide em [yamllint.com](https://yamllint.com) ou use:
+
 ```bash
 yamllint vectora.config.yaml
 ```
@@ -301,6 +303,7 @@ yamllint vectora.config.yaml
 **Causa**: Variáveis de ambiente não carregadas.
 
 **Solução**:
+
 ```bash
 # Verifique se .env está no diretório correto
 ls -la .env
@@ -314,34 +317,36 @@ export $(cat .env | xargs)
 **Causa**: `trust_folder` aponta para diretório inválido.
 
 **Solução**: Atualize em `vectora.config.yaml`:
+
 ```yaml
 namespace:
-  trust_folder: "."  # ou caminho válido
+  trust_folder: "." # ou caminho válido
 ```
 
 ---
 
 ## FAQ
 
-**P: Posso ter múltiplas configurações para diferentes projetos?**  
+**P: Posso ter múltiplas configurações para diferentes projetos?**
 R: Sim. Crie um `vectora.config.yaml` em cada diretório de projeto. Vectora lê o arquivo mais próximo da raiz.
 
-**P: Como usar modelos locais em vez de APIs?**  
+**P: Como usar modelos locais em vez de APIs?**
 R: Configure `provider: "local"` e instale Ollama:
+
 ```bash
 ollama pull qwen3:1.7b-instruct
 # Depois configure em vectora.config.yaml
 ```
 
-**P: Posso compartilhar `vectora.config.yaml`?**  
+**P: Posso compartilhar `vectora.config.yaml`?**
 R: Sim, commite no git. Nunca commite `.env` ou chaves sensíveis (use `.env.example` sem valores).
 
-**P: Como resetar a configuração?**  
+**P: Como resetar a configuração?**
 R: Use `vectora config reset --confirm`, ou delete `~/.vectora/config.json`.
 
 ---
 
-> 💡 **Próximo**: Configure sua IDE em [Quickstart MCP](./quickstart-mcp.md).
+> **Próximo**: Configure sua IDE em [Quickstart MCP](./quickstart-mcp.md).
 
 ---
 
@@ -351,27 +356,32 @@ slug: configuration
 date: "2026-04-18T22:30:00-03:00"
 type: docs
 sidebar:
-  open: true
+open: true
 tags:
-  - ai
-  - configuration
-  - mcp
-  - setup
-  - vectora
+
+- ai
+- configuration
+- mcp
+- setup
+- vectora
+
 ---
+
 title: Configuração
 slug: configuration
 date: "2026-04-19T08:15:00-03:00"
 type: docs
 sidebar:
-  open: true
+open: true
 tags:
-  - getting-started
-  - configuration
-  - yaml
-  - environment
-  - vectora
-  - setup
+
+- getting-started
+- configuration
+- yaml
+- environment
+- vectora
+- setup
+
 ---
 
 {{< lang-toggle >}}
@@ -379,6 +389,7 @@ tags:
 ## Visão Geral
 
 A configuração do Vectora é controlada por:
+
 1. **`vectora.config.yaml`** — Configuração do projeto (local)
 2. **Variáveis de Ambiente** — Chaves e credenciais (global)
 3. **CLI Commands** — Configuração dinâmica via terminal
@@ -396,28 +407,28 @@ Criado automaticamente com `vectora init`, este arquivo controla o comportamento
 project:
   name: "Meu Projeto"
   id: "proj_auth_service"
-  type: "codebase"           # ou 'documentation', 'api'
+  type: "codebase" # ou 'documentation', 'api'
   description: "Backend de autenticação em Go"
 
 # Configuração de Namespace e Segurança
 namespace:
-  id: "backend"              # Isolamento lógico
-  trust_folder: "."          # Raiz permitida para operações
-  visibility: "private"      # 'private', 'team', 'public'
+  id: "backend" # Isolamento lógico
+  trust_folder: "." # Raiz permitida para operações
+  visibility: "private" # 'private', 'team', 'public'
 
 # Providers de IA (Stack Curada)
 providers:
   embedding:
     provider: "voyage"
-    model: "voyage-4"        # ou fallback: "gemini-embedding-2"
+    model: "voyage-4" # ou fallback: "gemini-embedding-2"
     dimension: 1024
     batch_size: 32
-  
+
   reranker:
     enabled: true
-    provider: "voyage"       # ou "cohere", "local-bge"
+    provider: "voyage" # ou "cohere", "local-bge"
     model: "voyage-rerank-2.5"
-  
+
   llm:
     primary:
       provider: "gemini"
@@ -432,10 +443,10 @@ providers:
 
 # Context Engine (RAG Inteligente)
 context_engine:
-  strategy: "auto"           # ou 'semantic', 'structural', 'hybrid'
-  max_depth: 3               # Para buscas multi-hop
+  strategy: "auto" # ou 'semantic', 'structural', 'hybrid'
+  max_depth: 3 # Para buscas multi-hop
   compaction: true
-  include_ast: true          # Metadados de AST
+  include_ast: true # Metadados de AST
   include_dependencies: true # Grafo de imports
 
 # Segurança (Guardian + RBAC)
@@ -449,7 +460,7 @@ security:
       - "node_modules/**"
       - ".git/**"
     sanitize_output: true
-  
+
   rbac:
     enabled: true
     roles:
@@ -462,7 +473,7 @@ security:
 
 # Indexação (Qdrant)
 indexing:
-  auto_ingest: true          # Monitora mudanças de arquivo
+  auto_ingest: true # Monitora mudanças de arquivo
   watch_patterns:
     - "src/**/*.{ts,js,go,py}"
     - "docs/**/*.md"
@@ -470,8 +481,8 @@ indexing:
     - "node_modules/**"
     - ".git/**"
     - "*.test.*"
-  chunk_size: 512            # Tokens por chunk
-  overlap: 50                # Sobreposição entre chunks
+  chunk_size: 512 # Tokens por chunk
+  overlap: 50 # Sobreposição entre chunks
 
 # Harness (Validação + Métricas)
 harness:
@@ -482,9 +493,9 @@ harness:
 
 # Logging
 logging:
-  level: "info"              # 'debug', 'info', 'warn', 'error'
-  format: "json"             # ou 'text'
-  output: "console"          # ou "file", "both"
+  level: "info" # 'debug', 'info', 'warn', 'error'
+  format: "json" # ou 'text'
+  output: "console" # ou "file", "both"
 ```
 
 ---
@@ -494,19 +505,19 @@ logging:
 ### Obrigatórias
 
 ```bash
-GEMINI_API_KEY=sk-xxx...     # Google AI Studio
-VOYAGE_API_KEY=pa-xxx...     # Voyage AI
+GEMINI_API_KEY=sk-xxx... # Google AI Studio
+VOYAGE_API_KEY=pa-xxx... # Voyage AI
 ```
 
 ### Opcionais
 
 ```bash
 VECTORA_NAMESPACE=my-project # Sobrescreve vectora.config.yaml
-VECTORA_TRUST_FOLDER=/path   # Sobrescreve trust_folder
-VECTORA_LOG_LEVEL=debug      # 'debug', 'info', 'warn', 'error'
+VECTORA_TRUST_FOLDER=/path # Sobrescreve trust_folder
+VECTORA_LOG_LEVEL=debug # 'debug', 'info', 'warn', 'error'
 VECTORA_CACHE_DIR=~/.vectora # Diretório de cache
-QDRANT_URL=http://localhost:6333  # Se usar Qdrant local
-SUPABASE_URL=https://xxx.supabase.co  # Para auth customizada
+QDRANT_URL=http://localhost:6333 # Se usar Qdrant local
+SUPABASE_URL=https://xxx.supabase.co # Para auth customizada
 ```
 
 ### Arquivo `.env`
@@ -570,12 +581,12 @@ project:
 
 providers:
   embedding:
-    model: "voyage-4"        # Especializado em código
+    model: "voyage-4" # Especializado em código
   reranker:
     enabled: true
 
 context_engine:
-  strategy: "hybrid"         # Código + documentação
+  strategy: "hybrid" # Código + documentação
   include_dependencies: true # Importante para Go imports
 
 indexing:
@@ -610,22 +621,22 @@ indexing:
 providers:
   embedding:
     provider: "voyage"
-    fallback: "gemini"        # Fallback rápido
-  
+    fallback: "gemini" # Fallback rápido
+
   llm:
     primary:
       provider: "local"
-      model: "qwen3-1.7b-instruct"  # Rodando via ollama
+      model: "qwen3-1.7b-instruct" # Rodando via ollama
     fallback:
       - provider: "gemini"
         model: "gemini-3-flash"
 
 context_engine:
-  compaction: true            # Economize memória
-  max_depth: 2                # Menos hops
+  compaction: true # Economize memória
+  max_depth: 2 # Menos hops
 
 harness:
-  enabled: false              # Desative métricas para ganho de speed
+  enabled: false # Desative métricas para ganho de speed
 ```
 
 ---
@@ -637,10 +648,10 @@ harness:
 vectora config validate
 
 # Output esperado:
-# ✓ vectora.config.yaml is valid
-# ✓ All required keys present
-# ✓ Environment variables loaded
-# ✓ API keys accessible
+# vectora.config.yaml is valid
+# All required keys present
+# Environment variables loaded
+# API keys accessible
 ```
 
 ---
@@ -652,6 +663,7 @@ vectora config validate
 **Causa**: Arquivo YAML inválido.
 
 **Solução**: Valide em [yamllint.com](https://yamllint.com) ou use:
+
 ```bash
 yamllint vectora.config.yaml
 ```
@@ -661,6 +673,7 @@ yamllint vectora.config.yaml
 **Causa**: Variáveis de ambiente não carregadas.
 
 **Solução**:
+
 ```bash
 # Verifique se .env está no diretório correto
 ls -la .env
@@ -674,34 +687,36 @@ export $(cat .env | xargs)
 **Causa**: `trust_folder` aponta para diretório inválido.
 
 **Solução**: Atualize em `vectora.config.yaml`:
+
 ```yaml
 namespace:
-  trust_folder: "."  # ou caminho válido
+  trust_folder: "." # ou caminho válido
 ```
 
 ---
 
 ## FAQ
 
-**P: Posso ter múltiplas configurações para diferentes projetos?**  
+**P: Posso ter múltiplas configurações para diferentes projetos?**
 R: Sim. Crie um `vectora.config.yaml` em cada diretório de projeto. Vectora lê o arquivo mais próximo da raiz.
 
-**P: Como usar modelos locais em vez de APIs?**  
+**P: Como usar modelos locais em vez de APIs?**
 R: Configure `provider: "local"` e instale Ollama:
+
 ```bash
 ollama pull qwen3:1.7b-instruct
 # Depois configure em vectora.config.yaml
 ```
 
-**P: Posso compartilhar `vectora.config.yaml`?**  
+**P: Posso compartilhar `vectora.config.yaml`?**
 R: Sim, commite no git. Nunca commite `.env` ou chaves sensíveis (use `.env.example` sem valores).
 
-**P: Como resetar a configuração?**  
+**P: Como resetar a configuração?**
 R: Use `vectora config reset --confirm`, ou delete `~/.vectora/config.json`.
 
 ---
 
-> 💡 **Próximo**: Configure sua IDE em [Quickstart MCP](./quickstart-mcp.md).
+> **Próximo**: Configure sua IDE em [Quickstart MCP](./quickstart-mcp.md).
 
 ---
 

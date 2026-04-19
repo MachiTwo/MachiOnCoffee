@@ -24,23 +24,23 @@ O plano **Team** é para grandes organizações com requisitos enterprise: SSO, 
 
 ## O Que Está Incluído
 
-### Tudo do Pro, PLUS:
+### Tudo do Pro, PLUS
 
-| Feature | Pro | Team |
-|---------|-----|------|
-| **Usuários Simultâneos** | 50 | Unlimited |
-| **Rate Limiting** | 2000 req/min | Custom |
-| **Tokens Unlimited** | ✅ | ✅ |
-| **Webhooks** | ✅ | ✅ |
-| **Custom Domain** | ✅ | ✅ |
-| **SSO (SAML/OIDC)** | ❌ | ✅ |
-| **LDAP/Active Directory** | ❌ | ✅ |
-| **On-Premise Deployment** | ❌ | ✅ |
-| **99.99% SLA** | ❌ | ✅ |
-| **Dedicated Support** | ❌ | ✅ |
-| **Custom Integrations** | ❌ | ✅ |
-| **Advanced Compliance** | ❌ | ✅ |
-| **Audit Logging (Detailed)** | ❌ | ✅ |
+| Feature                      | Pro          | Team      |
+| ---------------------------- | ------------ | --------- |
+| **Usuários Simultâneos**     | 50           | Unlimited |
+| **Rate Limiting**            | 2000 req/min | Custom    |
+| **Tokens Unlimited**         |              |           |
+| **Webhooks**                 |              |           |
+| **Custom Domain**            |              |           |
+| **SSO (SAML/OIDC)**          |              |           |
+| **LDAP/Active Directory**    |              |           |
+| **On-Premise Deployment**    |              |           |
+| **99.99% SLA**               |              |           |
+| **Dedicated Support**        |              |           |
+| **Custom Integrations**      |              |           |
+| **Advanced Compliance**      |              |           |
+| **Audit Logging (Detailed)** |              |           |
 
 ### Enterprise Features
 
@@ -79,6 +79,7 @@ helm install vectora ./vectora-helm \
 ```
 
 **Incluso**:
+
 - Qdrant cluster gerenciado
 - Redis cache distribuído
 - PostgreSQL para metadata
@@ -129,9 +130,9 @@ Total: ~$13,500/mês
 
 ### Contato para Pricing
 
-📧 **sales@vectora.app**
-📞 **Slack Enterprise Channel**
-📅 **Demo & Proposal: 48h**
+**<sales@vectora.app>**
+**Slack Enterprise Channel**
+**Demo & Proposal: 48h**
 
 ---
 
@@ -142,11 +143,11 @@ Total: ~$13,500/mês
 Vectora hospeda em infraestrutura enterprise-grade:
 
 ```text
-✅ Redundância multi-region
-✅ 99.99% uptime SLA
-✅ DDoS protection
-✅ Automatic failover
-✅ Daily encrypted backups
+ Redundância multi-region
+ 99.99% uptime SLA
+ DDoS protection
+ Automatic failover
+ Daily encrypted backups
 ```
 
 ### Option 2: Private Cloud (VPC)
@@ -154,10 +155,10 @@ Vectora hospeda em infraestrutura enterprise-grade:
 Infraestrutura isolada na sua conta AWS/Azure/GCP:
 
 ```text
-✅ Seu VPC, sua segurança
-✅ Private endpoints
-✅ Direct network access
-✅ Você controla backups
+ Seu VPC, sua segurança
+ Private endpoints
+ Direct network access
+ Você controla backups
 ```
 
 ### Option 3: On-Premise
@@ -165,11 +166,11 @@ Infraestrutura isolada na sua conta AWS/Azure/GCP:
 Datacenter seu ou privado:
 
 ```text
-✅ Controle total
-✅ Sem dados na cloud
-✅ Compliance local
-✅ Air-gapped possible
-✅ Hardware próprio
+ Controle total
+ Sem dados na cloud
+ Compliance local
+ Air-gapped possible
+ Hardware próprio
 ```
 
 ---
@@ -194,11 +195,11 @@ Response Times:
 Se não atingirmos SLA:
 
 ```text
-Uptime        | Credit
+Uptime | Credit
 ──────────────┼────────
-99.9%-99.99%  | 10% mês
-99%-99.9%     | 25% mês
-< 99%         | 50% mês
+99.9%-99.99% | 10% mês
+99%-99.9% | 25% mês
+< 99% | 50% mês
 ```
 
 ---
@@ -215,11 +216,11 @@ Uptime        | Credit
 ### Support SLA
 
 | Severity | Response | Resolution |
-|----------|----------|-----------|
-| Critical | 15 min | 4 hours |
-| High | 1 hour | 8 hours |
-| Medium | 4 hours | 24 hours |
-| Low | 8 hours | 5 days |
+| -------- | -------- | ---------- |
+| Critical | 15 min   | 4 hours    |
+| High     | 1 hour   | 8 hours    |
+| Medium   | 4 hours  | 24 hours   |
+| Low      | 8 hours  | 5 days     |
 
 ---
 
@@ -250,12 +251,12 @@ custom_embedding:
 
 ### Certifications
 
-- ✅ **SOC 2 Type II**
-- ✅ **GDPR Compliant**
-- ✅ **HIPAA Ready**
-- ✅ **CCPA Compliant**
-- ✅ **ISO 27001** (on-request)
-- ✅ **FedRAMP Ready** (govtech)
+- **SOC 2 Type II**
+- **GDPR Compliant**
+- **HIPAA Ready**
+- **CCPA Compliant**
+- **ISO 27001** (on-request)
+- **FedRAMP Ready** (govtech)
 
 ### Data Security
 
@@ -290,6 +291,7 @@ vectora upgrade --plan team
 ```
 
 **Processo**:
+
 1. Assinatura contratual
 2. Provisionamento de infraestrutura
 3. Migração de dados (zero downtime)
@@ -348,19 +350,19 @@ regions:
 
 ## FAQ Team
 
-**P: Quanto custa?**  
-R: Customizado por org. Contate sales@vectora.app para proposta.
+**P: Quanto custa?**
+R: Customizado por org. Contate <sales@vectora.app> para proposta.
 
-**P: Quanto tempo leva para deploy on-prem?**  
+**P: Quanto tempo leva para deploy on-prem?**
 R: 2-4 semanas incluindo setup, training, migração.
 
-**P: Posso usar LDAP + Azure AD ao mesmo tempo?**  
+**P: Posso usar LDAP + Azure AD ao mesmo tempo?**
 R: Sim, suportamos múltiplos provedores simultaneamente.
 
-**P: Incluem backups?**  
+**P: Incluem backups?**
 R: Sim, automated daily com retenção de 30 dias (customizável).
 
-**P: Qual é o tempo de resposta para críticos?**  
+**P: Qual é o tempo de resposta para críticos?**
 R: 15 min para assessment, 4 horas para resolve.
 
 ---
@@ -372,11 +374,11 @@ R: 15 min para assessment, 4 horas para resolve.
 3. **Proposal**: Pricing customizado
 4. **Onboarding**: Dedicated account manager
 
-📧 **sales@vectora.app**
+**<sales@vectora.app>**
 
 ---
 
-> 💡 **Próximo**: [Security & Guardian](../security/guardian.md)
+> **Próximo**: [Security & Guardian](../security/guardian.md)
 
 ---
 

@@ -36,12 +36,15 @@ Agents genéricos retornam 50 arquivos irrelevantes para uma query simples. O Co
 O Context Engine oferece três estratégias de busca independentes ou combinadas, dependendo do tipo de consulta e precisão desejada.
 
 ### Semântica
+
 Usa embeddings para encontrar similaridade funcional. Ideal para "Como validar tokens?"
 
 ### Estrutural
+
 Usa AST parsing para relações de código. Ideal para "Que funções chamam X?"
 
 ### Híbrida
+
 Combina semântica + estrutura. Ideal para refatoração de módulos.
 
 ---
@@ -132,7 +135,7 @@ Output:
 
 ---
 
-> 💡 **Próximo**: [Harness Runtime](./harness-runtime.md)
+> **Próximo**: [Harness Runtime](./harness-runtime.md)
 
 ---
 

@@ -23,33 +23,33 @@ O plano **Pro** é para equipes que escalam. Suporte prioritário, limites aumen
 
 ## O Que Está Incluído
 
-### Tudo do Free, PLUS:
+### Tudo do Free, PLUS
 
-| Feature | Free | Pro |
-|---------|------|-----|
-| **Namespaces Ilimitados** | ✅ | ✅ |
-| **Buscas/mês** | 30K | Unlimited |
-| **Tokens Embedding/mês** | 1.5M | Unlimited |
-| **Tokens LLM/mês** | 1.5M | Unlimited |
-| **Usuários Simultâneos** | 1 | 50 |
-| **Rate Limiting** | 60 req/min | 2000 req/min |
-| **Webhooks** | ❌ | ✅ |
-| **Custom Domain** | ❌ | ✅ |
-| **API Tokens** | ❌ | ✅ |
-| **Advanced Metrics** | ❌ | ✅ |
-| **Priority Support** | ❌ | ✅ |
-| **99.9% SLA** | ❌ | ✅ |
-| **Custom Reranker** | ❌ | ✅ |
+| Feature                   | Free       | Pro          |
+| ------------------------- | ---------- | ------------ |
+| **Namespaces Ilimitados** |            |              |
+| **Buscas/mês**            | 30K        | Unlimited    |
+| **Tokens Embedding/mês**  | 1.5M       | Unlimited    |
+| **Tokens LLM/mês**        | 1.5M       | Unlimited    |
+| **Usuários Simultâneos**  | 1          | 50           |
+| **Rate Limiting**         | 60 req/min | 2000 req/min |
+| **Webhooks**              |            |              |
+| **Custom Domain**         |            |              |
+| **API Tokens**            |            |              |
+| **Advanced Metrics**      |            |              |
+| **Priority Support**      |            |              |
+| **99.9% SLA**             |            |              |
+| **Custom Reranker**       |            |              |
 
 ### Modelos Premium
 
 Acesso a mais modelos (ainda BYOK):
 
-| Componente | Free | Pro |
-|-----------|------|-----|
-| **Embedding** | Voyage 4 | Voyage 4 + Claude 3 |
+| Componente    | Free              | Pro                    |
+| ------------- | ----------------- | ---------------------- |
+| **Embedding** | Voyage 4          | Voyage 4 + Claude 3    |
 | **Reranking** | Voyage Rerank 2.5 | + Custom (Cohere, etc) |
-| **LLM** | Gemini Flash | + Claude, GPT-4 |
+| **LLM**       | Gemini Flash      | + Claude, GPT-4        |
 
 ---
 
@@ -60,12 +60,12 @@ pro_tier_limits:
   rate_limiting:
     requests_per_minute: 2000
     concurrent_users: 50
-    
+
   storage:
     vector_index: unlimited
     embeddings_cache: 5GB
     logs_retention: 90 days
-  
+
   performance:
     search_latency: <500ms (p99)
     max_file_size: 500MB
@@ -95,13 +95,13 @@ Content-Type: application/json
 
 ### Eventos Disponíveis
 
-| Evento | Trigger |
-|--------|---------|
-| `index.completed` | Após indexação finalizar |
-| `search.high_latency` | Busca > 1s |
-| `quota.warning` | 80% da quota atingida |
-| `error.security` | Guardian bloqueou acesso |
-| `user.login` | Novo user login |
+| Evento                | Trigger                  |
+| --------------------- | ------------------------ |
+| `index.completed`     | Após indexação finalizar |
+| `search.high_latency` | Busca > 1s               |
+| `quota.warning`       | 80% da quota atingida    |
+| `error.security`      | Guardian bloqueou acesso |
+| `user.login`          | Novo user login          |
 
 ---
 
@@ -149,11 +149,11 @@ curl -H "Authorization: Bearer sk-proj-abc123xyz..." \
 ### Scopes Disponíveis
 
 ```text
-- search      # Buscas
-- index       # Indexação
-- configure   # Alterar config
-- user        # Gerenciar users
-- billing     # Ver faturas
+- search # Buscas
+- index # Indexação
+- configure # Alterar config
+- user # Gerenciar users
+- billing # Ver faturas
 ```
 
 ---
@@ -165,20 +165,20 @@ Dashboard com métricas detalhadas:
 ```text
 Pro Users Dashboard
 ├─ Search Performance
-│  ├─ p50 latency: 120ms
-│  ├─ p95 latency: 280ms
-│  ├─ p99 latency: 450ms
-│  └─ Error rate: 0.1%
+│ ├─ p50 latency: 120ms
+│ ├─ p95 latency: 280ms
+│ ├─ p99 latency: 450ms
+│ └─ Error rate: 0.1%
 ├─ Indexing Performance
-│  ├─ Files indexed: 2,847
-│  ├─ Chunks: 45,231
-│  ├─ Index size: 150MB
-│  └─ Last index: 2h ago
+│ ├─ Files indexed: 2,847
+│ ├─ Chunks: 45,231
+│ ├─ Index size: 150MB
+│ └─ Last index: 2h ago
 ├─ User Activity
-│  ├─ Active users: 23
-│  ├─ Searches (24h): 1,234
-│  ├─ Top queries: [...]
-│  └─ Most used files: [...]
+│ ├─ Active users: 23
+│ ├─ Searches (24h): 1,234
+│ ├─ Top queries: [...]
+│ └─ Most used files: [...]
 └─ Billing
    ├─ Current usage: $24.32
    ├─ Monthly limit: $100
@@ -214,10 +214,10 @@ Exemplo:
 
 ### Sem Surpresas
 
-- ✅ Sem setup fee
-- ✅ Cancelamento anytime
-- ✅ Sem contrato longo
-- ✅ Faturamento automático
+- Sem setup fee
+- Cancelamento anytime
+- Sem contrato longo
+- Faturamento automático
 
 ---
 
@@ -233,27 +233,27 @@ vectora upgrade --plan pro --stripe-token sk_...
 
 ### Migração Automática
 
-- ✅ Todos os dados preservados
-- ✅ Sem downtime
-- ✅ Namespaces mantidos
-- ✅ Configurações intactas
+- Todos os dados preservados
+- Sem downtime
+- Namespaces mantidos
+- Configurações intactas
 
 ---
 
 ## Comparação: Free vs Pro
 
-| Feature | Free | Pro | Team |
-|---------|------|-----|------|
-| **Price** | Grátis | $29/mês | Custom |
-| **Users** | 1 | 50 | Unlimited |
-| **Rate Limit** | 60 req/min | 2000 req/min | Custom |
-| **Tokens/mês** | 1.5M | Unlimited | Unlimited |
-| **Webhooks** | ❌ | ✅ | ✅ |
-| **Custom Domain** | ❌ | ✅ | ✅ |
-| **SLA** | ❌ | 99.9% | 99.99% |
-| **Priority Support** | ❌ | ✅ | ✅ |
-| **SSO/LDAP** | ❌ | ❌ | ✅ |
-| **On-Premise** | ❌ | ❌ | ✅ |
+| Feature              | Free       | Pro          | Team      |
+| -------------------- | ---------- | ------------ | --------- |
+| **Price**            | Grátis     | $29/mês      | Custom    |
+| **Users**            | 1          | 50           | Unlimited |
+| **Rate Limit**       | 60 req/min | 2000 req/min | Custom    |
+| **Tokens/mês**       | 1.5M       | Unlimited    | Unlimited |
+| **Webhooks**         |            |              |           |
+| **Custom Domain**    |            |              |           |
+| **SLA**              |            | 99.9%        | 99.99%    |
+| **Priority Support** |            |              |           |
+| **SSO/LDAP**         |            |              |           |
+| **On-Premise**       |            |              |           |
 
 ---
 
@@ -269,21 +269,21 @@ vectora upgrade --plan pro --stripe-token sk_...
 
 ## FAQ Pro
 
-**P: Posso downgrade para Free depois?**  
+**P: Posso downgrade para Free depois?**
 R: Sim, anytime. Seus dados são preservados.
 
-**P: Quanto custa com 100 usuários?**  
+**P: Quanto custa com 100 usuários?**
 R: $29 + (50 × $0.50) = $54/mês
 
-**P: Inclui suporte técnico?**  
+**P: Inclui suporte técnico?**
 R: Sim, email <4h + Slack prioritário.
 
-**P: Posso usar em produção?**  
+**P: Posso usar em produção?**
 R: Sim, com 99.9% SLA (uptime garantido).
 
 ---
 
-> 💡 **Próximo**: [Team Plan](./team.md)
+> **Próximo**: [Team Plan](./team.md)
 
 ---
 

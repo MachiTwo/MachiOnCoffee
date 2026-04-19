@@ -18,14 +18,14 @@ tags:
 
 Tudo que você precisa para começar com Vectora em 5 minutos: instalação, configuração de chaves, e primeira busca.
 
-## 🚀 Sequência Recomendada
+## Sequência Recomendada
 
-| Passo | Descrição | Tempo |
-|-------|-----------|-------|
-| 1️⃣ | [Installation](./installation.md) | 2 min |
-| 2️⃣ | [Configuration](./configuration.md) | 2 min |
-| 3️⃣ | [Quickstart MCP](./quickstart-mcp.md) | 3 min |
-| 4️⃣ | [Troubleshooting](./troubleshooting.md) | Sob demanda |
+| Passo | Descrição                               | Tempo       |
+| ----- | --------------------------------------- | ----------- |
+| 1⃣    | [Installation](./installation.md)       | 2 min       |
+| 2⃣    | [Configuration](./configuration.md)     | 2 min       |
+| 3⃣    | [Quickstart MCP](./quickstart-mcp.md)   | 3 min       |
+| 4⃣    | [Troubleshooting](./troubleshooting.md) | Sob demanda |
 
 ## O Que Você Vai Fazer
 
@@ -41,6 +41,7 @@ Pré-requisitos: Node.js 18+, npm ou yarn
 ### Passo 2: Configurar Chaves de API
 
 Vectora usa BYOK (Bring Your Own Key). Você fornece:
+
 - `GEMINI_API_KEY` de [Google AI Studio](https://aistudio.google.com)
 - `VOYAGE_API_KEY` de [Voyage AI](https://www.voyageai.com)
 
@@ -65,20 +66,21 @@ vectora search "Como authenticar usuários?"
 
 Ou direto no IDE com autocomplete de MCP tools.
 
-## ❓ Precisa de Ajuda?
+## Precisa de Ajuda?
 
 - **Erro de instalação?** → [Troubleshooting](./troubleshooting.md)
 - **MCP não conecta?** → [Quickstart MCP](./quickstart-mcp.md)
 - **Config não funciona?** → [Configuration](./configuration.md)
 - **Outra dúvida?** → [FAQ](../faq/)
 
-## 📚 Próximas Leituras
+## Próximas Leituras
 
 Após configurar:
+
 1. [Conceitos](../concepts/) — Entenda como funciona
 2. [Integrações](../integrations/) — Configure seu IDE
 3. [Segurança](../security/) — Proteja seus dados
 
 ---
 
-> ⏱️ Tempo total: ~5-10 minutos. Vamos lá!
+> Tempo total: ~5-10 minutos. Vamos lá!

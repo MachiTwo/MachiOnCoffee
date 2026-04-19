@@ -15,15 +15,15 @@ tags:
 
 Perguntas frequentes sobre Vectora, organizadas por categoria. Use a busca abaixo para encontrar respostas rápidas.
 
-## 📚 Categorias
+## Categorias
 
-| Tema | Questões | Link |
-|------|----------|------|
-| **Geral** | Instalação, uso básico, plataformas | [→ General](./general.md) |
+| Tema          | Questões                                      | Link                        |
+| ------------- | --------------------------------------------- | --------------------------- |
+| **Geral**     | Instalação, uso básico, plataformas           | [→ General](./general.md)   |
 | **Segurança** | BYOK, criptografia, conformidade, privacidade | [→ Security](./security.md) |
-| **Billing** | Planos, pricing, upgrade, retenção | [→ Billing](./billing.md) |
+| **Billing**   | Planos, pricing, upgrade, retenção            | [→ Billing](./billing.md)   |
 
-## 🔍 Procure por Palavra-Chave
+## Procure por Palavra-Chave
 
 Use `Ctrl+F` para buscar nesta página:
 
@@ -37,8 +37,8 @@ Use `Ctrl+F` para buscar nesta página:
 
 - [GitHub Discussions](https://github.com/vectora/vectora/discussions) - Comunidade
 - [Security Advisory](https://github.com/vectora/vectora/security) - Segurança
-- Email: support@vectora.app
+- Email: <support@vectora.app>
 
 ---
 
-> 💡 Sugerir pergunta para FAQ? [Abra uma Discussion](https://github.com/vectora/vectora/discussions)
+> Sugerir pergunta para FAQ? [Abra uma Discussion](https://github.com/vectora/vectora/discussions)

@@ -19,6 +19,7 @@ Dúvidas sobre planos, preço, faturamento e upgrade de Vectora respondidas com 
 ## Por Quanto Tempo Posso Usar Free?
 
 **Para sempre.** Free tier é permanente e sem expiração. Use Vectora gratuitamente indefinidamente se:
+
 - 1 usuário
 - < 1000 buscas/dia
 - Sem necessidade de webhooks
@@ -37,6 +38,7 @@ vectora upgrade --plan pro
 ```
 
 **Processo**:
+
 1. Escolha plano (Pro ou Team)
 2. Add método de pagamento (cartão ou invoice)
 3. Upgrade imediato
@@ -71,6 +73,7 @@ Se você está em outra região, conversor automático no pagamento.
 **Monthly billing** (ciclo renovado todo dia da assinatura).
 
 Exemplo:
+
 - Assina em 19 de abril
 - Renovações: 19 de maio, 19 de junho, etc.
 
@@ -115,9 +118,10 @@ vectora downgrade --plan free
 
 **Sim, entre em contato.**
 
-📧 **sales@vectora.app**
+**<sales@vectora.app>**
 
 Oferecemos:
+
 - 50% desconto para nonprofits (verificado)
 - 50% para startups em Y Combinator / similar
 - Custom pricing para volume/educação
@@ -135,6 +139,7 @@ vectora subscription cancel
 ```
 
 **Resultado**:
+
 - Cancelamento imediato
 - Sem cobranças futuras
 - Dados preservados (5 dias antes de purga)
@@ -145,11 +150,11 @@ vectora subscription cancel
 
 **Free → Pro**:
 
-| Recurso | Free | Pro |
-|---------|------|-----|
-| Buscas/mês | 30K | Unlimited |
-| Usuários | 1 | 50 |
-| Rate limit | 60/min | 2000/min |
+| Recurso    | Free   | Pro       |
+| ---------- | ------ | --------- |
+| Buscas/mês | 30K    | Unlimited |
+| Usuários   | 1      | 50        |
+| Rate limit | 60/min | 2000/min  |
 
 **Se você excede limites Free**:
 → Requisições são bloqueadas (error 429)
@@ -170,12 +175,14 @@ Sem taxas escondidas, sem taxa de gateway, sem taxa de processamento.
 ## Qual é a Política de Dados Deletados?
 
 **Free Tier**:
+
 - Cancelamento
 - Dados permanecem 5 dias
 - Depois deletados automaticamente
 - Recuperação não-possível
 
 **Pro/Team**:
+
 - Backup diário
 - Retenção 30+ dias
 - Recuperação disponível (contate support)
@@ -191,6 +198,7 @@ Sem taxas escondidas, sem taxa de gateway, sem taxa de processamento.
 - **Storage extra**: $0.10/GB/mês acima de 5GB
 
 Exemplo:
+
 - 100 usuários: $29 + (50 × $0.50) = $54/mês
 
 ---
@@ -200,13 +208,14 @@ Exemplo:
 **Customizado por organização.**
 
 Baseado em:
+
 - Número de usuários
 - Features customizadas (SSO, webhooks, etc)
 - Support tier (24/7, dedicated, etc)
 - Deployment (cloud vs on-prem)
 
 **Contato**:
-📧 **sales@vectora.app** para proposta
+**<sales@vectora.app>** para proposta
 
 ---
 
@@ -215,6 +224,7 @@ Baseado em:
 **Não, use Free tier indefinidamente.**
 
 Free tier é suficiente para testar:
+
 - Indexação
 - Busca
 - Integração com IDEs
@@ -237,7 +247,8 @@ vectora billing current
 ```
 
 **Dashboard**:
-- https://console.vectora.app/settings/billing
+
+- <https://console.vectora.app/settings/billing>
 - Histórico de faturas
 - Detalhes de uso
 - Methods of payment
@@ -249,6 +260,7 @@ vectora billing current
 Leia: [BYOK & Privacy](../security/byok-privacy.md)
 
 **Resumo**:
+
 - BYOK (suas chaves)
 - Dados nunca são salvos
 - Criptografado em trânsito
@@ -259,11 +271,11 @@ Leia: [BYOK & Privacy](../security/byok-privacy.md)
 
 ## Há Garantia de Uptime?
 
-| Plano | SLA | Compensação |
-|-------|-----|-------------|
-| **Free** | Nenhuma | N/A |
-| **Pro** | 99.9% | 10-50% refund |
-| **Team** | 99.99% | 10-50% refund |
+| Plano    | SLA     | Compensação   |
+| -------- | ------- | ------------- |
+| **Free** | Nenhuma | N/A           |
+| **Pro**  | 99.9%   | 10-50% refund |
+| **Team** | 99.99%  | 10-50% refund |
 
 Se Vectora não atinge SLA, você recebe crédito automaticamente.
 
@@ -272,10 +284,12 @@ Se Vectora não atinge SLA, você recebe crédito automaticamente.
 ## Qual é Meu Limite de API?
 
 **Free**:
+
 - Gemini: 60 requisições/min (Google free tier)
 - Voyage: 50 requisições/min (Voyage free tier)
 
 **Pro/Team**:
+
 - Unlimited (você paga para Google/Voyage, não Vectora)
 
 ---
@@ -285,6 +299,7 @@ Se Vectora não atinge SLA, você recebe crédito automaticamente.
 **Sim.**
 
 Vectora aceita:
+
 - Visa, Mastercard, American Express
 - Depósito bancário (Team)
 - PO (invoice)
@@ -322,7 +337,7 @@ mv backup.tar.gz ~/backups/
 
 ---
 
-> 💡 **Próximo**: [FAQ - Security](./security.md)
+> **Próximo**: [FAQ - Security](./security.md)
 
 ---
 

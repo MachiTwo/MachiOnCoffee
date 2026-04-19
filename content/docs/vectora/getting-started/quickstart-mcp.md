@@ -129,6 +129,7 @@ Se receber erro:
 3. **Status deve ser "Connected"**
 
 Se não estiver conectado:
+
 - Verifique que `vectora --version` funciona no terminal
 - Confira o arquivo `claude_desktop_config.json` (sintaxe JSON)
 - Reinicie Claude Desktop
@@ -169,27 +170,27 @@ Depois de `vectora init`, você terá:
 
 ```text
 meu-projeto/
-├── vectora.config.yaml    # Configuração do projeto
-├── AGENTS.md              # Memória do agente (auto-gerado)
-├── .vectora/              # Cache e índices locais
-│   ├── embeddings/        # Cache de embeddings
-│   └── index.json         # Metadados do índice
-├── src/                   # Seu código
-└── .env                   # Variáveis de ambiente (não commitar!)
+├── vectora.config.yaml # Configuração do projeto
+├── AGENTS.md # Memória do agente (auto-gerado)
+├── .vectora/ # Cache e índices locais
+│ ├── embeddings/ # Cache de embeddings
+│ └── index.json # Metadados do índice
+├── src/ # Seu código
+└── .env # Variáveis de ambiente (não commitar!)
 ```
 
 ---
 
 ## Comandos MCP Disponíveis
 
-| Comando | O que faz | Exemplo |
-|---------|-----------|---------|
-| `context_search` | Busca semântica no codebase | "autenticação JWT" |
-| `file_read` | Lê um arquivo | `src/main.ts` |
-| `file_list` | Lista arquivos recursivamente | `src/` |
-| `file_write` | Escreve ou modifica arquivo | Criar novo arquivo |
-| `file_edit` | Edita parte de um arquivo | Mudar uma função |
-| `grep_search` | Busca por regex | Padrões específicos |
+| Comando          | O que faz                     | Exemplo             |
+| ---------------- | ----------------------------- | ------------------- |
+| `context_search` | Busca semântica no codebase   | "autenticação JWT"  |
+| `file_read`      | Lê um arquivo                 | `src/main.ts`       |
+| `file_list`      | Lista arquivos recursivamente | `src/`              |
+| `file_write`     | Escreve ou modifica arquivo   | Criar novo arquivo  |
+| `file_edit`      | Edita parte de um arquivo     | Mudar uma função    |
+| `grep_search`    | Busca por regex               | Padrões específicos |
 
 ---
 
@@ -200,10 +201,11 @@ meu-projeto/
 **Causa**: `vectora` não está no PATH.
 
 **Solução**:
+
 ```bash
 # Verifique onde vectora está instalado
-which vectora  # macOS/Linux
-where.exe vectora  # Windows
+which vectora # macOS/Linux
+where.exe vectora # Windows
 
 # Se não encontrar, reinstale:
 npm install -g @kaffyn/vectora
@@ -214,6 +216,7 @@ npm install -g @kaffyn/vectora
 **Causa**: Vectora não consegue conectar à API do Gemini/Voyage.
 
 **Solução**:
+
 ```bash
 # Verifique as chaves de API
 echo $GEMINI_API_KEY
@@ -229,6 +232,7 @@ export VOYAGE_API_KEY="pa-xxx"
 **Causa**: Namespace não existe.
 
 **Solução**:
+
 ```bash
 # Inicialize o projeto
 vectora init --name "Meu Projeto"
@@ -242,6 +246,7 @@ vectora init --name "Meu Projeto"
 **Causa**: Claude não detecta que a ferramenta é relevante.
 
 **Solução**: Seja explícito:
+
 ```text
 Use o Vectora para buscar informações sobre autenticação neste projeto.
 ```
@@ -258,18 +263,18 @@ Use o Vectora para buscar informações sobre autenticação neste projeto.
 
 ## FAQ
 
-**P: Posso usar Vectora com outros agentes além de Claude?**  
+**P: Posso usar Vectora com outros agentes além de Claude?**
 R: Sim! Veja [Gemini Integration](../integrations/gemini-integration.md) e [Custom Agents](../integrations/custom-agents.md).
 
-**P: Vectora funciona offline?**  
+**P: Vectora funciona offline?**
 R: Parcialmente. Context search precisa de internet (Voyage API). File operations funcionam offline.
 
-**P: Como debugar conexões MCP?**  
+**P: Como debugar conexões MCP?**
 R: Use o MCP Inspector em Claude Desktop (Menu → Developer Tools → MCP Inspector).
 
 ---
 
-> 💡 **Próximo**: Aprenda sobre [Troubleshooting](./troubleshooting.md).
+> **Próximo**: Aprenda sobre [Troubleshooting](./troubleshooting.md).
 
 ---
 

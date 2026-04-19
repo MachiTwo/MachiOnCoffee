@@ -16,12 +16,12 @@ tags:
 
 Vectora implementa dois protocolos de comunicação: MCP (Model Context Protocol) para integração com IDEs, e ACP (Agent Communication Protocol) para comunicação entre sub-agents.
 
-## 🔌 Protocolos Suportados
+## Protocolos Suportados
 
-| Protocolo | Caso de Uso | Status | Docs |
-|-----------|------------|--------|------|
-| **MCP** | Conexão com Claude Code, Cursor, Zed | ✅ Stable | [→ MCP](./mcp.md) |
-| **ACP** | Comunicação entre Vectora e agents | 🔄 Beta | [→ ACP](./acp.md) |
+| Protocolo | Caso de Uso                          | Status | Docs              |
+| --------- | ------------------------------------ | ------ | ----------------- |
+| **MCP**   | Conexão com Claude Code, Cursor, Zed | Stable | [→ MCP](./mcp.md) |
+| **ACP**   | Comunicação entre Vectora e agents   | Beta   | [→ ACP](./acp.md) |
 
 ## MCP (Model Context Protocol)
 
@@ -30,11 +30,12 @@ Vectora implementa dois protocolos de comunicação: MCP (Model Context Protocol
 O MCP é um protocolo aberto desenvolvido pela Anthropic que permite que LLMs chamem ferramentas de um computador de forma estruturada. Vectora oferece 12 tools via MCP.
 
 **Vantagens:**
-- ✅ Nativo em Claude Code e Cursor (zero config a mais)
-- ✅ Descoberta dinâmica de tools
-- ✅ Schema validation (ZOD)
-- ✅ Caching automático de resultados
-- ✅ Latência <10ms (IPC local)
+
+- Nativo em Claude Code e Cursor (zero config a mais)
+- Descoberta dinâmica de tools
+- Schema validation (ZOD)
+- Caching automático de resultados
+- Latência <10ms (IPC local)
 
 ## ACP (Agent Communication Protocol)
 
@@ -54,4 +55,4 @@ Veja [MCP](./mcp.md) para detalhes completos de implementação.
 
 ---
 
-> 💡 Próximo: [MCP Specification](./mcp.md)
+> Próximo: [MCP Specification](./mcp.md)

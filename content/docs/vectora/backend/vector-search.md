@@ -61,12 +61,12 @@ Embeddings especializados para código, como `voyage-4`, são treinados em bilh�
 
 O Vectora utiliza MongoDB Atlas como backend unificado para vetores, metadados e estado operacional. Esta escolha elimina a necessidade de sincronização entre sistemas distintos e garante consistência atômica entre embeddings e seus metadados associados.
 
-| Componente | Implementação | Benefício |
-|-----------|--------------|-----------|
-| **Índice Vetorial** | HNSW com métrica de cosseno | Busca ANN com complexidade logarítmica |
-| **Armazenamento de Vetores** | Campo `embedding_vector` no documento BSON | Vetor e metadados no mesmo documento |
-| **Filtragem** | Payload filtering nativo do Atlas | Filtra por namespace antes da busca vetorial |
-| **Escalabilidade** | Sharding automático do Atlas | Escala de MBs a TBs sem reconfiguração manual |
+| Componente                   | Implementação                              | Benefício                                     |
+| ---------------------------- | ------------------------------------------ | --------------------------------------------- |
+| **Índice Vetorial**          | HNSW com métrica de cosseno                | Busca ANN com complexidade logarítmica        |
+| **Armazenamento de Vetores** | Campo `embedding_vector` no documento BSON | Vetor e metadados no mesmo documento          |
+| **Filtragem**                | Payload filtering nativo do Atlas          | Filtra por namespace antes da busca vetorial  |
+| **Escalabilidade**           | Sharding automático do Atlas               | Escala de MBs a TBs sem reconfiguração manual |
 
 ### Estrutura do Documento no Atlas
 
@@ -101,22 +101,22 @@ O Vectora configura índices HNSW no MongoDB Atlas com parâmetros otimizados pa
 vector_index:
   name: "vector_search_index"
   path: "embedding_vector"
-  dimensions: 1024  # Voyage 4
+  dimensions: 1024 # Voyage 4
   similarity: "cosine"
   type: "vector"
   hnsw_config:
-    m: 16  # Número de conexões por nó
-    ef_construction: 200  # Precisão na construção do índice
-    ef_search: 100  # Precisão na busca (configurável por query)
+    m: 16 # Número de conexões por nó
+    ef_construction: 200 # Precisão na construção do índice
+    ef_search: 100 # Precisão na busca (configurável por query)
 ```
 
 Parâmetros ajustáveis conforme o tamanho da codebase:
 
-| Parâmetro | Valor Baixo | Valor Alto | Impacto |
-|-----------|------------|------------|---------|
-| `m` | 8 | 32 | Mais conexões = maior precisão, maior memória |
-| `ef_construction` | 100 | 400 | Mais candidatos na construção = índice mais preciso |
-| `ef_search` | 50 | 200 | Mais candidatos na busca = recall maior, latência maior |
+| Parâmetro         | Valor Baixo | Valor Alto | Impacto                                                 |
+| ----------------- | ----------- | ---------- | ------------------------------------------------------- |
+| `m`               | 8           | 32         | Mais conexões = maior precisão, maior memória           |
+| `ef_construction` | 100         | 400        | Mais candidatos na construção = índice mais preciso     |
+| `ef_search`       | 50          | 200        | Mais candidatos na busca = recall maior, latência maior |
 
 ---
 
@@ -143,8 +143,8 @@ export function chunkCodeByAST(content: string, language: string): CodeChunk[] {
   return recursiveChunk(tree.rootNode, {
     maxTokens: 512,
     preserveBoundaries: true, // Não cortar no meio de uma função
-    includeImports: true,     // Anexar lista de imports ao chunk
-    minSize: 32,              // Ignorar chunks muito pequenos
+    includeImports: true, // Anexar lista de imports ao chunk
+    minSize: 32, // Ignorar chunks muito pequenos
   });
 }
 ```
@@ -214,40 +214,43 @@ Quando um agent principal solicita contexto via MCP:
 export async function semanticSearch(
   query: string,
   namespace: string,
-  options: SearchOptions
+  options: SearchOptions,
 ): Promise<SearchResult[]> {
   // 1. Embedding da query
   const queryEmbedding = await generateEmbedding({ content: query } as CodeChunk);
 
   // 2. Busca vetorial com filtros obrigatórios
-  const results = await mongodb.collection("documents").aggregate([
-    {
-      $vectorSearch: {
-        index: "vector_search_index",
-        path: "embedding_vector",
-        queryVector: queryEmbedding,
-        numCandidates: options.ef_search || 100,
-        limit: options.top_k || 10,
-        filter: {
-          namespace_id: namespace,
-          visibility: { $in: ["private", "team", "public"] },
+  const results = await mongodb
+    .collection("documents")
+    .aggregate([
+      {
+        $vectorSearch: {
+          index: "vector_search_index",
+          path: "embedding_vector",
+          queryVector: queryEmbedding,
+          numCandidates: options.ef_search || 100,
+          limit: options.top_k || 10,
+          filter: {
+            namespace_id: namespace,
+            visibility: { $in: ["private", "team", "public"] },
+          },
         },
       },
-    },
-    {
-      $project: {
-        score: { $meta: "vectorSearchScore" },
-        file_path: 1,
-        content: 1,
-        ast_metadata: 1,
-        start_line: 1,
-        end_line: 1,
+      {
+        $project: {
+          score: { $meta: "vectorSearchScore" },
+          file_path: 1,
+          content: 1,
+          ast_metadata: 1,
+          start_line: 1,
+          end_line: 1,
+        },
       },
-    },
-  ]).toArray();
+    ])
+    .toArray();
 
   // 3. Enriquecer com metadados estruturais
-  return results.map(r => enrichWithAST(r));
+  return results.map((r) => enrichWithAST(r));
 }
 ```
 
@@ -306,9 +309,7 @@ export async function batchIngest(chunks: CodeChunk[], batchSize: number = 32): 
     const batch = chunks.slice(i, i + batchSize);
 
     // Gerar embeddings em paralelo
-    const embeddings = await Promise.all(
-      batch.map(chunk => generateEmbedding(chunk))
-    );
+    const embeddings = await Promise.all(batch.map((chunk) => generateEmbedding(chunk)));
 
     // Inserir no Atlas em bulk
     await mongodb.collection("documents").insertMany(
@@ -316,7 +317,7 @@ export async function batchIngest(chunks: CodeChunk[], batchSize: number = 32): 
         ...chunk,
         embedding_vector: embeddings[idx],
         indexed_at: new Date(),
-      }))
+      })),
     );
   }
 }
@@ -367,11 +368,8 @@ Para queries críticas, resultados da busca vetorial podem passar por reranking 
 
 ```typescript
 // packages/core/src/context/reranker.ts
-export async function rerankResults(
-  query: string,
-  results: SearchResult[]
-): Promise<SearchResult[]> {
-  const documents = results.map(r => r.content);
+export async function rerankResults(query: string, results: SearchResult[]): Promise<SearchResult[]> {
+  const documents = results.map((r) => r.content);
   const reranked = await voyageClient.rerank({
     query,
     documents,
@@ -379,9 +377,7 @@ export async function rerankResults(
     top_k: results.length,
   });
 
-  return reranked.results
-    .sort((a, b) => b.relevance_score - a.relevance_score)
-    .map(r => results[r.index]);
+  return reranked.results.sort((a, b) => b.relevance_score - a.relevance_score).map((r) => results[r.index]);
 }
 ```
 

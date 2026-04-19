@@ -46,12 +46,12 @@ providers:
     model: "voyage-4"
     api_key: "${VOYAGE_API_KEY}"
     fallback: "local"
-  
+
   reranker:
     name: "voyage"
     model: "voyage-rerank-2.5"
     api_key: "${VOYAGE_API_KEY}"
-  
+
   llm:
     name: "gemini"
     model: "gemini-3-flash"
@@ -60,7 +60,7 @@ providers:
 
 # Context Engine
 context_engine:
-  strategy: "semantic"  # semantic|structural|hybrid
+  strategy: "semantic" # semantic|structural|hybrid
   max_depth: 3
   max_tokens: 4096
   timeout_ms: 2000
@@ -109,8 +109,8 @@ qdrant:
 
 # Logging
 logging:
-  level: "info"  # debug|info|warn|error
-  format: "text"  # text|json
+  level: "info" # debug|info|warn|error
+  format: "text" # text|json
   file: ".vectora/logs/vectora.log"
   retention_days: 30
 
@@ -129,22 +129,22 @@ metrics:
 ### Environment Variable Reference
 
 ```bash
-GEMINI_API_KEY          # Google Gemini API key
-VOYAGE_API_KEY          # Voyage AI API key
-QDRANT_URL              # Qdrant cluster URL
-QDRANT_API_KEY          # Qdrant API key (if auth)
-VECTORA_NAMESPACE       # Override default namespace
-VECTORA_TRUST_FOLDER    # Override trust folder
-VECTORA_LOG_LEVEL       # Override log level
+GEMINI_API_KEY # Google Gemini API key
+VOYAGE_API_KEY # Voyage AI API key
+QDRANT_URL # Qdrant cluster URL
+QDRANT_API_KEY # Qdrant API key (if auth)
+VECTORA_NAMESPACE # Override default namespace
+VECTORA_TRUST_FOLDER # Override trust folder
+VECTORA_LOG_LEVEL # Override log level
 ```
 
 ### Validation
 
 ```bash
 vectora config validate
-# ✅ All required fields present
-# ✅ API keys configured
-# ✅ Paths exist
+# All required fields present
+# API keys configured
+# Paths exist
 ```
 
 ---

@@ -21,6 +21,7 @@ Respostas rápidas para as dúvidas mais comuns sobre Vectora - funcionamento, c
 **Vectora** é um **semantic search engine** para código que indexa seu codebase inteiro e permite buscar por significado semântico, não só por palavras-chave. Se integra com IDEs (Claude Code, Cursor, VS Code) via MCP para fornecer contexto inteligente e governado ao seu agent de IA.
 
 **Como funciona:**
+
 1. Você indexa seu código (`npm install -g vectora && vectora index`)
 2. Código é dividido em chunks e embedado via Voyage 4 (1536D vectors)
 3. Vetores são armazenados em Qdrant com metadata (arquivo, linhas, namespace)
@@ -31,6 +32,7 @@ Respostas rápidas para as dúvidas mais comuns sobre Vectora - funcionamento, c
    - Retorna chunks com contexto estruturado
 
 **Exemplo prático:**
+
 - Query: "Como validar tokens JWT?"
 - **Sem Vectora**: Busca por "JWT" retorna 5 arquivos, nenhum útil
 - **Com Vectora**: Encontra `validateToken()` em auth.ts, middleware em guards.ts, tipos em jwt.types.ts - tudo relevante
@@ -46,13 +48,13 @@ Respostas rápidas para as dúvidas mais comuns sobre Vectora - funcionamento, c
    - Divide em chunks
    - Gera embeddings (Voyage 4)
    - Armazena em Qdrant
-   
+
 2. Busca semântica
    - Sua pergunta → embedding
    - HNSW busca chunks similares
    - Reranking (Voyage Rerank 2.5)
    - Retorna top-10
-   
+
 3. Integração com IDE
    - Claude Code / Cursor / VS Code
    - Mostra chunks contextuais
@@ -64,18 +66,21 @@ Respostas rápidas para as dúvidas mais comuns sobre Vectora - funcionamento, c
 ## Qual é o Custo?
 
 **Free Tier** (para sempre):
+
 - Unlimited searches locais
 - Unlimited indexação
 - 60 req/min API limits (Gemini, Voyage)
 - BYOK (use suas chaves)
 
 **Pro** ($29/mês):
+
 - Unlimited API requests
 - 50 usuários simultâneos
 - Webhooks + custom domain
 - 99.9% SLA
 
 **Team** (Customizado):
+
 - On-premise + SSO/LDAP
 - 99.99% SLA
 - Dedicated support
@@ -85,11 +90,13 @@ Respostas rápidas para as dúvidas mais comuns sobre Vectora - funcionamento, c
 ## Quanto Tempo Leva para Indexar?
 
 **Pela primeira vez**:
+
 - 10K linhas: <1 minuto
 - 100K linhas: 5-10 minutos
 - 1M linhas: 30-60 minutos
 
 **Incremental** (apenas mudanças):
+
 - Geralmente <30 segundos
 
 ---
@@ -99,6 +106,7 @@ Respostas rápidas para as dúvidas mais comuns sobre Vectora - funcionamento, c
 A razão é aproximadamente **1:10**.
 
 Se seu código é 50MB:
+
 - Índice Qdrant: ~5MB
 - Cache: 100MB
 
@@ -120,18 +128,19 @@ Total: ~105MB
 
 **SIM.**
 
-✅ BYOK - você controla as chaves
-✅ Criptografado em disco (AES-256)
-✅ Criptografado em trânsito (TLS 1.3)
-✅ Guardian blocklist (protege .env, secrets)
-✅ RBAC (controle de usuários)
-✅ Audit logging (rastreia tudo)
+BYOK - você controla as chaves
+Criptografado em disco (AES-256)
+Criptografado em trânsito (TLS 1.3)
+Guardian blocklist (protege .env, secrets)
+RBAC (controle de usuários)
+Audit logging (rastreia tudo)
 
 ---
 
 ## Funciona com Qual Linguagem?
 
 **Sim, todas:**
+
 - TypeScript / JavaScript
 - Python
 - Go
@@ -172,14 +181,15 @@ vectora config set EMBEDDING_PROVIDER ollama
 
 ## Quanto Custa para Escalar?
 
-| Aspecto | Free | Pro | Team |
-|---------|------|-----|------|
-| **Código** | Unlimited | Unlimited | Unlimited |
-| **Usuários** | 1 | 50 | Unlimited |
-| **API calls** | 60/min | Unlimited | Custom |
-| **Custo extra** | Grátis | $0.50/user | Por contato |
+| Aspecto         | Free      | Pro        | Team        |
+| --------------- | --------- | ---------- | ----------- |
+| **Código**      | Unlimited | Unlimited  | Unlimited   |
+| **Usuários**    | 1         | 50         | Unlimited   |
+| **API calls**   | 60/min    | Unlimited  | Custom      |
+| **Custo extra** | Grátis    | $0.50/user | Por contato |
 
 **Exemplo escalando**:
+
 - 1 pessoa: Free
 - 5 pessoas: Pro ($29)
 - 50+ pessoas: Team ($X)
@@ -222,12 +232,12 @@ vectora index
 
 ## Qual IDE é Melhor?
 
-| IDE | Vectora | Vantagem |
-|-----|---------|----------|
-| Claude Code | MCP nativo | Integração perfeita |
-| Cursor | MCP nativo | Similar a Claude Code |
-| VS Code | Extension | UI nativa no editor |
-| ChatGPT | Custom GPT | Sem sair do ChatGPT |
+| IDE         | Vectora    | Vantagem              |
+| ----------- | ---------- | --------------------- |
+| Claude Code | MCP nativo | Integração perfeita   |
+| Cursor      | MCP nativo | Similar a Claude Code |
+| VS Code     | Extension  | UI nativa no editor   |
+| ChatGPT     | Custom GPT | Sem sair do ChatGPT   |
 
 **Recomendação**: Use qual você já usa. Vectora funciona igualmente bem.
 
@@ -238,6 +248,7 @@ vectora index
 Você ainda quer que ele seja indexado?
 
 **Sim**: Reorganizar (mover arquivo)
+
 ```bash
 mv src/old-api.ts src/deprecated/old-api.ts
 vectora index --incremental
@@ -245,6 +256,7 @@ vectora index --incremental
 ```
 
 **Não**: Deletar completamente
+
 ```bash
 rm src/old-api.ts
 vectora index --incremental
@@ -256,12 +268,14 @@ vectora index --incremental
 ## Quanto Tempo Leva para Buscar?
 
 Geralmente:
+
 - **Embedding**: ~100ms
 - **Search (HNSW)**: ~80ms
 - **Reranking**: ~50ms
 - **Total**: **~230ms**
 
 Com rede (APIs):
+
 - **Com latência**: ~300-500ms
 
 ---
@@ -303,6 +317,7 @@ vectora export --namespace seu-projeto --output backup.tar.gz
 ```
 
 Para restore:
+
 ```bash
 vectora import --from backup.tar.gz --namespace seu-projeto
 ```
@@ -317,12 +332,13 @@ vectora import --from backup.tar.gz --namespace seu-projeto
 # vectora.config.yaml
 providers:
   llm:
-    name: "openai"  # ou "anthropic", "custom"
+    name: "openai" # ou "anthropic", "custom"
     model: "gpt-4"
     api_key: "${OPENAI_API_KEY}"
 ```
 
 Ou local (Ollama):
+
 ```bash
 docker run ollama/ollama
 vectora config set LLM_PROVIDER ollama
@@ -335,8 +351,9 @@ vectora config set LLM_PROVIDER ollama
 **Código**: Sim, todas as linguagens
 
 **Interface**: Sim
-- Português ✅
-- English ✅
+
+- Português
+- English
 - Español (coming soon)
 - Français (coming soon)
 
@@ -384,7 +401,7 @@ indexing:
 
 ---
 
-> 💡 **Próximo**: [FAQ - Billing](./billing.md)
+> **Próximo**: [FAQ - Billing](./billing.md)
 
 ---
 

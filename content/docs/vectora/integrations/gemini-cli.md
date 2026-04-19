@@ -51,19 +51,20 @@ gemini chat --system "Você tem acesso a Vectora para buscar código"
 
 ## Casos de Uso
 
-| Caso | Descrição |
-|------|-----------|
-| **Code Search** | Buscar arquivos relevantes via Gemini + Vectora |
-| **Documentation** | Gerar docs a partir do código indexado |
-| **Analysis** | Analisar padrões em codebase |
+| Caso              | Descrição                                       |
+| ----------------- | ----------------------------------------------- |
+| **Code Search**   | Buscar arquivos relevantes via Gemini + Vectora |
+| **Documentation** | Gerar docs a partir do código indexado          |
+| **Analysis**      | Analisar padrões em codebase                    |
 
 ## Troubleshooting
 
 **Gemini não vê Vectora?**
+
 1. Verifique se `vectora mcp --stdio` roda localmente
 2. Verifique permissões em `.gemini/config.json`
 3. Reinicie o Gemini CLI
 
 ---
 
-> 💡 Dúvidas? [GitHub Discussions](https://github.com/vectora/vectora/discussions)
+> Dúvidas? [GitHub Discussions](https://github.com/vectora/vectora/discussions)

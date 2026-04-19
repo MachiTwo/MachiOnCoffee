@@ -17,19 +17,19 @@ tags:
 
 Conecte Vectora com suas ferramentas e IDEs preferidas. Escolha entre integração genérica (MCP Protocol) ou apps proprietários com UX customizada.
 
-## 🎯 Qual Integração Escolher?
+## Qual Integração Escolher?
 
-| IDE/App | Recomendação | Tempo Setup | Docs |
-|---------|-------------|-----------|------|
-| **Claude Code** | MCP ✅ Nativo | 1 min | [MCP Protocol](./mcp-protocol.md) |
-| **Cursor** | MCP ✅ Nativo | 1 min | [MCP Protocol](./mcp-protocol.md) |
-| **Zed** | MCP ✅ Nativo | 2 min | [MCP Protocol](./mcp-protocol.md) |
-| **VS Code** | Extension ⭐ Native UI | 2 min | [VS Code Extension](./vscode-extension.md) |
-| **ChatGPT** | Plugin ⭐ Custom GPT | 5 min | [ChatGPT Plugin](./chatgpt-plugin.md) |
-| **Gemini** | API REST ou CLI | 3 min | [Gemini API](./gemini-api.md) / [Gemini CLI](./gemini-cli.md) |
-| **Agent Custom** | REST API (beta) | 5 min | [Custom Agents](./custom-agents.md) |
+| IDE/App          | Recomendação        | Tempo Setup | Docs                                                          |
+| ---------------- | ------------------- | ----------- | ------------------------------------------------------------- |
+| **Claude Code**  | MCP Nativo          | 1 min       | [MCP Protocol](./mcp-protocol.md)                             |
+| **Cursor**       | MCP Nativo          | 1 min       | [MCP Protocol](./mcp-protocol.md)                             |
+| **Zed**          | MCP Nativo          | 2 min       | [MCP Protocol](./mcp-protocol.md)                             |
+| **VS Code**      | Extension Native UI | 2 min       | [VS Code Extension](./vscode-extension.md)                    |
+| **ChatGPT**      | Plugin Custom GPT   | 5 min       | [ChatGPT Plugin](./chatgpt-plugin.md)                         |
+| **Gemini**       | API REST ou CLI     | 3 min       | [Gemini API](./gemini-api.md) / [Gemini CLI](./gemini-cli.md) |
+| **Agent Custom** | REST API (beta)     | 5 min       | [Custom Agents](./custom-agents.md)                           |
 
-## 📋 Integração Genérica
+## Integração Genérica
 
 ### MCP (Model Context Protocol)
 
@@ -43,7 +43,7 @@ Protocolo padrão aberto que permite que IDEs chamem tools do computador. Vector
 
 [→ MCP Protocol](./mcp-protocol.md)
 
-## 🎨 Integrações com UI Customizada
+## Integrações com UI Customizada
 
 ### VS Code Extension
 
@@ -69,7 +69,7 @@ Integração REST + CLI para análise de código, revisão, geração com contex
 
 [→ Gemini API](./gemini-api.md)
 
-## 🔌 Integrações Avançadas
+## Integrações Avançadas
 
 ### Custom Agents & REST API
 
@@ -77,7 +77,7 @@ Construa agents em Python, Node.js, Go ou qualquer linguagem. Chame Vectora via 
 
 [→ Custom Agents](./custom-agents.md)
 
-## 🚀 Quick Start por Caso de Uso
+## Quick Start por Caso de Uso
 
 **"Quero usar em Claude Code"**
 → [MCP Protocol Quickstart](../getting-started/quickstart-mcp.md)
@@ -93,4 +93,4 @@ Construa agents em Python, Node.js, Go ou qualquer linguagem. Chame Vectora via 
 
 ---
 
-> 💡 Não achou sua IDE? [Abra uma Issue](https://github.com/vectora/vectora/issues)
+> Não achou sua IDE? [Abra uma Issue](https://github.com/vectora/vectora/issues)

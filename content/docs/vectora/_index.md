@@ -129,20 +129,20 @@ Vectora opera com modelo **BYOK First**, onde o backend (MongoDB Atlas) é geren
 
 ## Por Onde Começar?
 
-| Categoria           | Documento                                                                           | Descrição                                                                         |
-| ------------------- | ----------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| **Início Rápido**   | [Getting Started](/getting-started/)                                                | `npm install -g vectora-agent`, configuração BYOK, integração MCP                 |
-| **Conceitos**       | [Sub-Agents](/concepts/sub-agents/)                                                 | Por que Sub-Agent e não tools MCP passivas? Governança ativa vs funções estáticas |
-| **Harness Runtime** | [Harness Runtime](/concepts/harness-runtime/)                                       | Tool Execution, Context Engineering, State Management, Verification Hooks         |
-| **Context & RAG**   | [Context Engine](/concepts/context-engine/)                                         | AST parsing, compaction, multi-hop reasoning, hybrid ranking                      |
-| **Reranking**       | [Reranker](/concepts/reranker/)                                                     | Pipeline Embed → Search → Rerank → LLM, métricas de precisão                      |
-| **Modelos**         | [Gemini 3](/models/gemini/) · [Voyage 4](/models/voyage/)                           | Stack curada, fallback BYOK, schema de configuração, custos por query             |
-| **Backend**         | [MongoDB Atlas](/backend/mongodb-atlas/)                                            | Vector Search, collections, state persistence, isolamento multi-tenant            |
-| **Segurança**       | [Guardian](/security/guardian/) · [RBAC](/security/rbac/)                           | Blocklist hard-coded, Trust Folder, sanitização, roles por namespace              |
-| **Planos**          | [Overview](/plans/overview/)                                                        | Free/Pro/Team, quota gerenciada, fallback automático, política de retenção        |
-| **Integrações**     | [MCP Protocol](/integrations/mcp-protocol/) · [VS Code](/integrations/vscode-extension/) · [ChatGPT](/integrations/chatgpt-plugin/) · [Gemini API](/integrations/gemini-api/) | MCP genérico, extensions, plugins, APIs                                          |
-| **Referência**      | [MCP Tools](/reference/mcp-tools/) · [Config YAML](/reference/config-yaml/)         | Schema de tools, config.yaml validado por Zod, códigos de erro                    |
-| **Contribuição**    | [Guidelines](/contributing/guidelines/)                                             | TypeScript estrito, testes Harness primeiro, PRs, roadmap público                 |
+| Categoria           | Documento                                                                                                                                                                     | Descrição                                                                         |
+| ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| **Início Rápido**   | [Getting Started](/getting-started/)                                                                                                                                          | `npm install -g vectora-agent`, configuração BYOK, integração MCP                 |
+| **Conceitos**       | [Sub-Agents](/concepts/sub-agents/)                                                                                                                                           | Por que Sub-Agent e não tools MCP passivas? Governança ativa vs funções estáticas |
+| **Harness Runtime** | [Harness Runtime](/concepts/harness-runtime/)                                                                                                                                 | Tool Execution, Context Engineering, State Management, Verification Hooks         |
+| **Context & RAG**   | [Context Engine](/concepts/context-engine/)                                                                                                                                   | AST parsing, compaction, multi-hop reasoning, hybrid ranking                      |
+| **Reranking**       | [Reranker](/concepts/reranker/)                                                                                                                                               | Pipeline Embed → Search → Rerank → LLM, métricas de precisão                      |
+| **Modelos**         | [Gemini 3](/models/gemini/) · [Voyage 4](/models/voyage/)                                                                                                                     | Stack curada, fallback BYOK, schema de configuração, custos por query             |
+| **Backend**         | [MongoDB Atlas](/backend/mongodb-atlas/)                                                                                                                                      | Vector Search, collections, state persistence, isolamento multi-tenant            |
+| **Segurança**       | [Guardian](/security/guardian/) · [RBAC](/security/rbac/)                                                                                                                     | Blocklist hard-coded, Trust Folder, sanitização, roles por namespace              |
+| **Planos**          | [Overview](/plans/overview/)                                                                                                                                                  | Free/Pro/Team, quota gerenciada, fallback automático, política de retenção        |
+| **Integrações**     | [MCP Protocol](/integrations/mcp-protocol/) · [VS Code](/integrations/vscode-extension/) · [ChatGPT](/integrations/chatgpt-plugin/) · [Gemini API](/integrations/gemini-api/) | MCP genérico, extensions, plugins, APIs                                           |
+| **Referência**      | [MCP Tools](/reference/mcp-tools/) · [Config YAML](/reference/config-yaml/)                                                                                                   | Schema de tools, config.yaml validado por Zod, códigos de erro                    |
+| **Contribuição**    | [Guidelines](/contributing/guidelines/)                                                                                                                                       | TypeScript estrito, testes Harness primeiro, PRs, roadmap público                 |
 
 ---
 

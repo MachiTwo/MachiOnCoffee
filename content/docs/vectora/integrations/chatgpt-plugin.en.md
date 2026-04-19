@@ -87,7 +87,7 @@ info:
   title: Vectora API
   version: 1.0.0
 servers:
-  - url: https://xxxx-xx-xxx-xx-x.ngrok.io  # Your endpoint
+  - url: https://xxxx-xx-xxx-xx-x.ngrok.io # Your endpoint
 paths:
   /search:
     post:
@@ -109,7 +109,7 @@ paths:
                   type: integer
                   default: 10
       responses:
-        '200':
+        "200":
           description: Search results
   /analyze-dependencies:
     post:
@@ -126,7 +126,7 @@ paths:
                 namespace:
                   type: string
       responses:
-        '200':
+        "200":
           description: Dependency analysis
   /file-summary:
     post:
@@ -143,7 +143,7 @@ paths:
                 namespace:
                   type: string
       responses:
-        '200':
+        "200":
           description: File summary
 ```
 
@@ -220,8 +220,8 @@ Click any file → opens in editor/browser.
 **Scenario**: You have an error and need to understand root cause.
 
 ```text
-You: "Test 'should create user' is failing with 
-     'Cannot read property id of undefined'. 
+You: "Test 'should create user' is failing with
+     'Cannot read property id of undefined'.
      Where's the problem?"
 
 ChatGPT (with Vectora):
@@ -236,10 +236,10 @@ File: src/__tests__/user.service.test.ts:145
   })
 
 Analyzing userService.create():
-  
+
   // src/services/user.service.ts:23
   create(data: CreateUserInput) {
-    // ❌ Problem: doesn't return created user
+    // Problem: doesn't return created user
     db.insert(users).values(data);
     // Should be:
     return db.insert(users).values(data).returning();
@@ -258,7 +258,7 @@ Analyzing userService.create():
 **Scenario**: Reviewing a PR that touches multiple auth files.
 
 ```text
-You: "Review this PR that refactors auth middleware. 
+You: "Review this PR that refactors auth middleware.
      [paste 50 lines of code]"
 
 ChatGPT (with Vectora):
@@ -271,25 +271,25 @@ Analyzing changes...
 
 **Issues detected**:
 
-1. ⚠️ Behavior changed at line 23
+1. Behavior changed at line 23
    BEFORE: guard.canActivate() returns boolean
    NOW: returns Promise<boolean>
-   
+
    This breaks in 4 places:
    - src/routes/admin.ts:45
    - src/routes/api.ts:78
    - src/middleware/verify.ts:12
    - src/guards/optional.ts:3
 
-2. ✓ Positive: New isTokenValid() method reused well
+2. Positive: New isTokenValid() method reused well
    (found 6 usages)
 
-3. ✓ Security: GuardBlacklist properly respected
+3. Security: GuardBlacklist properly respected
    (checks all 4 patterns)
 
 **Related tests that MUST pass**:
 □ auth.guard.test.ts
-□ jwt.validation.test.ts  
+□ jwt.validation.test.ts
 □ permission.test.ts
 □ integration/auth-flow.test.ts
 
@@ -321,6 +321,7 @@ security:
 ```
 
 Configure in GPT:
+
 ```text
 Go to "Configure" → "Authentication"
 Select "API Key"
@@ -376,6 +377,7 @@ vectora server --cert cert.pem --key key.pem
 **Cause**: Vectora server offline.
 
 **Solution**:
+
 ```bash
 # Check if running
 curl https://your-endpoint/health
@@ -389,6 +391,7 @@ vectora mcp
 **Cause**: Invalid or expired token.
 
 **Solution**:
+
 ```bash
 # Generate new token
 vectora auth create-token --name "ChatGPT Plugin" --ttl 365d
@@ -401,6 +404,7 @@ vectora auth create-token --name "ChatGPT Plugin" --ttl 365d
 **Cause**: Search too slow.
 
 **Solution**:
+
 ```bash
 # Reduce top_k
 # In GPT instructions, modify to:
@@ -416,12 +420,12 @@ curl -X POST https://your-endpoint/search \
 
 ## Performance & Limits
 
-| Resource | Limit | Upgrade |
-|----------|-------|---------|
-| Searches/day | 10,000 | Pro Plan |
-| Latency | <2s | SSD + more CPU |
-| Response size | 5MB | Compaction |
-| Concurrent users | 10 | Managed Vectora |
+| Resource         | Limit  | Upgrade         |
+| ---------------- | ------ | --------------- |
+| Searches/day     | 10,000 | Pro Plan        |
+| Latency          | <2s    | SSD + more CPU  |
+| Response size    | 5MB    | Compaction      |
+| Concurrent users | 10     | Managed Vectora |
 
 ---
 
@@ -469,7 +473,7 @@ vectora logs --service chatgpt_plugin --level info
 
 ---
 
-> 💡 **Next**: [Gemini API](./gemini-api.md)
+> **Next**: [Gemini API](./gemini-api.md)
 
 ---
 

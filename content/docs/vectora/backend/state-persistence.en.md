@@ -45,16 +45,16 @@ graph TD
 
 Short-lived state that tracks the current execution context:
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `session_id` | string | Unique identifier for the MCP session |
-| `user_id` | string | Authenticated user from Kaffyn SSO |
-| `namespace` | string | Isolated project/workspace context |
-| `current_plan` | object | Active execution plan with steps and dependencies |
-| `tool_history` | array | Sequence of tool calls with inputs, outputs, and timing |
-| `context_cache` | object | Pre-fetched embeddings, parsed ASTs, and resolved dependencies |
-| `created_at` | timestamp | Session start time |
-| `last_activity` | timestamp | Last MCP interaction (used for TTL cleanup) |
+| Field           | Type      | Description                                                    |
+| --------------- | --------- | -------------------------------------------------------------- |
+| `session_id`    | string    | Unique identifier for the MCP session                          |
+| `user_id`       | string    | Authenticated user from Kaffyn SSO                             |
+| `namespace`     | string    | Isolated project/workspace context                             |
+| `current_plan`  | object    | Active execution plan with steps and dependencies              |
+| `tool_history`  | array     | Sequence of tool calls with inputs, outputs, and timing        |
+| `context_cache` | object    | Pre-fetched embeddings, parsed ASTs, and resolved dependencies |
+| `created_at`    | timestamp | Session start time                                             |
+| `last_activity` | timestamp | Last MCP interaction (used for TTL cleanup)                    |
 
 ### Memory Layer (AGENTS.md + embeddings)
 
@@ -68,15 +68,15 @@ Long-term knowledge that persists beyond individual sessions:
 
 Immutable records of agent actions for compliance and debugging:
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `log_id` | string | Unique audit record identifier |
-| `session_id` | string | Reference to originating session |
-| `action` | string | Tool name or system event |
-| `input_hash` | string | SHA-256 of tool arguments (never stores raw secrets) |
-| `output_metadata` | object | Non-sensitive result metadata (status, duration, token count) |
-| `security_flags` | array | Guardian validations, blocklist checks, sanitization events |
-| `timestamp` | timestamp | Precise event time with millisecond resolution |
+| Field             | Type      | Description                                                   |
+| ----------------- | --------- | ------------------------------------------------------------- |
+| `log_id`          | string    | Unique audit record identifier                                |
+| `session_id`      | string    | Reference to originating session                              |
+| `action`          | string    | Tool name or system event                                     |
+| `input_hash`      | string    | SHA-256 of tool arguments (never stores raw secrets)          |
+| `output_metadata` | object    | Non-sensitive result metadata (status, duration, token count) |
+| `security_flags`  | array     | Guardian validations, blocklist checks, sanitization events   |
+| `timestamp`       | timestamp | Precise event time with millisecond resolution                |
 
 ## Session Lifecycle Management
 
@@ -108,11 +108,11 @@ Automatic maintenance via MongoDB TTL indexes:
 # MongoDB Atlas TTL configuration
 sessions:
   ttl_field: "last_activity"
-  ttl_seconds: 86400  # 24 hours of inactivity
+  ttl_seconds: 86400 # 24 hours of inactivity
 
 audit_logs:
   ttl_field: "timestamp"
-  ttl_seconds: 7776000  # 90 days retention (configurable by plan)
+  ttl_seconds: 7776000 # 90 days retention (configurable by plan)
 ```
 
 Manual cleanup via CLI:
@@ -138,16 +138,19 @@ AGENTS.md serves as the bridge between human understanding and agent memory:
 # Project Memory: my-project
 
 ## Learned Patterns
+
 - Authentication flows use JWT with 1-hour expiration
 - Database connections use connection pooling with max 10 connections
 - Error handling follows the Result<T, E> pattern
 
 ## Preferences
+
 - Prefer functional composition over class inheritance
 - Use TypeScript strict mode for all new files
 - Log levels: debug for development, info for production
 
 ## Project Guidelines
+
 - All API endpoints must include OpenAPI annotations
 - Tests must achieve 80% branch coverage
 - Security reviews required for any auth-related changes
@@ -218,22 +221,22 @@ evaluation:
 state:
   # Session management
   session:
-    ttl_hours: 24  # Inactivity timeout before cleanup
-    max_concurrent: 5  # Limit sessions per user/namespace
-    persist_on_exit: true  # Save state when MCP connection closes
+    ttl_hours: 24 # Inactivity timeout before cleanup
+    max_concurrent: 5 # Limit sessions per user/namespace
+    persist_on_exit: true # Save state when MCP connection closes
 
   # Memory layer
   memory:
-    agents_file: "AGENTS.md"  # Path relative to project root
-    auto_update: true  # Automatically embed new AGENTS.md content
-    embedding_model: "voyage-4"  # Model for memory embeddings
-    max_memory_tokens: 4096  # Limit context injected from memory
+    agents_file: "AGENTS.md" # Path relative to project root
+    auto_update: true # Automatically embed new AGENTS.md content
+    embedding_model: "voyage-4" # Model for memory embeddings
+    max_memory_tokens: 4096 # Limit context injected from memory
 
   # Audit settings
   audit:
     enabled: true
-    retain_days: 90  # Retention period for audit logs
-    redact_patterns:  # Additional regex patterns to redact
+    retain_days: 90 # Retention period for audit logs
+    redact_patterns: # Additional regex patterns to redact
       - "password\\s*[:=]\\s*['\"]?[^'\"\\s]+"
       - "api[_-]?key\\s*[:=]\\s*['\"]?[^'\"\\s]+"
 
@@ -262,18 +265,15 @@ MongoDB operations are batched for efficiency:
 
 ```typescript
 // packages/core/src/state/batch-operations.ts
-export async function updateSessionState(
-  sessionId: string,
-  updates: StateUpdate[]
-): Promise<void> {
+export async function updateSessionState(sessionId: string, updates: StateUpdate[]): Promise<void> {
   // Group updates by collection for bulk operations
   const byCollection = groupByCollection(updates);
-  
+
   // Execute bulk writes with ordered=false for parallelism
   await Promise.all(
     Object.entries(byCollection).map(([collection, ops]) =>
-      mongodb.collection(collection).bulkWrite(ops, { ordered: false })
-    )
+      mongodb.collection(collection).bulkWrite(ops, { ordered: false }),
+    ),
   );
 }
 ```
@@ -287,11 +287,13 @@ Error: Session sess_abc123 not found for namespace auth-service
 ```
 
 Possible causes:
+
 - Session expired due to TTL cleanup (check `last_activity` timestamp)
 - Namespace mismatch between client request and stored session
 - MongoDB Atlas connectivity issue
 
 Resolution:
+
 ```bash
 # Verify session exists
 vectora state list --namespace auth-service
@@ -310,11 +312,13 @@ Warning: AGENTS.md changes detected but memory not updated
 ```
 
 Possible causes:
+
 - Embedding quota exhausted (check plan limits)
 - Guardian blocklist prevented embedding of new content
 - Voyage API temporarily unavailable
 
 Resolution:
+
 ```bash
 # Check embedding quota status
 vectora quota status --component embeddings
@@ -333,11 +337,13 @@ Warning: Expected audit entry for tool_call not found
 ```
 
 Possible causes:
+
 - Audit logging disabled in configuration
 - MongoDB write concern not met (network issue)
 - Session cleanup deleted related audit records prematurely
 
 Resolution:
+
 ```bash
 # Verify audit configuration
 vectora config get state.audit.enabled
@@ -365,6 +371,7 @@ A: Yes, within the same namespace. AGENTS.md is project-scoped, not user-scoped.
 
 Q: How do I migrate state between MongoDB Atlas regions?
 A: Use the export/import workflow:
+
 ```bash
 # Export from source region
 vectora state export --namespace my-project --output ./state-backup.json

@@ -35,15 +35,15 @@ No Vectora, o Atlas não é apenas um banco de dados; é a infraestrutura que su
 
 ### Especificações Técnicas (Nível Gerenciado Kaffyn)
 
-| Recurso                | Detalhe                                           |
-| ---------------------- | ------------------------------------------------- |
-| Tipo de Banco          | Multicluster Document + Vector Search integrado   |
-| Indexação Vetorial     | HNSW (Hierarchical Navigable Small World)         |
-| Escalabilidade         | Sharding automático com balanceamento dinâmico    |
-| Disponibilidade        | 99.99% com Replica Sets em múltiplas zonas        |
-| Criptografia           | AES-256 em repouso e TLS 1.3 em trânsito          |
-| Backup                 | Snapshots contínuos com retenção configurável     |
-| Isolamento             | Namespaces lógicos com filtering obrigatório      |
+| Recurso            | Detalhe                                         |
+| ------------------ | ----------------------------------------------- |
+| Tipo de Banco      | Multicluster Document + Vector Search integrado |
+| Indexação Vetorial | HNSW (Hierarchical Navigable Small World)       |
+| Escalabilidade     | Sharding automático com balanceamento dinâmico  |
+| Disponibilidade    | 99.99% com Replica Sets em múltiplas zonas      |
+| Criptografia       | AES-256 em repouso e TLS 1.3 em trânsito        |
+| Backup             | Snapshots contínuos com retenção configurável   |
+| Isolamento         | Namespaces lógicos com filtering obrigatório    |
 
 ## Por Que MongoDB Atlas para o Vectora
 

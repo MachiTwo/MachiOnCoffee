@@ -35,15 +35,15 @@ In Vectora, Atlas is not just a database; it is the infrastructure that sustains
 
 ### Technical Specifications (Kaffyn Managed Level)
 
-| Feature                | Detail                                           |
-| ---------------------- | ------------------------------------------------ |
-| Database Type          | Multi-cluster Document + Integrated Vector Search|
-| Vector Indexing        | HNSW (Hierarchical Navigable Small World)        |
-| Scalability            | Automatic sharding with dynamic balancing         |
-| Availability           | 99.99% with Replica Sets across multiple zones   |
-| Encryption             | AES-256 at rest and TLS 1.3 in transit           |
-| Backup                 | Continuous snapshots with configurable retention |
-| Isolation              | Logical namespaces with mandatory filtering       |
+| Feature         | Detail                                            |
+| --------------- | ------------------------------------------------- |
+| Database Type   | Multi-cluster Document + Integrated Vector Search |
+| Vector Indexing | HNSW (Hierarchical Navigable Small World)         |
+| Scalability     | Automatic sharding with dynamic balancing         |
+| Availability    | 99.99% with Replica Sets across multiple zones    |
+| Encryption      | AES-256 at rest and TLS 1.3 in transit            |
+| Backup          | Continuous snapshots with configurable retention  |
+| Isolation       | Logical namespaces with mandatory filtering       |
 
 ## Why MongoDB Atlas for Vectora
 

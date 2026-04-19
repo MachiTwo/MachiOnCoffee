@@ -21,19 +21,20 @@ tags:
 
 Vectora é instalado globalmente via npm como um agent MCP (Model Context Protocol). A instalação leva menos de 5 minutos e requer apenas Node.js 18+ e chaves de API gratuitas.
 
-> [!IMPORTANT]
-> **BYOK (Bring Your Own Key)**: Vectora exige chaves de API do Gemini e Voyage. Ambas oferecem tiers gratuitos. Kaffyn nunca acessa suas chaves.
+> [!IMPORTANT] > **BYOK (Bring Your Own Key)**: Vectora exige chaves de API do Gemini e Voyage. Ambas oferecem tiers gratuitos. Kaffyn nunca acessa suas chaves.
 
 ---
 
 ## Pré-requisitos
 
 ### Sistema Operacional
+
 - **macOS** 12.0+
 - **Linux** (Ubuntu 20.04+, Fedora 35+, Debian 11+)
 - **Windows 11** (WSL2 recomendado)
 
 ### Software
+
 - **Node.js** 18.0.0 ou superior ([download](https://nodejs.org))
 - **npm** 9.0.0+ (incluído com Node.js)
 - **git** 2.30+ (opcional, para clonar repositórios)
@@ -41,8 +42,8 @@ Vectora é instalado globalmente via npm como um agent MCP (Model Context Protoc
 ### Verificar Instalação
 
 ```bash
-node --version      # Deve retornar v18.0.0 ou superior
-npm --version       # Deve retornar 9.0.0 ou superior
+node --version # Deve retornar v18.0.0 ou superior
+npm --version # Deve retornar 9.0.0 ou superior
 ```
 
 ---
@@ -157,6 +158,7 @@ vectora init --name "Meu Projeto" --type codebase
 ```
 
 Isso cria:
+
 - `vectora.config.yaml` — Configuração do projeto
 - `.vectora/` — Diretório interno (cache, índices locais)
 - `AGENTS.md` — Arquivo de memória do agente
@@ -190,10 +192,11 @@ Vá para [Configuration](./configuration.md).
 **Causa**: Node.js não está no PATH.
 
 **Solução**:
+
 ```bash
 # Reinstale Node.js: https://nodejs.org
-node --version  # Deve funcionar primeiro
-npm install -g @kaffyn/vectora  # Reinstale
+node --version # Deve funcionar primeiro
+npm install -g @kaffyn/vectora # Reinstale
 ```
 
 ### Erro: `Error: API key not found`
@@ -201,6 +204,7 @@ npm install -g @kaffyn/vectora  # Reinstale
 **Causa**: Variáveis de ambiente não configuradas.
 
 **Solução**: Verifique se `GEMINI_API_KEY` e `VOYAGE_API_KEY` estão definidas:
+
 ```bash
 echo $GEMINI_API_KEY
 echo $VOYAGE_API_KEY
@@ -217,6 +221,7 @@ echo $VOYAGE_API_KEY
 **Causa**: Permissão insuficiente para instalar globalmente.
 
 **Solução**:
+
 ```bash
 # Opção 1: Use sudo (não recomendado)
 sudo npm install -g @kaffyn/vectora
@@ -232,21 +237,21 @@ npm install -g @kaffyn/vectora
 
 ## FAQ
 
-**P: Preciso de internet para usar Vectora?**  
+**P: Preciso de internet para usar Vectora?**
 R: Sim, você precisa de conexão para APIs do Gemini e Voyage. Para modo local (experimental), você pode usar modelos locais via Ollama, mas isso requer configuração adicional.
 
-**P: Minhas chaves de API são seguras?**  
+**P: Minhas chaves de API são seguras?**
 R: Sim. As chaves são armazenadas localmente em `~/.vectora/credentials.enc` (criptografadas) ou em seu `.env`. Kaffyn nunca acessa suas chaves.
 
-**P: Posso usar múltiplos projetos com uma única instalação?**  
+**P: Posso usar múltiplos projetos com uma única instalação?**
 R: Sim. Use `vectora init` para cada projeto em diretórios diferentes.
 
-**P: Como atualizar Vectora?**  
+**P: Como atualizar Vectora?**
 R: Use `npm update -g @kaffyn/vectora` ou instale uma versão específica: `npm install -g @kaffyn/vectora@latest`.
 
 ---
 
-> 💡 **Próximo**: Você está configurado! Agora configure seu IDE em [Configuration](./configuration.md).
+> **Próximo**: Você está configurado! Agora configure seu IDE em [Configuration](./configuration.md).
 
 ---
 

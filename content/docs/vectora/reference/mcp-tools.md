@@ -42,16 +42,18 @@ Este é um **dicionário completo** de todas as ferramentas MCP oferecidas por V
 Busca semântica por chunks relevantes.
 
 **Parâmetros**:
+
 ```json
 {
-  "query": "string",                    // Sua pergunta
-  "namespace": "string",                // Namespace (default: config)
-  "top_k": 10,                          // Quantos resultados (default: 10)
-  "strategy": "semantic|structural|hybrid"  // Tipo de busca
+  "query": "string", // Sua pergunta
+  "namespace": "string", // Namespace (default: config)
+  "top_k": 10, // Quantos resultados (default: 10)
+  "strategy": "semantic|structural|hybrid" // Tipo de busca
 }
 ```
 
 **Response**:
+
 ```json
 {
   "chunks": [
@@ -73,6 +75,7 @@ Busca semântica por chunks relevantes.
 ```
 
 **Exemplo**:
+
 ```text
 @vectora search_context "Como validar JWT tokens?"
 ```
@@ -84,6 +87,7 @@ Busca semântica por chunks relevantes.
 Busca testes relacionados a uma query.
 
 **Parâmetros**:
+
 ```json
 {
   "query": "string",
@@ -94,6 +98,7 @@ Busca testes relacionados a uma query.
 ```
 
 **Response**:
+
 ```json
 {
   "tests": [
@@ -116,16 +121,18 @@ Busca testes relacionados a uma query.
 Encontra todas as referências a um símbolo.
 
 **Parâmetros**:
+
 ```json
 {
-  "symbol": "getUserById",           // Função/variável
+  "symbol": "getUserById", // Função/variável
   "type": "function|class|variable",
-  "include_indirect": true,          // Incluir chamadas indiretas?
+  "include_indirect": true, // Incluir chamadas indiretas?
   "namespace": "string"
 }
 ```
 
 **Response**:
+
 ```json
 {
   "direct_calls": 47,
@@ -151,9 +158,10 @@ Encontra todas as referências a um símbolo.
 Encontra código similar a um trecho fornecido.
 
 **Parâmetros**:
+
 ```json
 {
-  "code": "string",                  // Código para comparar
+  "code": "string", // Código para comparar
   "language": "typescript|python|go",
   "min_similarity": 0.7,
   "top_k": 5,
@@ -162,6 +170,7 @@ Encontra código similar a um trecho fornecido.
 ```
 
 **Response**:
+
 ```json
 {
   "similar_chunks": [
@@ -181,6 +190,7 @@ Encontra código similar a um trecho fornecido.
 Resume a estrutura de um arquivo (imports, funções, classes).
 
 **Parâmetros**:
+
 ```json
 {
   "file_path": "src/auth/jwt.ts",
@@ -190,14 +200,12 @@ Resume a estrutura de um arquivo (imports, funções, classes).
 ```
 
 **Response**:
+
 ```json
 {
   "file": "src/auth/jwt.ts",
   "language": "typescript",
-  "imports": [
-    "jsonwebtoken",
-    "./types"
-  ],
+  "imports": ["jsonwebtoken", "./types"],
   "exports": ["validateToken", "signToken"],
   "functions": [
     {
@@ -221,15 +229,17 @@ Resume a estrutura de um arquivo (imports, funções, classes).
 Lista arquivos indexados no namespace.
 
 **Parâmetros**:
+
 ```json
 {
   "namespace": "string",
-  "pattern": "**/*.ts",              // Glob pattern (opcional)
+  "pattern": "**/*.ts", // Glob pattern (opcional)
   "limit": 100
 }
 ```
 
 **Response**:
+
 ```json
 {
   "files": [
@@ -252,13 +262,15 @@ Lista arquivos indexados no namespace.
 Lista todos os namespaces disponíveis.
 
 **Parâmetros**:
+
 ```json
 {
-  "filter": "owned|shared|all"       // Opcional
+  "filter": "owned|shared|all" // Opcional
 }
 ```
 
 **Response**:
+
 ```json
 {
   "namespaces": [
@@ -280,6 +292,7 @@ Lista todos os namespaces disponíveis.
 Retorna estatísticas de um namespace.
 
 **Parâmetros**:
+
 ```json
 {
   "namespace": "string"
@@ -287,6 +300,7 @@ Retorna estatísticas de um namespace.
 ```
 
 **Response**:
+
 ```json
 {
   "namespace": "kaffyn-vectora-prod",
@@ -315,6 +329,7 @@ Retorna estatísticas de um namespace.
 Verifica o status do índice (saúde, pendências).
 
 **Parâmetros**:
+
 ```json
 {
   "namespace": "string",
@@ -323,6 +338,7 @@ Verifica o status do índice (saúde, pendências).
 ```
 
 **Response**:
+
 ```json
 {
   "namespace": "seu-namespace",
@@ -342,15 +358,17 @@ Verifica o status do índice (saúde, pendências).
 Força re-indexação de arquivos.
 
 **Parâmetros**:
+
 ```json
 {
-  "files": ["src/auth/**/*.ts"],     // Glob patterns
+  "files": ["src/auth/**/*.ts"], // Glob patterns
   "namespace": "string",
-  "force": false                     // Reindexar mesmo se não mudou?
+  "force": false // Reindexar mesmo se não mudou?
 }
 ```
 
 **Response**:
+
 ```json
 {
   "status": "started",
@@ -369,13 +387,15 @@ Força re-indexação de arquivos.
 Retorna configuração atual do Vectora.
 
 **Parâmetros**:
+
 ```json
 {
-  "include_secrets": false           // Incluir chaves de API?
+  "include_secrets": false // Incluir chaves de API?
 }
 ```
 
 **Response**:
+
 ```json
 {
   "project": {
@@ -396,9 +416,10 @@ Retorna configuração atual do Vectora.
 Modifica configuração (requer autenticação).
 
 **Parâmetros**:
+
 ```json
 {
-  "path": "context_engine.strategy",  // Caminho no YAML
+  "path": "context_engine.strategy", // Caminho no YAML
   "value": "hybrid"
 }
 ```
@@ -412,6 +433,7 @@ Modifica configuração (requer autenticação).
 Retorna métricas de execução.
 
 **Parâmetros**:
+
 ```json
 {
   "namespace": "string",
@@ -421,6 +443,7 @@ Retorna métricas de execução.
 ```
 
 **Response**:
+
 ```json
 {
   "period": "24h",
@@ -441,16 +464,18 @@ Retorna métricas de execução.
 Retorna log de acessos e modificações.
 
 **Parâmetros**:
+
 ```json
 {
   "namespace": "string",
   "since": "2026-04-18T00:00:00Z",
-  "action": "search|index|delete",   // Filtrar por tipo
+  "action": "search|index|delete", // Filtrar por tipo
   "limit": 100
 }
 ```
 
 **Response**:
+
 ```json
 {
   "logs": [
@@ -479,18 +504,18 @@ Nesta seção, demonstramos como as ferramentas MCP trabalham em conjunto para r
 **Step-by-Step com Tools:**
 
 ```text
-1️⃣ get_file_structure("src/auth/jwt.ts")
+1⃣ get_file_structure("src/auth/jwt.ts")
    Resultado: validateToken está em linha 45, retorna boolean
-   
-2️⃣ analyze_dependencies(symbol="validateToken")
+
+2⃣ analyze_dependencies(symbol="validateToken")
    Resultado: 47 chamadas diretas em guards.ts, middleware/auth.ts, etc
-   
-3️⃣ search_tests(query="validateToken")
+
+3⃣ search_tests(query="validateToken")
    Resultado: 8 testes relacionados (spec/auth.test.ts)
-   
-4️⃣ find_similar_code(code="function validateToken...")
+
+4⃣ find_similar_code(code="function validateToken...")
    Resultado: Similar pattern em getUser() (85% match)
-   
+
 Output Final:
    ├─ Função: validateToken (linha 45, src/auth/jwt.ts)
    ├─ Usado em: 47 places (guards.ts principal)
@@ -507,25 +532,25 @@ Esse workflow mostra como usar tools em sequência para identificar uma função
 **Tools em Sequência:**
 
 ```text
-1️⃣ get_metrics(period="24h")
+1⃣ get_metrics(period="24h")
    Resultado: latency avg=234ms, p95=800ms (acima do SLA 300ms)
-   
-2️⃣ search_context(query="validação de tokens")
+
+2⃣ search_context(query="validação de tokens")
    Resultado: 5 chunks (jwt.ts, guards.ts, middleware.ts)
-   
-3️⃣ get_file_structure("src/auth/jwt.ts")
+
+3⃣ get_file_structure("src/auth/jwt.ts")
    Resultado: validateToken(line 45), signToken(line 89)
-   
-4️⃣ analyze_dependencies(symbol="validateToken")
+
+4⃣ analyze_dependencies(symbol="validateToken")
    Resultado: 47 chamadas, 12 indiretas (via middleware)
-   
-5️⃣ search_tests(query="validateToken performance")
+
+5⃣ search_tests(query="validateToken performance")
    Resultado: Nenhum teste de performance específico!
-   
+
 Conclusão:
-   ❌ validateToken é chamado em 47 places
-   ⚠️ Sem testes de performance específicos
-   ✓ Recomendação: Profile validateToken, adicionar cache
+    validateToken é chamado em 47 places
+    Sem testes de performance específicos
+    Recomendação: Profile validateToken, adicionar cache
 ```
 
 Quando performance degrada, as tools ajudam a diagnosticar a causa raiz. Este workflow combina métricas, busca e análise estrutural.
@@ -537,26 +562,26 @@ Quando performance degrada, as tools ajudam a diagnosticar a causa raiz. Este wo
 **Tools:**
 
 ```text
-1️⃣ search_context(query="user handler pattern")
+1⃣ search_context(query="user handler pattern")
    Resultado: 8 handlers similares encontrados
-   
-2️⃣ find_similar_code(code="async function handle(...)")
+
+2⃣ find_similar_code(code="async function handle(...)")
    Resultado: Seu PR é 92% similar a userController.ts
-   
-3️⃣ analyze_dependencies(symbol="getUserById")
+
+3⃣ analyze_dependencies(symbol="getUserById")
    Resultado: Verifica se novo handler segue mesmo padrão
-   
-4️⃣ search_tests(query="user handler tests")
+
+4⃣ search_tests(query="user handler tests")
    Resultado: 12 testes de padrão similar
-   
-5️⃣ get_file_structure(file_path="seu-novo-handler.ts")
+
+5⃣ get_file_structure(file_path="seu-novo-handler.ts")
    Resultado: Estrutura validada (imports, exports, functions)
-   
+
 Review Output:
-   ✅ Código segue padrão existente (92% match)
-   ✅ Testes similares existem (12 found)
-   ✅ Imports corretos (validateToken via guards)
-   ⚠️ Erro handling: veja exemplo em userHandler.ts:56
+    Código segue padrão existente (92% match)
+    Testes similares existem (12 found)
+    Imports corretos (validateToken via guards)
+    Erro handling: veja exemplo em userHandler.ts:56
    → Pronto para merge (com sugestão)
 ```
 
@@ -569,30 +594,30 @@ Validar que uma PR segue os padrões do projeto envolve buscar código similar e
 **Tools:**
 
 ```text
-1️⃣ analyze_dependencies(symbol="validateToken")
+1⃣ analyze_dependencies(symbol="validateToken")
    Resultado: 47 chamadas diretas, 12 indiretas
-   
-2️⃣ list_files(pattern="**/*.ts", limit=100)
+
+2⃣ list_files(pattern="**/*.ts", limit=100)
    Resultado: 247 arquivos TypeScript
-   
-3️⃣ search_context(query="JWT validation authentication")
+
+3⃣ search_context(query="JWT validation authentication")
    Resultado: 15 chunks relacionados
-   
-4️⃣ get_file_structure para cada arquivo que toca validateToken
+
+4⃣ get_file_structure para cada arquivo que toca validateToken
    Resultado: Confirma 47 + 12 = 59 locais afetados
-   
-5️⃣ search_tests(query="validateToken authorization")
+
+5⃣ search_tests(query="validateToken authorization")
    Resultado: 8 testes que precisam passar
-   
-6️⃣ reindex(files=["src/auth/**/*.ts"], force=true)
+
+6⃣ reindex(files=["src/auth/**/*.ts"], force=true)
    Resultado: Re-index em preparação para mudanças
-   
+
 Impact Assessment:
    ├─ Files: 59 (47 direct + 12 indirect)
    ├─ Tests: 8 (todos precisam passar)
    ├─ Risco: MÉDIO (centralizado em auth/)
    ├─ Esforço: ~2 horas (refactor) + 1 hora (testes)
-   └─ Recomendação: 
+   └─ Recomendação:
        1. Fazer mudança em jwt.ts:45
        2. Rodar ./src/__tests__/auth.test.ts
        3. Merge quando tudo passar
@@ -607,30 +632,30 @@ Entender o impacto de uma mudança é crítico. Este workflow usa tools para map
 **Tools:**
 
 ```text
-1️⃣ get_audit_log(action="search", since="24h")
+1⃣ get_audit_log(action="search", since="24h")
    Resultado: Todas as buscas das últimas 24h
-   
-2️⃣ get_audit_log(action="index", since="24h")
+
+2⃣ get_audit_log(action="index", since="24h")
    Resultado: Todas as indexações das últimas 24h
-   
-3️⃣ list_files(pattern=".env*")
-   Resultado: ❌ Nenhum arquivo .env (GOOD - Trust Folder blocked)
-   
-4️⃣ list_files(pattern="*.key|*.pem|*.secret")
-   Resultado: ❌ Nenhum arquivo sensível (GOOD)
-   
-5️⃣ get_namespace_stats()
-   Resultado: 
+
+3⃣ list_files(pattern=".env*")
+   Resultado: Nenhum arquivo .env (GOOD - Trust Folder blocked)
+
+4⃣ list_files(pattern="*.key|*.pem|*.secret")
+   Resultado: Nenhum arquivo sensível (GOOD)
+
+5⃣ get_namespace_stats()
+   Resultado:
       ├─ total_chunks: 3159
       ├─ languages: {typescript: 2100, markdown: 800}
       ├─ searches_24h: 342
       └─ error_rate: 0.009 (saudável)
-   
+
 Security Summary:
-   ✅ Sem arquivos .env indexados
-   ✅ Sem chaves privadas detectadas
-   ✅ Sem acessos suspeitos
-   ✅ 342 buscas legítimas
+    Sem arquivos .env indexados
+    Sem chaves privadas detectadas
+    Sem acessos suspeitos
+    342 buscas legítimas
    → Sistema seguro
 ```
 
@@ -653,7 +678,7 @@ Todas as tools retornam erros estruturados:
 
 ---
 
-> 💡 **Próximo**: [CLI Reference](./cli.md)
+> **Próximo**: [CLI Reference](./cli.md)
 
 ---
 
