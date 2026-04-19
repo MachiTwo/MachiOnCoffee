@@ -31,17 +31,17 @@
     {{ $desc := $data.description }}
     {{ $desc = replace $desc "[codeblocks]" "" }}
     {{ $desc = replace $desc "[/codeblocks]" "" }}
-    {{ $desc = replace $desc "[gdscript]" "```gdscript" }}
-    {{ $desc = replace $desc "[/gdscript]" "```" }}
-    {{ $desc = replace $desc "[csharp]" "```csharp" }}
-    {{ $desc = replace $desc "[/csharp]" "```" }}
+    {{ $desc = replace $desc "[gdscript]" "\n\n```gdscript\n" }}
+    {{ $desc = replace $desc "[/gdscript]" "\n```\n\n" }}
+    {{ $desc = replace $desc "[csharp]" "\n\n```csharp\n" }}
+    {{ $desc = replace $desc "[/csharp]" "\n```\n\n" }}
     {{ $desc = replace $desc "[b]" "**" }}
     {{ $desc = replace $desc "[/b]" "**" }}
     {{ $desc = replace $desc "[i]" "*" }}
     {{ $desc = replace $desc "[/i]" "*" }}
     {{ $desc = replace $desc "[code]" "`" }}
     {{ $desc = replace $desc "[/code]" "`" }}
-    <p>{{ $desc | markdownify }}</p>
+    <div class="api-description-content">{{ $desc | markdownify }}</div>
   </div>
   {{ end }}
 
@@ -67,7 +67,7 @@
         {{ $pdesc = replace $pdesc "[/i]" "*" }}
         {{ $pdesc = replace $pdesc "[code]" "`" }}
         {{ $pdesc = replace $pdesc "[/code]" "`" }}
-        <td colspan="3" class="item-desc">{{ $pdesc | markdownify }}</td>
+        <td colspan="3" class="item-desc"><div>{{ $pdesc | markdownify }}</div></td>
       </tr>
       {{ end }}
       {{ end }}
@@ -102,7 +102,7 @@
         {{ $mdesc = replace $mdesc "[/i]" "*" }}
         {{ $mdesc = replace $mdesc "[code]" "`" }}
         {{ $mdesc = replace $mdesc "[/code]" "`" }}
-        <td colspan="2" class="item-desc">{{ $mdesc | markdownify }}</td>
+        <td colspan="2" class="item-desc"><div>{{ $mdesc | markdownify }}</div></td>
       </tr>
       {{ end }}
       {{ end }}
@@ -155,7 +155,7 @@
         {{ $cdesc = replace $cdesc "[/i]" "*" }}
         {{ $cdesc = replace $cdesc "[code]" "`" }}
         {{ $cdesc = replace $cdesc "[/code]" "`" }}
-        <td colspan="2" class="item-desc">{{ $cdesc | markdownify }}</td>
+        <td colspan="2" class="item-desc"><div>{{ $cdesc | markdownify }}</div></td>
       </tr>
       {{ end }}
       {{ end }}
