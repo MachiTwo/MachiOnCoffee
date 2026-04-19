@@ -1,17 +1,21 @@
 import os
 import yaml
 from datetime import datetime
+from collections import defaultdict
 
 BASE_URL = "https://cafegame.dev"
 CONTENT_DIR = "content"
 SITEMAP_PATH = "static/sitemap.xml"
+
+# Default fallback date if none found (to avoid constant changes in sitemap)
+DEFAULT_DATE = "2026-04-18T22:30:00-03:00"
 
 def get_lastmod(front):
     if front.get('lastmod'):
         return str(front['lastmod'])
     if front.get('date'):
         return str(front['date'])
-    return datetime.now().isoformat()
+    return DEFAULT_DATE
 
 def parse_md_file(file_path):
     try:
@@ -70,7 +74,9 @@ def parse_md_file(file_path):
         # filter out empty parts
         path_parts = [p for p in path_parts if p and p != '.']
 
-        url_path = "/".join(path_parts)
+        canonical_id = "/".join(path_parts)
+
+        url_path = canonical_id
         if lang == 'en':
             url = f"{BASE_URL}/en/{url_path}/"
         else:
@@ -89,52 +95,85 @@ def parse_md_file(file_path):
             url += '/'
 
         # SEO: Priority and Changefreq from frontmatter or defaults
-        priority = front.get('priority', '0.7' if is_index else '0.5')
-        changefreq = front.get('changefreq', 'weekly')
+        priority = str(front.get('priority', '0.7' if is_index else '0.5'))
+        changefreq = str(front.get('changefreq', 'weekly'))
 
         return {
+            'canonical_id': canonical_id,
+            'lang': lang,
             'loc': url,
             'lastmod': get_lastmod(front),
             'changefreq': changefreq,
-            'priority': priority
+            'priority': priority,
+            'tags': front.get('tags', []), # Store tags for possible metadata inclusion
+            'title': front.get('title', '')
         }
     except Exception as e:
         print(f"Error parsing {file_path}: {e}")
         return None
 
 def generate_sitemap():
-    urls = []
+    # Group results by canonical_id to handle hreflang
+    grouped_pages = defaultdict(dict)
+
     for root, _, files in os.walk(CONTENT_DIR):
         for file in files:
             if file.endswith('.md'):
                 file_path = os.path.join(root, file)
                 res = parse_md_file(file_path)
                 if res:
-                    urls.append(res)
+                    grouped_pages[res['canonical_id']][res['lang']] = res
 
-    # Sort for consistency
-    urls.sort(key=lambda x: x['loc'])
+    # Flatten and sort for consistency
+    all_urls = []
+    for cid in grouped_pages:
+        for lang in grouped_pages[cid]:
+            page = grouped_pages[cid][lang]
+            # Add alternates
+            alternates = []
+            for other_lang in grouped_pages[cid]:
+                alternates.append({
+                    'lang': 'en' if other_lang == 'en' else 'pt-br', # Adjust to site language codes
+                    'href': grouped_pages[cid][other_lang]['loc']
+                })
+            page['alternates'] = alternates
+            all_urls.append(page)
 
-    xml_content = ['<?xml version="1.0" encoding="UTF-8"?>']
-    xml_content.append('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">')
+    all_urls.sort(key=lambda x: x['loc'])
 
-    for url in urls:
+    xml_content = [
+        '<?xml version="1.0" encoding="UTF-8"?>',
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"',
+        '        xmlns:xhtml="http://www.w3.org/1999/xhtml">',
+    ]
+
+    for url in all_urls:
         xml_content.append('  <url>')
         xml_content.append(f'    <loc>{url["loc"]}</loc>')
         xml_content.append(f'    <lastmod>{url["lastmod"]}</lastmod>')
         xml_content.append(f'    <changefreq>{url["changefreq"]}</changefreq>')
         xml_content.append(f'    <priority>{url["priority"]}</priority>')
+
+        # Add hreflang alternates (Complete SEO)
+        for alt in url['alternates']:
+            xml_content.append(f'    <xhtml:link rel="alternate" hreflang="{alt["lang"]}" href="{alt["href"]}"/>')
+
+        # Optional: Add custom tags as comments or specific tags if requested
+        # Since standard XML sitemap doesn't support <tags>, we can keep them in comments for audit
+        if url['tags']:
+            tags_str = ", ".join(url['tags'])
+            xml_content.append(f'    <!-- Tags: {tags_str} -->')
+
         xml_content.append('  </url>')
 
     xml_content.append('</urlset>')
 
     content = "\n".join(xml_content)
 
-    # Save to static folder so Hugo copies it to public
     with open(SITEMAP_PATH, 'w', encoding='utf-8') as f:
         f.write(content)
 
-    print(f"Sitemap generated at {SITEMAP_PATH} with {len(urls)} entries.")
+    print(f"Sitemap generated at {SITEMAP_PATH} with {len(all_urls)} entries.")
 
 if __name__ == "__main__":
     generate_sitemap()

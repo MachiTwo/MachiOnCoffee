@@ -42,7 +42,7 @@ repos:
     hooks:
       - id: generate-index
         name: Generate Index
-        entry: python generate_index.py
+        entry: python scripts/generate_index.py
         language: system
         pass_filenames: false
       - id: xml-to-json
