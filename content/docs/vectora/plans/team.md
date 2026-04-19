@@ -16,7 +16,7 @@ tags:
 
 ## Visão Geral
 
-O plano **Team** é para grandes organizações com requisitos enterprise: SSO, on-premise, suporte 24/7, e SLA garantido.
+O plano **Team** é para grandes organizações com requisitos enterprise: SSO, on-premise, suporte 24/7, e SLA garantido. Assim como o Pro, oferece modos **BYOK** ou **Plus** (Gerenciado).
 
 **Pricing Customizado** - Contate [sales@vectora.app](mailto:sales@vectora.app)
 
@@ -33,14 +33,14 @@ O plano **Team** é para grandes organizações com requisitos enterprise: SSO, 
 | **Tokens Unlimited**         |              |           |
 | **Webhooks**                 |              |           |
 | **Custom Domain**            |              |           |
-| **SSO (SAML/OIDC)**          |              |           |
-| **LDAP/Active Directory**    |              |           |
-| **On-Premise Deployment**    |              |           |
-| **99.99% SLA**               |              |           |
-| **Dedicated Support**        |              |           |
-| **Custom Integrations**      |              |           |
-| **Advanced Compliance**      |              |           |
-| **Audit Logging (Detailed)** |              |           |
+| **SSO (SAML/OIDC)**          | -            |           |
+| **LDAP/Active Directory**    | -            |           |
+| **On-Premise Deployment**    | -            |           |
+| **99.99% SLA**               | 99.9% (SLA)  |           |
+| **Dedicated Support**        | -            |           |
+| **Custom Integrations**      | -            |           |
+| **Advanced Compliance**      | -            |           |
+| **Audit Logging (Detailed)** | -            |           |
 
 ### Enterprise Features
 
@@ -264,7 +264,7 @@ custom_embedding:
 encryption:
   at_rest: "AES-256-GCM"
   in_transit: "TLS 1.3"
-  key_management: "BYOK or Managed"
+  key_management: "BYOK, Managed (Plus) or HSM"
   key_rotation: "automatic"
 
 access_control:
@@ -382,4 +382,4 @@ R: 15 min para assessment, 4 horas para resolve.
 
 ---
 
-_Parte do ecossistema Vectora · Open Source (MIT) · TypeScript_
+_Parte do ecossistema Vectora_ · Open Source (MIT)

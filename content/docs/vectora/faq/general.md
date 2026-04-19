@@ -392,7 +392,7 @@ indexing:
 
 ## Qual é a Comunidade?
 
-**Open Source (MIT License)**
+### Open Source (MIT License)
 
 - GitHub: [github.com/kaffyn/vectora](https://github.com/kaffyn/vectora)
 - Discussions: [GitHub Discussions](https://github.com/kaffyn/vectora/discussions)
@@ -405,4 +405,4 @@ indexing:
 
 ---
 
-_Parte do ecossistema Vectora · Open Source (MIT) · TypeScript_
+_Parte do ecossistema Vectora_ · Open Source (MIT)

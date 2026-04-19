@@ -83,7 +83,7 @@ Vectora **não é provider-agnóstico**. Operamos com modelos rigorosamente cali
 | **Vector DB + Metadata** | `MongoDB Atlas`        | Backend unificado (vetores + docs + estado + audit), escalável, sem ETL     | [MongoDB Atlas](/backend/mongodb-atlas/)         |
 | **State Persistence**    | Sessions + `AGENTS.md` | Working memory entre chamadas MCP, continuidade de contexto longo           | [State Persistence](/backend/state-persistence/) |
 
-> [!WARNING] > **Sem suporte a fallbacks genéricos**: Vectora não integra OpenAI, Anthropic, OpenRouter ou modelos locais. A calibração do [Harness Runtime](/concepts/harness-runtime/) depende estritamente dessa stack. Para multi-provider, use tools MCP padrão do mercado.
+> [!WARNING] > **Vectora Cloud Only**: O Vectora é uma solução 100% baseada em nuvem otimizada para a stack Gemini + Voyage. **Não oferecemos suporte para modelos locais (Ollama, LlamaCpp, etc.)** ou outros provedores genéricos para garantir a precisão do engine.
 
 ---
 
@@ -96,21 +96,21 @@ A segurança no Vectora é implementada **na camada de aplicação**, não deleg
 | **Guardian Hard-Coded** | Blocklist imutável (`.env`, `.key`, `.pem`, binários, lockfiles) executada antes de qualquer tool call | [Guardian](/security/guardian/)         |
 | **Trust Folder**        | Validação de paths com `fs.realpath` + escopo por namespace/projeto                                    | [Trust Folder](/security/trust-folder/) |
 | **RBAC Aplicativo**     | Roles (`reader`, `contributor`, `admin`, `auditor`) validadas em runtime                               | [RBAC](/security/rbac/)                 |
-| **BYOK Obrigatório**    | `GEMINI_API_KEY` + `VOYAGE_API_KEY` são fornecidas pelo usuário em todos os planos                     | [Plano Free](/plans/free/)              |
-| **Fallback Automático** | Quota gerenciada esgota → roteia silenciosamente para BYOK sem interrupção                             | [Plano Pro](/plans/pro/)                |
+| **BYOK ou Managed**     | Chaves do usuário (Free) ou créditos inclusos (Plus)                                                   | [Plano Free](/plans/free/)              |
+| **Managed (Plus)**      | Quota gerenciada inclusa nos planos Pro e Team                                                         | [Plano Pro](/plans/pro/)                |
 
 ---
 
 ## Planos & Política de Retenção
 
-Vectora opera com modelo **BYOK First**, onde o backend (MongoDB Atlas) é gerenciado pela Kaffyn em todos os planos, mas as chaves de API são do usuário:
+Vectora opera com modelo **Digital Sovereignty First**, oferecendo **BYOK (Bring Your Own Key)** para controle total ou **Managed (Plus)** para conveniência:
 
-| Plano          | Preço                  | Storage                   | API Quota                                   | Retenção                                          | Docs                         |
-| -------------- | ---------------------- | ------------------------- | ------------------------------------------- | ------------------------------------------------- | ---------------------------- |
-| **Free**       | $0/mês                 | 512MB total               | BYOK puro                                   | 30 dias inatividade = exclusão do índice vetorial | [Free](/plans/free/)         |
-| **Pro**        | ~$20/mês               | 10GB total                | 500k tokens + 100k vetores/mês              | 90 dias pós-cancelamento                          | [Pro](/plans/pro/)           |
-| **Team**       | $5 base + $15/user/mês | 50GB total                | Pool compartilhado + fallback BYOK por user | 180 dias pós-cancelamento                         | [Team](/plans/team/)         |
-| **Enterprise** | Custom                 | Ilimitado (VPC/Dedicated) | Sob contrato                                | Política custom                                   | [Overview](/plans/overview/) |
+| Plano          | Preço   | Storage                   | API Quota                | Retenção                                          | Docs                         |
+| -------------- | ------- | ------------------------- | ------------------------ | ------------------------------------------------- | ---------------------------- |
+| **Free**       | $0/mês  | 512MB total               | BYOK puro                | 30 dias inatividade = exclusão do índice vetorial | [Free](/plans/free/)         |
+| **Pro**        | $29/mês | 5GB total                 | Unlimited (Plus) ou BYOK | 90 dias pós-cancelamento                          | [Pro](/plans/pro/)           |
+| **Team**       | Custom  | Custom                    | Unlimited (Plus) ou BYOK | Política de Compliance                            | [Team](/plans/team/)         |
+| **Enterprise** | Custom  | Ilimitado (VPC/Dedicated) | Sob contrato             | Política custom                                   | [Overview](/plans/_index.md) |
 
 > [!NOTE] > **Regras de Retenção**: Contas Free inativas por 30 dias têm o índice vetorial excluído automaticamente. Metadados são preservados por +90 dias para exportação via `vectora export`. Downgrades notificam redução de limites e concedem 7 dias para backup. Detalhes em [Política de Retenção](/plans/retention/).
 
@@ -135,7 +135,7 @@ Vectora opera com modelo **BYOK First**, onde o backend (MongoDB Atlas) é geren
 | **Conceitos**       | [Sub-Agents](/concepts/sub-agents/)                                                                                                                                           | Por que Sub-Agent e não tools MCP passivas? Governança ativa vs funções estáticas |
 | **Harness Runtime** | [Harness Runtime](/concepts/harness-runtime/)                                                                                                                                 | Tool Execution, Context Engineering, State Management, Verification Hooks         |
 | **Context & RAG**   | [Context Engine](/concepts/context-engine/)                                                                                                                                   | AST parsing, compaction, multi-hop reasoning, hybrid ranking                      |
-| **Reranking**       | [Reranker](/concepts/reranker/)                                                                                                                                               | Pipeline Embed → Search → Rerank → LLM, métricas de precisão                      |
+| **Reranking**       | [Reranker](/concepts/reranker/) · [Reranker Local](/concepts/reranker-local/)                                                                                                 | VectorDB + cross-encoder ou late binding para dados mutáveis, trade-offs de custo |
 | **Modelos**         | [Gemini 3](/models/gemini/) · [Voyage 4](/models/voyage/)                                                                                                                     | Stack curada, fallback BYOK, schema de configuração, custos por query             |
 | **Backend**         | [MongoDB Atlas](/backend/mongodb-atlas/)                                                                                                                                      | Vector Search, collections, state persistence, isolamento multi-tenant            |
 | **Segurança**       | [Guardian](/security/guardian/) · [RBAC](/security/rbac/)                                                                                                                     | Blocklist hard-coded, Trust Folder, sanitização, roles por namespace              |
@@ -168,4 +168,4 @@ Vectora opera com modelo **BYOK First**, onde o backend (MongoDB Atlas) é geren
 
 ---
 
-Parte do ecossistema Vectora · Open Source (MIT) · TypeScript
+Parte do ecossistema Vectora · Open Source (MIT)

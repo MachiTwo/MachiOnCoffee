@@ -16,65 +16,65 @@ tags:
 
 {{< lang-toggle >}}
 
-## Visão Geral
+## Overview
 
-**APP PRÓPRIO**: Vectora oferece uma extensão nativa para VS Code com UI integrada (painel sidebar, commands, inline hover) - não precisa de MCP. Desenvolvimento totalmente customizado para VS Code.
+**OWN APP**: Vectora offers a native VS Code extension with integrated UI (sidebar panel, commands, inline hover) — no MCP required. Fully customized development for VS Code.
 
 > [!IMPORTANT]
-> VS Code Extension (app próprio) vs MCP Protocol (genérico para múltiplas IDEs). Use extension se estiver em VS Code.
+> VS Code Extension (own app) vs MCP Protocol (generic for multiple IDEs). Use the extension if you are using VS Code.
 
 ---
 
-## Instalação
+## Installation
 
 ### Via VS Code Marketplace
 
-1. Abra VS Code
-2. Vá para **Extensions** (Cmd/Ctrl + Shift + X)
-3. Procure: `Vectora`
-4. Clique em **Install**
+1. Open VS Code.
+2. Go to **Extensions** (Cmd/Ctrl + Shift + X).
+3. Search for: `Vectora`.
+4. Click **Install**.
 
-### Alternativa: Manual Install
+### Alternative: Manual Install
 
 ```bash
-# Clone do repositório
+# Clone the repository
 git clone https://github.com/kaffyn/vectora-vscode.git
 
-# Instale em ~/.vscode/extensions
+# Install in ~/.vscode/extensions
 ln -s $(pwd)/vectora-vscode ~/.vscode/extensions/
 ```
 
 ---
 
-## Setup Inicial
+## Initial Setup
 
-### Passo 1: Configurar Vectora no Projeto
+### Step 1: Configure Vectora in the Project
 
 ```bash
-cd ~/seu-projeto
-vectora init --name "Meu Projeto" --type codebase
+cd ~/your-project
+vectora init --name "My Project" --type codebase
 ```
 
-### Passo 2: Abrir Projeto em VS Code
+### Step 2: Open Project in VS Code
 
 ```bash
-code ~/seu-projeto
+code ~/your-project
 ```
 
-### Passo 3: Configurar Keys
+### Step 3: Configure Keys
 
-VS Code pedirá chaves de API na primeira execução. Você pode entrar com:
+VS Code will prompt for API keys on the first run. You can:
 
-- **Opção A**: Colar chaves diretamente (armazenado em settings.json encriptado)
-- **Opção B**: Usar .env local (`.env` será lido automaticamente)
-- **Opção C**: Usar variáveis de sistema (PATH, HOME, etc.)
+- **Option A**: Paste keys directly (stored in encrypted settings.json).
+- **Option B**: Use local `.env` (`.env` will be read automatically).
+- **Option C**: Use system environment variables (PATH, HOME, etc.).
 
 ```bash
-# Via .env (recomendado)
+# Via .env (recommended)
 cat > .env << 'EOF'
 GEMINI_API_KEY=sk-...
 VOYAGE_API_KEY=sk-...
-VECTORA_NAMESPACE=seu-namespace
+VECTORA_NAMESPACE=your-namespace
 EOF
 ```
 
@@ -84,7 +84,7 @@ EOF
 
 ### Sidebar Panel
 
-VS Code mostra um painel "Vectora" na sidebar:
+VS Code displays a "Vectora" panel in the sidebar:
 
 ```text
 ┌─────────────────────────┐
@@ -106,7 +106,7 @@ VS Code mostra um painel "Vectora" na sidebar:
 
 ### Command Palette
 
-Acesse comandos via `Cmd/Ctrl + Shift + P`:
+Access commands via `Cmd/Ctrl + Shift + P`:
 
 ```text
 Vectora: Search Context
@@ -118,45 +118,45 @@ Vectora: Show Metrics
 
 ### Inline Hover
 
-Passe o mouse sobre um identificador para ver contexto:
+Hover over an identifier to see context:
 
 ```typescript
-function getUserById(|id: string) { ← Hover aqui
-  // Mostra:
-  // - Tipo: função
-  // - Definida em: src/user-service.ts:45
-  // - Contexto semelhante: findUserById, getUser, etc.
+function getUserById(|id: string) { ← Hover here
+  // Shows:
+  // - Type: function
+  // - Defined in: src/user-service.ts:45
+  // - Similar context: findUserById, getUser, etc.
 }
 ```
 
 ---
 
-## Workflows Passo-a-Passo
+## Step-by-Step Workflows
 
-Os workflows abaixo mostram a experiência típica de uso da extensão Vectora no VS Code, com interface detalhada e passos claros.
+The workflows below demonstrate the typical experience of using the Vectora extension in VS Code, with a detailed interface and clear steps.
 
-### Workflow 1: Busca Rápida (5s de setup)
+### Workflow 1: Quick Search (5s setup)
 
-**Cenário**: Você quer entender como tokens JWT são validados no projeto.
+**Scenario**: You want to understand how JWT tokens are validated in the project.
 
 ```text
-1. Pressione Cmd/Ctrl + Shift + P (Command Palette)
-   → Mostra: caixa de entrada vazia com ">" no topo
+1. Press Cmd/Ctrl + Shift + P (Command Palette)
+   → Shows: empty input box with ">" at the top
 
-2. Digite: "Vectora: Search Context"
-   → Autocomplete mostra opção Vectora
+2. Type: "Vectora: Search Context"
+   → Autocomplete shows Vectora option
 
-3. Pressione Enter
-   → Abre painel de busca (direita da sidebar)
+3. Press Enter
+   → Opens search panel (right of the sidebar)
 
-4. Digite: "Como faz validação de tokens?"
-   → Em tempo real: mostra resultados conforme digita
+4. Type: "How to validate tokens?"
+   → In real-time: shows results as you type
 
-5. Resultados aparecem em 120-250ms
+5. Results appear in 120-250ms
    ┌─────────────────────────────────┐
    │ Vectora Results (8 chunks) │
    ├─────────────────────────────────┤
-   │ src/auth/jwt.ts:45 │ ← Clique para ir
+   │ src/auth/jwt.ts:45 │ ← Click to go
    │ validateToken() { ... │
    │ precision: 0.92 | latency 240ms│
    │ │
@@ -168,20 +168,20 @@ Os workflows abaixo mostram a experiência típica de uso da extensão Vectora n
    │ interface JWTPayload { ... │
    │ precision: 0.76 │
    │ │
-   │ [Mostrar mais] │
+   │ [Show more] │
    └─────────────────────────────────┘
 ```
 
-Clique em qualquer resultado → editor salta para o arquivo.
+Click any result → editor jumps to the file.
 
-### Workflow 2: Análise Inteligente de Função
+### Workflow 2: Intelligent Function Analysis
 
-**Cenário**: Você clicou em uma função e quer ver TUDO que está relacionado.
+**Scenario**: You clicked on a function and want to see EVERYTHING related to it.
 
 ```text
-1. Posicione cursor em: getUserById
-2. Pressione Cmd/Ctrl + Shift + H (Find References)
-3. VS Code mostra painel "Find All References":
+1. Position cursor on: getUserById
+2. Press Cmd/Ctrl + Shift + H (Find References)
+3. VS Code shows "Find All References" panel:
 
    ┌─────────────────────────────────┐
    │ 62 References to getUserById │
@@ -198,62 +198,62 @@ Clique em qualquer resultado → editor salta para o arquivo.
    │ TESTS (3) │
    │ • src/__tests__/user.test.ts:45 │
    │ │
-   │ [Expandir com Vectora] ← Novo │
+   │ [Expand with Vectora] ← New │
    └─────────────────────────────────┘
 ```
 
-Clique em "Expandir com Vectora" → mostra contexto semântico:
+Click "Expand with Vectora" → shows semantic context:
 
 ```text
-Referências semelhantes não encontradas por AST:
+Similar references not found via AST:
 • getUserByEmail() [85% similar]
 • fetchUser() [72% similar]
 • getActiveUser() [68% similar]
 ```
 
-### Workflow 3: Code Review com Contexto (Entender PR complexa)
+### Workflow 3: Context-Aware Code Review (Understanding complex PR)
 
-**Cenário**: Revisando PR que toca autenticação, precisa entender impacto.
+**Scenario**: Reviewing a PR that touches authentication; need to understand the impact.
 
 ```text
-1. Abra arquivo modificado: auth/jwt.ts
+1. Open modified file: auth/jwt.ts
 2. Cmd/Ctrl + Alt + F (Find Changes in Context)
-3. Painel mostra:
+3. Panel shows:
 
    ┌────────────────────────────────────┐
    │ Vectora: Changes & Impact │
    ├────────────────────────────────────┤
-   │ LINHAS MODIFICADAS │
+   │ MODIFIED LINES │
    │ L45: function validateToken │
    │ L52: if (!token.verified) │
    │ │
-   │ ARQUIVOS QUE USAM ESSAS FUNÇÕES │
+   │ FILES USING THESE FUNCTIONS │
    │ • src/guards/auth.guard.ts (5) │
    │ • src/routes/api.ts (3) │
    │ • src/middleware/verify.ts (8) │
    │ │
-   │ TESTES RELACIONADOS │
+   │ RELATED TESTS │
    │ • auth.guard.test.ts │
    │ • jwt.validation.test.ts │
    │ │
-   │ ALERT: 16 dependências │
-   │ Recomenda rodar testes completos │
+   │ ALERT: 16 dependencies │
+   │ Recommend running full tests │
    └────────────────────────────────────┘
 ```
 
-4. Clique em "Rodar Testes Relacionados"
-   → VS Code executa apenas testes relevantes (10s vs 2min full suite)
+4. Click "Run Related Tests"
+   → VS Code executes only relevant tests (10s vs 2min full suite)
 
 ---
 
-## Configuração
+## Configuration
 
 ### settings.json
 
 ```json
 {
   "vectora.enabled": true,
-  "vectora.namespace": "seu-namespace",
+  "vectora.namespace": "your-namespace",
   "vectora.trustFolder": "./src",
   "vectora.autoIndex": true,
   "vectora.indexOnSave": true,
@@ -267,9 +267,9 @@ Referências semelhantes não encontradas por AST:
 ### Advanced Config
 
 ```yaml
-# .vscode/vectora.yaml (alternativa)
+# .vscode/vectora.yaml (alternative)
 vectora:
-  namespace: seu-namespace
+  namespace: your-namespace
   context_engine:
     strategy: "semantic"
     max_depth: 3
@@ -277,7 +277,7 @@ vectora:
 
   ui:
     show_metrics: true
-    position: "right" # ou "left"
+    position: "right" # or "left"
     width_percent: 30
 
   indexing:
@@ -290,55 +290,55 @@ vectora:
 
 ---
 
-## Extensões Complementares
+## Complementary Extensions
 
-Para melhor experiência, instale:
+For the best experience, install:
 
-1. **ES7+ React/Redux/React-Native snippets** — Autocompletar smart
-2. **Prettier** — Formatação consistente
-3. **GitLens** — Blame + history (combina bem com Vectora)
+1. **ES7+ React/Redux/React-Native snippets** — Smart autocomplete.
+2. **Prettier** — Consistent formatting.
+3. **GitLens** — Blame + history (combines well with Vectora).
 
 ---
 
 ## Troubleshooting
 
-### Extension não aparece na sidebar
+### Extension doesn't appear in the sidebar
 
-**Causa**: Não está ativada.
+**Cause**: It is not enabled.
 
-**Solução**:
+**Solution**:
 
 ```text
-Cmd/Ctrl + Shift + X → Procure "Vectora" → Clique em "Enable"
+Cmd/Ctrl + Shift + X → Search "Vectora" → Click "Enable"
 ```
 
-### "Vectora command not found" no terminal integrado
+### "Vectora command not found" in integrated terminal
 
-**Causa**: VS Code usa PATH diferente.
+**Cause**: VS Code uses a different PATH.
 
-**Solução**:
+**Solution**:
 
 ```bash
-# No terminal integrado
+# In the integrated terminal
 which vectora
-# Se não encontra:
+# If not found:
 npm install -g @kaffyn/vectora
 
-# Ou adicionar ao PATH em settings.json
+# Or add to PATH in settings.json
 "vectora.commandPath": "/usr/local/bin/vectora"
 ```
 
 ### "API key not configured"
 
-**Solução**:
+**Solution**:
 
 1. Cmd/Ctrl + Shift + P → "Vectora: Configure"
-2. Cole suas chaves
-3. Ou use `.env` no projeto root
+2. Paste your keys.
+3. Or use `.env` in the project root.
 
-### Extension muito lenta
+### Extension is very slow
 
-**Reduzir escopo**:
+**Reduce scope**:
 
 ```json
 {
@@ -347,7 +347,7 @@ npm install -g @kaffyn/vectora
 }
 ```
 
-**Desabilitar auto-index**:
+**Disable auto-index**:
 
 ```json
 {
@@ -360,10 +360,10 @@ npm install -g @kaffyn/vectora
 
 ## Performance Tips
 
-1. **Incremental Index**: Apenas arquivos mudados são re-indexados.
+1. **Incremental Index**: Only changed files are re-indexed.
 
    ```bash
-   # No terminal VS Code
+   # In VS Code terminal
    vectora index --incremental
    ```
 
@@ -376,7 +376,7 @@ npm install -g @kaffyn/vectora
    }
    ```
 
-3. **Local Embedding**: Para máxima privacidade + performance:
+3. **Local Embedding**: For maximum privacy + performance:
 
    ```json
    {
@@ -389,18 +389,18 @@ npm install -g @kaffyn/vectora
 
 ## Hotkeys
 
-| Atalho                 | Ação                  |
-| ---------------------- | --------------------- |
-| `Cmd/Ctrl + Shift + P` | Abrir comando Vectora |
-| `Cmd/Ctrl + Shift + V` | Abrir Vectora sidebar |
-| `Cmd/Ctrl + Alt + F`   | Find via Vectora      |
-| `Cmd/Ctrl + Alt + D`   | Analyze dependencies  |
+| Shortcut               | Action               |
+| ---------------------- | -------------------- |
+| `Cmd/Ctrl + Shift + P` | Open Vectora command |
+| `Cmd/Ctrl + Shift + V` | Open Vectora sidebar |
+| `Cmd/Ctrl + Alt + F`   | Find via Vectora     |
+| `Cmd/Ctrl + Alt + D`   | Analyze dependencies |
 
-Customize em: **Code** → **Preferences** → **Keyboard Shortcuts**
+Customize in: **Code** → **Preferences** → **Keyboard Shortcuts**
 
 ---
 
-## Comparação: Extension vs MCP
+## Comparison: Extension vs MCP
 
 | Feature     | VS Code Extension       | MCP (Cursor/Claude) |
 | ----------- | ----------------------- | ------------------- |
@@ -410,23 +410,23 @@ Customize em: **Code** → **Preferences** → **Keyboard Shortcuts**
 | Performance | Local                   | Network             |
 | Privacy     | Full (local embeddings) | APIs                |
 
-**Recomendação**: Use VS Code Extension para melhor UX. Use MCP para Cursor/Claude.
+**Recommendation**: Use VS Code Extension for best UX. Use MCP for Cursor/Claude.
 
 ---
 
-## Limitações
+## Limitations
 
-| Recurso          | Limite                      |
-| ---------------- | --------------------------- |
-| Busca simultânea | 1                           |
-| Context window   | 4K-8K tokens (configurável) |
-| Index size       | Unlimited (disk)            |
-| Latency target   | < 300ms                     |
-
----
-
-> **Próximo**: [ChatGPT Plugin](./chatgpt-plugin.md)
+| Resource            | Limit                       |
+| ------------------- | --------------------------- |
+| Simultaneous search | 1                           |
+| Context window      | 4K-8K tokens (configurable) |
+| Index size          | Unlimited (disk)            |
+| Latency target      | < 300ms                     |
 
 ---
 
-_Parte do ecossistema Vectora_ · Open Source (MIT)
+> **Next**: [ChatGPT Plugin](./chatgpt-plugin.md)
+
+---
+
+_Part of the Vectora ecosystem_ · Open Source (MIT)

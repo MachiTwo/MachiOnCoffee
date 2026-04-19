@@ -29,4 +29,5 @@ Understand the technological pillars that underpin Vectora and how it solves the
 - [**Connected RAG**](rag/) - Why traditional search isn't enough for code.
 - [**Embeddings & Vector DBs**](embeddings/) - HNSW, Quantization, and Qdrant.
 - [**Reranker**](reranker/) - Refining precision with relevance filters.
+- [**Local Reranker**](reranker-local/) - Intelligent retrieval for mutable data without vector database.
 - [**Sub-Agents vs MCP**](sub-agents/) - Governance vs Simple Tools.

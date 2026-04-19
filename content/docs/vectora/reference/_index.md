@@ -1,6 +1,6 @@
 ---
-title: Architecture Overview
-slug: overview
+title: Reference
+slug: reference
 date: "2026-04-19T10:10:00-03:00"
 type: docs
 sidebar:
@@ -338,4 +338,4 @@ rbac:
 
 ---
 
-_Parte do ecossistema Vectora · Open Source (MIT) · TypeScript_
+_Parte do ecossistema Vectora_ · Open Source (MIT)

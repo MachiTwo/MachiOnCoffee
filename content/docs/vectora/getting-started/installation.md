@@ -21,7 +21,7 @@ tags:
 
 Vectora é instalado globalmente via npm como um agent MCP (Model Context Protocol). A instalação leva menos de 5 minutos e requer apenas Node.js 18+ e chaves de API gratuitas.
 
-> [!IMPORTANT] > **BYOK (Bring Your Own Key)**: Vectora exige chaves de API do Gemini e Voyage. Ambas oferecem tiers gratuitos. Kaffyn nunca acessa suas chaves.
+> [!IMPORTANT] > **BYOK (Bring Your Own Key)**: No plano Free, o Vectora exige chaves de API do Gemini e Voyage. Nos planos **Pro** e **Team (Plus)**, você pode optar pelo modo **Managed**, onde os créditos de IA já estão inclusos.
 
 ---
 
@@ -39,7 +39,7 @@ Vectora é instalado globalmente via npm como um agent MCP (Model Context Protoc
 - **npm** 9.0.0+ (incluído com Node.js)
 - **git** 2.30+ (opcional, para clonar repositórios)
 
-### Verificar Instalação
+### Verificar Pré-requisitos
 
 ```bash
 node --version # Deve retornar v18.0.0 ou superior
@@ -255,4 +255,4 @@ R: Use `npm update -g @kaffyn/vectora` ou instale uma versão específica: `npm 
 
 ---
 
-_Parte do ecossistema Vectora · Open Source (MIT) · TypeScript_
+_Parte do ecossistema Vectora_ · Open Source (MIT)

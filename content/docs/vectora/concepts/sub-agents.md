@@ -117,13 +117,13 @@ Nenhuma dessas responsabilidades pode ser delegada ao agente principal sem perde
 
 ### A Realidade dos Agentes Principais em 2026
 
-| Agent Principal | Embedding Integrado? | RAG Nativo? | Observação |
-| --------------- | -------------------- | ----------------- | ------------------------------------- |
-| GitHub Copilot | Não | Não | Autocomplete, não RAG profundo |
-| Cursor | Não | Não | Indexação própria, não extensível |
-| Claude Code | Não | Não | Espera contexto pronto |
-| Gemini CLI | Via API cloud | Não localmente | Sem pipeline integrado |
-| Windsurf/Trae | Não | Não | Features próprias, não interoperáveis |
+| Agent Principal | Embedding Integrado? | RAG Nativo?    | Observação                            |
+| --------------- | -------------------- | -------------- | ------------------------------------- |
+| GitHub Copilot  | Não                  | Não            | Autocomplete, não RAG profundo        |
+| Cursor          | Não                  | Não            | Indexação própria, não extensível     |
+| Claude Code     | Não                  | Não            | Espera contexto pronto                |
+| Gemini CLI      | Via API cloud        | Não localmente | Sem pipeline integrado                |
+| Windsurf/Trae   | Não                  | Não            | Features próprias, não interoperáveis |
 
 ### Por Que Isso Importa para RAG Real
 
@@ -135,12 +135,12 @@ Query → Embedding → Busca Vetorial → Filtragem → Compaction → Injeçã
 
 Cada etapa exige decisões especializadas que agentes principais não fazem:
 
-| Etapa | Decisão | Por que agente principal não faz |
+| Etapa         | Decisão                                                        | Por que agente principal não faz      |
 | ------------- | -------------------------------------------------------------- | ------------------------------------- |
 | **Embedding** | Escolher `voyage-4-code` vs. `voyage-3` vs. `gemini-embedding` | Agentes não têm embeddings integrados |
-| **Busca** | Aplicar filtros por namespace, `file_type`, relevância | MCP retorna dados brutos |
-| **Filtragem** | Manter head/tail de outputs grandes + pointers | Limite de contexto exige decisão |
-| **Injeção** | Estruturar contexto com metadados e dependências | Relações se perdem em texto plano |
+| **Busca**     | Aplicar filtros por namespace, `file_type`, relevância         | MCP retorna dados brutos              |
+| **Filtragem** | Manter head/tail de outputs grandes + pointers                 | Limite de contexto exige decisão      |
+| **Injeção**   | Estruturar contexto com metadados e dependências               | Relações se perdem em texto plano     |
 
 ### A Solução Vectora: Interpreter Especializado
 
@@ -162,13 +162,13 @@ Agente Principal → Vectora (Camada de Interpretação) → Contexto Estruturad
 
 Mesmo para ferramentas que NÃO envolvem embeddings, atuar como servidor MCP genérico significa perder:
 
-| Recurso | Por que importa | Sem Sub-Agent |
+| Recurso                  | Por que importa                                                     | Sem Sub-Agent                                            |
 | ------------------------ | ------------------------------------------------------------------- | -------------------------------------------------------- |
-| **Harness** | Valida _como_ o agente usou as tools | Sem métricas de `tool_sequence` ou `security_compliance` |
-| **Guardian Middleware** | Blocklist hard-coded (`.env`, `.key`) executada antes de tool calls | Depende de prompts (vulnerável a jailbreak) |
-| **Namespace RBAC** | Isolamento real entre projetos | Acesso direto ao filesystem (risco de vazamento) |
-| **Failover Automático** | Roteia entre providers se um falhar | Agente principal lida com cada erro |
-| **Tool Calling Estável** | Adapter normaliza quirks entre SDKs | Parsing frágil, tool calls inconsistentes |
+| **Harness**              | Valida _como_ o agente usou as tools                                | Sem métricas de `tool_sequence` ou `security_compliance` |
+| **Guardian Middleware**  | Blocklist hard-coded (`.env`, `.key`) executada antes de tool calls | Depende de prompts (vulnerável a jailbreak)              |
+| **Namespace RBAC**       | Isolamento real entre projetos                                      | Acesso direto ao filesystem (risco de vazamento)         |
+| **Failover Automático**  | Roteia entre providers se um falhar                                 | Agente principal lida com cada erro                      |
+| **Tool Calling Estável** | Adapter normaliza quirks entre SDKs                                 | Parsing frágil, tool calls inconsistentes                |
 
 ### A Ilusão do "Treinamento via Docs"
 
@@ -331,30 +331,30 @@ export async function file_read(args: { path: string }): Promise<string> {
 
 ### Desenvolvedores
 
-| Benefício | Como Sub-Agent Entrega |
+| Benefício      | Como Sub-Agent Entrega                                             |
 | -------------- | ------------------------------------------------------------------ |
-| **Confiança** | Segurança por código (Guardian), não por prompt |
-| **Qualidade** | Harness prova objetivamente melhorias (`+42% retrieval_precision`) |
-| **Controle** | Você decide namespaces, providers, políticas |
-| **Eficiência** | Context Engine evita overfetch (menos tokens) |
+| **Confiança**  | Segurança por código (Guardian), não por prompt                    |
+| **Qualidade**  | Harness prova objetivamente melhorias (`+42% retrieval_precision`) |
+| **Controle**   | Você decide namespaces, providers, políticas                       |
+| **Eficiência** | Context Engine evita overfetch (menos tokens)                      |
 
 ### Equipes
 
-| Benefício | Como Sub-Agent Entrega |
+| Benefício       | Como Sub-Agent Entrega                        |
 | --------------- | --------------------------------------------- |
-| **Governança** | RBAC por namespace + audit logs via Harness |
+| **Governança**  | RBAC por namespace + audit logs via Harness   |
 | **Colaboração** | Namespaces compartilhados com isolamento real |
-| **Evolução** | Harness detecta regressões antes de deploy |
-| **Custo** | Redução mensurável de tokens (ROI comprovado) |
+| **Evolução**    | Harness detecta regressões antes de deploy    |
+| **Custo**       | Redução mensurável de tokens (ROI comprovado) |
 
 ### Integradores
 
-| Benefício | Como Sub-Agent Entrega |
+| Benefício              | Como Sub-Agent Entrega                                                    |
 | ---------------------- | ------------------------------------------------------------------------- |
-| **Interoperabilidade** | MCP/ACP padrão — integra com Claude Code, Gemini CLI, Cursor |
-| **Extensibilidade** | Provider-agnostic — troque `gemini-3.5` por `gemini-3.1-pro` sem mudanças |
-| **Validação** | Harness como serviço — valide seu próprio agente |
-| **Foco** | Você constrói a experiência; Vectora cuida do contexto |
+| **Interoperabilidade** | MCP/ACP padrão — integra com Claude Code, Gemini CLI, Cursor              |
+| **Extensibilidade**    | Provider-agnostic — troque `gemini-3.5` por `gemini-3.1-pro` sem mudanças |
+| **Validação**          | Harness como serviço — valide seu próprio agente                          |
+| **Foco**               | Você constrói a experiência; Vectora cuida do contexto                    |
 
 ---
 
@@ -390,14 +390,14 @@ vectora-agent mcp-serve --mode tools-only
 > **Vectora não é um conjunto de tools MCP. É a camada que faz qualquer agente funcionar melhor em código — com
 > controle, validação e segurança por design.**
 
-| Se você quer... | Use... |
+| Se você quer...                                                | Use...                |
 | -------------------------------------------------------------- | --------------------- |
-| Tools genéricas de arquivo/busca | MCP tools do mercado |
+| Tools genéricas de arquivo/busca                               | MCP tools do mercado  |
 | **Contexto correto + execução confiável + validação objetiva** | **Vectora Sub-Agent** |
 
 > **Frase para guardar**: _"Tools MCP te dão funções. Vectora Sub-Agent te dá governança."_
 
 ---
 
-<!-- Parte do ecossistema Vectora · Open Source · TypeScript · Provider-Agnostic -->
+<!-- Parte do ecossistema Vectora · Open Source · Provider-Agnostic -->
 ````

@@ -446,4 +446,4 @@ R: Você controla. Local storage = você mantém backups. Cloud storage = você 
 
 ---
 
-_Parte do ecossistema Vectora · Open Source (MIT) · TypeScript_
+_Parte do ecossistema Vectora_ · Open Source (MIT)

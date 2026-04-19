@@ -15,9 +15,9 @@ tags:
 
 ## Visão Geral
 
-O plano **Pro** é para equipes que escalam. Suporte prioritário, limites aumentados, e webhooks para automação.
+O plano **Pro** é para equipes que escalam. Oferecemos dois modos: **BYOK** (suporte prioritário e limites aumentados) ou **Plus** (com créditos de IA e armazenamento gerenciado inclusos).
 
-**$29/mês** por workspace (até 50 usuários)
+**$29/mês** por workspace (até 50 usuários) - _Plano Plus inclui créditos base_
 
 ---
 
@@ -33,17 +33,17 @@ O plano **Pro** é para equipes que escalam. Suporte prioritário, limites aumen
 | **Tokens LLM/mês**        | 1.5M       | Unlimited    |
 | **Usuários Simultâneos**  | 1          | 50           |
 | **Rate Limiting**         | 60 req/min | 2000 req/min |
-| **Webhooks**              |            |              |
-| **Custom Domain**         |            |              |
-| **API Tokens**            |            |              |
-| **Advanced Metrics**      |            |              |
-| **Priority Support**      |            |              |
-| **99.9% SLA**             |            |              |
-| **Custom Reranker**       |            |              |
+| **Webhooks**              | -          |              |
+| **Custom Domain**         | -          |              |
+| **API Tokens**            | -          |              |
+| **Advanced Metrics**      | -          |              |
+| **Priority Support**      | -          |              |
+| **99.9% SLA**             | -          |              |
+| **Custom Reranker**       | -          |              |
 
 ### Modelos Premium
 
-Acesso a mais modelos (ainda BYOK):
+Acesso a mais modelos (BYOK ou Managed Plus):
 
 | Componente    | Free              | Pro                    |
 | ------------- | ----------------- | ---------------------- |
@@ -287,4 +287,4 @@ R: Sim, com 99.9% SLA (uptime garantido).
 
 ---
 
-_Parte do ecossistema Vectora · Open Source (MIT) · TypeScript_
+_Parte do ecossistema Vectora_ · Open Source (MIT)

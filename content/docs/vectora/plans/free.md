@@ -187,17 +187,7 @@ Você atingiu o limite mensal de API (Gemini ou Voyage).
 **Soluções**:
 
 1. Aguarde reset no 1º do próximo mês
-2. Use modelo local (Ollama)
-3. Upgrade para Pro (unlimited)
-
-```bash
-# Usar Ollama local (grátis, local)
-# https://ollama.ai
-
-# Configurar
-vectora config set --key EMBEDDING_PROVIDER "ollama"
-vectora config set --key EMBEDDING_MODEL "all-MiniLM-L6-v2"
-```
+2. Upgrade para Pro (unlimited)
 
 ### "Rate limit exceeded"
 
@@ -257,4 +247,4 @@ Nenhuma migração necessária - upgrade é automático.
 
 ---
 
-_Parte do ecossistema Vectora · Open Source (MIT) · TypeScript_
+_Parte do ecossistema Vectora_ · Open Source (MIT)

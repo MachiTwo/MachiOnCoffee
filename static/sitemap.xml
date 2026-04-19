@@ -622,6 +622,15 @@
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/concepts/rag/"/>
   </url>
   <url>
+    <loc>https://cafegame.dev/docs/vectora/concepts/reranker-local/</loc>
+    <lastmod>2026-04-19T10:30:00-03:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/concepts/reranker-local/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/concepts/reranker-local/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/concepts/reranker-local/"/>
+  </url>
+  <url>
     <loc>https://cafegame.dev/docs/vectora/concepts/reranker/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -843,6 +852,7 @@
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/integrations/vscode-extension/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/integrations/vscode-extension/"/>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/integrations/vscode-extension/"/>
   </url>
   <url>
@@ -873,14 +883,6 @@
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/models/voyage/"/>
   </url>
   <url>
-    <loc>https://cafegame.dev/docs/vectora/overview/</loc>
-    <lastmod>2026-04-19T10:10:00-03:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/overview/"/>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/overview/"/>
-  </url>
-  <url>
     <loc>https://cafegame.dev/docs/vectora/plans/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -897,15 +899,6 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/plans/free/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/plans/free/"/>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/plans/free/"/>
-  </url>
-  <url>
-    <loc>https://cafegame.dev/docs/vectora/plans/overview/</loc>
-    <lastmod>2026-04-18T22:30:00-03:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/plans/overview/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/plans/overview/"/>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/plans/overview/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/vectora/plans/pro/</loc>
@@ -960,6 +953,15 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/protocols/mcp/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/protocols/mcp/"/>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/protocols/mcp/"/>
+  </url>
+  <url>
+    <loc>https://cafegame.dev/docs/vectora/reference/</loc>
+    <lastmod>2026-04-19T10:10:00-03:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/reference/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/reference/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/reference/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/vectora/reference/cli/</loc>
@@ -1662,6 +1664,15 @@
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/concepts/rag/"/>
   </url>
   <url>
+    <loc>https://cafegame.dev/en/docs/vectora/concepts/reranker-local/</loc>
+    <lastmod>2026-04-19T10:30:00-03:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/concepts/reranker-local/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/concepts/reranker-local/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/concepts/reranker-local/"/>
+  </url>
+  <url>
     <loc>https://cafegame.dev/en/docs/vectora/concepts/reranker/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -1789,7 +1800,7 @@
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/vectora/getting-started/configuration/</loc>
-    <lastmod>2026-04-18T22:30:00-03:00</lastmod>
+    <lastmod>2026-04-19T08:15:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/getting-started/configuration/"/>
@@ -1798,7 +1809,7 @@
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/vectora/getting-started/installation/</loc>
-    <lastmod>2026-04-18T22:30:00-03:00</lastmod>
+    <lastmod>2026-04-19T08:00:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/getting-started/installation/"/>
@@ -1807,7 +1818,7 @@
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/vectora/getting-started/quickstart-mcp/</loc>
-    <lastmod>2026-04-18T22:30:00-03:00</lastmod>
+    <lastmod>2026-04-19T08:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/getting-started/quickstart-mcp/"/>
@@ -1878,6 +1889,15 @@
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/integrations/mcp-protocol/"/>
   </url>
   <url>
+    <loc>https://cafegame.dev/en/docs/vectora/integrations/vscode-extension/</loc>
+    <lastmod>2026-04-19T09:45:00-03:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/integrations/vscode-extension/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/integrations/vscode-extension/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/integrations/vscode-extension/"/>
+  </url>
+  <url>
     <loc>https://cafegame.dev/en/docs/vectora/models/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -1921,15 +1941,6 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/plans/free/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/plans/free/"/>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/plans/free/"/>
-  </url>
-  <url>
-    <loc>https://cafegame.dev/en/docs/vectora/plans/overview/</loc>
-    <lastmod>2026-04-18T22:30:00-03:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/plans/overview/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/plans/overview/"/>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/plans/overview/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/vectora/plans/pro/</loc>
@@ -1987,10 +1998,12 @@
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/vectora/reference/</loc>
-    <lastmod>2026-04-18T22:30:00-03:00</lastmod>
+    <lastmod>2026-04-19T10:10:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/reference/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/reference/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/reference/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/vectora/reference/cli/</loc>

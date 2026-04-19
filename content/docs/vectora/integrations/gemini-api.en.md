@@ -503,4 +503,4 @@ vectora models list
 
 ---
 
-_Part of Vectora ecosystem · Open Source (MIT) · TypeScript_
+_Part of Vectora ecosystem_ · Open Source (MIT)

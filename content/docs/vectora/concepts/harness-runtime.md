@@ -146,7 +146,7 @@ Para validar que mudanças de performance foram positivas, Harness oferece um mo
 
 Use comparison mode para validar mudanças de performance após alterar reranker, embeddings ou índice:
 
-**Caso 1: Testar novo reranker**
+#### Caso 1: Testar novo reranker
 
 ```bash
 vectora execute search_context \
@@ -185,7 +185,7 @@ delta:
   verdict: "APPROVE - Reranker upgrade recommended"
 ```
 
-**Caso 2: Validar reindex após schema change**
+#### Caso 2: Validar reindex após schema change
 
 ```bash
 # Reindexar com novo schema
@@ -197,7 +197,7 @@ vectora execute search_context \
   --compare backup-20260418 # Compara vs índice anterior
 ```
 
-**Caso 3: Monitorar degradação de performance**
+#### Caso 3: Monitorar degradação de performance
 
 ```bash
 # Runbook: detectar problemas antes do SLA cair
@@ -272,4 +272,4 @@ context_engine:
 
 ---
 
-_Parte do ecossistema Vectora · Open Source (MIT) · TypeScript_
+_Parte do ecossistema Vectora_ · Open Source (MIT)

@@ -37,7 +37,7 @@ tags:
 
 By default, Vectora runs on `localhost:9090`. For ChatGPT to reach it, expose it:
 
-**Option A: ngrok (Testing)**
+#### Option A: ngrok (Testing)
 
 ```bash
 # Install ngrok
@@ -52,7 +52,7 @@ ngrok http 9090
 # Copy the URL
 ```
 
-**Option B: VPS with Public IP (Production)**
+#### Option B: VPS with Public IP (Production)
 
 ```bash
 # On your server
@@ -62,7 +62,7 @@ vectora server --host 0.0.0.0 --port 9090
 # iptables -A INPUT -p tcp --dport 9090 -j ACCEPT
 ```
 
-**Option C: Managed Vectora (Cloud)**
+#### Option C: Managed Vectora (Cloud)
 
 ```bash
 # Register at https://console.vectora.app
@@ -477,4 +477,4 @@ vectora logs --service chatgpt_plugin --level info
 
 ---
 
-_Part of Vectora ecosystem · Open Source (MIT) · TypeScript_
+_Part of Vectora ecosystem_ · Open Source (MIT)

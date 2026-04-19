@@ -58,7 +58,7 @@ vectora upgrade --plan pro
 
 ## Qual é a Moeda?
 
-**USD (Dólares Americanos)**
+### USD (Dólares Americanos)
 
 - Free: $0
 - Pro: $29 USD/mês
@@ -341,4 +341,4 @@ mv backup.tar.gz ~/backups/
 
 ---
 
-_Parte do ecossistema Vectora · Open Source (MIT) · TypeScript_
+_Parte do ecossistema Vectora_ · Open Source (MIT)

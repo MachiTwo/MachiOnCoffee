@@ -278,4 +278,4 @@ R: Use o MCP Inspector em Claude Desktop (Menu → Developer Tools → MCP Inspe
 
 ---
 
-_Parte do ecossistema Vectora · Open Source (MIT) · TypeScript_
+_Parte do ecossistema Vectora_ · Open Source (MIT)

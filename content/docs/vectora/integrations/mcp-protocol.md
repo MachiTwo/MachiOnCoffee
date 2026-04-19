@@ -260,4 +260,4 @@ Para VS Code, use [VS Code Extension](./vscode-extension.md).
 
 ---
 
-_Parte do ecossistema Vectora · Open Source (MIT) · TypeScript_
+_Parte do ecossistema Vectora_ · Open Source (MIT)
