@@ -11,6 +11,7 @@ resources/
 /static/**/*.json
 /static/**/*.md
 /static/**/*.py
+!static/sitemap.xml
 
 # Docker
 .dockerignore
