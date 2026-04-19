@@ -140,4 +140,21 @@ Vectora operates with a **BYOK First** model, where the backend (MongoDB Atlas) 
 
 ---
 
-_Part of the Vectora ecosystem · Open Source (MIT) · TypeScript_  
+### 📂 Navigation Guide
+
+- [🚀 **Getting Started**](./getting-started/) — Installation, BYOK setup, and MCP integration.
+- [🧠 **Core Concepts**](./concepts/) — Understand Sub-Agents, Context Engine, and Reranking.
+- [🔐 **Security & Governance**](./security/) — Details on Guardian, Trust Folder, and RBAC.
+- [🔑 **Authentication**](./auth/) — SSO flows, Unified Identity, and API Keys.
+- [📚 **Models & Providers**](./models/) — Curated stack with Gemini 3 and Voyage AI.
+- [🗄️ **Backend & Persistence**](./backend/) — MongoDB Atlas, Sessions, and State Persistence.
+- [🔌 **Integrations**](./integrations/) — How to use with Claude Code, Gemini CLI, and Cursor.
+- [💳 **Plans & Pricing**](./plans/) — Feature comparison and retention policy.
+- [📖 **Technical Reference**](./reference/) — MCP tool schema and Config YAML.
+- [🤝 **Contributing**](./contributing/) — Guidelines, code standards, and roadmap.
+- [❓ **FAQ**](./faq/) — Troubleshooting and common questions.
+- [📡 **Protocols**](./protocols/) — MCP Protocol specifications in Vectora.
+
+---
+
+_Part of the Vectora ecosystem · Open Source (MIT) · TypeScript_
