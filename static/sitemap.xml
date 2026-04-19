@@ -6,1030 +6,1034 @@
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/04/17/como-criei-o-blog/</loc>
     <lastmod>2026-04-17T16:00:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/04/17/como-criei-o-blog/"/>
-    <!-- Tags: infra, python, hugo -->
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/04/17/como-criei-o-blog/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/04/17/como-criei-o-blog/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/04/17/hello-world/</loc>
     <lastmod>2026-04-17T15:00:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/04/17/hello-world/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/04/17/hello-world/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/04/17/hello-world/"/>
-    <!-- Tags: introducao, pessoal, trajetoria -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/04/17/hello-world/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/04/17/zyris-engine/</loc>
     <lastmod>2026-04-17T19:00:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/04/17/zyris-engine/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/04/17/zyris-engine/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/04/17/zyris-engine/"/>
-    <!-- Tags: engine, gamedev, zyris -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/04/17/zyris-engine/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/"/>
-    <!-- Tags: introducao, pessoal, trajetoria -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/ability-system/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, gamedev, gameplay-framework -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/ability-system/classes/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, gamedev -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/ability-system/classes/behavior-tree/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/behavior-tree/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/behavior-tree/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/behavior-tree/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, ai, behavior-tree -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/behavior-tree/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/ability-system/classes/behavior-tree/activate-ability/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/behavior-tree/activate-ability/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/behavior-tree/activate-ability/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/behavior-tree/activate-ability/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, ai, behavior-tree, gamedev -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/behavior-tree/activate-ability/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/ability-system/classes/behavior-tree/can-activate/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/behavior-tree/can-activate/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/behavior-tree/can-activate/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/behavior-tree/can-activate/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, ai, behavior-tree, gamedev -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/behavior-tree/can-activate/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/ability-system/classes/behavior-tree/dispatch-event/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/behavior-tree/dispatch-event/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/behavior-tree/dispatch-event/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/behavior-tree/dispatch-event/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, ai, behavior-tree, gamedev -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/behavior-tree/dispatch-event/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/ability-system/classes/behavior-tree/event-occurred/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/behavior-tree/event-occurred/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/behavior-tree/event-occurred/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/behavior-tree/event-occurred/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, ai, behavior-tree, gamedev -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/behavior-tree/event-occurred/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/ability-system/classes/behavior-tree/has-tag/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/behavior-tree/has-tag/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/behavior-tree/has-tag/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/behavior-tree/has-tag/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, ai, behavior-tree, gamedev -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/behavior-tree/has-tag/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/ability-system/classes/behavior-tree/wait-for-event/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/behavior-tree/wait-for-event/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/behavior-tree/wait-for-event/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/behavior-tree/wait-for-event/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, ai, behavior-tree, gamedev -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/behavior-tree/wait-for-event/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/ability-system/classes/editor/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/editor/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/editor/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/editor/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, editor -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/editor/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/ability-system/classes/editor/as-editor-plugin/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/editor/as-editor-plugin/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/editor/as-editor-plugin/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/editor/as-editor-plugin/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, editor, gamedev -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/editor/as-editor-plugin/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/ability-system/classes/editor/as-editor-property-name/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/editor/as-editor-property-name/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/editor/as-editor-property-name/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/editor/as-editor-property-name/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, editor, gamedev -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/editor/as-editor-property-name/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/ability-system/classes/editor/as-editor-property-selector/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/editor/as-editor-property-selector/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/editor/as-editor-property-selector/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/editor/as-editor-property-selector/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, editor, gamedev -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/editor/as-editor-property-selector/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/ability-system/classes/editor/as-editor-property-tag-selector/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/editor/as-editor-property-tag-selector/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/editor/as-editor-property-tag-selector/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/editor/as-editor-property-tag-selector/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, editor, gamedev -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/editor/as-editor-property-tag-selector/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/ability-system/classes/editor/as-inspector-plugin/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/editor/as-inspector-plugin/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/editor/as-inspector-plugin/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/editor/as-inspector-plugin/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, gamedev, editor -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/editor/as-inspector-plugin/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/ability-system/classes/editor/as-tags-panel/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/editor/as-tags-panel/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/editor/as-tags-panel/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/editor/as-tags-panel/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, editor, gamedev -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/editor/as-tags-panel/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/ability-system/classes/nodes/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/nodes/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/nodes/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/nodes/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, godot-node -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/nodes/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/ability-system/classes/nodes/as-component/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/nodes/as-component/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/nodes/as-component/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/nodes/as-component/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, godot-node, gamedev -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/nodes/as-component/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/ability-system/classes/nodes/as-delivery/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/nodes/as-delivery/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/nodes/as-delivery/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/nodes/as-delivery/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, godot-node, gamedev -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/nodes/as-delivery/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/ability-system/classes/refcounted/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/refcounted/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/refcounted/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/refcounted/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, refcounted -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/refcounted/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/ability-system/classes/refcounted/as-ability-spec/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/refcounted/as-ability-spec/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/refcounted/as-ability-spec/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/refcounted/as-ability-spec/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, gamedev, runtime-logic -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/refcounted/as-ability-spec/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/ability-system/classes/refcounted/as-attribute/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/refcounted/as-attribute/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/refcounted/as-attribute/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/refcounted/as-attribute/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, gamedev, gameplay-mechanics -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/refcounted/as-attribute/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/ability-system/classes/refcounted/as-bridge-state/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/refcounted/as-bridge-state/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/refcounted/as-bridge-state/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/refcounted/as-bridge-state/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, gamedev, gameplay-logic -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/refcounted/as-bridge-state/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/ability-system/classes/refcounted/as-cue-spec/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/refcounted/as-cue-spec/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/refcounted/as-cue-spec/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/refcounted/as-cue-spec/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, gamedev, vfx-audio -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/refcounted/as-cue-spec/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/ability-system/classes/refcounted/as-effect-spec/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/refcounted/as-effect-spec/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/refcounted/as-effect-spec/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/refcounted/as-effect-spec/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, gamedev, gameplay-logic -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/refcounted/as-effect-spec/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/ability-system/classes/refcounted/as-state-cache/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/refcounted/as-state-cache/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/refcounted/as-state-cache/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/refcounted/as-state-cache/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, gamedev, optimization -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/refcounted/as-state-cache/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/ability-system/classes/refcounted/as-state-snapshot/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/refcounted/as-state-snapshot/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/refcounted/as-state-snapshot/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/refcounted/as-state-snapshot/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, gamedev, gameplay-logic -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/refcounted/as-state-snapshot/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/ability-system/classes/refcounted/as-state-utils/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/refcounted/as-state-utils/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/refcounted/as-state-utils/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/refcounted/as-state-utils/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, gamedev, gameplay-logic -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/refcounted/as-state-utils/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/ability-system/classes/refcounted/as-tag-spec/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/refcounted/as-tag-spec/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/refcounted/as-tag-spec/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/refcounted/as-tag-spec/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, gamedev, gameplay-logic -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/refcounted/as-tag-spec/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/ability-system/classes/refcounted/as-tag-utils/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/refcounted/as-tag-utils/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/refcounted/as-tag-utils/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/refcounted/as-tag-utils/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, gamedev, gameplay-logic -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/refcounted/as-tag-utils/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/ability-system/classes/resources/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/resources/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/resources/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/resources/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, godot-resource -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/resources/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/ability-system/classes/resources/as-ability-phase/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/resources/as-ability-phase/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/resources/as-ability-phase/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/resources/as-ability-phase/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, gamedev, gameplay-mechanics -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/resources/as-ability-phase/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/ability-system/classes/resources/as-ability/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/resources/as-ability/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/resources/as-ability/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/resources/as-ability/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, gamedev, gameplay-mechanics -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/resources/as-ability/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/ability-system/classes/resources/as-attribute-set/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/resources/as-attribute-set/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/resources/as-attribute-set/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/resources/as-attribute-set/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, gamedev, gameplay-mechanics -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/resources/as-attribute-set/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/ability-system/classes/resources/as-container/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/resources/as-container/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/resources/as-container/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/resources/as-container/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, gamedev, gameplay-mechanics -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/resources/as-container/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/ability-system/classes/resources/as-cue-animation/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/resources/as-cue-animation/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/resources/as-cue-animation/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/resources/as-cue-animation/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, gamedev, animation -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/resources/as-cue-animation/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/ability-system/classes/resources/as-cue-audio/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/resources/as-cue-audio/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/resources/as-cue-audio/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/resources/as-cue-audio/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, gamedev, audio -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/resources/as-cue-audio/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/ability-system/classes/resources/as-cue/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/resources/as-cue/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/resources/as-cue/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/resources/as-cue/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, gamedev, vfx-audio -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/resources/as-cue/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/ability-system/classes/resources/as-effect/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/resources/as-effect/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/resources/as-effect/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/resources/as-effect/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, gamedev, gameplay-mechanics -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/resources/as-effect/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/ability-system/classes/resources/as-package/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/resources/as-package/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/resources/as-package/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/resources/as-package/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, gamedev, gameplay-mechanics -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/resources/as-package/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/ability-system/classes/singleton/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/singleton/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/singleton/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/singleton/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, singleton -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/singleton/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/ability-system/classes/singleton/ability-system/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/singleton/ability-system/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/singleton/ability-system/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/singleton/ability-system/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, gamedev, gameplay-logic -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/singleton/ability-system/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/ability-system/examples/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/examples/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/examples/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/examples/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, gamedev, example -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/examples/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/ability-system/examples/boss-patterns/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/examples/boss-patterns/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/examples/boss-patterns/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/examples/boss-patterns/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, gamedev, example -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/examples/boss-patterns/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/ability-system/examples/complete-example/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/examples/complete-example/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/examples/complete-example/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/examples/complete-example/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, gamedev, example -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/examples/complete-example/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/ability-system/examples/rpg-system/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/examples/rpg-system/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/examples/rpg-system/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/examples/rpg-system/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, gamedev, example -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/examples/rpg-system/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/ability-system/tutorials/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/tutorials/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/tutorials/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/tutorials/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, gamedev, tutorial -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/tutorials/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/ability-system/tutorials/buffs/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/tutorials/buffs/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/tutorials/buffs/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/tutorials/buffs/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, gamedev, tutorial -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/tutorials/buffs/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/ability-system/tutorials/first-attack/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/tutorials/first-attack/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/tutorials/first-attack/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/tutorials/first-attack/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, gamedev, tutorial -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/tutorials/first-attack/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/ability-system/tutorials/phases/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/tutorials/phases/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/tutorials/phases/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/tutorials/phases/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, gamedev, tutorial -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/tutorials/phases/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/vectora/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/"/>
-    <!-- Tags: ai, context-engine, embeddings, guardian, mcp, mcp-protocol, rag, reranker, sub-agents, vector-search, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/vectora/auth/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/auth/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/auth/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/auth/"/>
-    <!-- Tags: ai, auth, guardian, mcp, mcp-protocol, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/auth/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/vectora/auth/api-keys/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/auth/api-keys/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/auth/api-keys/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/auth/api-keys/"/>
-    <!-- Tags: ai, keys, mcp, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/auth/api-keys/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/vectora/auth/sso/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/auth/sso/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/auth/sso/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/auth/sso/"/>
-    <!-- Tags: ai, mcp, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/auth/sso/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/vectora/backend/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/backend/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/backend/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/backend/"/>
-    <!-- Tags: ai, backend, mcp, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/backend/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/vectora/backend/mongodb-atlas/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/backend/mongodb-atlas/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/backend/mongodb-atlas/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/backend/mongodb-atlas/"/>
-    <!-- Tags: ai, atlas, mcp, mongodb, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/backend/mongodb-atlas/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/vectora/backend/state-persistence/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/backend/state-persistence/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/backend/state-persistence/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/backend/state-persistence/"/>
-    <!-- Tags: ai, mcp, persistence, state, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/backend/state-persistence/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/vectora/backend/vector-search/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/backend/vector-search/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/backend/vector-search/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/backend/vector-search/"/>
-    <!-- Tags: ai, mcp, search, vector, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/backend/vector-search/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/vectora/concepts/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/concepts/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/concepts/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/concepts/"/>
-    <!-- Tags: ai, architecture, conceitos, concepts, embeddings, mcp, mcp-protocol, rag, reranker, sub-agents, técnicos, vector-search, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/concepts/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/vectora/concepts/context-engine/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/concepts/context-engine/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/concepts/context-engine/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/concepts/context-engine/"/>
-    <!-- Tags: ai, architecture, concepts, context, context-engine, mcp, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/concepts/context-engine/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/vectora/concepts/embeddings/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/concepts/embeddings/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/concepts/embeddings/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/concepts/embeddings/"/>
-    <!-- Tags: ai, architecture, concepts, código, embeddings, geração, mcp, próxima, rag, reranker, vector-search, vectora, voyage -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/concepts/embeddings/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/vectora/concepts/harness-runtime/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/concepts/harness-runtime/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/concepts/harness-runtime/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/concepts/harness-runtime/"/>
-    <!-- Tags: ai, architecture, concepts, harness, mcp, runtime, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/concepts/harness-runtime/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/vectora/concepts/namespaces/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/concepts/namespaces/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/concepts/namespaces/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/concepts/namespaces/"/>
-    <!-- Tags: ai, architecture, concepts, mcp, namespaces, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/concepts/namespaces/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/vectora/concepts/rag/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/concepts/rag/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/concepts/rag/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/concepts/rag/"/>
-    <!-- Tags: ai, architecture, concepts, conectado, context-engine, mcp, rag, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/concepts/rag/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/vectora/concepts/reranker/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/concepts/reranker/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/concepts/reranker/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/concepts/reranker/"/>
-    <!-- Tags: ai, architecture, concepts, context-engine, contexto, embeddings, mcp, rag, refinador, rerank, reranker, vector-search, vectora, voyage -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/concepts/reranker/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/vectora/concepts/state-persistence/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/concepts/state-persistence/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/concepts/state-persistence/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/concepts/state-persistence/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/concepts/state-persistence/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/vectora/concepts/sub-agents/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/concepts/sub-agents/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/concepts/sub-agents/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/concepts/sub-agents/"/>
-    <!-- Tags: agents, ai, architecture, ativa, concepts, context-engine, embeddings, ferramentas, governança, guardian, mcp, mcp-protocol, passivas, rag, sub-agents, vector-search, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/concepts/sub-agents/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/vectora/concepts/trust-folder/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/concepts/trust-folder/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/concepts/trust-folder/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/concepts/trust-folder/"/>
-    <!-- Tags: ai, architecture, concepts, folder, mcp, trust, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/concepts/trust-folder/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/vectora/concepts/vector-search/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/concepts/vector-search/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/concepts/vector-search/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/concepts/vector-search/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/concepts/vector-search/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/vectora/contributing/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/contributing/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/contributing/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/contributing/"/>
-    <!-- Tags: ai, contributing, mcp, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/contributing/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/vectora/contributing/code-of-conduct/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/contributing/code-of-conduct/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/contributing/code-of-conduct/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/contributing/code-of-conduct/"/>
-    <!-- Tags: ai, code, conduct, mcp, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/contributing/code-of-conduct/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/vectora/contributing/guidelines/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/contributing/guidelines/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/contributing/guidelines/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/contributing/guidelines/"/>
-    <!-- Tags: ai, guidelines, mcp, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/contributing/guidelines/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/vectora/contributing/roadmap/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/contributing/roadmap/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/contributing/roadmap/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/contributing/roadmap/"/>
-    <!-- Tags: ai, mcp, roadmap, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/contributing/roadmap/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/vectora/faq/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/faq/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/faq/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/faq/"/>
-    <!-- Tags: ai, mcp, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/faq/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/vectora/faq/billing/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/faq/billing/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/faq/billing/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/faq/billing/"/>
-    <!-- Tags: ai, billing, mcp, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/faq/billing/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/vectora/faq/general/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/faq/general/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/faq/general/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/faq/general/"/>
-    <!-- Tags: ai, general, mcp, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/faq/general/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/vectora/faq/security/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/faq/security/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/faq/security/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/faq/security/"/>
-    <!-- Tags: ai, governance, mcp, security, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/faq/security/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/vectora/getting-started/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/getting-started/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/getting-started/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/getting-started/"/>
-    <!-- Tags: ai, getting, mcp, setup, started, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/getting-started/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/vectora/getting-started/configuration/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/getting-started/configuration/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/getting-started/configuration/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/getting-started/configuration/"/>
-    <!-- Tags: ai, configuration, mcp, setup, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/getting-started/configuration/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/vectora/getting-started/installation/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/getting-started/installation/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/getting-started/installation/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/getting-started/installation/"/>
-    <!-- Tags: ai, installation, mcp, setup, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/getting-started/installation/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/vectora/getting-started/quickstart-mcp/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/getting-started/quickstart-mcp/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/getting-started/quickstart-mcp/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/getting-started/quickstart-mcp/"/>
-    <!-- Tags: ai, mcp, mcp-protocol, quickstart, setup, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/getting-started/quickstart-mcp/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/vectora/getting-started/troubleshooting/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/getting-started/troubleshooting/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/getting-started/troubleshooting/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/getting-started/troubleshooting/"/>
-    <!-- Tags: ai, mcp, setup, troubleshooting, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/getting-started/troubleshooting/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/vectora/integrations/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/integrations/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/integrations/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/integrations/"/>
-    <!-- Tags: ai, integration, integrations, mcp, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/integrations/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/vectora/integrations/claude-code/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/integrations/claude-code/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/integrations/claude-code/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/integrations/claude-code/"/>
-    <!-- Tags: ai, claude, code, integration, mcp, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/integrations/claude-code/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/vectora/integrations/cursor/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/integrations/cursor/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/integrations/cursor/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/integrations/cursor/"/>
-    <!-- Tags: ai, cursor, integration, mcp, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/integrations/cursor/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/vectora/integrations/custom-agents/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/integrations/custom-agents/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/integrations/custom-agents/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/integrations/custom-agents/"/>
-    <!-- Tags: agents, ai, custom, integration, mcp, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/integrations/custom-agents/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/vectora/integrations/gemini-cli/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/integrations/gemini-cli/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/integrations/gemini-cli/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/integrations/gemini-cli/"/>
-    <!-- Tags: ai, gemini, integration, mcp, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/integrations/gemini-cli/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/vectora/models/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/models/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/models/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/models/"/>
-    <!-- Tags: ai, conceitos, embeddings, mcp, mcp-protocol, rag, reranker, sub-agents, técnicos, vector-search, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/models/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/vectora/models/gemini/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/models/gemini/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/models/gemini/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/models/gemini/"/>
-    <!-- Tags: ai, embeddings, flash, gemini, guardian, impulsiona, inteligência, mcp, rag, reranker, vector-search, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/models/gemini/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/vectora/models/voyage/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/models/voyage/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/models/voyage/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/models/voyage/"/>
-    <!-- Tags: ai, embeddings, flash, gemini, guardian, impulsiona, inteligência, mcp, rag, reranker, vector-search, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/models/voyage/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/vectora/plans/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/plans/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/plans/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/plans/"/>
-    <!-- Tags: ai, mcp, plans, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/plans/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/vectora/plans/free/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/plans/free/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/plans/free/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/plans/free/"/>
-    <!-- Tags: ai, free, mcp, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/plans/free/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/vectora/plans/overview/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/plans/overview/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/plans/overview/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/plans/overview/"/>
-    <!-- Tags: ai, mcp, overview, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/plans/overview/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/vectora/plans/pro/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/plans/pro/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/plans/pro/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/plans/pro/"/>
-    <!-- Tags: ai, mcp, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/plans/pro/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/vectora/plans/retention/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/plans/retention/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/plans/retention/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/plans/retention/"/>
-    <!-- Tags: ai, mcp, retention, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/plans/retention/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/vectora/plans/team/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/plans/team/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/plans/team/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/plans/team/"/>
-    <!-- Tags: ai, mcp, team, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/plans/team/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/vectora/protocols/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/protocols/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/protocols/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/protocols/"/>
-    <!-- Tags: ai, mcp, protocols, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/protocols/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/vectora/protocols/acp/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/protocols/acp/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/protocols/acp/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/protocols/acp/"/>
-    <!-- Tags: ai, mcp, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/protocols/acp/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/vectora/protocols/mcp/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/protocols/mcp/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/protocols/mcp/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/protocols/mcp/"/>
-    <!-- Tags: ai, mcp, mcp-protocol, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/protocols/mcp/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/vectora/reference/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/reference/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/reference/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/reference/"/>
-    <!-- Tags: ai, mcp, reference, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/reference/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/vectora/reference/cli/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/reference/cli/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/reference/cli/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/reference/cli/"/>
-    <!-- Tags: ai, mcp, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/reference/cli/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/vectora/reference/config-yaml/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/reference/config-yaml/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/reference/config-yaml/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/reference/config-yaml/"/>
-    <!-- Tags: ai, config, mcp, vectora, yaml -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/reference/config-yaml/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/vectora/reference/errors/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/reference/errors/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/reference/errors/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/reference/errors/"/>
-    <!-- Tags: ai, errors, mcp, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/reference/errors/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/vectora/reference/mcp-tools/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/reference/mcp-tools/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/reference/mcp-tools/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/reference/mcp-tools/"/>
-    <!-- Tags: ai, mcp, mcp-protocol, tools, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/reference/mcp-tools/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/vectora/security/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/security/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/security/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/security/"/>
-    <!-- Tags: ai, governance, mcp, security, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/security/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/vectora/security/byok-privacy/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/security/byok-privacy/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/security/byok-privacy/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/security/byok-privacy/"/>
-    <!-- Tags: ai, byok, governance, mcp, privacy, security, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/security/byok-privacy/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/vectora/security/guardian/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/security/guardian/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/security/guardian/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/security/guardian/"/>
-    <!-- Tags: ai, governance, guardian, mcp, security, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/security/guardian/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/vectora/security/rbac/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/security/rbac/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/security/rbac/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/security/rbac/"/>
-    <!-- Tags: ai, governance, mcp, rbac, security, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/security/rbac/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/04/17/hello-world/</loc>
     <lastmod>2026-04-17T15:00:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/04/17/hello-world/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/04/17/hello-world/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/04/17/hello-world/"/>
-    <!-- Tags: introduction, personal, journey -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/04/17/hello-world/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/04/17/how-i-created-the-blog/</loc>
@@ -1037,1009 +1041,1013 @@
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/04/17/how-i-created-the-blog/"/>
-    <!-- Tags: infra, python, hugo -->
   </url>
   <url>
     <loc>https://cafegame.dev/en/04/17/zyris-engine/</loc>
     <lastmod>2026-04-17T19:00:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/04/17/zyris-engine/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/04/17/zyris-engine/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/04/17/zyris-engine/"/>
-    <!-- Tags: engine, gamedev, zyris -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/04/17/zyris-engine/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/"/>
-    <!-- Tags: introduction, personal, trajectory -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/ability-system/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, gamedev, gameplay-framework -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/ability-system/classes/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, gamedev -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/ability-system/classes/behavior-tree/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/behavior-tree/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/behavior-tree/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/behavior-tree/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, ai, behavior-tree -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/behavior-tree/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/ability-system/classes/behavior-tree/activate-ability/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/behavior-tree/activate-ability/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/behavior-tree/activate-ability/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/behavior-tree/activate-ability/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, ai, behavior-tree, gamedev -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/behavior-tree/activate-ability/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/ability-system/classes/behavior-tree/can-activate/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/behavior-tree/can-activate/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/behavior-tree/can-activate/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/behavior-tree/can-activate/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, ai, behavior-tree, gamedev -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/behavior-tree/can-activate/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/ability-system/classes/behavior-tree/dispatch-event/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/behavior-tree/dispatch-event/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/behavior-tree/dispatch-event/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/behavior-tree/dispatch-event/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, ai, behavior-tree, gamedev -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/behavior-tree/dispatch-event/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/ability-system/classes/behavior-tree/event-occurred/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/behavior-tree/event-occurred/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/behavior-tree/event-occurred/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/behavior-tree/event-occurred/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, ai, behavior-tree, gamedev -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/behavior-tree/event-occurred/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/ability-system/classes/behavior-tree/has-tag/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/behavior-tree/has-tag/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/behavior-tree/has-tag/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/behavior-tree/has-tag/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, ai, behavior-tree, gamedev -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/behavior-tree/has-tag/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/ability-system/classes/behavior-tree/wait-for-event/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/behavior-tree/wait-for-event/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/behavior-tree/wait-for-event/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/behavior-tree/wait-for-event/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, ai, behavior-tree, gamedev -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/behavior-tree/wait-for-event/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/ability-system/classes/editor/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/editor/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/editor/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/editor/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, editor -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/editor/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/ability-system/classes/editor/as-editor-plugin/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/editor/as-editor-plugin/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/editor/as-editor-plugin/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/editor/as-editor-plugin/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, editor, gamedev -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/editor/as-editor-plugin/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/ability-system/classes/editor/as-editor-property-name/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/editor/as-editor-property-name/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/editor/as-editor-property-name/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/editor/as-editor-property-name/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, editor, gamedev -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/editor/as-editor-property-name/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/ability-system/classes/editor/as-editor-property-selector/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/editor/as-editor-property-selector/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/editor/as-editor-property-selector/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/editor/as-editor-property-selector/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, editor, gamedev -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/editor/as-editor-property-selector/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/ability-system/classes/editor/as-editor-property-tag-selector/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/editor/as-editor-property-tag-selector/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/editor/as-editor-property-tag-selector/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/editor/as-editor-property-tag-selector/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, editor, gamedev -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/editor/as-editor-property-tag-selector/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/ability-system/classes/editor/as-inspector-plugin/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/editor/as-inspector-plugin/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/editor/as-inspector-plugin/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/editor/as-inspector-plugin/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, gamedev, editor -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/editor/as-inspector-plugin/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/ability-system/classes/editor/as-tags-panel/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/editor/as-tags-panel/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/editor/as-tags-panel/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/editor/as-tags-panel/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, editor, gamedev -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/editor/as-tags-panel/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/ability-system/classes/nodes/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/nodes/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/nodes/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/nodes/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, godot-node -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/nodes/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/ability-system/classes/nodes/as-component/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/nodes/as-component/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/nodes/as-component/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/nodes/as-component/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, godot-node, gamedev -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/nodes/as-component/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/ability-system/classes/nodes/as-delivery/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/nodes/as-delivery/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/nodes/as-delivery/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/nodes/as-delivery/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, godot-node, gamedev -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/nodes/as-delivery/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/ability-system/classes/refcounted/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/refcounted/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/refcounted/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/refcounted/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, refcounted -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/refcounted/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/ability-system/classes/refcounted/as-ability-spec/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/refcounted/as-ability-spec/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/refcounted/as-ability-spec/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/refcounted/as-ability-spec/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, gamedev, runtime-logic -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/refcounted/as-ability-spec/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/ability-system/classes/refcounted/as-attribute/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/refcounted/as-attribute/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/refcounted/as-attribute/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/refcounted/as-attribute/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, gamedev, gameplay-mechanics -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/refcounted/as-attribute/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/ability-system/classes/refcounted/as-bridge-state/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/refcounted/as-bridge-state/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/refcounted/as-bridge-state/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/refcounted/as-bridge-state/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, gamedev, gameplay-logic -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/refcounted/as-bridge-state/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/ability-system/classes/refcounted/as-cue-spec/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/refcounted/as-cue-spec/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/refcounted/as-cue-spec/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/refcounted/as-cue-spec/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, gamedev, vfx-audio -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/refcounted/as-cue-spec/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/ability-system/classes/refcounted/as-effect-spec/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/refcounted/as-effect-spec/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/refcounted/as-effect-spec/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/refcounted/as-effect-spec/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, gamedev, gameplay-logic -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/refcounted/as-effect-spec/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/ability-system/classes/refcounted/as-state-cache/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/refcounted/as-state-cache/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/refcounted/as-state-cache/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/refcounted/as-state-cache/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, gamedev, optimization -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/refcounted/as-state-cache/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/ability-system/classes/refcounted/as-state-snapshot/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/refcounted/as-state-snapshot/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/refcounted/as-state-snapshot/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/refcounted/as-state-snapshot/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, gamedev, gameplay-logic -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/refcounted/as-state-snapshot/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/ability-system/classes/refcounted/as-state-utils/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/refcounted/as-state-utils/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/refcounted/as-state-utils/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/refcounted/as-state-utils/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, gamedev, gameplay-logic -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/refcounted/as-state-utils/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/ability-system/classes/refcounted/as-tag-spec/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/refcounted/as-tag-spec/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/refcounted/as-tag-spec/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/refcounted/as-tag-spec/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, gamedev, gameplay-logic -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/refcounted/as-tag-spec/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/ability-system/classes/refcounted/as-tag-utils/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/refcounted/as-tag-utils/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/refcounted/as-tag-utils/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/refcounted/as-tag-utils/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, gamedev, gameplay-logic -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/refcounted/as-tag-utils/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/ability-system/classes/resources/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/resources/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/resources/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/resources/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, godot-resource -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/resources/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/ability-system/classes/resources/as-ability-phase/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/resources/as-ability-phase/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/resources/as-ability-phase/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/resources/as-ability-phase/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, gamedev, gameplay-mechanics -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/resources/as-ability-phase/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/ability-system/classes/resources/as-ability/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/resources/as-ability/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/resources/as-ability/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/resources/as-ability/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, gamedev, gameplay-mechanics -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/resources/as-ability/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/ability-system/classes/resources/as-attribute-set/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/resources/as-attribute-set/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/resources/as-attribute-set/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/resources/as-attribute-set/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, gamedev, gameplay-mechanics -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/resources/as-attribute-set/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/ability-system/classes/resources/as-container/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/resources/as-container/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/resources/as-container/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/resources/as-container/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, gamedev, gameplay-mechanics -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/resources/as-container/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/ability-system/classes/resources/as-cue-animation/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/resources/as-cue-animation/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/resources/as-cue-animation/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/resources/as-cue-animation/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, gamedev, animation -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/resources/as-cue-animation/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/ability-system/classes/resources/as-cue-audio/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/resources/as-cue-audio/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/resources/as-cue-audio/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/resources/as-cue-audio/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, gamedev, audio -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/resources/as-cue-audio/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/ability-system/classes/resources/as-cue/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/resources/as-cue/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/resources/as-cue/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/resources/as-cue/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, gamedev, vfx-audio -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/resources/as-cue/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/ability-system/classes/resources/as-effect/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/resources/as-effect/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/resources/as-effect/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/resources/as-effect/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, gamedev, gameplay-mechanics -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/resources/as-effect/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/ability-system/classes/resources/as-package/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/resources/as-package/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/resources/as-package/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/resources/as-package/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, gamedev, gameplay-mechanics -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/resources/as-package/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/ability-system/classes/singleton/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/singleton/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/singleton/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/singleton/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, singleton -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/singleton/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/ability-system/classes/singleton/ability-system/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/classes/singleton/ability-system/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/classes/singleton/ability-system/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/classes/singleton/ability-system/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, gamedev, gameplay-logic -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/classes/singleton/ability-system/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/ability-system/examples/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/examples/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/examples/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/examples/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, gamedev, example -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/examples/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/ability-system/examples/boss-patterns/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/examples/boss-patterns/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/examples/boss-patterns/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/examples/boss-patterns/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, gamedev, example -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/examples/boss-patterns/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/ability-system/examples/complete-example/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/examples/complete-example/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/examples/complete-example/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/examples/complete-example/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, gamedev, example -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/examples/complete-example/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/ability-system/examples/rpg-system/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/examples/rpg-system/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/examples/rpg-system/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/examples/rpg-system/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, gamedev, example -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/examples/rpg-system/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/ability-system/tutorials/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/tutorials/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/tutorials/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/tutorials/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, gamedev, tutorial -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/tutorials/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/ability-system/tutorials/buffs/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/tutorials/buffs/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/tutorials/buffs/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/tutorials/buffs/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, gamedev, tutorial -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/tutorials/buffs/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/ability-system/tutorials/first-attack/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/tutorials/first-attack/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/tutorials/first-attack/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/tutorials/first-attack/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, gamedev, tutorial -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/tutorials/first-attack/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/ability-system/tutorials/phases/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/ability-system/tutorials/phases/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/ability-system/tutorials/phases/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/ability-system/tutorials/phases/"/>
-    <!-- Tags: zyris-engine, godot-plugin, ability-system, gamedev, tutorial -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/ability-system/tutorials/phases/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/vectora/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/"/>
-    <!-- Tags: ai, context-engine, embeddings, guardian, mcp, mcp-protocol, rag, reranker, sub-agents, vector-search, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/vectora/auth/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/auth/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/auth/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/auth/"/>
-    <!-- Tags: ai, auth, guardian, mcp, mcp-protocol, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/auth/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/vectora/auth/api-keys/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/auth/api-keys/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/auth/api-keys/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/auth/api-keys/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/auth/api-keys/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/vectora/auth/sso/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/auth/sso/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/auth/sso/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/auth/sso/"/>
-    <!-- Tags: ai, mcp, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/auth/sso/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/vectora/backend/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/backend/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/backend/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/backend/"/>
-    <!-- Tags: ai, backend, mcp, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/backend/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/vectora/backend/mongodb-atlas/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/backend/mongodb-atlas/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/backend/mongodb-atlas/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/backend/mongodb-atlas/"/>
-    <!-- Tags: ai, atlas, mcp, mongodb, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/backend/mongodb-atlas/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/vectora/backend/state-persistence/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/backend/state-persistence/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/backend/state-persistence/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/backend/state-persistence/"/>
-    <!-- Tags: ai, mcp, persistence, state, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/backend/state-persistence/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/vectora/backend/vector-search/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/backend/vector-search/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/backend/vector-search/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/backend/vector-search/"/>
-    <!-- Tags: ai, mcp, search, vector, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/backend/vector-search/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/vectora/concepts/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/concepts/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/concepts/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/concepts/"/>
-    <!-- Tags: ai, architecture, concepts, embeddings, mcp, mcp-protocol, rag, reranker, sub-agents, technical, vector-search, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/concepts/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/vectora/concepts/context-engine/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/concepts/context-engine/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/concepts/context-engine/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/concepts/context-engine/"/>
-    <!-- Tags: ai, architecture, concepts, context, context-engine, mcp, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/concepts/context-engine/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/vectora/concepts/embeddings/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/concepts/embeddings/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/concepts/embeddings/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/concepts/embeddings/"/>
-    <!-- Tags: ai, architecture, code, concepts, embeddings, generation, mcp, next, rag, reranker, vector-search, vectora, voyage -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/concepts/embeddings/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/vectora/concepts/harness-runtime/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/concepts/harness-runtime/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/concepts/harness-runtime/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/concepts/harness-runtime/"/>
-    <!-- Tags: ai, architecture, concepts, harness, mcp, runtime, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/concepts/harness-runtime/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/vectora/concepts/namespaces/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/concepts/namespaces/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/concepts/namespaces/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/concepts/namespaces/"/>
-    <!-- Tags: ai, architecture, concepts, mcp, namespaces, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/concepts/namespaces/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/vectora/concepts/rag/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/concepts/rag/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/concepts/rag/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/concepts/rag/"/>
-    <!-- Tags: ai, architecture, concepts, connected, context, context-engine, isolated, kills, mcp, productivity, rag, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/concepts/rag/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/vectora/concepts/reranker/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/concepts/reranker/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/concepts/reranker/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/concepts/reranker/"/>
-    <!-- Tags: ai, architecture, concepts, context, context-engine, embeddings, mcp, rag, refiner, rerank, reranker, vector-search, vectora, voyage -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/concepts/reranker/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/vectora/concepts/state-persistence/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/concepts/state-persistence/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/concepts/state-persistence/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/concepts/state-persistence/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/concepts/state-persistence/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/vectora/concepts/sub-agents/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/concepts/sub-agents/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/concepts/sub-agents/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/concepts/sub-agents/"/>
-    <!-- Tags: active, agents, ai, architecture, concepts, context-engine, embeddings, governance, guardian, mcp, mcp-protocol, passive, rag, sub-agents, tools, vector-search, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/concepts/sub-agents/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/vectora/concepts/trust-folder/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/concepts/trust-folder/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/concepts/trust-folder/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/concepts/trust-folder/"/>
-    <!-- Tags: ai, architecture, concepts, folder, mcp, trust, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/concepts/trust-folder/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/vectora/concepts/vector-search/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/concepts/vector-search/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/concepts/vector-search/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/concepts/vector-search/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/concepts/vector-search/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/vectora/contributing/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/contributing/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/contributing/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/contributing/"/>
-    <!-- Tags: ai, contributing, mcp, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/contributing/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/vectora/contributing/code-of-conduct/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/contributing/code-of-conduct/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/contributing/code-of-conduct/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/contributing/code-of-conduct/"/>
-    <!-- Tags: ai, code, conduct, mcp, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/contributing/code-of-conduct/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/vectora/contributing/guidelines/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/contributing/guidelines/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/contributing/guidelines/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/contributing/guidelines/"/>
-    <!-- Tags: ai, guidelines, mcp, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/contributing/guidelines/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/vectora/contributing/roadmap/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/contributing/roadmap/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/contributing/roadmap/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/contributing/roadmap/"/>
-    <!-- Tags: ai, mcp, roadmap, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/contributing/roadmap/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/vectora/faq/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/faq/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/faq/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/faq/"/>
-    <!-- Tags: ai, mcp, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/faq/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/vectora/faq/billing/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/faq/billing/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/faq/billing/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/faq/billing/"/>
-    <!-- Tags: ai, billing, mcp, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/faq/billing/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/vectora/faq/general/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/faq/general/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/faq/general/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/faq/general/"/>
-    <!-- Tags: ai, general, mcp, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/faq/general/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/vectora/faq/security/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/faq/security/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/faq/security/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/faq/security/"/>
-    <!-- Tags: ai, governance, mcp, security, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/faq/security/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/vectora/getting-started/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/getting-started/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/getting-started/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/getting-started/"/>
-    <!-- Tags: ai, getting, mcp, setup, started, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/getting-started/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/vectora/getting-started/configuration/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/getting-started/configuration/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/getting-started/configuration/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/getting-started/configuration/"/>
-    <!-- Tags: ai, configuration, mcp, setup, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/getting-started/configuration/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/vectora/getting-started/installation/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/getting-started/installation/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/getting-started/installation/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/getting-started/installation/"/>
-    <!-- Tags: ai, installation, mcp, setup, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/getting-started/installation/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/vectora/getting-started/quickstart-mcp/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/getting-started/quickstart-mcp/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/getting-started/quickstart-mcp/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/getting-started/quickstart-mcp/"/>
-    <!-- Tags: ai, mcp, mcp-protocol, quickstart, setup, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/getting-started/quickstart-mcp/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/vectora/getting-started/troubleshooting/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/getting-started/troubleshooting/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/getting-started/troubleshooting/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/getting-started/troubleshooting/"/>
-    <!-- Tags: ai, mcp, setup, troubleshooting, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/getting-started/troubleshooting/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/vectora/integrations/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/integrations/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/integrations/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/integrations/"/>
-    <!-- Tags: ai, integration, integrations, mcp, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/integrations/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/vectora/integrations/claude-code/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/integrations/claude-code/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/integrations/claude-code/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/integrations/claude-code/"/>
-    <!-- Tags: ai, claude, code, integration, mcp, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/integrations/claude-code/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/vectora/integrations/cursor/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/integrations/cursor/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/integrations/cursor/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/integrations/cursor/"/>
-    <!-- Tags: ai, cursor, integration, mcp, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/integrations/cursor/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/vectora/integrations/custom-agents/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/integrations/custom-agents/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/integrations/custom-agents/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/integrations/custom-agents/"/>
-    <!-- Tags: agents, ai, custom, integration, mcp, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/integrations/custom-agents/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/vectora/integrations/gemini-cli/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/integrations/gemini-cli/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/integrations/gemini-cli/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/integrations/gemini-cli/"/>
-    <!-- Tags: ai, gemini, integration, mcp, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/integrations/gemini-cli/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/vectora/models/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/models/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/models/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/models/"/>
-    <!-- Tags: ai, concepts, embeddings, mcp, mcp-protocol, rag, reranker, sub-agents, technical, vector-search, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/models/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/vectora/models/gemini/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/models/gemini/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/models/gemini/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/models/gemini/"/>
-    <!-- Tags: ai, behind, embeddings, flash, gemini, guardian, intelligence, mcp, rag, reranker, vector-search, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/models/gemini/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/vectora/models/voyage/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/models/voyage/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/models/voyage/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/models/voyage/"/>
-    <!-- Tags: ai, embeddings, flash, gemini, guardian, impulsiona, inteligência, mcp, rag, reranker, vector-search, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/models/voyage/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/vectora/plans/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/plans/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/plans/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/plans/"/>
-    <!-- Tags: ai, mcp, plans, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/plans/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/vectora/plans/free/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/plans/free/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/plans/free/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/plans/free/"/>
-    <!-- Tags: ai, free, mcp, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/plans/free/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/vectora/plans/overview/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/plans/overview/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/plans/overview/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/plans/overview/"/>
-    <!-- Tags: ai, mcp, overview, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/plans/overview/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/vectora/plans/pro/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/plans/pro/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/plans/pro/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/plans/pro/"/>
-    <!-- Tags: ai, mcp, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/plans/pro/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/vectora/plans/retention/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/plans/retention/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/plans/retention/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/plans/retention/"/>
-    <!-- Tags: ai, mcp, retention, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/plans/retention/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/vectora/plans/team/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/plans/team/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/plans/team/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/plans/team/"/>
-    <!-- Tags: ai, mcp, team, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/plans/team/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/vectora/protocols/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/protocols/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/protocols/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/protocols/"/>
-    <!-- Tags: ai, mcp, protocols, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/protocols/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/vectora/protocols/acp/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/protocols/acp/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/protocols/acp/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/protocols/acp/"/>
-    <!-- Tags: ai, mcp, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/protocols/acp/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/vectora/protocols/mcp/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/protocols/mcp/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/protocols/mcp/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/protocols/mcp/"/>
-    <!-- Tags: ai, mcp, mcp-protocol, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/protocols/mcp/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/vectora/reference/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/reference/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/reference/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/reference/"/>
-    <!-- Tags: ai, mcp, reference, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/reference/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/vectora/reference/cli/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/reference/cli/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/reference/cli/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/reference/cli/"/>
-    <!-- Tags: ai, mcp, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/reference/cli/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/vectora/reference/config-yaml/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/reference/config-yaml/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/reference/config-yaml/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/reference/config-yaml/"/>
-    <!-- Tags: ai, config, mcp, vectora, yaml -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/reference/config-yaml/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/vectora/reference/errors/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/reference/errors/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/reference/errors/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/reference/errors/"/>
-    <!-- Tags: ai, errors, mcp, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/reference/errors/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/vectora/reference/mcp-tools/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/reference/mcp-tools/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/reference/mcp-tools/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/reference/mcp-tools/"/>
-    <!-- Tags: ai, mcp, mcp-protocol, tools, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/reference/mcp-tools/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/vectora/security/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/security/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/security/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/security/"/>
-    <!-- Tags: ai, governance, mcp, security, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/security/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/vectora/security/byok-privacy/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/security/byok-privacy/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/security/byok-privacy/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/security/byok-privacy/"/>
-    <!-- Tags: ai, byok, governance, mcp, privacy, security, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/security/byok-privacy/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/vectora/security/guardian/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/security/guardian/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/security/guardian/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/security/guardian/"/>
-    <!-- Tags: ai, governance, guardian, mcp, security, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/security/guardian/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/vectora/security/rbac/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/security/rbac/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/security/rbac/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/docs/vectora/security/rbac/"/>
-    <!-- Tags: ai, governance, mcp, rbac, security, vectora -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/security/rbac/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/off-topic/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/off-topic/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/off-topic/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/off-topic/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/off-topic/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/off-topic/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/off-topic/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/off-topic/"/>
-    <xhtml:link rel="alternate" hreflang="pt-br" href="https://cafegame.dev/off-topic/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/off-topic/"/>
   </url>
 </urlset>

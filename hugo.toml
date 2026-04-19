@@ -3,6 +3,7 @@ languageCode = 'pt-br'
 defaultContentLanguage = 'pt-br'
 title = 'MachiOnCoffee'
 enableEmoji = true
+disableKinds = ["sitemap"]
 
 [outputs]
   home = ['HTML', 'RSS', 'JSON']
