@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://cafegame.dev/</loc>
-    <lastmod>2026-04-19T11:01:52.644247</lastmod>
+    <lastmod>2026-04-19T11:07:22.000766</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -422,7 +422,7 @@
   </url>
   <url>
     <loc>https://cafegame.dev/docs/vectora/concepts/state-persistence/</loc>
-    <lastmod>2026-04-19T11:01:52.767664</lastmod>
+    <lastmod>2026-04-19T11:07:23.274998</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -440,7 +440,7 @@
   </url>
   <url>
     <loc>https://cafegame.dev/docs/vectora/concepts/vector-search/</loc>
-    <lastmod>2026-04-19T11:01:52.773569</lastmod>
+    <lastmod>2026-04-19T11:07:23.336562</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -680,7 +680,7 @@
   </url>
   <url>
     <loc>https://cafegame.dev/en/</loc>
-    <lastmod>2026-04-19T11:01:52.643813</lastmod>
+    <lastmod>2026-04-19T11:07:21.999082</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -1100,7 +1100,7 @@
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/vectora/concepts/state-persistence/</loc>
-    <lastmod>2026-04-19T11:01:52.766762</lastmod>
+    <lastmod>2026-04-19T11:07:23.273289</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -1118,7 +1118,7 @@
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/vectora/concepts/vector-search/</loc>
-    <lastmod>2026-04-19T11:01:52.772770</lastmod>
+    <lastmod>2026-04-19T11:07:23.335226</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -1358,13 +1358,13 @@
   </url>
   <url>
     <loc>https://cafegame.dev/en/off-topic/</loc>
-    <lastmod>2026-04-19T11:01:52.840657</lastmod>
+    <lastmod>2026-04-19T11:07:24.145483</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://cafegame.dev/off-topic/</loc>
-    <lastmod>2026-04-19T11:01:52.840908</lastmod>
+    <lastmod>2026-04-19T11:07:24.147107</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>

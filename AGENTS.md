@@ -44,6 +44,22 @@ python build_local.py
 - **Governance**: The "Iron Law" is defined in `api_sources/BUSINESS_RULES.pt.md`. Never violate architectural boundaries.
 - **Pre-commit**: Strict `markdownlint` and `prettier` rules. No decorative emojis in technical docs.
 
+## SEO & Metadata
+
+- **Frontmatter Tags**: Every documentation page MUST include a `tags` list in the frontmatter for SEO.
+
+  ```yaml
+  tags:
+    - ai
+    - context-engine
+    - mcp
+    - vectora
+  ```
+
+- **Sitemap**: Generated via `python scripts/generate_sitemap.py`. This is enforced by `pre-commit`.
+- **Robots.txt**: Located at `static/robots.txt`.
+- **Description**: Ensure `hugo.toml` has a concise site description.
+
 ## Implementation Workflow
 
 1. Always write/update both PT and EN versions of a file (e.g., `index.md` and `index.en.md`).

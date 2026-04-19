@@ -51,6 +51,18 @@ repos:
         language: system
         files: \.xml$
         pass_filenames: false
+      - id: generate-sitemap
+        name: Generate Sitemap
+        entry: python scripts/generate_sitemap.py
+        language: system
+        files: \.md$
+        pass_filenames: false
+      - id: remove-emojis
+        name: Remove Decorative Emojis
+        entry: python scripts/remove_emojis.py
+        language: system
+        files: \.md$
+        pass_filenames: false
 
   - repo: https://github.com/igorshubovych/markdownlint-cli
     rev: v0.44.0
