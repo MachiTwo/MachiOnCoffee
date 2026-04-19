@@ -444,6 +444,6 @@ Mesmo o plano Free ($0 para usuários, BYOK) tem custo mínimo de ~$150/mês par
 
 ---
 
-_Este é um guia técnico do projeto [Vectora](/docs/vectora/). Especificamente sobre Gemini 3 Flash._
+_Este é um guia técnico do projeto [Vectora](docs/vectora/). Especificamente sobre Gemini 3 Flash._
 ````text
 `````

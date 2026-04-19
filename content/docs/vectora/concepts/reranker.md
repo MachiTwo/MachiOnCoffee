@@ -78,9 +78,9 @@ Document 1 Embedding: [0.11, -0.46, 0.88, ...]  → Cosine Similarity: 0.95
 Document 2 Embedding: [0.05, 0.23, 0.11, ...]   → Cosine Similarity: 0.42
 ```text
 
--  Rápido (pré-computa embeddings)
--  Escalável (funciona com milhões de documentos)
--  Menos preciso (pode confundir similares)
+- ✅ Rápido (pré-computa embeddings)
+- ✅ Escalável (funciona com milhões de documentos)
+- ❌ Menos preciso (pode confundir similares)
 
 #### Cross-Encoder (Reranking)
 
@@ -93,9 +93,9 @@ Cross-Encoder Input:
 Score: 0.89 (muito relevante)
 ```text
 
--  Altamente preciso (examina query + documento simultaneamente)
--  Entende nuances (pode detectar quando um documento é enganosamente similar)
--  Mais lento (processa cada par query-documento)
+- ✅ Altamente preciso (examina query + documento simultaneamente)
+- ✅ Entende nuances (pode detectar quando um documento é enganosamente similar)
+- ❌ Mais lento (processa cada par query-documento)
 
 ## Voyage Rerank 2.5: A Escolha Oficial do Vectora
 
@@ -165,27 +165,27 @@ Top-3 para enviar ao LLM:
 
 Testamos todas as opções:
 
-###  Cohere Rerank v3.5
+### ❌ Cohere Rerank v3.5
 
 - NDCG@5: 93.1% (3.1% pior)
 - Latência: ~180ms
 - Custo: $3 por 1M tokens (50% mais caro)
 - Sem otimização para código de produção
 
-###  BM25 (Busca por Palavras-Chave)
+### ❌ BM25 (Busca por Palavras-Chave)
 
 - Totalmente inadequado para código
 - Confunde sintaxe com semântica
 - Sem suporte a conceitos abstratos
 
-###  Treinamento Custom
+### ❌ Treinamento Custom
 
 - Requer 100K+ exemplos de código anotado
 - 6-8 meses de desenvolvimento
 - Custo: $500K+
 - Manutenção contínua
 
-###  Voyage Rerank 2.5
+### ✅ Voyage Rerank 2.5
 
 - NDCG@5: **96.2%** (melhor do mercado)
 - Latência: 50-150ms

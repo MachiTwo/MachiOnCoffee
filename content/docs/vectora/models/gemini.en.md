@@ -441,6 +441,6 @@ Even the Free plan ($0 for users, BYOK) has minimum cost of ~$150/month for Vect
 
 ---
 
-_This is a supporting guide for the [Vectora](/en/docs/vectora/) project. Specifically about Gemini 3 Flash._
+_This is a supporting guide for the [Vectora](docs/vectora/) project. Specifically about Gemini 3 Flash._
 ````text
 `````

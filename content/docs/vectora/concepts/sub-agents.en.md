@@ -43,7 +43,7 @@ context, or ignore an important security rule.
 
 ## The Sub-Agent Difference (Vectora)
 
-[Vectora](/en/04/17/vectora/) is not just the knife; it is a **Specialist Sub-Agent**. When Claude calls it, it's not
+[Vectora](04/17/vectora/) is not just the knife; it is a **Specialist Sub-Agent**. When Claude calls it, it's not
 just asking for a file, it's delegating a context mission.
 
 | Feature        | Common MCP Tool                  | Vectora Sub-Agent                |
@@ -69,4 +69,4 @@ best possible context, in the safest and cheapest way, without you needing to co
 
 ---
 
-_This is a supporting post for the [Vectora](/en/docs/vectora/) project._
+_This is a supporting post for the [Vectora](docs/vectora/) project._

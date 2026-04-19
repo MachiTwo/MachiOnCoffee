@@ -22,6 +22,7 @@ tags:
 type: docs
 sidebar:
   open: true
+categories: ["Deep Dive"]
 ---
 
 {{< lang-toggle >}}
@@ -167,28 +168,28 @@ Even if the code doesn't use the exact phrase "race condition".
 
 We tested **every alternative**:
 
-###  Voyage 3-large (Previous Version)
+### ❌ Voyage 3-large (Previous Version)
 
 - 1,024 dimensions (less precision)
 - Generic training (not optimized for code)
 - Performance: ~150ms per embedding
 - Cost: $0.03 per 1M tokens (50% more expensive)
 
-###  Gemini Embedding 2.0
+### ❌ Gemini Embedding 2.0
 
 - 768 dimensions (much less than Voyage 4)
 - Optimized for natural language, not code
 - Complex Google Cloud integration
 - NDCG@10: ~92% (6.5% worse than Voyage 4)
 
-###  OpenAI text-embedding-3-large
+### ❌ OpenAI text-embedding-3-large
 
 - 3,072 dimensions (40% more expensive per dimension)
 - No official code structure support
 - Aggressive rate limiting
 - Cost: $0.065 per 1M tokens (3.25x more expensive)
 
-###  Voyage 4
+### ✅ Voyage 4
 
 - 1,536 optimized dimensions (sweet spot)
 - Specifically trained on code
@@ -333,6 +334,6 @@ Voyage 4 isn't just better — it's **significantly better** at code tasks.
 
 ---
 
-_This is a supporting guide for the [Vectora](/en/docs/vectora/) project. Specifically about embeddings with Voyage 4._
+_This is a supporting guide for the [Vectora](docs/vectora/) project. Specifically about embeddings with Voyage 4._
 ````text
 `````

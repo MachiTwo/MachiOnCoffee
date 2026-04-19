@@ -17,30 +17,30 @@ tags:
 
 {{< lang-toggle >}}
 
-## Authentication and Authorization in Vectora
+## 🔐 Authentication and Authorization in Vectora
 
-The Vectora authentication layer ensures that only authorized users and services can access resources, namespaces, and sensitive operations. This section documents the identity mechanisms, API key management, and access control that protect your context infrastructure.
+Vectora's authentication layer ensures that only authorized users and services can access resources, namespaces, and sensitive operations. This section documents the identity mechanisms, API key management, and access control that protect your context infrastructure.
 
-> [!IMPORTANT] > **Application-level security, not database-level**: Vectora implements RBAC, namespace validation, and sanitization in the application layer (`Guardian`, `RBAC Logic`). The backend (MongoDB Atlas) stores data; the application decides who can access what.
+> [!IMPORTANT] > **Security in the application, not the database**: Vectora implements RBAC, namespace validation, and sanitization in the application layer (`Guardian`, `RBAC Logic`). The backend (MongoDB Atlas) stores data; the application decides who can access what.
 
 ---
 
-### Topics in this section
+### 📋 Topics in this section
 
 | Page                                 | Description                                                                                                    |
 | ------------------------------------ | -------------------------------------------------------------------------------------------------------------- |
 | [SSO / Unified Identity](/auth/sso/) | Centralized authentication, session management, and integration with external providers (GitHub, Google, SAML) |
-| [API Keys](/auth/api-keys/)          | Creation, rotation, and scopes of API keys for programmatic integration with Vectora                           |
+| [API Keys](/auth/api-keys/)          | Creation, rotation, and scoping of API keys for programmatic integration with Vectora                          |
 
 ---
 
-### Typical Authentication Flow
+### 🧭 Typical Authentication Flow
 
 ```mermaid
 graph LR
     A[User / Service] --> B{Access Type}
     B -->|Human| C[Login via SSO]
-    B -->|Machine| D[Scoped API Key]
+    B -->|Machine| D[API Key with scope]
 
     C --> E[JWT with claims: userId, roles, namespaces]
     D --> F[Key validation + rate limiting]
@@ -55,33 +55,33 @@ graph LR
 
 ---
 
-### Fundamental Concepts
+### 🔑 Fundamental Concepts
 
 | Term             | Definition                                                                                  |
 | ---------------- | ------------------------------------------------------------------------------------------- |
 | **Namespace**    | Logical isolation of data and operations; each project/team has its own namespace           |
 | **RBAC**         | Role-Based Access Control: roles like `reader`, `contributor`, `admin` define permissions   |
 | **API Key**      | Access token for programmatic integration, with granular scopes (`read`, `write`, `search`) |
-| **JWT**          | Signed JSON Web Token that carries identity and permission claims                           |
-| **Trust Folder** | Filesystem scope allowed for operations; validated before any tool call                     |
+| **JWT**          | Signed JSON Web Token carrying identity and permission claims                               |
+| **Trust Folder** | Allowed filesystem scope for operations; validated before any tool call                     |
 
 ---
 
-### Security Best Practices
+### 🛡️ Security Best Practices
 
-**Use API Keys with minimal scope**: Grant only `read` if the integration doesn't need to write  
- **Periodic key rotation**: Renew API Keys every 90 days or after incidents  
- **Validate namespaces in each call**: Don't trust only the token; revalidate scope at runtime  
- **Monitor audit logs**: Use `audit_logs` to detect anomalous access  
- **Never expose keys in the client**: API Keys belong to the backend or the main agent, never to the browser
+✅ **Use scoped API Keys**: Grant only `search` or `read` if the integration doesn't need to write.  
+✅ **Rotate keys periodically**: Renew API Keys every 90 days or after any security incident.  
+✅ **Validate namespaces in every call**: Don't just trust the token; revalidate scope at runtime.  
+✅ **Monitor audit logs**: Use `audit_logs` to detect anomalous access patterns.  
+✅ **Never expose keys in the client**: API Keys belong to the backend or the principal agent, never the browser.
 
-> [!WARNING] > **Hard-coded Blocklist**: Files like `.env`, `.key`, `.pem` are blocked by `Guardian` before any processing — regardless of authentication. Security by code, not by configuration.
+> [!WARNING] > **Hard-coded blocklist**: Files like `.env`, `.key`, and `.pem` are blocked by the `Guardian` before any processing — regardless of authentication. Security by code, not by configuration.
 
 ---
 
-### Integration with Your System
+### 🔄 Integration with Your System
 
-#### Example: JWT Validation in Your Backend
+#### Example: JWT Validation in your backend
 
 ```ts
 // Example: JWT validation middleware
@@ -101,14 +101,14 @@ export async function authMiddleware(req: Request, next: Handler) {
 }
 ```
 
-#### Example: Using API Key in MCP Call
+#### Example: Using an API Key in an MCP call
 
 ```json
 {
   "mcpServers": {
     "vectora": {
       "command": "npx",
-      "args": ["vectora-agent", "mcp-serve"],
+      "args": ["@kaffyn/vectora", "mcp-serve"],
       "env": {
         "VECTORA_API_KEY": "vca_live_...",
         "VECTORA_NAMESPACE": "my-project"
@@ -120,21 +120,21 @@ export async function authMiddleware(req: Request, next: Handler) {
 
 ---
 
-### Frequently Asked Questions
+### ❓ Frequently Asked Questions
 
 **Q: Do I need SSO to use Vectora?**  
-A: No. The Free plan uses local authentication via `vectora auth login`. SSO is available in Pro/Team plans for integration with corporate providers.
+A: No. The Free plan uses local authentication via `vectora auth login`. SSO is available on Pro/Team plans for integration with corporate providers.
 
 **Q: Can I use my own auth infrastructure?**  
-A: Yes. Vectora accepts any valid JWT configured via `auth.jwt.publicKey`. See [SSO](/auth/sso/) for custom integration details.
+A: Yes. Vectora accepts any valid JWT configured via `auth.jwt.publicKey`. Consult [SSO](/auth/sso/) for custom integration details.
 
 **Q: How do I revoke a compromised API Key?**  
 A: Via the dashboard (`/settings/api-keys`) or CLI: `vectora api-key revoke --id <key_id>`. Revocation is immediate across all nodes.
 
 **Q: Does Vectora store my credentials?**  
-A: No. API keys are stored as hashes (bcrypt). JWT tokens are validated but not persisted. Provider credentials (Gemini, Voyage) are provided via BYOK and are never touched by Kaffyn.
+A: No. API Keys are stored as hashes (bcrypt). JWT tokens are validated but not persisted. Provider credentials (Gemini, Voyage) are provided via BYOK and never touched by Kaffyn.
 
 ---
 
-> **Key Takeaway**:  
-> _"Authentication verifies who you are. Authorization defines what you can do. Vectora applies both to every tool call — not just at login."_
+> 💡 **Phrase to remember**:  
+> _"Authentication verifies who you are. Authorization defines what you can do. Vectora enforces both on every tool call — not just at login."_

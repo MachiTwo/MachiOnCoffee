@@ -39,7 +39,7 @@ micro-projects to massive RPGs.
   without "spaghetti" code.
 - **Phase Logic**: Native support for ability phases (Windup, Execution, Recovery) and circular buffers ready for
   **Multiplayer with Rollback**.
-- [**Explore the Ability System in detail**](/en/docs/ability-system/)
+- [**Explore the Ability System in detail**](docs/ability-system/)
 
 ### 3. Vectora: The Contextual Knowledge Engine
 
@@ -53,7 +53,7 @@ micro-projects to massive RPGs.
   scores and token efficiency) how the delivered context improves AI performance.
 - **Security**: The **Hard-Coded Guardian** protects secrets (.env, .keys) directly in the runtime, ensuring sensitive
   data never leaves your environment.
-- [**Understand Vectora's architecture**](/en/docs/vectora/)
+- [**Understand Vectora's architecture**](docs/vectora/)
 
 ---
 

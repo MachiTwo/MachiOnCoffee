@@ -49,7 +49,7 @@ picture.
 
 ## The Solution: Connected RAG (Context Engine)
 
-In [Vectora](/en/04/17/vectora/), RAG is not just "text search." It works through a **Context Engine** that understands
+In [Vectora](04/17/vectora/), RAG is not just "text search." It works through a **Context Engine** that understands
 structure:
 
 1. **Multimodal Search**: Combines vector search (semantic) with structural search (AST and Grep).
@@ -70,4 +70,4 @@ Traditional RAG gives you data. Vectora's Connected RAG gives you **knowledge**.
 
 ---
 
-_This is a supporting post for the [Vectora](/en/docs/vectora/) project._
+_This is a supporting post for the [Vectora](docs/vectora/) project._
