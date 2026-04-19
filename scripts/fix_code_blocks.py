@@ -8,7 +8,7 @@ def fix_code_blocks(file_path):
     Add 'text' language specifier only to odd-numbered ``` (opening blocks).
     Ignores even-numbered ``` (closing blocks).
     """
-    with open(file_path, 'r', encoding='utf-8') as f:
+    with open(file_path, 'r', encoding='utf-8', newline='') as f:
         content = f.read()
 
     # Find all ``` positions
@@ -16,11 +16,11 @@ def fix_code_blocks(file_path):
     matches = list(backtick_pattern.finditer(content))
 
     if not matches:
-        print(f"  [OK] {file_path}: No code blocks found")
         return False
 
     # Process from end to start to avoid offset issues
     modified = False
+    new_content = content
     for idx in range(len(matches) - 1, -1, -1):
         match = matches[idx]
         position = match.start()
@@ -34,41 +34,40 @@ def fix_code_blocks(file_path):
                 continue
 
             # Replace ``` with ```text
-            content = content[:position] + '```text' + content[position + 3:]
+            new_content = new_content[:position] + '```text' + new_content[position + 3:]
             modified = True
 
     if modified:
-        with open(file_path, 'w', encoding='utf-8') as f:
-            f.write(content)
+        with open(file_path, 'w', encoding='utf-8', newline='') as f:
+            f.write(new_content)
         print(f"  [OK] {file_path}: Fixed code blocks")
         return True
     else:
-        print(f"  [OK] {file_path}: Already correct or no changes needed")
         return False
 
 def main():
     if len(sys.argv) < 2:
-        print("Usage: python fix_code_blocks.py <file_or_directory>")
-        print("Example: python fix_code_blocks.py docs/")
+        print("Usage: python fix_code_blocks.py <file1> <file2> ... or <directory>")
         sys.exit(1)
 
-    target = Path(sys.argv[1])
     modified_count = 0
+    targets = sys.argv[1:]
 
-    if target.is_file():
-        if fix_code_blocks(target):
-            modified_count += 1
-    elif target.is_dir():
-        md_files = list(target.rglob('*.md'))
-        print(f"Processing {len(md_files)} markdown files...\n")
-        for md_file in sorted(md_files):
-            if fix_code_blocks(md_file):
+    for target_str in targets:
+        target = Path(target_str)
+        if target.is_file():
+            if fix_code_blocks(target):
                 modified_count += 1
-    else:
-        print(f"Error: {target} is not a file or directory")
-        sys.exit(1)
+        elif target.is_dir():
+            md_files = list(target.rglob('*.md'))
+            for md_file in sorted(md_files):
+                if fix_code_blocks(md_file):
+                    modified_count += 1
+        else:
+            print(f"Error: {target} is not a file or directory")
 
-    print(f"\n[OK] Fixed {modified_count} files")
+    if len(targets) > 1 or Path(targets[0]).is_dir():
+        print(f"\n[OK] Fixed {modified_count} files")
 
 if __name__ == '__main__':
     main()

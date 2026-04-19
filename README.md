@@ -1,4 +1,4 @@
-# ☕ MachiOnCoffee
+# MachiOnCoffee
 
 Bem-vindo ao repositório do **MachiOnCoffee**, um blog minimalista desenhado para priorizar a leitura contínua e a
 escrita sem atritos!
@@ -7,7 +7,7 @@ Este projeto não depende de bancos de dados nem frameworks pesados (como Next.j
 estaticamente utilizando o [Hugo](https://gohugo.io/) juntamente ao tema estético e responsivo
 [Hextra](https://hextra.imfing.com/).
 
-## 🚀 Como Funciona o Nosso Setup?
+## Como Funciona o Nosso Setup?
 
 O blog foi desenhado com o objetivo de dar o menor trabalho possível:
 
@@ -17,7 +17,7 @@ O blog foi desenhado com o objetivo de dar o menor trabalho possível:
 - O GitHub faz o Deploy de graça e magicamente na _branch principal_ por meio de GitHub Actions usando a infraestrutura
   do **GitHub Pages**.
 
-## 🛠️ Requisitos Iniciais para Contribuição Local
+## Requisitos Iniciais para Contribuição Local
 
 Como o próprio formato de automatização exige ferramentas enxutas, recomendamos a seguinte instalação caso deseje gerar
 os builds ou rodar as validações de script:
@@ -40,7 +40,7 @@ pre-commit install
 
 Pronto, você nunca mais terá que se preocupar com indexações manuais!
 
-## 📝 Como escrever e publicar artigos?
+## Como escrever e publicar artigos?
 
 Criar um post é literalmente só criar uma pasta sob o capô!
 
@@ -68,7 +68,7 @@ E agora você é livre para dissertar livremente... Tudo suportado pelo ecosiste
    automática de prévias, formatar espaçamentos faltantes, recriar magicamente a Homepage interativa, e o seu commit
    passará com sucesso. Quando o _Push_ for lançado, o Github Pages assumirá o leme da publicação real!
 
-## 🖥️ Como ver as mudanças em sua máquina?
+## Como ver as mudanças em sua máquina?
 
 Muitas vezes você quer ver o resultado do seu post em tempo real antes de commitar, você pode iniciar o servidor
 instantâneo do Hugo assim:
