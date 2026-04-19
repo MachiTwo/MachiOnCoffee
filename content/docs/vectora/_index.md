@@ -13,7 +13,9 @@ breadcrumbs: true
 
 Agentes de IA tradicionais operam em **contextos fragmentados**, gerando alucinações, desperdício de tokens e exposição acidental de segredos. O **Vectora** resolve isso não sendo "mais um chat", mas sim um **[Sub-Agent Tier 2](/concepts/sub-agents/)** projetado exclusivamente para engenharia de software: ele intercepta chamadas via [Protocolo MCP](/protocols/mcp/), valida segurança em tempo real com o [Guardian](/security/guardian/), orquestra recuperação multi-hop via [Context Engine](/concepts/context-engine/) e entrega contexto estruturado ao seu agent principal (Claude Code, Gemini CLI, Cursor, etc.).
 
-> [!IMPORTANT] > **Fórmula Central**: `Agente Funcional = Modelo (Gemini 3 Flash) + [Harness Runtime](/concepts/harness-runtime/) + Contexto Governado (Voyage 4 + MongoDB Atlas)`
+> [!IMPORTANT]  
+> **Fórmula Central**:
+> `Agente Funcional = Modelo (Gemini 3 Flash) + [Harness Runtime](/concepts/harness-runtime/) + Contexto Governado (Voyage 4 + MongoDB Atlas)`
 
 ---
 
