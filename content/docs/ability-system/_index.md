@@ -47,12 +47,12 @@ Leves, dinâmicas, mantêm estado mutável (Cooldowns, Stacks, Duração).
 
 Explore a documentação técnica completa organizada por categorias:
 
-- [** Singleton**](classes/singleton/) — Registro global e resolutor central.
-- [** Resources**](classes/resources/) — Habilidades, Efeitos e Blueprints imutáveis.
-- [** Nodes**](classes/nodes/) — Componentes de cena (ASComponent, ASDelivery).
-- [** RefCounted**](classes/refcounted/) — Executores de runtime e utilitários de estado.
-- [** Behavior Tree**](classes/behavior-tree/) — Integração nativa com LimboAI.
-- [** Editor**](classes/editor/) — Painéis de Tags e inspetores customizados.
+- [**Singleton**](classes/singleton/) — Registro global e resolutor central.
+- [**Resources**](classes/resources/) — Habilidades, Efeitos e Blueprints imutáveis.
+- [**Nodes**](classes/nodes/) — Componentes de cena (ASComponent, ASDelivery).
+- [**RefCounted**](classes/refcounted/) — Executores de runtime e utilitários de estado.
+- [**Behavior Tree**](classes/behavior-tree/) — Integração nativa com LimboAI.
+- [**Editor**](classes/editor/) — Painéis de Tags e inspetores customizados.
 
 ---
 
@@ -60,8 +60,8 @@ Explore a documentação técnica completa organizada por categorias:
 
 Aprenda na prática como implementar o sistema:
 
-- [** Tutoriais**](tutorials/) — Passo a passo para mecânicas comuns.
-- [** Exemplos**](examples/) — Projetos de referência e padrões de design.
+- [**Tutoriais**](tutorials/) — Passo a passo para mecânicas comuns.
+- [**Exemplos**](examples/) — Projetos de referência e padrões de design.
 
 ---
 

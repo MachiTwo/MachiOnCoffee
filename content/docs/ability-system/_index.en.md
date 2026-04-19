@@ -47,12 +47,12 @@ Lightweight, dynamic, maintaining mutable state (Cooldowns, Stacks, Duration).
 
 Explore the complete technical documentation organized by category:
 
-- [** Singleton**](classes/singleton/) — Global registry and central resolver.
-- [** Resources**](classes/resources/) — Abilities, Effects, and Immutable Blueprints.
-- [** Nodes**](classes/nodes/) — Scene components (ASComponent, ASDelivery).
-- [** RefCounted**](classes/refcounted/) — Runtime executors and state utilities.
-- [** Behavior Tree**](classes/behavior-tree/) — Native integration with LimboAI.
-- [** Editor**](classes/editor/) — Tag panels and custom inspectors.
+- [**Singleton**](classes/singleton/) — Global registry and central resolver.
+- [**Resources**](classes/resources/) — Abilities, Effects, and Immutable Blueprints.
+- [**Nodes**](classes/nodes/) — Scene components (ASComponent, ASDelivery).
+- [**RefCounted**](classes/refcounted/) — Runtime executors and state utilities.
+- [**Behavior Tree**](classes/behavior-tree/) — Native integration with LimboAI.
+- [**Editor**](classes/editor/) — Tag panels and custom inspectors.
 
 ---
 
@@ -60,8 +60,8 @@ Explore the complete technical documentation organized by category:
 
 Learn in practice how to implement the system:
 
-- [** Tutorials**](tutorials/) — Step-by-step for common mechanics.
-- [** Examples**](examples/) — Reference projects and design patterns.
+- [**Tutorials**](tutorials/) — Step-by-step for common mechanics.
+- [**Examples**](examples/) — Reference projects and design patterns.
 
 ---
 
