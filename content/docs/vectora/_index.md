@@ -1,10 +1,23 @@
 ---
-title: "Vectora"
-date: "2026-04-17T18:00:00-03:00"
+title: Vectora
+slug: vectora
+date: "2026-04-18T22:30:00-03:00"
 type: docs
 sidebar:
   open: true
 breadcrumbs: true
+tags:
+  - ai
+  - context-engine
+  - embeddings
+  - guardian
+  - mcp
+  - mcp-protocol
+  - rag
+  - reranker
+  - sub-agents
+  - vector-search
+  - vectora
 ---
 
 {{< lang-toggle >}}
@@ -119,7 +132,6 @@ Vectora opera com modelo **BYOK First**, onde o backend (MongoDB Atlas) é geren
 
 | Categoria           | Documento                                                                           | Descrição                                                                         |
 | ------------------- | ----------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| **Início Rápido**   | [Getting Started](/getting-started/)                                                | `npm install -g vectora-agent`, configuração BYOK, integração MCP                 |
 | **Conceitos**       | [Sub-Agents](/concepts/sub-agents/)                                                 | Por que Sub-Agent e não tools MCP passivas? Governança ativa vs funções estáticas |
 | **Harness Runtime** | [Harness Runtime](/concepts/harness-runtime/)                                       | Tool Execution, Context Engineering, State Management, Verification Hooks         |
 | **Context & RAG**   | [Context Engine](/concepts/context-engine/)                                         | AST parsing, compaction, multi-hop reasoning, hybrid ranking                      |

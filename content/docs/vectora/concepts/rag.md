@@ -1,6 +1,19 @@
 ---
-title: "RAG Conectado"
+title: RAG Conectado
+slug: rag
+date: "2026-04-18T22:30:00-03:00"
 type: docs
+tags:
+  - ai
+  - architecture
+  - concepts
+  - conectado
+  - context-engine
+  - mcp
+  - rag
+  - vectora
+sidebar:
+  open: true
 ---
 
 {{< lang-toggle >}}

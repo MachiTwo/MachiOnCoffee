@@ -1,9 +1,27 @@
 ---
 title: "Voyage 4: Next-Generation Code Embeddings"
-date: 2026-04-17T21:05:00-03:00
+slug: embeddings
+date: "2026-04-18T22:30:00-03:00"
 draft: false
-categories: ["Deep Dive"]
-tags: ["embeddings", "voyage", "qdrant", "ai", "vectora"]
+categories:
+  - Deep Dive
+tags:
+  - ai
+  - architecture
+  - code
+  - concepts
+  - embeddings
+  - generation
+  - mcp
+  - next
+  - rag
+  - reranker
+  - vector-search
+  - vectora
+  - voyage
+type: docs
+sidebar:
+  open: true
 ---
 
 {{< lang-toggle >}}

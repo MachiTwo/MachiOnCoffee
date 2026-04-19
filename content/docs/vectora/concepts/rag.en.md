@@ -1,9 +1,26 @@
 ---
 title: "Connected RAG: Why isolated context kills your productivity"
-date: 2026-04-17T21:00:00-03:00
+slug: rag
+date: "2026-04-18T22:30:00-03:00"
 draft: false
-categories: ["Deep Dive"]
-tags: ["rag", "infra", "ai", "vectora"]
+categories:
+  - Deep Dive
+tags:
+  - ai
+  - architecture
+  - concepts
+  - connected
+  - context
+  - context-engine
+  - isolated
+  - kills
+  - mcp
+  - productivity
+  - rag
+  - vectora
+type: docs
+sidebar:
+  open: true
 ---
 
 {{< lang-toggle >}}

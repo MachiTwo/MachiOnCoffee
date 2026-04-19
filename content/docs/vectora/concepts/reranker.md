@@ -1,9 +1,28 @@
 ---
 title: "Voyage Rerank 2.5: O Refinador de Contexto"
-date: 2026-04-17T21:10:00-03:00
+slug: reranker
+date: "2026-04-18T22:30:00-03:00"
 draft: false
-categories: ["Deep Dive"]
-tags: ["reranker", "voyage", "rag", "ai", "vectora"]
+categories:
+  - Deep Dive
+tags:
+  - ai
+  - architecture
+  - concepts
+  - context-engine
+  - contexto
+  - embeddings
+  - mcp
+  - rag
+  - refinador
+  - rerank
+  - reranker
+  - vector-search
+  - vectora
+  - voyage
+type: docs
+sidebar:
+  open: true
 ---
 
 {{< lang-toggle >}}

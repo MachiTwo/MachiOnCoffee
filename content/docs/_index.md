@@ -15,6 +15,8 @@ breadcrumbs: false
 
 {{< lang-toggle >}}
 
+{{< section-toggle >}}
+
 Selecione um projeto para explorar:
 
 - [**Vectora**](./vectora/) - Sub-Agente de IA e Motor Vetorial especializado.

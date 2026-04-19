@@ -1,10 +1,32 @@
 ---
 title: "Sub-Agents vs MCP: Ferramentas passivas vs Governança ativa"
-date: 2026-04-17T21:15:00-03:00
+slug: sub-agents
+date: "2026-04-18T22:30:00-03:00"
 draft: false
-categories: ["Deep Dive", "Arquitetura"]
-tags: ["mcp", "acp", "sub-agent", "governança", "vectora", "rag"]
-description: "Por que o Vectora é um Sub-Agent completo e não apenas um conjunto de ferramentas MCP? Descubra a diferença entre funções passivas e governança ativa no contexto de agentes de IA para código."
+categories:
+  - Deep Dive
+  - Arquitetura
+tags:
+  - agents
+  - ai
+  - architecture
+  - ativa
+  - concepts
+  - context-engine
+  - embeddings
+  - ferramentas
+  - governança
+  - guardian
+  - mcp
+  - mcp-protocol
+  - passivas
+  - rag
+  - sub-agents
+  - vector-search
+  - vectora
+type: docs
+sidebar:
+  open: true
 ---
 
 {{< lang-toggle >}}

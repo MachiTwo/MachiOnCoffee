@@ -1,9 +1,18 @@
 ---
-title: "Auth"
+title: Auth
+slug: auth
+date: "2026-04-18T22:30:00-03:00"
 weight: 62
 type: docs
 sidebar:
   open: true
+tags:
+  - ai
+  - auth
+  - guardian
+  - mcp
+  - mcp-protocol
+  - vectora
 ---
 
 {{< lang-toggle >}}

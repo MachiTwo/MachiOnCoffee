@@ -1,9 +1,26 @@
 ---
 title: "Gemini 3 Flash: A Inteligência que Impulsiona Vectora"
-date: 2026-04-18T14:00:00-03:00
+slug: voyage
+date: "2026-04-18T22:30:00-03:00"
 draft: false
-categories: ["Deep Dive"]
-tags: ["gemini", "llm", "google", "vectora", "ai"]
+categories:
+  - Deep Dive
+tags:
+  - ai
+  - embeddings
+  - flash
+  - gemini
+  - guardian
+  - impulsiona
+  - inteligência
+  - mcp
+  - rag
+  - reranker
+  - vector-search
+  - vectora
+type: docs
+sidebar:
+  open: true
 ---
 
 {{< lang-toggle >}}

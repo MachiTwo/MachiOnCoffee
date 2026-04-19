@@ -1,9 +1,31 @@
 ---
 title: "Sub-Agents vs MCP: Passive tools vs Active governance"
-date: 2026-04-17T21:15:00-03:00
+slug: sub-agents
+date: "2026-04-18T22:30:00-03:00"
 draft: false
-categories: ["Deep Dive"]
-tags: ["mcp", "acp", "infra", "vectora"]
+categories:
+  - Deep Dive
+tags:
+  - active
+  - agents
+  - ai
+  - architecture
+  - concepts
+  - context-engine
+  - embeddings
+  - governance
+  - guardian
+  - mcp
+  - mcp-protocol
+  - passive
+  - rag
+  - sub-agents
+  - tools
+  - vector-search
+  - vectora
+type: docs
+sidebar:
+  open: true
 ---
 
 {{< lang-toggle >}}

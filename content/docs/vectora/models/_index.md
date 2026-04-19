@@ -1,9 +1,23 @@
 ---
-title: "Conceitos Técnicos"
+title: Conceitos Técnicos
+slug: models
+date: "2026-04-18T22:30:00-03:00"
 weight: 10
 type: docs
 sidebar:
   open: true
+tags:
+  - ai
+  - conceitos
+  - embeddings
+  - mcp
+  - mcp-protocol
+  - rag
+  - reranker
+  - sub-agents
+  - técnicos
+  - vector-search
+  - vectora
 ---
 
 {{< lang-toggle >}}
