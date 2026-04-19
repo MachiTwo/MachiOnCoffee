@@ -16,12 +16,32 @@
     <strong>{{ $l.inherits }}:</strong> <code>{{ $data.inherits }}</code>
   </div>
 
-  <p class="api-brief">{{ $data.brief_description }}</p>
+  {{ $brief := $data.brief_description }}
+  {{ $brief = replace $brief "[b]" "**" }}
+  {{ $brief = replace $brief "[/b]" "**" }}
+  {{ $brief = replace $brief "[i]" "*" }}
+  {{ $brief = replace $brief "[/i]" "*" }}
+  {{ $brief = replace $brief "[code]" "`" }}
+  {{ $brief = replace $brief "[/code]" "`" }}
+  <p class="api-brief">{{ $brief | markdownify }}</p>
 
   {{ if $data.description }}
   <div class="api-description">
     <h3>{{ $l.description }}</h3>
-    <p>{{ $data.description | markdownify }}</p>
+    {{ $desc := $data.description }}
+    {{ $desc = replace $desc "[codeblocks]" "" }}
+    {{ $desc = replace $desc "[/codeblocks]" "" }}
+    {{ $desc = replace $desc "[gdscript]" "```gdscript" }}
+    {{ $desc = replace $desc "[/gdscript]" "```" }}
+    {{ $desc = replace $desc "[csharp]" "```csharp" }}
+    {{ $desc = replace $desc "[/csharp]" "```" }}
+    {{ $desc = replace $desc "[b]" "**" }}
+    {{ $desc = replace $desc "[/b]" "**" }}
+    {{ $desc = replace $desc "[i]" "*" }}
+    {{ $desc = replace $desc "[/i]" "*" }}
+    {{ $desc = replace $desc "[code]" "`" }}
+    {{ $desc = replace $desc "[/code]" "`" }}
+    <p>{{ $desc | markdownify }}</p>
   </div>
   {{ end }}
 
@@ -40,7 +60,14 @@
       </tr>
       {{ if .description }}
       <tr>
-        <td colspan="3" class="item-desc">{{ .description | markdownify }}</td>
+        {{ $pdesc := .description }}
+        {{ $pdesc = replace $pdesc "[b]" "**" }}
+        {{ $pdesc = replace $pdesc "[/b]" "**" }}
+        {{ $pdesc = replace $pdesc "[i]" "*" }}
+        {{ $pdesc = replace $pdesc "[/i]" "*" }}
+        {{ $pdesc = replace $pdesc "[code]" "`" }}
+        {{ $pdesc = replace $pdesc "[/code]" "`" }}
+        <td colspan="3" class="item-desc">{{ $pdesc | markdownify }}</td>
       </tr>
       {{ end }}
       {{ end }}
@@ -68,7 +95,14 @@
       </tr>
       {{ if .description }}
       <tr>
-        <td colspan="2" class="item-desc">{{ .description | markdownify }}</td>
+        {{ $mdesc := .description }}
+        {{ $mdesc = replace $mdesc "[b]" "**" }}
+        {{ $mdesc = replace $mdesc "[/b]" "**" }}
+        {{ $mdesc = replace $mdesc "[i]" "*" }}
+        {{ $mdesc = replace $mdesc "[/i]" "*" }}
+        {{ $mdesc = replace $mdesc "[code]" "`" }}
+        {{ $mdesc = replace $mdesc "[/code]" "`" }}
+        <td colspan="2" class="item-desc">{{ $mdesc | markdownify }}</td>
       </tr>
       {{ end }}
       {{ end }}
@@ -86,7 +120,14 @@
         {{ if $idx }}, {{ end }}{{ $param.name }}: <code>{{ $param.type }}</code>
       {{- end }})
       {{ if .description }}
-      <p>{{ .description | markdownify }}</p>
+      {{ $sdesc := .description }}
+      {{ $sdesc = replace $sdesc "[b]" "**" }}
+      {{ $sdesc = replace $sdesc "[/b]" "**" }}
+      {{ $sdesc = replace $sdesc "[i]" "*" }}
+      {{ $sdesc = replace $sdesc "[/i]" "*" }}
+      {{ $sdesc = replace $sdesc "[code]" "`" }}
+      {{ $sdesc = replace $sdesc "[/code]" "`" }}
+      <p>{{ $sdesc | markdownify }}</p>
       {{ end }}
     </li>
     {{ end }}
@@ -107,7 +148,14 @@
       </tr>
       {{ if .description }}
       <tr>
-        <td colspan="2" class="item-desc">{{ .description | markdownify }}</td>
+        {{ $cdesc := .description }}
+        {{ $cdesc = replace $cdesc "[b]" "**" }}
+        {{ $cdesc = replace $cdesc "[/b]" "**" }}
+        {{ $cdesc = replace $cdesc "[i]" "*" }}
+        {{ $cdesc = replace $cdesc "[/i]" "*" }}
+        {{ $cdesc = replace $cdesc "[code]" "`" }}
+        {{ $cdesc = replace $cdesc "[/code]" "`" }}
+        <td colspan="2" class="item-desc">{{ $cdesc | markdownify }}</td>
       </tr>
       {{ end }}
       {{ end }}

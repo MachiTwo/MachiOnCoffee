@@ -1,5 +1,5 @@
 ---
-title: "Behavior Tree Nodes"
+title: "Behavior Tree"
 date: "2026-04-18T22:30:00-03:00"
 slug: behavior-tree
 tags:
