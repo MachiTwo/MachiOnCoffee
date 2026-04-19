@@ -1,0 +1,19 @@
+{
+    "name": "ASCueAudio",
+    "inherits": "ASCue",
+    "brief_description": "Cue specialized for playing audio.",
+    "description": "[ASCueAudio] is a specialized cue that automatically plays audio when triggered. It works with [AudioStreamPlayer], [AudioStreamPlayer2D], and [AudioStreamPlayer3D] nodes provided to the [ASComponent].\n\n\t\tCreate AudioStream resources in your project (.wav, .ogg, .mp3), then create a .tres resource of this type and assign the [member audio_stream] property. Add it to your [ASAbility]'s [member ASAbility.cues] list.\n\n\t\tThe system automatically tries AudioStreamPlayer first, then AudioStreamPlayer2D, then AudioStreamPlayer3D, unless a [member ASCue.node_name] is specified to target a specific node.",
+    "properties": [
+        {
+            "name": "audio_stream",
+            "type": "AudioStream",
+            "setter": "set_audio_stream",
+            "getter": "get_audio_stream",
+            "default": "",
+            "description": "AudioStream resource to play (.wav, .ogg, .mp3). Create AudioStream resources in your project and assign them here. Leave empty to skip."
+        }
+    ],
+    "methods": [],
+    "signals": [],
+    "constants": []
+}

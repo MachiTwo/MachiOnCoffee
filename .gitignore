@@ -1,7 +1,16 @@
 # Hugo
 public/
 resources/
+!content/**/resources/
 .hugo_build.lock
+
+/static/**/*.html
+/static/**/*.js
+/static/**/*.css
+/static/**/*.xml
+/static/**/*.json
+/static/**/*.md
+/static/**/*.py
 
 # Docker
 .dockerignore
@@ -173,10 +182,7 @@ mise.toml
 
 # Scratch / local notes (briefs, todo files, translation plans)
 /__pycache__
-*.txt
-*.xml
-*.html
-*.js
-/static/css
 *.cast
+/temp
+*.json
 *.json

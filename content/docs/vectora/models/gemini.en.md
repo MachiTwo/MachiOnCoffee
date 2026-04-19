@@ -417,8 +417,8 @@ Even the Free plan ($0 for users, BYOK) has minimum cost of ~$150/month for Vect
 
 ## Next Steps
 
-1. [Understand Embeddings](../concepts/embeddings.md) — how context is found
-2. [Explore Reranking](../concepts/reranker.md) — how context is refined
+1. [Understand Embeddings](../concepts/embeddings) — how context is found
+2. [Explore Reranking](../concepts/reranker) — how context is refined
 3. [Setup Vectora](../getting-started/) — start using Gemini via Vectora
 4. [Pricing Guide](../pricing/) — understand business models
 

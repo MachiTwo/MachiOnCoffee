@@ -1,0 +1,70 @@
+{
+    "name": "ASStateSnapshot",
+    "inherits": "Resource",
+    "brief_description": "Resource that captures and restores the state of an ASComponent.",
+    "description": "ASStateSnapshot is a high-level data container used for networking (replication, rollback) and gameplay persistence (save systems). It encapsulates all attribute base values, active tags, and the state of active effects (remaining time, stacks) of an [ASComponent] at an exact point in time (tick).",
+    "properties": [
+        {
+            "name": "active_effects",
+            "type": "Array",
+            "setter": "set_active_effects",
+            "getter": "get_active_effects",
+            "default": "[]",
+            "description": ""
+        },
+        {
+            "name": "attributes",
+            "type": "Dictionary",
+            "setter": "set_attributes",
+            "getter": "get_attributes",
+            "default": "{}",
+            "description": "Dictionary mapping attribute names (StringName) to their base values (float)."
+        },
+        {
+            "name": "tags",
+            "type": "PackedStringArray",
+            "setter": "set_tags",
+            "getter": "get_tags",
+            "default": "PackedStringArray()",
+            "description": "List of all active tags at the time of capture."
+        },
+        {
+            "name": "tick",
+            "type": "int",
+            "setter": "set_tick",
+            "getter": "get_tick",
+            "default": "0",
+            "description": "The simulation tick number when this snapshot was captured."
+        }
+    ],
+    "methods": [
+        {
+            "name": "apply_to_component",
+            "qualifiers": "const",
+            "description": "Restores the state stored in this snapshot to the provided [ASComponent].",
+            "return_type": "void",
+            "params": [
+                {
+                    "name": "component",
+                    "type": "ASComponent",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "capture_from_component",
+            "qualifiers": "",
+            "description": "Captures the current state (attributes and tags) from the provided [ASComponent] into this resource.",
+            "return_type": "void",
+            "params": [
+                {
+                    "name": "component",
+                    "type": "ASComponent",
+                    "default": ""
+                }
+            ]
+        }
+    ],
+    "signals": [],
+    "constants": []
+}

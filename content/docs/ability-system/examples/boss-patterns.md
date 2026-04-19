@@ -1,14 +1,27 @@
 ---
 title: "Exemplos: Padrões de Boss"
-date: "2026-04-18T12:00:00-03:00"
+date: "2026-04-18T22:30:00-03:00"
+slug: boss-patterns
+tags:
+  - zyris-engine
+  - godot-plugin
+  - ability-system
+  - gamedev
+  - example
+draft: false
 type: docs
+sidebar:
+  open: true
+breadcrumbs: true
 ---
 
-Implementações de diferentes tipos de boss com Ability System.
+{{< lang-toggle >}}
 
-## Boss 1: Simple Melee Boss
+Implementações de diferentes tipos de boss utilizando o **Ability System**.
 
-````gdscript
+## Boss 1: Simple Melee Boss (Boss Corpo a Corpo)
+
+```gdscript
 extends CharacterBody3D
 class_name SimpleMeleeBoss
 
@@ -32,16 +45,16 @@ func _physics_process(delta):
 
     attack_timer += delta
 
-    ## Phase transition
+    ## Transição de fase
     if health < 100 and phase == 1:
         enter_phase_2()
 
-    ## Attack pattern
+    ## Padrão de ataque
     if attack_timer >= 1.5:
         attack_pattern()
         attack_timer = 0.0
 
-    ## Move to target
+    ## Mover para o alvo
     if target:
         var distance = global_position.distance_to(target.global_position)
         if distance > 2.0:
@@ -51,18 +64,18 @@ func _physics_process(delta):
 
 func attack_pattern():
     if phase == 1:
-        ## Simple: alternating slash and heavy
+        ## Simples: alternando entre slash e heavy
         if randf() < 0.5:
             asc.try_activate_ability_by_tag(&"boss.slash")
         else:
             asc.try_activate_ability_by_tag(&"boss.heavy_attack")
     else:
-        ## Phase 2: más agressivo
+        ## Fase 2: mais agressivo
         var attacks = [&"boss.slash", &"boss.heavy_attack", &"boss.roar"]
         var choice = attacks[randi() % attacks.size()]
         asc.try_activate_ability_by_tag(choice)
 
-        ## Apply damage to player
+        ## Aplicar dano ao jogador
         if choice in [&"boss.slash", &"boss.heavy_attack"]:
             target.asc.apply_effect_by_tag(&"effect.boss_damage", asc)
 
@@ -70,7 +83,7 @@ func enter_phase_2():
     phase = 2
     anim.play("phase_2_transition")
     asc.add_tag(&"boss.phase_2")
-    print("Boss entered phase 2!")
+    print("Boss entrou na fase 2!")
 
 func take_damage(amount: float):
     health -= amount
@@ -85,9 +98,9 @@ func die():
     await anim.animation_finished
     defeated.emit()
     queue_free()
-```gdscript
+```
 
-## Boss 2: Caster Boss (AoE + Phases)
+## Boss 2: Caster Boss (Mago AoE + Fases)
 
 ```gdscript
 extends Node3D
@@ -116,11 +129,11 @@ func _physics_process(delta):
 
     spell_timer += delta
 
-    ## Phase check
+    ## Checagem de fase
     if health < 75 and phase == 1:
         enter_phase_2()
 
-    ## Spell rotation
+    ## Rotação de feitiços
     if spell_timer >= 2.0:
         cast_spell()
         spell_timer = 0.0
@@ -139,7 +152,7 @@ func cast_spell():
                 spell = &"boss.fireball"
 
         2:
-            ## Enraged: cycling through spells
+            ## Enraged: rotacionando feitiços
             var spells = [&"boss.fireball", &"boss.ice_storm", &"boss.summon_minion"]
             spell = spells[randi() % spells.size()]
 
@@ -147,7 +160,7 @@ func cast_spell():
         asc.try_activate_ability_by_tag(spell)
 
         if spell == &"boss.fireball":
-            ## Create projectile
+            ## Criar projétil
             var proj = preload("res://vfx/fireball_projectile.tscn").instantiate()
             get_parent().add_child(proj)
             proj.global_position = global_position
@@ -171,7 +184,7 @@ func summon_minion():
     minion.target = target
     minion_count += 1
 
-    ## Track minion death
+    ## Monitorar morte do minion
     minion.defeated.connect(func():
         minion_count -= 1
     )
@@ -180,7 +193,7 @@ func enter_phase_2():
     phase = 2
     anim.play("enrage")
     asc.add_tag(&"boss.enraged")
-    print("Boss enraged!")
+    print("Boss em fúria!")
 
 func take_damage(amount: float):
     health -= amount
@@ -191,7 +204,7 @@ func take_damage(amount: float):
         die()
 
 func die():
-    ## Kill remaining minions
+    ## Matar minions restantes
     for child in get_parent().get_children():
         if child is BossMinion:
             child.queue_free()
@@ -202,15 +215,15 @@ func die():
     queue_free()
 
 func _on_ability_cast(spec):
-    ## Sync animation
+    ## Sincronizar animação
     var ability = spec.get_ability()
     if ability.ability_tag == &"boss.fireball":
         anim.play("cast_fireball")
     elif ability.ability_tag == &"boss.heal":
         anim.play("cast_heal")
-```gdscript
+```
 
-## Boss 3: Reactive Boss (Adapts to Player)
+## Boss 3: Reactive Boss (Boss que se Adapta)
 
 ```gdscript
 extends CharacterBody3D
@@ -223,7 +236,7 @@ var health = 250.0
 var target: Player = null
 var adaptation_timer = 0.0
 var player_damage_taken = 0.0
-var weakness: StringName = &""  ## Adapt to player's strategy
+var weakness: StringName = &""  ## Adapta-se à estratégia do jogador
 
 signal defeated
 signal health_changed(new_health)
@@ -237,49 +250,49 @@ func _physics_process(delta):
 
     adaptation_timer += delta
 
-    ## Analyze player every 5 seconds
+    ## Analisar jogador a cada 5 segundos
     if adaptation_timer >= 5.0:
         analyze_player()
         adaptation_timer = 0.0
 
-    ## Attack based on weakness
+    ## Atacar baseando-se na fraqueza detectada
     attack_intelligently()
 
 func analyze_player():
-    ## Check what player is doing
+    ## Checar o que o jogador está fazendo
     var player_tags = target.asc.get_all_tags()
 
-    ## If player keeps using melee, cast ranged
+    ## Se o jogador usa muito melee, atacar à distância
     if target.asc.has_tag(&"state.attacking"):
         weakness = &"melee"
-    ## If player keeps using magic, build resistance
+    ## Se o jogador usa muita magia, ganhar resistência
     elif ASTagUtils.event_did_occur(&"event.magic_damage", target.asc, 5.0):
         weakness = &"magic"
-    ## If player heals a lot, dispel
+    ## Se o jogador se cura muito, dar dispel
     elif ASTagUtils.event_did_occur(&"event.healed", target.asc, 5.0):
         weakness = &"healer"
 
-    print("Boss adapted to weakness: ", weakness)
+    print("Boss adaptado à fraqueza: ", weakness)
 
 func attack_intelligently():
     match weakness:
         &"melee":
-            ## Cast ranged spell
+            ## Atacar de longe
             asc.try_activate_ability_by_tag(&"boss.fireball")
 
         &"magic":
-            ## Physical attack + magic resistance buff
+            ## Ataque físico + buff de resistência mágica
             asc.try_activate_ability_by_tag(&"boss.heavy_attack")
             if not asc.has_tag(&"state.magic_resistance"):
                 asc.add_tag(&"state.magic_resistance")
 
         &"healer":
-            ## Dispel healing + silence
+            ## Remover cura + silenciar
             asc.try_activate_ability_by_tag(&"boss.dispel")
             asc.try_activate_ability_by_tag(&"boss.silence")
 
         _:
-            ## Default: rotate attacks
+            ## Padrão: rotacionar ataques
             var attacks = [&"boss.slash", &"boss.heavy_attack", &"boss.fireball"]
             asc.try_activate_ability_by_tag(attacks[randi() % attacks.size()])
 
@@ -296,7 +309,7 @@ func die():
     await anim.animation_finished
     defeated.emit()
     queue_free()
-```gdscript
+```
 
 ## Boss 4: Multi-Phase Mega Boss
 
@@ -322,13 +335,13 @@ func _physics_process(delta):
     if health <= 0:
         return
 
-    ## Continuous phase checks
+    ## Checagem contínua de fase
     if health < 375 and phase == 1:
         change_phase(2)
     elif health < 250 and phase == 2:
         change_phase(3)
 
-    ## Phase-specific behavior
+    ## Comportamento por fase
     match phase:
         1:
             phase_1_behavior()
@@ -338,25 +351,25 @@ func _physics_process(delta):
             phase_3_behavior()
 
 func phase_1_behavior():
-    ## Moderate difficulty
+    ## Dificuldade moderada
     var attacks = [&"boss.slash", &"boss.fireball"]
     asc.try_activate_ability_by_tag(attacks[randi() % attacks.size()])
 
 func phase_2_behavior():
-    ## Hard difficulty - summon adds
+    ## Dificuldade alta - invoca ajudantes
     var attacks = [&"boss.heavy_attack", &"boss.fireball", &"boss.summon_minion"]
     asc.try_activate_ability_by_tag(attacks[randi() % attacks.size()])
 
-    ## Apply vulnerability debuff to player
+    ## Aplicar debuff de vulnerabilidade no jogador
     target.asc.apply_effect_by_tag(&"effect.vulnerability", asc)
 
 func phase_3_behavior():
-    ## Extreme - ultimate ability + full power
+    ## Extremo - habilidade ultimate + poder total
     if health > 100:
         var attacks = [&"boss.ultimate_attack", &"boss.meteor_storm", &"boss.summon_minion"]
         asc.try_activate_ability_by_tag(attacks[randi() % attacks.size()])
     else:
-        ## Final stand - slow but powerful
+        ## Último suspiro - lento mas poderoso
         asc.try_activate_ability_by_tag(&"boss.last_stand")
 
 func change_phase(new_phase: int):
@@ -367,10 +380,10 @@ func change_phase(new_phase: int):
 
     match new_phase:
         2:
-            print("Boss: Phase 2 - Geting serious!")
-            health += 50  ## Heal on phase change
+            print("Boss: Fase 2 - Ficando sério!")
+            health += 50  ## Curar na troca de fase
         3:
-            print("Boss: Phase 3 - ULTIMATE POWER!")
+            print("Boss: Fase 3 - PODER ABSOLUTO!")
             asc.add_tag(&"state.invulnerable")
             await get_tree().create_timer(1.0).timeout
             asc.remove_tag(&"state.invulnerable")
@@ -389,11 +402,11 @@ func take_damage(amount: float):
         die()
 
 func die():
-    ## Epic death sequence
+    ## Sequência de morte épica
     anim.play("death")
     asc.dispatch_event(&"event.boss_defeated")
 
-    ## Drop loot
+    ## Drop de loot
     var loot = [&"item.legendary_sword", &"item.boss_ring", &"item.gold_chest"]
     for item_tag in loot:
         spawn_loot(item_tag)
@@ -407,9 +420,9 @@ func spawn_loot(item_tag: StringName):
     get_parent().add_child(loot)
     loot.global_position = global_position + Vector3(randf_range(-2, 2), 1, randf_range(-2, 2))
     loot.item_tag = item_tag
-```gdscript
+```
 
-## Boss 5: Puzzle Boss (Mechanics-Heavy)
+## Boss 5: Puzzle Boss (Focado em Mecânicas)
 
 ```gdscript
 extends Node3D
@@ -420,7 +433,7 @@ class_name PuzzleBoss
 
 var health = 100.0
 var target: Player = null
-var puzzle_phase = 0  ## 0=waiting, 1=vulnerable, 2=shield
+var puzzle_phase = 0  ## 0=esperando, 1=vulnerável, 2=escudo
 var shield_active = false
 var shield_durability = 30.0
 
@@ -434,7 +447,7 @@ func _physics_process(delta):
     if health <= 0:
         return
 
-    ## Puzzle mechanics
+    ## Mecânicas do puzzle
     match puzzle_phase:
         0:
             waiting_phase()
@@ -444,21 +457,21 @@ func _physics_process(delta):
             shield_phase()
 
 func waiting_phase():
-    ## Boss is dormant, player must trigger
-    print("Boss waiting for input...")
+    ## Boss está dormindo, jogador deve ativar
+    print("Boss esperando ativação...")
 
 func vulnerable_phase():
-    ## Boss is vulnerable - 30 seconds window
+    ## Boss vulnerável - janela de 30 segundos
     if not asc.has_tag(&"boss.vulnerable"):
         asc.add_tag(&"boss.vulnerable")
         anim.play("vulnerable")
 
-    ## Player should attack now
+    ## Jogador deve atacar agora
     target.asc.effect_applied.connect(_on_player_damage)
 
     await get_tree().create_timer(30.0).timeout
     if puzzle_phase == 1:
-        shield_phase()  ## Close window
+        shield_phase()  ## Fecha a janela
 
 func shield_phase():
     if shield_active:
@@ -468,14 +481,14 @@ func shield_phase():
     asc.add_tag(&"boss.shielded")
     puzzle_phase = 2
 
-    ## Boss creates shield that must be broken
-    print("Boss shield activated! Durability: ", shield_durability)
+    ## Boss cria escudo que deve ser quebrado
+    print("Escudo ativado! Durabilidade: ", shield_durability)
 
-    ## Wait for shield to break
+    ## Esperar o escudo quebrar
     while shield_durability > 0:
         await get_tree().create_timer(0.5).timeout
 
-    ## Shield broken
+    ## Escudo quebrado
     shield_active = false
     asc.remove_tag(&"boss.shielded")
     puzzle_phase = 1
@@ -485,7 +498,7 @@ func trigger_boss():
     if puzzle_phase != 0:
         return
 
-    print("Boss awakens!")
+    print("Boss desperta!")
     anim.play("awaken")
     vulnerable_phase()
 
@@ -494,7 +507,7 @@ func break_shield(amount: float):
         return
 
     shield_durability -= amount
-    print("Shield durability: ", shield_durability)
+    print("Durabilidade do escudo: ", shield_durability)
 
     if shield_durability <= 0:
         shield_durability = 30.0
@@ -518,12 +531,12 @@ func die():
 
 func _on_player_damage(effect_spec):
     if puzzle_phase == 1:
-        ## Player is damaging in vulnerable window
+        ## Jogador está causando dano na janela vulnerável
         var damage = -effect_spec.get_magnitude(&"health")
         take_damage(damage)
-```gdscript
+```
 
-## Integration na Scene
+## Integração na Cena
 
 ```gdscript
 ## Em BossScene.gd
@@ -545,15 +558,14 @@ func _on_boss_health_changed(health):
     ui.update_boss_health(health)
 
 func _on_boss_phase_changed(phase):
-    ui.show_message("Phase %d!" % phase)
+    ui.show_message("Fase %d!" % phase)
 
 func _on_boss_defeated():
-    ui.show_message("Victory! Boss defeated!")
+    ui.show_message("Vitória! Boss derrotado!")
     await get_tree().create_timer(3.0).timeout
     get_tree().reload_current_scene()
-```gdscript
+```
 
 ---
 
-Cada padrão pode ser customizado e combinado! 🎮
-````
+Cada padrão pode ser customizado e combinado para criar encontros épicos! 🎮

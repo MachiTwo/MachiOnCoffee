@@ -1,0 +1,105 @@
+{
+    "name": "ASTagSpec",
+    "inherits": "RefCounted",
+    "brief_description": "Collection of unique Tags.",
+    "description": "[ASTagSpec] manages a set of tags and provides methods for hierarchical matching.",
+    "properties": [],
+    "methods": [
+        {
+            "name": "add_tag",
+            "qualifiers": "",
+            "description": "Adds a tag to the container. If the tag already exists, increments its reference count. Returns [code]true[/code] if this is the first reference to the tag.",
+            "return_type": "bool",
+            "params": [
+                {
+                    "name": "tag",
+                    "type": "StringName",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "clear",
+            "qualifiers": "",
+            "description": "Removes all tags from the container.",
+            "return_type": "void",
+            "params": []
+        },
+        {
+            "name": "get_all_tags",
+            "qualifiers": "const",
+            "description": "Returns all tags currently in this container.",
+            "return_type": "StringName[]",
+            "params": []
+        },
+        {
+            "name": "has_all_tags",
+            "qualifiers": "const",
+            "description": "Returns true if the container has all of the specified tags.",
+            "return_type": "bool",
+            "params": [
+                {
+                    "name": "tags",
+                    "type": "StringName[]",
+                    "default": ""
+                },
+                {
+                    "name": "exact",
+                    "type": "bool",
+                    "default": "false"
+                }
+            ]
+        },
+        {
+            "name": "has_any_tags",
+            "qualifiers": "const",
+            "description": "Returns true if the container has any of the specified tags.",
+            "return_type": "bool",
+            "params": [
+                {
+                    "name": "tags",
+                    "type": "StringName[]",
+                    "default": ""
+                },
+                {
+                    "name": "exact",
+                    "type": "bool",
+                    "default": "false"
+                }
+            ]
+        },
+        {
+            "name": "has_tag",
+            "qualifiers": "const",
+            "description": "Returns true if the container has the specified tag.",
+            "return_type": "bool",
+            "params": [
+                {
+                    "name": "tag",
+                    "type": "StringName",
+                    "default": ""
+                },
+                {
+                    "name": "exact",
+                    "type": "bool",
+                    "default": "false"
+                }
+            ]
+        },
+        {
+            "name": "remove_tag",
+            "qualifiers": "",
+            "description": "Decrements the reference count of a tag. If the count reaches zero, the tag is removed. Returns [code]true[/code] if the tag was actually removed (reference count reached zero).",
+            "return_type": "bool",
+            "params": [
+                {
+                    "name": "tag",
+                    "type": "StringName",
+                    "default": ""
+                }
+            ]
+        }
+    ],
+    "signals": [],
+    "constants": []
+}

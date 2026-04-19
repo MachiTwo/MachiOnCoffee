@@ -1,0 +1,143 @@
+{
+    "name": "ASContainer",
+    "inherits": "Resource",
+    "brief_description": "Archetype blueprint for an actor.",
+    "description": "[ASContainer] stores the catalog of abilities, initial effects, and the attribute set configuration for an entity.",
+    "properties": [
+        {
+            "name": "abilities",
+            "type": "ASAbility[]",
+            "setter": "set_abilities",
+            "getter": "get_abilities",
+            "default": "[]",
+            "description": "List of all abilities this archetype can potentially use."
+        },
+        {
+            "name": "attribute_set",
+            "type": "ASAttributeSet",
+            "setter": "set_attribute_set",
+            "getter": "get_attribute_set",
+            "default": "",
+            "description": "The attribute configuration and default unlocked abilities."
+        },
+        {
+            "name": "cues",
+            "type": "ASCue[]",
+            "setter": "set_cues",
+            "getter": "get_cues",
+            "default": "[]",
+            "description": "Audiovisual cues for this archetype."
+        },
+        {
+            "name": "effects",
+            "type": "ASEffect[]",
+            "setter": "set_effects",
+            "getter": "get_effects",
+            "default": "[]",
+            "description": "Initial effects applied on startup."
+        },
+        {
+            "name": "events",
+            "type": "StringName[]",
+            "setter": "set_events",
+            "getter": "get_events",
+            "default": "[]",
+            "description": "List of events associated with this container that can be dispatched or heard."
+        }
+    ],
+    "methods": [
+        {
+            "name": "add_ability",
+            "qualifiers": "",
+            "description": "Adds an ability resource to the container's catalog.",
+            "return_type": "void",
+            "params": [
+                {
+                    "name": "ability",
+                    "type": "ASAbility",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "add_cue",
+            "qualifiers": "",
+            "description": "Adds a cue resource to the container's catalog.",
+            "return_type": "void",
+            "params": [
+                {
+                    "name": "cue",
+                    "type": "ASCue",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "add_effect",
+            "qualifiers": "",
+            "description": "Adds an effect resource to the initial effects list.",
+            "return_type": "void",
+            "params": [
+                {
+                    "name": "effect",
+                    "type": "ASEffect",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "has_ability",
+            "qualifiers": "const",
+            "description": "Checks if an ability is in the catalog.",
+            "return_type": "bool",
+            "params": [
+                {
+                    "name": "ability",
+                    "type": "ASAbility",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "has_cue",
+            "qualifiers": "const",
+            "description": "Returns true if a cue with the specified tag exists in the container.",
+            "return_type": "bool",
+            "params": [
+                {
+                    "name": "tag",
+                    "type": "StringName",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "has_cue_resource",
+            "qualifiers": "const",
+            "description": "Check if the container's catalog includes the specific [ASCue] resource reference.",
+            "return_type": "bool",
+            "params": [
+                {
+                    "name": "cue",
+                    "type": "ASCue",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "has_effect",
+            "qualifiers": "const",
+            "description": "Returns true if the specified effect resource is present in the container.",
+            "return_type": "bool",
+            "params": [
+                {
+                    "name": "effect",
+                    "type": "ASEffect",
+                    "default": ""
+                }
+            ]
+        }
+    ],
+    "signals": [],
+    "constants": []
+}

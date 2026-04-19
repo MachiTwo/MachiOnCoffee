@@ -1,0 +1,251 @@
+{
+    "name": "AbilitySystem",
+    "inherits": "Object",
+    "brief_description": "Central authority for Tags.",
+    "description": "[AbilitySystem] is a singleton that manages the global registry of Tags for the project (v0.1.0 Stable).",
+    "properties": [],
+    "methods": [
+        {
+            "name": "get_all_registered_tags",
+            "qualifiers": "const",
+            "description": "Returns an array of all tags currently registered in the global system. This includes Name, Conditional, and Event tags from the project settings and runtime registrations.",
+            "return_type": "StringName[]",
+            "params": []
+        },
+        {
+            "name": "get_component_from_node",
+            "qualifiers": "static",
+            "description": "Utility for retrieving an [ASComponent] from a node. Checks if the node is an ASC or if it has an ASC child.",
+            "return_type": "ASComponent",
+            "params": [
+                {
+                    "name": "node",
+                    "type": "Node",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "get_registered_tags_of_type",
+            "qualifiers": "const",
+            "description": "Returns all tags registered in the system of a specific type.",
+            "return_type": "StringName[]",
+            "params": [
+                {
+                    "name": "type",
+                    "type": "int",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "get_resource_name_owner",
+            "qualifiers": "const",
+            "description": "Returns the instance ID of the resource that owns the given name.",
+            "return_type": "int",
+            "params": [
+                {
+                    "name": "name",
+                    "type": "String",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "get_tag_type",
+            "qualifiers": "const",
+            "description": "Returns the type classification of the given tag.",
+            "return_type": "int",
+            "params": [
+                {
+                    "name": "tag",
+                    "type": "StringName",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "is_tag_registered",
+            "qualifiers": "const",
+            "description": "Checks if a tag is registered.",
+            "return_type": "bool",
+            "params": [
+                {
+                    "name": "tag",
+                    "type": "StringName",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "register_resource_name",
+            "qualifiers": "",
+            "description": "Registers a unique name for a resource.",
+            "return_type": "bool",
+            "params": [
+                {
+                    "name": "name",
+                    "type": "String",
+                    "default": ""
+                },
+                {
+                    "name": "owner_id",
+                    "type": "int",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "register_tag",
+            "qualifiers": "",
+            "description": "Registers a new tag globally with a specific type.",
+            "return_type": "void",
+            "params": [
+                {
+                    "name": "tag",
+                    "type": "StringName",
+                    "default": ""
+                },
+                {
+                    "name": "type",
+                    "type": "int",
+                    "default": "0"
+                },
+                {
+                    "name": "owner_id",
+                    "type": "int",
+                    "default": "0"
+                }
+            ]
+        },
+        {
+            "name": "remove_tag_branch",
+            "qualifiers": "",
+            "description": "Unregisters the specified tag and all its hierarchical sub-tags (e.g. removing \"State\" will also remove \"State.Stunned\").",
+            "return_type": "void",
+            "params": [
+                {
+                    "name": "tag",
+                    "type": "StringName",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "rename_tag",
+            "qualifiers": "",
+            "description": "Renames an existing tag and automatically updates all its hierarchical sub-tags to the new prefix.",
+            "return_type": "void",
+            "params": [
+                {
+                    "name": "old_tag",
+                    "type": "StringName",
+                    "default": ""
+                },
+                {
+                    "name": "new_tag",
+                    "type": "StringName",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "resolve_component",
+            "qualifiers": "static",
+            "description": "Advanced utility for locating an [ASComponent] from an agent node.\n\t\t\t\tPriority order:\n\t\t\t\t1. If [param path] is provided, attempts to resolve that specific path relative to the agent.\n\t\t\t\t2. If the agent node itself is an [ASComponent], returns it.\n\t\t\t\t3. Searches the immediate children of the agent for an [ASComponent].\n\t\t\t\t4. Searches the parent of the agent and its children.\n\t\t\t\t5. Searches the owner of the agent and its children.",
+            "return_type": "ASComponent",
+            "params": [
+                {
+                    "name": "agent",
+                    "type": "Node",
+                    "default": ""
+                },
+                {
+                    "name": "path",
+                    "type": "NodePath",
+                    "default": "NodePath(\"\")"
+                }
+            ]
+        },
+        {
+            "name": "run_tests",
+            "qualifiers": "",
+            "description": "Executes the internal unit test suite for the Ability System. Returns 0 on success or the number of failed test cases. This is primarily used for CI/CD validation and development integrity checks.",
+            "return_type": "int",
+            "params": []
+        },
+        {
+            "name": "tag_matches",
+            "qualifiers": "static",
+            "description": "Hierarchical tag comparison utility. Returns true if [param tag] matches [param match_against]. If [param exact] is true, it performs an exact string match.",
+            "return_type": "bool",
+            "params": [
+                {
+                    "name": "tag",
+                    "type": "StringName",
+                    "default": ""
+                },
+                {
+                    "name": "match_against",
+                    "type": "StringName",
+                    "default": ""
+                },
+                {
+                    "name": "exact",
+                    "type": "bool",
+                    "default": "false"
+                }
+            ]
+        },
+        {
+            "name": "unregister_resource_name",
+            "qualifiers": "",
+            "description": "Unregisters a resource name.",
+            "return_type": "void",
+            "params": [
+                {
+                    "name": "name",
+                    "type": "String",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "unregister_tag",
+            "qualifiers": "",
+            "description": "Unregisters a tag.",
+            "return_type": "void",
+            "params": [
+                {
+                    "name": "tag",
+                    "type": "StringName",
+                    "default": ""
+                }
+            ]
+        }
+    ],
+    "signals": [
+        {
+            "name": "tags_changed",
+            "description": "Emitted when the registered tags are changed.",
+            "params": []
+        }
+    ],
+    "constants": [
+        {
+            "name": "ASTagType::NAME",
+            "value": "0",
+            "description": ""
+        },
+        {
+            "name": "ASTagType::CONDITIONAL",
+            "value": "1",
+            "description": ""
+        },
+        {
+            "name": "ASTagType::EVENT",
+            "value": "2",
+            "description": ""
+        }
+    ]
+}

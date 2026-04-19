@@ -13,8 +13,7 @@ breadcrumbs: true
 
 Agentes de IA tradicionais operam em **contextos fragmentados**, gerando alucinações, desperdício de tokens e exposição acidental de segredos. O **Vectora** resolve isso não sendo "mais um chat", mas sim um **[Sub-Agent Tier 2](/concepts/sub-agents/)** projetado exclusivamente para engenharia de software: ele intercepta chamadas via [Protocolo MCP](/protocols/mcp/), valida segurança em tempo real com o [Guardian](/security/guardian/), orquestra recuperação multi-hop via [Context Engine](/concepts/context-engine/) e entrega contexto estruturado ao seu agent principal (Claude Code, Gemini CLI, Cursor, etc.).
 
-> [!IMPORTANT]
-> **Fórmula Central**: `Agente Funcional = Modelo (Gemini 3 Flash) + [Harness Runtime](/concepts/harness-runtime/) + Contexto Governado (Voyage 4 + MongoDB Atlas)`
+> [!IMPORTANT] > **Fórmula Central**: `Agente Funcional = Modelo (Gemini 3 Flash) + [Harness Runtime](/concepts/harness-runtime/) + Contexto Governado (Voyage 4 + MongoDB Atlas)`
 
 ---
 
@@ -70,8 +69,7 @@ Vectora **não é provider-agnóstico**. Operamos com modelos rigorosamente cali
 | **Vector DB + Metadata** | `MongoDB Atlas`        | Backend unificado (vetores + docs + estado + audit), escalável, sem ETL     | [MongoDB Atlas](/backend/mongodb-atlas/)         |
 | **State Persistence**    | Sessions + `AGENTS.md` | Working memory entre chamadas MCP, continuidade de contexto longo           | [State Persistence](/backend/state-persistence/) |
 
-> [!WARNING]
-> **Sem suporte a fallbacks genéricos**: Vectora não integra OpenAI, Anthropic, OpenRouter ou modelos locais. A calibração do [Harness Runtime](/concepts/harness-runtime/) depende estritamente dessa stack. Para multi-provider, use tools MCP padrão do mercado.
+> [!WARNING] > **Sem suporte a fallbacks genéricos**: Vectora não integra OpenAI, Anthropic, OpenRouter ou modelos locais. A calibração do [Harness Runtime](/concepts/harness-runtime/) depende estritamente dessa stack. Para multi-provider, use tools MCP padrão do mercado.
 
 ---
 
@@ -100,8 +98,7 @@ Vectora opera com modelo **BYOK First**, onde o backend (MongoDB Atlas) é geren
 | 🟣 **Team**       | $5 base + $15/user/mês | 50GB total                | Pool compartilhado + fallback BYOK por user | 180 dias pós-cancelamento                         | [Team](/plans/team/)         |
 | ⚫ **Enterprise** | Custom                 | Ilimitado (VPC/Dedicated) | Sob contrato                                | Política custom                                   | [Overview](/plans/overview/) |
 
-> [!NOTE]
-> **Regras de Retenção**: Contas Free inativas por 30 dias têm o índice vetorial excluído automaticamente. Metadados são preservados por +90 dias para exportação via `vectora export`. Downgrades notificam redução de limites e concedem 7 dias para backup. Detalhes em [Política de Retenção](/plans/retention/).
+> [!NOTE] > **Regras de Retenção**: Contas Free inativas por 30 dias têm o índice vetorial excluído automaticamente. Metadados são preservados por +90 dias para exportação via `vectora export`. Downgrades notificam redução de limites e concedem 7 dias para backup. Detalhes em [Política de Retenção](/plans/retention/).
 
 ---
 
@@ -157,4 +154,4 @@ Vectora opera com modelo **BYOK First**, onde o backend (MongoDB Atlas) é geren
 
 ---
 
-_Parte do ecossistema Vectora · Open Source (MIT) · TypeScript_
+Parte do ecossistema Vectora · Open Source (MIT) · TypeScript

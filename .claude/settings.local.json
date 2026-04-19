@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(./scripts/dev.sh start *)",
+      "Bash(find content/docs/vectora -name '*.md' -exec sed -i ' *)",
+      "Bash(python3)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(grep -n \"^[\\\\`]*$\" content/docs/vectora/concepts/reranker.md)",
+      "Bash(sed -i 's/^```$/```text/g; s/^````$/````text/g' content/docs/vectora/**/*.md)",
+      "Bash(git commit -m 'Documentação Phase 1: Corrigir stack de Vectora *)",
+      "Bash(grep -E \"\\\\.xml$|^d\")",
+      "Bash(grep -E \"\\\\.md$|^d\")"
+    ]
+  }
+}

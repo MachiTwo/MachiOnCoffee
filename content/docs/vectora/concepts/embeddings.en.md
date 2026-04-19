@@ -310,8 +310,8 @@ Voyage 4 isn't just better — it's **significantly better** at code tasks.
 ## Next Steps
 
 1. [Setup Vectora](../getting-started/) with your Voyage API key
-2. Learn how [Voyage 2.5 Reranker](./reranker.md) complements these embeddings
-3. Explore [Connected RAG](./rag.md) — how embeddings are used in full context
+2. Learn how [Voyage 2.5 Reranker](./reranker) complements these embeddings
+3. Explore [Connected RAG](./rag) — how embeddings are used in full context
 
 ---
 

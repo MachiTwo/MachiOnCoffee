@@ -1,0 +1,215 @@
+{
+    "name": "ASAttributeSet",
+    "inherits": "Resource",
+    "brief_description": "Resource managing a collection of attributes and unlocked abilities.",
+    "description": "[ASAttributeSet] defines which attributes an actor has and which abilities are permitted for use (unlocked).",
+    "properties": [
+        {
+            "name": "attribute_definitions",
+            "type": "ASAttribute[]",
+            "setter": "set_attribute_definitions",
+            "getter": "get_attribute_definitions",
+            "default": "[]",
+            "description": "Definitions for each attribute (limits, base)."
+        },
+        {
+            "name": "attribute_drivers",
+            "type": "Dictionary[]",
+            "setter": "set_attribute_drivers",
+            "getter": "get_attribute_drivers",
+            "default": "[]",
+            "description": "List of rules that drive an attribute value based on another (e.g., Strength driving Attack)."
+        },
+        {
+            "name": "unlocked_abilities",
+            "type": "ASAbility[]",
+            "setter": "set_unlocked_abilities",
+            "getter": "get_unlocked_abilities",
+            "default": "[]",
+            "description": "Abilities permitted for use by the actor."
+        }
+    ],
+    "methods": [
+        {
+            "name": "add_attribute_definition",
+            "qualifiers": "",
+            "description": "Adds an attribute definition to the set.",
+            "return_type": "void",
+            "params": [
+                {
+                    "name": "attribute",
+                    "type": "ASAttribute",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "add_modifier",
+            "qualifiers": "",
+            "description": "Adds a modifier to an attribute's current value.",
+            "return_type": "void",
+            "params": [
+                {
+                    "name": "name",
+                    "type": "StringName",
+                    "default": ""
+                },
+                {
+                    "name": "value",
+                    "type": "float",
+                    "default": ""
+                },
+                {
+                    "name": "type",
+                    "type": "int",
+                    "default": "0"
+                }
+            ]
+        },
+        {
+            "name": "get_attribute_base_value",
+            "qualifiers": "const",
+            "description": "Returns the base value of the specified attribute.",
+            "return_type": "float",
+            "params": [
+                {
+                    "name": "name",
+                    "type": "StringName",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "get_attribute_definition",
+            "qualifiers": "const",
+            "description": "Returns the definition of the specified attribute.",
+            "return_type": "ASAttribute",
+            "params": [
+                {
+                    "name": "name",
+                    "type": "StringName",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "get_attribute_list",
+            "qualifiers": "const",
+            "description": "Returns a list of all attribute names in the set.",
+            "return_type": "StringName[]",
+            "params": []
+        },
+        {
+            "name": "get_attribute_value",
+            "qualifiers": "const",
+            "description": "Returns the current value of the specified attribute.",
+            "return_type": "float",
+            "params": [
+                {
+                    "name": "name",
+                    "type": "StringName",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "has_attribute",
+            "qualifiers": "const",
+            "description": "Returns true if the set contains the specified attribute.",
+            "return_type": "bool",
+            "params": [
+                {
+                    "name": "name",
+                    "type": "StringName",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "remove_attribute_definition",
+            "qualifiers": "",
+            "description": "Removes an attribute definition from the set by its tag name.",
+            "return_type": "void",
+            "params": [
+                {
+                    "name": "name",
+                    "type": "StringName",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "remove_modifier",
+            "qualifiers": "",
+            "description": "Removes a previously applied modifier from an attribute.",
+            "return_type": "void",
+            "params": [
+                {
+                    "name": "name",
+                    "type": "StringName",
+                    "default": ""
+                },
+                {
+                    "name": "value",
+                    "type": "float",
+                    "default": ""
+                },
+                {
+                    "name": "type",
+                    "type": "int",
+                    "default": "0"
+                }
+            ]
+        },
+        {
+            "name": "set_attribute_base_value",
+            "qualifiers": "",
+            "description": "Sets the base value for a specific attribute.",
+            "return_type": "void",
+            "params": [
+                {
+                    "name": "name",
+                    "type": "StringName",
+                    "default": ""
+                },
+                {
+                    "name": "value",
+                    "type": "float",
+                    "default": ""
+                }
+            ]
+        }
+    ],
+    "signals": [
+        {
+            "name": "attribute_changed",
+            "description": "Emitted when a value changes.",
+            "params": [
+                {
+                    "name": "attribute_name",
+                    "type": "StringName"
+                },
+                {
+                    "name": "old_value",
+                    "type": "float"
+                },
+                {
+                    "name": "new_value",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "constants": [
+        {
+            "name": "MODIFIER_ADD",
+            "value": "0",
+            "description": "Addition modifier type."
+        },
+        {
+            "name": "MODIFIER_MULTIPLY",
+            "value": "1",
+            "description": "Multiplication modifier type."
+        }
+    ]
+}

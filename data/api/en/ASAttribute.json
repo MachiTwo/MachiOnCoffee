@@ -1,0 +1,99 @@
+{
+    "name": "ASAttribute",
+    "inherits": "Resource",
+    "brief_description": "Resource that defines an ability system attribute with validation and limits.",
+    "description": "[ASAttribute] is a [Resource] that serves as a definition for attributes in the Ability System. It contains metadata about the attribute including name, base value, and minimum/maximum limits.\n\t\tUsage with [ASAttributeSet] provides a typed and validated structure for attributes like HP, Mana, Stamina, etc.",
+    "properties": [
+        {
+            "name": "attribute_name",
+            "type": "String",
+            "setter": "set_attribute_name",
+            "getter": "get_attribute_name",
+            "default": "\"\"",
+            "description": "The unique name of this attribute."
+        },
+        {
+            "name": "base_value",
+            "type": "float",
+            "setter": "set_base_value",
+            "getter": "get_base_value",
+            "default": "0.0",
+            "description": "The base value of the attribute. Will be automatically clamped between [member min_value] and [member max_value]."
+        },
+        {
+            "name": "max_value",
+            "type": "float",
+            "setter": "set_max_value",
+            "getter": "get_max_value",
+            "default": "1000.0",
+            "description": "The maximum value allowed for this attribute."
+        },
+        {
+            "name": "min_value",
+            "type": "float",
+            "setter": "set_min_value",
+            "getter": "get_min_value",
+            "default": "0.0",
+            "description": "The minimum value allowed for this attribute."
+        }
+    ],
+    "methods": [
+        {
+            "name": "clamp_value",
+            "qualifiers": "const",
+            "description": "Returns the value clamped between [member min_value] and [member max_value].",
+            "return_type": "float",
+            "params": [
+                {
+                    "name": "value",
+                    "type": "float",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "is_valid_value",
+            "qualifiers": "const",
+            "description": "Checks if the value is within the defined limits ([member min_value] and [member max_value]).",
+            "return_type": "bool",
+            "params": [
+                {
+                    "name": "value",
+                    "type": "float",
+                    "default": ""
+                }
+            ]
+        }
+    ],
+    "signals": [
+        {
+            "name": "limits_changed",
+            "description": "Emitted when the limits of the attribute are changed.",
+            "params": [
+                {
+                    "name": "min_value",
+                    "type": "float"
+                },
+                {
+                    "name": "max_value",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "value_changed",
+            "description": "Emitted when the base value of the attribute is changed.",
+            "params": [
+                {
+                    "name": "old_value",
+                    "type": "float"
+                },
+                {
+                    "name": "new_value",
+                    "type": "float"
+                }
+            ]
+        }
+    ],
+    "constants": []
+}

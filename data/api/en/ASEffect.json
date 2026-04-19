@@ -1,0 +1,377 @@
+{
+    "name": "ASEffect",
+    "inherits": "Resource",
+    "brief_description": "Resource defining modifications to attributes and tags.",
+    "description": "[ASEffect] defines a package of attribute modifiers and tags. Can be instant, have a duration, or be infinite.",
+    "properties": [
+        {
+            "name": "activation_blocked_all_tags",
+            "type": "StringName[]",
+            "setter": "set_activation_blocked_all_tags",
+            "getter": "get_activation_blocked_all_tags",
+            "default": "[]",
+            "description": "Effect cannot be applied if the target has [b]all[/b] of these tags simultaneously (AND logic)."
+        },
+        {
+            "name": "activation_blocked_any_tags",
+            "type": "StringName[]",
+            "setter": "set_activation_blocked_any_tags",
+            "getter": "get_activation_blocked_any_tags",
+            "default": "[]",
+            "description": "Effect cannot be applied if the target has [b]any[/b] of these tags (OR logic)."
+        },
+        {
+            "name": "activation_required_all_tags",
+            "type": "StringName[]",
+            "setter": "set_activation_required_all_tags",
+            "getter": "get_activation_required_all_tags",
+            "default": "[]",
+            "description": "Effect requires the target to have [b]all[/b] of these tags to be applied (AND logic)."
+        },
+        {
+            "name": "activation_required_any_tags",
+            "type": "StringName[]",
+            "setter": "set_activation_required_any_tags",
+            "getter": "get_activation_required_any_tags",
+            "default": "[]",
+            "description": "Effect requires the target to have [b]at least one[/b] of these tags to be applied (OR logic)."
+        },
+        {
+            "name": "blocked_tags",
+            "type": "StringName[]",
+            "setter": "set_blocked_tags",
+            "getter": "get_blocked_tags",
+            "default": "[]",
+            "description": "Tags that dictate whether this effect is blocked from applying."
+        },
+        {
+            "name": "cues",
+            "type": "ASCue[]",
+            "setter": "set_cues",
+            "getter": "get_cues",
+            "default": "[]",
+            "description": "Visual and Audio Cues emitted by this effect."
+        },
+        {
+            "name": "duration_magnitude",
+            "type": "float",
+            "setter": "set_duration_magnitude",
+            "getter": "get_duration_magnitude",
+            "default": "0.0",
+            "description": "Base duration value."
+        },
+        {
+            "name": "duration_policy",
+            "type": "int",
+            "setter": "set_duration_policy",
+            "getter": "get_duration_policy",
+            "default": "0",
+            "description": "INSTANT (0), DURATION (1), INFINITE (2)."
+        },
+        {
+            "name": "effect_name",
+            "type": "String",
+            "setter": "set_effect_name",
+            "getter": "get_effect_name",
+            "default": "\"\"",
+            "description": "Unique name for the effect."
+        },
+        {
+            "name": "effect_tag",
+            "type": "StringName",
+            "setter": "set_effect_tag",
+            "getter": "get_effect_tag",
+            "default": "&\"\"",
+            "description": "Tag identifying this effect."
+        },
+        {
+            "name": "events_on_apply",
+            "type": "StringName[]",
+            "setter": "set_events_on_apply",
+            "getter": "get_events_on_apply",
+            "default": "[]",
+            "description": "Events dispatched when this effect is successfully applied to a target."
+        },
+        {
+            "name": "events_on_remove",
+            "type": "StringName[]",
+            "setter": "set_events_on_remove",
+            "getter": "get_events_on_remove",
+            "default": "[]",
+            "description": "Events dispatched when this effect is removed from a target."
+        },
+        {
+            "name": "execute_periodic_tick_on_application",
+            "type": "bool",
+            "setter": "set_execute_periodic_tick_on_application",
+            "getter": "get_execute_periodic_tick_on_application",
+            "default": "false",
+            "description": "If true, the periodic effect triggers immediately upon application instead of waiting for the first period to elapse."
+        },
+        {
+            "name": "granted_tags",
+            "type": "StringName[]",
+            "setter": "set_granted_tags",
+            "getter": "get_granted_tags",
+            "default": "[]",
+            "description": "Tags granted while effect is active."
+        },
+        {
+            "name": "modifiers",
+            "type": "int",
+            "setter": "set_modifiers_count",
+            "getter": "get_modifiers_count",
+            "default": "0",
+            "description": "The number of attribute modifiers in this effect package."
+        },
+        {
+            "name": "period",
+            "type": "float",
+            "setter": "set_period",
+            "getter": "get_period",
+            "default": "0.0",
+            "description": "The time in seconds between periodic applications. Only used if duration_policy is DURATION or INFINITE."
+        },
+        {
+            "name": "removed_tags",
+            "type": "StringName[]",
+            "setter": "set_removed_tags",
+            "getter": "get_removed_tags",
+            "default": "[]",
+            "description": "Tags corresponding to effects that should be removed when this effect applies."
+        },
+        {
+            "name": "requirements",
+            "type": "int",
+            "setter": "set_requirements_count",
+            "getter": "get_requirements_count",
+            "default": "0",
+            "description": "The number of attribute requirements needed to apply this effect."
+        },
+        {
+            "name": "stacking_policy",
+            "type": "int",
+            "setter": "set_stacking_policy",
+            "getter": "get_stacking_policy",
+            "default": "0",
+            "description": "Policy determining how new applications stack with existing instances of the same effect tag."
+        },
+        {
+            "name": "target_type",
+            "type": "int",
+            "setter": "set_target_type",
+            "getter": "get_target_type",
+            "default": "0",
+            "description": "Defines whether the effect applies to the owner (Self) or should be passed to other targets (Others)."
+        },
+        {
+            "name": "use_custom_duration",
+            "type": "bool",
+            "setter": "set_use_custom_duration",
+            "getter": "get_use_custom_duration",
+            "default": "false",
+            "description": "If true, duration is calculated via ASC callback (index -1)."
+        }
+    ],
+    "methods": [
+        {
+            "name": "add_modifier",
+            "qualifiers": "",
+            "description": "Adds an attribute modifier.",
+            "return_type": "void",
+            "params": [
+                {
+                    "name": "attribute",
+                    "type": "StringName",
+                    "default": ""
+                },
+                {
+                    "name": "operation",
+                    "type": "int",
+                    "default": ""
+                },
+                {
+                    "name": "magnitude",
+                    "type": "float",
+                    "default": ""
+                },
+                {
+                    "name": "use_custom_magnitude",
+                    "type": "bool",
+                    "default": "false"
+                }
+            ]
+        },
+        {
+            "name": "add_requirement",
+            "qualifiers": "",
+            "description": "Adds an attribute requirement.",
+            "return_type": "void",
+            "params": [
+                {
+                    "name": "attribute",
+                    "type": "StringName",
+                    "default": ""
+                },
+                {
+                    "name": "amount",
+                    "type": "float",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "get_modifier_attribute",
+            "qualifiers": "const",
+            "description": "Returns the name of the attribute targeted by a modifier at a given index.",
+            "return_type": "StringName",
+            "params": [
+                {
+                    "name": "index",
+                    "type": "int",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "get_modifier_count",
+            "qualifiers": "const",
+            "description": "Returns the number of modifiers defined in this effect.",
+            "return_type": "int",
+            "params": []
+        },
+        {
+            "name": "get_modifier_magnitude",
+            "qualifiers": "const",
+            "description": "Returns the base magnitude of a specific modifier by its index.",
+            "return_type": "float",
+            "params": [
+                {
+                    "name": "index",
+                    "type": "int",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "get_modifier_operation",
+            "qualifiers": "const",
+            "description": "Returns the mathematical operation of a specific modifier.",
+            "return_type": "int",
+            "params": [
+                {
+                    "name": "index",
+                    "type": "int",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "get_requirement_amount",
+            "qualifiers": "const",
+            "description": "Returns the amount for the specified requirement.",
+            "return_type": "float",
+            "params": [
+                {
+                    "name": "index",
+                    "type": "int",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "get_requirement_attribute",
+            "qualifiers": "const",
+            "description": "Returns the attribute for the specified requirement.",
+            "return_type": "StringName",
+            "params": [
+                {
+                    "name": "index",
+                    "type": "int",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "is_modifier_custom",
+            "qualifiers": "const",
+            "description": "Returns true if the specified modifier uses custom calculation logic.",
+            "return_type": "bool",
+            "params": [
+                {
+                    "name": "index",
+                    "type": "int",
+                    "default": ""
+                }
+            ]
+        }
+    ],
+    "signals": [],
+    "constants": [
+        {
+            "name": "POLICY_INSTANT",
+            "value": "0",
+            "description": "Effect is applied once and removed immediately."
+        },
+        {
+            "name": "POLICY_DURATION",
+            "value": "1",
+            "description": "Effect lasts for a specified duration."
+        },
+        {
+            "name": "POLICY_INFINITE",
+            "value": "2",
+            "description": "Effect lasts indefinitely until removed."
+        },
+        {
+            "name": "STACK_NEW_INSTANCE",
+            "value": "0",
+            "description": "Each application is independent."
+        },
+        {
+            "name": "STACK_OVERRIDE",
+            "value": "1",
+            "description": "New application replaces the old (resets timer)."
+        },
+        {
+            "name": "STACK_INTENSITY",
+            "value": "2",
+            "description": "Increases magnitude (adds to stack count)."
+        },
+        {
+            "name": "STACK_DURATION",
+            "value": "3",
+            "description": "Extends the remaining duration."
+        },
+        {
+            "name": "TARGET_SELF",
+            "value": "0",
+            "description": "Effect is applied to the component that originated it."
+        },
+        {
+            "name": "TARGET_OTHERS",
+            "value": "1",
+            "description": "Effect is intended to be applied to other components (e.g., via projectiles or area attacks)."
+        },
+        {
+            "name": "OP_ADD",
+            "value": "0",
+            "description": "Adds the magnitude to the attribute."
+        },
+        {
+            "name": "OP_MULTIPLY",
+            "value": "1",
+            "description": "Multiplies the attribute by the magnitude."
+        },
+        {
+            "name": "OP_DIVIDE",
+            "value": "2",
+            "description": "Divides the attribute by the magnitude."
+        },
+        {
+            "name": "OP_OVERRIDE",
+            "value": "3",
+            "description": "Overrides the attribute with the magnitude."
+        }
+    ]
+}

@@ -313,8 +313,8 @@ Voyage 4 não é apenas melhor — é **significativamente melhor** em tarefas d
 ## Próximos Passos
 
 1. [Setup Vectora](../getting-started/) com sua chave Voyage API
-2. Entenda como o [Reranker Voyage 2.5](./reranker.md) complementa estes embeddings
-3. Explore [RAG Conectado](./rag.md) — como os embeddings são usados no contexto completo
+2. Entenda como o [Reranker Voyage 2.5](./reranker) complementa estes embeddings
+3. Explore [RAG Conectado](./rag) — como os embeddings são usados no contexto completo
 
 ---
 

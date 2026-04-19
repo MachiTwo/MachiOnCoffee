@@ -14,7 +14,7 @@ Imagine you ask Vectora a question:
 
 > "Where do we handle JWT authentication?"
 
-The [Voyage 4](./embeddings.md) (our embeddings model) returns the 50 most similar documents:
+The [Voyage 4](./embeddings) (our embeddings model) returns the 50 most similar documents:
 
 `````text
 1. src/auth/jwt.ts (95% similarity)
@@ -358,8 +358,8 @@ In a 500K lines of code project:
 
 ## Next Steps
 
-1. [Understand Voyage 4](./embeddings.md) — embeddings that feed the reranker
-2. [Know Connected RAG](./rag.md) — how embedding + reranker + LLM work together
+1. [Understand Voyage 4](./embeddings) — embeddings that feed the reranker
+2. [Know Connected RAG](./rag) — how embedding + reranker + LLM work together
 3. [Setup Vectora](../getting-started/) — configure your project
 
 ---

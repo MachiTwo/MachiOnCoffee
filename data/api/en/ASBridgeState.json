@@ -1,0 +1,97 @@
+{
+    "name": "ASBridgeState",
+    "inherits": "LimboState",
+    "brief_description": "LimboState with integrated Ability System support.",
+    "description": "A [LimboState] that integrates with Ability System. Provides automatic event dispatching on state transitions and event listening for automatic transitions.\n\t\tCan require specific tags to be present before entering, and dispatches AS events on [code]_enter[/code], [code]_exit[/code], and [code]_update[/code].",
+    "properties": [
+        {
+            "name": "asc_node_path",
+            "type": "NodePath",
+            "setter": "set_asc_node_path",
+            "getter": "get_asc_node_path",
+            "default": "NodePath(\"\")",
+            "description": ""
+        },
+        {
+            "name": "blackboard",
+            "type": "Blackboard",
+            "setter": "",
+            "getter": "get_blackboard",
+            "default": "",
+            "description": ""
+        },
+        {
+            "name": "check_tags_on_enter",
+            "type": "bool",
+            "setter": "set_check_tags_on_enter",
+            "getter": "get_check_tags_on_enter",
+            "default": "true",
+            "description": ""
+        },
+        {
+            "name": "enter_events",
+            "type": "StringName[]",
+            "setter": "set_enter_events",
+            "getter": "get_enter_events",
+            "default": "[]",
+            "description": ""
+        },
+        {
+            "name": "exit_events",
+            "type": "StringName[]",
+            "setter": "set_exit_events",
+            "getter": "get_exit_events",
+            "default": "[]",
+            "description": ""
+        },
+        {
+            "name": "listen_events",
+            "type": "StringName[]",
+            "setter": "set_listen_events",
+            "getter": "get_listen_events",
+            "default": "[]",
+            "description": ""
+        },
+        {
+            "name": "required_tags",
+            "type": "StringName[]",
+            "setter": "set_required_tags",
+            "getter": "get_required_tags",
+            "default": "[]",
+            "description": ""
+        },
+        {
+            "name": "transition_event",
+            "type": "StringName",
+            "setter": "set_transition_event",
+            "getter": "get_transition_event",
+            "default": "&\"\"",
+            "description": ""
+        },
+        {
+            "name": "update_events",
+            "type": "StringName[]",
+            "setter": "set_update_events",
+            "getter": "get_update_events",
+            "default": "[]",
+            "description": ""
+        }
+    ],
+    "methods": [
+        {
+            "name": "can_enter_state",
+            "qualifiers": "const",
+            "description": "Returns [code]true[/code] if this state can be entered (checks required tags if [member check_tags_on_enter] is enabled).",
+            "return_type": "bool",
+            "params": [
+                {
+                    "name": "agent",
+                    "type": "Node",
+                    "default": ""
+                }
+            ]
+        }
+    ],
+    "signals": [],
+    "constants": []
+}

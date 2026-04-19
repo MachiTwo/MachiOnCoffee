@@ -1,0 +1,172 @@
+{
+    "name": "ASStateUtils",
+    "inherits": "RefCounted",
+    "brief_description": "Utility functions for state management and serialization.",
+    "description": "ASStateUtils provides a comprehensive set of utility functions for working\n\t\twith [ASStateSnapshot] objects. Includes state comparison, serialization,\n\t\tcompression, validation, and debugging capabilities.\n\n\t\tThese utilities are designed to support advanced features like:\n\t\t- Network optimization through state diffing and compression\n\t\t- Save/load system integration with binary serialization\n\t\t- Debugging and validation tools for state integrity\n\t\t- State analysis and comparison for testing\n\n\t\tAll functions are static and can be called without instantiation.",
+    "properties": [],
+    "methods": [
+        {
+            "name": "compare_states",
+            "qualifiers": "static",
+            "description": "Performs deep equality comparison between two state snapshots.",
+            "return_type": "bool",
+            "params": [
+                {
+                    "name": "a",
+                    "type": "ASStateSnapshot",
+                    "default": ""
+                },
+                {
+                    "name": "b",
+                    "type": "ASStateSnapshot",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "compress_state",
+            "qualifiers": "static",
+            "description": "Compresses a state snapshot using compression algorithms.\n\t\t\t\tSignificantly reduces data size for network bandwidth optimization.",
+            "return_type": "PackedByteArray",
+            "params": [
+                {
+                    "name": "state",
+                    "type": "ASStateSnapshot",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "compute_state_difference",
+            "qualifiers": "static",
+            "description": "Computes a numerical difference score between two snapshots.\n\t\t\t\tHigher values indicate greater differences. Useful for state change detection.",
+            "return_type": "float",
+            "params": [
+                {
+                    "name": "a",
+                    "type": "ASStateSnapshot",
+                    "default": ""
+                },
+                {
+                    "name": "b",
+                    "type": "ASStateSnapshot",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "decompress_state",
+            "qualifiers": "static",
+            "description": "Decompresses state snapshot data created by compress_state().",
+            "return_type": "ASStateSnapshot",
+            "params": [
+                {
+                    "name": "data",
+                    "type": "PackedByteArray",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "deserialize_state",
+            "qualifiers": "static",
+            "description": "Deserializes a state snapshot from binary data created by serialize_state().",
+            "return_type": "ASStateSnapshot",
+            "params": [
+                {
+                    "name": "data",
+                    "type": "PackedByteArray",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "dump_state",
+            "qualifiers": "static",
+            "description": "Prints detailed state information to the console for debugging.",
+            "return_type": "void",
+            "params": [
+                {
+                    "name": "state",
+                    "type": "ASStateSnapshot",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "get_validation_errors",
+            "qualifiers": "static",
+            "description": "Returns an array of validation error messages for a state snapshot.\n\t\t\t\tEmpty array indicates no validation errors found.",
+            "return_type": "Array",
+            "params": [
+                {
+                    "name": "state",
+                    "type": "ASStateSnapshot",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "serialize_state",
+            "qualifiers": "static",
+            "description": "Serializes a state snapshot to compact binary format.\n\t\t\t\tOptimized for network transmission and file storage.",
+            "return_type": "PackedByteArray",
+            "params": [
+                {
+                    "name": "state",
+                    "type": "ASStateSnapshot",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "state_to_string",
+            "qualifiers": "static",
+            "description": "Returns a compact string representation of the state snapshot.\n\t\t\t\tUseful for logging and quick state identification.",
+            "return_type": "String",
+            "params": [
+                {
+                    "name": "state",
+                    "type": "ASStateSnapshot",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "validate_state",
+            "qualifiers": "static",
+            "description": "Validates the integrity and consistency of a state snapshot.\n\t\t\t\tChecks for invalid data, corrupted values, and logical inconsistencies.",
+            "return_type": "bool",
+            "params": [
+                {
+                    "name": "state",
+                    "type": "ASStateSnapshot",
+                    "default": ""
+                }
+            ]
+        }
+    ],
+    "signals": [],
+    "constants": [
+        {
+            "name": "ADD",
+            "value": "0",
+            "description": ""
+        },
+        {
+            "name": "MULTIPLY",
+            "value": "1",
+            "description": ""
+        },
+        {
+            "name": "DIVIDE",
+            "value": "2",
+            "description": ""
+        },
+        {
+            "name": "OVERRIDE",
+            "value": "3",
+            "description": ""
+        }
+    ]
+}

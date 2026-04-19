@@ -1,0 +1,35 @@
+{
+    "name": "BTConditionAS_HasTag",
+    "inherits": "BTCondition",
+    "brief_description": "BTCondition that checks if the agent has a specific Ability System tag.",
+    "description": "A Behavior Tree condition that checks if the actor's [ASComponent] has a specific tag. Returns [constant BT.SUCCESS] if tag present, [constant BT.FAILURE] otherwise.\n\t\tSupports hierarchical matching (e.g., checking [code]State[/code] matches [code]State.Stunned[/code]).",
+    "properties": [
+        {
+            "name": "asc_node_path",
+            "type": "NodePath",
+            "setter": "set_asc_node_path",
+            "getter": "get_asc_node_path",
+            "default": "NodePath(\"\")",
+            "description": ""
+        },
+        {
+            "name": "exact_match",
+            "type": "bool",
+            "setter": "set_exact_match",
+            "getter": "get_exact_match",
+            "default": "false",
+            "description": ""
+        },
+        {
+            "name": "tag",
+            "type": "StringName",
+            "setter": "set_tag",
+            "getter": "get_tag",
+            "default": "&\"\"",
+            "description": ""
+        }
+    ],
+    "methods": [],
+    "signals": [],
+    "constants": []
+}

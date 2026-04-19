@@ -1,0 +1,35 @@
+{
+    "name": "BTActionAS_ActivateAbility",
+    "inherits": "BTAction",
+    "brief_description": "BTAction that activates an Ability System ability by tag.",
+    "description": "A Behavior Tree action that attempts to activate an ability via [ASComponent] using the ability's tag. Returns [constant BT.SUCCESS] if activation succeeds, [constant BT.FAILURE] otherwise.\n\t\tThis task respects all ability requirements: tags, cooldowns, costs, and level restrictions.",
+    "properties": [
+        {
+            "name": "ability_tag",
+            "type": "StringName",
+            "setter": "set_ability_tag",
+            "getter": "get_ability_tag",
+            "default": "&\"\"",
+            "description": "The tag of the ability to activate."
+        },
+        {
+            "name": "activation_level",
+            "type": "float",
+            "setter": "set_activation_level",
+            "getter": "get_activation_level",
+            "default": "1.0",
+            "description": "The level at which to activate the ability."
+        },
+        {
+            "name": "asc_node_path",
+            "type": "NodePath",
+            "setter": "set_asc_node_path",
+            "getter": "get_asc_node_path",
+            "default": "NodePath(\"\")",
+            "description": "Explicit path to ASComponent. Auto-resolved if empty."
+        }
+    ],
+    "methods": [],
+    "signals": [],
+    "constants": []
+}

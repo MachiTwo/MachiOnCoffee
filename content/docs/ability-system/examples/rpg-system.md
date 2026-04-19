@@ -1,14 +1,27 @@
 ---
 title: "Exemplos: Sistema RPG Completo"
-date: "2026-04-18T12:00:00-03:00"
+date: "2026-04-18T22:30:00-03:00"
+slug: rpg-system
+tags:
+  - zyris-engine
+  - godot-plugin
+  - ability-system
+  - gamedev
+  - example
+draft: false
 type: docs
+sidebar:
+  open: true
+breadcrumbs: true
 ---
 
-Implementação de leveling, skill trees e progressão.
+{{< lang-toggle >}}
+
+Implementação profunda de mecânicas de RPG utilizando o **Ability System**: leveling, skill trees, equipamentos e progressão de atributos.
 
 ## 1. Sistema de Experiência e Leveling
 
-````gdscript
+```gdscript
 extends Node
 class_name ExperienceSystem
 
@@ -63,7 +76,7 @@ func get_xp_for_next_level() -> float:
 func get_xp_progress() -> float:
     var needed = get_xp_for_next_level()
     return current_xp / needed
-```gdscript
+```
 
 ## 2. Árvore de Habilidades (Skill Tree)
 
@@ -152,17 +165,6 @@ func add_skill(skill_id: StringName, node: SkillNode) -> SkillNode:
     skills[skill_id] = node
     return node
 
-func _setup_skill_helper(name: String, desc: String, level: int, parent: StringName, cost: int, bonus: Dictionary, ability: StringName = &"") -> SkillNode:
-    var skill = SkillNode.new()
-    skill.name = name
-    skill.description = desc
-    skill.required_level = level
-    skill.required_parent = parent
-    skill.cost_per_rank = cost
-    skill.stat_bonus = bonus
-    skill.ability_granted = ability
-    return skill
-
 func can_unlock_skill(skill_id: StringName) -> bool:
     var skill = skills[skill_id]
 
@@ -224,7 +226,7 @@ func get_skill_tree_paths() -> Dictionary:
                 paths[skill_id].append(other_id)
 
     return paths
-```gdscript
+```
 
 ## 3. Sistema de Classes
 
@@ -272,12 +274,7 @@ func apply_to_player(player: Player):
         CLASS_TYPE.ROGUE:
             asc.add_tag(&"class.rogue")
             asc.apply_modifier(&"attack_speed", 1.3)
-
-## Em player_setup.gd
-func select_class(class_type: CharacterClass.CLASS_TYPE):
-    var class_resource = preload("res://assets/classes/warrior.tres") if class_type == CharacterClass.CLASS_TYPE.WARRIOR else preload("res://assets/classes/mage.tres")
-    class_resource.apply_to_player(self)
-```gdscript
+```
 
 ## 4. Sistema de Equipamento
 
@@ -305,7 +302,7 @@ class EquipmentItem:
     var max_durability: float = 100.0
 
 var player: Player = null
-var equipment_slots: Dictionary[EquipmentSlot.SLOT_TYPE, EquipmentSlot] = {}
+var equipment_slots: Dictionary[int, EquipmentSlot] = {}
 var inventory: Array[EquipmentItem] = []
 
 func _ready():
@@ -357,23 +354,6 @@ func _remove_item_bonuses(item: EquipmentItem):
         var ability = AbilitySystem.get_ability_resource(item.ability_granted)
         player.asc.remove_ability(ability)
 
-func get_total_stats() -> Dictionary:
-    var total = {
-        "strength": 0,
-        "intelligence": 0,
-        "constitution": 0,
-        "dexterity": 0,
-        "health": 0
-    }
-
-    for slot_type in equipment_slots:
-        var slot = equipment_slots[slot_type]
-        if slot.current_item:
-            for stat in slot.current_item.stat_modifiers:
-                total[stat] = total.get(stat, 0) + slot.current_item.stat_modifiers[stat]
-
-    return total
-
 func take_durability_damage(amount: float):
     for slot_type in equipment_slots:
         var slot = equipment_slots[slot_type]
@@ -384,16 +364,12 @@ func take_durability_damage(amount: float):
                 unequip_item(slot.current_item.slot)
                 print("Item quebrou: %s" % slot.current_item.name)
 
-func repair_item(item: EquipmentItem, amount: float):
-    item.durability = min(item.durability + amount, item.max_durability)
-
-func unequip_item(slot_type: EquipmentSlot.SLOT_TYPE):
+func unequip_item(slot_type: int):
     var slot = equipment_slots[slot_type]
     if slot.current_item:
         _remove_item_bonuses(slot.current_item)
-        inventory.append(slot.current_item)
         slot.current_item = null
-```gdscript
+```
 
 ## 5. Sistema de Inventário
 
@@ -406,7 +382,6 @@ signal item_removed(item)
 signal inventory_full
 
 const MAX_SLOTS = 20
-
 var inventory: Array = []
 
 func add_item(item: Variant) -> bool:
@@ -418,47 +393,24 @@ func add_item(item: Variant) -> bool:
     item_added.emit(item)
     return true
 
-func remove_item(item: Variant) -> bool:
-    if item not in inventory:
-        return false
-
-    inventory.erase(item)
-    item_removed.emit(item)
-    return true
-
 func use_consumable(item_id: StringName):
     var item = get_item_by_id(item_id)
-    if not item:
-        return
+    if not item: return
 
     ## Aplicar efeito
     match item_id:
         &"potion.health":
             var player = get_parent()
             player.heal(50.0)
-
-        &"potion.mana":
-            var player = get_parent()
-            player.asc.apply_modifier(&"mana", 50.0)
-
         &"potion.buff_strength":
             var player = get_parent()
             player.asc.apply_effect_by_tag(&"effect.strength_buff")
 
-    remove_item(item)
-    print("Consumido: %s" % item_id)
+    inventory.erase(item)
+    item_removed.emit(item)
+```
 
-func get_item_by_id(item_id: StringName) -> Variant:
-    for item in inventory:
-        if item.id == item_id:
-            return item
-    return null
-
-func get_inventory_size() -> int:
-    return inventory.size()
-```gdscript
-
-## 6. Exemplo Completo: Character Setup
+## 6. Character Setup (Configuração do Personagem)
 
 ```gdscript
 extends CharacterBody3D
@@ -479,7 +431,6 @@ signal health_changed(new_health)
 signal died
 
 func _ready():
-    ## Setup systems
     experience_system = ExperienceSystem.new()
     add_child(experience_system)
 
@@ -495,19 +446,6 @@ func _ready():
     ## Selecionar classe
     var warrior_class = preload("res://assets/classes/warrior.tres")
     warrior_class.apply_to_player(self)
-
-    ## Evento de XP
-    experience_system.level_up.connect(_on_level_up)
-
-    ## Evento de skill
-    skill_tree.skill_unlocked.connect(_on_skill_unlocked)
-
-    ## Evento de equipment
-    equipment_system.equipment_changed.connect(_on_equipment_changed)
-
-func gain_experience_from_enemy(enemy: Enemy):
-    var xp_reward = enemy.level * 100
-    experience_system.gain_experience(xp_reward)
 
 func take_damage(amount: float):
     health -= amount
@@ -531,41 +469,7 @@ func die():
     is_in_combat = false
     anim.play("death")
     died.emit()
-
-func _on_level_up(new_level: int, stat_points: int):
-    print("🎉 Level %d! +%d Stat Points" % [new_level, stat_points])
-    anim.play("level_up")
-
-func _on_skill_unlocked(skill_id: StringName, skill_data):
-    print("🔓 Habilidade desbloqueada: %s" % skill_id)
-    anim.play("skill_learned")
-
-func _on_equipment_changed(slot: int, old_item, new_item):
-    print("⚔️ Equipment changed in slot %d" % slot)
-    anim.play("equip")
-
-func _physics_process(_delta):
-    if not is_in_combat:
-        return
-
-    ## Input
-    if Input.is_action_just_pressed("ability_1"):
-        use_ability(&"ability.slash")
-
-    ## Skill tree test
-    if Input.is_action_just_pressed("ui_up"):
-        skill_tree.unlock_skill(&"slash_mastery")
-
-    ## Consumable test
-    if Input.is_action_just_pressed("ui_select"):
-        inventory_system.use_consumable(&"potion.health")
-
-func use_ability(ability_tag: StringName):
-    if not asc.can_activate_ability_by_tag(ability_tag):
-        return
-
-    asc.try_activate_ability_by_tag(ability_tag)
-```gdscript
+```
 
 ## 7. UI do RPG
 
@@ -576,29 +480,17 @@ class_name RPG_UI
 @onready var level_label = $VBox/LevelLabel
 @onready var xp_bar = $VBox/XPBar
 @onready var health_bar = $VBox/HealthBar
-@onready var mana_bar = $VBox/ManaBar
-@onready var stat_points_label = $VBox/StatPointsLabel
-@onready var skill_tree_panel = $SkillTreePanel
-@onready var inventory_panel = $InventoryPanel
-@onready var equipment_panel = $EquipmentPanel
 
 var player: PlayerRPG
 
 func _ready():
     player = get_parent()
-
     player.experience_system.level_up.connect(_on_level_up)
     player.experience_system.experience_gained.connect(_on_experience_gained)
     player.health_changed.connect(_on_health_changed)
 
 func _on_level_up(new_level: int, stat_points: int):
     level_label.text = "Level: %d" % new_level
-    stat_points_label.text = "Stat Points: %d" % stat_points
-
-    ## Animar
-    var tween = create_tween()
-    tween.tween_property(level_label, "scale", Vector2(1.2, 1.2), 0.1)
-    tween.tween_property(level_label, "scale", Vector2(1.0, 1.0), 0.1)
 
 func _on_experience_gained(amount: float, current_xp: float):
     var progress = player.experience_system.get_xp_progress()
@@ -607,54 +499,8 @@ func _on_experience_gained(amount: float, current_xp: float):
 func _on_health_changed(new_health: float):
     var max_health = player.get_max_health()
     health_bar.value = (new_health / max_health) * 100
-
-func _process(_delta):
-    ## Atualizar UI em tempo real
-    var mana = player.asc.get_attribute_current_value(&"mana")
-    var max_mana = 100.0
-    mana_bar.value = (mana / max_mana) * 100
-
-func update_skill_tree_display():
-    skill_tree_panel.clear()
-
-    for skill_id in player.skill_tree.skills:
-        var skill = player.skill_tree.skills[skill_id]
-        var can_unlock = player.skill_tree.can_unlock_skill(skill_id)
-
-        var button = Button.new()
-        button.text = "%s (R%d)" % [skill.name, skill.current_rank]
-        button.disabled = not can_unlock
-        button.pressed.connect(func():
-            player.skill_tree.unlock_skill(skill_id)
-            update_skill_tree_display()
-        )
-
-        skill_tree_panel.add_child(button)
-
-func update_equipment_display():
-    equipment_panel.clear()
-
-    for slot_type in player.equipment_system.equipment_slots:
-        var slot = player.equipment_system.equipment_slots[slot_type]
-        var item_name = slot.current_item.name if slot.current_item else "Empty"
-
-        var label = Label.new()
-        label.text = item_name
-        equipment_panel.add_child(label)
-
-func update_inventory_display():
-    inventory_panel.clear()
-
-    for item in player.inventory_system.inventory:
-        var button = Button.new()
-        button.text = item.name
-        button.pressed.connect(func():
-            player.inventory_system.use_consumable(item.id)
-        )
-        inventory_panel.add_child(button)
-```gdscript
+```
 
 ---
 
-Sistema RPG pronto para expandir com mais mecânicas.
-````
+O **Ability System** fornece os ganchos necessários para que todos estes sistemas conversem harmoniosamente através de Tags e Atributos. 🎮

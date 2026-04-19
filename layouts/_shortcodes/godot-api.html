@@ -1,0 +1,120 @@
+{{ $class := .Get "class" }}
+{{ $lang := .Page.Language.Lang }}
+{{ $data := index .Site.Data.api $lang $class }}
+
+{{ if not $data }}
+  {{ $data = index .Site.Data.api "en" $class }}
+{{ end }}
+
+{{ $labels := dict "en" (dict "inherits" "Inherits" "properties" "Properties" "methods" "Methods" "signals" "Signals" "constants" "Constants" "description" "Description") "pt" (dict "inherits" "Herança" "properties" "Propriedades" "methods" "Métodos" "signals" "Sinais" "constants" "Constantes" "description" "Descrição") }}
+{{ $l := index $labels $lang }}
+{{ if not $l }}{{ $l = index $labels "en" }}{{ end }}
+
+{{ if $data }}
+<div class="godot-api">
+  <div class="api-header">
+    <strong>{{ $l.inherits }}:</strong> <code>{{ $data.inherits }}</code>
+  </div>
+
+  <p class="api-brief">{{ $data.brief_description }}</p>
+
+  {{ if $data.description }}
+  <div class="api-description">
+    <h3>{{ $l.description }}</h3>
+    <p>{{ $data.description | markdownify }}</p>
+  </div>
+  {{ end }}
+
+  {{ if $data.properties }}
+  <h3>{{ $l.properties }}</h3>
+  <table class="api-table">
+    <thead>
+      <tr><th>Type</th><th>Name</th><th>Default</th></tr>
+    </thead>
+    <tbody>
+      {{ range $data.properties }}
+      <tr>
+        <td><code>{{ .type }}</code></td>
+        <td><strong>{{ .name }}</strong></td>
+        <td><code>{{ .default }}</code></td>
+      </tr>
+      {{ if .description }}
+      <tr>
+        <td colspan="3" class="item-desc">{{ .description | markdownify }}</td>
+      </tr>
+      {{ end }}
+      {{ end }}
+    </tbody>
+  </table>
+  {{ end }}
+
+  {{ if $data.methods }}
+  <h3>{{ $l.methods }}</h3>
+  <table class="api-table">
+    <thead>
+      <tr><th>Return</th><th>Name</th></tr>
+    </thead>
+    <tbody>
+      {{ range $data.methods }}
+      <tr>
+        <td><code>{{ .return_type }}</code></td>
+        <td>
+          <strong>{{ .name }}</strong>(
+          {{ range $idx, $param := .params -}}
+            {{ if $idx }}, {{ end }}{{ $param.name }}: <code>{{ $param.type }}</code>{{ if $param.default }} = {{ $param.default }}{{ end }}
+          {{- end }})
+          {{ if .qualifiers }}<code>{{ .qualifiers }}</code>{{ end }}
+        </td>
+      </tr>
+      {{ if .description }}
+      <tr>
+        <td colspan="2" class="item-desc">{{ .description | markdownify }}</td>
+      </tr>
+      {{ end }}
+      {{ end }}
+    </tbody>
+  </table>
+  {{ end }}
+
+  {{ if $data.signals }}
+  <h3>{{ $l.signals }}</h3>
+  <ul class="api-list">
+    {{ range $data.signals }}
+    <li>
+      <strong>{{ .name }}</strong>(
+      {{ range $idx, $param := .params -}}
+        {{ if $idx }}, {{ end }}{{ $param.name }}: <code>{{ $param.type }}</code>
+      {{- end }})
+      {{ if .description }}
+      <p>{{ .description | markdownify }}</p>
+      {{ end }}
+    </li>
+    {{ end }}
+  </ul>
+  {{ end }}
+
+  {{ if $data.constants }}
+  <h3>{{ $l.constants }}</h3>
+  <table class="api-table">
+    <thead>
+      <tr><th>Name</th><th>Value</th></tr>
+    </thead>
+    <tbody>
+      {{ range $data.constants }}
+      <tr>
+        <td><strong>{{ .name }}</strong></td>
+        <td><code>{{ .value }}</code></td>
+      </tr>
+      {{ if .description }}
+      <tr>
+        <td colspan="2" class="item-desc">{{ .description | markdownify }}</td>
+      </tr>
+      {{ end }}
+      {{ end }}
+    </tbody>
+  </table>
+  {{ end }}
+</div>
+{{ else }}
+<div class="alert alert-warning">API data missing for {{ $class }}</div>
+{{ end }}

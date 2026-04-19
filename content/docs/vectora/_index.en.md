@@ -13,8 +13,7 @@ breadcrumbs: true
 
 Traditional AI agents operate in **fragmented contexts**, generating hallucinations, wasting tokens, and accidentally exposing secrets. **Vectora** solves this not by being "another chat", but as a **[Tier 2 Sub-Agent](/concepts/sub-agents/)** designed exclusively for software engineering: it intercepts calls via [MCP Protocol](/protocols/mcp/), validates security in real-time with [Guardian](/security/guardian/), orchestrates multi-hop retrieval via [Context Engine](/concepts/context-engine/), and delivers structured context to your principal agent (Claude Code, Gemini CLI, Cursor, etc.).
 
-> [!IMPORTANT]
-> **Core Formula**: `Functional Agent = Model (Gemini 3 Flash) + [Harness Runtime](/concepts/harness-runtime/) + Governed Context (Voyage 4 + MongoDB Atlas)`
+> [!IMPORTANT] > **Core Formula**: `Functional Agent = Model (Gemini 3 Flash) + [Harness Runtime](/concepts/harness-runtime/) + Governed Context (Voyage 4 + MongoDB Atlas)`
 
 ---
 
@@ -70,8 +69,7 @@ Vectora **is not provider-agnostic**. We operate with models rigorously calibrat
 | **Vector DB + Metadata** | `MongoDB Atlas`        | Unified backend (vectors + docs + state + audit), scalable, no ETL       | [MongoDB Atlas](/backend/mongodb-atlas/)         |
 | **State Persistence**    | Sessions + `AGENTS.md` | Working memory between MCP calls, continuity for long-horizon context    | [State Persistence](/backend/state-persistence/) |
 
-> [!WARNING]
-> **No support for generic fallbacks**: Vectora does not integrate OpenAI, Anthropic, OpenRouter, or local models. The calibration of [Harness Runtime](/concepts/harness-runtime/) strictly depends on this stack. For multi-provider, use standard market MCP tools.
+> [!WARNING] > **No support for generic fallbacks**: Vectora does not integrate OpenAI, Anthropic, OpenRouter, or local models. The calibration of [Harness Runtime](/concepts/harness-runtime/) strictly depends on this stack. For multi-provider, use standard market MCP tools.
 
 ---
 
@@ -93,15 +91,14 @@ Security in Vectora is implemented **at the application layer**, not delegated t
 
 Vectora operates with a **BYOK First** model, where the backend (MongoDB Atlas) is managed by Kaffyn on all plans, but API keys belong to the user:
 
-| Plan             | Price                    | Storage                   | API Quota                            | Retention                                  | Docs                         |
-| ---------------- | ------------------------ | ------------------------- | ------------------------------------ | ------------------------------------------ | ---------------------------- |
+| Plan              | Price                    | Storage                   | API Quota                            | Retention                                  | Docs                         |
+| ----------------- | ------------------------ | ------------------------- | ------------------------------------ | ------------------------------------------ | ---------------------------- |
 | 🟢 **Free**       | $0/month                 | 512MB total               | Pure BYOK                            | 30 days inactivity = vector index deletion | [Free](/plans/free/)         |
 | 🔵 **Pro**        | ~$20/month               | 10GB total                | 500k tokens + 100k vectors/month     | 90 days post-cancellation                  | [Pro](/plans/pro/)           |
 | 🟣 **Team**       | $5 base + $15/user/month | 50GB total                | Shared pool + per-user BYOK fallback | 180 days post-cancellation                 | [Team](/plans/team/)         |
 | ⚫ **Enterprise** | Custom                   | Unlimited (VPC/Dedicated) | Per contract                         | Custom policy                              | [Overview](/plans/overview/) |
 
-> [!NOTE]
-> **Retention Rules**: Free accounts inactive for 30 days have their vector index automatically deleted. Metadata is preserved for +90 days for export via `vectora export`. Downgrades notify of limit reduction and grant 7 days for backup. Details in [Retention Policy](/plans/retention/).
+> [!NOTE] > **Retention Rules**: Free accounts inactive for 30 days have their vector index automatically deleted. Metadata is preserved for +90 days for export via `vectora export`. Downgrades notify of limit reduction and grant 7 days for backup. Details in [Retention Policy](/plans/retention/).
 
 ---
 
@@ -118,8 +115,8 @@ Vectora operates with a **BYOK First** model, where the backend (MongoDB Atlas) 
 
 ## 🧭 Where to Start?
 
-| Category              | Document                                                                            | Description                                                                    |
-| --------------------- | ----------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| Category               | Document                                                                            | Description                                                                    |
+| ---------------------- | ----------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
 | 🚀 **Quick Start**     | [Getting Started](/getting-started/)                                                | `npm install -g vectora-agent`, BYOK setup, MCP integration                    |
 | 🧠 **Concepts**        | [Sub-Agents](/concepts/sub-agents/)                                                 | Why Sub-Agent and not passive MCP tools? Active governance vs static functions |
 | 🔄 **Harness Runtime** | [Harness Runtime](/concepts/harness-runtime/)                                       | Tool Execution, Context Engineering, State Management, Verification Hooks      |
@@ -157,4 +154,4 @@ Vectora operates with a **BYOK First** model, where the backend (MongoDB Atlas) 
 
 ---
 
-_Part of the Vectora ecosystem · Open Source (MIT) · TypeScript_
+Part of the Vectora ecosystem · Open Source (MIT) · TypeScript

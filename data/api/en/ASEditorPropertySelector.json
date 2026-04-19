@@ -1,0 +1,10 @@
+{
+    "name": "ASEditorPropertySelector",
+    "inherits": "EditorProperty",
+    "brief_description": "Editor property for selecting multiple ability system tags.",
+    "description": "[ASEditorPropertySelector] provides a dialog-based interface for selecting multiple ability system tags from the registered tags.\n\t\tDisplays a button that opens a selection dialog with checkboxes for all available tags.",
+    "properties": [],
+    "methods": [],
+    "signals": [],
+    "constants": []
+}

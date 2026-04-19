@@ -1,0 +1,10 @@
+{
+    "name": "ASAbilityPhase",
+    "inherits": "ASAbility",
+    "brief_description": "Base resource for defining abilities within the module.",
+    "description": "[ASAbility] defines the logic and data for a specific action. It manages its own costs, cooldowns, and tags.",
+    "properties": [],
+    "methods": [],
+    "signals": [],
+    "constants": []
+}

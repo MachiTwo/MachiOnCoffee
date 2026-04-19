@@ -1,0 +1,10 @@
+{
+    "name": "ASEditorPlugin",
+    "inherits": "EditorPlugin",
+    "brief_description": "Main editor plugin for the Ability System.",
+    "description": "[ASEditorPlugin] is the main entry point for the Ability System editor integration. It registers custom types, icons, and handles the initialization of inspector extensions and the tags panel.",
+    "properties": [],
+    "methods": [],
+    "signals": [],
+    "constants": []
+}

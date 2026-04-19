@@ -1,0 +1,19 @@
+{
+    "name": "ASCueAnimation",
+    "inherits": "ASCue",
+    "brief_description": "Cue specialized for playing animations.",
+    "description": "[ASCueAnimation] is a specialized cue that automatically plays animations when triggered. It works with [AnimationPlayer], [AnimatedSprite2D], and [AnimatedSprite3D] nodes provided to the [ASComponent].\n\n\t\tCreate a .tres resource of this type, set the [member animation_name] property, and add it to your [ASAbility]'s [member ASAbility.cues] list. When the ability is activated, the animation will play on the target node.\n\n\t\t[b]Example:[/b]\n\t\t[codeblocks]\n\t\t[gdscript]\n\t\t# Create hit_animation.tres (ASCueAnimation)\n\t\t# cue_tag: \"hit_animation\"\n\t\t# animation_name: \"hit\"\n\t\t# event_type: OnExecute\n\t\t[/gdscript]\n\t\t[csharp]\n\t\t// Create hit_animation.tres (ASCueAnimation)\n\t\t// cue_tag: \"hit_animation\"\n\t\t// animation_name: \"hit\"\n\t\t// event_type: OnExecute\n\t\t[/csharp]\n\t\t[/codeblocks]",
+    "properties": [
+        {
+            "name": "animation_name",
+            "type": "String",
+            "setter": "set_animation_name",
+            "getter": "get_animation_name",
+            "default": "\"\"",
+            "description": "Name of the animation to play. The cue will look for a node with the alias [member ASCue.node_name] in the component's registry. If no name is specified, the component will try its default animation nodes."
+        }
+    ],
+    "methods": [],
+    "signals": [],
+    "constants": []
+}

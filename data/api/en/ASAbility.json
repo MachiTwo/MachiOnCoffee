@@ -1,0 +1,536 @@
+{
+    "name": "ASAbility",
+    "inherits": "Resource",
+    "brief_description": "Base resource for defining abilities within the module.",
+    "description": "[ASAbility] defines the logic and data for a specific action. It manages its own costs, cooldowns, and tags.",
+    "properties": [
+        {
+            "name": "ability_duration",
+            "type": "float",
+            "setter": "set_ability_duration",
+            "getter": "get_ability_duration",
+            "default": "0.0",
+            "description": "Base duration of the ability."
+        },
+        {
+            "name": "ability_duration_policy",
+            "type": "int",
+            "setter": "set_duration_policy",
+            "getter": "get_duration_policy",
+            "default": "0",
+            "description": "Defines how the ability duration is handled (0: Instant, 1: Duration, 2: Infinite)."
+        },
+        {
+            "name": "ability_name",
+            "type": "String",
+            "setter": "set_ability_name",
+            "getter": "get_ability_name",
+            "default": "\"\"",
+            "description": "Unique name for this ability."
+        },
+        {
+            "name": "ability_tag",
+            "type": "StringName",
+            "setter": "set_ability_tag",
+            "getter": "get_ability_tag",
+            "default": "&\"\"",
+            "description": "The unique tag identifying this ability."
+        },
+        {
+            "name": "ability_use_custom_duration",
+            "type": "bool",
+            "setter": "set_use_custom_duration",
+            "getter": "get_use_custom_duration",
+            "default": "false",
+            "description": "If true, triggers custom magnitude calculation for duration."
+        },
+        {
+            "name": "activation_blocked_all_tags",
+            "type": "StringName[]",
+            "setter": "set_activation_blocked_all_tags",
+            "getter": "get_activation_blocked_all_tags",
+            "default": "[]",
+            "description": "Ability cannot activate if owner has [b]all[/b] of these tags simultaneously (AND logic)."
+        },
+        {
+            "name": "activation_blocked_any_tags",
+            "type": "StringName[]",
+            "setter": "set_activation_blocked_any_tags",
+            "getter": "get_activation_blocked_any_tags",
+            "default": "[]",
+            "description": "Ability cannot activate if owner has [b]any[/b] of these tags (OR logic)."
+        },
+        {
+            "name": "activation_cancel_tags",
+            "type": "StringName[]",
+            "setter": "set_activation_cancel_tags",
+            "getter": "get_activation_cancel_tags",
+            "default": "[]",
+            "description": "Tags of active abilities that will be canceled when this ability activates."
+        },
+        {
+            "name": "activation_owned_tags",
+            "type": "StringName[]",
+            "setter": "set_activation_owned_tags",
+            "getter": "get_activation_owned_tags",
+            "default": "[]",
+            "description": "Tags granted to the owner while the ability is active."
+        },
+        {
+            "name": "activation_required_all_tags",
+            "type": "StringName[]",
+            "setter": "set_activation_required_all_tags",
+            "getter": "get_activation_required_all_tags",
+            "default": "[]",
+            "description": "Owner must have [b]all[/b] of these tags to activate (AND logic)."
+        },
+        {
+            "name": "activation_required_any_tags",
+            "type": "StringName[]",
+            "setter": "set_activation_required_any_tags",
+            "getter": "get_activation_required_any_tags",
+            "default": "[]",
+            "description": "Owner must have [b]at least one[/b] of these tags to activate (OR logic)."
+        },
+        {
+            "name": "cooldown_duration",
+            "type": "float",
+            "setter": "set_cooldown_duration",
+            "getter": "get_cooldown_duration",
+            "default": "0.0",
+            "description": "Base duration of cooldown."
+        },
+        {
+            "name": "cooldown_tags",
+            "type": "StringName[]",
+            "setter": "set_cooldown_tags",
+            "getter": "get_cooldown_tags",
+            "default": "[]",
+            "description": "Tags applied during cooldown."
+        },
+        {
+            "name": "cooldown_use_custom",
+            "type": "bool",
+            "setter": "set_use_custom_cooldown",
+            "getter": "get_use_custom_cooldown",
+            "default": "false",
+            "description": "If true, triggers custom magnitude calculation for cooldown duration."
+        },
+        {
+            "name": "costs",
+            "type": "Dictionary[]",
+            "setter": "set_costs",
+            "getter": "get_costs",
+            "default": "[]",
+            "description": "Array of native costs (attribute and amount)."
+        },
+        {
+            "name": "costs_use_custom",
+            "type": "bool",
+            "setter": "set_use_custom_costs",
+            "getter": "get_use_custom_costs",
+            "default": "false",
+            "description": "If true, triggers custom magnitude calculation for modifier amounts."
+        },
+        {
+            "name": "cues",
+            "type": "ASCue[]",
+            "setter": "set_cues",
+            "getter": "get_cues",
+            "default": "[]",
+            "description": "Visual/Audio cues triggered on start and end."
+        },
+        {
+            "name": "effects",
+            "type": "ASEffect[]",
+            "setter": "set_effects",
+            "getter": "get_effects",
+            "default": "[]",
+            "description": "List of effects applied by this ability."
+        },
+        {
+            "name": "events_on_activate",
+            "type": "StringName[]",
+            "setter": "set_events_on_activate",
+            "getter": "get_events_on_activate",
+            "default": "[]",
+            "description": "Events dispatched when the ability is successfully activated."
+        },
+        {
+            "name": "events_on_end",
+            "type": "StringName[]",
+            "setter": "set_events_on_end",
+            "getter": "get_events_on_end",
+            "default": "[]",
+            "description": "Events dispatched when the ability ends (regardless of whether it was canceled or finished naturally)."
+        },
+        {
+            "name": "phases",
+            "type": "ASAbility[]",
+            "setter": "set_phases",
+            "getter": "get_phases",
+            "default": "[]",
+            "description": "Sequential phases that this ability will execute in order."
+        },
+        {
+            "name": "requirements",
+            "type": "Dictionary[]",
+            "setter": "set_requirements",
+            "getter": "get_requirements",
+            "default": "[]",
+            "description": "Attribute requirements needed to activate the ability."
+        },
+        {
+            "name": "sub_abilities",
+            "type": "ASAbility[]",
+            "setter": "set_sub_abilities",
+            "getter": "get_sub_abilities",
+            "default": "[]",
+            "description": "Hierarchical sub-abilities that are unlocked alongside this parent ability."
+        },
+        {
+            "name": "sub_abilities_auto_activate",
+            "type": "StringName[]",
+            "setter": "set_sub_abilities_auto_activate",
+            "getter": "get_sub_abilities_auto_activate",
+            "default": "[]",
+            "description": "Tags of sub-abilities that should automatically activate when the parent ability starts."
+        },
+        {
+            "name": "triggers",
+            "type": "Dictionary[]",
+            "setter": "set_triggers",
+            "getter": "get_triggers",
+            "default": "[]",
+            "description": "Automatic triggers for this ability (e.g. activate when a tag is added)."
+        }
+    ],
+    "methods": [
+        {
+            "name": "_on_activate_ability",
+            "qualifiers": "virtual",
+            "description": "Virtual method to implement the ability's logic.",
+            "return_type": "void",
+            "params": [
+                {
+                    "name": "owner",
+                    "type": "Object",
+                    "default": ""
+                },
+                {
+                    "name": "spec",
+                    "type": "RefCounted",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "_on_can_activate_ability",
+            "qualifiers": "virtual const",
+            "description": "Virtual method to implement custom activation requirements.",
+            "return_type": "bool",
+            "params": [
+                {
+                    "name": "owner",
+                    "type": "Object",
+                    "default": ""
+                },
+                {
+                    "name": "spec",
+                    "type": "RefCounted",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "_on_end_ability",
+            "qualifiers": "virtual",
+            "description": "Virtual method called when the ability ends.",
+            "return_type": "void",
+            "params": [
+                {
+                    "name": "owner",
+                    "type": "Object",
+                    "default": ""
+                },
+                {
+                    "name": "spec",
+                    "type": "RefCounted",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "activate_ability",
+            "qualifiers": "",
+            "description": "Starts the ability execution. Handles native costs and cooldown application automatically.",
+            "return_type": "void",
+            "params": [
+                {
+                    "name": "owner",
+                    "type": "ASComponent",
+                    "default": ""
+                },
+                {
+                    "name": "spec",
+                    "type": "ASAbilitySpec",
+                    "default": "null"
+                },
+                {
+                    "name": "target_node",
+                    "type": "Object",
+                    "default": "null"
+                }
+            ]
+        },
+        {
+            "name": "add_cost",
+            "qualifiers": "",
+            "description": "Adds a native cost modifier.",
+            "return_type": "void",
+            "params": [
+                {
+                    "name": "attribute",
+                    "type": "StringName",
+                    "default": ""
+                },
+                {
+                    "name": "amount",
+                    "type": "float",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "add_requirement",
+            "qualifiers": "",
+            "description": "Adds a prerequisite attribute value required for the ability to activate. Unlike costs, requirements do not consume the attribute; they only verify the current value.",
+            "return_type": "void",
+            "params": [
+                {
+                    "name": "attribute",
+                    "type": "StringName",
+                    "default": ""
+                },
+                {
+                    "name": "amount",
+                    "type": "float",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "add_trigger",
+            "qualifiers": "",
+            "description": "Registers an automatic activation trigger based on Global Tags or ASEvents. For example, an ability can be triggered when 'State.OnFire' is added to the actor.",
+            "return_type": "void",
+            "params": [
+                {
+                    "name": "tag",
+                    "type": "StringName",
+                    "default": ""
+                },
+                {
+                    "name": "type",
+                    "type": "int",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "apply_costs",
+            "qualifiers": "const",
+            "description": "Applies the costs of the ability to the owner.",
+            "return_type": "void",
+            "params": [
+                {
+                    "name": "owner",
+                    "type": "ASComponent",
+                    "default": ""
+                },
+                {
+                    "name": "spec",
+                    "type": "ASAbilitySpec",
+                    "default": "null"
+                }
+            ]
+        },
+        {
+            "name": "calculate_ability_duration",
+            "qualifiers": "const",
+            "description": "Calculates the duration of the ability, considering [member ability_use_custom_duration].",
+            "return_type": "float",
+            "params": [
+                {
+                    "name": "owner",
+                    "type": "ASComponent",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "can_activate_ability",
+            "qualifiers": "const",
+            "description": "Returns true if the ability can be activated (checks tags, costs, and cooldown).",
+            "return_type": "bool",
+            "params": [
+                {
+                    "name": "owner",
+                    "type": "ASComponent",
+                    "default": ""
+                },
+                {
+                    "name": "spec",
+                    "type": "ASAbilitySpec",
+                    "default": "null"
+                }
+            ]
+        },
+        {
+            "name": "can_afford_costs",
+            "qualifiers": "const",
+            "description": "Checks if the owner has enough resources to afford the costs.",
+            "return_type": "bool",
+            "params": [
+                {
+                    "name": "owner",
+                    "type": "ASComponent",
+                    "default": ""
+                },
+                {
+                    "name": "spec",
+                    "type": "ASAbilitySpec",
+                    "default": "null"
+                }
+            ]
+        },
+        {
+            "name": "can_satisfy_requirements",
+            "qualifiers": "const",
+            "description": "Checks if the owner satisfies the attribute requirements defined in this ability.",
+            "return_type": "bool",
+            "params": [
+                {
+                    "name": "owner",
+                    "type": "ASComponent",
+                    "default": ""
+                },
+                {
+                    "name": "spec",
+                    "type": "ASAbilitySpec",
+                    "default": "null"
+                }
+            ]
+        },
+        {
+            "name": "end_ability",
+            "qualifiers": "",
+            "description": "Ends the ability execution and cleans up owned tags.",
+            "return_type": "void",
+            "params": [
+                {
+                    "name": "owner",
+                    "type": "ASComponent",
+                    "default": ""
+                },
+                {
+                    "name": "spec",
+                    "type": "ASAbilitySpec",
+                    "default": "null"
+                }
+            ]
+        },
+        {
+            "name": "get_cost_amount",
+            "qualifiers": "const",
+            "description": "Returns the cost amount for a specific attribute of this ability.",
+            "return_type": "float",
+            "params": [
+                {
+                    "name": "attribute",
+                    "type": "StringName",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "get_requirement_amount",
+            "qualifiers": "const",
+            "description": "Returns the numeric requirement value for a specific attribute of this ability.",
+            "return_type": "float",
+            "params": [
+                {
+                    "name": "attribute",
+                    "type": "StringName",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "get_requirement_count",
+            "qualifiers": "const",
+            "description": "Returns the total number of attribute prerequisites defined for this ability.",
+            "return_type": "int",
+            "params": []
+        },
+        {
+            "name": "remove_cost",
+            "qualifiers": "",
+            "description": "Removes a cost definition for a specific attribute.",
+            "return_type": "bool",
+            "params": [
+                {
+                    "name": "attribute",
+                    "type": "StringName",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "remove_requirement",
+            "qualifiers": "",
+            "description": "Removes an attribute requirement by its tag name. Returns true if the requirement existed and was successfully removed.",
+            "return_type": "bool",
+            "params": [
+                {
+                    "name": "attribute",
+                    "type": "StringName",
+                    "default": ""
+                }
+            ]
+        }
+    ],
+    "signals": [],
+    "constants": [
+        {
+            "name": "POLICY_INSTANT",
+            "value": "0",
+            "description": "Ability triggers its effect once and ends immediately."
+        },
+        {
+            "name": "POLICY_DURATION",
+            "value": "1",
+            "description": "Ability has a fixed duration."
+        },
+        {
+            "name": "POLICY_INFINITE",
+            "value": "2",
+            "description": "Ability remains active until explicitly ended."
+        },
+        {
+            "name": "TRIGGER_ON_TAG_ADDED",
+            "value": "0",
+            "description": "Ability attempts to activate when a specific Tag is added to the owner."
+        },
+        {
+            "name": "TRIGGER_ON_TAG_REMOVED",
+            "value": "1",
+            "description": "Ability attempts to activate when a specific Tag is removed from the owner."
+        },
+        {
+            "name": "TRIGGER_ON_EVENT",
+            "value": "2",
+            "description": "Ability attempts to activate when a specific ASEventTag is dispatched to the owner. This is the preferred way for reactive triggers like \"Counter-attack on Hit\"."
+        }
+    ]
+}

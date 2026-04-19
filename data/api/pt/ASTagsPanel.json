@@ -1,0 +1,27 @@
+{
+    "name": "ASTagsPanel",
+    "inherits": "VBoxContainer",
+    "brief_description": "Editor UI for managing Ability System Tags.",
+    "description": "[ASTagsPanel] is a custom editor component displayed within the Project Settings. It allows developers to add, remove, and list global Ability System Tags used by the Ability System.\n\t\tThe panel supports hierarchical organization using dot notation (e.g., [code]state.stun[/code]) and classifies tags into [b]Name Tags[/b] (identity) and [b]Conditional Tags[/b] (status/state).",
+    "properties": [
+        {
+            "name": "size_flags_vertical",
+            "type": "int",
+            "setter": "set_v_size_flags",
+            "getter": "get_v_size_flags",
+            "default": "3",
+            "description": ""
+        }
+    ],
+    "methods": [
+        {
+            "name": "update_tags",
+            "qualifiers": "",
+            "description": "Refreshes the tag list layout from the global registry.",
+            "return_type": "void",
+            "params": []
+        }
+    ],
+    "signals": [],
+    "constants": []
+}

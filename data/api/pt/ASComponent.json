@@ -1,0 +1,1689 @@
+{
+    "name": "ASComponent",
+    "inherits": "Node",
+    "brief_description": "Core component for managing abilities, attributes, and effects.",
+    "description": "The [ASComponent] (ASC) is the central hub for an actor's logic. It handles the lifecycle of abilities, applies effects, and tracks attribute values. Must be a child of [CharacterBody2D] or [CharacterBody3D].",
+    "properties": [
+        {
+            "name": "container",
+            "type": "ASContainer",
+            "setter": "set_container",
+            "getter": "get_container",
+            "default": "",
+            "description": "The archetype blueprint for this actor."
+        },
+        {
+            "name": "snapshot_state",
+            "type": "ASStateSnapshot",
+            "setter": "set_snapshot_state",
+            "getter": "get_snapshot_state",
+            "default": "",
+            "description": "The resource used for capturing and restoring the component's state. Primarily used for players and persistence."
+        }
+    ],
+    "methods": [
+        {
+            "name": "_on_calculate_custom_magnitude",
+            "qualifiers": "virtual const",
+            "description": "Virtual callback for computing custom magnitude values for effect modifiers.",
+            "return_type": "float",
+            "params": [
+                {
+                    "name": "effect_spec",
+                    "type": "ASEffectSpec",
+                    "default": ""
+                },
+                {
+                    "name": "modifier_index",
+                    "type": "int",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "add_attribute_set",
+            "qualifiers": "",
+            "description": "Adds a unique instance of the attribute set to this component.",
+            "return_type": "void",
+            "params": [
+                {
+                    "name": "set",
+                    "type": "ASAttributeSet",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "add_tag",
+            "qualifiers": "",
+            "description": "Adds a tag to the actor.",
+            "return_type": "void",
+            "params": [
+                {
+                    "name": "tag",
+                    "type": "StringName",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "apply_container",
+            "qualifiers": "",
+            "description": "Initializes the component with an archetype blueprint (AttributeSet, Catalog, and Initial Effects).",
+            "return_type": "void",
+            "params": [
+                {
+                    "name": "container",
+                    "type": "ASContainer",
+                    "default": ""
+                },
+                {
+                    "name": "level",
+                    "type": "int",
+                    "default": "1"
+                }
+            ]
+        },
+        {
+            "name": "apply_effect_by_resource",
+            "qualifiers": "",
+            "description": "Directly applies an effect to this actor without checking activation requirements.",
+            "return_type": "void",
+            "params": [
+                {
+                    "name": "effect",
+                    "type": "ASEffect",
+                    "default": ""
+                },
+                {
+                    "name": "level",
+                    "type": "float",
+                    "default": "1.0"
+                },
+                {
+                    "name": "target_node",
+                    "type": "Object",
+                    "default": "null"
+                }
+            ]
+        },
+        {
+            "name": "apply_effect_by_tag",
+            "qualifiers": "",
+            "description": "Directly applies an effect from the container catalog to this actor by its tag, without checking activation requirements.",
+            "return_type": "void",
+            "params": [
+                {
+                    "name": "tag",
+                    "type": "StringName",
+                    "default": ""
+                },
+                {
+                    "name": "level",
+                    "type": "float",
+                    "default": "1.0"
+                },
+                {
+                    "name": "target_node",
+                    "type": "Object",
+                    "default": "null"
+                }
+            ]
+        },
+        {
+            "name": "apply_effect_spec_to_self",
+            "qualifiers": "",
+            "description": "Applies an already-built effect spec to this actor. Validates all four tag conditions on the effect resource before applying (required_all, required_any, blocked_any, blocked_all). Emits [signal effect_failed] if any tag check fails.",
+            "return_type": "void",
+            "params": [
+                {
+                    "name": "spec",
+                    "type": "ASEffectSpec",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "apply_effect_spec_to_target",
+            "qualifiers": "",
+            "description": "Applies an effect instance to another target component.",
+            "return_type": "void",
+            "params": [
+                {
+                    "name": "spec",
+                    "type": "ASEffectSpec",
+                    "default": ""
+                },
+                {
+                    "name": "target",
+                    "type": "ASComponent",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "apply_package",
+            "qualifiers": "",
+            "description": "Unpacks and applies all effects and cues contained in the [ASPackage] to this component.",
+            "return_type": "void",
+            "params": [
+                {
+                    "name": "package",
+                    "type": "ASPackage",
+                    "default": ""
+                },
+                {
+                    "name": "level",
+                    "type": "float",
+                    "default": "1.0"
+                },
+                {
+                    "name": "source_component",
+                    "type": "ASComponent",
+                    "default": "null"
+                }
+            ]
+        },
+        {
+            "name": "apply_snapshot",
+            "qualifiers": "",
+            "description": "Restores the component's state (attributes, tags, and active effects) from a previously captured snapshot.\n\t\t\t\tAttempts to recover from the internal lightweight cache (ASStateCache) first. This cache is a circular buffer that stores the last 128 ticks automatically. If the requested tick is older than the buffer capacity, the system falls back to the assigned [member snapshot_state] resource.",
+            "return_type": "void",
+            "params": [
+                {
+                    "name": "tick",
+                    "type": "int",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "calculate_effect_duration",
+            "qualifiers": "const",
+            "description": "Calculates the duration of an effect spec, considering custom magnitude overrides.",
+            "return_type": "float",
+            "params": [
+                {
+                    "name": "spec",
+                    "type": "ASEffectSpec",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "calculate_modifier_magnitude",
+            "qualifiers": "const",
+            "description": "Calculates the magnitude of a modifier within an effect spec.",
+            "return_type": "float",
+            "params": [
+                {
+                    "name": "spec",
+                    "type": "ASEffectSpec",
+                    "default": ""
+                },
+                {
+                    "name": "modifier_index",
+                    "type": "int",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "can_activate_ability_by_resource",
+            "qualifiers": "",
+            "description": "Returns true if the specified ability resource is unlocked and its requirements (tags, costs, cooldown) are met.",
+            "return_type": "bool",
+            "params": [
+                {
+                    "name": "ability",
+                    "type": "ASAbility",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "can_activate_ability_by_tag",
+            "qualifiers": "",
+            "description": "Returns true if an ability with the specified tag is unlocked and its requirements are met.",
+            "return_type": "bool",
+            "params": [
+                {
+                    "name": "tag",
+                    "type": "StringName",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "can_activate_cue_by_resource",
+            "qualifiers": "",
+            "description": "Checks if the specified cue resource can be activated.\n\t\t\t\tVerifies all four tag conditions: [member ASCue.activation_required_all_tags] (AND), [member ASCue.activation_required_any_tags] (OR), [member ASCue.activation_blocked_any_tags] (OR), and [member ASCue.activation_blocked_all_tags] (AND).",
+            "return_type": "bool",
+            "params": [
+                {
+                    "name": "cue",
+                    "type": "ASCue",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "can_activate_cue_by_tag",
+            "qualifiers": "",
+            "description": "Checks if a cue with the specified tag can be activated.",
+            "return_type": "bool",
+            "params": [
+                {
+                    "name": "tag",
+                    "type": "StringName",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "can_activate_effect_by_resource",
+            "qualifiers": "",
+            "description": "Checks if the specified effect resource can be applied to this component.\n\t\t\t\tVerifies all four tag conditions: [member ASEffect.activation_required_all_tags] (AND), [member ASEffect.activation_required_any_tags] (OR), [member ASEffect.activation_blocked_any_tags] (OR), and [member ASEffect.activation_blocked_all_tags] (AND). Also verifies attribute requirements.",
+            "return_type": "bool",
+            "params": [
+                {
+                    "name": "effect",
+                    "type": "ASEffect",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "can_activate_effect_by_tag",
+            "qualifiers": "",
+            "description": "Checks if an effect with the specified tag can be applied.",
+            "return_type": "bool",
+            "params": [
+                {
+                    "name": "tag",
+                    "type": "StringName",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "cancel_ability_by_resource",
+            "qualifiers": "",
+            "description": "Cancels the execution of the specified ability resource.",
+            "return_type": "void",
+            "params": [
+                {
+                    "name": "ability",
+                    "type": "ASAbility",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "cancel_ability_by_tag",
+            "qualifiers": "",
+            "description": "Cancels all active abilities that match the specified tag.",
+            "return_type": "void",
+            "params": [
+                {
+                    "name": "tag",
+                    "type": "StringName",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "cancel_all_abilities",
+            "qualifiers": "",
+            "description": "Forcefully cancels all currently active abilities.",
+            "return_type": "void",
+            "params": []
+        },
+        {
+            "name": "cancel_cue_by_resource",
+            "qualifiers": "",
+            "description": "Cancels the specified cue resource.",
+            "return_type": "void",
+            "params": [
+                {
+                    "name": "cue",
+                    "type": "ASCue",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "cancel_cue_by_tag",
+            "qualifiers": "",
+            "description": "Cancels all active cues that match the specified tag.",
+            "return_type": "void",
+            "params": [
+                {
+                    "name": "tag",
+                    "type": "StringName",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "cancel_effect_by_resource",
+            "qualifiers": "",
+            "description": "Cancels the specified effect resource.",
+            "return_type": "void",
+            "params": [
+                {
+                    "name": "effect",
+                    "type": "ASEffect",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "cancel_effect_by_tag",
+            "qualifiers": "",
+            "description": "Cancels all active effects that match the specified tag.",
+            "return_type": "void",
+            "params": [
+                {
+                    "name": "tag",
+                    "type": "StringName",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "capture_snapshot",
+            "qualifiers": "",
+            "description": "Captures the current state of attributes and tags.\n\t\t\t\tThe state is always pushed to an internal circular buffer (lightweight cache) for multiplayer prediction and rollback.\n\t\t\t\tIf [member snapshot_state] is assigned, it also populates that resource for persistent storage or long-term synchronization.",
+            "return_type": "void",
+            "params": []
+        },
+        {
+            "name": "clear_ability_history",
+            "qualifiers": "",
+            "description": "Clears the chronological buffer of ability activation events on this component.",
+            "return_type": "void",
+            "params": []
+        },
+        {
+            "name": "clear_all_history",
+            "qualifiers": "",
+            "description": "Clears every chronological and historical buffer on this component (Tags, Attributes, Abilities, Effects, Cues, and Events).",
+            "return_type": "void",
+            "params": []
+        },
+        {
+            "name": "clear_attribute_history",
+            "qualifiers": "",
+            "description": "Clears the chronological buffer of attribute changes on this component.",
+            "return_type": "void",
+            "params": []
+        },
+        {
+            "name": "clear_conditional_history",
+            "qualifiers": "",
+            "description": "Clears the short-term historical buffer for [constant ASTagUtils.CONDITIONAL] tags on this component.",
+            "return_type": "void",
+            "params": []
+        },
+        {
+            "name": "clear_cue_history",
+            "qualifiers": "",
+            "description": "Clears the chronological buffer of visual cue events on this component.",
+            "return_type": "void",
+            "params": []
+        },
+        {
+            "name": "clear_effect_history",
+            "qualifiers": "",
+            "description": "Clears the chronological buffer of effect application and removal events on this component.",
+            "return_type": "void",
+            "params": []
+        },
+        {
+            "name": "clear_effects",
+            "qualifiers": "",
+            "description": "Removes all active effects from the actor immediately.",
+            "return_type": "void",
+            "params": []
+        },
+        {
+            "name": "clear_event_history",
+            "qualifiers": "",
+            "description": "Clears all events from the historical buffer.",
+            "return_type": "void",
+            "params": []
+        },
+        {
+            "name": "clear_name_history",
+            "qualifiers": "",
+            "description": "Clears the short-term historical buffer for [constant ASTagUtils.NAME] tags on this component.",
+            "return_type": "void",
+            "params": []
+        },
+        {
+            "name": "clear_tag_history",
+            "qualifiers": "",
+            "description": "Clears all short-term tag history buffers (NAME and CONDITIONAL) on the component.",
+            "return_type": "void",
+            "params": []
+        },
+        {
+            "name": "confirm_ability_activation",
+            "qualifiers": "",
+            "description": "Confirms a previously predicted ability activation (Server-side confirmation).",
+            "return_type": "void",
+            "params": [
+                {
+                    "name": "tag",
+                    "type": "StringName",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "dispatch_event",
+            "qualifiers": "",
+            "description": "Dispatches a transient ASEventTag to this component. The event is broadcast to all listeners and stored in the short-term historical buffer ([method has_event_occurred]). This is the preferred way to signal non-persistent occurrences (e.g. Impact, Hit, Achievement).",
+            "return_type": "void",
+            "params": [
+                {
+                    "name": "tag",
+                    "type": "StringName",
+                    "default": ""
+                },
+                {
+                    "name": "instigator",
+                    "type": "Node",
+                    "default": "null"
+                },
+                {
+                    "name": "magnitude",
+                    "type": "float",
+                    "default": "0.0"
+                },
+                {
+                    "name": "custom_payload",
+                    "type": "Dictionary",
+                    "default": "{}"
+                }
+            ]
+        },
+        {
+            "name": "find_effect_by_tag",
+            "qualifiers": "const",
+            "description": "Searches the archetype container and all currently unlocked abilities to find the [ASEffect] resource associated with the given tag.",
+            "return_type": "ASEffect",
+            "params": [
+                {
+                    "name": "tag",
+                    "type": "StringName",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "get_ability_cooldown_preview",
+            "qualifiers": "const",
+            "description": "Retrieves the base cooldown defined in the ability resource catalog for preview purposes.",
+            "return_type": "float",
+            "params": [
+                {
+                    "name": "tag",
+                    "type": "StringName",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "get_ability_cost_preview",
+            "qualifiers": "const",
+            "description": "Retrieves the base cost for a specific attribute of an ability from the catalog. Useful for UI tooltips.",
+            "return_type": "float",
+            "params": [
+                {
+                    "name": "tag",
+                    "type": "StringName",
+                    "default": ""
+                },
+                {
+                    "name": "attribute",
+                    "type": "StringName",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "get_ability_duration_preview",
+            "qualifiers": "const",
+            "description": "Retrieves the base duration defined in the ability resource catalog.",
+            "return_type": "float",
+            "params": [
+                {
+                    "name": "tag",
+                    "type": "StringName",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "get_ability_history",
+            "qualifiers": "const",
+            "description": "Retrieves the buffer of ability lifecycle events (Started, Finished, etc.) within the requested timeframe. Each entry is a [Dictionary] representing an ASAbilityHistorical record.",
+            "return_type": "Dictionary[]",
+            "params": [
+                {
+                    "name": "lookback_sec",
+                    "type": "float",
+                    "default": "1.0"
+                }
+            ]
+        },
+        {
+            "name": "get_ability_history_size",
+            "qualifiers": "const",
+            "description": "Returns the current size of the ability history buffer.",
+            "return_type": "int",
+            "params": []
+        },
+        {
+            "name": "get_active_abilities",
+            "qualifiers": "const",
+            "description": "Returns a list of all abilities currently executing on this actor.",
+            "return_type": "ASAbilitySpec[]",
+            "params": []
+        },
+        {
+            "name": "get_active_cues",
+            "qualifiers": "const",
+            "description": "Returns a list of all active feedback cues (VFX/SFX) currently running on this actor.",
+            "return_type": "ASCueSpec[]",
+            "params": []
+        },
+        {
+            "name": "get_active_effects",
+            "qualifiers": "const",
+            "description": "Returns a list of all active effect instances (buffs, debuffs, etc.) applied to this actor.",
+            "return_type": "ASEffectSpec[]",
+            "params": []
+        },
+        {
+            "name": "get_animation_player",
+            "qualifiers": "const",
+            "description": "Returns the registered AnimationPlayer or AnimatedSprite node.",
+            "return_type": "Node",
+            "params": []
+        },
+        {
+            "name": "get_attribute_base_value_by_resource",
+            "qualifiers": "const",
+            "description": "Returns the unmodified base value of the specified attribute resource.",
+            "return_type": "float",
+            "params": [
+                {
+                    "name": "attribute",
+                    "type": "ASAttribute",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "get_attribute_base_value_by_tag",
+            "qualifiers": "const",
+            "description": "Returns the unmodified base value of the attribute identified by the tag.",
+            "return_type": "float",
+            "params": [
+                {
+                    "name": "tag",
+                    "type": "StringName",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "get_attribute_history",
+            "qualifiers": "const",
+            "description": "Retrieves chronological entries of attribute modifications within the requested timeframe. Each entry is a [Dictionary] representing an ASAttributeHistorical record.",
+            "return_type": "Dictionary[]",
+            "params": [
+                {
+                    "name": "lookback_sec",
+                    "type": "float",
+                    "default": "1.0"
+                }
+            ]
+        },
+        {
+            "name": "get_attribute_history_size",
+            "qualifiers": "const",
+            "description": "Returns the current size of the attribute history buffer.",
+            "return_type": "int",
+            "params": []
+        },
+        {
+            "name": "get_attribute_last_delta",
+            "qualifiers": "const",
+            "description": "Retrieves the final delta (change amount) for the specified attribute from the last historical entry. Returns 0.0 if no history exists for that attribute.",
+            "return_type": "float",
+            "params": [
+                {
+                    "name": "attribute",
+                    "type": "StringName",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "get_attribute_max_value",
+            "qualifiers": "const",
+            "description": "Retrieves the maximum value (ceiling) defined for the attribute resource.",
+            "return_type": "float",
+            "params": [
+                {
+                    "name": "tag",
+                    "type": "StringName",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "get_attribute_percent",
+            "qualifiers": "const",
+            "description": "Returns the ratio of [method get_attribute_value_by_tag] to [method get_attribute_max_value]. Useful for health bars and resource gauges.",
+            "return_type": "float",
+            "params": [
+                {
+                    "name": "tag",
+                    "type": "StringName",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "get_attribute_sets",
+            "qualifiers": "const",
+            "description": "Returns the list of attribute sets attached to this component.",
+            "return_type": "ASAttributeSet[]",
+            "params": []
+        },
+        {
+            "name": "get_attribute_value_by_resource",
+            "qualifiers": "const",
+            "description": "Returns the current value of the specified attribute resource.",
+            "return_type": "float",
+            "params": [
+                {
+                    "name": "attribute",
+                    "type": "ASAttribute",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "get_attribute_value_by_tag",
+            "qualifiers": "const",
+            "description": "Returns the current value of the attribute identified by the tag.",
+            "return_type": "float",
+            "params": [
+                {
+                    "name": "tag",
+                    "type": "StringName",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "get_audio_player",
+            "qualifiers": "const",
+            "description": "Returns the registered AudioStreamPlayer node.",
+            "return_type": "Node",
+            "params": []
+        },
+        {
+            "name": "get_conditional_history_size",
+            "qualifiers": "const",
+            "description": "Returns the number of entries currently stored in the conditional history buffer.",
+            "return_type": "int",
+            "params": []
+        },
+        {
+            "name": "get_cooldown_percent",
+            "qualifiers": "const",
+            "description": "Returns the completion ratio of the cooldown (remaining / initial duration). Returns 0.0 if not on cooldown.",
+            "return_type": "float",
+            "params": [
+                {
+                    "name": "ability_tag",
+                    "type": "StringName",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "get_cooldown_remaining",
+            "qualifiers": "const",
+            "description": "Returns the time remaining for a specific cooldown tag.",
+            "return_type": "float",
+            "params": [
+                {
+                    "name": "ability_tag",
+                    "type": "StringName",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "get_cue_history",
+            "qualifiers": "const",
+            "description": "Retrieves the buffer of visual cue events occurred within the last [param lookback_sec] seconds. Each entry is a [Dictionary] representing an ASCueHistorical record.",
+            "return_type": "Dictionary[]",
+            "params": [
+                {
+                    "name": "lookback_sec",
+                    "type": "float",
+                    "default": "1.0"
+                }
+            ]
+        },
+        {
+            "name": "get_cue_history_size",
+            "qualifiers": "const",
+            "description": "Returns the current size of the cue history buffer.",
+            "return_type": "int",
+            "params": []
+        },
+        {
+            "name": "get_cue_resource",
+            "qualifiers": "const",
+            "description": "Returns the cue resource associated with the specified tag.",
+            "return_type": "ASCue",
+            "params": [
+                {
+                    "name": "tag",
+                    "type": "StringName",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "get_effect_history",
+            "qualifiers": "const",
+            "description": "Retrieves the buffer of effect lifecycle events within the requested timeframe. Each entry is a [Dictionary] representing an ASEffectHistorical record.",
+            "return_type": "Dictionary[]",
+            "params": [
+                {
+                    "name": "lookback_sec",
+                    "type": "float",
+                    "default": "1.0"
+                }
+            ]
+        },
+        {
+            "name": "get_effect_history_size",
+            "qualifiers": "const",
+            "description": "Returns the current size of the effect history buffer.",
+            "return_type": "int",
+            "params": []
+        },
+        {
+            "name": "get_event_history_size",
+            "qualifiers": "const",
+            "description": "Returns the number of entries currently stored in the event history buffer.",
+            "return_type": "int",
+            "params": []
+        },
+        {
+            "name": "get_name_history_size",
+            "qualifiers": "const",
+            "description": "Returns the number of entries currently stored in the name history buffer.",
+            "return_type": "int",
+            "params": []
+        },
+        {
+            "name": "get_node_ptr",
+            "qualifiers": "const",
+            "description": "Returns a registered node by its alias.",
+            "return_type": "Node",
+            "params": [
+                {
+                    "name": "name",
+                    "type": "StringName",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "get_owned_tags",
+            "qualifiers": "const",
+            "description": "Exposes the internal tag manager [ASTagSpec] for detailed inspections. Use this to bypass the high-level API and access refcounts or recursive hierarchy queries directly.",
+            "return_type": "ASTagSpec",
+            "params": []
+        },
+        {
+            "name": "get_registered_cues",
+            "qualifiers": "const",
+            "description": "Returns the list of all cue resources currently registered with this component.",
+            "return_type": "ASCue[]",
+            "params": []
+        },
+        {
+            "name": "get_tags",
+            "qualifiers": "const",
+            "description": "Returns an array of all tags currently owned by the actor.",
+            "return_type": "StringName[]",
+            "params": []
+        },
+        {
+            "name": "get_unlocked_abilities",
+            "qualifiers": "const",
+            "description": "Returns a list of all abilities currently unlocked for this actor.",
+            "return_type": "ASAbilitySpec[]",
+            "params": []
+        },
+        {
+            "name": "has_active_effect_by_resource",
+            "qualifiers": "const",
+            "description": "Returns true if the specified effect resource is currently active.",
+            "return_type": "bool",
+            "params": [
+                {
+                    "name": "effect",
+                    "type": "ASEffect",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "has_active_effect_by_tag",
+            "qualifiers": "const",
+            "description": "Returns true if an effect with the specified tag is currently active.",
+            "return_type": "bool",
+            "params": [
+                {
+                    "name": "tag",
+                    "type": "StringName",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "has_attribute_by_resource",
+            "qualifiers": "const",
+            "description": "Returns true if the component has the specified attribute resource.",
+            "return_type": "bool",
+            "params": [
+                {
+                    "name": "attribute",
+                    "type": "ASAttribute",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "has_attribute_by_tag",
+            "qualifiers": "const",
+            "description": "Returns true if the component has an attribute with the specified tag.",
+            "return_type": "bool",
+            "params": [
+                {
+                    "name": "tag",
+                    "type": "StringName",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "has_event_occurred",
+            "qualifiers": "const",
+            "description": "Checks the internal historical buffer for a specific event tag that occurred within the last [param lookback_sec] seconds. Highly efficient for reactive logic and ability requirements.",
+            "return_type": "bool",
+            "params": [
+                {
+                    "name": "tag",
+                    "type": "StringName",
+                    "default": ""
+                },
+                {
+                    "name": "lookback_sec",
+                    "type": "float",
+                    "default": "1.0"
+                }
+            ]
+        },
+        {
+            "name": "has_tag",
+            "qualifiers": "const",
+            "description": "Checks for tag presence.",
+            "return_type": "bool",
+            "params": [
+                {
+                    "name": "tag",
+                    "type": "StringName",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "is_ability_active",
+            "qualifiers": "const",
+            "description": "Returns true if an ability with the specified tag is currently executing.",
+            "return_type": "bool",
+            "params": [
+                {
+                    "name": "tag",
+                    "type": "StringName",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "is_ability_unlocked",
+            "qualifiers": "const",
+            "description": "Returns true if the ability tag is present in the unlocked list of the component.",
+            "return_type": "bool",
+            "params": [
+                {
+                    "name": "tag",
+                    "type": "StringName",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "is_montage_playing",
+            "qualifiers": "const",
+            "description": "Returns true if a montage (animation) is currently playing on the target.",
+            "return_type": "bool",
+            "params": [
+                {
+                    "name": "name",
+                    "type": "StringName",
+                    "default": ""
+                },
+                {
+                    "name": "target",
+                    "type": "Node",
+                    "default": "null"
+                }
+            ]
+        },
+        {
+            "name": "is_on_cooldown",
+            "qualifiers": "const",
+            "description": "Checks if a specific tag is on cooldown.",
+            "return_type": "bool",
+            "params": [
+                {
+                    "name": "ability_tag",
+                    "type": "StringName",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "lock_ability_by_resource",
+            "qualifiers": "",
+            "description": "Removes the ability from the unlocked list and cancels it if active.",
+            "return_type": "void",
+            "params": [
+                {
+                    "name": "ability",
+                    "type": "ASAbility",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "lock_ability_by_tag",
+            "qualifiers": "",
+            "description": "Removes the ability matching the tag from the unlocked list.",
+            "return_type": "void",
+            "params": [
+                {
+                    "name": "tag",
+                    "type": "StringName",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "make_outgoing_spec",
+            "qualifiers": "",
+            "description": "Creates a validated effect instance.",
+            "return_type": "ASEffectSpec",
+            "params": [
+                {
+                    "name": "effect",
+                    "type": "ASEffect",
+                    "default": ""
+                },
+                {
+                    "name": "level",
+                    "type": "float",
+                    "default": "1.0"
+                },
+                {
+                    "name": "target_node",
+                    "type": "Object",
+                    "default": "null"
+                }
+            ]
+        },
+        {
+            "name": "play_montage",
+            "qualifiers": "",
+            "description": "Plays a montage (animation) on a specific target node.",
+            "return_type": "void",
+            "params": [
+                {
+                    "name": "name",
+                    "type": "StringName",
+                    "default": ""
+                },
+                {
+                    "name": "target",
+                    "type": "Node",
+                    "default": "null"
+                }
+            ]
+        },
+        {
+            "name": "play_sound",
+            "qualifiers": "",
+            "description": "Plays a sound stream on a specific target node.",
+            "return_type": "void",
+            "params": [
+                {
+                    "name": "sound",
+                    "type": "AudioStream",
+                    "default": ""
+                },
+                {
+                    "name": "target",
+                    "type": "Node",
+                    "default": "null"
+                }
+            ]
+        },
+        {
+            "name": "register_cue_resource",
+            "qualifiers": "",
+            "description": "Registers a cue resource for runtime lookup.",
+            "return_type": "void",
+            "params": [
+                {
+                    "name": "cue",
+                    "type": "ASCue",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "register_node",
+            "qualifiers": "",
+            "description": "Registers a node with an alias for use by cues and effects.",
+            "return_type": "void",
+            "params": [
+                {
+                    "name": "name",
+                    "type": "StringName",
+                    "default": ""
+                },
+                {
+                    "name": "node",
+                    "type": "Node",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "remove_active_effect",
+            "qualifiers": "",
+            "description": "Forcefully removes an active effect instance.",
+            "return_type": "void",
+            "params": [
+                {
+                    "name": "spec",
+                    "type": "ASEffectSpec",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "remove_all_tags",
+            "qualifiers": "",
+            "description": "Removes all tags from the component and triggers associated events and ability triggers.",
+            "return_type": "void",
+            "params": []
+        },
+        {
+            "name": "remove_effect_by_resource",
+            "qualifiers": "",
+            "description": "Removes all active instances of the given effect resource.",
+            "return_type": "void",
+            "params": [
+                {
+                    "name": "effect",
+                    "type": "ASEffect",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "remove_effect_by_tag",
+            "qualifiers": "",
+            "description": "Removes all active effects that match the given tag.",
+            "return_type": "void",
+            "params": [
+                {
+                    "name": "tag",
+                    "type": "StringName",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "remove_tag",
+            "qualifiers": "",
+            "description": "Removes a tag.",
+            "return_type": "void",
+            "params": [
+                {
+                    "name": "tag",
+                    "type": "StringName",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "request_activate_ability",
+            "qualifiers": "",
+            "description": "Requests the server to activate an ability. Used for client-side prediction and RPC communication.",
+            "return_type": "void",
+            "params": [
+                {
+                    "name": "tag",
+                    "type": "StringName",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "rollback_to_tick",
+            "qualifiers": "",
+            "description": "",
+            "return_type": "void",
+            "params": [
+                {
+                    "name": "tick",
+                    "type": "int",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "set_animation_player",
+            "qualifiers": "",
+            "description": "Registers the node to be used for animations (AnimationPlayer or AnimatedSprite).",
+            "return_type": "void",
+            "params": [
+                {
+                    "name": "node",
+                    "type": "Node",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "set_attribute_base_value_by_resource",
+            "qualifiers": "",
+            "description": "Directly sets the base value of the specified attribute resource.",
+            "return_type": "void",
+            "params": [
+                {
+                    "name": "attribute",
+                    "type": "ASAttribute",
+                    "default": ""
+                },
+                {
+                    "name": "value",
+                    "type": "float",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "set_attribute_base_value_by_tag",
+            "qualifiers": "",
+            "description": "Directly sets the base value of an attribute by its tag.",
+            "return_type": "void",
+            "params": [
+                {
+                    "name": "tag",
+                    "type": "StringName",
+                    "default": ""
+                },
+                {
+                    "name": "value",
+                    "type": "float",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "set_audio_player",
+            "qualifiers": "",
+            "description": "Registers the node to be used for audio (AudioStreamPlayer).",
+            "return_type": "void",
+            "params": [
+                {
+                    "name": "node",
+                    "type": "Node",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "start_cooldown",
+            "qualifiers": "",
+            "description": "Manually starts a cooldown with a specific tag and duration.",
+            "return_type": "void",
+            "params": [
+                {
+                    "name": "ability_tag",
+                    "type": "StringName",
+                    "default": ""
+                },
+                {
+                    "name": "duration",
+                    "type": "float",
+                    "default": ""
+                },
+                {
+                    "name": "tags",
+                    "type": "StringName[]",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "tick",
+            "qualifiers": "",
+            "description": "Manually advances the component's internal simulation by [param delta] seconds. This is called automatically during the physics step.",
+            "return_type": "void",
+            "params": [
+                {
+                    "name": "delta",
+                    "type": "float",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "try_activate_ability_by_resource",
+            "qualifiers": "",
+            "description": "Attempts to activate an ability using its resource reference. Supports hierarchical linking via [param parent_id].",
+            "return_type": "bool",
+            "params": [
+                {
+                    "name": "ability",
+                    "type": "ASAbility",
+                    "default": ""
+                },
+                {
+                    "name": "target_node",
+                    "type": "Object",
+                    "default": "null"
+                },
+                {
+                    "name": "parent_id",
+                    "type": "int",
+                    "default": "0"
+                }
+            ]
+        },
+        {
+            "name": "try_activate_ability_by_tag",
+            "qualifiers": "",
+            "description": "Attempts to activate an ability by its unique tag.",
+            "return_type": "bool",
+            "params": [
+                {
+                    "name": "tag",
+                    "type": "StringName",
+                    "default": ""
+                },
+                {
+                    "name": "target_node",
+                    "type": "Object",
+                    "default": "null"
+                }
+            ]
+        },
+        {
+            "name": "try_activate_cue_by_resource",
+            "qualifiers": "",
+            "description": "Attempts to activate a cue resource if requirements are met.",
+            "return_type": "bool",
+            "params": [
+                {
+                    "name": "cue",
+                    "type": "ASCue",
+                    "default": ""
+                },
+                {
+                    "name": "data",
+                    "type": "Dictionary",
+                    "default": "{}"
+                },
+                {
+                    "name": "target_node",
+                    "type": "Object",
+                    "default": "null"
+                }
+            ]
+        },
+        {
+            "name": "try_activate_cue_by_tag",
+            "qualifiers": "",
+            "description": "Attempts to activate a cue by tag if requirements are met.",
+            "return_type": "bool",
+            "params": [
+                {
+                    "name": "tag",
+                    "type": "StringName",
+                    "default": ""
+                },
+                {
+                    "name": "data",
+                    "type": "Dictionary",
+                    "default": "{}"
+                },
+                {
+                    "name": "target_node",
+                    "type": "Object",
+                    "default": "null"
+                }
+            ]
+        },
+        {
+            "name": "try_activate_effect_by_resource",
+            "qualifiers": "",
+            "description": "Attempts to apply an effect resource if requirements are met.",
+            "return_type": "bool",
+            "params": [
+                {
+                    "name": "effect",
+                    "type": "ASEffect",
+                    "default": ""
+                },
+                {
+                    "name": "level",
+                    "type": "float",
+                    "default": "1.0"
+                },
+                {
+                    "name": "target_node",
+                    "type": "Object",
+                    "default": "null"
+                }
+            ]
+        },
+        {
+            "name": "try_activate_effect_by_tag",
+            "qualifiers": "",
+            "description": "Attempts to apply an effect by tag if requirements are met.",
+            "return_type": "bool",
+            "params": [
+                {
+                    "name": "tag",
+                    "type": "StringName",
+                    "default": ""
+                },
+                {
+                    "name": "level",
+                    "type": "float",
+                    "default": "1.0"
+                },
+                {
+                    "name": "target_node",
+                    "type": "Object",
+                    "default": "null"
+                }
+            ]
+        },
+        {
+            "name": "unlock_ability_by_resource",
+            "qualifiers": "",
+            "description": "Adds an ability resource to the unlocked list in the primary attribute set.",
+            "return_type": "void",
+            "params": [
+                {
+                    "name": "ability",
+                    "type": "ASAbility",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "unlock_ability_by_tag",
+            "qualifiers": "",
+            "description": "Finds the ability in the catalog and adds it to the unlocked list.",
+            "return_type": "void",
+            "params": [
+                {
+                    "name": "tag",
+                    "type": "StringName",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "unregister_cue_resource",
+            "qualifiers": "",
+            "description": "Unregisters the cue resource associated with the specified tag.",
+            "return_type": "void",
+            "params": [
+                {
+                    "name": "tag",
+                    "type": "StringName",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "unregister_node",
+            "qualifiers": "",
+            "description": "Unregisters the node alias.",
+            "return_type": "void",
+            "params": [
+                {
+                    "name": "name",
+                    "type": "StringName",
+                    "default": ""
+                }
+            ]
+        }
+    ],
+    "signals": [
+        {
+            "name": "ability_activated",
+            "description": "Emitted when an ability starts.",
+            "params": [
+                {
+                    "name": "ability_spec",
+                    "type": "Object"
+                }
+            ]
+        },
+        {
+            "name": "ability_ended",
+            "description": "Emitted when an ability stops.",
+            "params": [
+                {
+                    "name": "ability_spec",
+                    "type": "Object"
+                },
+                {
+                    "name": "was_cancelled",
+                    "type": "bool"
+                }
+            ]
+        },
+        {
+            "name": "ability_failed",
+            "description": "Emitted when an ability fails to activate, providing the reason.",
+            "params": [
+                {
+                    "name": "ability_name",
+                    "type": "StringName"
+                },
+                {
+                    "name": "reason",
+                    "type": "String"
+                }
+            ]
+        },
+        {
+            "name": "attribute_changed",
+            "description": "Emitted on stat changes.",
+            "params": [
+                {
+                    "name": "attribute_name",
+                    "type": "StringName"
+                },
+                {
+                    "name": "old_value",
+                    "type": "float"
+                },
+                {
+                    "name": "new_value",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "cooldown_ended",
+            "description": "Emitted when a cooldown duration reaches zero.",
+            "params": [
+                {
+                    "name": "ability_tag",
+                    "type": "StringName"
+                }
+            ]
+        },
+        {
+            "name": "cooldown_started",
+            "description": "Emitted when a new cooldown starts.",
+            "params": [
+                {
+                    "name": "ability_tag",
+                    "type": "StringName"
+                },
+                {
+                    "name": "duration",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "cue_failed",
+            "description": "Emitted when a cue fails to activate.",
+            "params": [
+                {
+                    "name": "cue_name",
+                    "type": "StringName"
+                },
+                {
+                    "name": "reason",
+                    "type": "String"
+                }
+            ]
+        },
+        {
+            "name": "effect_applied",
+            "description": "Emitted when an effect is successfully applied to the component.",
+            "params": [
+                {
+                    "name": "effect_spec",
+                    "type": "Object"
+                }
+            ]
+        },
+        {
+            "name": "effect_failed",
+            "description": "Emitted when an effect fails to apply.",
+            "params": [
+                {
+                    "name": "effect_name",
+                    "type": "StringName"
+                },
+                {
+                    "name": "reason",
+                    "type": "String"
+                }
+            ]
+        },
+        {
+            "name": "effect_removed",
+            "description": "Emitted when an active effect is removed.",
+            "params": [
+                {
+                    "name": "effect_spec",
+                    "type": "Object"
+                }
+            ]
+        },
+        {
+            "name": "event_received",
+            "description": "Emitted when an ASEventTag is dispatched to this component. Used for transient signals.",
+            "params": [
+                {
+                    "name": "tag",
+                    "type": "StringName"
+                },
+                {
+                    "name": "instigator",
+                    "type": "Object"
+                },
+                {
+                    "name": "magnitude",
+                    "type": "float"
+                },
+                {
+                    "name": "custom_payload",
+                    "type": "Dictionary"
+                }
+            ]
+        },
+        {
+            "name": "tag_changed",
+            "description": "Emitted when persistent tags (states) are added or removed.",
+            "params": [
+                {
+                    "name": "tag_name",
+                    "type": "StringName"
+                },
+                {
+                    "name": "is_present",
+                    "type": "bool"
+                }
+            ]
+        },
+        {
+            "name": "tag_event_received",
+            "description": "Emitted when a tag-based event containing a data payload is received. Similar to [signal event_received] but optimized for logic requiring specific data dictionaries without instigator or magnitude metadata.",
+            "params": [
+                {
+                    "name": "event_tag",
+                    "type": "StringName"
+                },
+                {
+                    "name": "data",
+                    "type": "Dictionary"
+                }
+            ]
+        }
+    ],
+    "constants": []
+}

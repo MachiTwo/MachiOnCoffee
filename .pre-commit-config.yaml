@@ -7,6 +7,8 @@ exclude: |
     .*\.pdf$|
     temp/.*|
     .*/temp/.*
+    .*\.json$|
+    .*\.html$|
   )$
 
 repos:
@@ -42,6 +44,12 @@ repos:
         name: Generate Index
         entry: python generate_index.py
         language: system
+        pass_filenames: false
+      - id: xml-to-json
+        name: XML to JSON Documentation Generator
+        entry: python scripts/xml_to_json.py
+        language: system
+        files: \.xml$
         pass_filenames: false
 
   - repo: https://github.com/igorshubovych/markdownlint-cli

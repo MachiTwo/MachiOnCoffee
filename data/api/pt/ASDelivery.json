@@ -1,0 +1,145 @@
+{
+    "name": "ASDelivery",
+    "inherits": "Node",
+    "brief_description": "Reactive effect delivery node for projectiles and payloads.",
+    "description": "[ASDelivery] is a specialized node designed to carry and deliver [ASPackage]s to [ASComponent] targets.\n\t\tUnlike [ASComponent], which acts as a full ability system hub for an actor, [ASDelivery] is a lightweight utility that can be attached to any node (like a projectile's Area2D) to inject effects upon impact.",
+    "properties": [
+        {
+            "name": "auto_connect",
+            "type": "bool",
+            "setter": "set_auto_connect",
+            "getter": "get_auto_connect",
+            "default": "false",
+            "description": "If true, attempts to connect automatically to [Area2D] or [Area3D] signals in the parent node."
+        },
+        {
+            "name": "is_active",
+            "type": "bool",
+            "setter": "set_active",
+            "getter": "get_active",
+            "default": "false",
+            "description": "Current activation state."
+        },
+        {
+            "name": "level",
+            "type": "float",
+            "setter": "set_level",
+            "getter": "get_level",
+            "default": "1.0",
+            "description": "The magnitude or strength level of the delivery. This gets injected into all effects spawned by the delivery."
+        },
+        {
+            "name": "life_span",
+            "type": "float",
+            "setter": "set_life_span",
+            "getter": "get_life_span",
+            "default": "0.0",
+            "description": "Maximum duration the delivery stays active (0 = infinite)."
+        },
+        {
+            "name": "one_shot",
+            "type": "bool",
+            "setter": "set_one_shot",
+            "getter": "get_one_shot",
+            "default": "false",
+            "description": "If true, the delivery deactivates automatically after the first successful delivery."
+        },
+        {
+            "name": "package",
+            "type": "ASPackage",
+            "setter": "set_package",
+            "getter": "get_package",
+            "default": "",
+            "description": "The [ASPackage] payload containing effects and cues."
+        },
+        {
+            "name": "source_component",
+            "type": "ASComponent",
+            "setter": "set_source_component",
+            "getter": "get_source_component",
+            "default": "",
+            "description": "The [ASComponent] that initiated this delivery (e.g., the original attacker)."
+        },
+        {
+            "name": "target_groups",
+            "type": "StringName[]",
+            "setter": "set_target_groups",
+            "getter": "get_target_groups",
+            "default": "[]",
+            "description": "List of groups that targets must belong to for delivery to occur."
+        }
+    ],
+    "methods": [
+        {
+            "name": "activate",
+            "qualifiers": "",
+            "description": "Activates the delivery. If [param duration] is positive, it overrides [member life_span].",
+            "return_type": "void",
+            "params": [
+                {
+                    "name": "duration",
+                    "type": "float",
+                    "default": "-1.0"
+                }
+            ]
+        },
+        {
+            "name": "can_deliver_to",
+            "qualifiers": "const",
+            "description": "Checks if the delivery can reach the specified target (checks groups and validity).",
+            "return_type": "bool",
+            "params": [
+                {
+                    "name": "target",
+                    "type": "Node",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "deactivate",
+            "qualifiers": "",
+            "description": "Deactivates the delivery.",
+            "return_type": "void",
+            "params": []
+        },
+        {
+            "name": "deliver",
+            "qualifiers": "",
+            "description": "Delivers the payload of an [ASPackage] to the target component. Automatically dispatches ASEventTags defined in the package upon successful delivery.",
+            "return_type": "void",
+            "params": [
+                {
+                    "name": "target",
+                    "type": "Node",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "is_delivery_valid",
+            "qualifiers": "const",
+            "description": "Returns true if the delivery is active and hasn't expired.",
+            "return_type": "bool",
+            "params": []
+        }
+    ],
+    "signals": [
+        {
+            "name": "delivered",
+            "description": "Emitted when a package is successfully delivered to a target.",
+            "params": [
+                {
+                    "name": "target",
+                    "type": "Object"
+                }
+            ]
+        },
+        {
+            "name": "expired",
+            "description": "Emitted when the life_span timer reaches zero.",
+            "params": []
+        }
+    ],
+    "constants": []
+}

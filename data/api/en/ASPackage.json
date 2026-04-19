@@ -1,0 +1,178 @@
+{
+    "name": "ASPackage",
+    "inherits": "Resource",
+    "brief_description": "A reusable container for effects and cues that can be delivered.",
+    "description": "[ASPackage] is a data container that bundles multiple [ASEffect]s and [ASCue]s together. This is primarily used by [ASDelivery] to apply a complex payload (like a fireball's damage and visual effects) to a target [ASComponent].",
+    "properties": [
+        {
+            "name": "cues_resources",
+            "type": "ASCue[]",
+            "setter": "set_cues",
+            "getter": "get_cues",
+            "default": "[]",
+            "description": "List of direct [ASCue] resources."
+        },
+        {
+            "name": "cues_tags",
+            "type": "StringName[]",
+            "setter": "set_cue_tags",
+            "getter": "get_cue_tags",
+            "default": "[]",
+            "description": "List of cue tags."
+        },
+        {
+            "name": "effects_resources",
+            "type": "ASEffect[]",
+            "setter": "set_effects",
+            "getter": "get_effects",
+            "default": "[]",
+            "description": "List of direct [ASEffect] resources."
+        },
+        {
+            "name": "effects_tags",
+            "type": "StringName[]",
+            "setter": "set_effect_tags",
+            "getter": "get_effect_tags",
+            "default": "[]",
+            "description": "List of effect tags."
+        },
+        {
+            "name": "events_on_deliver",
+            "type": "StringName[]",
+            "setter": "set_events_on_deliver",
+            "getter": "get_events_on_deliver",
+            "default": "[]",
+            "description": "List of events dispatched to the target immediately upon package delivery."
+        },
+        {
+            "name": "package_tag",
+            "type": "StringName",
+            "setter": "set_package_tag",
+            "getter": "get_package_tag",
+            "default": "&\"\"",
+            "description": "Unique identifier tag for the package. Used for tracking and delivery logic."
+        }
+    ],
+    "methods": [
+        {
+            "name": "add_cue",
+            "qualifiers": "",
+            "description": "Adds a direct [ASCue] resource to the package.",
+            "return_type": "void",
+            "params": [
+                {
+                    "name": "cue",
+                    "type": "ASCue",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "add_cue_tag",
+            "qualifiers": "",
+            "description": "Adds a cue tag to be resolved by the target.",
+            "return_type": "void",
+            "params": [
+                {
+                    "name": "tag",
+                    "type": "StringName",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "add_effect",
+            "qualifiers": "",
+            "description": "Adds a direct [ASEffect] resource to the package.",
+            "return_type": "void",
+            "params": [
+                {
+                    "name": "effect",
+                    "type": "ASEffect",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "add_effect_tag",
+            "qualifiers": "",
+            "description": "Adds an effect tag to be resolved by the target.",
+            "return_type": "void",
+            "params": [
+                {
+                    "name": "tag",
+                    "type": "StringName",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "clear_cues",
+            "qualifiers": "",
+            "description": "Clears all cues from the package.",
+            "return_type": "void",
+            "params": []
+        },
+        {
+            "name": "clear_effects",
+            "qualifiers": "",
+            "description": "Clears all effects from the package.",
+            "return_type": "void",
+            "params": []
+        },
+        {
+            "name": "remove_cue",
+            "qualifiers": "",
+            "description": "Removes a direct [ASCue] resource from the package.",
+            "return_type": "void",
+            "params": [
+                {
+                    "name": "cue",
+                    "type": "ASCue",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "remove_cue_tag",
+            "qualifiers": "",
+            "description": "Removes a cue tag from the package.",
+            "return_type": "void",
+            "params": [
+                {
+                    "name": "tag",
+                    "type": "StringName",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "remove_effect",
+            "qualifiers": "",
+            "description": "Removes a direct [ASEffect] resource from the package.",
+            "return_type": "void",
+            "params": [
+                {
+                    "name": "effect",
+                    "type": "ASEffect",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "remove_effect_tag",
+            "qualifiers": "",
+            "description": "Removes an effect tag from the package.",
+            "return_type": "void",
+            "params": [
+                {
+                    "name": "tag",
+                    "type": "StringName",
+                    "default": ""
+                }
+            ]
+        }
+    ],
+    "signals": [],
+    "constants": []
+}

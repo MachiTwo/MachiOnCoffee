@@ -1,0 +1,27 @@
+{
+    "name": "BTConditionAS_CanActivate",
+    "inherits": "BTCondition",
+    "brief_description": "BTCondition that checks if an ability can be activated.",
+    "description": "A Behavior Tree condition that checks if an ability can be activated (requirements met, cooldown ready, costs affordable) without actually activating it.\n\t\tUses [method ASComponent.can_activate_ability_by_tag]. Returns [constant BT.SUCCESS] if can activate, [constant BT.FAILURE] otherwise.",
+    "properties": [
+        {
+            "name": "ability_tag",
+            "type": "StringName",
+            "setter": "set_ability_tag",
+            "getter": "get_ability_tag",
+            "default": "&\"\"",
+            "description": ""
+        },
+        {
+            "name": "asc_node_path",
+            "type": "NodePath",
+            "setter": "set_asc_node_path",
+            "getter": "get_asc_node_path",
+            "default": "NodePath(\"\")",
+            "description": ""
+        }
+    ],
+    "methods": [],
+    "signals": [],
+    "constants": []
+}

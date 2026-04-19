@@ -1,5 +1,12 @@
 ---
-title: Documentation
+title: MachiOnCoffee
+date: "2026-04-18T22:30:00-03:00"
+slug: docs
+tags:
+  - introduction
+  - personal
+  - trajectory
+draft: false
 type: docs
 sidebar:
   open: false
@@ -7,8 +14,6 @@ breadcrumbs: false
 ---
 
 {{< lang-toggle >}}
-
-{{< section-toggle >}}
 
 Select a project to explore:
 

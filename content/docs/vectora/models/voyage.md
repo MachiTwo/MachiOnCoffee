@@ -420,8 +420,8 @@ Mesmo o plano Free ($0 para usuários, BYOK) tem custo mínimo de ~$150/mês par
 
 ## Próximos Passos
 
-1. [Entenda Embeddings](../concepts/embeddings.md) — como o contexto é encontrado
-2. [Explore Reranking](../concepts/reranker.md) — como o contexto é refinado
+1. [Entenda Embeddings](../concepts/embeddings) — como o contexto é encontrado
+2. [Explore Reranking](../concepts/reranker) — como o contexto é refinado
 3. [Setup Vectora](../getting-started/) — comece a usar Gemini via Vectora
 4. [Guia de Preços](../pricing/) — entenda modelos de negócio
 

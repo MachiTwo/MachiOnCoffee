@@ -1,0 +1,10 @@
+{
+    "name": "ASEditorPropertyName",
+    "inherits": "EditorProperty",
+    "brief_description": "Editor property for resource names with uniqueness validation.",
+    "description": "[ASEditorPropertyName] provides a text field for entering resource names with automatic validation to ensure uniqueness across the project.\n\t\tDisplays a warning when a duplicate name is detected.",
+    "properties": [],
+    "methods": [],
+    "signals": [],
+    "constants": []
+}

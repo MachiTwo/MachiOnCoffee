@@ -1,0 +1,10 @@
+{
+    "name": "ASInspectorPlugin",
+    "inherits": "EditorInspectorPlugin",
+    "brief_description": "Editor integration for the Ability System.",
+    "description": "[ASInspectorPlugin] provides custom inspectors and UI for managing Tags and attributes within the Godot Editor.",
+    "properties": [],
+    "methods": [],
+    "signals": [],
+    "constants": []
+}

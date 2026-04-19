@@ -12,17 +12,16 @@ sidebar:
 
 The Vectora authentication layer ensures that only authorized users and services can access resources, namespaces, and sensitive operations. This section documents the identity mechanisms, API key management, and access control that protect your context infrastructure.
 
-> [!IMPORTANT]
-> **Application-level security, not database-level**: Vectora implements RBAC, namespace validation, and sanitization in the application layer (`Guardian`, `RBAC Logic`). The backend (MongoDB Atlas) stores data; the application decides who can access what.
+> [!IMPORTANT] > **Application-level security, not database-level**: Vectora implements RBAC, namespace validation, and sanitization in the application layer (`Guardian`, `RBAC Logic`). The backend (MongoDB Atlas) stores data; the application decides who can access what.
 
 ---
 
 ### 📋 Topics in this section
 
-| Page                                   | Description                                                                                                |
-| ---------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| [SSO / Unified Identity](/auth/sso/)     | Centralized authentication, session management, and integration with external providers (GitHub, Google, SAML) |
-| [API Keys](/auth/api-keys/)              | Creation, rotation, and scopes of API keys for programmatic integration with Vectora                   |
+| Page                                 | Description                                                                                                    |
+| ------------------------------------ | -------------------------------------------------------------------------------------------------------------- |
+| [SSO / Unified Identity](/auth/sso/) | Centralized authentication, session management, and integration with external providers (GitHub, Google, SAML) |
+| [API Keys](/auth/api-keys/)          | Creation, rotation, and scopes of API keys for programmatic integration with Vectora                           |
 
 ---
 
@@ -49,13 +48,13 @@ graph LR
 
 ### 🔑 Fundamental Concepts
 
-| Term             | Definition                                                                                        |
-| ---------------- | ------------------------------------------------------------------------------------------------ |
-| **Namespace**    | Logical isolation of data and operations; each project/team has its own namespace                |
-| **RBAC**         | Role-Based Access Control: roles like `reader`, `contributor`, `admin` define permissions        |
-| **API Key**      | Access token for programmatic integration, with granular scopes (`read`, `write`, `search`)      |
-| **JWT**          | Signed JSON Web Token that carries identity and permission claims                                |
-| **Trust Folder** | Filesystem scope allowed for operations; validated before any tool call                          |
+| Term             | Definition                                                                                  |
+| ---------------- | ------------------------------------------------------------------------------------------- |
+| **Namespace**    | Logical isolation of data and operations; each project/team has its own namespace           |
+| **RBAC**         | Role-Based Access Control: roles like `reader`, `contributor`, `admin` define permissions   |
+| **API Key**      | Access token for programmatic integration, with granular scopes (`read`, `write`, `search`) |
+| **JWT**          | Signed JSON Web Token that carries identity and permission claims                           |
+| **Trust Folder** | Filesystem scope allowed for operations; validated before any tool call                     |
 
 ---
 
@@ -67,8 +66,7 @@ graph LR
 ✅ **Monitor audit logs**: Use `audit_logs` to detect anomalous access  
 ✅ **Never expose keys in the client**: API Keys belong to the backend or the main agent, never to the browser
 
-> [!WARNING]
-> **Hard-coded Blocklist**: Files like `.env`, `.key`, `.pem` are blocked by `Guardian` before any processing — regardless of authentication. Security by code, not by configuration.
+> [!WARNING] > **Hard-coded Blocklist**: Files like `.env`, `.key`, `.pem` are blocked by `Guardian` before any processing — regardless of authentication. Security by code, not by configuration.
 
 ---
 

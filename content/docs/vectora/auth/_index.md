@@ -12,8 +12,7 @@ sidebar:
 
 A camada de autenticação do Vectora garante que apenas usuários e serviços autorizados acessem recursos, namespaces e operações sensíveis. Esta seção documenta os mecanismos de identidade, gestão de chaves de API e controle de acesso que protegem sua infraestrutura de contexto.
 
-> [!IMPORTANT]
-> **Segurança na aplicação, não no banco**: O Vectora implementa RBAC, validação de namespace e sanitização na camada de aplicação (`Guardian`, `RBAC Logic`). O backend (MongoDB Atlas) armazena dados; a aplicação decide quem pode acessar o quê.
+> [!IMPORTANT] > **Segurança na aplicação, não no banco**: O Vectora implementa RBAC, validação de namespace e sanitização na camada de aplicação (`Guardian`, `RBAC Logic`). O backend (MongoDB Atlas) armazena dados; a aplicação decide quem pode acessar o quê.
 
 ---
 
@@ -67,8 +66,7 @@ graph LR
 ✅ **Monitore logs de auditoria**: Use `audit_logs` para detectar acessos anômalos  
 ✅ **Nunca exponha chaves no client**: API Keys pertencem ao backend ou ao agent principal, nunca ao browser
 
-> [!WARNING]
-> **Blocklist hard-coded**: Arquivos como `.env`, `.key`, `.pem` são bloqueados pelo `Guardian` antes de qualquer processamento — independente de autenticação. Segurança por código, não por configuração.
+> [!WARNING] > **Blocklist hard-coded**: Arquivos como `.env`, `.key`, `.pem` são bloqueados pelo `Guardian` antes de qualquer processamento — independente de autenticação. Segurança por código, não por configuração.
 
 ---
 

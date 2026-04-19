@@ -1,0 +1,715 @@
+{
+    "name": "ASTagUtils",
+    "inherits": "RefCounted",
+    "brief_description": "Utility functions for tag type validation, creation, and historical queries.",
+    "description": "ASTagUtils provides comprehensive helper functions for working with Ability System tags.\n\t\tIncludes type validation, automatic type detection from naming conventions, factory methods,\n\t\tand powerful historical query APIs for all three tag types.\n\n\t\tFeatures three specialized historical namespaces:\n\t\t- NameHistory: Queries for NAME tags (State.Stunned, Class.Warrior)\n\t\t- ConditionalHistory: Queries for CONDITIONAL tags (Can.Parried, Immune.Fire)\n\t\t- EventHistory: Enhanced queries for EVENT tags (Event.Damage, Event.Ability.Activated)\n\t\t- UnifiedHistory: Cross-type queries and debug utilities\n\n\t\tThese utilities follow the BUSINESS_RULES.md conventions for tag naming\n\t\tand help maintain type safety across the system with full historical tracking.",
+    "properties": [],
+    "methods": [
+        {
+            "name": "cond_count_additions",
+            "qualifiers": "static",
+            "description": "Counts how many times a specific [constant CONDITIONAL] tag was added to the target within the last [param lookback_sec] seconds.",
+            "return_type": "int",
+            "params": [
+                {
+                    "name": "tag",
+                    "type": "StringName",
+                    "default": ""
+                },
+                {
+                    "name": "target",
+                    "type": "Node",
+                    "default": ""
+                },
+                {
+                    "name": "lookback_sec",
+                    "type": "float",
+                    "default": "1.0"
+                }
+            ]
+        },
+        {
+            "name": "cond_count_removals",
+            "qualifiers": "static",
+            "description": "Counts how many times a specific [constant CONDITIONAL] tag was removed from the target within the last [param lookback_sec] seconds.",
+            "return_type": "int",
+            "params": [
+                {
+                    "name": "tag",
+                    "type": "StringName",
+                    "default": ""
+                },
+                {
+                    "name": "target",
+                    "type": "Node",
+                    "default": ""
+                },
+                {
+                    "name": "lookback_sec",
+                    "type": "float",
+                    "default": "1.0"
+                }
+            ]
+        },
+        {
+            "name": "cond_get_recent_additions",
+            "qualifiers": "static",
+            "description": "Returns an array of conditional tag names that were added to the target within the last [param lookback_sec] seconds.",
+            "return_type": "Array",
+            "params": [
+                {
+                    "name": "target",
+                    "type": "Node",
+                    "default": ""
+                },
+                {
+                    "name": "lookback_sec",
+                    "type": "float",
+                    "default": "1.0"
+                }
+            ]
+        },
+        {
+            "name": "cond_get_recent_changes",
+            "qualifiers": "static",
+            "description": "Returns an array of all conditional tag events (additions and removals) that occurred within the last [param lookback_sec] seconds.",
+            "return_type": "Array",
+            "params": [
+                {
+                    "name": "target",
+                    "type": "Node",
+                    "default": ""
+                },
+                {
+                    "name": "lookback_sec",
+                    "type": "float",
+                    "default": "1.0"
+                }
+            ]
+        },
+        {
+            "name": "cond_get_recent_removals",
+            "qualifiers": "static",
+            "description": "Returns an array of conditional tag names that were removed from the target within the last [param lookback_sec] seconds.",
+            "return_type": "Array",
+            "params": [
+                {
+                    "name": "target",
+                    "type": "Node",
+                    "default": ""
+                },
+                {
+                    "name": "lookback_sec",
+                    "type": "float",
+                    "default": "1.0"
+                }
+            ]
+        },
+        {
+            "name": "cond_had_tag",
+            "qualifiers": "static",
+            "description": "Returns true if the target had the specified conditional tag at any point during the last [param lookback_sec] seconds.",
+            "return_type": "bool",
+            "params": [
+                {
+                    "name": "tag",
+                    "type": "StringName",
+                    "default": ""
+                },
+                {
+                    "name": "target",
+                    "type": "Node",
+                    "default": ""
+                },
+                {
+                    "name": "lookback_sec",
+                    "type": "float",
+                    "default": "1.0"
+                }
+            ]
+        },
+        {
+            "name": "cond_was_tag_added",
+            "qualifiers": "static",
+            "description": "Returns true if the specified conditional tag was added to the target within the last [param lookback_sec] seconds.",
+            "return_type": "bool",
+            "params": [
+                {
+                    "name": "tag",
+                    "type": "StringName",
+                    "default": ""
+                },
+                {
+                    "name": "target",
+                    "type": "Node",
+                    "default": ""
+                },
+                {
+                    "name": "lookback_sec",
+                    "type": "float",
+                    "default": "1.0"
+                }
+            ]
+        },
+        {
+            "name": "cond_was_tag_removed",
+            "qualifiers": "static",
+            "description": "Returns true if the specified conditional tag was removed from the target within the last [param lookback_sec] seconds.",
+            "return_type": "bool",
+            "params": [
+                {
+                    "name": "tag",
+                    "type": "StringName",
+                    "default": ""
+                },
+                {
+                    "name": "target",
+                    "type": "Node",
+                    "default": ""
+                },
+                {
+                    "name": "lookback_sec",
+                    "type": "float",
+                    "default": "1.0"
+                }
+            ]
+        },
+        {
+            "name": "detect_tag_type",
+            "qualifiers": "static",
+            "description": "Detects tag type from naming convention.\n\t\t\t\tEvent.* -> EVENT, Can.* or Immune.* -> CONDITIONAL, others -> NAME.",
+            "return_type": "int",
+            "params": [
+                {
+                    "name": "tag",
+                    "type": "StringName",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "event_count_occurrences",
+            "qualifiers": "static",
+            "description": "Returns the number of times the specified event occurred on the target within the last [param lookback_sec] seconds.",
+            "return_type": "int",
+            "params": [
+                {
+                    "name": "tag",
+                    "type": "StringName",
+                    "default": ""
+                },
+                {
+                    "name": "target",
+                    "type": "Node",
+                    "default": ""
+                },
+                {
+                    "name": "lookback_sec",
+                    "type": "float",
+                    "default": "1.0"
+                }
+            ]
+        },
+        {
+            "name": "event_did_occur",
+            "qualifiers": "static",
+            "description": "Returns true if the specified event occurred on the target within the last [param lookback_sec] seconds.",
+            "return_type": "bool",
+            "params": [
+                {
+                    "name": "tag",
+                    "type": "StringName",
+                    "default": ""
+                },
+                {
+                    "name": "target",
+                    "type": "Node",
+                    "default": ""
+                },
+                {
+                    "name": "lookback_sec",
+                    "type": "float",
+                    "default": "1.0"
+                }
+            ]
+        },
+        {
+            "name": "event_get_all_recent_events",
+            "qualifiers": "static",
+            "description": "Returns a list of all event entries that occurred on the target within the last [param lookback_sec] seconds.",
+            "return_type": "Array",
+            "params": [
+                {
+                    "name": "target",
+                    "type": "Node",
+                    "default": ""
+                },
+                {
+                    "name": "lookback_sec",
+                    "type": "float",
+                    "default": "1.0"
+                }
+            ]
+        },
+        {
+            "name": "event_get_last_data",
+            "qualifiers": "static",
+            "description": "Retrieves the data payload from the most recent occurrence of the specified event tag.",
+            "return_type": "Dictionary",
+            "params": [
+                {
+                    "name": "tag",
+                    "type": "StringName",
+                    "default": ""
+                },
+                {
+                    "name": "target",
+                    "type": "Node",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "event_get_last_instigator",
+            "qualifiers": "static",
+            "description": "Retrieves the instigator node from the most recent occurrence of the specified event tag.",
+            "return_type": "Node",
+            "params": [
+                {
+                    "name": "tag",
+                    "type": "StringName",
+                    "default": ""
+                },
+                {
+                    "name": "target",
+                    "type": "Node",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "event_get_last_magnitude",
+            "qualifiers": "static",
+            "description": "Retrieves the magnitude value from the most recent occurrence of the specified event tag.",
+            "return_type": "float",
+            "params": [
+                {
+                    "name": "tag",
+                    "type": "StringName",
+                    "default": ""
+                },
+                {
+                    "name": "target",
+                    "type": "Node",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "event_get_recent_events",
+            "qualifiers": "static",
+            "description": "Returns a list of recent entries for a specific event tag on the target.",
+            "return_type": "Array",
+            "params": [
+                {
+                    "name": "tag",
+                    "type": "StringName",
+                    "default": ""
+                },
+                {
+                    "name": "target",
+                    "type": "Node",
+                    "default": ""
+                },
+                {
+                    "name": "lookback_sec",
+                    "type": "float",
+                    "default": "1.0"
+                }
+            ]
+        },
+        {
+            "name": "history_dump",
+            "qualifiers": "static",
+            "description": "Prints a formatted debug log of all historical entries for the target to the console.",
+            "return_type": "void",
+            "params": [
+                {
+                    "name": "target",
+                    "type": "Node",
+                    "default": ""
+                },
+                {
+                    "name": "lookback_sec",
+                    "type": "float",
+                    "default": "5.0"
+                }
+            ]
+        },
+        {
+            "name": "history_get_all_changes",
+            "qualifiers": "static",
+            "description": "Returns a combined array of all Name and Conditional tag changes within the last [param lookback_sec] seconds.",
+            "return_type": "Array",
+            "params": [
+                {
+                    "name": "target",
+                    "type": "Node",
+                    "default": ""
+                },
+                {
+                    "name": "lookback_sec",
+                    "type": "float",
+                    "default": "1.0"
+                }
+            ]
+        },
+        {
+            "name": "history_get_tag_history",
+            "qualifiers": "static",
+            "description": "Returns all historical entries (timeline) for a specific tag on the target.",
+            "return_type": "Array",
+            "params": [
+                {
+                    "name": "tag",
+                    "type": "StringName",
+                    "default": ""
+                },
+                {
+                    "name": "target",
+                    "type": "Node",
+                    "default": ""
+                },
+                {
+                    "name": "lookback_sec",
+                    "type": "float",
+                    "default": "1.0"
+                }
+            ]
+        },
+        {
+            "name": "history_get_total_size",
+            "qualifiers": "static",
+            "description": "Returns the combined number of entries across all historical buffers for the target.",
+            "return_type": "int",
+            "params": [
+                {
+                    "name": "target",
+                    "type": "Node",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "history_was_tag_present",
+            "qualifiers": "static",
+            "description": "General purpose query to check if any version of the specified tag was present at any point within the target's historical buffers.",
+            "return_type": "bool",
+            "params": [
+                {
+                    "name": "tag",
+                    "type": "StringName",
+                    "default": ""
+                },
+                {
+                    "name": "target",
+                    "type": "Node",
+                    "default": ""
+                },
+                {
+                    "name": "lookback_sec",
+                    "type": "float",
+                    "default": "1.0"
+                }
+            ]
+        },
+        {
+            "name": "is_can_tag",
+            "qualifiers": "static",
+            "description": "Returns true if tag name starts with \"Can.\".",
+            "return_type": "bool",
+            "params": [
+                {
+                    "name": "tag",
+                    "type": "StringName",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "is_class_tag",
+            "qualifiers": "static",
+            "description": "Returns true if tag name starts with \"Class.\".",
+            "return_type": "bool",
+            "params": [
+                {
+                    "name": "tag",
+                    "type": "StringName",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "is_event_tag",
+            "qualifiers": "static",
+            "description": "Returns true if tag name starts with \"Event.\".",
+            "return_type": "bool",
+            "params": [
+                {
+                    "name": "tag",
+                    "type": "StringName",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "is_immune_tag",
+            "qualifiers": "static",
+            "description": "Returns true if tag name starts with \"Immune.\".",
+            "return_type": "bool",
+            "params": [
+                {
+                    "name": "tag",
+                    "type": "StringName",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "is_state_tag",
+            "qualifiers": "static",
+            "description": "Returns true if tag name starts with \"State.\".",
+            "return_type": "bool",
+            "params": [
+                {
+                    "name": "tag",
+                    "type": "StringName",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "is_team_tag",
+            "qualifiers": "static",
+            "description": "Returns true if tag name starts with \"Team.\".",
+            "return_type": "bool",
+            "params": [
+                {
+                    "name": "tag",
+                    "type": "StringName",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "name_count_additions",
+            "qualifiers": "static",
+            "description": "Counts how many times a specific [constant NAME] tag was added to the target within the last [param lookback_sec] seconds.",
+            "return_type": "int",
+            "params": [
+                {
+                    "name": "tag",
+                    "type": "StringName",
+                    "default": ""
+                },
+                {
+                    "name": "target",
+                    "type": "Node",
+                    "default": ""
+                },
+                {
+                    "name": "lookback_sec",
+                    "type": "float",
+                    "default": "1.0"
+                }
+            ]
+        },
+        {
+            "name": "name_count_removals",
+            "qualifiers": "static",
+            "description": "Counts how many times a specific [constant NAME] tag was removed from the target within the last [param lookback_sec] seconds.",
+            "return_type": "int",
+            "params": [
+                {
+                    "name": "tag",
+                    "type": "StringName",
+                    "default": ""
+                },
+                {
+                    "name": "target",
+                    "type": "Node",
+                    "default": ""
+                },
+                {
+                    "name": "lookback_sec",
+                    "type": "float",
+                    "default": "1.0"
+                }
+            ]
+        },
+        {
+            "name": "name_get_recent_additions",
+            "qualifiers": "static",
+            "description": "Returns an array of name tag identifiers that were added to the target within the last [param lookback_sec] seconds.",
+            "return_type": "Array",
+            "params": [
+                {
+                    "name": "target",
+                    "type": "Node",
+                    "default": ""
+                },
+                {
+                    "name": "lookback_sec",
+                    "type": "float",
+                    "default": "1.0"
+                }
+            ]
+        },
+        {
+            "name": "name_get_recent_changes",
+            "qualifiers": "static",
+            "description": "Returns an array of all name tag events (additions and removals) that occurred within the last [param lookback_sec] seconds.",
+            "return_type": "Array",
+            "params": [
+                {
+                    "name": "target",
+                    "type": "Node",
+                    "default": ""
+                },
+                {
+                    "name": "lookback_sec",
+                    "type": "float",
+                    "default": "1.0"
+                }
+            ]
+        },
+        {
+            "name": "name_get_recent_removals",
+            "qualifiers": "static",
+            "description": "Returns an array of name tag identifiers that were removed from the target within the last [param lookback_sec] seconds.",
+            "return_type": "Array",
+            "params": [
+                {
+                    "name": "target",
+                    "type": "Node",
+                    "default": ""
+                },
+                {
+                    "name": "lookback_sec",
+                    "type": "float",
+                    "default": "1.0"
+                }
+            ]
+        },
+        {
+            "name": "name_had_tag",
+            "qualifiers": "static",
+            "description": "Returns true if the target had the specified name tag at any point during the last [param lookback_sec] seconds.",
+            "return_type": "bool",
+            "params": [
+                {
+                    "name": "tag",
+                    "type": "StringName",
+                    "default": ""
+                },
+                {
+                    "name": "target",
+                    "type": "Node",
+                    "default": ""
+                },
+                {
+                    "name": "lookback_sec",
+                    "type": "float",
+                    "default": "1.0"
+                }
+            ]
+        },
+        {
+            "name": "name_was_tag_added",
+            "qualifiers": "static",
+            "description": "Returns true if the specified name tag was added to the target within the last [param lookback_sec] seconds.",
+            "return_type": "bool",
+            "params": [
+                {
+                    "name": "tag",
+                    "type": "StringName",
+                    "default": ""
+                },
+                {
+                    "name": "target",
+                    "type": "Node",
+                    "default": ""
+                },
+                {
+                    "name": "lookback_sec",
+                    "type": "float",
+                    "default": "1.0"
+                }
+            ]
+        },
+        {
+            "name": "name_was_tag_removed",
+            "qualifiers": "static",
+            "description": "Returns true if the specified name tag was removed from the target within the last [param lookback_sec] seconds.",
+            "return_type": "bool",
+            "params": [
+                {
+                    "name": "tag",
+                    "type": "StringName",
+                    "default": ""
+                },
+                {
+                    "name": "target",
+                    "type": "Node",
+                    "default": ""
+                },
+                {
+                    "name": "lookback_sec",
+                    "type": "float",
+                    "default": "1.0"
+                }
+            ]
+        },
+        {
+            "name": "validate_tag_type",
+            "qualifiers": "static",
+            "description": "Validates that a tag exists and matches the expected type.\n\t\t\t\tReturns false if tag doesn't exist or type doesn't match.",
+            "return_type": "bool",
+            "params": [
+                {
+                    "name": "tag",
+                    "type": "StringName",
+                    "default": ""
+                },
+                {
+                    "name": "expected_type",
+                    "type": "int",
+                    "default": ""
+                }
+            ]
+        }
+    ],
+    "signals": [],
+    "constants": [
+        {
+            "name": "NAME",
+            "value": "0",
+            "description": "A standard identity tag for classes, states, or teams (e.g., State.Stunned)."
+        },
+        {
+            "name": "CONDITIONAL",
+            "value": "1",
+            "description": "A dynamic conditional tag with duration and magnitude support (e.g., Can.Attack)."
+        },
+        {
+            "name": "EVENT",
+            "value": "2",
+            "description": "A high-frequency ephemeral tag with payload support (e.g., Event.Damage)."
+        },
+        {
+            "name": "UNKNOWN",
+            "value": "255",
+            "description": ""
+        }
+    ]
+}
