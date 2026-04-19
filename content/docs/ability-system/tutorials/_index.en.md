@@ -19,7 +19,7 @@ breadcrumbs: true
 
 Step-by-step guides to learn how to use the **Ability System** features.
 
-## 📖 Learn in Practice
+## Learn in Practice
 
 - [**Buffs and Debuffs**](buffs) — How to create state-altering effects.
 - [**First Attack**](first-attack) — Creating your first combat ability.

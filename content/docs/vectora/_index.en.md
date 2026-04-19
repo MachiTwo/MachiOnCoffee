@@ -9,7 +9,7 @@ breadcrumbs: true
 
 {{< lang-toggle >}}
 
-## 🎯 Overview
+## Overview
 
 Traditional AI agents operate in **fragmented contexts**, generating hallucinations, wasting tokens, and accidentally exposing secrets. **Vectora** solves this not by being "another chat", but as a **[Tier 2 Sub-Agent](/concepts/sub-agents/)** designed exclusively for software engineering: it intercepts calls via [MCP Protocol](/protocols/mcp/), validates security in real-time with [Guardian](/security/guardian/), orchestrates multi-hop retrieval via [Context Engine](/concepts/context-engine/), and delivers structured context to your principal agent (Claude Code, Gemini CLI, Cursor, etc.).
 
@@ -17,7 +17,7 @@ Traditional AI agents operate in **fragmented contexts**, generating hallucinati
 
 ---
 
-## 🔍 The Problem Vectora Solves
+## The Problem Vectora Solves
 
 | Failure in Generic Agents       | Practical Impact                                        | How Vectora Mitigates                                                                                                                        |
 | ------------------------------- | ------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -29,7 +29,7 @@ Traditional AI agents operate in **fragmented contexts**, generating hallucinati
 
 ---
 
-## 🧩 The Solution: Sub-Agent Architecture
+## The Solution: Sub-Agent Architecture
 
 Vectora is exposed **exclusively via MCP**. There is no chat CLI, TUI, or direct conversational interface. It operates silently as a governance and context layer:
 
@@ -37,7 +37,7 @@ Vectora is exposed **exclusively via MCP**. There is no chat CLI, TUI, or direct
 graph LR
     A[Principal Agent] -->|MCP Tool Call| B[Harness Runtime]
     B --> C{Guardian + Zod Validation}
-    C -->|✅ Approved| D[Context Engine]
+    C -->| Approved| D[Context Engine]
     D --> E[Embed via Voyage 4]
     D --> F[Rerank via Voyage 2.5]
     E --> G[MongoDB Atlas Vector Search]
@@ -57,7 +57,7 @@ graph LR
 
 ---
 
-## 📦 Curated Stack & Infrastructure
+## Curated Stack & Infrastructure
 
 Vectora **is not provider-agnostic**. We operate with models rigorously calibrated to guarantee metric consistency, parsing stability, and predictable costs:
 
@@ -73,7 +73,7 @@ Vectora **is not provider-agnostic**. We operate with models rigorously calibrat
 
 ---
 
-## 🛡️ Security, Governance & BYOK
+## Security, Governance & BYOK
 
 Security in Vectora is implemented **at the application layer**, not delegated to the database:
 
@@ -87,22 +87,22 @@ Security in Vectora is implemented **at the application layer**, not delegated t
 
 ---
 
-## 💰 Plans & Retention Policy
+## Plans & Retention Policy
 
 Vectora operates with a **BYOK First** model, where the backend (MongoDB Atlas) is managed by Kaffyn on all plans, but API keys belong to the user:
 
-| Plan              | Price                    | Storage                   | API Quota                            | Retention                                  | Docs                         |
-| ----------------- | ------------------------ | ------------------------- | ------------------------------------ | ------------------------------------------ | ---------------------------- |
-| 🟢 **Free**       | $0/month                 | 512MB total               | Pure BYOK                            | 30 days inactivity = vector index deletion | [Free](/plans/free/)         |
-| 🔵 **Pro**        | ~$20/month               | 10GB total                | 500k tokens + 100k vectors/month     | 90 days post-cancellation                  | [Pro](/plans/pro/)           |
-| 🟣 **Team**       | $5 base + $15/user/month | 50GB total                | Shared pool + per-user BYOK fallback | 180 days post-cancellation                 | [Team](/plans/team/)         |
-| ⚫ **Enterprise** | Custom                   | Unlimited (VPC/Dedicated) | Per contract                         | Custom policy                              | [Overview](/plans/overview/) |
+| Plan           | Price                    | Storage                   | API Quota                            | Retention                                  | Docs                         |
+| -------------- | ------------------------ | ------------------------- | ------------------------------------ | ------------------------------------------ | ---------------------------- |
+| **Free**       | $0/month                 | 512MB total               | Pure BYOK                            | 30 days inactivity = vector index deletion | [Free](/plans/free/)         |
+| **Pro**        | ~$20/month               | 10GB total                | 500k tokens + 100k vectors/month     | 90 days post-cancellation                  | [Pro](/plans/pro/)           |
+| **Team**       | $5 base + $15/user/month | 50GB total                | Shared pool + per-user BYOK fallback | 180 days post-cancellation                 | [Team](/plans/team/)         |
+| **Enterprise** | Custom                   | Unlimited (VPC/Dedicated) | Per contract                         | Custom policy                              | [Overview](/plans/overview/) |
 
 > [!NOTE] > **Retention Rules**: Free accounts inactive for 30 days have their vector index automatically deleted. Metadata is preserved for +90 days for export via `vectora export`. Downgrades notify of limit reduction and grant 7 days for backup. Details in [Retention Policy](/plans/retention/).
 
 ---
 
-## 🔄 Operation Flow (MCP-First)
+## Operation Flow (MCP-First)
 
 1. **Detection**: [Principal Agent](/integrations/claude-code/) identifies need for deep context and triggers `context_search` via MCP.
 2. **Interception**: [Harness Runtime](/concepts/harness-runtime/) captures call, validates namespace, applies [Guardian](/security/guardian/).
@@ -113,44 +113,44 @@ Vectora operates with a **BYOK First** model, where the backend (MongoDB Atlas) 
 
 ---
 
-## 🧭 Where to Start?
+## Where to Start?
 
-| Category               | Document                                                                            | Description                                                                    |
-| ---------------------- | ----------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
-| 🚀 **Quick Start**     | [Getting Started](/getting-started/)                                                | `npm install -g vectora-agent`, BYOK setup, MCP integration                    |
-| 🧠 **Concepts**        | [Sub-Agents](/concepts/sub-agents/)                                                 | Why Sub-Agent and not passive MCP tools? Active governance vs static functions |
-| 🔄 **Harness Runtime** | [Harness Runtime](/concepts/harness-runtime/)                                       | Tool Execution, Context Engineering, State Management, Verification Hooks      |
-| 🔍 **Context & RAG**   | [Context Engine](/concepts/context-engine/)                                         | AST parsing, compaction, multi-hop reasoning, hybrid ranking                   |
-| 🎯 **Reranking**       | [Reranker](/concepts/reranker/)                                                     | Pipeline Embed → Search → Rerank → LLM, precision metrics                      |
-| 📚 **Models**          | [Gemini 3](/models/gemini/) · [Voyage 4](/models/voyage/)                           | Curated stack, BYOK fallback, config schema, per-query costs                   |
-| 🗄️ **Backend**         | [MongoDB Atlas](/backend/mongodb-atlas/)                                            | Vector Search, collections, state persistence, multi-tenant isolation          |
-| 🔐 **Security**        | [Guardian](/security/guardian/) · [RBAC](/security/rbac/)                           | Hard-coded blocklist, Trust Folder, sanitization, per-namespace roles          |
-| 💳 **Plans**           | [Overview](/plans/overview/)                                                        | Free/Pro/Team, managed quota, automatic fallback, retention policy             |
-| 🔌 **Integrations**    | [Claude Code](/integrations/claude-code/) · [Gemini CLI](/integrations/gemini-cli/) | MCP configuration, IDE extensions, custom agents                               |
-| 📖 **Reference**       | [MCP Tools](/reference/mcp-tools/) · [Config YAML](/reference/config-yaml/)         | Tool schema, Zod-validated config.yaml, error codes                            |
-| 🤝 **Contributing**    | [Guidelines](/contributing/guidelines/)                                             | Strict TypeScript, Harness tests first, PRs, public roadmap                    |
+| Category            | Document                                                                            | Description                                                                    |
+| ------------------- | ----------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| **Quick Start**     | [Getting Started](/getting-started/)                                                | `npm install -g vectora-agent`, BYOK setup, MCP integration                    |
+| **Concepts**        | [Sub-Agents](/concepts/sub-agents/)                                                 | Why Sub-Agent and not passive MCP tools? Active governance vs static functions |
+| **Harness Runtime** | [Harness Runtime](/concepts/harness-runtime/)                                       | Tool Execution, Context Engineering, State Management, Verification Hooks      |
+| **Context & RAG**   | [Context Engine](/concepts/context-engine/)                                         | AST parsing, compaction, multi-hop reasoning, hybrid ranking                   |
+| **Reranking**       | [Reranker](/concepts/reranker/)                                                     | Pipeline Embed → Search → Rerank → LLM, precision metrics                      |
+| **Models**          | [Gemini 3](/models/gemini/) · [Voyage 4](/models/voyage/)                           | Curated stack, BYOK fallback, config schema, per-query costs                   |
+| **Backend**         | [MongoDB Atlas](/backend/mongodb-atlas/)                                            | Vector Search, collections, state persistence, multi-tenant isolation          |
+| **Security**        | [Guardian](/security/guardian/) · [RBAC](/security/rbac/)                           | Hard-coded blocklist, Trust Folder, sanitization, per-namespace roles          |
+| **Plans**           | [Overview](/plans/overview/)                                                        | Free/Pro/Team, managed quota, automatic fallback, retention policy             |
+| **Integrations**    | [Claude Code](/integrations/claude-code/) · [Gemini CLI](/integrations/gemini-cli/) | MCP configuration, IDE extensions, custom agents                               |
+| **Reference**       | [MCP Tools](/reference/mcp-tools/) · [Config YAML](/reference/config-yaml/)         | Tool schema, Zod-validated config.yaml, error codes                            |
+| **Contributing**    | [Guidelines](/contributing/guidelines/)                                             | Strict TypeScript, Harness tests first, PRs, public roadmap                    |
 
 ---
 
-> 💡 **Phrase to remember**:  
+> **Phrase to remember**:  
 > _"Vectora doesn't respond to the user. It delivers governed context to your agent. Managed backend, API under your key, security in the application, your data always yours."_
 
 ---
 
-### 📂 Navigation Guide
+### Navigation Guide
 
-- [🚀 **Getting Started**](./getting-started/) — Installation, BYOK setup, and MCP integration.
-- [🧠 **Core Concepts**](./concepts/) — Understand Sub-Agents, Context Engine, and Reranking.
-- [🔐 **Security & Governance**](./security/) — Details on Guardian, Trust Folder, and RBAC.
-- [🔑 **Authentication**](./auth/) — SSO flows, Unified Identity, and API Keys.
-- [📚 **Models & Providers**](./models/) — Curated stack with Gemini 3 and Voyage AI.
-- [🗄️ **Backend & Persistence**](./backend/) — MongoDB Atlas, Sessions, and State Persistence.
-- [🔌 **Integrations**](./integrations/) — How to use with Claude Code, Gemini CLI, and Cursor.
-- [💳 **Plans & Pricing**](./plans/) — Feature comparison and retention policy.
-- [📖 **Technical Reference**](./reference/) — MCP tool schema and Config YAML.
-- [🤝 **Contributing**](./contributing/) — Guidelines, code standards, and roadmap.
-- [❓ **FAQ**](./faq/) — Troubleshooting and common questions.
-- [📡 **Protocols**](./protocols/) — MCP Protocol specifications in Vectora.
+- [**Getting Started**](./getting-started/) — Installation, BYOK setup, and MCP integration.
+- [**Core Concepts**](./concepts/) — Understand Sub-Agents, Context Engine, and Reranking.
+- [**Security & Governance**](./security/) — Details on Guardian, Trust Folder, and RBAC.
+- [**Authentication**](./auth/) — SSO flows, Unified Identity, and API Keys.
+- [**Models & Providers**](./models/) — Curated stack with Gemini 3 and Voyage AI.
+- [**Backend & Persistence**](./backend/) — MongoDB Atlas, Sessions, and State Persistence.
+- [**Integrations**](./integrations/) — How to use with Claude Code, Gemini CLI, and Cursor.
+- [**Plans & Pricing**](./plans/) — Feature comparison and retention policy.
+- [**Technical Reference**](./reference/) — MCP tool schema and Config YAML.
+- [**Contributing**](./contributing/) — Guidelines, code standards, and roadmap.
+- [**FAQ**](./faq/) — Troubleshooting and common questions.
+- [**Protocols**](./protocols/) — MCP Protocol specifications in Vectora.
 
 ---
 

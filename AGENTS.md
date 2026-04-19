@@ -1,4 +1,4 @@
-# CLAUDE.md - MachiOnCoffee Guidelines
+# AGENTS.md - MachiOnCoffee Guidelines
 
 This file provides guidance for AI agents working in this repository.
 

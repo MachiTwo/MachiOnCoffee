@@ -323,9 +323,9 @@ ui_accept: [Enter]
 
 Este exemplo serve como base para quase qualquer sistema de combate em tempo real. Você pode expandir adicionando:
 
-1.  **Fases às Habilidades**: Use o array de fases para casting e recovery.
-2.  **Loot**: Instancie itens na morte do inimigo.
-3.  **Skill Trees**: Adicione habilidades ao `ASComponent` dinamicamente conforme o jogador sobe de nível.
+1. **Fases às Habilidades**: Use o array de fases para casting e recovery.
+2. **Loot**: Instancie itens na morte do inimigo.
+3. **Skill Trees**: Adicione habilidades ao `ASComponent` dinamicamente conforme o jogador sobe de nível.
 
 ---
 

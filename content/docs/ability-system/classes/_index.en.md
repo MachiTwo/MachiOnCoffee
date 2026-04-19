@@ -18,29 +18,29 @@ breadcrumbs: true
 
 Welcome to the **Ability System** technical reference. This section contains detailed information about all classes, structures, and utilities available in the framework.
 
-## 📂 Technical Categories
+## Technical Categories
 
-### [🔐 Singleton](singleton/)
+### [Singleton](singleton/)
 
 The global entry point for the system. Manages tag registration and runtime component resolution.
 
-### [📦 Resources](resources/)
+### [Resources](resources/)
 
 Blueprints and Data Definitions. Here you define the "DNA" of abilities, effects, and attributes (Godot Resources).
 
-### [🎬 Nodes](nodes/)
+### [Nodes](nodes/)
 
 Scene components. The building blocks you attach to your characters and objects in the editor.
 
-### [⚙️ RefCounted](refcounted/)
+### [RefCounted](refcounted/)
 
 Lightweight runtime instances. Objects that manage mutable state during gameplay (Specs and Utilities).
 
-### [🎮 Behavior Tree](behavior-tree/)
+### [Behavior Tree](behavior-tree/)
 
 Integrated AI nodes. Tasks and conditions for LimboAI that allow agents to use the system naturally.
 
-### [✏️ Editor](editor/)
+### [Editor](editor/)
 
 Godot editor extensions. Tools that facilitate the designer's daily life.
 

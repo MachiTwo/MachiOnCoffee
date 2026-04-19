@@ -23,33 +23,33 @@ Passo a passo para criar sua primeira habilidade de combate funcional no **Abili
 
 ## Passo 1: Criar o Resource da Habilidade
 
-1.  Crie uma pasta `res://combat/abilities/`.
-2.  Clique com o botão direito → **New Resource → ASAbility**.
-3.  Salve como `basic_attack.tres`.
+1. Crie uma pasta `res://combat/abilities/`.
+2. Clique com o botão direito → **New Resource → ASAbility**.
+3. Salve como `basic_attack.tres`.
 
 ## Passo 2: Configurar Tags de Ativação
 
 No inspetor do seu novo resource, procure pela seção **Tags**:
 
--   **Ability Tag:** `&"ability.basic_attack"`
--   **Activation Owned Tags:** `[&"state.attacking"]` (Isso impede que outras habilidades usem o personagem enquanto ataca).
+- **Ability Tag:** `&"ability.basic_attack"`
+- **Activation Owned Tags:** `[&"state.attacking"]` (Isso impede que outras habilidades usem o personagem enquanto ataca).
 
 ## Passo 3: Criar o Efeito de Dano
 
 Habilidades no **Ability System** geralmente causam efeitos (`ASEffect`).
 
-1.  Crie um novo **ASEffect** em `res://combat/effects/damage_basic.tres`.
-2.  Configure os **Modifiers**:
-    -   **Attribute:** `&"health"`
-    -   **Operation:** `0 (ADD)`
-    -   **Magnitude:** `-10.0`
+1. Crie um novo **ASEffect** em `res://combat/effects/damage_basic.tres`.
+2. Configure os **Modifiers**:
+   - **Attribute:** `&"health"`
+   - **Operation:** `0 (ADD)`
+   - **Magnitude:** `-10.0`
 
 ## Passo 4: Vincular o Efeito à Habilidade
 
 Volte ao resource `basic_attack.tres`:
 
-1.  Adicione um item ao array **Application Effects**.
-2.  Arraste o arquivo `damage_basic.tres` para lá.
+1. Adicione um item ao array **Application Effects**.
+2. Arraste o arquivo `damage_basic.tres` para lá.
 
 ## Passo 5: Chamar via Código
 

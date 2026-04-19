@@ -8,7 +8,7 @@ sidebar:
 
 {{< lang-toggle >}}
 
-## 🔐 Autenticação e Autorização no Vectora
+## Autenticação e Autorização no Vectora
 
 A camada de autenticação do Vectora garante que apenas usuários e serviços autorizados acessem recursos, namespaces e operações sensíveis. Esta seção documenta os mecanismos de identidade, gestão de chaves de API e controle de acesso que protegem sua infraestrutura de contexto.
 
@@ -16,7 +16,7 @@ A camada de autenticação do Vectora garante que apenas usuários e serviços a
 
 ---
 
-### 📋 Tópicos desta seção
+### Tópicos desta seção
 
 | Página                                   | Descrição                                                                                                |
 | ---------------------------------------- | -------------------------------------------------------------------------------------------------------- |
@@ -25,7 +25,7 @@ A camada de autenticação do Vectora garante que apenas usuários e serviços a
 
 ---
 
-### 🧭 Fluxo de Autenticação Típico
+### Fluxo de Autenticação Típico
 
 ```mermaid
 graph LR
@@ -46,7 +46,7 @@ graph LR
 
 ---
 
-### 🔑 Conceitos Fundamentais
+### Conceitos Fundamentais
 
 | Termo            | Definição                                                                                        |
 | ---------------- | ------------------------------------------------------------------------------------------------ |
@@ -58,19 +58,19 @@ graph LR
 
 ---
 
-### 🛡️ Boas Práticas de Segurança
+### Boas Práticas de Segurança
 
-✅ **Use API Keys com escopo mínimo**: Conceda apenas `read` se a integração não precisa escrever  
-✅ **Rotação periódica de chaves**: Renove API Keys a cada 90 dias ou após incidentes  
-✅ **Valide namespaces em cada chamada**: Não confie apenas no token; revalide escopo no runtime  
-✅ **Monitore logs de auditoria**: Use `audit_logs` para detectar acessos anômalos  
-✅ **Nunca exponha chaves no client**: API Keys pertencem ao backend ou ao agent principal, nunca ao browser
+**Use API Keys com escopo mínimo**: Conceda apenas `read` se a integração não precisa escrever  
+ **Rotação periódica de chaves**: Renove API Keys a cada 90 dias ou após incidentes  
+ **Valide namespaces em cada chamada**: Não confie apenas no token; revalide escopo no runtime  
+ **Monitore logs de auditoria**: Use `audit_logs` para detectar acessos anômalos  
+ **Nunca exponha chaves no client**: API Keys pertencem ao backend ou ao agent principal, nunca ao browser
 
 > [!WARNING] > **Blocklist hard-coded**: Arquivos como `.env`, `.key`, `.pem` são bloqueados pelo `Guardian` antes de qualquer processamento — independente de autenticação. Segurança por código, não por configuração.
 
 ---
 
-### 🔄 Integração com Seu Sistema
+### Integração com Seu Sistema
 
 #### Exemplo: Validação de JWT no seu backend
 
@@ -111,7 +111,7 @@ export async function authMiddleware(req: Request, next: Handler) {
 
 ---
 
-### ❓ Perguntas Frequentes
+### Perguntas Frequentes
 
 **P: Preciso de SSO para usar o Vectora?**  
 R: Não. O plano Free usa autenticação local via `vectora auth login`. SSO é disponível nos planos Pro/Team para integração com provedores corporativos.
@@ -127,5 +127,5 @@ R: Não. Chaves de API são armazenadas como hash (bcrypt). Tokens JWT são vali
 
 ---
 
-> 💡 **Frase para guardar**:  
+> **Frase para guardar**:  
 > _"Autenticação verifica quem você é. Autorização define o que você pode fazer. Vectora aplica ambas em cada tool call — não apenas no login."_

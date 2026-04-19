@@ -6,7 +6,7 @@ type: docs
 
 {{< lang-toggle >}}
 
-## 🚀 Iniciando com o Vectora
+## Iniciando com o Vectora
 
 O Vectora foi desenhado para ser plug-and-play mas extremamente customizável.
 
@@ -24,7 +24,7 @@ npx @kaffyn/vectora init
 - **Vector DB**: Integração nativa com **Qdrant Cloud** para busca vetorial escalável.
 - **Provider Router**: Suporte estável e agnóstico de provedores (OpenRouter, Google, Anthropic, OpenAI).
 
-## 🧪 Validação: Vectora Harness
+## Validação: Vectora Harness
 
 Como saber se a IA realmente melhorou? Use o **Vectora Harness**:
 

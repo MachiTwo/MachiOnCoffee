@@ -19,7 +19,7 @@ breadcrumbs: true
 
 Projetos de referência e implementações completas para demonstrar o poder do sistema em cenários reais.
 
-## 💡 Projetos de Referência
+## Projetos de Referência
 
 - [**Padrões de Boss (Boss Patterns)**](boss-patterns) — Implementação de mecânicas complexas de chefes.
 - [**Exemplo Completo (Complete Example)**](complete-example) — Um guia de ponta a ponta para uma habilidade.

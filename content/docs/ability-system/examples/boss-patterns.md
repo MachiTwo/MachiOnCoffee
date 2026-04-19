@@ -568,4 +568,4 @@ func _on_boss_defeated():
 
 ---
 
-Cada padrão pode ser customizado e combinado para criar encontros épicos! 🎮
+Cada padrão pode ser customizado e combinado para criar encontros épicos!

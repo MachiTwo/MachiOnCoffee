@@ -25,9 +25,9 @@ Learn how to create complex abilities with multiple phases (Casting, Active, Rec
 
 Phases allow you to split an ability into temporal stages, each with its own behavior:
 
-1.  **Casting:** Preparation time (can be interrupted).
-2.  **Active:** The moment the main effect occurs.
-3.  **Recovery:** "Recover" time after use.
+1. **Casting:** Preparation time (can be interrupted).
+2. **Active:** The moment the main effect occurs.
+3. **Recovery:** "Recover" time after use.
 
 ## Step 1: Define Phases in the Resource
 
@@ -67,7 +67,7 @@ func _ready():
 
 func _on_ability_phase_changed(ability_spec, old_phase, new_phase):
     print("Ability %s changed from %s to %s" % [ability_spec.get_ability().resource_name, old_phase, new_phase])
-    
+
     match new_phase:
         &"prepare":
             play_animation("cast_start")

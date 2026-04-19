@@ -21,7 +21,7 @@ O **Ability System (AS)** é um framework poderoso e modular para criação de c
 4.x. Projetado para escalar desde mecânicas simples até sistemas complexos de RPG — tudo com alta performance em C++ e
 arquitetura baseada em dados (v0.1.0 Stable).
 
-## 🛡️ Princípios Arquiteturais
+## Princípios Arquiteturais
 
 - **SSOT (Single Source of Truth)**: Estado do ator = suas **Tags** (identificador hierárquico)
 - **Desacoplamento Total**: ASComponent orquestra sem conhecer lógica interna de Specs
@@ -29,7 +29,7 @@ arquitetura baseada em dados (v0.1.0 Stable).
 - **Determinismo**: Multiplayer nativo com predição cliente e rollback automático
 - **Performance**: Flyweight pattern—atores compartilham blueprints imutáveis
 
-## 🏗️ 3 Pilares Arquiteturais
+## 3 Pilares Arquiteturais
 
 ### 1. **Tags** — A Matriz de Identidade
 
@@ -47,24 +47,24 @@ Leves, dinâmicas, mantêm estado mutável (Cooldowns, Stacks, Duração).
 
 Explore a documentação técnica completa organizada por categorias:
 
-- [**🔐 Singleton**](classes/singleton/) — Registro global e resolutor central.
-- [**📦 Resources**](classes/resources/) — Habilidades, Efeitos e Blueprints imutáveis.
-- [**🎬 Nodes**](classes/nodes/) — Componentes de cena (ASComponent, ASDelivery).
-- [**⚙️ RefCounted**](classes/refcounted/) — Executores de runtime e utilitários de estado.
-- [**🎮 Behavior Tree**](classes/behavior-tree/) — Integração nativa com LimboAI.
-- [**✏️ Editor**](classes/editor/) — Painéis de Tags e inspetores customizados.
+- [** Singleton**](classes/singleton/) — Registro global e resolutor central.
+- [** Resources**](classes/resources/) — Habilidades, Efeitos e Blueprints imutáveis.
+- [** Nodes**](classes/nodes/) — Componentes de cena (ASComponent, ASDelivery).
+- [** RefCounted**](classes/refcounted/) — Executores de runtime e utilitários de estado.
+- [** Behavior Tree**](classes/behavior-tree/) — Integração nativa com LimboAI.
+- [** Editor**](classes/editor/) — Painéis de Tags e inspetores customizados.
 
 ---
 
-## 🎓 Tutoriais e Exemplos
+## Tutoriais e Exemplos
 
 Aprenda na prática como implementar o sistema:
 
-- [**📖 Tutoriais**](tutorials/) — Passo a passo para mecânicas comuns.
-- [**💡 Exemplos**](examples/) — Projetos de referência e padrões de design.
+- [** Tutoriais**](tutorials/) — Passo a passo para mecânicas comuns.
+- [** Exemplos**](examples/) — Projetos de referência e padrões de design.
 
 ---
 
 ## Status do Projeto
 
-v0.1.0 Stable | Godot 4.6+ | Dual-Build (GDExtension/Module) | Desenvolvido com ❤️ por MachiTwo
+v0.1.0 Stable | Godot 4.6+ | Dual-Build (GDExtension/Module) | Desenvolvido com por MachiTwo

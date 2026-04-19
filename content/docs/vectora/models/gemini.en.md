@@ -32,7 +32,7 @@ We tested every alternative. Here's the reality:
 | **Multimodal support** | Text + Image   | Text + Image | Text         |
 | **Rate limiting**      | Generous       | Restrictive  | Moderate     |
 
-### ✅ Why Gemini 3 Flash Wins
+### Why Gemini 3 Flash Wins
 
 1. **Irrelevant Cost**: 200x cheaper than GPT-4o ($0.075 vs $15)
 2. **Low Latency**: 30-50ms (imperceptible to users)
@@ -41,7 +41,7 @@ We tested every alternative. Here's the reality:
 5. **No Rate Limiting**: Supports millions of requests per hour without throttling
 6. **Perfect Vectora Integration**: Trained to work with high-quality embeddings
 
-### ❌ Why Alternatives Fail
+### Why Alternatives Fail
 
 **GPT-4o**:
 
@@ -186,7 +186,7 @@ Input: src/utils/cache.js:
     return data;
   }
 
-Output: "⚠️ Potential memory leak: cache has no TTL.
+Output: " Potential memory leak: cache has no TTL.
          Suggestion: use Map with WeakRef or add expiration."
 ```text
 
@@ -209,33 +209,33 @@ Output: "User has 1:N relationship with Post via user_id.
 ```text
 User: "How do I validate email in the registration function?"
 
-1️⃣ Vectora receives the query
+1⃣ Vectora receives the query
    ├─ Parses with Tree-sitter (AST awareness)
    └─ Validates against Guardian (sensitive file blocklist)
 
-2️⃣ Voyage 4 (Embeddings)
+2⃣ Voyage 4 (Embeddings)
    ├─ Converts query to 1,536 dimensions
    └─ Searches in Qdrant Cloud (~50K documents per second)
 
-3️⃣ Qdrant returns Top-50
+3⃣ Qdrant returns Top-50
    ├─ Filters by namespace (multi-tenant)
    └─ Applies payload filtering (language, file type, etc)
 
-4️⃣ Voyage Rerank 2.5
+4⃣ Voyage Rerank 2.5
    ├─ Re-ranks 50 by relevance
    └─ Returns Top-5 with scores > 0.70
 
-5️⃣ Context Assembly
+5⃣ Context Assembly
    ├─ Builds coherent prompt with Top-5
    ├─ Adds specific instructions
    └─ Limits to ~200K tokens (won't exceed context window)
 
-6️⃣ Gemini 3 Flash
+6⃣ Gemini 3 Flash
    ├─ Processes context (30-50ms)
    ├─ Generates response (8ms per token × N tokens)
    └─ Total: ~500ms end-to-end
 
-7️⃣ Harness (Validation)
+7⃣ Harness (Validation)
    ├─ Evaluates response quality
    ├─ Compares against benchmark
    └─ Returns to user with confidence score
@@ -290,28 +290,28 @@ response = gemini.generate(
 
 ### Gemini Pro (Previous Version)
 
-- ❌ Latency: 100-150ms (2-3x slower)
-- ❌ Code quality: 94.1% (2.1% worse)
-- ❌ No Flash Attention optimizations
+-  Latency: 100-150ms (2-3x slower)
+-  Code quality: 94.1% (2.1% worse)
+-  No Flash Attention optimizations
 
 ### Llama 2 (Meta, Open Source)
 
-- ❌ Requires self-hosting (operational complexity)
-- ❌ Quality: 91.5% (5% worse than Gemini)
-- ❌ No 1M token context window support
-- ❌ Expensive custom infrastructure
+-  Requires self-hosting (operational complexity)
+-  Quality: 91.5% (5% worse than Gemini)
+-  No 1M token context window support
+-  Expensive custom infrastructure
 
 ### Mistral
 
-- ❌ Acceptable quality (93.2%) but below Gemini
-- ❌ Latency: ~80ms (still slow)
-- ❌ Cost: $0.19/M tokens (2.5x more than Gemini)
+-  Acceptable quality (93.2%) but below Gemini
+-  Latency: ~80ms (still slow)
+-  Cost: $0.19/M tokens (2.5x more than Gemini)
 
 ### Qwen 3.5 (Alibaba)
 
-- ❌ Code quality: 94.8% (good, but not better)
-- ❌ Optimized for Chinese (may impact multilingual)
-- ❌ Less throughput for global scale
+-  Code quality: 94.8% (good, but not better)
+-  Optimized for Chinese (may impact multilingual)
+-  Less throughput for global scale
 
 ## Known Limitations
 

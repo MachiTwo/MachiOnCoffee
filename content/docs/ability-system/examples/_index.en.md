@@ -19,7 +19,7 @@ breadcrumbs: true
 
 Reference projects and complete implementations to demonstrate the system's power in real-world scenarios.
 
-## 💡 Reference Projects
+## Reference Projects
 
 - [**Boss Patterns**](boss-patterns) — Implementing complex boss mechanics.
 - [**Complete Example**](complete-example) — An end-to-end guide for an ability.

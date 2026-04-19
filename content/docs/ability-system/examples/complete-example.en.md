@@ -323,9 +323,9 @@ ui_accept: [Enter]
 
 This example serves as a foundation for almost any real-time combat system. You can expand it by adding:
 
-1.  **Ability Phases**: Use the phases array for casting and recovery.
-2.  **Loot**: Instantiate items upon enemy death.
-3.  **Skill Trees**: Add abilities to the `ASComponent` dynamically as the player levels up.
+1. **Ability Phases**: Use the phases array for casting and recovery.
+2. **Loot**: Instantiate items upon enemy death.
+3. **Skill Trees**: Add abilities to the `ASComponent` dynamically as the player levels up.
 
 ---
 

@@ -32,7 +32,7 @@ Testamos todas as alternativas. Aqui está a realidade:
 | **Suporte a multimodal**  | Texto + Imagem | Texto + Imagem | Texto        |
 | **Rate limiting**         | Generoso       | Restritivo     | Moderado     |
 
-### ✅ Por que Gemini 3 Flash Ganha
+### Por que Gemini 3 Flash Ganha
 
 1. **Custo Irrelevante**: 200x mais barato que GPT-4o ($0.075 vs $15)
 2. **Latência Baixa**: 30-50ms (não é detectável para usuários)
@@ -41,7 +41,7 @@ Testamos todas as alternativas. Aqui está a realidade:
 5. **Sem Rate Limiting**: Suporta milhões de requisições por hora sem throttling
 6. **Integração Perfeita com Vectora**: Treinado para trabalhar com embeddings de alta qualidade
 
-### ❌ Por que as Alternativas Falham
+### Por que as Alternativas Falham
 
 **GPT-4o**:
 
@@ -187,7 +187,7 @@ Input: src/utils/cache.js:
     return data;
   }
 
-Output: "⚠️ Potencial memory leak: cache não tem TTL.
+Output: " Potencial memory leak: cache não tem TTL.
          Sugestão: usar Map com WeakRef ou adicionar expiração."
 ```text
 
@@ -210,33 +210,33 @@ Output: "User tem relação 1:N com Post via user_id.
 ```text
 User: "Como validar email na função de registro?"
 
-1️⃣ Vectora recebe a query
+1⃣ Vectora recebe a query
    ├─ Faz parsing com Tree-sitter (AST awareness)
    └─ Valida contra Guardian (blocklist de arquivos sensíveis)
 
-2️⃣ Voyage 4 (Embeddings)
+2⃣ Voyage 4 (Embeddings)
    ├─ Converte query para 1,536 dimensões
    └─ Busca em Qdrant Cloud (~50K documentos por segundo)
 
-3️⃣ Qdrant retorna Top-50
+3⃣ Qdrant retorna Top-50
    ├─ Filtra por namespace (multi-tenant)
    └─ Aplica payload filtering (language, tipo de arquivo, etc)
 
-4️⃣ Voyage Rerank 2.5
+4⃣ Voyage Rerank 2.5
    ├─ Re-classifica os 50 por relevância
    └─ Retorna Top-5 com scores > 0.70
 
-5️⃣ Context Assembly
+5⃣ Context Assembly
    ├─ Monta um prompt coeso com Top-5
    ├─ Adiciona instruções específicas
    └─ Limita a ~200K tokens (não estoura context window)
 
-6️⃣ Gemini 3 Flash
+6⃣ Gemini 3 Flash
    ├─ Processa contexto (30-50ms)
    ├─ Gera resposta (8ms por token × N tokens)
    └─ Total: ~500ms fim-a-fim
 
-7️⃣ Harness (Validação)
+7⃣ Harness (Validação)
    ├─ Avalia qualidade da resposta
    ├─ Compara com benchmark
    └─ Retorna ao usuário com score de confiança
@@ -291,28 +291,28 @@ response = gemini.generate(
 
 ### Gemini Pro (Versão Anterior)
 
-- ❌ Latência: 100-150ms (2-3x mais lento)
-- ❌ Qualidade código: 94.1% (2.1% pior)
-- ❌ Sem otimizações de Flash Attention
+-  Latência: 100-150ms (2-3x mais lento)
+-  Qualidade código: 94.1% (2.1% pior)
+-  Sem otimizações de Flash Attention
 
 ### Llama 2 (Meta, Open Source)
 
-- ❌ Precisa ser self-hosted (complexidade operacional)
-- ❌ Qualidade: 91.5% (5% pior que Gemini)
-- ❌ Sem suporte para context window de 1M
-- ❌ Infraestrutura custom custosa
+-  Precisa ser self-hosted (complexidade operacional)
+-  Qualidade: 91.5% (5% pior que Gemini)
+-  Sem suporte para context window de 1M
+-  Infraestrutura custom custosa
 
 ### Mistral (François Wendel)
 
-- ❌ Qualidade aceitável (93.2%) mas abaixo de Gemini
-- ❌ Latência: ~80ms (ainda lento)
-- ❌ Custo: $0.19/M tokens (2.5x mais que Gemini)
+-  Qualidade aceitável (93.2%) mas abaixo de Gemini
+-  Latência: ~80ms (ainda lento)
+-  Custo: $0.19/M tokens (2.5x mais que Gemini)
 
 ### Qwen 3.5 (Alibaba)
 
-- ❌ Qualidade em código: 94.8% (bom, mas não melhor)
-- ❌ Otimizado para chinês (pode impactar multilíngues)
-- ❌ Menos throughput para escala global
+-  Qualidade em código: 94.8% (bom, mas não melhor)
+-  Otimizado para chinês (pode impactar multilíngues)
+-  Menos throughput para escala global
 
 ## Limitações Conhecidas
 

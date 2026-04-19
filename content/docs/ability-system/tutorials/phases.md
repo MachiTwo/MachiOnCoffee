@@ -25,9 +25,9 @@ Aprenda a criar habilidades complexas com múltiplas fases (Casting, Active, Rec
 
 Fases permitem dividir uma habilidade em etapas temporais, cada uma com seu próprio comportamento:
 
-1.  **Casting:** Tempo de preparação (pode ser interrompido).
-2.  **Active:** O momento em que o efeito principal ocorre.
-3.  **Recovery:** Tempo de "recuperação" após o uso.
+1. **Casting:** Tempo de preparação (pode ser interrompido).
+2. **Active:** O momento em que o efeito principal ocorre.
+3. **Recovery:** Tempo de "recuperação" após o uso.
 
 ## Passo 1: Definir as Fases no Resource
 
@@ -67,7 +67,7 @@ func _ready():
 
 func _on_ability_phase_changed(ability_spec, old_phase, new_phase):
     print("Habilidade %s mudou de %s para %s" % [ability_spec.get_ability().resource_name, old_phase, new_phase])
-    
+
     match new_phase:
         &"prepare":
             play_animation("cast_start")

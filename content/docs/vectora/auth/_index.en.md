@@ -8,7 +8,7 @@ sidebar:
 
 {{< lang-toggle >}}
 
-## 🔐 Authentication and Authorization in Vectora
+## Authentication and Authorization in Vectora
 
 The Vectora authentication layer ensures that only authorized users and services can access resources, namespaces, and sensitive operations. This section documents the identity mechanisms, API key management, and access control that protect your context infrastructure.
 
@@ -16,7 +16,7 @@ The Vectora authentication layer ensures that only authorized users and services
 
 ---
 
-### 📋 Topics in this section
+### Topics in this section
 
 | Page                                 | Description                                                                                                    |
 | ------------------------------------ | -------------------------------------------------------------------------------------------------------------- |
@@ -25,7 +25,7 @@ The Vectora authentication layer ensures that only authorized users and services
 
 ---
 
-### 🧭 Typical Authentication Flow
+### Typical Authentication Flow
 
 ```mermaid
 graph LR
@@ -46,7 +46,7 @@ graph LR
 
 ---
 
-### 🔑 Fundamental Concepts
+### Fundamental Concepts
 
 | Term             | Definition                                                                                  |
 | ---------------- | ------------------------------------------------------------------------------------------- |
@@ -58,19 +58,19 @@ graph LR
 
 ---
 
-### 🛡️ Security Best Practices
+### Security Best Practices
 
-✅ **Use API Keys with minimal scope**: Grant only `read` if the integration doesn't need to write  
-✅ **Periodic key rotation**: Renew API Keys every 90 days or after incidents  
-✅ **Validate namespaces in each call**: Don't trust only the token; revalidate scope at runtime  
-✅ **Monitor audit logs**: Use `audit_logs` to detect anomalous access  
-✅ **Never expose keys in the client**: API Keys belong to the backend or the main agent, never to the browser
+**Use API Keys with minimal scope**: Grant only `read` if the integration doesn't need to write  
+ **Periodic key rotation**: Renew API Keys every 90 days or after incidents  
+ **Validate namespaces in each call**: Don't trust only the token; revalidate scope at runtime  
+ **Monitor audit logs**: Use `audit_logs` to detect anomalous access  
+ **Never expose keys in the client**: API Keys belong to the backend or the main agent, never to the browser
 
 > [!WARNING] > **Hard-coded Blocklist**: Files like `.env`, `.key`, `.pem` are blocked by `Guardian` before any processing — regardless of authentication. Security by code, not by configuration.
 
 ---
 
-### 🔄 Integration with Your System
+### Integration with Your System
 
 #### Example: JWT Validation in Your Backend
 
@@ -111,7 +111,7 @@ export async function authMiddleware(req: Request, next: Handler) {
 
 ---
 
-### ❓ Frequently Asked Questions
+### Frequently Asked Questions
 
 **Q: Do I need SSO to use Vectora?**  
 A: No. The Free plan uses local authentication via `vectora auth login`. SSO is available in Pro/Team plans for integration with corporate providers.
@@ -127,5 +127,5 @@ A: No. API keys are stored as hashes (bcrypt). JWT tokens are validated but not 
 
 ---
 
-> 💡 **Key Takeaway**:  
+> **Key Takeaway**:  
 > _"Authentication verifies who you are. Authorization defines what you can do. Vectora applies both to every tool call — not just at login."_

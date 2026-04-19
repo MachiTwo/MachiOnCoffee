@@ -568,4 +568,4 @@ func _on_boss_defeated():
 
 ---
 
-Each pattern can be customized and combined to create epic encounters! 🎮
+Each pattern can be customized and combined to create epic encounters!

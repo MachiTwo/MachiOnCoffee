@@ -152,28 +152,28 @@ Mesmo que o código não use exatamente a palavra "race condition".
 
 Nós testamos **todas as alternativas**:
 
-### ❌ Voyage 3-large (Versão Anterior)
+###  Voyage 3-large (Versão Anterior)
 
 - 1,024 dimensões (menos precisão)
 - Treinamento genérico (não otimizado para código)
 - Performance: ~150ms por embedding
 - Custo: $0.03 por 1M tokens (50% mais caro)
 
-### ❌ Gemini Embedding 2.0
+###  Gemini Embedding 2.0
 
 - 768 dimensões (muito menos que Voyage 4)
 - Otimizado para linguagem natural, não código
 - Integração complexa com Google Cloud
 - NDCG@10: ~92% (6.5% pior que Voyage 4)
 
-### ❌ OpenAI text-embedding-3-large
+###  OpenAI text-embedding-3-large
 
 - 3,072 dimensões (40% mais caro por dimensão)
 - Sem suporte oficial para código estruturado
 - Rate limiting agressivo
 - Custo: $0.065 por 1M tokens (3.25x mais caro)
 
-### ✅ Voyage 4
+###  Voyage 4
 
 - 1,536 dimensões otimizadas (sweet spot)
 - Treinado especificamente em código

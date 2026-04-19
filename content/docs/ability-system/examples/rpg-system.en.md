@@ -503,4 +503,4 @@ func _on_health_changed(new_health: float):
 
 ---
 
-The **Ability System** provides the necessary hooks for all these systems to talk harmoniously through Tags and Attributes. 🎮
+The **Ability System** provides the necessary hooks for all these systems to talk harmoniously through Tags and Attributes.

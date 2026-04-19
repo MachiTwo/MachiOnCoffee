@@ -503,4 +503,4 @@ func _on_health_changed(new_health: float):
 
 ---
 
-O **Ability System** fornece os ganchos necessários para que todos estes sistemas conversem harmoniosamente através de Tags e Atributos. 🎮
+O **Ability System** fornece os ganchos necessários para que todos estes sistemas conversem harmoniosamente através de Tags e Atributos.
