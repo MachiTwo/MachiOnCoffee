@@ -23,7 +23,7 @@ Learn how to create temporary modifiers that affect characters in the **Ability 
 
 ## Concept
 
-**Buff:** Temporary positive effect (e.g., increases damage)  
+**Buff:** Temporary positive effect (e.g., increases damage)
 **Debuff:** Temporary negative effect (e.g., reduces speed)
 
 Both are `ASEffect` with a duration.
@@ -228,7 +228,7 @@ effect.granted_tags: [&"ability.enhanced_strike"]
 
 ```gdscript
 func apply_buff_scaled(level: float):
-    var damage_boost = 1.0 + (level * 0.1)  # +10% per level
+    var damage_boost = 1.0 + (level * 0.1) # +10% per level
     asc.apply_effect_by_tag(&"effect.empower", level)
 ```
 

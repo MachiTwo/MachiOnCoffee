@@ -88,16 +88,16 @@ Sessões de agentes podem se tornar imensas, estourando o limite de contexto do 
 
 ## FAQ de Persistência
 
-**P: Onde fica salvo o arquivo `AGENTS.md`?**  
+**P: Onde fica salvo o arquivo `AGENTS.md`?**
 R: Ele é armazenado de forma persistente no MongoDB Atlas. Você também pode habilitar a sincronização para um arquivo físico na raiz do seu projeto para que ele possa ser versionado no Git.
 
-**P: Posso limpar a memória do agente?**  
+**P: Posso limpar a memória do agente?**
 R: Sim. Você pode resetar uma sessão específica via `vectora session reset --id <session_id>` ou limpar a memória persistente do namespace pelo dashboard.
 
-**P: Como o Vectora evita que a memória do agente fique "poluída" com informações erradas?**  
+**P: Como o Vectora evita que a memória do agente fique "poluída" com informações erradas?**
 R: Através dos **Verification Hooks** do [Harness](/concepts/harness/). Se uma operação falha ou o output é considerado irrelevante, o Harness impede que esse fato seja consolidado na memória persistente.
 
 ---
 
-> 💡 **Frase para lembrar**:  
+> **Frase para lembrar**:
 > _"Inteligência sem memória é apenas um cálculo. Com a persistência do Vectora, seu agente ganha experiência."_

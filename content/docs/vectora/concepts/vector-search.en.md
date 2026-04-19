@@ -91,16 +91,16 @@ MongoDB Atlas offers both. Here is the difference:
 
 ## Vector Search FAQ
 
-**Q: Why does vector search sometimes bring results that don't contain the text I typed?**  
+**Q: Why does vector search sometimes bring results that don't contain the text I typed?**
 A: Because it understood the **intent**. If you search for "security," it will bring results about `Bcrypt`, `JWT`, and `Salting`, even if the word "security" does not appear in the code.
 
-**Q: Does Vectora understand code from any language?**  
+**Q: Does Vectora understand code from any language?**
 A: Yes, thanks to Voyage 4, semantic structures of loops, conditionals, and type declarations are similar across almost all modern languages.
 
-**Q: How do namespaces affect search?**  
+**Q: How do namespaces affect search?**
 A: Vectora applies a **metadata filter** ("Pre-filtering") before the vector search. This ensures the HNSW algorithm only traverses vectors belonging to your authorized project.
 
 ---
 
-> 💡 **Phrase to remember**:  
+> **Phrase to remember**:
 > _"In traditional search you type words. In Vectora's vector search, you express intentions."_

@@ -58,7 +58,7 @@ func gain_experience(amount: float):
 
 func level_up_player():
     current_level += 1
-    stat_points += 5  ## 5 pontos por level
+    stat_points += 5 ## 5 pontos por level
 
     ## Bonus de atributos automático
     player.asc.apply_modifier(&"health", 10.0)
@@ -95,9 +95,9 @@ class SkillNode:
     var max_rank: int = 5
     var current_rank: int = 0
     var required_level: int = 1
-    var required_parent: StringName = &""  ## Parent na tree
-    var cost_per_rank: int = 1  ## Stat points
-    var stat_bonus: Dictionary = {}  ## {"strength": 2, "intelligence": 1}
+    var required_parent: StringName = &"" ## Parent na tree
+    var cost_per_rank: int = 1 ## Stat points
+    var stat_bonus: Dictionary = {} ## {"strength": 2, "intelligence": 1}
     var ability_granted: StringName = &""
 
 var player: Player = null
@@ -113,18 +113,18 @@ func _initialize_skill_tree():
     add_skill(&"slash_mastery", SkillNode.new()).setup(
         "Slash Mastery",
         "Aumenta dano de slash em 10% por rank",
-        1,  ## Level req
-        &"",  ## No parent
-        1,  ## 1 ponto por rank
+        1, ## Level req
+        &"", ## No parent
+        1, ## 1 ponto por rank
         {"strength": 2}
     )
 
     add_skill(&"heavy_strike", SkillNode.new()).setup(
         "Heavy Strike",
         "Ataque pesado com knockback",
-        3,  ## Level 3
-        &"slash_mastery",  ## Requer Slash Mastery
-        2,  ## 2 pontos por rank
+        3, ## Level 3
+        &"slash_mastery", ## Requer Slash Mastery
+        2, ## 2 pontos por rank
         {"strength": 3, "constitution": 1},
         &"ability.heavy_strike"
     )
@@ -294,9 +294,9 @@ class EquipmentItem:
     var id: StringName
     var name: String
     var slot: EquipmentSlot.SLOT_TYPE
-    var rarity: String  ## "common", "uncommon", "rare", "legendary"
+    var rarity: String ## "common", "uncommon", "rare", "legendary"
     var level_requirement: int
-    var stat_modifiers: Dictionary  ## {"strength": 5, "health": 20}
+    var stat_modifiers: Dictionary ## {"strength": 5, "health": 20}
     var ability_granted: StringName = &""
     var durability: float = 100.0
     var max_durability: float = 100.0

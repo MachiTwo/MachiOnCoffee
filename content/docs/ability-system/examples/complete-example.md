@@ -284,26 +284,26 @@ Crie a cena no editor seguindo esta hierarquia:
 ```text
 CombatScene (Node)
 ├─ Player (CharacterBody3D)
-│  ├─ CollisionShape3D
-│  ├─ MeshInstance3D
-│  ├─ AnimationPlayer
-│  └─ AbilityComponent
+│ ├─ CollisionShape3D
+│ ├─ MeshInstance3D
+│ ├─ AnimationPlayer
+│ └─ AbilityComponent
 │
 ├─ Enemy (CharacterBody3D)
-│  ├─ CollisionShape3D
-│  ├─ MeshInstance3D
-│  ├─ AnimationPlayer
-│  └─ AbilityComponent
+│ ├─ CollisionShape3D
+│ ├─ MeshInstance3D
+│ ├─ AnimationPlayer
+│ └─ AbilityComponent
 │
 ├─ UI (CanvasLayer)
-│  └─ VBox
-│     ├─ Label (PlayerHP)
-│     ├─ Label (EnemyHP)
-│     ├─ Label (Message)
-│     └─ HBox
-│        ├─ Button1 (Slash)
-│        ├─ Button2 (Heavy)
-│        └─ Button3 (Heal)
+│ └─ VBox
+│ ├─ Label (PlayerHP)
+│ ├─ Label (EnemyHP)
+│ ├─ Label (Message)
+│ └─ HBox
+│ ├─ Button1 (Slash)
+│ ├─ Button2 (Heavy)
+│ └─ Button3 (Heal)
 │
 └─ CombatManager (Node)
 ```

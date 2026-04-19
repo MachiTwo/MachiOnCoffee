@@ -168,12 +168,12 @@ query = "Crie um endpoint POST /auth/refresh que retorna novo JWT"
 gemini.generate(context + query)
 # →
 # export function refreshAuth(req: express.Request, res: express.Response) {
-#   const token = req.headers.authorization?.split(' ')[1];
-#   if (!token) return res.status(401).json({ error: 'Missing token' });
+# const token = req.headers.authorization?.split(' ')[1];
+# if (!token) return res.status(401).json({ error: 'Missing token' });
 #
-#   const user = verifyToken(token);
-#   const newToken = generateToken(user.id);
-#   res.json({ token: newToken });
+# const user = verifyToken(token);
+# const newToken = generateToken(user.id);
+# res.json({ token: newToken });
 # }
 ```text
 
@@ -200,7 +200,7 @@ Pode identificar tipos comuns de bugs:
 ```text
 Input: src/utils/cache.js:
   async function cacheData(key, data) {
-    cache[key] = data;  // Sem TTL!
+    cache[key] = data; // Sem TTL!
     return data;
   }
 
@@ -298,7 +298,7 @@ Responda em Portuguese (PT-BR).
 response = gemini.generate(
     system_prompt=system_prompt,
     user_prompt=user_prompt,
-    temperature=0.2,  # Determinístico para código
+    temperature=0.2, # Determinístico para código
     top_k=40,
     max_tokens=2048,
 )
@@ -308,28 +308,28 @@ response = gemini.generate(
 
 ### Gemini Pro (Versão Anterior)
 
--  Latência: 100-150ms (2-3x mais lento)
--  Qualidade código: 94.1% (2.1% pior)
--  Sem otimizações de Flash Attention
+- Latência: 100-150ms (2-3x mais lento)
+- Qualidade código: 94.1% (2.1% pior)
+- Sem otimizações de Flash Attention
 
 ### Llama 2 (Meta, Open Source)
 
--  Precisa ser self-hosted (complexidade operacional)
--  Qualidade: 91.5% (5% pior que Gemini)
--  Sem suporte para context window de 1M
--  Infraestrutura custom custosa
+- Precisa ser self-hosted (complexidade operacional)
+- Qualidade: 91.5% (5% pior que Gemini)
+- Sem suporte para context window de 1M
+- Infraestrutura custom custosa
 
 ### Mistral (François Wendel)
 
--  Qualidade aceitável (93.2%) mas abaixo de Gemini
--  Latência: ~80ms (ainda lento)
--  Custo: $0.19/M tokens (2.5x mais que Gemini)
+- Qualidade aceitável (93.2%) mas abaixo de Gemini
+- Latência: ~80ms (ainda lento)
+- Custo: $0.19/M tokens (2.5x mais que Gemini)
 
 ### Qwen 3.5 (Alibaba)
 
--  Qualidade em código: 94.8% (bom, mas não melhor)
--  Otimizado para chinês (pode impactar multilíngues)
--  Menos throughput para escala global
+- Qualidade em código: 94.8% (bom, mas não melhor)
+- Otimizado para chinês (pode impactar multilíngues)
+- Menos throughput para escala global
 
 ## Limitações Conhecidas
 
@@ -366,13 +366,13 @@ Para projetos grandes, usamos prompt caching do Google:
 ```python
 # Primeira requisição: computa prompt inteiro (50ms)
 response1 = gemini.generate(
-    system_prompt=CACHED_SYSTEM_PROMPT,  # Cached após primeira call
+    system_prompt=CACHED_SYSTEM_PROMPT, # Cached após primeira call
     user_prompt=query1,
 )
 
 # Segunda requisição: reutiliza cache (25ms savings)
 response2 = gemini.generate(
-    system_prompt=CACHED_SYSTEM_PROMPT,  # Do cache
+    system_prompt=CACHED_SYSTEM_PROMPT, # Do cache
     user_prompt=query2,
 )
 ```text
@@ -400,13 +400,13 @@ Vectora é uma **operação de custo muito baixo** comparado com alternativas:
 
 ### Exemplo: Análise de 50K linhas de código
 
-| Operação                         | Custo                              |
+| Operação | Custo |
 | -------------------------------- | ---------------------------------- |
-| Voyage 4 Embeddings              | $1.00 (50K linhas × 0.02/M tokens) |
-| Armazenamento Qdrant             | $1.50/mês (para 50K documentos)    |
-| Voyage Rerank (100 queries/mês)  | $0.20                              |
-| Gemini 3 Flash (100 queries/mês) | $0.08                              |
-| **Total Mensal**                 | **~$1.80**                         |
+| Voyage 4 Embeddings | $1.00 (50K linhas × 0.02/M tokens) |
+| Armazenamento Qdrant | $1.50/mês (para 50K documentos) |
+| Voyage Rerank (100 queries/mês) | $0.20 |
+| Gemini 3 Flash (100 queries/mês) | $0.08 |
+| **Total Mensal** | **~$1.80** |
 
 Comparação:
 

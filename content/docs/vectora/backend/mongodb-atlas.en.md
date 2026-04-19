@@ -110,16 +110,16 @@ When you use Vectora, you don't need to configure instances in the MongoDB conso
 
 ## Backend FAQ
 
-**Q: Is my code data sent to the cloud?**  
+**Q: Is my code data sent to the cloud?**
 A: Yes, the embeddings (numerical vectors) and structural metadata (AST, paths) are stored in the MongoDB Atlas managed by Kaffyn. Raw code content is processed by the [Guardian](/security/guardian/) to ensure secrets never leave your environment.
 
-**Q: Can I use my own MongoDB Atlas cluster?**  
+**Q: Can I use my own MongoDB Atlas cluster?**
 A: Yes, in the Enterprise plan or via the `backend.custom_connection_string` configuration.
 
-**Q: What happens if the database gets slow?**  
+**Q: What happens if the database gets slow?**
 A: Vectora implements **local fallback** for basic filesystem searches and embedding caching to maintain IDE fluidity.
 
 ---
 
-> 💡 **Phrase to remember**:  
+> **Phrase to remember**:
 > _"MongoDB Atlas is where Vectora stores knowledge. The intelligence is in the runtime; the memory is in Atlas."_

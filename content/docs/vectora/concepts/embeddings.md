@@ -170,28 +170,28 @@ Mesmo que o código não use exatamente a palavra "race condition".
 
 Nós testamos **todas as alternativas**:
 
-### ❌ Voyage 3-large (Versão Anterior)
+### Voyage 3-large (Versão Anterior)
 
 - 1,024 dimensões (menos precisão)
 - Treinamento genérico (não otimizado para código)
 - Performance: ~150ms por embedding
 - Custo: $0.03 por 1M tokens (50% mais caro)
 
-### ❌ Gemini Embedding 2.0
+### Gemini Embedding 2.0
 
 - 768 dimensões (muito menos que Voyage 4)
 - Otimizado para linguagem natural, não código
 - Integração complexa com Google Cloud
 - NDCG@10: ~92% (6.5% pior que Voyage 4)
 
-### ❌ OpenAI text-embedding-3-large
+### OpenAI text-embedding-3-large
 
 - 3,072 dimensões (40% mais caro por dimensão)
 - Sem suporte oficial para código estruturado
 - Rate limiting agressivo
 - Custo: $0.065 por 1M tokens (3.25x mais caro)
 
-### ✅ Voyage 4
+### Voyage 4
 
 - 1,536 dimensões otimizadas (sweet spot)
 - Treinado especificamente em código
@@ -279,12 +279,12 @@ Retrieve by semantic similarity, não por sintaxe.
 ```python
 # Ruim: embedding um por um
 for file in codebase:
-    embedding = voyage.embed(file.content)  # 50-100ms each
+    embedding = voyage.embed(file.content) # 50-100ms each
 
 # Bom: batch de 100
 batches = [codebase[i:i+100] for i in range(0, len(codebase), 100)]
 for batch in batches:
-    embeddings = voyage.embed([f.content for f in batch])  # 50-100ms for all 100
+    embeddings = voyage.embed([f.content for f in batch]) # 50-100ms for all 100
 ```text
 
 Batching reduz latência total de horas para minutos.
@@ -311,13 +311,13 @@ A quantização TurboQuant é aplicada durante indexação. Periodicamente (a ca
 
 Em benchmark com 10K documentos de código real:
 
-| Modelo                        | NDCG@10   | MRR       | Recall@100 |
+| Modelo | NDCG@10 | MRR | Recall@100 |
 | ----------------------------- | --------- | --------- | ---------- |
-| Voyage 4                      | **98.5%** | **0.936** | **99.2%**  |
-| Voyage 3-large                | 92.1%     | 0.891     | 97.5%      |
-| Gemini Embedding 2.0          | 92.0%     | 0.884     | 97.2%      |
-| OpenAI text-embedding-3-large | 95.3%     | 0.914     | 98.8%      |
-| Semantic Scholar (genérico)   | 78.4%     | 0.721     | 91.3%      |
+| Voyage 4 | **98.5%** | **0.936** | **99.2%** |
+| Voyage 3-large | 92.1% | 0.891 | 97.5% |
+| Gemini Embedding 2.0 | 92.0% | 0.884 | 97.2% |
+| OpenAI text-embedding-3-large | 95.3% | 0.914 | 98.8% |
+| Semantic Scholar (genérico) | 78.4% | 0.721 | 91.3% |
 
 Voyage 4 não é apenas melhor — é **significativamente melhor** em tarefas de código.
 

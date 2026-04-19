@@ -74,13 +74,13 @@ Existem duas arquiteturas fundamentais em busca semântica:
 Query: "Como fazer autenticação JWT?"
 
 Query Embedding: [0.12, -0.45, 0.89, ...]
-Document 1 Embedding: [0.11, -0.46, 0.88, ...]  → Cosine Similarity: 0.95
-Document 2 Embedding: [0.05, 0.23, 0.11, ...]   → Cosine Similarity: 0.42
+Document 1 Embedding: [0.11, -0.46, 0.88, ...] → Cosine Similarity: 0.95
+Document 2 Embedding: [0.05, 0.23, 0.11, ...] → Cosine Similarity: 0.42
 ```text
 
-- ✅ Rápido (pré-computa embeddings)
-- ✅ Escalável (funciona com milhões de documentos)
-- ❌ Menos preciso (pode confundir similares)
+- Rápido (pré-computa embeddings)
+- Escalável (funciona com milhões de documentos)
+- Menos preciso (pode confundir similares)
 
 #### Cross-Encoder (Reranking)
 
@@ -93,9 +93,9 @@ Cross-Encoder Input:
 Score: 0.89 (muito relevante)
 ```text
 
-- ✅ Altamente preciso (examina query + documento simultaneamente)
-- ✅ Entende nuances (pode detectar quando um documento é enganosamente similar)
-- ❌ Mais lento (processa cada par query-documento)
+- Altamente preciso (examina query + documento simultaneamente)
+- Entende nuances (pode detectar quando um documento é enganosamente similar)
+- Mais lento (processa cada par query-documento)
 
 ## Voyage Rerank 2.5: A Escolha Oficial do Vectora
 
@@ -103,15 +103,15 @@ Score: 0.89 (muito relevante)
 
 ### Especificações Técnicas
 
-| Aspecto                        | Detalhe                                          |
+| Aspecto | Detalhe |
 | ------------------------------ | ------------------------------------------------ |
-| **Arquitetura**                | Cross-Encoder (transformers com attention total) |
-| **Treinamento**                | 1B+ exemplos de código e documentação técnica    |
-| **Latência**                   | ~50-150ms por ranking (batch de 100 docs)        |
-| **Dimensionalidade de Output** | Score numérico (0.0 a 1.0)                       |
-| **Custo**                      | $2 por 1M tokens de input                        |
-| **Precisão (NDCG@5)**          | 96.2% em benchmarks de código                    |
-| **Suporte a linguagens**       | Todos os idiomas (PT-BR, EN, etc)                |
+| **Arquitetura** | Cross-Encoder (transformers com attention total) |
+| **Treinamento** | 1B+ exemplos de código e documentação técnica |
+| **Latência** | ~50-150ms por ranking (batch de 100 docs) |
+| **Dimensionalidade de Output** | Score numérico (0.0 a 1.0) |
+| **Custo** | $2 por 1M tokens de input |
+| **Precisão (NDCG@5)** | 96.2% em benchmarks de código |
+| **Suporte a linguagens** | Todos os idiomas (PT-BR, EN, etc) |
 
 ### Como Voyage Rerank 2.5 Funciona
 
@@ -120,11 +120,11 @@ Score: 0.89 (muito relevante)
 ```python
 query = "Onde tratamos a validação de email no contexto de registros de usuário?"
 candidates = [
-    "src/auth/email-validation.ts",      # Embedding score: 0.95
-    "src/services/user-service.ts",      # Embedding score: 0.92
-    "src/types/user.ts",                 # Embedding score: 0.88
-    "tests/email-validation.test.ts",    # Embedding score: 0.85
-    "README.md",                         # Embedding score: 0.72
+    "src/auth/email-validation.ts", # Embedding score: 0.95
+    "src/services/user-service.ts", # Embedding score: 0.92
+    "src/types/user.ts", # Embedding score: 0.88
+    "tests/email-validation.test.ts", # Embedding score: 0.85
+    "README.md", # Embedding score: 0.72
 ]
 ```text
 
@@ -149,11 +149,11 @@ string): boolean { ... } [SEP]
 
 ```python
 Scores do Reranker:
-src/services/user-service.ts:        0.97 ← Relevantíssimo!
-src/auth/email-validation.ts:        0.94 ← Muito relevante
-src/types/user.ts:                   0.71 ← Moderadamente relevante
-tests/email-validation.test.ts:      0.55 ← Pouco relevante
-README.md:                           0.23 ← Irrelevante
+src/services/user-service.ts: 0.97 ← Relevantíssimo!
+src/auth/email-validation.ts: 0.94 ← Muito relevante
+src/types/user.ts: 0.71 ← Moderadamente relevante
+tests/email-validation.test.ts: 0.55 ← Pouco relevante
+README.md: 0.23 ← Irrelevante
 
 Top-3 para enviar ao LLM:
 1. src/services/user-service.ts (0.97)
@@ -165,27 +165,27 @@ Top-3 para enviar ao LLM:
 
 Testamos todas as opções:
 
-### ❌ Cohere Rerank v3.5
+### Cohere Rerank v3.5
 
 - NDCG@5: 93.1% (3.1% pior)
 - Latência: ~180ms
 - Custo: $3 por 1M tokens (50% mais caro)
 - Sem otimização para código de produção
 
-### ❌ BM25 (Busca por Palavras-Chave)
+### BM25 (Busca por Palavras-Chave)
 
 - Totalmente inadequado para código
 - Confunde sintaxe com semântica
 - Sem suporte a conceitos abstratos
 
-### ❌ Treinamento Custom
+### Treinamento Custom
 
 - Requer 100K+ exemplos de código anotado
 - 6-8 meses de desenvolvimento
 - Custo: $500K+
 - Manutenção contínua
 
-### ✅ Voyage Rerank 2.5
+### Voyage Rerank 2.5
 
 - NDCG@5: **96.2%** (melhor do mercado)
 - Latência: 50-150ms
@@ -283,11 +283,11 @@ Query: "Como validar tokens JWT?"
 
 # Ruim: um por um
 for doc in documents:
- score = reranker.rank(query, doc)  # 100-150ms each
+ score = reranker.rank(query, doc) # 100-150ms each
 # Total: 5-7.5 segundos
 
 # Bom: batch de 50
-scores = reranker.rank(query, documents)  # 100-150ms total
+scores = reranker.rank(query, documents) # 100-150ms total
 # Total: 100-150ms
 ```text
 
@@ -365,14 +365,14 @@ salvá-lo
 
 Em projeto de 500K linhas de código:
 
-| Métrica                 | Sem Reranking | Com Reranking                         |
+| Métrica | Sem Reranking | Com Reranking |
 | ----------------------- | ------------- | ------------------------------------- |
-| Documentos recuperados  | 50            | 5                                     |
-| Contexto enviado ao LLM | ~15KB         | ~1.5KB                                |
-| Custo por query         | $0.05         | $0.06                                 |
-| Tempo de resposta       | 2.1s          | 2.3s                                  |
-| Taxa de acurácia        | 82%           | 96%                                   |
-| Economia em re-queries  | -             | 40% (menos perguntas para esclarecer) |
+| Documentos recuperados | 50 | 5 |
+| Contexto enviado ao LLM | ~15KB | ~1.5KB |
+| Custo por query | $0.05 | $0.06 |
+| Tempo de resposta | 2.1s | 2.3s |
+| Taxa de acurácia | 82% | 96% |
+| Economia em re-queries | - | 40% (menos perguntas para esclarecer) |
 
 **ROI**: Apesar do custo adicional de $0.01, o reranking reduz re-queries em 40%, gerando economia líquida de 75%.
 

@@ -11,7 +11,7 @@ breadcrumbs: true
 
 {{< lang-toggle >}}
 
-## 🔑 Vectora API Keys
+## Vectora API Keys
 
 API Keys are programmatic credentials that enable secure, scoped access to the Vectora backend without interactive authentication. They are designed for machine-to-machine communication, CI/CD pipelines, custom agent integrations, and direct HTTP/REST access to your indexed namespaces.
 
@@ -20,7 +20,7 @@ API Keys are programmatic credentials that enable secure, scoped access to the V
 
 ---
 
-### 🧩 Key Capabilities
+### Key Capabilities
 
 | Feature                | Description                                                              |
 | ---------------------- | ------------------------------------------------------------------------ |
@@ -32,7 +32,7 @@ API Keys are programmatic credentials that enable secure, scoped access to the V
 
 ---
 
-### 📋 Available Scopes & Permissions
+### Available Scopes & Permissions
 
 | Scope    | Allowed Operations                                         | Typical Use Case                                             |
 | -------- | ---------------------------------------------------------- | ------------------------------------------------------------ |
@@ -46,7 +46,7 @@ API Keys are programmatic credentials that enable secure, scoped access to the V
 
 ---
 
-### 🔌 Integration Examples
+### Integration Examples
 
 #### 1. MCP Server Configuration
 
@@ -96,20 +96,20 @@ await client.context.ingest("./src");
 
 ---
 
-### 🛡️ Security Best Practices
+### Security Best Practices
 
-✅ **Principle of Least Privilege**: Use `search` for read-only agents, `write` only for automated indexing pipelines.  
-✅ **Environment Injection**: Never hardcode keys. Use `.env`, CI/CD secrets, or cloud KMS.  
-✅ **Rotation Policy**: Rotate keys every 90 days or immediately after a security incident.  
-✅ **Audit Logging**: All API key usage is logged in your [Audit Trail](/security/rbac/) with timestamp, IP, and executed tool.  
-✅ **Scope Validation**: Vectora enforces scope at the [Guardian](/security/guardian/) layer — keys cannot bypass hard-coded blocklists.
+**Principle of Least Privilege**: Use `search` for read-only agents, `write` only for automated indexing pipelines.
+**Environment Injection**: Never hardcode keys. Use `.env`, CI/CD secrets, or cloud KMS.
+**Rotation Policy**: Rotate keys every 90 days or immediately after a security incident.
+**Audit Logging**: All API key usage is logged in your [Audit Trail](/security/rbac/) with timestamp, IP, and executed tool.
+**Scope Validation**: Vectora enforces scope at the [Guardian](/security/guardian/) layer — keys cannot bypass hard-coded blocklists.
 
 > [!TIP]
 > Combine API Keys with [SSO](/auth/sso/) for human users and [Trust Folders](/security/trust-folder/) for filesystem isolation. API Keys grant logical access; security policies enforce runtime boundaries.
 
 ---
 
-### 🔄 Key Management Lifecycle
+### Key Management Lifecycle
 
 | Action     | Dashboard                         | CLI                                                     |
 | ---------- | --------------------------------- | ------------------------------------------------------- | --- |
@@ -122,28 +122,28 @@ await client.context.ingest("./src");
 
 ---
 
-### ❓ Frequently Asked Questions
+### Frequently Asked Questions
 
-**Q: Can I share an API Key across multiple namespaces?**  
+**Q: Can I share an API Key across multiple namespaces?**
 A: No. Each key is strictly bound to a single namespace at creation. Cross-namespace access requires multiple keys or [Team/Enterprise RBAC](/plans/team/).
 
-**Q: What happens if my key is compromised?**  
+**Q: What happens if my key is compromised?**
 A: Revoke it immediately via dashboard or CLI. All active sessions using that key are terminated within seconds. Audit logs capture the last usage for forensic analysis.
 
-**Q: Do API Keys bypass the Guardian blocklist?**  
+**Q: Do API Keys bypass the Guardian blocklist?**
 A: Absolutely not. [Guardian](/security/guardian/) validation runs at the application layer before any tool execution, regardless of authentication method. `.env`, `.key`, and `node_modules/` remain inaccessible.
 
-**Q: Can I use API Keys with my own LLM provider?**  
+**Q: Can I use API Keys with my own LLM provider?**
 A: Yes. API Keys authenticate you to the Vectora backend. LLM/embedding quotas are managed separately via [BYOK configuration](/providers/gemini/) or managed plan limits.
 
-**Q: Is there a rate limit?**  
+**Q: Is there a rate limit?**
 A: Default: 100 req/min for `search`, 20 req/min for `write`. Custom limits available on Team/Enterprise plans.
 
 ---
 
-> 💡 **Phrase to remember**:  
+> **Phrase to remember**:
 > _"API Keys open the door. Scopes define the room. Guardian locks the vault."_
 
-_Part of Vectora Auth · Available on Pro, Team & Enterprise_  
-_Security: Hashed storage, scope enforcement, instant revocation_  
+_Part of Vectora Auth · Available on Pro, Team & Enterprise_
+_Security: Hashed storage, scope enforcement, instant revocation_
 _Next: [SSO & Identity](/auth/sso/) · Previous: [Trust Folder](/security/trust-folder/)_

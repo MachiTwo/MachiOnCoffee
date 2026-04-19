@@ -6,9 +6,9 @@ exclude: |
     static/.*|
     .*\.pdf$|
     temp/.*|
-    .*/temp/.*
+    .*/temp/.*|
     .*\.json$|
-    .*\.html$|
+    .*\.html$
   )$
 
 repos:

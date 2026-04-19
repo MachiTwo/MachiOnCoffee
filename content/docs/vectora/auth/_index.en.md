@@ -17,7 +17,7 @@ tags:
 
 {{< lang-toggle >}}
 
-## 🔐 Authentication and Authorization in Vectora
+## Authentication and Authorization in Vectora
 
 Vectora's authentication layer ensures that only authorized users and services can access resources, namespaces, and sensitive operations. This section documents the identity mechanisms, API key management, and access control that protect your context infrastructure.
 
@@ -25,7 +25,7 @@ Vectora's authentication layer ensures that only authorized users and services c
 
 ---
 
-### 📋 Topics in this section
+### Topics in this section
 
 | Page                                 | Description                                                                                                    |
 | ------------------------------------ | -------------------------------------------------------------------------------------------------------------- |
@@ -34,7 +34,7 @@ Vectora's authentication layer ensures that only authorized users and services c
 
 ---
 
-### 🧭 Typical Authentication Flow
+### Typical Authentication Flow
 
 ```mermaid
 graph LR
@@ -55,7 +55,7 @@ graph LR
 
 ---
 
-### 🔑 Fundamental Concepts
+### Fundamental Concepts
 
 | Term             | Definition                                                                                  |
 | ---------------- | ------------------------------------------------------------------------------------------- |
@@ -67,19 +67,19 @@ graph LR
 
 ---
 
-### 🛡️ Security Best Practices
+### Security Best Practices
 
-✅ **Use scoped API Keys**: Grant only `search` or `read` if the integration doesn't need to write.  
-✅ **Rotate keys periodically**: Renew API Keys every 90 days or after any security incident.  
-✅ **Validate namespaces in every call**: Don't just trust the token; revalidate scope at runtime.  
-✅ **Monitor audit logs**: Use `audit_logs` to detect anomalous access patterns.  
-✅ **Never expose keys in the client**: API Keys belong to the backend or the principal agent, never the browser.
+**Use scoped API Keys**: Grant only `search` or `read` if the integration doesn't need to write.
+**Rotate keys periodically**: Renew API Keys every 90 days or after any security incident.
+**Validate namespaces in every call**: Don't just trust the token; revalidate scope at runtime.
+**Monitor audit logs**: Use `audit_logs` to detect anomalous access patterns.
+**Never expose keys in the client**: API Keys belong to the backend or the principal agent, never the browser.
 
 > [!WARNING] > **Hard-coded blocklist**: Files like `.env`, `.key`, and `.pem` are blocked by the `Guardian` before any processing — regardless of authentication. Security by code, not by configuration.
 
 ---
 
-### 🔄 Integration with Your System
+### Integration with Your System
 
 #### Example: JWT Validation in your backend
 
@@ -120,21 +120,21 @@ export async function authMiddleware(req: Request, next: Handler) {
 
 ---
 
-### ❓ Frequently Asked Questions
+### Frequently Asked Questions
 
-**Q: Do I need SSO to use Vectora?**  
+**Q: Do I need SSO to use Vectora?**
 A: No. The Free plan uses local authentication via `vectora auth login`. SSO is available on Pro/Team plans for integration with corporate providers.
 
-**Q: Can I use my own auth infrastructure?**  
+**Q: Can I use my own auth infrastructure?**
 A: Yes. Vectora accepts any valid JWT configured via `auth.jwt.publicKey`. Consult [SSO](/auth/sso/) for custom integration details.
 
-**Q: How do I revoke a compromised API Key?**  
+**Q: How do I revoke a compromised API Key?**
 A: Via the dashboard (`/settings/api-keys`) or CLI: `vectora api-key revoke --id <key_id>`. Revocation is immediate across all nodes.
 
-**Q: Does Vectora store my credentials?**  
+**Q: Does Vectora store my credentials?**
 A: No. API Keys are stored as hashes (bcrypt). JWT tokens are validated but not persisted. Provider credentials (Gemini, Voyage) are provided via BYOK and never touched by Kaffyn.
 
 ---
 
-> 💡 **Phrase to remember**:  
+> **Phrase to remember**:
 > _"Authentication verifies who you are. Authorization defines what you can do. Vectora enforces both on every tool call — not just at login."_

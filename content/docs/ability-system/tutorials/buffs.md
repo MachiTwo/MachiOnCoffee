@@ -23,7 +23,7 @@ Aprenda a criar modificadores temporários que afetam personagens no **Ability S
 
 ## Conceito
 
-**Buff:** Efeito positivo temporário (ex: aumenta dano)  
+**Buff:** Efeito positivo temporário (ex: aumenta dano)
 **Debuff:** Efeito negativo temporário (ex: reduz velocidade)
 
 Ambos são `ASEffect` com duração.
@@ -228,7 +228,7 @@ effect.granted_tags: [&"ability.enhanced_strike"]
 
 ```gdscript
 func apply_buff_scaled(level: float):
-    var damage_boost = 1.0 + (level * 0.1)  # +10% por nível
+    var damage_boost = 1.0 + (level * 0.1) # +10% por nível
     asc.apply_effect_by_tag(&"effect.empower", level)
 ```
 

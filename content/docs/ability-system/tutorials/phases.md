@@ -98,8 +98,8 @@ Você pode vincular `ASCue` a fases específicas para automação visual:
 ```gdscript
 # No inspetor do ASAbility
 # phase_cues = {
-#     "prepare": [res://vfx/charge.tres],
-#     "execute": [res://vfx/explosion.tres]
+# "prepare": [res://vfx/charge.tres],
+# "execute": [res://vfx/explosion.tres]
 # }
 ```
 

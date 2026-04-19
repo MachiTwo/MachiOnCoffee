@@ -110,16 +110,16 @@ Quando você usa o Vectora, você não precisa configurar instâncias no console
 
 ## FAQ de Backend
 
-**P: Os dados do meu código são enviados para a nuvem?**  
+**P: Os dados do meu código são enviados para a nuvem?**
 R: Sim, os embeddings (vetores numéricos) e metadados estruturais (AST, caminhos) são armazenados no MongoDB Atlas gerenciado pela Kaffyn. O conteúdo bruto do código é processado pelo [Guardian](/security/guardian/) para garantir que segredos nunca saiam do seu ambiente.
 
-**P: Posso usar meu próprio cluster do MongoDB Atlas?**  
+**P: Posso usar meu próprio cluster do MongoDB Atlas?**
 R: Sim, no plano Enterprise ou através da configuração `backend.custom_connection_string`.
 
-**P: O que acontece se o banco ficar lento?**  
+**P: O que acontece se o banco ficar lento?**
 R: O Vectora implementa **fallback local** para buscas básicas no sistema de arquivos e caching de embeddings para manter a fluidez da IDE.
 
 ---
 
-> 💡 **Frase para lembrar**:  
+> **Frase para lembrar**:
 > _"O MongoDB Atlas é onde o Vectora guarda o conhecimento. A inteligência está no runtime; a memória está no Atlas."_

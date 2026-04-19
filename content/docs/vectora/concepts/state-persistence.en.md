@@ -88,16 +88,16 @@ Agent sessions can become immense, exceeding the LLM's context limit. Vectora ap
 
 ## Persistence FAQ
 
-**Q: Where is the `AGENTS.md` file saved?**  
+**Q: Where is the `AGENTS.md` file saved?**
 A: It is stored persistently in MongoDB Atlas. You can also enable synchronization to a physical file in your project root so it can be versioned in Git.
 
-**Q: Can I clear the agent's memory?**  
+**Q: Can I clear the agent's memory?**
 A: Yes. You can reset a specific session via `vectora session reset --id <session_id>` or clear the namespace's persistent memory via the dashboard.
 
-**Q: How does Vectora prevent the agent's memory from being "polluted" with wrong information?**  
+**Q: How does Vectora prevent the agent's memory from being "polluted" with wrong information?**
 A: Through the **Verification Hooks** of the [Harness](/concepts/harness/). If an operation fails or the output is considered irrelevant, the Harness prevents that fact from being consolidated in persistent memory.
 
 ---
 
-> 💡 **Phrase to remember**:  
+> **Phrase to remember**:
 > _"Intelligence without memory is just a calculation. With Vectora's persistence, your agent gains experience."_

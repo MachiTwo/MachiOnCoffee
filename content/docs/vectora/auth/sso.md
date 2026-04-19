@@ -14,7 +14,7 @@ tags:
 
 {{< lang-toggle >}}
 
-## 🆔 Identidade Unificada (Kaffyn SSO)
+## Identidade Unificada (Kaffyn SSO)
 
 O **Kaffyn SSO** é a camada de identidade centralizada que conecta todos os componentes do ecossistema Vectora. Ele garante que seu contexto, permissões e quotas sejam consistentes em qualquer ambiente, seja na IDE do trabalho ou no seu notebook pessoal.
 
@@ -23,7 +23,7 @@ O **Kaffyn SSO** é a camada de identidade centralizada que conecta todos os com
 
 ---
 
-### 🏛️ Arquitetura de Identidade
+### Arquitetura de Identidade
 
 Diferente de sistemas tradicionais, a identidade no Vectora é desacoplada do armazenamento de dados para garantir máxima segurança:
 
@@ -51,7 +51,7 @@ O SSO atua como o ponto de decisão para:
 
 ---
 
-### 🧩 Funcionalidades Principais
+### Funcionalidades Principais
 
 | Recurso                  | Descrição                                                 | Disponibilidade   |
 | ------------------------ | --------------------------------------------------------- | ----------------- |
@@ -63,7 +63,7 @@ O SSO atua como o ponto de decisão para:
 
 ---
 
-### 🔐 Segurança: Arquitetura "Air Gap"
+### Segurança: Arquitetura "Air Gap"
 
 Para proteger sua privacidade, os dados de identidade (e-mail, perfis) são mantidos em uma infraestrutura isolada do seu conteúdo de código (embeddings e metadados). Mesmo em caso de comprometimento de um cluster de processamento, suas credenciais de pagamento e identidade permanecem protegidas na camada global da Kaffyn.
 
@@ -75,7 +75,7 @@ Para proteger sua privacidade, os dados de identidade (e-mail, perfis) são mant
 
 ---
 
-### 🔄 Fluxo de Login do Agente
+### Fluxo de Login do Agente
 
 Para autenticar seu ambiente local:
 
@@ -89,18 +89,18 @@ Para autenticar seu ambiente local:
 
 ---
 
-### ❓ Perguntas Frequentes
+### Perguntas Frequentes
 
-**P: Posso fazer self-host do SSO?**  
+**P: Posso fazer self-host do SSO?**
 R: Não. O Kaffyn SSO é a camada de serviço que permite a orquestração multi-tenant. Para cenários 100% offline ou sem dependência da Kaffyn, use o modo **Local** do agente com BYOK puro.
 
-**P: O SSO tem acesso ao meu código?**  
+**P: O SSO tem acesso ao meu código?**
 R: Não. O SSO gerencia apenas sua **identidade e permissões**. O tráfego de código e busca ocorre entre seu agente local e o backend MongoDB (também isolado por seu namespace), governado pela lógica do [Guardian](/security/guardian/).
 
-**P: Como funcionam as roles no plano Team?**  
+**P: Como funcionam as roles no plano Team?**
 R: O administrador do time convida membros. Cada membro tem sua identidade SSO, mas as permissões de acesso ao namespace do time são definidas por roles: `reader` (apenas busca), `contributor` (pode indexar novos arquivos) e `admin` (gestão total).
 
 ---
 
-> 💡 **Frase para lembrar**:  
+> **Frase para lembrar**:
 > _"O SSO diz quem você é. O RBAC diz onde você pode entrar. O Vectora garante que você só veja o que é seu."_

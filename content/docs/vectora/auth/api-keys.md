@@ -15,7 +15,7 @@ tags:
 
 {{< lang-toggle >}}
 
-## 🔑 Chaves de API do Vectora
+## Chaves de API do Vectora
 
 As Chaves de API são credenciais programáticas que permitem acesso seguro e limitado ao backend do Vectora sem necessidade de autenticação interativa. Elas são projetadas para comunicação máquina-a-máquina, pipelines de CI/CD, integrações de agentes personalizados e acesso direto via HTTP/REST aos seus namespaces indexados.
 
@@ -24,7 +24,7 @@ As Chaves de API são credenciais programáticas que permitem acesso seguro e li
 
 ---
 
-### 🧩 Capacidades Principais
+### Capacidades Principais
 
 | Recurso                   | Descrição                                                                      |
 | ------------------------- | ------------------------------------------------------------------------------ |
@@ -36,7 +36,7 @@ As Chaves de API são credenciais programáticas que permitem acesso seguro e li
 
 ---
 
-### 📋 Escopos e Permissões Disponíveis
+### Escopos e Permissões Disponíveis
 
 | Escopo   | Operações Permitidas                                         | Caso de Uso Típico                                              |
 | -------- | ------------------------------------------------------------ | --------------------------------------------------------------- |
@@ -50,7 +50,7 @@ As Chaves de API são credenciais programáticas que permitem acesso seguro e li
 
 ---
 
-### 🔌 Exemplos de Integração
+### Exemplos de Integração
 
 #### 1. Configuração do Servidor MCP
 
@@ -100,20 +100,20 @@ await client.context.ingest("./src");
 
 ---
 
-### 🛡️ Boas Práticas de Segurança
+### Boas Práticas de Segurança
 
-✅ **Princípio do Menor Privilégio**: Use `search` para agentes de leitura, `write` apenas para pipelines de indexação automáticos.  
-✅ **Injeção via Ambiente**: Nunca coloque chaves no código. Use `.env`, segredos de CI/CD ou KMS em nuvem.  
-✅ **Política de Rotação**: Rotacione chaves a cada 90 dias ou imediatamente após qualquer incidente.  
-✅ **Logs de Auditoria**: Todo uso de chave de API é registrado no seu [Audit Trail](/security/rbac/) com timestamp, IP e ferramenta executada.  
-✅ **Validação de Escopo**: O Vectora impõe escopo na camada [Guardian](/security/guardian/) — chaves não ignoram bloqueios hard-coded.
+**Princípio do Menor Privilégio**: Use `search` para agentes de leitura, `write` apenas para pipelines de indexação automáticos.
+**Injeção via Ambiente**: Nunca coloque chaves no código. Use `.env`, segredos de CI/CD ou KMS em nuvem.
+**Política de Rotação**: Rotacione chaves a cada 90 dias ou imediatamente após qualquer incidente.
+**Logs de Auditoria**: Todo uso de chave de API é registrado no seu [Audit Trail](/security/rbac/) com timestamp, IP e ferramenta executada.
+**Validação de Escopo**: O Vectora impõe escopo na camada [Guardian](/security/guardian/) — chaves não ignoram bloqueios hard-coded.
 
 > [!TIP]
 > Combine Chaves de API com [SSO](/auth/sso/) para usuários humanos e [Trust Folders](/security/trust-folder/) para isolamento de filesystem. Chaves de API garantem acesso lógico; políticas de segurança impõem limites de runtime.
 
 ---
 
-### 🔄 Gestão do Ciclo de Vida das Chaves
+### Gestão do Ciclo de Vida das Chaves
 
 | Ação          | Dashboard                               | CLI                                                     |
 | ------------- | --------------------------------------- | ------------------------------------------------------- |
@@ -126,18 +126,18 @@ await client.context.ingest("./src");
 
 ---
 
-### ❓ Perguntas Frequentes
+### Perguntas Frequentes
 
-**P: Posso compartilhar uma Chave de API entre múltiplos namespaces?**  
+**P: Posso compartilhar uma Chave de API entre múltiplos namespaces?**
 R: Não. Cada chave é estritamente vinculada a um único namespace na criação. Acesso cross-namespace requer múltiplas chaves ou [RBAC de Time](/plans/team/).
 
-**P: O que acontece se minha chave for comprometida?**  
+**P: O que acontece se minha chave for comprometida?**
 R: Revogue-a imediatamente via dashboard ou CLI. Todas as sessões ativas usando essa chave são encerradas em segundos.
 
-**P: Chaves de API ignoram o Guardian?**  
+**P: Chaves de API ignoram o Guardian?**
 R: Absolutamente não. O [Guardian](/security/guardian/) roda na camada de aplicação antes de qualquer execução de ferramenta, independente do método de autenticação. `.env`, `.key` e `node_modules/` permanecem inacessíveis.
 
 ---
 
-> 💡 **Frase para lembrar**:  
+> **Frase para lembrar**:
 > _"API Keys abrem a porta. Escopos definem a sala. Guardian tranca o cofre."_

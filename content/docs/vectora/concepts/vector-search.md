@@ -91,16 +91,16 @@ O MongoDB Atlas oferece ambos. Aqui está a diferença:
 
 ## FAQ de Busca Vetorial
 
-**P: Por que a busca vetorial às vezes traz resultados que não contêm o texto que eu digitei?**  
+**P: Por que a busca vetorial às vezes traz resultados que não contêm o texto que eu digitei?**
 R: Porque ela entendeu a **intenção**. Se você busca "segurança", ela trará resultados sobre `Bcrypt`, `JWT` e `Salting`, mesmo que a palavra "segurança" não apareça no código.
 
-**P: O Vectora entende código de qualquer linguagem?**  
+**P: O Vectora entende código de qualquer linguagem?**
 R: Sim, graças ao Voyage 4, as estruturas semânticas de loops, condicionais e declarações de tipos são similares em quase todas as linguagens modernas.
 
-**P: Como os namespaces afetam a busca?**  
+**P: Como os namespaces afetam a busca?**
 R: O Vectora aplica um **filtro de metadados** ("Pre-filtering") antes da busca vetorial. Isso garante que o algoritmo HNSW só percorra os vetores que pertencem ao seu projeto autorizado.
 
 ---
 
-> 💡 **Frase para lembrar**:  
+> **Frase para lembrar**:
 > _"Na busca tradicional você digita palavras. Na busca vetorial do Vectora, você expressa intenções."_

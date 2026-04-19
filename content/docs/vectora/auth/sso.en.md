@@ -14,7 +14,7 @@ tags:
 
 {{< lang-toggle >}}
 
-## 🆔 Unified Identity (Kaffyn SSO)
+## Unified Identity (Kaffyn SSO)
 
 **Kaffyn SSO** is the centralized identity layer that connects all components of the Vectora ecosystem. It ensures that your context, permissions, and quotas are consistent across any environment, whether it's your work IDE or your personal laptop.
 
@@ -23,7 +23,7 @@ tags:
 
 ---
 
-### 🏛️ Identity Architecture
+### Identity Architecture
 
 Unlike traditional systems, identity in Vectora is decoupled from data storage to ensure maximum security:
 
@@ -51,7 +51,7 @@ SSO acts as the decision point for:
 
 ---
 
-### 🧩 Key Features
+### Key Features
 
 | Feature                   | Description                                               | Availability      |
 | ------------------------- | --------------------------------------------------------- | ----------------- |
@@ -63,7 +63,7 @@ SSO acts as the decision point for:
 
 ---
 
-### 🔐 Security: "Air Gap" Architecture
+### Security: "Air Gap" Architecture
 
 To protect your privacy, identity data (email, profiles) is kept on infrastructure isolated from your code content (embeddings and metadata). Even in the event of a processing cluster compromise, your payment credentials and identity remain protected in Kaffyn's global layer.
 
@@ -75,7 +75,7 @@ To protect your privacy, identity data (email, profiles) is kept on infrastructu
 
 ---
 
-### 🔄 Agent Login Flow
+### Agent Login Flow
 
 To authenticate your local environment:
 
@@ -89,18 +89,18 @@ To authenticate your local environment:
 
 ---
 
-### ❓ Frequently Asked Questions
+### Frequently Asked Questions
 
-**Q: Can I self-host the SSO?**  
+**Q: Can I self-host the SSO?**
 A: No. Kaffyn SSO is the service layer that allows multi-tenant orchestration. For 100% offline scenarios or without dependency on Kaffyn, use the **Local** mode of the agent with pure BYOK.
 
-**Q: Does the SSO have access to my code?**  
+**Q: Does the SSO have access to my code?**
 A: No. The SSO only manages your **identity and permissions**. Code traffic and search occurs between your local agent and the MongoDB backend (also isolated by your namespace), governed by the [Guardian](/security/guardian/) logic.
 
-**Q: How do roles work in the Team plan?**  
+**Q: How do roles work in the Team plan?**
 A: The team administrator invites members. Each member has their own SSO identity, but namespace access permissions are defined by roles: `reader` (search only), `contributor` (can index new files), and `admin` (full management).
 
 ---
 
-> 💡 **Phrase to remember**:  
+> **Phrase to remember**:
 > _"SSO says who you are. RBAC says where you can go. Vectora ensures you only see what is yours."_

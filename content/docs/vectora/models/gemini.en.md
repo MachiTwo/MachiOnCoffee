@@ -167,12 +167,12 @@ query = "Create a POST /auth/refresh endpoint that returns new JWT"
 gemini.generate(context + query)
 # →
 # export function refreshAuth(req: express.Request, res: express.Response) {
-#   const token = req.headers.authorization?.split(' ')[1];
-#   if (!token) return res.status(401).json({ error: 'Missing token' });
+# const token = req.headers.authorization?.split(' ')[1];
+# if (!token) return res.status(401).json({ error: 'Missing token' });
 #
-#   const user = verifyToken(token);
-#   const newToken = generateToken(user.id);
-#   res.json({ token: newToken });
+# const user = verifyToken(token);
+# const newToken = generateToken(user.id);
+# res.json({ token: newToken });
 # }
 ```text
 
@@ -199,7 +199,7 @@ Can identify common bug types:
 ```text
 Input: src/utils/cache.js:
   async function cacheData(key, data) {
-    cache[key] = data;  // No TTL!
+    cache[key] = data; // No TTL!
     return data;
   }
 
@@ -297,7 +297,7 @@ Respond in English.
 response = gemini.generate(
     system_prompt=system_prompt,
     user_prompt=user_prompt,
-    temperature=0.2,  # Deterministic for code
+    temperature=0.2, # Deterministic for code
     top_k=40,
     max_tokens=2048,
 )
@@ -307,28 +307,28 @@ response = gemini.generate(
 
 ### Gemini Pro (Previous Version)
 
--  Latency: 100-150ms (2-3x slower)
--  Code quality: 94.1% (2.1% worse)
--  No Flash Attention optimizations
+- Latency: 100-150ms (2-3x slower)
+- Code quality: 94.1% (2.1% worse)
+- No Flash Attention optimizations
 
 ### Llama 2 (Meta, Open Source)
 
--  Requires self-hosting (operational complexity)
--  Quality: 91.5% (5% worse than Gemini)
--  No 1M token context window support
--  Expensive custom infrastructure
+- Requires self-hosting (operational complexity)
+- Quality: 91.5% (5% worse than Gemini)
+- No 1M token context window support
+- Expensive custom infrastructure
 
 ### Mistral
 
--  Acceptable quality (93.2%) but below Gemini
--  Latency: ~80ms (still slow)
--  Cost: $0.19/M tokens (2.5x more than Gemini)
+- Acceptable quality (93.2%) but below Gemini
+- Latency: ~80ms (still slow)
+- Cost: $0.19/M tokens (2.5x more than Gemini)
 
 ### Qwen 3.5 (Alibaba)
 
--  Code quality: 94.8% (good, but not better)
--  Optimized for Chinese (may impact multilingual)
--  Less throughput for global scale
+- Code quality: 94.8% (good, but not better)
+- Optimized for Chinese (may impact multilingual)
+- Less throughput for global scale
 
 ## Known Limitations
 
@@ -363,13 +363,13 @@ For large projects, we use Google's prompt caching:
 ```python
 # First request: computes entire prompt (50ms)
 response1 = gemini.generate(
-    system_prompt=CACHED_SYSTEM_PROMPT,  # Cached after first call
+    system_prompt=CACHED_SYSTEM_PROMPT, # Cached after first call
     user_prompt=query1,
 )
 
 # Second request: reuses cache (25ms savings)
 response2 = gemini.generate(
-    system_prompt=CACHED_SYSTEM_PROMPT,  # From cache
+    system_prompt=CACHED_SYSTEM_PROMPT, # From cache
     user_prompt=query2,
 )
 ```text
@@ -397,13 +397,13 @@ Vectora is a **very low-cost operation** compared to alternatives:
 
 ### Example: Analyzing 50K lines of code
 
-| Operation                          | Cost                              |
+| Operation | Cost |
 | ---------------------------------- | --------------------------------- |
-| Voyage 4 Embeddings                | $1.00 (50K lines × 0.02/M tokens) |
-| Qdrant Storage                     | $1.50/month (for 50K documents)   |
-| Voyage Rerank (100 queries/month)  | $0.20                             |
-| Gemini 3 Flash (100 queries/month) | $0.08                             |
-| **Total Monthly**                  | **~$1.80**                        |
+| Voyage 4 Embeddings | $1.00 (50K lines × 0.02/M tokens) |
+| Qdrant Storage | $1.50/month (for 50K documents) |
+| Voyage Rerank (100 queries/month) | $0.20 |
+| Gemini 3 Flash (100 queries/month) | $0.08 |
+| **Total Monthly** | **~$1.80** |
 
 Comparison:
 

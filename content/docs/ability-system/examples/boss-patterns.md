@@ -112,7 +112,7 @@ class_name CasterBoss
 var health = 150.0
 var target: Player = null
 var spell_timer = 0.0
-var phase = 1  ## 1=Normal, 2=Enraged
+var phase = 1 ## 1=Normal, 2=Enraged
 var minion_count = 0
 var max_minions = 3
 
@@ -236,7 +236,7 @@ var health = 250.0
 var target: Player = null
 var adaptation_timer = 0.0
 var player_damage_taken = 0.0
-var weakness: StringName = &""  ## Adapta-se à estratégia do jogador
+var weakness: StringName = &"" ## Adapta-se à estratégia do jogador
 
 signal defeated
 signal health_changed(new_health)
@@ -322,7 +322,7 @@ class_name MegaBoss
 
 var health = 500.0
 var target: Player = null
-var phase = 1  ## 1, 2, 3
+var phase = 1 ## 1, 2, 3
 
 signal defeated
 signal health_changed(new_health)
@@ -381,7 +381,7 @@ func change_phase(new_phase: int):
     match new_phase:
         2:
             print("Boss: Fase 2 - Ficando sério!")
-            health += 50  ## Curar na troca de fase
+            health += 50 ## Curar na troca de fase
         3:
             print("Boss: Fase 3 - PODER ABSOLUTO!")
             asc.add_tag(&"state.invulnerable")
@@ -433,7 +433,7 @@ class_name PuzzleBoss
 
 var health = 100.0
 var target: Player = null
-var puzzle_phase = 0  ## 0=esperando, 1=vulnerável, 2=escudo
+var puzzle_phase = 0 ## 0=esperando, 1=vulnerável, 2=escudo
 var shield_active = false
 var shield_durability = 30.0
 
@@ -471,7 +471,7 @@ func vulnerable_phase():
 
     await get_tree().create_timer(30.0).timeout
     if puzzle_phase == 1:
-        shield_phase()  ## Fecha a janela
+        shield_phase() ## Fecha a janela
 
 func shield_phase():
     if shield_active:
