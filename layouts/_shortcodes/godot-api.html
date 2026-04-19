@@ -29,6 +29,7 @@
   <div class="api-description">
     <h3>{{ $l.description }}</h3>
     {{ $desc := $data.description }}
+    {{ $desc = replace $desc "\t" "" }}
     {{ $desc = replace $desc "[codeblocks]" "" }}
     {{ $desc = replace $desc "[/codeblocks]" "" }}
     {{ $desc = replace $desc "[gdscript]" "\n\n```gdscript\n" }}
@@ -61,6 +62,7 @@
       {{ if .description }}
       <tr>
         {{ $pdesc := .description }}
+        {{ $pdesc = replace $pdesc "\t" "" }}
         {{ $pdesc = replace $pdesc "[b]" "**" }}
         {{ $pdesc = replace $pdesc "[/b]" "**" }}
         {{ $pdesc = replace $pdesc "[i]" "*" }}
@@ -96,6 +98,7 @@
       {{ if .description }}
       <tr>
         {{ $mdesc := .description }}
+        {{ $mdesc = replace $mdesc "\t" "" }}
         {{ $mdesc = replace $mdesc "[b]" "**" }}
         {{ $mdesc = replace $mdesc "[/b]" "**" }}
         {{ $mdesc = replace $mdesc "[i]" "*" }}
@@ -149,6 +152,7 @@
       {{ if .description }}
       <tr>
         {{ $cdesc := .description }}
+        {{ $cdesc = replace $cdesc "\t" "" }}
         {{ $cdesc = replace $cdesc "[b]" "**" }}
         {{ $cdesc = replace $cdesc "[/b]" "**" }}
         {{ $cdesc = replace $cdesc "[i]" "*" }}
