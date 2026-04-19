@@ -52,7 +52,7 @@ Result: agents that understand how your system really works — not just isolate
 
 ## 🏗️ EndGame Architecture
 
-```
+```text
 [IDE / Primary Agent]
          ↓ MCP / ACP (stdio)
 [Vectora Agent - TypeScript Runtime]
@@ -411,7 +411,7 @@ vectora-agent search "repository pattern"
 
 ## 📦 Project Structure (Monorepo)
 
-```
+```text
 vectora/
 ├── packages/
 │   ├── core/          # Agent runtime: protocols, tools, security, context engine

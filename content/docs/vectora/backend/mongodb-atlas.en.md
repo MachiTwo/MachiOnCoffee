@@ -2,10 +2,10 @@
 title: MongoDB Atlas
 slug: mongodb-atlas
 date: "2026-04-18T22:30:00-03:00"
-weight: 37
 type: docs
 sidebar:
   open: true
+breadcrumbs: true
 tags:
   - ai
   - atlas
@@ -18,108 +18,116 @@ tags:
 
 ## The Challenge: Unified Storage for Agents
 
-When building agent systems, developers often face "data fragmentation":
+When building agentic systems, developers often face "data fragmentation":
 
-- **Vectors** in Pinecone or Qdrant.
-- **Metadata** in Postgres.
-- **Session State** in Redis.
-- **Audit Logs** in raw files or ELK.
+- Vectors in a specialized provider
+- Metadata in Postgres or another relational database
+- Session state in Redis or volatile storage
+- Audit logs in separate systems
 
-This fragmentation introduces latency, inconsistency (race conditions between vector and metadata), and operational complexity. Vectora resolves this by consolidating everything within **MongoDB Atlas**.
+This fragmentation introduces latency, inconsistency between systems, and significant operational complexity. Vectora resolves this by consolidating everything into MongoDB Atlas.
 
----
+## What is MongoDB Atlas
 
-## What is MongoDB Atlas?
+MongoDB Atlas is a fully managed multi-cloud data platform. While it started as a NoSQL document database, it evolved to include a robust Vector Search implementation natively integrated into the document model.
 
-**MongoDB Atlas** is a fully managed multi-cloud data platform. While it started as a NoSQL document database, it has evolved to include one of the industry's most robust **Vector Search** implementations.
-
-In Vectora, Atlas is not just a database; it is the infrastructure that sustains context governance.
+In Vectora, Atlas is not just a database; it is the infrastructure that sustains context governance, allowing vectors, metadata, operational state, and audit logs to coexist in the same ecosystem with guaranteed consistency.
 
 ### Technical Specifications (Kaffyn Managed Level)
 
-| Feature             | Detail                                                |
-| ------------------- | ----------------------------------------------------- |
-| **Database Type**   | Multi-cluster Document + Vector Search                |
-| **Vector Indexing** | HNSW (Hierarchical Navigable Small World)             |
-| **Scalability**     | Automatic Sharding (scales from GBs to TBs)           |
-| **Availability**    | 99.99% (Multi-zone Replica Sets)                      |
-| **Encryption**      | AES-256 at rest + TLS 1.3 in transit                  |
-| **Backup**          | Continuous snapshots with retention based on the plan |
+| Feature                | Detail                                           |
+| ---------------------- | ------------------------------------------------ |
+| Database Type          | Multi-cluster Document + Integrated Vector Search|
+| Vector Indexing        | HNSW (Hierarchical Navigable Small World)        |
+| Scalability            | Automatic sharding with dynamic balancing         |
+| Availability           | 99.99% with Replica Sets across multiple zones   |
+| Encryption             | AES-256 at rest and TLS 1.3 in transit           |
+| Backup                 | Continuous snapshots with configurable retention |
+| Isolation              | Logical namespaces with mandatory filtering       |
 
----
+## Why MongoDB Atlas for Vectora
 
-## Why MongoDB Atlas for Vectora?
-
-We analyzed several alternatives (Pinecone, Milvus, pure Qdrant) and chose Atlas based on three fundamental pillars:
+The selection of MongoDB Atlas as a unified backend was grounded in three architectural pillars:
 
 ### 1. Metadata-Vector Atomicity
 
-In Atlas, the vector (`embedding`) and the code/document are in the **same JSON document**. This eliminates the problem of "orphan vectors" or outdated metadata. If a file changes, the update is atomic.
+In Atlas, the embedding vector and the code metadata reside in the same BSON document. This eliminates consistency issues such as "orphan vectors" or outdated metadata. When a file is modified, the update of both embedding and metadata occurs in a single atomic operation.
 
-### 2. High-Performance Namespace Filtering
+### 2. Namespace Filtering with Native Performance
 
-Vectora isolates data using `namespaces`. Atlas allows metadata filters (e.g., `where namespace_id == 'team-a'`) to be applied **within** the HNSW index. This ensures that vector searches never "leak" data between projects or users.
+Vectora isolates data from different projects and users through logical namespaces. MongoDB Atlas allows metadata filters to be applied directly within the HNSW vector query. This ensures that semantic searches never return data from unauthorized namespaces, implementing multi-tenant isolation at the index level.
 
-### 3. Unified State & Memory
+### 3. Integrated State and Memory Layer
 
-Unlike "vector-only" databases, Atlas perfectly stores agent session state and persistent memory (`AGENTS.md`). This allows Vectora to retrieve historical context and semantic vectors in a single connection.
-
----
+Unlike solutions specialized only in vectors, Atlas efficiently stores both semantic embeddings and structural data like session history, agent operational state, and persistent memory. This allows Vectora to retrieve historical context and semantic vectors in a single connection, reducing latency and complexity.
 
 ## Collection Structure in Vectora
 
-The backend is organized into collections optimized for the **Harness Runtime**:
+The backend is organized into collections optimized to support the Harness Runtime and the MCP operation flow:
 
-### 1. `documents` (The Source of Truth)
+### documents Collection
 
-Stores code chunks, AST metadata, file paths, and embeddings generated by **Voyage 4**.
+Stores processed code chunks, AST metadata, file paths, and embeddings generated by Voyage 4.
 
-- **Index**: HNSW on the `embedding_vector` field.
+- `embedding_vector` field: 1024-dimension vector (Voyage 4)
+- HNSW index configured with optimized `efConstruction` and `maxConnections`
+- Mandatory filters by `namespace_id` and `visibility` on all queries
 
-### 2. `sessions` (Operational Memory)
+### sessions Collection
 
-Stores the history of principal agent interactions via MCP, decisions made by the **Context Engine**, and the current execution plan state.
+Stores the history of interactions from the main agent via MCP, decisions made by the Context Engine, and the current state of the execution plan.
 
-### 3. `audit_logs` (Governance)
+- Session key by `userId` + `namespace`
+- Configurable TTL for automatic cleanup of inactive sessions
+- At-rest encryption for sensitive session data
 
-Immutable records of every tool executed, who executed it, when, and the impact (metadata only).
+### audit_logs Collection
 
----
+Immutable records of each tool executed, identifying who executed it, when, which tool, and the operation result (metadata only, never code content).
+
+- Append-only structure for forensic integrity
+- Indexing by `timestamp` and `userId` for efficient audit queries
+- Configurable retention based on plan and compliance policies
 
 ## How Vectora Optimizes Atlas
 
-### Intelligent HNSW Indexing
+### Dynamic HNSW Index Configuration
 
-Vectora dynamically configures the `efConstruction` and `maxConnections` parameters of the HNSW index based on the size of the user's codebase, balancing indexing speed and search precision.
+Vectora dynamically adjusts the `efConstruction` and `maxConnections` parameters of the HNSW index based on the volume and distribution of user data. Smaller codebases receive configurations optimized for low latency; large codebases receive configurations that prioritize recall accuracy.
 
-### Compactor & Compaction
+### Pre-Indexing Semantic Compaction
 
-To save tokens and storage, Vectora applies **compaction** algorithms before saving to Atlas, removing syntactic noise and preserving only what is semantically relevant to the LLM.
+Before saving documents to Atlas, Vectora applies compaction algorithms that remove syntactic noise and preserve only semantically relevant content. This reduces storage volume and improves vector search efficiency without compromising the quality of the retrieved context.
 
----
+### Transparent Embedding Fallback
+
+In scenarios where the primary provider (Voyage 4) is unavailable, Vectora automatically routes to `gemini-embedding-2`, maintaining the same vector dimension (1024) for compatibility with existing indices. The fallback is transparent to the main agent and requires no reindexing.
 
 ## Kaffyn Management (Zero Ops)
 
-When you use Vectora, you don't need to configure instances in the MongoDB console. Kaffyn provisions and manages the backend automatically:
+When you use Vectora, you don't need to manually configure instances in the MongoDB console. Kaffyn provisions and manages the backend automatically:
 
-- **Free Plan**: Optimized shared cluster, 512MB limit, 30-day retention after inactivity.
-- **Pro/Team Plan**: High-performance dedicated or serverless clusters, larger storage, and priority backups.
-- **Security**: Each user/team receives isolated credentials and encrypted namespaces.
-
----
+- **Free Plan**: Optimized shared cluster, 512MB total storage limit, 30-day retention after inactivity for vector index
+- **Pro Plan**: High-performance dedicated or serverless cluster, 10GB limit, priority backups, and 90-day retention after cancellation
+- **Team Plan**: Clusters with VPC peering, 50GB limit, granular RBAC, and 180-day retention after cancellation
+- **Security**: Each user and team receives isolated credentials, encrypted namespaces, and access policies validated at runtime
 
 ## Backend FAQ
 
 **Q: Is my code data sent to the cloud?**
-A: Yes, the embeddings (numerical vectors) and structural metadata (AST, paths) are stored in the MongoDB Atlas managed by Kaffyn. Raw code content is processed by the [Guardian](/security/guardian/) to ensure secrets never leave your environment.
+A: Yes, embeddings (numerical vectors) and structural metadata (AST, paths, timestamps) are stored in the MongoDB Atlas managed by Kaffyn. Raw code content is processed locally by the Guardian to ensure that secrets and sensitive files are never indexed or transmitted.
 
 **Q: Can I use my own MongoDB Atlas cluster?**
-A: Yes, in the Enterprise plan or via the `backend.custom_connection_string` configuration.
+A: Yes, in the Enterprise plan or via the `backend.custom_connection_string` configuration in `vectora.config.yaml`. This option requires manual configuration of collections, indices, and security policies.
 
-**Q: What happens if the database gets slow?**
-A: Vectora implements **local fallback** for basic filesystem searches and embedding caching to maintain IDE fluidity.
+**Q: What happens if the backend becomes unavailable?**
+A: Vectora implements local fallback for basic filesystem operations and caching of recent embeddings. The Harness Runtime detects unavailability and degrades gracefully, maintaining essential functionality while notifying the user.
 
----
+**Q: How is isolation between namespaces guaranteed?**
+A: All Atlas queries include mandatory filters by `namespace_id` and `visibility`. RBAC at the application layer validates permissions before any query, and the Guardian blocks unauthorized access even if application validation fails.
 
-> **Phrase to remember**:
-> _"MongoDB Atlas is where Vectora stores knowledge. The intelligence is in the runtime; the memory is in Atlas."_
+**Q: Can I export my data from Atlas?**
+A: Yes. The `vectora export` command allows exporting metadata, embeddings (as base64), and audit logs in a portable format. Exporting is available at any time, regardless of plan or subscription status.
+
+**Phrase to remember:**
+"MongoDB Atlas is where Vectora stores structured knowledge. The intelligence is in the runtime; the memory is in Atlas; governance is in the application."

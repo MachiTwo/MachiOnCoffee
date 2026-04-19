@@ -118,7 +118,7 @@ Vectora opera com modelo **BYOK First**, onde o backend (MongoDB Atlas) é geren
 
 ## Fluxo de Operação (MCP-First)
 
-1. **Detecção**: [Agent Principal](/integrations/claude-code/) identifica necessidade de contexto profundo e dispara `context_search` via MCP.
+1. **Detecção**: [Agent Principal](/integrations/mcp-protocol/) identifica necessidade de contexto profundo e dispara `context_search` via MCP.
 2. **Interceptação**: [Harness Runtime](/concepts/harness-runtime/) captura chamada, valida namespace e aplica [Guardian](/security/guardian/).
 3. **Decisão**: [Context Engine](/concepts/context-engine/) escolhe escopo (filesystem, vector ou híbrido) e aplica AST parsing.
 4. **Embed + Rerank**: Query é embedada via `voyage-4`, resultados brutos são refinados por `voyage-rerank-2.5`.
@@ -140,7 +140,7 @@ Vectora opera com modelo **BYOK First**, onde o backend (MongoDB Atlas) é geren
 | **Backend**         | [MongoDB Atlas](/backend/mongodb-atlas/)                                            | Vector Search, collections, state persistence, isolamento multi-tenant            |
 | **Segurança**       | [Guardian](/security/guardian/) · [RBAC](/security/rbac/)                           | Blocklist hard-coded, Trust Folder, sanitização, roles por namespace              |
 | **Planos**          | [Overview](/plans/overview/)                                                        | Free/Pro/Team, quota gerenciada, fallback automático, política de retenção        |
-| **Integrações**     | [Claude Code](/integrations/claude-code/) · [Gemini CLI](/integrations/gemini-cli/) | Configuração MCP, extensões IDE, agents customizados                              |
+| **Integrações**     | [MCP Protocol](/integrations/mcp-protocol/) · [VS Code](/integrations/vscode-extension/) · [ChatGPT](/integrations/chatgpt-plugin/) · [Gemini API](/integrations/gemini-api/) | MCP genérico, extensions, plugins, APIs                                          |
 | **Referência**      | [MCP Tools](/reference/mcp-tools/) · [Config YAML](/reference/config-yaml/)         | Schema de tools, config.yaml validado por Zod, códigos de erro                    |
 | **Contribuição**    | [Guidelines](/contributing/guidelines/)                                             | TypeScript estrito, testes Harness primeiro, PRs, roadmap público                 |
 

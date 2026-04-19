@@ -2,7 +2,6 @@
 title: Guidelines
 slug: guidelines
 date: "2026-04-18T22:30:00-03:00"
-weight: 99
 type: docs
 sidebar:
   open: true

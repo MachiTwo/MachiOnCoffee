@@ -146,7 +146,7 @@ Vector DBs retornam por similaridade cossena. Em código, isso traz ruído:
 
 **Pipeline Recomendado para Vectora**:
 
-```
+```text
 Query → Embedding → Qdrant (top-K=50) → Reranker (top-N=10) → Context Engine → LLM
 ```
 

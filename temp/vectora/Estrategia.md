@@ -142,7 +142,7 @@ específica.
 
 ### Exemplo: Desenvolvedor Individual (BYOK)
 
-```
+```text
 Uso moderado:
 - 50 queries RAG/dia × 30 dias = 1,500 queries/mês
 - Custo Voyage: 1,500 × $0.0012 = $1.80
@@ -161,7 +161,7 @@ Vectora: $0 de custo de API (BYOK) + $0 de infra (MongoDB gerenciado no Free tie
 
 ### Estrutura de Providers (Focada)
 
-```
+```text
 packages/core/src/providers/
 ├── types.ts                 # Interfaces mínimas: EmbeddingProvider, LLMProvider
 ├── index.ts                # Factory: cria providers baseado em config
@@ -327,7 +327,7 @@ vectora auth login  # provisiona backend MongoDB gerenciado
 
 ### Mensagens de Erro Claras
 
-```
+```text
 ❌ Erro: VOYAGE_API_KEY não configurada
 💡 Solução: Execute `vectora config --voyage SUA_CHAVE`
 🔗 Obter chave gratuita: https://dash.voyageai.com/api-keys

@@ -178,7 +178,7 @@ sequenceDiagram
 
 ### Arquitetura MCP-First
 
-```
+```text
 [Agent Principal] (Claude Code, Gemini CLI, Cursor, etc.)
          ↓ MCP Protocol (stdio/HTTP)
 [Vectora MCP Server] (TypeScript Runtime)
@@ -354,7 +354,7 @@ export class QuotaRouter {
 
 ### Inatividade no Plano Free
 
-```
+```text
 Dia 0: Último uso do Vectora (chamada MCP bem-sucedida)
 Dia 30: Notificação: "Conta inativa há 30 dias. Índice vetorial será excluído em 24h."
 Dia 31: Exclusão automática do índice vetorial (embeddings removidos do Atlas)

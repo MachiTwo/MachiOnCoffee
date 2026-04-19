@@ -1,6 +1,5 @@
 ---
 title: "State Persistence and Memory"
-weight: 78
 type: docs
 sidebar:
   open: true

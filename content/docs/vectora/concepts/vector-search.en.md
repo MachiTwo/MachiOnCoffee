@@ -1,6 +1,5 @@
 ---
 title: "Vector Search: The Science of Meaning"
-weight: 76
 type: docs
 sidebar:
   open: true

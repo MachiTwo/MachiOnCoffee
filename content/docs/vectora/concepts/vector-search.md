@@ -1,9 +1,20 @@
 ---
 title: "Busca Vetorial: A Ciência do Significado"
-weight: 76
+slug: vector-search
+date: "2026-04-19T09:30:00-03:00"
 type: docs
 sidebar:
   open: true
+tags:
+  - ai
+  - architecture
+  - concepts
+  - embeddings
+  - hnsw
+  - qdrant
+  - semantic-search
+  - vector-database
+  - vectora
 ---
 
 {{< lang-toggle >}}

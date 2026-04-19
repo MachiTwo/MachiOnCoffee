@@ -266,7 +266,7 @@ Todo o runtime do Vectora é construído em **TypeScript**, usando padrões da i
 
 O Vectora Agent opera como hub de protocolos, não como aplicação monolítica:
 
-```
+```text
 [IDE / Agent Principal]
          ↓ stdio / Unix Socket
 [Vectora Agent - MCP/ACP Server]
@@ -536,7 +536,7 @@ Resultado:
 
 **Repositório Base Sugerido**:
 
-```
+```text
 vectora/
 ├── packages/
 │   ├── core/          # Agent runtime: protocols, tools, security

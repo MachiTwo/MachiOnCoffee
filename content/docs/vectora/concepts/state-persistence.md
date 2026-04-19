@@ -1,6 +1,5 @@
 ---
 title: "Persistência de Estado e Memória"
-weight: 78
 type: docs
 sidebar:
   open: true

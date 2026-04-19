@@ -32,7 +32,7 @@ objetivas para provar. O **Vectora Harness** entrega essa prova, internalizando 
 
 O Harness atua como o motor de controle dentro do runtime do agent, interceptando e validando cada decisão.
 
-```
+```text
 ┌─────────────────────────────────────────┐
 │  Test Case YAML (Definição da Missão)   │
 └────────────────┬────────────────────────┘

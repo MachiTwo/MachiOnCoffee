@@ -19,7 +19,7 @@ em todos os pontos de entrada — sem que você precise configurar nada manualme
 
 ## 🏛️ O Papel do SSO no Ecossistema
 
-```
+```text
 Vectora Agent (local)  ─────┐
 Vectora Chat (web/mobile) ──┼──▶  Kaffyn SSO  ──▶  Vectora KV Cloud (K8s)
 Extensions (VS Code etc.) ──┘         │
@@ -91,7 +91,7 @@ Disponível nos planos **Pro** e **Enterprise**:
 
 ## 🔄 Fluxo de Autenticação (Vectora Agent)
 
-```
+```text
 1. Usuário executa: vectora-agent login
 2. Browser abre: https://sso.kaffyn.com/authorize?client=agent&...
 3. Usuário faz login (GitHub / Google / e-mail)

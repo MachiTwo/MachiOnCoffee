@@ -1,16 +1,148 @@
 ---
-title: Errors
+title: Error Codes Reference
 slug: errors
 date: "2026-04-18T22:30:00-03:00"
-weight: 76
 type: docs
 sidebar:
   open: true
 tags:
   - ai
   - errors
-  - mcp
+  - reference
+  - troubleshooting
   - vectora
 ---
 
 {{< lang-toggle >}}
+
+Referência completa de códigos de erro: códigos HTTP, mensagens, causas raízes e soluções.
+
+## 400 - Bad Request
+
+Seu request está malformado ou com parâmetros inválidos.
+
+| Erro | Causa | Solução |
+|------|-------|---------|
+| `INVALID_QUERY` | Query muito curta (<3 chars) ou longa (>10K) | Reformule: "Como validar tokens?" (5-100 chars recomendado) |
+| `INVALID_NAMESPACE` | Namespace não existe | Crie com `vectora namespace create seu-ns` |
+| `INVALID_PARAMS` | top_k não é número, filter inválido | Verifique tipos: `{"top_k": 10, "namespace": "proj"}` |
+| `MISSING_REQUIRED_FIELD` | Faltam campos obrigatórios | Query e namespace são obrigatórios |
+
+**Debug**: Use `vectora search --debug` para ver payload exato.
+
+## 401 - Unauthorized
+
+Falha de autenticação ou permissão.
+
+| Erro | Causa | Solução |
+|------|-------|---------|
+| `INVALID_TOKEN` | Token expirado ou inválido | Gere novo: `vectora auth token create` |
+| `MISSING_CREDENTIALS` | API key não configurada | `vectora config set GEMINI_API_KEY "sua-chave"` |
+| `PERMISSION_DENIED` | Seu role não tem permissão | Contate admin para upgrade (Owner/Admin pode mudar RBAC) |
+| `SESSION_EXPIRED` | Sessão > 7 dias | Reautentique: `vectora auth login` |
+
+**Debug**: `vectora auth status` mostra token atual e expiration.
+
+## 404 - Not Found
+
+Recurso não existe.
+
+| Erro | Causa | Solução |
+|------|-------|---------|
+| `NAMESPACE_NOT_FOUND` | Namespace deletado ou não compartilhado | Liste com `vectora namespace list` |
+| `FILE_NOT_FOUND` | Arquivo não está indexado | Reindex: `vectora index --force` |
+| `CHUNK_NOT_FOUND` | Chunk foi deletado | Não há solução, chunk foi removido |
+
+## 429 - Rate Limited
+
+Você excedeu quotas de rate limit ou API.
+
+| Erro | Limite | Solução |
+|------|--------|---------|
+| `RATE_LIMIT_EXCEEDED` | 60 req/min | Aguarde 1 min ou implemente backoff exponencial |
+| `QUOTA_EXCEEDED` | Atingiu limite mensal de tokens | Upgrade para Pro (500k tokens/mês) ou aguarde reset |
+| `CONCURRENT_LIMIT` | Muitas requests simultâneas | Use connection pooling, máximo 10 concurrent |
+
+**Debug**: Headers de resposta mostram `X-RateLimit-Remaining`.
+
+## 500 - Server Error
+
+Erro interno do Vectora ou dependências.
+
+| Erro | Causa | Solução |
+|------|-------|---------|
+| `EMBEDDING_FAILED` | Voyage API indisponível | Verifique `VOYAGE_API_KEY` e status da Voyage |
+| `SEARCH_FAILED` | MongoDB Atlas indisponível | Verifique conexão de rede, status do cluster |
+| `RERANK_FAILED` | Reranker offline | Aguarde recovery automático (3s retry) |
+| `LLM_ERROR` | Gemini API erro | Verifique `GEMINI_API_KEY` e quota na Google AI Console |
+| `TIMEOUT` | Request > 30s | Query muito complexa, simplifique |
+
+**Debug**: Stack trace completo em `~/.vectora/logs/error.log`.
+
+## CLI Exit Codes
+
+```text
+0   ✓ Sucesso
+1   ✗ Erro genérico
+2   ✗ Config erro (arquivo YAML inválido)
+3   ✗ API erro (500, timeout)
+4   ✗ Auth falhou (401, invalid token)
+5   ✗ Namespace não encontrado (404)
+127 ✗ Comando não encontrado
+```
+
+## Habilitar Debug Mode
+
+```bash
+# Debug mode mostra stack traces e verbose logging
+VECTORA_DEBUG=true vectora search "query"
+
+# Ou com flag
+vectora --debug search "query"
+
+# Ou globalmente
+vectora config set DEBUG true
+```
+
+## Exemplo: Troubleshoot Erro Comum
+
+**Cenário**: `INVALID_TOKEN` ao usar MCP em Claude Code
+
+```bash
+# 1. Verifique se token existe
+vectora auth status
+# Output: Token: exp_...abc | Expires: 2026-05-19
+
+# 2. Se expirado, regenere
+vectora auth token create
+# Output: New token: exp_...xyz | Valid until: 2026-06-19
+
+# 3. Atualize Claude Code config
+# ~/.claude/claude_desktop_config.json
+{
+  "mcpServers": {
+    "vectora": {
+      "command": "vectora",
+      "args": ["mcp", "--stdio"],
+      "env": {
+        "VECTORA_TOKEN": "exp_...xyz"  # Token novo aqui
+      }
+    }
+  }
+}
+
+# 4. Reinicie Claude Code
+```
+
+## Relatando Bugs
+
+Se vê um erro não documentado:
+
+1. Colete logs: `vectora logs --since 1h`
+2. Habilite debug: `VECTORA_DEBUG=true vectora ...`
+3. Abra issue: https://github.com/vectora/vectora/issues
+4. Inclua: erro, stack trace, comando usado
+
+---
+
+> 🚨 Encontrou um erro não documentado aqui? [Reporte](https://github.com/vectora/vectora/issues)

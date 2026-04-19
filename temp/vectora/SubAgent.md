@@ -111,7 +111,7 @@ Sim, pode. Mas isso **não resolve** os problemas fundamentais:
 
 #### Abordagem MCP Tools Genérico
 
-```
+```text
 1. Claude Code recebe prompt
 2. Claude decide chamar file_read("auth.go")
 3. Tool MCP retorna conteúdo
@@ -132,7 +132,7 @@ Sim, pode. Mas isso **não resolve** os problemas fundamentais:
 
 #### Abordagem Vectora Sub-Agent
 
-```
+```text
 1. Claude Code delega para Vectora: "refactor_with_context"
 2. Vectora intercepta: valida namespace + Trust Folder
 3. Context Engine decide: buscar em Qdrant? filesystem? ambos?

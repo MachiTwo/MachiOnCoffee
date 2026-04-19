@@ -40,7 +40,7 @@ A extensão principal. Embarca o **Vectora Agent** como parte do pacote — sem 
 - O índice HNSW é atualizado em background sem interromper o workflow
 - Indicador de status na barra inferior: `Vectora: indexing...` / `Vectora: ready`
 
-```
+```text
 Requisitos: VS Code 1.85+
 Instalação: Extensions Marketplace → "Vectora"
 ```
@@ -57,7 +57,7 @@ Implementação estrita do **Agent Client Protocol (ACP)** para integração pro
 - Painel de busca semântica integrado ao painel de busca nativo da IDE
 - Suporte a todos os runtimes suportados pelo JetBrains (JVM, Python, Go, etc.)
 
-```
+```text
 Compatibilidade: IntelliJ IDEA 2024.1+, GoLand 2024.1+, PyCharm 2024.1+
 Instalação: JetBrains Marketplace → "Vectora"
 ```
@@ -135,7 +135,7 @@ O **Vectora Agent** se registra como um servidor MCP que o Claude Code pode invo
 
 ## 🔄 Arquitetura das Extensions
 
-```
+```text
 IDE / CLI Tool
       │
       │  ACP (JSON-RPC/stdio)    MCP (stdio / HTTP+SSE)

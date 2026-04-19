@@ -84,7 +84,7 @@ Pesquisei dezenas de publicações, documentação oficial, repositórios e disc
 
 ### 1. Modelo de Execução
 
-```
+```text
 OpenClaw:
   [Heartbeat] → [Decide tarefa] → [Executa tool] → [Repete]
   → Alto consumo de tokens, autonomia contínua
@@ -200,7 +200,7 @@ mencionar o termo. Isso foi um erro de atenção minha, e quebra a confiança na
 
 ### Arquitetura Real do Vectora (Atualizada)
 
-```
+```text
 [IDE / MCP Client]
         ↓
 [Vectora Agent - TypeScript]
@@ -234,7 +234,7 @@ mencionar o termo. Isso foi um erro de atenção minha, e quebra a confiança na
 
 ### Fluxo de Dados (Corrigido)
 
-```
+```text
 1. Desenvolvedor aciona Vectora via IDE/MCP
 2. Agent valida namespace + Trust Folder
 3. Context Engine decide: buscar em Qdrant? filesystem? web?

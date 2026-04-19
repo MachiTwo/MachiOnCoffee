@@ -46,7 +46,7 @@ Agents tradicionais operam em contexto fragmentado. O Vectora entrega **contexto
 
 ## 🏗️ Arquitetura Atual
 
-```
+```text
 [Agent Principal] (Claude Code, Gemini CLI, Cursor, etc.)
          ↓ MCP Protocol (stdio)
 [Vectora Sub-Agent] (TypeScript Runtime)
@@ -322,7 +322,7 @@ vectora auth login
 
 ### Uso (Via Seu Agent Principal)
 
-```
+```text
 Usuário: "Como funciona a autenticação JWT neste projeto?"
 → Agent Principal detecta necessidade de contexto profundo
 → Chama Vectora via MCP: context_search(query="JWT auth", namespace="my-project")
@@ -380,7 +380,7 @@ Usuário: "Como funciona a autenticação JWT neste projeto?"
 
 ### Inatividade no Plano Free
 
-```
+```text
 Dia 0: Último uso do Vectora (chamada MCP bem-sucedida)
 Dia 30: Notificação: "Conta inativa há 30 dias. Índice vetorial será excluído em 24h."
 Dia 31: Exclusão automática do índice vetorial (embeddings removidos do Atlas)
@@ -462,7 +462,7 @@ async function executeTool(call: MCPToolCall, context: ExecutionContext): Promis
 
 ## 📦 Estrutura do Projeto (Monorepo TypeScript)
 
-```
+```text
 vectora/
 ├── packages/
 │   ├── core/          # Harness runtime: tool execution, context engine, guardian, rbac
