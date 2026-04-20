@@ -39,7 +39,7 @@ Supports compliance frameworks:
 
 | Responsibility      | Vectora | You        |
 | ------------------- | ------- | ---------- |
-| Guardian blocklist  |         | -          |
+| Guardian blocklist  | [x]     | -          |
 | Trust Folder config | -       | Configure  |
 | API keys            | -       | Protect    |
 | Password            | -       | Use 2FA    |
@@ -54,4 +54,4 @@ Supports compliance frameworks:
 
 ---
 
-> Security vulnerability? [Report here](https://github.com/vectora/vectora/security)
+> Security vulnerability? [Report here](https://github.com/Kaffyn/Vectora/security)

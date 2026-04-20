@@ -44,4 +44,4 @@ Vectora works with pluggable AI models for embeddings, reranking, and LLMs. This
 
 ---
 
-> Want to use another model? [Open an Issue](https://github.com/vectora/vectora/issues)
+> Want to use another model? [Open an Issue](https://github.com/Kaffyn/Vectora/issues)

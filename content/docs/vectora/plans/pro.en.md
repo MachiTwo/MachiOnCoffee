@@ -27,19 +27,19 @@ The **Pro** plan is for scaling teams. We offer two modes: **BYOK** (priority su
 
 | Feature                    | Free       | Pro          |
 | -------------------------- | ---------- | ------------ |
-| **Unlimited Namespaces**   |            |              |
+| **Unlimited Namespaces**   | [x]        | [x]          |
 | **Searches/month**         | 30K        | Unlimited    |
 | **Embedding Tokens/month** | 1.5M       | Unlimited    |
 | **LLM Tokens/month**       | 1.5M       | Unlimited    |
 | **Concurrent Users**       | 1          | 50           |
 | **Rate Limiting**          | 60 req/min | 2000 req/min |
-| **Webhooks**               | -          |              |
-| **Custom Domain**          | -          |              |
-| **API Tokens**             | -          |              |
-| **Advanced Metrics**       | -          |              |
-| **Priority Support**       | -          |              |
-| **99.9% SLA**              | -          |              |
-| **Custom Reranker**        | -          |              |
+| **Webhooks**               | -          | [x]          |
+| **Custom Domain**          | -          | [x]          |
+| **API Tokens**             | -          | [x]          |
+| **Advanced Metrics**       | -          | [x]          |
+| **Priority Support**       | -          | [x]          |
+| **99.9% SLA**              | -          | [x]          |
+| **Custom Reranker**        | -          | [x]          |
 
 ### Premium Models
 
@@ -248,12 +248,12 @@ vectora upgrade --plan pro --stripe-token sk_...
 | **Users**            | 1          | 50           | Unlimited |
 | **Rate Limit**       | 60 req/min | 2000 req/min | Custom    |
 | **Tokens/month**     | 1.5M       | Unlimited    | Unlimited |
-| **Webhooks**         | -          |              |           |
-| **Custom Domain**    | -          |              |           |
+| **Webhooks**         | -          | [x]          | [x]       |
+| **Custom Domain**    | -          | [x]          | [x]       |
 | **SLA**              | -          | 99.9%        | 99.99%    |
-| **Priority Support** | -          |              |           |
-| **SSO/LDAP**         | -          | -            |           |
-| **On-Premise**       | -          | -            |           |
+| **Priority Support** | -          | [x]          | [x]       |
+| **SSO/LDAP**         | -          | -            | [x]       |
+| **On-Premise**       | -          | -            | [x]       |
 
 ---
 

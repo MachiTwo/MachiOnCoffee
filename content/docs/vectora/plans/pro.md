@@ -27,19 +27,19 @@ O plano **Pro** é para equipes que escalam. Oferecemos dois modos: **BYOK** (su
 
 | Feature                   | Free       | Pro          |
 | ------------------------- | ---------- | ------------ |
-| **Namespaces Ilimitados** |            |              |
+| **Namespaces Ilimitados** | [x]        | [x]          |
 | **Buscas/mês**            | 30K        | Unlimited    |
 | **Tokens Embedding/mês**  | 1.5M       | Unlimited    |
 | **Tokens LLM/mês**        | 1.5M       | Unlimited    |
 | **Usuários Simultâneos**  | 1          | 50           |
 | **Rate Limiting**         | 60 req/min | 2000 req/min |
-| **Webhooks**              | -          |              |
-| **Custom Domain**         | -          |              |
-| **API Tokens**            | -          |              |
-| **Advanced Metrics**      | -          |              |
-| **Priority Support**      | -          |              |
-| **99.9% SLA**             | -          |              |
-| **Custom Reranker**       | -          |              |
+| **Webhooks**              | -          | [x]          |
+| **Custom Domain**         | -          | [x]          |
+| **API Tokens**            | -          | [x]          |
+| **Advanced Metrics**      | -          | [x]          |
+| **Priority Support**      | -          | [x]          |
+| **99.9% SLA**             | -          | [x]          |
+| **Custom Reranker**       | -          | [x]          |
 
 ### Modelos Premium
 

@@ -149,11 +149,11 @@ A: Yes.
 - Secret scanning: GitHub secret scanning active.
 
 **Q: How do I report a vulnerability?**
-A: Through [GitHub Security Advisory](https://github.com/vectora/vectora/security). Response in < 24h, coordinated disclosure.
+A: Through [GitHub Security Advisory](https://github.com/Kaffyn/Vectora/security). Response in < 24h, coordinated disclosure.
 
 ---
 
-> More questions? [GitHub Security](https://github.com/vectora/vectora/security) or [Email](mailto:security@vectora.app).
+> More questions? [GitHub Security](https://github.com/Kaffyn/Vectora/security) or [Email](mailto:security@vectora.app).
 
 ---
 

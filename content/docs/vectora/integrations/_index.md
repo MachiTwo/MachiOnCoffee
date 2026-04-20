@@ -93,4 +93,4 @@ Construa agents em Python, Node.js, Go ou qualquer linguagem. Chame Vectora via 
 
 ---
 
-> Não achou sua IDE? [Abra uma Issue](https://github.com/vectora/vectora/issues)
+> Não achou sua IDE? [Abra uma Issue](https://github.com/Kaffyn/Vectora/issues)

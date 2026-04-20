@@ -62,8 +62,8 @@ Veja [MCP Integration](./mcp-protocol.md) para detalhes.
 
 - REST API Reference (beta): `/api/docs`
 - MCP Spec: [Model Context Protocol](https://modelcontextprotocol.io)
-- ACP (Beta): [GitHub Discussions](https://github.com/vectora/vectora/discussions)
+- ACP (Beta): [GitHub Discussions](https://github.com/Kaffyn/Vectora/discussions)
 
 ---
 
-> Precisa de uma integração específica? [Abra uma Issue](https://github.com/vectora/vectora/issues)
+> Precisa de uma integração específica? [Abra uma Issue](https://github.com/Kaffyn/Vectora/issues)

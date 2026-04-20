@@ -67,4 +67,4 @@ gemini chat --system "Você tem acesso a Vectora para buscar código"
 
 ---
 
-> Dúvidas? [GitHub Discussions](https://github.com/vectora/vectora/discussions)
+> Dúvidas? [GitHub Discussions](https://github.com/Kaffyn/Vectora/discussions)

@@ -319,4 +319,4 @@ A: Hybrid strategy com Vector DB fallback. Configure `fallback_on_low_confidence
 
 ---
 
-> Quer explorar Reranker Local? [Abra uma Discussion](https://github.com/vectora/vectora/discussions)
+> Quer explorar Reranker Local? [Abra uma Discussion](https://github.com/Kaffyn/Vectora/discussions)

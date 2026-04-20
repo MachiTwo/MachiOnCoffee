@@ -18,14 +18,14 @@ Vectora is an open source project (MIT) and welcomes contributions from the enti
 
 ## Contribution Types
 
-| Type              | Effort | Impact | How                                                             |
-| ----------------- | ------ | ------ | --------------------------------------------------------------- |
-| **Bug Reports**   | Low    | High   | [→ Issues](https://github.com/vectora/vectora/issues)           |
-| **Docs**          | Medium | High   | [→ Guidelines](./guidelines.md)                                 |
-| **Code Features** | High   | High   | [→ Roadmap](./roadmap.md)                                       |
-| **Bug Fixes**     | Medium | High   | Fork + Pull Request                                             |
-| **Tests**         | Medium | Medium | src/**tests**/                                                  |
-| **Feedback**      | Low    | Medium | [→ Discussions](https://github.com/vectora/vectora/discussions) |
+| Type              | Effort | Impact | How                                                            |
+| ----------------- | ------ | ------ | -------------------------------------------------------------- |
+| **Bug Reports**   | Low    | High   | [→ Issues](https://github.com/Kaffyn/Vectora/issues)           |
+| **Docs**          | Medium | High   | [→ Guidelines](./guidelines.md)                                |
+| **Code Features** | High   | High   | [→ Roadmap](./roadmap.md)                                      |
+| **Bug Fixes**     | Medium | High   | Fork + Pull Request                                            |
+| **Tests**         | Medium | Medium | src/**tests**/                                                 |
+| **Feedback**      | Low    | Medium | [→ Discussions](https://github.com/Kaffyn/Vectora/discussions) |
 
 ## Quick Start
 
@@ -44,4 +44,4 @@ Vectora is an open source project (MIT) and welcomes contributions from the enti
 
 ---
 
-> Questions? [GitHub Discussions](https://github.com/vectora/vectora/discussions)
+> Questions? [GitHub Discussions](https://github.com/Kaffyn/Vectora/discussions)

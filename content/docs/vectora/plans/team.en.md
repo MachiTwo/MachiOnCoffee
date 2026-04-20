@@ -30,17 +30,17 @@ The **Team** plan is for large organizations with enterprise requirements: SSO, 
 | ---------------------------- | ------------ | --------- |
 | **Concurrent Users**         | 50           | Unlimited |
 | **Rate Limiting**            | 2000 req/min | Custom    |
-| **Unlimited Tokens**         |              |           |
-| **Webhooks**                 |              |           |
-| **Custom Domain**            |              |           |
-| **SSO (SAML/OIDC)**          | -            |           |
-| **LDAP/Active Directory**    | -            |           |
-| **On-Premise Deployment**    | -            |           |
-| **99.99% SLA**               | -            |           |
-| **Dedicated Support**        | -            |           |
-| **Custom Integrations**      | -            |           |
-| **Advanced Compliance**      | -            |           |
-| **Audit Logging (Detailed)** | -            |           |
+| **Unlimited Tokens**         | [x]          | [x]       |
+| **Webhooks**                 | [x]          | [x]       |
+| **Custom Domain**            | [x]          | [x]       |
+| **SSO (SAML/OIDC)**          | -            | [x]       |
+| **LDAP/Active Directory**    | -            | [x]       |
+| **On-Premise Deployment**    | -            | [x]       |
+| **99.99% SLA**               | -            | [x]       |
+| **Dedicated Support**        | -            | [x]       |
+| **Custom Integrations**      | -            | [x]       |
+| **Advanced Compliance**      | -            | [x]       |
+| **Audit Logging (Detailed)** | -            | [x]       |
 
 ---
 

@@ -140,9 +140,9 @@ Se vê um erro não documentado:
 
 1. Colete logs: `vectora logs --since 1h`
 2. Habilite debug: `VECTORA_DEBUG=true vectora ...`
-3. Abra issue: <https://github.com/vectora/vectora/issues>
+3. Abra issue: <https://github.com/Kaffyn/Vectora/issues>
 4. Inclua: erro, stack trace, comando usado
 
 ---
 
-> Encontrou um erro não documentado aqui? [Reporte](https://github.com/vectora/vectora/issues)
+> Encontrou um erro não documentado aqui? [Reporte](https://github.com/Kaffyn/Vectora/issues)

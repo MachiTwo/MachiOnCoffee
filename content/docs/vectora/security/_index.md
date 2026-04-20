@@ -54,4 +54,4 @@ Suporta frameworks de conformidade:
 
 ---
 
-> Vulnerabilidade de segurança? [Reporte aqui](https://github.com/vectora/vectora/security)
+> Vulnerabilidade de segurança? [Reporte aqui](https://github.com/Kaffyn/Vectora/security)

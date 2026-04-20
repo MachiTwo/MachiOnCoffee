@@ -93,4 +93,4 @@ Build agents in Python, Node.js, Go, or any language. Call Vectora via REST API 
 
 ---
 
-> Didn't find your IDE? [Open an Issue](https://github.com/vectora/vectora/issues)
+> Didn't find your IDE? [Open an Issue](https://github.com/Kaffyn/Vectora/issues)

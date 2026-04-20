@@ -54,11 +54,11 @@ Roadmap público de Vectora para 2026. Cada item tem status, impacto estimado, e
 
 ## Como Votar em Features
 
-1. Abra uma [GitHub Discussion](https://github.com/vectora/vectora/discussions)
+1. Abra uma [GitHub Discussion](https://github.com/Kaffyn/Vectora/discussions)
 2. Use tag `#feature-request`
 3. Reaja com em features existentes
 4. Comente com casos de uso
 
 ---
 
-> Quer sugerir uma feature? [Feature Request](https://github.com/vectora/vectora/discussions/new?category=feature-requests)
+> Quer sugerir uma feature? [Feature Request](https://github.com/Kaffyn/Vectora/discussions/new?category=feature-requests)

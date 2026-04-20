@@ -83,4 +83,4 @@ Entenda os pilares tecnológicos que sustentam o Vectora e como ele resolve o pr
 
 ---
 
-> Dúvidas sobre um conceito? [GitHub Discussions](https://github.com/vectora/vectora/discussions)
+> Dúvidas sobre um conceito? [GitHub Discussions](https://github.com/Kaffyn/Vectora/discussions)

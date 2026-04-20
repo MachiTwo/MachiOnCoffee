@@ -140,11 +140,11 @@ If you see an undocumented error:
 
 1. Collect logs: `vectora logs --since 1h`
 2. Enable debug: `VECTORA_DEBUG=true vectora ...`
-3. Open issue: <https://github.com/vectora/vectora/issues>
+3. Open issue: <https://github.com/Kaffyn/Vectora/issues>
 4. Include: error, stack trace, command used
 
 ---
 
-> Found an undocumented error here? [Report it](https://github.com/vectora/vectora/issues)
+> Found an undocumented error here? [Report it](https://github.com/Kaffyn/Vectora/issues)
 
 _Part of the Vectora ecosystem_ · Open Source (MIT)

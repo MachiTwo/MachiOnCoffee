@@ -31,26 +31,26 @@ Vectora's **Free** plan is fully **open source and time-unlimited**. Use it loca
 
 | Feature                     | Free |
 | --------------------------- | ---- |
-| **Semantic Search**         |      |
-| **Dependency Analysis**     |      |
-| **Full Indexing**           |      |
-| **Unlimited Namespaces**    |      |
-| **Trust Folder + Guardian** |      |
-| **RBAC (5 roles)**          |      |
-| **Full CLI**                |      |
-| **Harness Runtime**         |      |
-| **Webhooks**                |      |
-| **SSO/LDAP**                |      |
+| **Semantic Search**         | [x]  |
+| **Dependency Analysis**     | [x]  |
+| **Full Indexing**           | [x]  |
+| **Unlimited Namespaces**    | [x]  |
+| **Trust Folder + Guardian** | [x]  |
+| **RBAC (5 roles)**          | [x]  |
+| **Full CLI**                | [x]  |
+| **Harness Runtime**         | [x]  |
+| **Webhooks**                | [x]  |
+| **SSO/LDAP**                | [x]  |
 | **SLA Uptime**              | -    |
 
 ### Integrations
 
 | Platform               | Free          |
 | ---------------------- | ------------- |
-| **Claude Code (MCP)**  |               |
-| **Cursor (MCP)**       |               |
-| **VS Code Extension**  |               |
-| **CLI**                |               |
+| **Claude Code (MCP)**  | [x]           |
+| **Cursor (MCP)**       | [x]           |
+| **VS Code Extension**  | [x]           |
+| **CLI**                | [x]           |
 | **ChatGPT Custom GPT** | (self-hosted) |
 | **Gemini Integration** | (BYOK)        |
 

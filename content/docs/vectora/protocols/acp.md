@@ -47,7 +47,7 @@ Diferente de MCP (IDE ↔ Vectora), ACP é para **agent ↔ agent**.
 
 ACP ainda não tem documentação pública completa. Para early access:
 
-1. Abra uma [GitHub Discussion](https://github.com/vectora/vectora/discussions)
+1. Abra uma [GitHub Discussion](https://github.com/Kaffyn/Vectora/discussions)
 2. Mencione "ACP interest"
 3. Descreva seu caso de uso
 4. Receberá acesso ao spec beta + suporte
@@ -64,4 +64,4 @@ ACP ainda não tem documentação pública completa. Para early access:
 
 ---
 
-> Interessado em ACP? [Abra uma Discussion](https://github.com/vectora/vectora/discussions)
+> Interessado em ACP? [Abra uma Discussion](https://github.com/Kaffyn/Vectora/discussions)

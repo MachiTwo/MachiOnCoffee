@@ -18,14 +18,14 @@ Vectora é um projeto open source (MIT) e recebe contribuições de toda a comun
 
 ## Tipos de Contribuição
 
-| Tipo              | Esforço | Impacto | Como                                                            |
-| ----------------- | ------- | ------- | --------------------------------------------------------------- |
-| **Bug Reports**   |         |         | [→ Issues](https://github.com/vectora/vectora/issues)           |
-| **Docs**          |         |         | [→ Guidelines](./guidelines.md)                                 |
-| **Code Features** |         |         | [→ Roadmap](./roadmap.md)                                       |
-| **Bug Fixes**     |         |         | Fork + Pull Request                                             |
-| **Tests**         |         |         | src/**tests**/                                                  |
-| **Feedback**      |         |         | [→ Discussions](https://github.com/vectora/vectora/discussions) |
+| Tipo              | Esforço | Impacto | Como                                                           |
+| ----------------- | ------- | ------- | -------------------------------------------------------------- |
+| **Bug Reports**   |         |         | [→ Issues](https://github.com/Kaffyn/Vectora/issues)           |
+| **Docs**          |         |         | [→ Guidelines](./guidelines.md)                                |
+| **Code Features** |         |         | [→ Roadmap](./roadmap.md)                                      |
+| **Bug Fixes**     |         |         | Fork + Pull Request                                            |
+| **Tests**         |         |         | src/**tests**/                                                 |
+| **Feedback**      |         |         | [→ Discussions](https://github.com/Kaffyn/Vectora/discussions) |
 
 ## Quick Start
 
@@ -44,4 +44,4 @@ Vectora é um projeto open source (MIT) e recebe contribuições de toda a comun
 
 ---
 
-> Perguntas? [GitHub Discussions](https://github.com/vectora/vectora/discussions)
+> Perguntas? [GitHub Discussions](https://github.com/Kaffyn/Vectora/discussions)

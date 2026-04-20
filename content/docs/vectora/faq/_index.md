@@ -31,14 +31,14 @@ Use `Ctrl+F` para buscar nesta página:
 - **MCP config**: docs/getting-started/quickstart-mcp.md
 - **BYOK**: docs/security/byok-privacy.md
 - **Pricing**: docs/plans/
-- **Bugs**: [GitHub Issues](https://github.com/vectora/vectora/issues)
+- **Bugs**: [GitHub Issues](https://github.com/Kaffyn/Vectora/issues)
 
 ## Não Encontrou Sua Pergunta?
 
-- [GitHub Discussions](https://github.com/vectora/vectora/discussions) - Comunidade
-- [Security Advisory](https://github.com/vectora/vectora/security) - Segurança
+- [GitHub Discussions](https://github.com/Kaffyn/Vectora/discussions) - Comunidade
+- [Security Advisory](https://github.com/Kaffyn/Vectora/security) - Segurança
 - Email: <support@vectora.app>
 
 ---
 
-> Sugerir pergunta para FAQ? [Abra uma Discussion](https://github.com/vectora/vectora/discussions)
+> Sugerir pergunta para FAQ? [Abra uma Discussion](https://github.com/Kaffyn/Vectora/discussions)
