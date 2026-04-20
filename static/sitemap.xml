@@ -793,6 +793,60 @@
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/getting-started/troubleshooting/"/>
   </url>
   <url>
+    <loc>https://cafegame.dev/docs/vectora/implementation/</loc>
+    <lastmod>2026-04-20T10:30:00-03:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/implementation/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/implementation/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/implementation/"/>
+  </url>
+  <url>
+    <loc>https://cafegame.dev/docs/vectora/implementation/cli-engine/</loc>
+    <lastmod>2026-04-20T10:30:00-03:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/implementation/cli-engine/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/implementation/cli-engine/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/implementation/cli-engine/"/>
+  </url>
+  <url>
+    <loc>https://cafegame.dev/docs/vectora/implementation/core-migration/</loc>
+    <lastmod>2026-04-20T10:30:00-03:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/implementation/core-migration/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/implementation/core-migration/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/implementation/core-migration/"/>
+  </url>
+  <url>
+    <loc>https://cafegame.dev/docs/vectora/implementation/distribution-pipeline/</loc>
+    <lastmod>2026-04-20T10:30:00-03:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/implementation/distribution-pipeline/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/implementation/distribution-pipeline/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/implementation/distribution-pipeline/"/>
+  </url>
+  <url>
+    <loc>https://cafegame.dev/docs/vectora/implementation/security-engine/</loc>
+    <lastmod>2026-04-20T10:30:00-03:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/implementation/security-engine/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/implementation/security-engine/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/implementation/security-engine/"/>
+  </url>
+  <url>
+    <loc>https://cafegame.dev/docs/vectora/implementation/systray-ux/</loc>
+    <lastmod>2026-04-20T10:30:00-03:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/implementation/systray-ux/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/implementation/systray-ux/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/implementation/systray-ux/"/>
+  </url>
+  <url>
     <loc>https://cafegame.dev/docs/vectora/integrations/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -1833,6 +1887,60 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/getting-started/troubleshooting/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/getting-started/troubleshooting/"/>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/getting-started/troubleshooting/"/>
+  </url>
+  <url>
+    <loc>https://cafegame.dev/en/docs/vectora/implementation/</loc>
+    <lastmod>2026-04-20T10:30:00-03:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/implementation/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/implementation/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/implementation/"/>
+  </url>
+  <url>
+    <loc>https://cafegame.dev/en/docs/vectora/implementation/cli-engine/</loc>
+    <lastmod>2026-04-20T10:30:00-03:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/implementation/cli-engine/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/implementation/cli-engine/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/implementation/cli-engine/"/>
+  </url>
+  <url>
+    <loc>https://cafegame.dev/en/docs/vectora/implementation/core-migration/</loc>
+    <lastmod>2026-04-20T10:30:00-03:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/implementation/core-migration/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/implementation/core-migration/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/implementation/core-migration/"/>
+  </url>
+  <url>
+    <loc>https://cafegame.dev/en/docs/vectora/implementation/distribution-pipeline/</loc>
+    <lastmod>2026-04-20T10:30:00-03:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/implementation/distribution-pipeline/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/implementation/distribution-pipeline/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/implementation/distribution-pipeline/"/>
+  </url>
+  <url>
+    <loc>https://cafegame.dev/en/docs/vectora/implementation/security-engine/</loc>
+    <lastmod>2026-04-20T10:30:00-03:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/implementation/security-engine/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/implementation/security-engine/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/implementation/security-engine/"/>
+  </url>
+  <url>
+    <loc>https://cafegame.dev/en/docs/vectora/implementation/systray-ux/</loc>
+    <lastmod>2026-04-20T10:30:00-03:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/implementation/systray-ux/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/implementation/systray-ux/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/implementation/systray-ux/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/vectora/integrations/</loc>

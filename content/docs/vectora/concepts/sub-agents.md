@@ -182,7 +182,7 @@ de runtime:
  Documentar políticas de segurança
 
 # O que docs NÃO CONSEGUEM fazer:
- Validar argumentos antes da execução (Zod enforcement)
+ Validar argumentos antes da execução (Native Struct Validation)
  Bloquear tool calls perigosas em runtime
  Interceptar e medir métricas de precisão
  Garantir isolamento de namespace
@@ -261,7 +261,7 @@ de runtime:
 
 ```typescript
 export class VectoraSubAgent {
-  // 1. Tool Router com validação Zod (fail-fast)
+  // 1. Tool Router com validação nativa (fail-fast)
   private router: ToolRouter;
 
   // 2. Guardian middleware (hard-coded, imutável)
@@ -290,7 +290,7 @@ export class VectoraSubAgent {
     // Decisão de contexto: o que/como/quando buscar
     const context = await this.contextEngine.build(request);
 
-    // Execução com validação via Zod schema
+    // Execução com validação via Go Struct Tags
     const result = await this.router.execute(request.tool, request.args, context);
 
     // Sanitização de output antes de retornar ao agente

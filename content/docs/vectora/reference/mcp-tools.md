@@ -162,7 +162,7 @@ Encontra código similar a um trecho fornecido.
 ```json
 {
   "code": "string", // Código para comparar
-  "language": "typescript|python|go",
+  "language": "go|python|typescript",
   "min_similarity": 0.7,
   "top_k": 5,
   "namespace": "string"
@@ -204,7 +204,7 @@ Resume a estrutura de um arquivo (imports, funções, classes).
 ```json
 {
   "file": "src/auth/jwt.ts",
-  "language": "typescript",
+  "language": "go",
   "imports": ["jsonwebtoken", "./types"],
   "exports": ["validateToken", "signToken"],
   "functions": [
@@ -308,7 +308,7 @@ Retorna estatísticas de um namespace.
   "total_files": 247,
   "total_size_mb": 15.3,
   "languages": {
-    "typescript": 2100,
+    "go": 2100,
     "markdown": 800,
     "yaml": 259
   },
@@ -598,7 +598,7 @@ Validar que uma PR segue os padrões do projeto envolve buscar código similar e
    Resultado: 47 chamadas diretas, 12 indiretas
 
 2⃣ list_files(pattern="**/*.ts", limit=100)
-   Resultado: 247 arquivos TypeScript
+   Resultado: 247 arquivos Go
 
 3⃣ search_context(query="JWT validation authentication")
    Resultado: 15 chunks relacionados
@@ -647,7 +647,7 @@ Entender o impacto de uma mudança é crítico. Este workflow usa tools para map
 5⃣ get_namespace_stats()
    Resultado:
       ├─ total_chunks: 3159
-      ├─ languages: {typescript: 2100, markdown: 800}
+      ├─ languages: {go: 2100, markdown: 800}
       ├─ searches_24h: 342
       └─ error_rate: 0.009 (saudável)
 

@@ -12,4 +12,13 @@ tags:
   - vectora
 ---
 
+### Setup
+
+```bash
+git clone https://github.com/kaffyn/vectora
+cd vectora
+go mod tidy
+go build -o vectora ./cmd/vectora
+```
+
 {{< lang-toggle >}}

@@ -21,18 +21,18 @@ Guia completo para contribuir com Vectora: setup, código, commits, PRs e melhor
 ```bash
 git clone https://github.com/kaffyn/vectora
 cd vectora
-npm install
-npm run dev
+go mod tidy
+go build -o vectora ./cmd/vectora
 ```
 
-### Code Style
+## Code Style
 
-- **TypeScript**: strict mode, no `any`
-- **Formatting**: Prettier (run `npm run format`)
-- **Linting**: ESLint (run `npm run lint`)
-- **Tests**: Jest, coverage >80%
+- **Golang**: Go 1.22+, seguir [Go Code Review Comments](https://github.com/golang/go/wiki/CodeReviewComments)
+- **Formatting**: `gofmt` ou `goimports`
+- **Linting**: `golangci-lint` (rodar `golangci-lint run`)
+- **Tests**: `go test`, cobertura >80%
 
-### Git Workflow
+## Git Workflow
 
 1. Fork repo
 2. Create branch: `git checkout -b feature/your-feature`
@@ -40,15 +40,15 @@ npm run dev
 4. Push: `git push origin feature/your-feature`
 5. PR com descrição clara
 
-### PR Requirements
+## PR Requirements
 
-- Tests passing
-- TypeScript strict
-- No console.log
-- Updated docs
-- PR description explains WHY
+- Testes passando (`go test ./...`)
+- Linting limpo (`golangci-lint run`)
+- Sem `fmt.Printf` (usar logger interno)
+- Documentação atualizada (PT + EN)
+- Descrição do PR explica o PORQUÊ
 
-### Commit Message Format
+## Commit Message Format
 
 ```text
 type(scope): brief description
@@ -60,33 +60,33 @@ Closes #123
 
 Types: `feat`, `fix`, `docs`, `test`, `refactor`, `perf`, `chore`
 
-### Documentation
+## Documentation
 
 - Update CHANGELOG.md
 - Add JSDoc para funções públicas
 - Portuguese + English (i18n)
 
-### Testing
+## Testing
 
 ```bash
-npm run test # Run all tests
-npm run test:watch # Watch mode
-npm run test:coverage # Coverage report
+go test ./... # Rodar todos os testes
+go test -v ./pkg/core # Testar pacote específico
+go test -coverprofile=coverage.out ./... # Relatório de cobertura
 ```
 
-### Performance
+## Performance
 
-- Benchmark antes/depois: `npm run bench`
+- Benchmark antes/depois: `go test -bench=. ./...`
 - Vector search deve ser <500ms
 - Não adicione dependências pesadas
 
-### Security
+## Security
 
-- Use BYOK for APIs
-- No hardcoded secrets
-- Run `npm audit` antes de PR
+- Use BYOK para APIs
+- Sem segredos hardcoded
+- Rodar `go nancy` ou `govulncheck` antes do PR
 
-### Questions?
+## Questions?
 
 - GitHub Discussions: [github.com/kaffyn/vectora/discussions](https://github.com/kaffyn/vectora/discussions)
 - Issues: [github.com/kaffyn/vectora/issues](https://github.com/kaffyn/vectora/issues)

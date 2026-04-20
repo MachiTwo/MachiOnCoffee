@@ -30,16 +30,16 @@ vectora [GLOBAL_OPTIONS] COMMAND [COMMAND_OPTIONS]
 
 ---
 
-## Global Options
+## Global Flags
 
 ```bash
---version, -v # Shows version
---help, -h # Shows help
---config PATH # Custom path to vectora.config.yaml
---namespace NS # Overrides default namespace
---debug # Activates debug mode (verbose logging)
---quiet, -q # Suppresses output (except for errors)
---json # JSON output (for parsing)
+--version, -v   # Show version
+--help, -h      # Show help
+--config PATH   # Custom path to vectora.yaml
+--namespace NS  # Override default namespace (default: local)
+--debug         # Enable debug mode (verbose logging)
+--quiet, -q     # Suppress output (except errors)
+--json          # JSON output for automation
 ```
 
 Examples:
@@ -90,13 +90,12 @@ Indexes files in the namespace.
 vectora index [OPTIONS]
 
 OPTIONS:
-  --force # Reindex even if unchanged
-  --incremental # Only new/modified files (default: true)
-  --exclude PATTERN # Exclude globs (e.g., node_modules/**)
-  --include PATTERN # Include only globs (e.g., src/**)
-  --dry-run # Shows what would be indexed, without doing it
-  --progress # Shows progress bar
-  --watch # Watches for changes (dev mode)
+  --force               # Reindex even if no changes are detected
+  --incremental         # New/modified files only (default: true)
+  --exclude PATTERN     # Exclude globs (e.g., bin/**, .git/**)
+  --include PATTERN     # Include only specific globs (e.g., pkg/**, cmd/**)
+  --dry-run             # Simulate indexing without persisting data
+  --watch               # Watch for filesystem changes (dev mode)
 ```
 
 **Examples**:
@@ -108,8 +107,8 @@ vectora index
 # Reindex everything
 vectora index --force
 
-# Only TypeScript
-vectora index --include "**/*.ts" --include "**/*.tsx"
+# Go files only
+vectora index --include "**/*.go"
 
 # Development mode (watch)
 vectora index --watch
@@ -314,31 +313,26 @@ vectora server --cert cert.pem --key key.pem
 
 ### `vectora auth`
 
-Manage tokens and authentication.
+Manage SSO authentication and access tokens.
 
 ```bash
-vectora auth [SUBCOMMAND]
+vectora auth [COMMAND]
 
-SUBCOMMANDS:
-  login # Interactive login
-  logout # Logout
-  token create # Generate new token
-  token list # List tokens
-  token delete ID # Revoke token
-  token validate TOKEN # Validate token
+COMMANDS:
+  login     # Start browser-based SSO flow
+  logout    # End local session
+  status    # Show logged-in user and token validity
+  token     # Manage personal access tokens (PAT)
 ```
 
 **Examples**:
 
 ```bash
-# Login
+# Interactive Login (opens Systray and Browser)
 vectora auth login
 
-# Create token with TTL
-vectora auth token create --name "CI/CD" --ttl 365d
-
-# Validate token
-vectora auth token validate sk-abc123...
+# Check account status
+vectora auth status
 ```
 
 ---

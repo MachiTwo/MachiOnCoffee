@@ -33,13 +33,13 @@ Agentes de IA tradicionais operam em **contextos fragmentados**, gerando alucina
 
 ## O Problema que Vectora Resolve
 
-| Falha em Agents Genéricos      | Impacto Prático                                           | Como Vectora Mitiga                                                                                                                    |
-| ------------------------------ | --------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| **Contexto Raso**              | Busca por "autenticação" retorna 50 arquivos irrelevantes | [Reranker 2.5](/concepts/reranker/) filtra por relevância semântica real, não por similaridade cossena bruta                           |
-| **Sem Validação Pré-Execução** | Tool calls perigosos rodam antes de serem auditados       | [Harness Runtime](/concepts/harness-runtime/) intercepta, valida schema Zod e aplica [Guardian](/security/guardian/) antes da execução |
-| **Falta de Isolamento**        | Dados de projetos diferentes vazam entre sessões          | [Namespace Isolation](/security/rbac/) via RBAC na aplicação + filtragem obrigatória no backend                                        |
-| **Consumo Imprevisível**       | LLMs geram overfetch, gastam tokens em boilerplate        | [Context Engine](/concepts/context-engine/) decide escopo, aplica compaction (head/tail) e injeta só o relevante                       |
-| **Segurança Frágil**           | Blocklists dependem de prompts (jailbreakáveis)           | [Hard-Coded Guardian](/security/guardian/) é compilado no runtime, impossível de bypassar via prompt                                   |
+| Falha em Agents Genéricos      | Impacto Prático                                           | Como Vectora Mitiga                                                                                                                                                                   |
+| ------------------------------ | --------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Contexto Raso**              | Busca por "autenticação" retorna 50 arquivos irrelevantes | [Reranker 2.5](/concepts/reranker/) filtra por relevância semântica real, não por similaridade cossena bruta                                                                          |
+| **Sem Validação Pré-Execução** | Tool calls perigosos rodam antes de serem auditados       | [Harness Runtime](/concepts/harness-runtime/) intercepta, valida via [Struct Validation](/implementation/security-engine/) e aplica [Guardian](/security/guardian/) antes da execução |
+| **Falta de Isolamento**        | Dados de projetos diferentes vazam entre sessões          | [Namespace Isolation](/security/rbac/) via RBAC na aplicação + filtragem obrigatória no backend                                                                                       |
+| **Consumo Imprevisível**       | LLMs geram overfetch, gastam tokens em boilerplate        | [Context Engine](/concepts/context-engine/) decide escopo, aplica compaction (head/tail) e injeta só o relevante                                                                      |
+| **Segurança Frágil**           | Blocklists dependem de prompts (jailbreakáveis)           | [Hard-Coded Guardian](/security/guardian/) é compilado no binário Go, impossível de bypassar via prompt                                                                               |
 
 ---
 
@@ -50,7 +50,7 @@ Vectora é exposto **exclusivamente via MCP**. Não há CLI de chat, TUI ou inte
 ```mermaid
 graph LR
     A[Agent Principal] -->|MCP Tool Call| B[Harness Runtime]
-    B --> C{Guardian + Zod Validation}
+    B --> C{Guardian + Native Validation}
     C -->| Aprovado| D[Context Engine]
     D --> E[Embed via Voyage 4]
     D --> F[Rerank via Voyage 2.5]
@@ -67,7 +67,7 @@ graph LR
 | **[Harness Runtime](/concepts/harness-runtime/)** | Orquestra execução, valida schemas, intercepta tool calls, persiste estado     | Infraestrutura que conecta o LLM ao mundo real, não um framework de testes |
 | **[Context Engine](/concepts/context-engine/)**   | Decide escopo (filesystem vs vector), aplica AST parsing, compaction multi-hop | Pipeline `Embed → Search → Rerank → Compose → Validate`                    |
 | **[Provider Router](/models/gemini/)**            | Roteia para stack curada, gerencia fallback BYOK, rastreia quota               | Sem camadas genéricas. SDKs oficiais, parsing estável                      |
-| **[Tool Executor](/reference/mcp-tools/)**        | Valida args via Zod, executa com retry exponencial, sanitiza output            | Blocklist imutável aplicada antes de qualquer chamada                      |
+| **[Tool Executor](/reference/mcp-tools/)**        | Valida args via Strong Typing, executa com retry exponencial, sanitiza output  | Blocklist imutável aplicada antes de qualquer chamada                      |
 
 ---
 
@@ -131,7 +131,7 @@ Vectora opera com modelo **Digital Sovereignty First**, oferecendo **BYOK (Bring
 
 | Categoria           | Documento                                                                                                                                                                     | Descrição                                                                         |
 | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| **Início Rápido**   | [Getting Started](/getting-started/)                                                                                                                                          | `npm install -g vectora-agent`, configuração BYOK, integração MCP                 |
+| **Início Rápido**   | [Getting Started](/getting-started/)                                                                                                                                          | `winget install kaffyn.vectora`, configuração via Systray, integração MCP         |
 | **Conceitos**       | [Sub-Agents](/concepts/sub-agents/)                                                                                                                                           | Por que Sub-Agent e não tools MCP passivas? Governança ativa vs funções estáticas |
 | **Harness Runtime** | [Harness Runtime](/concepts/harness-runtime/)                                                                                                                                 | Tool Execution, Context Engineering, State Management, Verification Hooks         |
 | **Context & RAG**   | [Context Engine](/concepts/context-engine/)                                                                                                                                   | AST parsing, compaction, multi-hop reasoning, hybrid ranking                      |
@@ -141,8 +141,9 @@ Vectora opera com modelo **Digital Sovereignty First**, oferecendo **BYOK (Bring
 | **Segurança**       | [Guardian](/security/guardian/) · [RBAC](/security/rbac/)                                                                                                                     | Blocklist hard-coded, Trust Folder, sanitização, roles por namespace              |
 | **Planos**          | [Overview](/plans/overview/)                                                                                                                                                  | Free/Pro/Team, quota gerenciada, fallback automático, política de retenção        |
 | **Integrações**     | [MCP Protocol](/integrations/mcp-protocol/) · [VS Code](/integrations/vscode-extension/) · [ChatGPT](/integrations/chatgpt-plugin/) · [Gemini API](/integrations/gemini-api/) | MCP genérico, extensions, plugins, APIs                                           |
-| **Referência**      | [MCP Tools](/reference/mcp-tools/) · [Config YAML](/reference/config-yaml/)                                                                                                   | Schema de tools, config.yaml validado por Zod, códigos de erro                    |
-| **Contribuição**    | [Guidelines](/contributing/guidelines/)                                                                                                                                       | TypeScript estrito, testes Harness primeiro, PRs, roadmap público                 |
+| **Referência**      | [MCP Tools](/reference/mcp-tools/) · [Config YAML](/reference/config-yaml/)                                                                                                   | Schema de tools, config.yaml validado negativamente, códigos de erro              |
+| **Implementação**   | [Engineering](/implementation/)                                                                                                                                               | Arquitetura em Golang, Migração de Core, CLI Engine, Systray UX                   |
+| **Contribuição**    | [Guidelines](/contributing/guidelines/)                                                                                                                                       | Golang estrito, testes de performance, PRs, roadmap público                       |
 
 ---
 

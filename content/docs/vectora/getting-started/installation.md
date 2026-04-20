@@ -19,7 +19,7 @@ tags:
 
 ## Visão Geral
 
-Vectora é instalado globalmente via npm como um agent MCP (Model Context Protocol). A instalação leva menos de 5 minutos e requer apenas Node.js 18+ e chaves de API gratuitas.
+Vectora é distribuído como um binário nativo de alta performance para Windows, macOS e Linux. No Windows, a instalação é padronizada via **Winget** e reside em seu diretório de programas local, sem necessidade de Node.js ou privilégios de administrador.
 
 > [!IMPORTANT] > **BYOK (Bring Your Own Key)**: No plano Free, o Vectora exige chaves de API do Gemini e Voyage. Nos planos **Pro** e **Team (Plus)**, você pode optar pelo modo **Managed**, onde os créditos de IA já estão inclusos.
 
@@ -35,42 +35,40 @@ Vectora é instalado globalmente via npm como um agent MCP (Model Context Protoc
 
 ### Software
 
-- **Node.js** 18.0.0 ou superior ([download](https://nodejs.org))
-- **npm** 9.0.0+ (incluído com Node.js)
-- **git** 2.30+ (opcional, para clonar repositórios)
+- **Sistemas 64-bit** (x64 ou ARM64)
+- **Conexão com Internet** para ativação de chaves
 
-### Verificar Pré-requisitos
+### Verificar Versão do Winget (Windows)
 
-```bash
-node --version # Deve retornar v18.0.0 ou superior
-npm --version # Deve retornar 9.0.0 ou superior
+```powershell
+winget --version # Deve retornar v1.4 ou superior
 ```
 
 ---
 
-## Passo 1: Instalar Vectora Globalmente
+## Passo 1: Instalar Vectora
 
-```bash
-npm install -g @kaffyn/vectora
+### Windows (Recomendado)
+
+Abra o terminal (PowerShell ou CMD) e execute:
+
+```powershell
+winget install kaffyn.vectora
 ```
 
-**Tempo esperado**: 2-3 minutos (primeira instalação)
+O binário será instalado em `%LOCALAPPDATA%\Programs\Vectora` e adicionado automaticamente ao seu PATH.
 
-### Verificar Instalação
+### macOS / Linux
 
-```bash
-vectora --version
-# Output esperado: vectora/1.x.x
-```
-
-Se o comando não for encontrado, você pode precisar atualizar seu `PATH`:
+Use nosso script de instalação rápida:
 
 ```bash
-# macOS / Linux
-export PATH="$PATH:$(npm config get prefix)/bin"
-
-# Adicione a linha acima ao seu ~/.bashrc ou ~/.zshrc para persistência
+curl -sSf https://vectora.sh/install.sh | sh
 ```
+
+### Download Manual
+
+Você também pode baixar o binário diretamente da nossa [página de Releases no GitHub](https://github.com/kaffyn/vectora/releases).
 
 ---
 
@@ -94,54 +92,22 @@ export PATH="$PATH:$(npm config get prefix)/bin"
 
 ---
 
-## Passo 3: Configurar Variáveis de Ambiente
+## Passo 3: Configurar via Systray
 
-### Opção A: Arquivo `.env` Local (Recomendado)
+Após a instalação, procure pelo ícone do Vectora na sua bandeja do sistema (perto do relógio).
 
-Crie um arquivo `.env` na raiz do seu projeto:
-
-```bash
-cat > .env << 'EOF'
-GEMINI_API_KEY=your_gemini_key_here
-VOYAGE_API_KEY=your_voyage_key_here
-VECTORA_NAMESPACE=my-project
-VECTORA_TRUST_FOLDER=.
-EOF
-```
-
-Substitua `your_gemini_key_here` e `your_voyage_key_here` pelas suas chaves.
-
-### Opção B: Variáveis de Ambiente do Sistema
-
-```bash
-# macOS / Linux
-export GEMINI_API_KEY="seu_gemini_api_key"
-export VOYAGE_API_KEY="seu_voyage_api_key"
-
-# Windows (PowerShell)
-$env:GEMINI_API_KEY = "seu_gemini_api_key"
-$env:VOYAGE_API_KEY = "seu_voyage_api_key"
-```
-
-### Opção C: Usar `vectora config` (Interactive)
-
-```bash
-vectora config set --key GEMINI_API_KEY
-# Será solicitada a entrada interativa
-# Depois:
-vectora config set --key VOYAGE_API_KEY
-```
+1. Clique no ícone e selecione **"Login"**.
+2. Isso abrirá seu navegador para autenticação SSO.
+3. Once authenticated, o Vectora configurará suas chaves automaticamente.
 
 ---
 
-## Passo 4: Verificar Configuração
+## Passo 4: Verificar Configuração (CLI)
+
+Se preferir o terminal, verifique o status:
 
 ```bash
-vectora config list
-# Deve mostrar:
-# GEMINI_API_KEY: ••••••••••
-# VOYAGE_API_KEY: ••••••••••
-# VECTORA_NAMESPACE: my-project
+vectora auth status
 ```
 
 ---
@@ -189,26 +155,15 @@ Vá para [Configuration](./configuration.md).
 
 ### Erro: `command not found: vectora`
 
-**Causa**: Node.js não está no PATH.
+**Causa**: O binário não está no PATH.
 
-**Solução**:
-
-```bash
-# Reinstale Node.js: https://nodejs.org
-node --version # Deve funcionar primeiro
-npm install -g @kaffyn/vectora # Reinstale
-```
+**Solução**: Verifique se a instalação foi concluída e reinicie seu terminal.
 
 ### Erro: `Error: API key not found`
 
-**Causa**: Variáveis de ambiente não configuradas.
+**Causa**: Variáveis de ambiente não configuradas ou falha no login.
 
-**Solução**: Verifique se `GEMINI_API_KEY` e `VOYAGE_API_KEY` estão definidas:
-
-```bash
-echo $GEMINI_API_KEY
-echo $VOYAGE_API_KEY
-```
+**Solução**: Verifique o status com `vectora auth status`.
 
 ### Erro: `403 Quota Exceeded` (Gemini)
 
@@ -218,20 +173,9 @@ echo $VOYAGE_API_KEY
 
 ### Erro: `EACCES: permission denied`
 
-**Causa**: Permissão insuficiente para instalar globalmente.
-
-**Solução**:
-
-```bash
-# Opção 1: Use sudo (não recomendado)
-sudo npm install -g @kaffyn/vectora
-
-# Opção 2: Configure npm para instalação local (recomendado)
-mkdir ~/.npm-global
-npm config set prefix '~/.npm-global'
-export PATH=~/.npm-global/bin:$PATH
 npm install -g @kaffyn/vectora
-```
+
+```text
 
 ---
 
@@ -246,8 +190,8 @@ R: Sim. As chaves são armazenadas localmente em `~/.vectora/credentials.enc` (c
 **P: Posso usar múltiplos projetos com uma única instalação?**
 R: Sim. Use `vectora init` para cada projeto em diretórios diferentes.
 
-**P: Como atualizar Vectora?**
-R: Use `npm update -g @kaffyn/vectora` ou instale uma versão específica: `npm install -g @kaffyn/vectora@latest`.
+**P: Como atualizar o Vectora?**
+R: No Windows, use `winget upgrade kaffyn.vectora`. Em outros sistemas, rode o script de instalação novamente ou use `vectora update`.
 
 ---
 
@@ -256,3 +200,4 @@ R: Use `npm update -g @kaffyn/vectora` ou instale uma versão específica: `npm 
 ---
 
 _Parte do ecossistema Vectora_ · Open Source (MIT)
+```

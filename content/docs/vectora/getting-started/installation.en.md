@@ -19,7 +19,7 @@ tags:
 
 ## Overview
 
-Vectora is installed globally via npm as an MCP (Model Context Protocol) agent. Installation takes less than 5 minutes and requires only Node.js 18+ and free API keys.
+Vectora is distributed as a high-performance native binary for Windows, macOS, and Linux. On Windows, installation is standardized via **Winget** and resides in your local programs directory, requiring no Node.js or administrator privileges.
 
 > [!IMPORTANT] > **BYOK (Bring Your Own Key)**: In the Free plan, Vectora requires API keys from Gemini and Voyage. In **Pro** and **Team (Plus)** plans, you can opt for **Managed** mode, where AI credits are already included.
 
@@ -35,42 +35,40 @@ Vectora is installed globally via npm as an MCP (Model Context Protocol) agent. 
 
 ### Software
 
-- **Node.js** 18.0.0 or higher ([download](https://nodejs.org))
-- **npm** 9.0.0+ (included with Node.js)
-- **git** 2.30+ (optional, for cloning repositories)
+- **64-bit Systems** (x64 or ARM64)
+- **Internet Connection** for key activation
 
-### Verify Prerequisites
+### Verify Winget Version (Windows)
 
-```bash
-node --version # Should return v18.0.0 or higher
-npm --version # Should return 9.0.0 or higher
+```powershell
+winget --version # Should return v1.4 or higher
 ```
 
 ---
 
-## Step 1: Install Vectora Globally
+## Step 1: Install Vectora
 
-```bash
-npm install -g @kaffyn/vectora
+### Windows (Recommended)
+
+Open your terminal (PowerShell or CMD) and run:
+
+```powershell
+winget install kaffyn.vectora
 ```
 
-**Expected time**: 2-3 minutes (first installation)
+The binary will be installed in `%LOCALAPPDATA%\Programs\Vectora` and automatically added to your PATH.
 
-### Verify Installation
+### macOS / Linux
 
-```bash
-vectora --version
-# Expected output: vectora/1.x.x
-```
-
-If the command is not found, you may need to update your `PATH`:
+Use our quick installation script:
 
 ```bash
-# macOS / Linux
-export PATH="$PATH:$(npm config get prefix)/bin"
-
-# Add the line above to your ~/.bashrc or ~/.zshrc for persistence
+curl -sSf https://vectora.sh/install.sh | sh
 ```
+
+### Manual Download
+
+You can also download the binary directly from our [GitHub Releases page](https://github.com/kaffyn/vectora/releases).
 
 ---
 
@@ -94,54 +92,22 @@ export PATH="$PATH:$(npm config get prefix)/bin"
 
 ---
 
-## Step 3: Configure Environment Variables
+## Step 3: Configure via Systray
 
-### Option A: Local `.env` File (Recommended)
+After installation, look for the Vectora icon in your system tray (near the clock).
 
-Create a `.env` file in your project root:
-
-```bash
-cat > .env << 'EOF'
-GEMINI_API_KEY=your_gemini_key_here
-VOYAGE_API_KEY=your_voyage_key_here
-VECTORA_NAMESPACE=my-project
-VECTORA_TRUST_FOLDER=.
-EOF
-```
-
-Replace `your_gemini_key_here` and `your_voyage_key_here` with your actual keys.
-
-### Option B: System Environment Variables
-
-```bash
-# macOS / Linux
-export GEMINI_API_KEY="your_gemini_api_key"
-export VOYAGE_API_KEY="your_voyage_api_key"
-
-# Windows (PowerShell)
-$env:GEMINI_API_KEY = "your_gemini_api_key"
-$env:VOYAGE_API_KEY = "your_voyage_api_key"
-```
-
-### Option C: Use `vectora config` (Interactive)
-
-```bash
-vectora config set --key GEMINI_API_KEY
-# You will be prompted for interactive input
-# Then:
-vectora config set --key VOYAGE_API_KEY
-```
+1. Click the icon and select **"Login"**.
+2. This will open your browser for SSO authentication.
+3. Once authenticated, Vectora will automatically configure your keys.
 
 ---
 
-## Step 4: Verify Configuration
+## Step 4: Verify Configuration (CLI)
+
+If you prefer the terminal, verify the status:
 
 ```bash
-vectora config list
-# Should show:
-# GEMINI_API_KEY: ••••••••••
-# VOYAGE_API_KEY: ••••••••••
-# VECTORA_NAMESPACE: my-project
+vectora auth status
 ```
 
 ---
@@ -247,7 +213,7 @@ A: Yes. Keys are stored locally in `~/.vectora/credentials.enc` (encrypted) or i
 A: Yes. Use `vectora init` for each project in different directories.
 
 **Q: How do I update Vectora?**
-A: Use `npm update -g @kaffyn/vectora` or install a specific version: `npm install -g @kaffyn/vectora@latest`.
+R: On Windows, use `winget upgrade kaffyn.vectora`. On other systems, re-run the installation script or use `vectora update`.
 
 ---
 

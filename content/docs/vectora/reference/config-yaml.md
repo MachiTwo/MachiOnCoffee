@@ -33,7 +33,8 @@ indexing:
     - "./src/**/*.ts"
     - "./docs/**/*.md"
   exclude:
-    - "node_modules/**"
+    - "bin/**"
+    - "vendor/**"
     - ".git/**"
     - "*.test.ts"
   auto_index: true
@@ -139,6 +140,8 @@ VECTORA_LOG_LEVEL # Override log level
 ```
 
 ### Validation
+
+### A configuração é validada nativamente pelo motor em Go no momento da inicialização
 
 ```bash
 vectora config validate

@@ -18,7 +18,8 @@ tags:
 
 ## Visão Geral
 
-**Guardian** é o **sistema de segurança hard-coded** que bloqueia acesso a arquivos sensíveis no Vectora. Opera em 3 camadas: Trust Folder (path isolation), pattern matching (regex rules), e audit logging.
+O **Guardian** é o motor de governança do Vectora, compilado diretamente no binário Go. Ele atua como um firewall de aplicação, inspecionando cada comando e caminho antes da execução.
+Trust Folder (path isolation), pattern matching (regex rules), e audit logging.
 
 > [!IMPORTANT]
 > Guardian não é um firewall - é um gatekeeper. Uma violação Guardian é BLOQUEADA antes de chegar ao filesystem, sem exceções.
@@ -146,9 +147,9 @@ defaults:
     - ".*secret.*"
     - "\.git/.*"
     - "\.ssh/.*"
-    - "node_modules/.*" # Opcional
-    - "__pycache__/.*"
-    - "\.venv/.*"
+    - "bin/.*"
+    - "vendor/.*"
+    - "\.git/.*"
 ```
 
 Para customizar, sobrescreva em config:

@@ -30,16 +30,16 @@ vectora [GLOBAL_OPTIONS] COMMAND [COMMAND_OPTIONS]
 
 ---
 
-## Global Options
+## Global Flags
 
 ```bash
---version, -v # Mostra versão
---help, -h # Mostra ajuda
---config PATH # Caminho customizado ao vectora.config.yaml
---namespace NS # Override namespace padrão
---debug # Ativa modo debug (verbose logging)
---quiet, -q # Suprime output (exceto erros)
---json # Output em JSON (para parsing)
+--version, -v   # Mostra versão
+--help, -h      # Mostra ajuda
+--config PATH   # Caminho customizado ao vectora.yaml
+--namespace NS  # Override namespace padrão (default: local)
+--debug         # Ativa modo debug (verbose logging)
+--quiet, -q     # Suprime output (exceto erros)
+--json          # Output em JSON para automação
 ```
 
 Exemplos:
@@ -90,13 +90,12 @@ Indexa arquivos no namespace.
 vectora index [OPTIONS]
 
 OPTIONS:
-  --force # Reindexar mesmo se não mudou
-  --incremental # Apenas arquivos novos/modificados (default: true)
-  --exclude PATTERN # Excluir globs (ex: node_modules/**)
-  --include PATTERN # Incluir apenas globs (ex: src/**)
-  --dry-run # Mostra o que seria indexado, sem fazer
-  --progress # Mostra barra de progresso
-  --watch # Fica observando mudanças (dev mode)
+  --force               # Reindexar mesmo se não houver mudanças detectadas
+  --incremental         # Apenas arquivos novos/modificados (default: true)
+  --exclude PATTERN     # Excluir globs (ex: bin/**, .git/**)
+  --include PATTERN     # Incluir apenas globs (ex: pkg/**, cmd/**)
+  --dry-run             # Simula a indexação sem persistir dados
+  --watch               # Observa mudanças no filesystem (modo dev)
 ```
 
 **Exemplos**:
@@ -108,10 +107,10 @@ vectora index
 # Reindexar tudo
 vectora index --force
 
-# Apenas TypeScript
-vectora index --include "**/*.ts" --include "**/*.tsx"
+# Apenas arquivos Go
+vectora index --include "**/*.go"
 
-# Mode desenvolvimento (watch)
+# Modo desenvolvimento (watch)
 vectora index --watch
 
 # Verificar o que seria indexado
@@ -314,31 +313,26 @@ vectora server --cert cert.pem --key key.pem
 
 ### `vectora auth`
 
-Gerenciar tokens e autenticação.
+Gerencia autenticação SSO e tokens de acesso.
 
 ```bash
-vectora auth [SUBCOMMAND]
+vectora auth [COMMAND]
 
-SUBCOMMANDS:
-  login # Login interativo
-  logout # Logout
-  token create # Gerar novo token
-  token list # Listar tokens
-  token delete ID # Revogar token
-  token validate TOKEN # Validar token
+COMMANDS:
+  login     # Inicia fluxo SSO via navegador
+  logout    # Encerra sessão local
+  status    # Mostra usuário logado e validade do token
+  token     # Gerencia personal access tokens (PAT)
 ```
 
 **Exemplos**:
 
 ```bash
-# Login
+# Login interativo (abre o Systray e Navegador)
 vectora auth login
 
-# Criar token com TTL
-vectora auth token create --name "CI/CD" --ttl 365d
-
-# Validar token
-vectora auth token validate sk-abc123...
+# Verificar status da conta
+vectora auth status
 ```
 
 ---

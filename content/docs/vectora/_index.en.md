@@ -32,13 +32,13 @@ Traditional AI agents operate in **fragmented contexts**, generating hallucinati
 
 ## The Problem Vectora Solves
 
-| Failure in Generic Agents       | Practical Impact                                        | How Vectora Mitigates                                                                                                                        |
-| ------------------------------- | ------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Shallow Context**             | Search for "authentication" returns 50 irrelevant files | [Reranker 2.5](/concepts/reranker/) filters by real semantic relevance, not raw cosine similarity                                            |
-| **No Pre-Execution Validation** | Dangerous tool calls run before being audited           | [Harness Runtime](/concepts/harness-runtime/) intercepts, validates Zod schema, and applies [Guardian](/security/guardian/) before execution |
-| **Lack of Isolation**           | Data from different projects leaks between sessions     | [Namespace Isolation](/security/rbac/) via application-level RBAC + mandatory backend filtering                                              |
-| **Unpredictable Consumption**   | LLMs overfetch, waste tokens on boilerplate             | [Context Engine](/concepts/context-engine/) decides scope, applies compaction (head/tail), injects only what's relevant                      |
-| **Fragile Security**            | Blocklists depend on prompts (jailbreakable)            | [Hard-Coded Guardian](/security/guardian/) is compiled into runtime, impossible to bypass via prompt                                         |
+| Failure in Generic Agents       | Practical Impact                                        | How Vectora Mitigates                                                                                                                                                                       |
+| ------------------------------- | ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Shallow Context**             | Search for "authentication" returns 50 irrelevant files | [Reranker 2.5](/concepts/reranker/) filters by real semantic relevance, not raw cosine similarity                                                                                           |
+| **No Pre-Execution Validation** | Dangerous tool calls run before being audited           | [Harness Runtime](/concepts/harness-runtime/) intercepts, validates via [Struct Validation](/implementation/security-engine/), and applies [Guardian](/security/guardian/) before execution |
+| **Lack of Isolation**           | Project data leaks between sessions                     | [Namespace Isolation](/security/rbac/) via app-level RBAC + mandatory backend filtering                                                                                                     |
+| **Unpredictable Consumption**   | LLMs generate overfetch, wasting tokens on boilerplate  | [Context Engine](/concepts/context-engine/) decides scope, applies compaction (head/tail), and injects only relevance                                                                       |
+| **Fragile Security**            | Blocklists depend on (jailbreakable) prompts            | [Hard-Coded Guardian](/security/guardian/) is compiled into the Go binary, impossible to bypass via prompt                                                                                  |
 
 ---
 
@@ -49,7 +49,7 @@ Vectora is exposed **exclusively via MCP**. There is no chat CLI, TUI, or direct
 ```mermaid
 graph LR
     A[Principal Agent] -->|MCP Tool Call| B[Harness Runtime]
-    B --> C{Guardian + Zod Validation}
+    B --> C{Guardian + Native Validation}
     C -->| Approved| D[Context Engine]
     D --> E[Embed via Voyage 4]
     D --> F[Rerank via Voyage 2.5]
@@ -61,12 +61,12 @@ graph LR
 
 ### Core Components
 
-| Module                                            | Responsibility                                                                   | Documentation                                                                   |
-| ------------------------------------------------- | -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| **[Harness Runtime](/concepts/harness-runtime/)** | Orchestrates execution, validates schemas, intercepts tool calls, persists state | Infrastructure that connects the LLM to the real world, not a testing framework |
-| **[Context Engine](/concepts/context-engine/)**   | Decides scope (filesystem vs vector), applies AST parsing, multi-hop compaction  | Pipeline `Embed → Search → Rerank → Compose → Validate`                         |
-| **[Provider Router](/models/gemini/)**            | Routes to curated stack, manages BYOK fallback, tracks quota                     | No generic layers. Official SDKs, stable parsing                                |
-| **[Tool Executor](/reference/mcp-tools/)**        | Validates args via Zod, executes with exponential retry, sanitizes output        | Immutable blocklist applied before any call                                     |
+| Module                                            | Responsibility                                                                      | Documentation                                                                   |
+| ------------------------------------------------- | ----------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| **[Harness Runtime](/concepts/harness-runtime/)** | Orchestrates execution, validates schemas, intercepts tool calls, persists state    | Infrastructure that connects the LLM to the real world, not a testing framework |
+| **[Context Engine](/concepts/context-engine/)**   | Decides scope (filesystem vs vector), applies AST parsing, multi-hop compaction     | Pipeline `Embed → Search → Rerank → Compose → Validate`                         |
+| **[Provider Router](/models/gemini/)**            | Routes to curated stack, manages BYOK fallback, tracks quota                        | No generic layers. Official SDKs, stable parsing                                |
+| **[Tool Executor](/reference/mcp-tools/)**        | Validates args via Strong Typing, executes with exponential retry, sanitizes output | Immutable blocklist applied before any call                                     |
 
 ---
 
@@ -130,7 +130,7 @@ Vectora operates with a **Digital Sovereignty First** model, offering **BYOK (Br
 
 | Category            | Document                                                                            | Description                                                                    |
 | ------------------- | ----------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
-| **Quick Start**     | [Getting Started](/getting-started/)                                                | `npm install -g vectora-agent`, BYOK setup, MCP integration                    |
+| **Quick Start**     | [Getting Started](/getting-started/)                                                | `winget install kaffyn.vectora`, Systray setup, MCP integration                |
 | **Concepts**        | [Sub-Agents](/concepts/sub-agents/)                                                 | Why Sub-Agent and not passive MCP tools? Active governance vs static functions |
 | **Harness Runtime** | [Harness Runtime](/concepts/harness-runtime/)                                       | Tool Execution, Context Engineering, State Management, Verification Hooks      |
 | **Context & RAG**   | [Context Engine](/concepts/context-engine/)                                         | AST parsing, compaction, multi-hop reasoning, hybrid ranking                   |
@@ -140,8 +140,9 @@ Vectora operates with a **Digital Sovereignty First** model, offering **BYOK (Br
 | **Security**        | [Guardian](/security/guardian/) · [RBAC](/security/rbac/)                           | Hard-coded blocklist, Trust Folder, sanitization, per-namespace roles          |
 | **Plans**           | [Overview](/plans/overview/)                                                        | Free/Pro/Team, managed quota, automatic fallback, retention policy             |
 | **Integrations**    | [Claude Code](/integrations/claude-code/) · [Gemini CLI](/integrations/gemini-cli/) | MCP configuration, IDE extensions, custom agents                               |
-| **Reference**       | [MCP Tools](/reference/mcp-tools/) · [Config YAML](/reference/config-yaml/)         | Tool schema, Zod-validated config.yaml, error codes                            |
-| **Contributing**    | [Guidelines](/contributing/guidelines/)                                             | Strict TypeScript, Harness tests first, PRs, public roadmap                    |
+| **Reference**       | [MCP Tools](/reference/mcp-tools/) · [Config YAML](/reference/config-yaml/)         | Tool schema, native-validated config.yaml, error codes                         |
+| **Implementation**  | [Engineering](/implementation/)                                                     | Golang Architecture, Core Migration, CLI Engine, Systray UX                    |
+| **Contributing**    | [Guidelines](/contributing/guidelines/)                                             | Strict Golang, performance tests, PRs, public roadmap                          |
 
 ---
 

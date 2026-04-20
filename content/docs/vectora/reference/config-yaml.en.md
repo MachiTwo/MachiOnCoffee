@@ -33,7 +33,8 @@ indexing:
     - "./src/**/*.ts"
     - "./docs/**/*.md"
   exclude:
-    - "node_modules/**"
+    - "bin/**"
+    - "vendor/**"
     - ".git/**"
     - "*.test.ts"
   auto_index: true
@@ -141,12 +142,5 @@ VECTORA_LOG_LEVEL # Override log level
 ### Validation
 
 ```bash
-vectora config validate
-# All required fields present
-# API keys configured
-# Paths exist
-```
-
----
-
 _Part of the Vectora ecosystem_ · Open Source (MIT)
+```
