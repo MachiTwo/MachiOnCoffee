@@ -10,7 +10,8 @@
       "Bash(sed -i 's/^```$/```text/g; s/^````$/````text/g' content/docs/vectora/**/*.md)",
       "Bash(git commit -m 'Documentação Phase 1: Corrigir stack de Vectora *)",
       "Bash(grep -E \"\\\\.xml$|^d\")",
-      "Bash(grep -E \"\\\\.md$|^d\")"
+      "Bash(grep -E \"\\\\.md$|^d\")",
+      "Bash(git commit -m 'docs: planos completos de implementação Vectora \\(core + cloud\\) *)"
     ]
   }
 }
