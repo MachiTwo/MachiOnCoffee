@@ -39,8 +39,6 @@ The **Team** plan is for large organizations with enterprise requirements: SSO, 
 | **Advanced Compliance**      | -            | [x]       |
 | **Audit Logging (Detailed)** | -            | [x]       |
 
----
-
 ## Enterprise Features
 
 ## SSO & Identity Management
@@ -98,8 +96,6 @@ compliance:
   soc2_compliance: true
 ```
 
----
-
 ## Pricing
 
 ## Pricing Model
@@ -132,8 +128,6 @@ Total: ~$13,500/month
 **<sales@vectora.app>**
 **Slack Enterprise Channel**
 **Demo & Proposal: 48h**
-
----
 
 ## Deployment Options
 
@@ -172,8 +166,6 @@ Your own or a private datacenter:
  Own hardware
 ```
 
----
-
 ## SLA & Uptime
 
 ### 99.99% SLA (Team Plan)
@@ -201,8 +193,6 @@ Uptime | Credit
 < 99% | 50% credit/month
 ```
 
----
-
 ## Support
 
 ## Dedicated Support
@@ -220,8 +210,6 @@ Uptime | Credit
 | High     | 1 hour   | 8 hours    |
 | Medium   | 4 hours  | 24 hours   |
 | Low      | 8 hours  | 5 days     |
-
----
 
 ## Custom Integrations
 
@@ -243,8 +231,6 @@ custom_embedding:
   endpoint: "https://ml.company.com/embed"
   auth: "api_key"
 ```
-
----
 
 ## Compliance & Security
 
@@ -278,8 +264,6 @@ compliance_reports:
   vulnerability_scanning: "continuous"
 ```
 
----
-
 ## Migration from Pro
 
 ```bash
@@ -296,8 +280,6 @@ vectora upgrade --plan team
 3. Data migration (zero downtime)
 4. SSO/LDAP setup
 5. Training + onboarding
-
----
 
 ## Ideal Use Cases
 
@@ -322,8 +304,6 @@ vectora upgrade --plan team
 - Real-time analytics
 - Mission-critical operations
 
----
-
 ## Technical Specs (Team)
 
 ```yaml
@@ -345,8 +325,6 @@ regions:
   geo_replication: yes
 ```
 
----
-
 ## Team FAQ
 
 **Q: How much does it cost?**
@@ -363,8 +341,6 @@ A: Yes, automated daily backups with 30-day retention (customizable).
 
 **Q: What is the response time for critical issues?**
 A: 15 minutes for assessment, 4 hours for resolution.
-
----
 
 ## Next Steps
 

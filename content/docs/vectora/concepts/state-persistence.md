@@ -13,8 +13,6 @@ A maioria das ferramentas de IA opera em um modelo _stateless_ (sem estado): cad
 
 O Vectora resolve isso através de um sistema de **Persistência de Estado e Memória Operacional**.
 
----
-
 ## Memória de Curto Prazo vs. Longo Prazo
 
 No Vectora, a persistência é dividida em camadas para otimizar a performance e o custo de tokens:
@@ -35,8 +33,6 @@ Reside na coleção `memory` e é espelhada no arquivo `AGENTS.md` (opcional).
 - **Conteúdo**: Fatos aprendidos ("O projeto usa Clean Architecture"), regras de segurança ("Nunca edite arquivos .pem"), e preferências do usuário ("Prefira usar `async/await` ao invés de callbacks").
 - **Uso**: Fornece o "DNA" do projeto ao agente assim que ele é inicializado.
 
----
-
 ## Como Funciona a Persistência
 
 ### Operação via MongoDB Atlas
@@ -46,8 +42,6 @@ Quando o agente principal envia uma requisição via MCP, o Vectora:
 1. **Recupera o Estado**: Lê a sessão ativa no Atlas.
 2. **Injeta Contexto de Memória**: Carrega as regras relevantes do `AGENTS.md` persistido.
 3. **Atualiza em Tempo Real**: Cada decisão tomada pelo [Context Engine](/concepts/context-engine/) é gravada no banco.
-
----
 
 ## Auditoria e Governança
 
@@ -64,16 +58,12 @@ O Vectora registra metadados imutáveis de cada operação:
 
 Isso permite que times de segurança e líderes técnicos auditem **exatamente** o que os agentes estão fazendo na codebase.
 
----
-
 ## Isolação e Criptografia (RBAC)
 
 A persistência de estado é rigorosamente isolada por **Namespace**.
 
 - Um agente rodando no `namespace: front-end` jamais verá a memória ou o estado da sessão do `namespace: back-end`.
 - Os dados sensíveis no estado (como trechos de código em memória) são criptografados em repouso no MongoDB Atlas (AES-256).
-
----
 
 ## Otimização: Session Compaction
 
@@ -82,8 +72,6 @@ Sessões de agentes podem se tornar imensas, estourando o limite de contexto do 
 - **Pruning**: Remove detalhes de ferramentas que falharam ou foram sobrescritas por ações de sucesso.
 - **Summarization**: Resume blocos de pensamento intermediários, mantendo apenas as conclusões e fatos críticos.
 - **Head/Tail management**: Mantém o início (objetivo) e o fim (estado atual) com detair, compactando o meio.
-
----
 
 ## FAQ de Persistência
 

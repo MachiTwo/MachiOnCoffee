@@ -21,8 +21,6 @@ tags:
 > [!IMPORTANT]
 > RBAC é "allow by role". Um usuário só pode fazer o que sua role permite. Não há exceções por usuário.
 
----
-
 ## Arquitetura
 
 ```text
@@ -44,8 +42,6 @@ Action (read|write|delete)
   ↓
 Grant/Deny Decision
 ```
-
----
 
 ## 5 Roles Hierárquicos
 
@@ -170,8 +166,6 @@ cannot_perform:
   - anything else
 ```
 
----
-
 ## 15 Permissões Granulares
 
 | Permissão             | Descrição                | Roles                               |
@@ -191,8 +185,6 @@ cannot_perform:
 | `custom_integrations` | Custom endpoints         | Owner                               |
 | `support_priority`    | Suporte prioritário      | Owner                               |
 | `billing`             | Ver/alterar billing      | Owner                               |
-
----
 
 ## Configuração
 
@@ -261,8 +253,6 @@ rbac:
       rate_limit: 100/day
 ```
 
----
-
 ## User Management
 
 O gerenciamento de usuários abrange desde o provisionamento inicial até a auditoria de atividades e a revogação de acessos quando necessário.
@@ -327,8 +317,6 @@ vectora user delete --email dev@company.com
 # - Audit log criado
 ```
 
----
-
 ## Namespace-Level Permissions
 
 Granularidade por namespace:
@@ -359,8 +347,6 @@ vectora user assign-namespace \
   --namespace kaffyn-vectora-staging \
   --role editor
 ```
-
----
 
 ## Integration with Guardian & Harness
 
@@ -401,8 +387,6 @@ User Request
 Se qualquer check falha → Deny + Log
 ```
 
----
-
 ## Audit & Compliance
 
 Todas as alterações de permissões e atribuições de usuários são registradas para garantir a conformidade com auditorias de segurança e requisitos regulatórios.
@@ -432,8 +416,6 @@ vectora report rbac --format pdf --output rbac-report.pdf
 # - Access denied attempts
 # - Usuários inativos (> 30 dias)
 ```
-
----
 
 ## Best Practices
 
@@ -488,8 +470,6 @@ export VECTORA_TOKEN="shared-token-for-team"
 export VECTORA_TOKEN="sk-proj-$(whoami)-..."
 ```
 
----
-
 ## Troubleshooting
 
 ## "Permission denied: search"
@@ -516,8 +496,6 @@ vectora user list-namespaces --email dev@company.com
 # Solução: Assign namespace
 vectora user assign-namespace --email dev@company.com --namespace kaffyn-prod --role viewer
 ```
-
----
 
 ## Migration from No-RBAC
 

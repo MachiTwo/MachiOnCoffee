@@ -21,13 +21,9 @@ The Context Engine is the heart of Vectora's orchestration. It decides **what, h
 > [!IMPORTANT]
 > Context Engine is not just search. It is an intelligent pipeline: **Embed → Search → Rerank → Compose → Validate**.
 
----
-
 ## The Problem
 
 Generic agents return 50 irrelevant files for a simple query. The Context Engine filters by relevance, reducing this to 5-10 highly useful chunks.
-
----
 
 ## Search Strategies
 
@@ -45,8 +41,6 @@ Uses AST parsing for code relationships. Ideal for "Which functions call X?"
 
 Combines semantic + structural search. Ideal for module refactoring.
 
----
-
 ## Pipeline
 
 1. **Embedding**: Query → 1024D vector (Voyage 4)
@@ -54,8 +48,6 @@ Combines semantic + structural search. Ideal for module refactoring.
 3. **Reranking**: Voyage Rerank 2.5 refines top-50 to top-10
 4. **Compaction**: head/tail reduction without losing context
 5. **Validation**: Guardian + Harness validate the output
-
----
 
 ## Configuration
 
@@ -67,8 +59,6 @@ context_engine:
   include_ast: true
   include_dependencies: true
 ```
-
----
 
 ## Practical Examples
 

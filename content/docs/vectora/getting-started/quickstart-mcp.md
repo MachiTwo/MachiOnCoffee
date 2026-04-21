@@ -20,8 +20,6 @@ Este guia permite que você integre o Vectora com Claude Desktop via MCP em meno
 > [!IMPORTANT]
 > Pré-requisitos: Vectora instalado globalmente (`vectora --version`) e Claude Desktop instalado ([download](https://claude.ai/download)).
 
----
-
 ## Passo 1: Localizar o Arquivo de Configuração
 
 ## macOS / Linux
@@ -44,8 +42,6 @@ touch ~/.claude/claude_desktop_config.json
 # Se não existir, crie com:
 New-Item -Path "$env:APPDATA\Claude" -ItemType Directory -Force
 ```
-
----
 
 ## Passo 2: Adicionar Vectora como MCP Server
 
@@ -82,16 +78,12 @@ Se já tiver `GEMINI_API_KEY` e `VOYAGE_API_KEY` definidas:
 }
 ```
 
----
-
 ## Passo 3: Reiniciar Claude Desktop
 
 ```bash
 # Feche completamente Claude Desktop e abra novamente
 # Isso carrega a nova configuração MCP
 ```
-
----
 
 ## Passo 4: Testar a Conexão
 
@@ -131,8 +123,6 @@ Se não estiver conectado:
 - Confira o arquivo `claude_desktop_config.json` (sintaxe JSON)
 - Reinicie Claude Desktop
 
----
-
 ## Passo 5: Seu Primeiro Comando
 
 ## Explorar o Codebase
@@ -159,8 +149,6 @@ Leia e explique o arquivo src/main.ts
 
 Claude usa `file_read` para ler o arquivo.
 
----
-
 ## Estrutura do Projeto
 
 Depois de `vectora init`, você terá:
@@ -176,8 +164,6 @@ meu-projeto/
 └── .env # Variáveis de ambiente (não commitar!)
 ```
 
----
-
 ## Comandos MCP Disponíveis
 
 | Comando          | O que faz                     | Exemplo             |
@@ -188,8 +174,6 @@ meu-projeto/
 | `file_write`     | Escreve ou modifica arquivo   | Criar novo arquivo  |
 | `file_edit`      | Edita parte de um arquivo     | Mudar uma função    |
 | `grep_search`    | Busca por regex               | Padrões específicos |
-
----
 
 ## Troubleshooting
 
@@ -229,15 +213,11 @@ vectora init --name "Meu Projeto"
 Use o Vectora para buscar informações sobre autenticação neste projeto.
 ```
 
----
-
 ## Próximos Passos
 
 - **Aprofundar**: Leia [Context Engine](../concepts/context-engine.md)
 - **Integrar com Cursor**: [Cursor Integration](../integrations/cursor.md)
 - **Entender Segurança**: [Guardian & RBAC](../security/guardian.md)
-
----
 
 ## FAQ
 

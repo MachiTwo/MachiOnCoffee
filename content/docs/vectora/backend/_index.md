@@ -19,8 +19,6 @@ O Vectora utiliza uma arquitetura unificada baseada em **MongoDB Atlas**, permit
 
 ## O Motor por Trás do Contexto
 
----
-
 ## Tópicos desta seção
 
 | Página                                                 | Descrição                                                                                       |
@@ -28,8 +26,6 @@ O Vectora utiliza uma arquitetura unificada baseada em **MongoDB Atlas**, permit
 | [MongoDB Atlas](/backend/mongodb-atlas/)               | Por que escolhemos o Atlas e como ele serve como nossa fundação de dados.                       |
 | [Busca Vetorial](/concepts/vector-search/)             | Mergulho técnico em embeddings, similaridade de cosseno e o algoritmo HNSW.                     |
 | [Persistência e Memória](/concepts/state-persistence/) | Como o Vectora mantém o estado entre sessões e constrói a memória de longo prazo (`AGENTS.md`). |
-
----
 
 ## Visão Geral da Arquitetura
 
@@ -49,16 +45,12 @@ graph TD
     end
 ```
 
----
-
 ## Princípios de Backend
 
 1. **Isolamento por Namespace (RBAC)**: O backend impõe limites rígidos. Dados de um projeto nunca se misturam com outros, garantindo privacidade multi-tenant.
 2. **Atomicidade**: Vetores e metadados de código são armazenados juntos. Se um arquivo é atualizado, o índice vetorial e o documento são atualizados simultaneamente.
 3. **Escalabilidade Transparente**: Usando MongoDB Atlas, o Vectora escala de pequenos projetos individuais a codebases corporativas com milhões de linhas de código sem perda de performance.
 4. **Governança Ativa**: Cada interação é persistida e auditável, permitindo transparência total sobre as ações da IA.
-
----
 
 ## Modos de Backend
 
@@ -67,8 +59,6 @@ graph TD
 | **Gerenciado (SaaS)**   | Backend MongoDB Atlas provisionado pela Kaffyn. Zero configuração.                                      | Planos Free, Pro e Team.                       |
 | **Híbrido (BYOK)**      | Você fornece as chaves de API do [Voyage](/concepts/embeddings/), mas o Atlas é gerenciado pela Kaffyn. | Controle de custo de API com facilidade infra. |
 | **Enterprise / Custom** | Conexão com seu próprio cluster MongoDB Atlas ou infraestrutura on-premise.                             | Requisitos rígidos de soberania de dados.      |
-
----
 
 ## Perguntas Frequentes
 

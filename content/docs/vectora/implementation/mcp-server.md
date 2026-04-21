@@ -16,16 +16,12 @@ tags:
 
 O **MCP Server** é a interface pública do Vectora, expondo 12 ferramentas via JSON-RPC 2.0 sobre stdio. Este documento detalha a implementação em Go com conformidade total ao spec MCP.
 
----
-
 ## Especificação MCP Implementada
 
 - **Protocolo**: JSON-RPC 2.0
 - **Transporte**: Stdio (pipe-based)
 - **Autenticação**: JWT via MCP headers
 - **Versão MCP**: 2024-04
-
----
 
 ## Fases de Implementação
 
@@ -178,8 +174,6 @@ func (s *Server) sendError(id interface{}, code int, message string) {
 }
 ```
 
----
-
 ### **Fase 2: 12 Ferramentas MCP**
 
 **Duração**: 2 semanas
@@ -297,8 +291,6 @@ func RegisterSearchContext(server *Server, engine *ContextEngine) {
 }
 ```
 
----
-
 ### **Fase 3: Autenticação & Autorização via Headers**
 
 **Duração**: 1 semana
@@ -363,8 +355,6 @@ func (s *Server) AuthorizedMethod(requiredRole string, handler MethodHandler) Me
     }
 }
 ```
-
----
 
 ### **Fase 4: Testes de Conformidade MCP**
 
@@ -441,8 +431,6 @@ func TestInvalidMethod(t *testing.T) {
 }
 ```
 
----
-
 ## Spec MCP Conformance
 
 | Requisito           | Implementação                          |
@@ -453,8 +441,6 @@ func TestInvalidMethod(t *testing.T) {
 | **Timeouts**        | 30s por request                        |
 | **Batch Requests**  | Não suportado (serial)                 |
 | **Notifications**   | Não suportado (sempre responses)       |
-
----
 
 ## Métricas de Sucesso
 

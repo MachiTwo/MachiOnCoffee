@@ -21,16 +21,12 @@ Vectora's authentication layer ensures that only authorized users and services c
 
 > [!IMPORTANT] > **Security in the application, not the database**: Vectora implements RBAC, namespace validation, and sanitization in the application layer (`Guardian`, `RBAC Logic`). The backend (MongoDB Atlas) stores data; the application decides who can access what.
 
----
-
 ## Topics in this section
 
 | Page                                 | Description                                                                                                    |
 | ------------------------------------ | -------------------------------------------------------------------------------------------------------------- |
 | [SSO / Unified Identity](/auth/sso/) | Centralized authentication, session management, and integration with external providers (GitHub, Google, SAML) |
 | [API Keys](/auth/api-keys/)          | Creation, rotation, and scoping of API keys for programmatic integration with Vectora                          |
-
----
 
 ## Typical Authentication Flow
 
@@ -51,8 +47,6 @@ graph LR
     H -->|No| J[Return 403 Forbidden]
 ```
 
----
-
 ## Fundamental Concepts
 
 | Term             | Definition                                                                                  |
@@ -62,8 +56,6 @@ graph LR
 | **API Key**      | Access token for programmatic integration, with granular scopes (`read`, `write`, `search`) |
 | **JWT**          | Signed JSON Web Token carrying identity and permission claims                               |
 | **Trust Folder** | Allowed filesystem scope for operations; validated before any tool call                     |
-
----
 
 ## Security Best Practices
 
@@ -75,11 +67,9 @@ graph LR
 
 > [!WARNING] > **Hard-coded blocklist**: Files like `.env`, `.key`, and `.pem` are blocked by the `Guardian` before any processing — regardless of authentication. Security by code, not by configuration.
 
----
-
 ## Integration with Your System
 
-#### Example: JWT Validation in your backend
+### Example: JWT Validation in your backend
 
 ```ts
 // Example: JWT validation middleware
@@ -115,8 +105,6 @@ export async function authMiddleware(req: Request, next: Handler) {
   }
 }
 ```
-
----
 
 ## Frequently Asked Questions
 

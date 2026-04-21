@@ -17,8 +17,6 @@ tags:
 {{< lang-toggle >}}
 Guia de solução de problemas mais frequentes durante instalação, configuração e uso do Vectora.
 
----
-
 ## Instalação
 
 ## Erro: `npm: command not found`
@@ -65,8 +63,6 @@ npm install -g @kaffyn/vectora
 # Teste
 vectora --version
 ```
-
----
 
 ## Configuração
 
@@ -122,8 +118,6 @@ namespace:
   trust_folder: "." # ou caminho válido
 ```
 
----
-
 ## MCP Integration
 
 ## Erro: `Vectora MCP server not found`
@@ -178,8 +172,6 @@ Use Vectora para buscar contexto sobre autenticação.
 Procure no codebase por implementações de JWT.
 ```
 
----
-
 ## API & Providers
 
 ## Erro: `403 Quota Exceeded (Gemini)`
@@ -227,8 +219,6 @@ ping generativelanguage.googleapis.com
 export HTTP_PROXY=http://proxy:port
 export HTTPS_PROXY=https://proxy:port
 ```
-
----
 
 ## Indexação & RAG
 
@@ -283,8 +273,6 @@ providers:
     fallback: "local" # local embedding via ollama
 ```
 
----
-
 ## Performance
 
 ## Claude Desktop é lento
@@ -318,8 +306,6 @@ vectora config set VECTORA_CACHE_SIZE=100MB
 vectora stats --memory
 ```
 
----
-
 ## Debug & Logging
 
 ## Ativar modo debug
@@ -351,8 +337,6 @@ vectora stats
 vectora index --list --verbose
 ```
 
----
-
 ## Onde Buscar Ajuda
 
 1. **FAQ Específicos**:
@@ -379,8 +363,6 @@ vectora index --list --verbose
    vectora bug-report --include-logs --include-config
    # Gera arquivo com informações sanitizadas para enviar
    ```
-
----
 
 ## FAQ
 

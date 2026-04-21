@@ -55,8 +55,6 @@ vectora config list
 # Should show GEMINI_API_KEY: ••••••••••
 ```
 
----
-
 ## Available Models
 
 | Model            | Tokens | Latency | Cost   | Use Case                      |
@@ -82,8 +80,6 @@ providers:
       - "rate_limit_exceeded"
       - "timeout"
 ```
-
----
 
 ## Real-World Workflows
 
@@ -289,8 +285,6 @@ export interface SearchChunk {
 // Includes guardrail types (src/security/guardian.types.ts)
 ```
 
----
-
 ## Advanced Configuration
 
 ## Custom System Prompt
@@ -330,8 +324,6 @@ vectora analyze \
   --model gemini-pro
 ```
 
----
-
 ## Context Engine Integration
 
 ## Automatic Context Passing
@@ -367,8 +359,6 @@ providers:
     # Gemini evaluates relevance of each chunk
     # More accurate, but slower
 ```
-
----
 
 ## Safety & Guardrails
 
@@ -406,8 +396,6 @@ VECTORA_LOG_LEVEL=debug vectora analyze "..."
 # [Gemini Response] tokens=200, safety_rating=safe
 ```
 
----
-
 ## Pricing & Quotas
 
 ## Free Tier
@@ -434,8 +422,6 @@ vectora cost-report --period month
 # gemini-3-flash: $0.00 (within free tier)
 # Tokens: 1,234,567 / 1,500,000
 ```
-
----
 
 ## Troubleshooting
 
@@ -480,8 +466,6 @@ providers:
 vectora models list
 # Shows: gemini-3-flash, gemini-pro, ...
 ```
-
----
 
 ## Comparison: Gemini vs Alternatives
 

@@ -19,8 +19,6 @@ tags:
 > [!IMPORTANT]
 > Kaffyn SSO is a **managed (SaaS)** offering. It is exclusive to Pro, Team, and Enterprise plans. In the **Free** plan, authentication is local and isolated per device via `vectora auth login`.
 
----
-
 ## Identity Architecture
 
 Unlike traditional systems, identity in Vectora is decoupled from data storage to ensure maximum security:
@@ -47,8 +45,6 @@ SSO acts as the decision point for:
 3. **Quota Management**: How much storage and processing remains for your plan?
 4. **Governance**: Centralized audit logs per user.
 
----
-
 ## Key Features
 
 | Feature                   | Description                                               | Availability      |
@@ -59,8 +55,6 @@ SSO acts as the decision point for:
 | **API Key Management**    | Centralized interface to create and revoke keys           | Pro / Team        |
 | **Granular RBAC**         | Role assignment such as `admin`, `contributor`, `reader`  | Team              |
 
----
-
 ## Security: "Air Gap" Architecture
 
 To protect your privacy, identity data (email, profiles) is kept on infrastructure isolated from your code content (embeddings and metadata). Even in the event of a processing cluster compromise, your payment credentials and identity remain protected in Kaffyn's global layer.
@@ -70,8 +64,6 @@ To protect your privacy, identity data (email, profiles) is kept on infrastructu
 | **Identity** | SaaS Identity Provider | UUID, email, OAuth profiles      |
 | **Session**  | Signed JWT             | Permission claims, expiration    |
 | **Context**  | MongoDB Atlas          | Embeddings, AST, code (redacted) |
-
----
 
 ## Agent Login Flow
 
@@ -84,8 +76,6 @@ To authenticate your local environment:
 
 > [!TIP]
 > The JWT token has automatic renewal. You will only need to log in manually if the session is revoked or after long periods of inactivity.
-
----
 
 ## Frequently Asked Questions
 

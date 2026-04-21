@@ -16,8 +16,6 @@ tags:
 
 O Vectora usa **MongoDB Atlas** como backend unificado para vetores, metadados, sessões e audit logs. Este documento descreve a implementação do cliente MongoDB em Go com isolamento multi-tenant.
 
----
-
 ## Arquitetura de Collections
 
 ```text
@@ -43,8 +41,6 @@ vectora (database)
     ├── timestamp
     └── security_flags
 ```
-
----
 
 ## Fases de Implementação
 
@@ -116,8 +112,6 @@ func (mc *MongoDBClient) HealthCheck(ctx context.Context) error {
     return mc.client.Ping(ctx, readpref.Primary())
 }
 ```
-
----
 
 ### **Fase 2: Collection Documents (Embeddings + Metadados)**
 
@@ -239,8 +233,6 @@ func (ds *DocumentStore) DeleteByNamespace(ctx context.Context, namespaceID stri
 }
 ```
 
----
-
 ### **Fase 3: Collection Sessions (Estado Operacional)**
 
 **Duração**: 1 semana
@@ -352,8 +344,6 @@ func (ss *SessionStore) AppendToolCall(ctx context.Context, sessionID string, to
     return err
 }
 ```
-
----
 
 ### **Fase 4: Collection Audit Logs (Compliance)**
 
@@ -479,8 +469,6 @@ func (als *AuditLogStore) QuerySecurityEvents(ctx context.Context, startTime, en
 }
 ```
 
----
-
 ### **Fase 5: Query Builders & Abstrações**
 
 **Duração**: 5 dias
@@ -572,8 +560,6 @@ func (qb *QueryBuilder) UpdateMetadata(ctx context.Context, docID string, metada
 }
 ```
 
----
-
 ## Garantias de Segurança
 
 | Requisito                   | Implementação                                          |
@@ -583,8 +569,6 @@ func (qb *QueryBuilder) UpdateMetadata(ctx context.Context, docID string, metada
 | **Imutabilidade de Logs**   | Insert-only no `audit_logs`, sem updates               |
 | **Criptografia**            | MongoDB Atlas: AES-256 em repouso, TLS 1.3 em trânsito |
 | **Backup**                  | Snapshots contínuos com retenção 90 dias               |
-
----
 
 ## Métricas de Sucesso
 

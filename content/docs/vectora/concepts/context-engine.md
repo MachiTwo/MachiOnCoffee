@@ -20,13 +20,9 @@ O Context Engine é o coração da orquestração do Vectora. Ele decide **o qu�
 > [!IMPORTANT]
 > Context Engine não é apenas busca. É um pipeline inteligente: **Embed → Search → Rerank → Compose → Validate**.
 
----
-
 ## O Problema
 
 Agents genéricos retornam 50 arquivos irrelevantes para uma query simples. O Context Engine filtra por relevância, reduzindo para 5-10 chunks altamente úteis.
-
----
 
 ## Estratégias de Busca
 
@@ -44,8 +40,6 @@ Usa AST parsing para relações de código. Ideal para "Que funções chamam X?"
 
 Combina semântica + estrutura. Ideal para refatoração de módulos.
 
----
-
 ## Pipeline
 
 1. **Embedding**: Query → vetor 1024D (Voyage 4)
@@ -53,8 +47,6 @@ Combina semântica + estrutura. Ideal para refatoração de módulos.
 3. **Reranking**: Voyage Rerank 2.5 refina top-50 para top-10
 4. **Compaction**: head/tail reduz tamanho sem perder contexto
 5. **Validação**: Guardian + Harness validam saída
-
----
 
 ## Configuração
 
@@ -66,8 +58,6 @@ context_engine:
   include_ast: true
   include_dependencies: true
 ```
-
----
 
 ## Exemplos Práticos
 

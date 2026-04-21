@@ -23,8 +23,6 @@ Vectora é **100% BYOK** (Bring Your Own Keys). Você controla suas chaves de AP
 > [!IMPORTANT]
 > BYOK significa: Você tem controle total. Vectora nunca vê seus dados brutos. Apenas resultados processados saem de seus servidores.
 
----
-
 ## Modelo de Dados
 
 O modelo de dados do Vectora é projetado para garantir que a soberania da informação permaneça com o usuário, utilizando infraestrutura local ou nuvens privadas.
@@ -51,8 +49,6 @@ Seu Código
 ```
 
 **Seus dados NUNCA deixam sua rede, exceto para APIs que você controla.**
-
----
 
 ## O Que Está Incluído em BYOK
 
@@ -87,8 +83,6 @@ Via seus logs:
  Metadados sobre seu projeto
  User activity (sem Harness)
 ```
-
----
 
 ## Configuração BYOK
 
@@ -146,8 +140,6 @@ vectora config validate
 # QDRANT_URL: Connected (healthy)
 ```
 
----
-
 ## Data Residency & Compliance
 
 O Vectora permite que você escolha exatamente onde seus dados residem, oferecendo opções que variam de servidores locais a nuvens privadas isoladas.
@@ -195,8 +187,6 @@ docker run \
   vectora:latest
 ```
 
----
-
 ## Encryption
 
 A segurança dos dados é reforçada por múltiplas camadas de criptografia, protegendo a informação tanto em repouso quanto em trânsito.
@@ -238,8 +228,6 @@ ssl:
   key: "/etc/ssl/key.pem"
 ```
 
----
-
 ## Privacy Guarantees
 
 Nossa arquitetura técnica impõe garantias de privacidade rigorosas, assegurando que o controle permaneça inteiramente nas mãos do proprietário dos dados.
@@ -262,8 +250,6 @@ Nossa arquitetura técnica impõe garantias de privacidade rigorosas, assegurand
 - Pode usar local/on-prem
 - Pode usar seus próprios modelos
 - Pode exportar dados
-
----
 
 ## Compliance Frameworks
 
@@ -315,8 +301,6 @@ soc2:
   privacy: true
 ```
 
----
-
 ## Data Deletion & Export
 
 Você tem liberdade total sobre seus dados, com ferramentas integradas para exportação completa ou remoção permanente de qualquer informação.
@@ -355,8 +339,6 @@ vectora namespace delete --name seu-namespace
 vectora user delete --email user@company.com
 # Logs preservados, dados deletados
 ```
-
----
 
 ## Audit & Transparency
 
@@ -414,8 +396,6 @@ vectora privacy report
 # - Voyage: 128 calls (your key)
 ```
 
----
-
 ## FAQs
 
 **P: Vectora pode acessar minhas chaves?**
@@ -439,8 +419,6 @@ vectora config set --key EMBEDDING_MODEL "all-MiniLM-L6-v2"
 
 **P: Qual é sua política de retenção?**
 R: Você controla. Local storage = você mantém backups. Cloud storage = você escolhe retenção.
-
----
 
 ## Security Checklist
 

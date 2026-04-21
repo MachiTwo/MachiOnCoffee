@@ -26,8 +26,6 @@ Agentes de IA tradicionais operam em **contextos fragmentados**, gerando alucina
 > [!IMPORTANT] > **Fórmula Central**:
 > `Agente Funcional = Modelo (Gemini 3 Flash) + [Harness Runtime](/concepts/harness-runtime/) + Contexto Governado (Voyage 4 + MongoDB Atlas)`
 
----
-
 ## O Problema que Vectora Resolve
 
 | Falha em Agents Genéricos      | Impacto Prático                                           | Como Vectora Mitiga                                                                                                                                                                   |
@@ -37,8 +35,6 @@ Agentes de IA tradicionais operam em **contextos fragmentados**, gerando alucina
 | **Falta de Isolamento**        | Dados de projetos diferentes vazam entre sessões          | [Namespace Isolation](/security/rbac/) via RBAC na aplicação + filtragem obrigatória no backend                                                                                       |
 | **Consumo Imprevisível**       | LLMs geram overfetch, gastam tokens em boilerplate        | [Context Engine](/concepts/context-engine/) decide escopo, aplica compaction (head/tail) e injeta só o relevante                                                                      |
 | **Segurança Frágil**           | Blocklists dependem de prompts (jailbreakáveis)           | [Hard-Coded Guardian](/security/guardian/) é compilado no binário Go, impossível de bypassar via prompt                                                                               |
-
----
 
 ## A Solução: Arquitetura de Sub-Agent
 
@@ -66,8 +62,6 @@ graph LR
 | **[Provider Router](/models/gemini/)**            | Roteia para stack curada, gerencia fallback BYOK, rastreia quota               | Sem camadas genéricas. SDKs oficiais, parsing estável                      |
 | **[Tool Executor](/reference/mcp-tools/)**        | Valida args via Strong Typing, executa com retry exponencial, sanitiza output  | Blocklist imutável aplicada antes de qualquer chamada                      |
 
----
-
 ## Stack Curada & Infraestrutura
 
 Vectora **não é provider-agnóstico**. Operamos com modelos rigorosamente calibrados para garantir consistência de métricas, estabilidade de parsing e custos previsíveis:
@@ -82,8 +76,6 @@ Vectora **não é provider-agnóstico**. Operamos com modelos rigorosamente cali
 
 > [!WARNING] > **Vectora Cloud Only**: O Vectora é uma solução 100% baseada em nuvem otimizada para a stack Gemini + Voyage. **Não oferecemos suporte para modelos locais (Ollama, LlamaCpp, etc.)** ou outros provedores genéricos para garantir a precisão do engine.
 
----
-
 ## Segurança, Governança & BYOK
 
 A segurança no Vectora é implementada **na camada de aplicação**, não delegada ao banco de dados:
@@ -95,8 +87,6 @@ A segurança no Vectora é implementada **na camada de aplicação**, não deleg
 | **RBAC Aplicativo**     | Roles (`reader`, `contributor`, `admin`, `auditor`) validadas em runtime                               | [RBAC](/security/rbac/)                 |
 | **BYOK ou Managed**     | Chaves do usuário (Free) ou créditos inclusos (Plus)                                                   | [Plano Free](/plans/free/)              |
 | **Managed (Plus)**      | Quota gerenciada inclusa nos planos Pro e Team                                                         | [Plano Pro](/plans/pro/)                |
-
----
 
 ## Planos & Política de Retenção
 
@@ -111,8 +101,6 @@ Vectora opera com modelo **Digital Sovereignty First**, oferecendo **BYOK (Bring
 
 > [!NOTE] > **Regras de Retenção**: Contas Free inativas por 30 dias têm o índice vetorial excluído automaticamente. Metadados são preservados por +90 dias para exportação via `vectora export`. Downgrades notificam redução de limites e concedem 7 dias para backup. Detalhes em [Política de Retenção](/plans/retention/).
 
----
-
 ## Fluxo de Operação (MCP-First)
 
 1. **Detecção**: [Agent Principal](/integrations/mcp-protocol/) identifica necessidade de contexto profundo e dispara `context_search` via MCP.
@@ -121,8 +109,6 @@ Vectora opera com modelo **Digital Sovereignty First**, oferecendo **BYOK (Bring
 4. **Embed + Rerank**: Query é embedada via `voyage-4`, resultados brutos são refinados por `voyage-rerank-2.5`.
 5. **Busca & Compaction**: [MongoDB Atlas](/backend/mongodb-atlas/) retorna top-N com compaction (head/tail + pointers) para evitar context rot.
 6. **Resposta Estruturada**: Contexto validado + métricas são retornados ao agent principal, que gera a resposta final ao usuário.
-
----
 
 ## Por Onde Começar?
 
@@ -146,8 +132,6 @@ Vectora opera com modelo **Digital Sovereignty First**, oferecendo **BYOK (Bring
 
 > **Frase para guardar**:
 > _"Vectora não responde ao usuário. Ele entrega contexto governado ao seu agent. Backend gerenciado, API sob sua chave, segurança na aplicação, dados sempre seus."_
-
----
 
 ## Guia de Navegação
 

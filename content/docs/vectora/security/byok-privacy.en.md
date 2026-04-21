@@ -23,8 +23,6 @@ Vectora is **100% BYOK** (Bring Your Own Keys). You control your API keys. Your 
 > [!IMPORTANT]
 > BYOK means: You have full control. Vectora never sees your raw data. Only processed results leave your servers.
 
----
-
 ## Data Model
 
 Vectora's data model is designed to ensure that information sovereignty remains with the user, utilizing local infrastructure or private clouds.
@@ -51,8 +49,6 @@ Your Code
 ```
 
 **Your data NEVER leaves your network, except for APIs you control.**
-
----
 
 ## What's Included in BYOK
 
@@ -87,8 +83,6 @@ Via your logs:
  Metadata about your project
  User activity (without Harness)
 ```
-
----
 
 ## BYOK Configuration
 
@@ -146,8 +140,6 @@ vectora config validate
 # QDRANT_URL: Connected (healthy)
 ```
 
----
-
 ## Data Residency & Compliance
 
 Vectora allows you to choose exactly where your data resides, offering options ranging from local servers to isolated private clouds.
@@ -195,8 +187,6 @@ docker run \
   vectora:latest
 ```
 
----
-
 ## Encryption
 
 Data security is reinforced by multiple layers of encryption, protecting information both at rest and in transit.
@@ -238,8 +228,6 @@ ssl:
   key: "/etc/ssl/key.pem"
 ```
 
----
-
 ## Privacy Guarantees
 
 Our technical architecture enforces strict privacy guarantees, ensuring that control remains entirely in the hands of the data owner.
@@ -264,8 +252,6 @@ Our technical architecture enforces strict privacy guarantees, ensuring that con
 - Can use local/on-prem
 - Can use your own models
 - Can export data
-
----
 
 ## Compliance Frameworks
 
@@ -317,8 +303,6 @@ soc2:
   privacy: true
 ```
 
----
-
 ## Data Deletion & Export
 
 You have total freedom over your data, with integrated tools for full export or permanent removal of any information.
@@ -357,8 +341,6 @@ vectora namespace delete --name your-namespace
 vectora user delete --email user@company.com
 # Logs preserved, data deleted
 ```
-
----
 
 ## Audit & Transparency
 
@@ -416,8 +398,6 @@ vectora privacy report
 # - Voyage: 128 calls (your key)
 ```
 
----
-
 ## FAQs
 
 **Q: Can Vectora access my keys?**
@@ -441,8 +421,6 @@ vectora config set --key EMBEDDING_MODEL "all-MiniLM-L6-v2"
 
 **Q: What is your retention policy?**
 A: You control it. Local storage = you maintain backups. Cloud storage = you choose retention.
-
----
 
 ## Security Checklist
 

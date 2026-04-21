@@ -48,8 +48,6 @@ Access to more models (BYOK or Managed Plus):
 | **Reranking** | Voyage Rerank 2.5 | + Custom (Cohere, etc.) |
 | **LLM**       | Gemini Flash      | + Claude, GPT-4         |
 
----
-
 ## Pro Limits
 
 ```yaml
@@ -68,8 +66,6 @@ pro_tier_limits:
     max_file_size: 500MB
     max_chunks_per_query: 100
 ```
-
----
 
 ## Webhooks
 
@@ -100,8 +96,6 @@ Content-Type: application/json
 | `error.security`      | Guardian blocked access  |
 | `user.login`          | New user login           |
 
----
-
 ## Custom Domain
 
 Access your server via a custom domain:
@@ -122,8 +116,6 @@ https://code-search.your-domain.com
 # Your domain:
 code-search.your-domain.com CNAME vectora-pro.cloud.app
 ```
-
----
 
 ## API Tokens
 
@@ -152,8 +144,6 @@ curl -H "Authorization: Bearer sk-proj-abc123xyz..." \
 - user # Manage users
 - billing # View invoices
 ```
-
----
 
 ## Advanced Metrics
 
@@ -184,16 +174,12 @@ Pro Users Dashboard
 
 Export to CSV, JSON, or Prometheus.
 
----
-
 ## Priority Support
 
 - **Email support**: <4h response time
 - **Direct Slack channel**: For critical issues
 - **Monthly office hours**: With the Vectora team
 - **Custom onboarding**: Setup + training
-
----
 
 ## Transparent Pricing
 
@@ -216,8 +202,6 @@ Example:
 - No long-term contract
 - Automatic billing
 
----
-
 ## Upgrading from Free
 
 ```bash
@@ -235,8 +219,6 @@ vectora upgrade --plan pro --stripe-token sk_...
 - Namespaces maintained
 - Configuration intact
 
----
-
 ## Comparison: Free vs Pro
 
 | Feature              | Free       | Pro          | Team      |
@@ -252,8 +234,6 @@ vectora upgrade --plan pro --stripe-token sk_...
 | **SSO/LDAP**         | -          | -            | [x]       |
 | **On-Premise**       | -          | -            | [x]       |
 
----
-
 ## Ideal Use Cases for Pro
 
 - **Growing startups**: 5-50 devs, multiple projects
@@ -261,8 +241,6 @@ vectora upgrade --plan pro --stripe-token sk_...
 - **Remote teams**: Needs 24/7 reliability
 - **CI/CD Automation**: Webhooks for pipelines
 - **Custom domain**: Custom branding
-
----
 
 ## Pro FAQ
 

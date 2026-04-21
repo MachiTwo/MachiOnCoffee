@@ -16,8 +16,6 @@ tags:
 
 O **Context Engine** é o coração da recuperação de contexto no Vectora. Ele implementa um pipeline completo: **Query → Embed → Search → Rerank → Compose → Validate**. Este documento detalha a implementação em Go puro.
 
----
-
 ## Arquitetura de Alto Nível
 
 ```mermaid
@@ -36,8 +34,6 @@ graph LR
     J -->|Validação| K[Guardian Check]
     K -->|Métricas| L[Resultado ao LLM]
 ```
-
----
 
 ## Fases de Implementação
 
@@ -159,8 +155,6 @@ func (ap *ASTParser) extractLines(content string, start, end int) string {
     return strings.Join(lines[start-1:end], "\n")
 }
 ```
-
----
 
 ### **Fase 2: Embedding Pipeline via Voyage 4**
 
@@ -315,8 +309,6 @@ func (vc *VoyageClient) doRequest(ctx context.Context, req EmbeddingRequest) ([]
 }
 ```
 
----
-
 ### **Fase 3: Vector Search (HNSW via MongoDB Atlas)**
 
 **Duração**: 1 semana
@@ -398,8 +390,6 @@ func (ce *ContextEngine) SearchVector(ctx context.Context, embedding []float32, 
     return results, nil
 }
 ```
-
----
 
 ### **Fase 4: Reranking via Voyage Rerank 2.5**
 
@@ -483,8 +473,6 @@ func (vc *VoyageClient) Rerank(ctx context.Context, query string, documents []st
     return result.Results, nil
 }
 ```
-
----
 
 ### **Fase 5: Compaction (Head/Tail Strategy)**
 
@@ -586,8 +574,6 @@ func (ce *ContextEngine) extractTailLines(lines []string, targetTokens int) []st
     return result
 }
 ```
-
----
 
 ### **Fase 6: Composição & Validação Final**
 
@@ -709,8 +695,6 @@ func (ce *ContextEngine) ComposeContext(
     }, nil
 }
 ```
-
----
 
 ## Métricas de Sucesso
 

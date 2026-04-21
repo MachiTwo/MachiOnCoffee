@@ -20,8 +20,6 @@ Namespaces são **isoladores lógicos** de índices vetoriais dentro de um únic
 > [!IMPORTANT]
 > Um namespace é como um "banco de dados virtual" dentro do Qdrant. Buscas em um namespace NUNCA retornam chunks de outro namespace.
 
----
-
 ## O Problema
 
 Sem namespaces:
@@ -35,8 +33,6 @@ Com namespaces:
 - Busca é isolada: "login" retorna APENAS do projeto X
 - Múltiplas equipes podem compartilhar uma instância Qdrant sem contaminação
 - Escalabilidade: adiciona novo projeto = novo namespace
-
----
 
 ## Nomenclatura & Convenções
 
@@ -78,8 +74,6 @@ my_app_prod # Underscore
 my-app-prod! # Caractere especial
 my.app.prod # Ponto
 ```
-
----
 
 ## Ciclo de Vida
 
@@ -152,8 +146,6 @@ vectora namespace reset --name kaffyn-vectora-prod
 
 > Deletar namespace é PERMANENTE e não recuperável.
 
----
-
 ## Multi-Tenancy Patterns
 
 O uso de namespaces permite a implementação de diferentes padrões de isolamento dependendo da necessidade do projeto ou da organização.
@@ -209,8 +201,6 @@ namespace: acme-teamB-prod
 
 Use quando: Equipes paralelas com uma base comum.
 
----
-
 ## Métricas por Namespace
 
 A observabilidade é aplicada individualmente a cada namespace, permitindo auditorias precisas de performance e uso.
@@ -247,8 +237,6 @@ harness:
     alert_on_index_corruption: true
 ```
 
----
-
 ## Configuração
 
 ```yaml
@@ -264,8 +252,6 @@ namespaces:
   exclude_from_search:
     - kaffyn-old-archive
 ```
-
----
 
 ## Limitações & Considerar
 

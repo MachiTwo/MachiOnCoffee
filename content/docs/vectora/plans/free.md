@@ -64,8 +64,6 @@ Use seus próprios:
 
 \*Free tier com limites: 60 req/min (Gemini), 50 req/min (Voyage)
 
----
-
 ## Limites
 
 ## Rate Limiting
@@ -97,8 +95,6 @@ free_tier_limits:
 - **Concurrent Requests**: 1
 - **Max File Size**: 100MB per file
 - **Max Chunks per Search**: 20
-
----
 
 ## Como Começar
 
@@ -153,8 +149,6 @@ vectora search "Como funciona login?"
 }
 ```
 
----
-
 ## Casos de Uso Recomendados
 
 ## Melhor em Free
@@ -172,8 +166,6 @@ vectora search "Como funciona login?"
 - **Alta frequência**: > 1000 buscas/dia
 - **24/7 uptime**: Precisa SLA
 - **Webhooks**: Para CI/CD automático
-
----
 
 ## Troubleshooting
 
@@ -209,8 +201,6 @@ Apenas 1 usuário por vez no free tier (1 IDE).
 1. Fechar outras instâncias
 2. Upgrade para Pro (até 100 usuários)
 
----
-
 ## Roadmap para Pro
 
 Quando crescer:
@@ -226,8 +216,6 @@ Enterprise (On-premise + support)
 ```
 
 Nenhuma migração necessária - upgrade é automático.
-
----
 
 ## Support & Community
 

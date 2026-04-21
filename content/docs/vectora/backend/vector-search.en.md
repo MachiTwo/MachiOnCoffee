@@ -54,8 +54,6 @@ Specialized code embeddings, such as `voyage-4`, are trained on billions of snip
 - Relationships between imports and dependencies
 - Semantic context from comments and docstrings
 
----
-
 ## Vector Search Architecture in Vectora
 
 ## Unified Backend: MongoDB Atlas
@@ -118,8 +116,6 @@ Adjustable parameters based on codebase size:
 | `m`               | 8         | 32         | More connections = higher accuracy, more memory           |
 | `ef_construction` | 100       | 400        | More candidates in construction = more precise index      |
 | `ef_search`       | 50        | 200        | More candidates in search = higher recall, higher latency |
-
----
 
 ## Indexing Pipeline
 
@@ -197,8 +193,6 @@ export async function insertChunkWithVector(chunk: CodeChunk, embedding: number[
 }
 ```
 
----
-
 ## Vector Query with Namespace Filtering
 
 ## Query Flow
@@ -269,8 +263,6 @@ filter:
   namespace_id: "auth-service"
   visibility: { $in: ["private", "team"] }
 ```
-
----
 
 ## Performance Optimizations
 
@@ -345,8 +337,6 @@ export function getEfSearchForQuery(query: QueryContext): number {
 }
 ```
 
----
-
 ## Integration with Context Engine
 
 Vector search is just one source of context. The Context Engine decides when to use vector search, filesystem search, or a hybrid combination:
@@ -381,8 +371,6 @@ export async function rerankResults(query: string, results: SearchResult[]): Pro
   return reranked.results.sort((a, b) => b.relevance_score - a.relevance_score).map((r) => results[r.index]);
 }
 ```
-
----
 
 ## FAQ
 

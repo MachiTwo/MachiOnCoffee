@@ -39,8 +39,6 @@ Vectora é um **Sub-Agent Tier 2** (não genérico) reconstruído em Go com dois
 | **Distribution** | **GoReleaser + Winget**   | Multiplataforma, assinatura SHA256, instalação sem admin |
 | **Extensions**   | **TypeScript** _(futuro)_ | VS Code, custom middleware                               |
 
----
-
 ## Estrutura de 11 Fases
 
 ```mermaid
@@ -60,8 +58,6 @@ graph TD
     style K fill:#FFB6C1
 ```
 
----
-
 ## Documento por Fase
 
 ### **Fases 1-4: Fundações (Setup, Config, Harness, Guardian)**
@@ -77,8 +73,6 @@ Inclui: Estrutura Go, Cobra basics, Config YAML, Harness Lifecycle, Guardian Blo
 Código: Structs de config, Harness.ExecuteToolCall, Guardian pattern matching
 Testes: Unit tests, bypass tests, validação
 
----
-
 ### **Fase 5: Context Engine & RAG**
 
 **[Context Engine Implementation](./context-engine.md)** _(a criar)_
@@ -91,8 +85,6 @@ Testes: Unit tests, bypass tests, validação
 
 Duração: 4 semanas
 Dependências: Guardian, Vector DB, Provider APIs
-
----
 
 ### **Fase 6: Vector Database (MongoDB Atlas)**
 
@@ -107,8 +99,6 @@ Dependências: Guardian, Vector DB, Provider APIs
 Duração: 2 semanas
 Dependências: Config (paralelo possível)
 
----
-
 ### **Fase 7: Provider Router (Gemini + Voyage)**
 
 **[Provider Router Implementation](./provider-router.md)** _(a criar)_
@@ -122,8 +112,6 @@ Dependências: Config (paralelo possível)
 Duração: 2 semanas
 Dependências: Config (paralelo possível)
 
----
-
 ### **Fase 8: MCP Server**
 
 **[MCP Server Implementation](./mcp-server.md)** _(a criar)_
@@ -136,8 +124,6 @@ Dependências: Config (paralelo possível)
 
 Duração: 2 semanas
 Dependências: Harness, Context Engine, Guardian
-
----
 
 ### **Fase 9: CLI Engine (Cobra)**
 
@@ -157,8 +143,6 @@ IPC sync com Systray em tempo real
 Duração: 2 semanas
 Dependências: Harness, Config
 
----
-
 ### **Fase 10: Systray UX**
 
 **[Systray UX](./systray-ux.md)** — Expansão com implementação
@@ -172,8 +156,6 @@ Dependências: Harness, Config
 
 Duração: 2 semanas
 Dependências: CLI Engine
-
----
 
 ### **Fase 11: Distribution Pipeline**
 
@@ -194,8 +176,6 @@ Instalação: `%LOCALAPPDATA%\Programs\Vectora`, sem UAC
 Duração: 2 semanas
 Dependências: Todos os componentes acima
 
----
-
 ## Verificação de Stack por Documento
 
 | Documento                                           | Go? | Cobra?   | Systray? | Winget?  | Segurança? |
@@ -209,8 +189,6 @@ Dependências: Todos os componentes acima
 | [Vector Database](./vector-database.md)             |     | -        | -        | -        | -          |
 | [Provider Router](./provider-router.md)             |     | -        | -        | -        | -          |
 | [MCP Server](./mcp-server.md)                       |     | -        | -        | -        | Auth       |
-
----
 
 ## Caminho Crítico de Implementação
 
@@ -238,8 +216,6 @@ Fase 1 (Setup)
 - Com paralelismo: 20 semanas (4 meses)
 - Com paralelismo agressivo (full team): 16 semanas (3,2 meses)
 
----
-
 ## Garantias de Qualidade
 
 Cada fase inclui:
@@ -249,8 +225,6 @@ Cada fase inclui:
 **Documentação**: Exemplos de código, arquitetura, métricas
 **Métricas de Sucesso**: Latência, cobertura, conformance
 **CI/CD**: Integração contínua em cada fase
-
----
 
 ## Navegação Rápida
 

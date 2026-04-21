@@ -16,8 +16,6 @@ tags:
 
 O **Guardian** é o motor de governança do Vectora, responsável por interceptar todas as chamadas de ferramentas e garantir que elas cumpram as políticas de segurança antes da execução. Na transição para Golang, o Guardian opera como código compilado e imutável.
 
----
-
 ## Arquitetura de Segurança
 
 ```mermaid
@@ -30,8 +28,6 @@ graph LR
     G -- Aprovado --> F[Harness Runtime]
     G -- Rejeitado --> G2[Audit Log + Error]
 ```
-
----
 
 ## Fases de Implementação
 
@@ -129,8 +125,6 @@ func (cb *CompiledBlocklist) AllPatterns() []*BlockPattern {
     return patterns
 }
 ```
-
----
 
 ### **Fase 2: Trust Folder & Path Validation**
 
@@ -235,8 +229,6 @@ func (tf *TrustFolder) ResolvePath(requestPath string) (string, error) {
 }
 ```
 
----
-
 ### **Fase 3: Schema Validation (Typed Structs)**
 
 **Duração**: 1 semana
@@ -333,8 +325,6 @@ func (v *ToolCallValidator) validateStringArgument(name, value string) error {
     return nil
 }
 ```
-
----
 
 ### **Fase 4: Output Sanitization & Secret Redaction**
 
@@ -451,8 +441,6 @@ func (os *OutputSanitizer) sanitizeLine(line string) string {
 }
 ```
 
----
-
 ### **Fase 5: Audit Logging & Metrics**
 
 **Duração**: 1 semana
@@ -524,8 +512,6 @@ func (al *AuditLogger) Close() error {
     return al.file.Close()
 }
 ```
-
----
 
 ### **Fase 6: Testes de Segurança**
 
@@ -628,8 +614,6 @@ func TestOutputSanitization(t *testing.T) {
 }
 ```
 
----
-
 ## Garantias de Segurança
 
 | Proteção                | Mecanismo                                  | Garantia                                             |
@@ -639,8 +623,6 @@ func TestOutputSanitization(t *testing.T) {
 | **Secret Leakage**      | Sanitização em output                      | Tokens/keys nunca atingem o LLM                      |
 | **Runtime Validation**  | Go type system + custom validators         | Schemas rejeitam inputs inválidos na desserialização |
 | **Audit Trail**         | Logging estruturado de todas as validações | Rastreabilidade completa de decisões                 |
-
----
 
 ## Métricas de Sucesso
 

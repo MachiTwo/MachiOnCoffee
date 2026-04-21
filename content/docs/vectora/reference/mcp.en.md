@@ -140,7 +140,7 @@ Errors return in JSON-RPC 2.0 format:
 }
 ```
 
-## MCP Error Codes
+### Error Code Reference
 
 | Code   | Meaning          | HTTP |
 | ------ | ---------------- | ---- |

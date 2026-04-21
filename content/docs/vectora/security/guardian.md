@@ -22,8 +22,6 @@ Trust Folder (path isolation), pattern matching (regex rules), e audit logging.
 > [!IMPORTANT]
 > Guardian não é um firewall - é um gatekeeper. Uma violação Guardian é BLOQUEADA antes de chegar ao filesystem, sem exceções.
 
----
-
 ## Arquitetura
 
 ```text
@@ -54,8 +52,6 @@ Request para ler arquivo
 
 Se qualquer check FALHA → Request é BLOQUEADO + Audit Log
 ```
-
----
 
 ## Configuração
 
@@ -131,8 +127,6 @@ roles:
       - search
 ```
 
----
-
 ## Padrões Pré-Configurados
 
 Guardian vem com padrões de segurança pré-set:
@@ -162,8 +156,6 @@ guardian:
       pattern: "custom.*"
       action: "deny"
 ```
-
----
 
 ## Audit Logging
 
@@ -203,8 +195,6 @@ vectora audit --filter "BLOCKED"
 # Por padrão
 vectora audit --filter "pattern:\.env"
 ```
-
----
 
 ## Casos de Uso
 
@@ -255,8 +245,6 @@ guardian:
       action: "deny"
 ```
 
----
-
 ## Violações Conhecidas
 
 O Guardian é treinado para identificar e mitigar vetores de ataque comuns baseados em manipulação de caminhos e referências.
@@ -297,8 +285,6 @@ guardian:
   case_sensitive: false # Match .ENV, .Env, .env
 ```
 
----
-
 ## Testing & Validation
 
 Antes de aplicar regras em produção, é fundamental validar o comportamento do Guardian usando ferramentas de simulação e teste de padrões.
@@ -334,8 +320,6 @@ vectora guardian test-pattern "\.env.*" ".env.local"
 vectora guardian test-pattern "\.env.*" "src/index.ts"
 # Output: NO MATCH
 ```
-
----
 
 ## Monitoring & Alerts
 
@@ -381,8 +365,6 @@ guardian:
     threshold_per_hour: 10 # Alerta se > 10 bloqueios/h
     webhook: "https://your-slack.com/webhook"
 ```
-
----
 
 ## Best Practices
 
@@ -448,8 +430,6 @@ guardian:
 export GEMINI_API_KEY="..."
 ```
 
----
-
 ## Troubleshooting
 
 Se encontrar problemas de acesso ou mensagens inesperadas, utilize estes procedimentos para diagnosticar e resolver conflitos com o Guardian.
@@ -494,8 +474,6 @@ vectora config get guardian.enabled
 # Reabilitar
 vectora config set guardian.enabled true
 ```
-
----
 
 ## Compliance & Regulations
 

@@ -41,8 +41,6 @@ git clone https://github.com/kaffyn/vectora-vscode.git
 ln -s $(pwd)/vectora-vscode ~/.vscode/extensions/
 ```
 
----
-
 ## Initial Setup
 
 ## Step 1: Configure Vectora in the Project
@@ -74,8 +72,6 @@ VOYAGE_API_KEY=sk-...
 VECTORA_NAMESPACE=your-namespace
 EOF
 ```
-
----
 
 ## Interface & Features
 
@@ -125,8 +121,6 @@ function getUserById(|id: string) { ← Hover here
   // - Similar context: findUserById, getUser, etc.
 }
 ```
-
----
 
 ## Step-by-Step Workflows
 
@@ -241,8 +235,6 @@ Similar references not found via AST:
 4. Click "Run Related Tests"
    → VS Code executes only relevant tests (10s vs 2min full suite)
 
----
-
 ## Configuration
 
 ## settings.json
@@ -285,8 +277,6 @@ vectora:
       - .git/**
 ```
 
----
-
 ## Complementary Extensions
 
 For the best experience, install:
@@ -294,8 +284,6 @@ For the best experience, install:
 1. **ES7+ React/Redux/React-Native snippets** — Smart autocomplete.
 2. **Prettier** — Consistent formatting.
 3. **GitLens** — Blame + history (combines well with Vectora).
-
----
 
 ## Troubleshooting
 
@@ -353,8 +341,6 @@ npm install -g @kaffyn/vectora
 }
 ```
 
----
-
 ## Performance Tips
 
 1. **Incremental Index**: Only changed files are re-indexed.
@@ -382,8 +368,6 @@ npm install -g @kaffyn/vectora
    }
    ```
 
----
-
 ## Hotkeys
 
 | Shortcut               | Action               |
@@ -394,8 +378,6 @@ npm install -g @kaffyn/vectora
 | `Cmd/Ctrl + Alt + D`   | Analyze dependencies |
 
 Customize in: **Code** → **Preferences** → **Keyboard Shortcuts**
-
----
 
 ## Comparison: Extension vs MCP
 
@@ -408,8 +390,6 @@ Customize in: **Code** → **Preferences** → **Keyboard Shortcuts**
 | Privacy     | Full (local embeddings) | APIs                |
 
 **Recommendation**: Use VS Code Extension for best UX. Use MCP for Cursor/Claude.
-
----
 
 ## Limitations
 

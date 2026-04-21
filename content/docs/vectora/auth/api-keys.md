@@ -20,8 +20,6 @@ As Chaves de API são credenciais programáticas que permitem acesso seguro e li
 > [!IMPORTANT]
 > As Chaves de API estão **disponíveis apenas nos planos Pro, Team e Enterprise**. Usuários do plano Free/Local autenticam-se via `vectora auth login` (JWT interativo).
 
----
-
 ## Capacidades Principais
 
 | Recurso                   | Descrição                                                                      |
@@ -31,8 +29,6 @@ As Chaves de API são credenciais programáticas que permitem acesso seguro e li
 | **Auto-Rotação**          | Troca de chave sem interrupção (zero downtime durante atualizações)            |
 | **Revogação Instantânea** | Invalidação imediata em todos os nós via dashboard ou CLI                      |
 | **Armazenamento Seguro**  | Chaves são armazenadas como hash criptográfico (bcrypt) — nunca em texto claro |
-
----
 
 ## Escopos e Permissões Disponíveis
 
@@ -46,11 +42,9 @@ As Chaves de API são credenciais programáticas que permitem acesso seguro e li
 > [!WARNING]
 > As Chaves de API operam **fora da sessão SSO interativa**. Elas são vinculadas a um namespace específico e à quota do plano. Exceder a quota dispara o fallback para suas [credenciais BYOK](/providers/gemini/) ou retorna `429 Too Many Requests`.
 
----
-
 ## Exemplos de Integração
 
-#### 1. Configuração do Servidor MCP
+### 1. Configuração do Servidor MCP
 
 Passe a chave de API via variáveis de ambiente ao iniciar o servidor MCP do Vectora:
 
@@ -96,8 +90,6 @@ const client = new VectoraClient({
 await client.context.ingest("./src");
 ```
 
----
-
 ## Boas Práticas de Segurança
 
 **Princípio do Menor Privilégio**: Use `search` para agentes de leitura, `write` apenas para pipelines de indexação automáticos.
@@ -109,8 +101,6 @@ await client.context.ingest("./src");
 > [!TIP]
 > Combine Chaves de API com [SSO](/auth/sso/) para usuários humanos e [Trust Folders](/security/trust-folder/) para isolamento de filesystem. Chaves de API garantem acesso lógico; políticas de segurança impõem limites de runtime.
 
----
-
 ## Gestão do Ciclo de Vida das Chaves
 
 | Ação          | Dashboard                               | CLI                                                     |
@@ -121,8 +111,6 @@ await client.context.ingest("./src");
 | Ver Uso       | Medidor de quota + histórico            | `vectora api-key usage --id vca_live_...`               |
 
 **Período de Sobreposição**: Ao rotacionar, a chave antiga permanece válida por uma janela configurável (padrão: 2h). Ambas contam contra sua quota. Isso evita downtime durante deploys de agentes ou CI/CD.
-
----
 
 ## Perguntas Frequentes
 

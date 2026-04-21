@@ -35,8 +35,6 @@ Vectora Server (localhost:9090 or remote)
   12 Available Tools
 ```
 
----
-
 ## Quick Start
 
 ## Prerequisites
@@ -85,8 +83,6 @@ vectora init --name "Your Project"
 2. Look for `search_context` tool in MCP menu
 3. Test: `@vectora search_context "How to validate tokens?"`
 
----
-
 ## 12 Available Tools
 
 | Tool                   | Function                   |
@@ -103,8 +99,6 @@ vectora init --name "Your Project"
 | `reindex`              | Force re-indexing          |
 | `get_config`           | Get current config         |
 | `get_metrics`          | Execution metrics          |
-
----
 
 ## Practical Workflows
 
@@ -134,8 +128,6 @@ IDE: @vectora find_similar_code "your code"
 Vectora: Finds similar patterns
 IDE: Compares with existing code
 ```
-
----
 
 ## Advanced Configuration
 
@@ -187,8 +179,6 @@ If using multiple IDEs, both point to same config and namespace:
 
 Both see the same chunks, indices, namespaces.
 
----
-
 ## Troubleshooting
 
 ## "Vectora command not found"
@@ -228,16 +218,12 @@ echo $VOYAGE_API_KEY
 # If empty, configure in .env or config JSON
 ```
 
----
-
 ## Performance
 
 - **Expected latency**: ~300-500ms (network + APIs)
 - **Local search**: ~100ms (no APIs)
 - **Cache**: Results cached in `.vectora/`
 - **Concurrent**: Supports multiple IDEs pointing to same server
-
----
 
 ## Compatible IDEs
 
@@ -250,8 +236,6 @@ echo $VOYAGE_API_KEY
 | **Neovim**      | MCP via plugin | Not tested        |
 
 For VS Code, use [VS Code Extension](./vscode-extension.md).
-
----
 
 ## Next Steps
 

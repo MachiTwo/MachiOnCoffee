@@ -21,8 +21,6 @@ The **Guardian** is Vectora's governance engine, compiled directly into the Go b
 > [!IMPORTANT]
 > Guardian is not a firewall - it's a gatekeeper. A Guardian violation is BLOCKED before reaching the filesystem, with no exceptions.
 
----
-
 ## Architecture
 
 ```text
@@ -53,8 +51,6 @@ Request to read file
 
 If any check FAILS → Request is BLOCKED + Audit Log
 ```
-
----
 
 ## Configuration
 
@@ -130,8 +126,6 @@ roles:
       - search
 ```
 
----
-
 ## Pre-Configured Patterns
 
 Guardian comes with pre-set security patterns:
@@ -161,8 +155,6 @@ guardian:
       pattern: "custom.*"
       action: "deny"
 ```
-
----
 
 ## Audit Logging
 
@@ -202,8 +194,6 @@ vectora audit --filter "BLOCKED"
 # By pattern
 vectora audit --filter "pattern:\.env"
 ```
-
----
 
 ## Use Cases
 
@@ -254,8 +244,6 @@ guardian:
       action: "deny"
 ```
 
----
-
 ## Known Violations
 
 The Guardian is trained to identify and mitigate common attack vectors based on path and reference manipulation.
@@ -296,8 +284,6 @@ guardian:
   case_sensitive: false # Match .ENV, .Env, .env
 ```
 
----
-
 ## Testing & Validation
 
 Before applying rules in production, it is essential to validate Guardian's behavior using simulation and pattern testing tools.
@@ -333,8 +319,6 @@ vectora guardian test-pattern "\.env.*" ".env.local"
 vectora guardian test-pattern "\.env.*" "src/index.ts"
 # Output: NO MATCH
 ```
-
----
 
 ## Monitoring & Alerts
 
@@ -380,8 +364,6 @@ guardian:
     threshold_per_hour: 10 # Alert if > 10 blocks/h
     webhook: "https://your-slack.com/webhook"
 ```
-
----
 
 ## Best Practices
 
@@ -447,8 +429,6 @@ guardian:
 export GEMINI_API_KEY="..."
 ```
 
----
-
 ## Troubleshooting
 
 If you encounter access problems or unexpected messages, use these procedures to diagnose and resolve conflicts with the Guardian.
@@ -494,8 +474,6 @@ vectora config get guardian.enabled
 vectora config set guardian.enabled true
 ```
 
----
-
 ## Compliance & Regulations
 
 Guardian helps comply with:
@@ -516,8 +494,6 @@ guardian:
     - pattern: ".*\.phi\..*" # Protected Health Info
       action: "deny"
 ```
-
----
 
 ## Next Steps
 

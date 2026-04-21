@@ -13,8 +13,6 @@ Most AI tools operate on a _stateless_ model: every question is a new blank slat
 
 Vectora solves this through a system of **State Persistence and Operational Memory**.
 
----
-
 ## Short-Term vs. Long-Term Memory
 
 In Vectora, persistence is divided into layers to optimize performance and token costs:
@@ -35,8 +33,6 @@ Resides in the `memory` collection and can be mirrored in an `AGENTS.md` file (o
 - **Content**: Learned facts ("The project uses Clean Architecture"), security rules ("Never edit .pem files"), and user preferences ("Prefer using `async/await` over callbacks").
 - **Usage**: Provides the project "DNA" to the agent as soon as it is initialized.
 
----
-
 ## How Persistence Works
 
 ### Operation via MongoDB Atlas
@@ -46,8 +42,6 @@ When the principal agent sends a request via MCP, Vectora:
 1. **Retrieves State**: Reads the active session from Atlas.
 2. **Injects Memory Context**: Loads relevant rules from the persisted `AGENTS.md`.
 3. **Updates in Real-Time**: Every decision made by the [Context Engine](/concepts/context-engine/) is recorded in the database.
-
----
 
 ## Audit and Governance
 
@@ -64,16 +58,12 @@ Vectora records immutable metadata for every operation:
 
 This allows security teams and technical leads to audit **exactly** what agents are doing in the codebase.
 
----
-
 ## Isolation and Encryption (RBAC)
 
 State persistence is strictly isolated by **Namespace**.
 
 - An agent running in `namespace: front-end` will never see the memory or session state of `namespace: back-end`.
 - Sensitive data in the state (such as code snippets in memory) are encrypted at rest in MongoDB Atlas (AES-256).
-
----
 
 ## Optimization: Session Compaction
 
@@ -82,8 +72,6 @@ Agent sessions can become immense, exceeding the LLM's context limit. Vectora ap
 - **Pruning**: Removes details of tools that failed or were overwritten by successful actions.
 - **Summarization**: Summarizes intermediate thought blocks, keeping only conclusions and critical facts.
 - **Head/Tail management**: Maintains the beginning (objective) and current state (tail) in detail, compacting the middle.
-
----
 
 ## Persistence FAQ
 

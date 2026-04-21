@@ -20,8 +20,6 @@ Vectora é distribuído como um binário nativo de alta performance para Windows
 
 > [!IMPORTANT] > **BYOK (Bring Your Own Key)**: No plano Free, o Vectora exige chaves de API do Gemini e Voyage. Nos planos **Pro** e **Team (Plus)**, você pode optar pelo modo **Managed**, onde os créditos de IA já estão inclusos.
 
----
-
 ## Pré-requisitos
 
 ## Sistema Operacional
@@ -40,8 +38,6 @@ Vectora é distribuído como um binário nativo de alta performance para Windows
 ```powershell
 winget --version # Deve retornar v1.4 ou superior
 ```
-
----
 
 ## Passo 1: Instalar Vectora
 
@@ -67,8 +63,6 @@ curl -sSf https://vectora.sh/install.sh | sh
 
 Você também pode baixar o binário diretamente da nossa [página de Releases no GitHub](https://github.com/kaffyn/vectora/releases).
 
----
-
 ## Passo 2: Obter Chaves de API Gratuitas
 
 ## Gemini API (Google)
@@ -87,8 +81,6 @@ Você também pode baixar o binário diretamente da nossa [página de Releases n
 
 **Limite gratuito**: 50 requisições por minuto, 100M tokens/mês
 
----
-
 ## Passo 3: Configurar via Systray
 
 Após a instalação, procure pelo ícone do Vectora na sua bandeja do sistema (perto do relógio).
@@ -97,8 +89,6 @@ Após a instalação, procure pelo ícone do Vectora na sua bandeja do sistema (
 2. Isso abrirá seu navegador para autenticação SSO.
 3. Once authenticated, o Vectora configurará suas chaves automaticamente.
 
----
-
 ## Passo 4: Verificar Configuração (CLI)
 
 Se preferir o terminal, verifique o status:
@@ -106,8 +96,6 @@ Se preferir o terminal, verifique o status:
 ```bash
 vectora auth status
 ```
-
----
 
 ## Passo 5: Inicializar um Projeto
 
@@ -126,8 +114,6 @@ Isso cria:
 - `.vectora/` — Diretório interno (cache, índices locais)
 - `AGENTS.md` — Arquivo de memória do agente
 
----
-
 ## Próximos Passos
 
 ## Para Usuários de Claude Desktop
@@ -145,8 +131,6 @@ Vá para [VS Code Extension](../integrations/vscode.md).
 ## Para Aprender a Configurar
 
 Vá para [Configuration](./configuration.md).
-
----
 
 ## Troubleshooting
 
@@ -173,8 +157,6 @@ Vá para [Configuration](./configuration.md).
 npm install -g @kaffyn/vectora
 
 ```text
-
----
 
 ## FAQ
 

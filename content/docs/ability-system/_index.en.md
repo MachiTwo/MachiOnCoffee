@@ -41,8 +41,6 @@ Static resources (`.tres`) shared across instances (ASAbility, ASEffect, etc).
 
 Lightweight, dynamic, maintaining mutable state (Cooldowns, Stacks, Duration).
 
----
-
 ## Class Reference (API)
 
 Explore the complete technical documentation organized by category:
@@ -54,16 +52,12 @@ Explore the complete technical documentation organized by category:
 - [**Behavior Tree**](classes/behavior-tree/) — Native integration with LimboAI.
 - [**Editor**](classes/editor/) — Tag panels and custom inspectors.
 
----
-
 ## Tutorials and Examples
 
 Learn in practice how to implement the system:
 
 - [**Tutorials**](tutorials/) — Step-by-step for common mechanics.
 - [**Examples**](examples/) — Reference projects and design patterns.
-
----
 
 ## Project Status
 

@@ -40,8 +40,6 @@ Quick answers to the most common questions about Vectora — functionality, cost
 
 **Result**: Your AI agent receives governed + validated context, not hallucinations.
 
----
-
 ## How It Works
 
 ```text
@@ -61,8 +59,6 @@ Quick answers to the most common questions about Vectora — functionality, cost
    - Shows contextual chunks
    - You stay in your flow
 ```
-
----
 
 ## What is the Cost?
 
@@ -86,8 +82,6 @@ Quick answers to the most common questions about Vectora — functionality, cost
 - 99.99% SLA.
 - Dedicated support.
 
----
-
 ## How Long Does It Take to Index?
 
 **First time**:
@@ -100,8 +94,6 @@ Quick answers to the most common questions about Vectora — functionality, cost
 
 - Generally < 30 seconds.
 
----
-
 ## How Much Disk Space?
 
 The ratio is approximately **1:10**.
@@ -113,8 +105,6 @@ If your code is 50MB:
 
 **Total**: ~105MB.
 
----
-
 ## Can I Use It in Production?
 
 **Free Tier**: No (1 concurrent user, no SLA).
@@ -122,8 +112,6 @@ If your code is 50MB:
 **Pro Tier**: Yes (99.9% SLA, up to 50 users).
 
 **Team Tier**: Yes (99.99% SLA, on-premise option).
-
----
 
 ## Is My Data Secure?
 
@@ -135,8 +123,6 @@ If your code is 50MB:
 - Guardian blocklist (protects .env, secrets).
 - RBAC (user control).
 - Audit logging (tracks everything).
-
----
 
 ## Which Languages are Supported?
 
@@ -157,8 +143,6 @@ If your code is 50MB:
 
 Voyage 4 (embedding model) understands semantic structures in any language.
 
----
-
 ## Can I Use It Offline?
 
 **Not completely, but almost.**
@@ -178,8 +162,6 @@ docker run ollama/ollama
 vectora config set EMBEDDING_PROVIDER ollama
 ```
 
----
-
 ## How Much Does It Cost to Scale?
 
 | Aspect         | Free      | Pro        | Team       |
@@ -194,8 +176,6 @@ vectora config set EMBEDDING_PROVIDER ollama
 - 1 person: Free.
 - 5 people: Pro ($29).
 - 50+ people: Team ($X).
-
----
 
 ## How Does It Work with Multiple Projects?
 
@@ -212,8 +192,6 @@ vectora init --namespace "company-projectB"
 # Searching in A will not find chunks from B
 ```
 
----
-
 ## Can I Use Vectora with Git?
 
 **Yes.**
@@ -229,8 +207,6 @@ vectora index
 
 **Suggestion**: Commit `vectora.config.yaml`, ignore `.vectora/`.
 
----
-
 ## Which IDE is Best?
 
 | IDE         | Vectora    | Advantage              |
@@ -241,8 +217,6 @@ vectora index
 | ChatGPT     | Custom GPT | Stay inside ChatGPT    |
 
 **Recommendation**: Use the one you already use. Vectora works equally well on all.
-
----
 
 ## Can I Delete a File?
 
@@ -264,8 +238,6 @@ vectora index --incremental
 # Related chunks are removed
 ```
 
----
-
 ## How Long Does a Search Take?
 
 Generally:
@@ -279,8 +251,6 @@ With network latency (APIs):
 
 - **Total with latency**: ~300-500ms
 
----
-
 ## Is There a Project Size Limit?
 
 **Local (Free)**: No (limited by disk space).
@@ -288,8 +258,6 @@ With network latency (APIs):
 **Pro**: No (AWS managed).
 
 **Team**: Tested up to 10M chunks.
-
----
 
 ## Can I Share a Project?
 
@@ -304,8 +272,6 @@ vectora user create \
 
 # Colleague can now search and index
 ```
-
----
 
 ## How Do I Perform a Backup?
 
@@ -322,8 +288,6 @@ To restore:
 ```bash
 vectora import --from backup.tar.gz --namespace your-project
 ```
-
----
 
 ## Can I Use My Own LLM?
 
@@ -345,8 +309,6 @@ docker run ollama/ollama
 vectora config set LLM_PROVIDER ollama
 ```
 
----
-
 ## Does It Support Multiple Languages?
 
 **Code**: Yes, all languages.
@@ -358,8 +320,6 @@ vectora config set LLM_PROVIDER ollama
 - Spanish (coming soon)
 - French (coming soon)
 
----
-
 ## Is There a REST API?
 
 **Yes, in Pro and Team plans.**
@@ -369,8 +329,6 @@ curl -X POST https://your-domain.vectora.app/search \
   -H "Authorization: Bearer sk-proj-..." \
   -d '{"query": "login", "top_k": 10}'
 ```
-
----
 
 ## Can I Use It in a Monorepo?
 
@@ -388,8 +346,6 @@ indexing:
     - build
     - dist
 ```
-
----
 
 ## What is the Community?
 

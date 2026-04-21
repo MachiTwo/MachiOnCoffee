@@ -21,8 +21,6 @@ Este é um **dicionário completo** de todas as ferramentas MCP oferecidas pelo 
 > [!IMPORTANT]
 > Todas as tools respeitam sua **Trust Folder** e **Namespace**. Nenhum arquivo fora desses limites é acessável.
 
----
-
 ## Categorias
 
 1. **Search & Retrieval** — Buscar contexto
@@ -31,8 +29,6 @@ Este é um **dicionário completo** de todas as ferramentas MCP oferecidas pelo 
 4. **Indexing** — Gerenciar índices
 5. **Configuration** — Configurar Vectora
 6. **Monitoring** — Métricas e saúde
-
----
 
 ## Search & Retrieval
 
@@ -81,8 +77,6 @@ Busca semântica por chunks relevantes.
 @vectora search_context "Como validar JWT tokens?"
 ```
 
----
-
 ## `search_tests`
 
 Busca testes relacionados a uma query.
@@ -112,8 +106,6 @@ Busca testes relacionados a uma query.
   ]
 }
 ```
-
----
 
 ## Analysis
 
@@ -154,8 +146,6 @@ Encontra todas as referências a um símbolo.
 }
 ```
 
----
-
 ## `find_similar_code`
 
 Encontra código similar a um trecho fornecido.
@@ -185,8 +175,6 @@ Encontra código similar a um trecho fornecido.
   ]
 }
 ```
-
----
 
 ## `get_file_structure`
 
@@ -223,8 +211,6 @@ Resume a estrutura de um arquivo (imports, funções, classes).
 }
 ```
 
----
-
 ## Metadata
 
 Inspecione a organização do seu workspace, liste arquivos indexados e verifique estatísticas vitais sobre seus namespaces.
@@ -260,8 +246,6 @@ Lista arquivos indexados no namespace.
 }
 ```
 
----
-
 ## `list_namespaces`
 
 Lista todos os namespaces disponíveis.
@@ -289,8 +273,6 @@ Lista todos os namespaces disponíveis.
   ]
 }
 ```
-
----
 
 ## `get_namespace_stats`
 
@@ -327,8 +309,6 @@ Retorna estatísticas de um namespace.
 
 </details>
 
----
-
 ## Indexing
 
 Gerencie o estado de indexação do seu projeto, forcando atualizações ou verificando pendências no banco de dados vetorial.
@@ -363,8 +343,6 @@ Verifica o status do índice (saúde, pendências).
 }
 ```
 
----
-
 ## `reindex`
 
 Força re-indexação de arquivos.
@@ -389,8 +367,6 @@ Força re-indexação de arquivos.
   "job_id": "index_job_abc123"
 }
 ```
-
----
 
 ## Configuration
 
@@ -423,8 +399,6 @@ Retorna configuração atual do Vectora.
 }
 ```
 
----
-
 ## `set_config`
 
 Modifica configuração (requer autenticação).
@@ -437,8 +411,6 @@ Modifica configuração (requer autenticação).
   "value": "hybrid"
 }
 ```
-
----
 
 ## Monitoring
 
@@ -473,8 +445,6 @@ Retorna métricas de execução.
 }
 ```
 
----
-
 ## `get_audit_log`
 
 Retorna log de acessos e modificações.
@@ -506,8 +476,6 @@ Retorna log de acessos e modificações.
   ]
 }
 ```
-
----
 
 ## Exemplos Práticos (Workflows Reais)
 
@@ -674,8 +642,6 @@ Security Summary:
     342 buscas legítimas
    → Sistema seguro
 ```
-
----
 
 ## Error Handling
 

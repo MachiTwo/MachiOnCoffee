@@ -16,8 +16,6 @@ API Keys are programmatic credentials that enable secure, scoped access to the V
 > [!IMPORTANT]
 > API Keys are **only available on Pro, Team, and Enterprise plans**. Free/Local users authenticate via `vectora auth login` (interactive JWT).
 
----
-
 ## Key Capabilities
 
 | Feature                | Description                                                              |
@@ -27,8 +25,6 @@ API Keys are programmatic credentials that enable secure, scoped access to the V
 | **Auto-Rotation**      | Seamless key rollover with overlap period (zero downtime during updates) |
 | **Instant Revocation** | Immediate invalidation across all Vectora nodes via dashboard or CLI     |
 | **Secure Storage**     | Keys are stored as cryptographic hashes (bcrypt) — never in plaintext    |
-
----
 
 ## Available Scopes & Permissions
 
@@ -42,11 +38,9 @@ API Keys are programmatic credentials that enable secure, scoped access to the V
 > [!WARNING]
 > API Keys operate **outside the interactive SSO session**. They are bound to a specific namespace and plan quota. Exceeding quota triggers fallback to your configured [BYOK credentials](/providers/gemini/) or returns `429 Too Many Requests`.
 
----
-
 ## Integration Examples
 
-#### 1. MCP Server Configuration
+### 1. MCP Server Configuration
 
 Pass the API key via environment variables when starting the Vectora MCP server:
 
@@ -92,8 +86,6 @@ const client = new VectoraClient({
 await client.context.ingest("./src");
 ```
 
----
-
 ## Security Best Practices
 
 **Principle of Least Privilege**: Use `search` for read-only agents, `write` only for automated indexing pipelines.
@@ -105,8 +97,6 @@ await client.context.ingest("./src");
 > [!TIP]
 > Combine API Keys with [SSO](/auth/sso/) for human users and [Trust Folders](/security/trust-folder/) for filesystem isolation. API Keys grant logical access; security policies enforce runtime boundaries.
 
----
-
 ## Key Management Lifecycle
 
 | Action     | Dashboard                         | CLI                                                     |
@@ -117,8 +107,6 @@ await client.context.ingest("./src");
 | View Usage | Quota usage meter + history       | `vectora api-key usage --id vca_live_...`               |     |
 
 **Overlap Period Explained**: When rotating, the old key remains valid for a configurable window (default: 2h). Both keys count against your quota. This prevents downtime during CI/CD or agent deployments.
-
----
 
 ## Frequently Asked Questions
 

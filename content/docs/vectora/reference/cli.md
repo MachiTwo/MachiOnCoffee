@@ -19,15 +19,11 @@ Vectora oferece uma **interface CLI completa** para configuração, indexação 
 > [!TIP]
 > Use `vectora --help` para ver todos os comandos, ou `vectora [command] --help` para detalhes específicos.
 
----
-
 ## Estrutura Geral
 
 ```bash
 vectora [GLOBAL_OPTIONS] COMMAND [COMMAND_OPTIONS]
 ```
-
----
 
 ## Global Flags
 
@@ -49,8 +45,6 @@ vectora --debug index
 vectora --namespace staging init
 vectora --config ./custom.yaml search "query"
 ```
-
----
 
 ## Commands
 
@@ -80,8 +74,6 @@ vectora init --name "Meu App" --type codebase
 vectora init --namespace kaffyn-backend-prod --type codebase
 # Cria com namespace específico
 ```
-
----
 
 ## vectora index
 
@@ -118,8 +110,6 @@ vectora index --watch
 vectora index --dry-run
 ```
 
----
-
 ## vectora search
 
 Busca semântica pela CLI.
@@ -151,8 +141,6 @@ vectora search "validação" --format json
 vectora search "middleware" --include-snippets
 ```
 
----
-
 ## vectora analyze
 
 Análise profunda com LLM (Gemini).
@@ -179,8 +167,6 @@ vectora analyze "Revise esse código para segurança" --model gemini-pro --conte
 # Salvar em arquivo
 vectora analyze "Escreva documentação de API" --output docs/api.md
 ```
-
----
 
 ## vectora config
 
@@ -217,8 +203,6 @@ vectora config validate
 vectora config show-schema
 ```
 
----
-
 ## vectora namespace
 
 Gerenciar namespaces.
@@ -250,8 +234,6 @@ vectora namespace info --name kaffyn-vectora-prod
 vectora namespace reset --name kaffyn-old-project
 ```
 
----
-
 ## vectora mcp
 
 Inicia servidor MCP para Claude Code, Cursor, etc.
@@ -278,8 +260,6 @@ vectora mcp --port 9091
 # Servidor público
 vectora mcp --host 0.0.0.0 --port 9090
 ```
-
----
 
 ## vectora server
 
@@ -310,8 +290,6 @@ vectora server --ui
 vectora server --cert cert.pem --key key.pem
 ```
 
----
-
 ## vectora auth
 
 Gerencia autenticação SSO e tokens de acesso.
@@ -335,8 +313,6 @@ vectora auth login
 # Verificar status da conta
 vectora auth status
 ```
-
----
 
 ## vectora logs
 
@@ -369,8 +345,6 @@ vectora logs --service search --since 24h
 vectora logs --format json | jq '.[]'
 ```
 
----
-
 ## vectora metrics
 
 Ver métricas de operação.
@@ -396,8 +370,6 @@ vectora metrics --period 7d --export csv --output metrics.csv
 # Formato Prometheus
 vectora metrics --export prometheus
 ```
-
----
 
 ## vectora audit
 
@@ -426,8 +398,6 @@ vectora audit --action search --since 7d
 vectora audit --action delete --user "seu-email@company.com"
 ```
 
----
-
 ## vectora health
 
 Verifica saúde do sistema.
@@ -453,8 +423,6 @@ vectora health --detailed
 vectora health --fix
 ```
 
----
-
 ## Exit Codes
 
 ```text
@@ -465,8 +433,6 @@ vectora health --fix
 4 # Autenticação falhou
 5 # Namespace não encontrado
 ```
-
----
 
 ## Variáveis de Ambiente
 

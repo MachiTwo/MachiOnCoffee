@@ -16,8 +16,6 @@ tags:
 
 O **Provider Router** encapsula clientes para Gemini 3 Flash (LLM), Voyage 4 (embeddings) e Voyage Rerank 2.5 (reranking). Este documento descreve implementação em Go puro com retry logic, rate limiting e fallback BYOK.
 
----
-
 ## Stack de Providers Confirmados
 
 | Serviço        | Modelo            | Uso                      | Latência | Custo              |
@@ -25,8 +23,6 @@ O **Provider Router** encapsula clientes para Gemini 3 Flash (LLM), Voyage 4 (em
 | **LLM**        | Gemini 3 Flash    | Inferência principal     | 30-50ms  | $0.075 / 1M tokens |
 | **Embeddings** | Voyage 4          | Transformar query + docs | <100ms   | $0.10 / 1M tokens  |
 | **Reranking**  | Voyage Rerank 2.5 | Refinar top-50 → top-10  | <150ms   | $0.40 / 1M tokens  |
-
----
 
 ## Fases de Implementação
 
@@ -130,8 +126,6 @@ func (pr *ProviderRouter) GetRerank() RerankProvider {
 }
 ```
 
----
-
 ### **Fase 2: Gemini 3 Flash Client (com Streaming)**
 
 **Duração**: 1 semana
@@ -214,8 +208,6 @@ func (gc *GeminiClient) HealthCheck(ctx context.Context) error {
     return err
 }
 ```
-
----
 
 ### **Fase 3: Voyage Embedding & Rerank Client**
 
@@ -336,8 +328,6 @@ func (rl *RateLimiter) Wait() {
 }
 ```
 
----
-
 ### **Fase 4: BYOK Support & Quota Tracking**
 
 **Duração**: 5 dias
@@ -414,8 +404,6 @@ func (qt *QuotaTracker) GetStatus() map[string]interface{} {
     }
 }
 ```
-
----
 
 ### **Fase 5: Health Check & Fallback Strategy**
 
@@ -502,8 +490,6 @@ func (hm *HealthMonitor) alert(provider, status, message string) {
 }
 ```
 
----
-
 ## Garantias de Qualidade
 
 | Requisito               | Implementação                       |
@@ -514,8 +500,6 @@ func (hm *HealthMonitor) alert(provider, status, message string) {
 | **Circuit Breaker**     | Fail open após 3 erros consecutivos |
 | **BYOK Support**        | Fallback automático                 |
 | **Metrics**             | Latência, erros, quota por provider |
-
----
 
 ## Métricas de Sucesso
 

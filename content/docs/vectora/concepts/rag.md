@@ -143,8 +143,6 @@ Quando o contexto é **conectado**:
 - LLM vê contexto completo
 - Resultado: Refactoring correto, sem quebras
 
----
-
 ## Próximos Passos
 
 - [Context Engine](./context-engine.md) — Como o engine busca

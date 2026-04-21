@@ -64,8 +64,6 @@ Vectora is a **modular layered architecture** that combines embedding (Voyage), 
             └──────────────────────┘
 ```
 
----
-
 ## Layers
 
 Vectora's architecture is organized into four main layers that ensure everything from the user interface to secure data persistence.
@@ -173,8 +171,6 @@ vectors:
 - **Credentials**: `~/.vectora/credentials.enc` (encrypted)
 - **AGENTS.md**: Agent memory (json-in-frontmatter)
 
----
-
 ## Data Flow
 
 Data flow in Vectora is optimized for ultra-low latency, ensuring that context is retrieved and validated in milliseconds.
@@ -220,8 +216,6 @@ Retry (3 attempts) →
 Circuit Breaker (fail-open after 5 errors)
 ```
 
----
-
 ## Key Components
 
 | Component        | Function             | Provider           |
@@ -233,8 +227,6 @@ Circuit Breaker (fail-open after 5 errors)
 | **Auth**         | Token validation     | JWT + RBAC         |
 | **Namespace**    | Logical isolation    | Qdrant collections |
 | **Trust Folder** | Path isolation       | Guardian           |
-
----
 
 ## System Configuration
 
@@ -286,8 +278,6 @@ rbac:
     - guest
 ```
 
----
-
 ## Performance Targets
 
 | Metric                  | Target | Typical |
@@ -299,8 +289,6 @@ rbac:
 | **Tool Accuracy**       | ≥ 0.95 | ~0.98   |
 | **Security Events**     | 0      | 0       |
 | **Availability**        | 99.9%  | 99.95%  |
-
----
 
 ## Scalability
 
@@ -315,8 +303,6 @@ rbac:
 - **Quantization**: Reduces size by 4x
 - **Compaction**: Reduces output by 50%
 - **Caching**: Local result in `.vectora/`
-
----
 
 ## Security
 

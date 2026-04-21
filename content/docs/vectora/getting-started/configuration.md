@@ -21,8 +21,6 @@ A configuração do Vectora é controlada por:
 2. **Variáveis de Ambiente** — Chaves e credenciais (global)
 3. **CLI Commands** — Configuração dinâmica via terminal
 
----
-
 ## Arquivo `vectora.config.yaml`
 
 Criado automaticamente com `vectora init`, este arquivo controla o comportamento do agente.
@@ -123,8 +121,6 @@ logging:
   output: "console" # ou "file", "both"
 ```
 
----
-
 ## Variáveis de Ambiente
 
 ## Obrigatórias
@@ -156,8 +152,6 @@ VECTORA_LOG_LEVEL=debug
 ```
 
 Carregado automaticamente ao executar Vectora.
-
----
 
 ## Configuração via CLI
 
@@ -192,8 +186,6 @@ vectora config set \
 vectora config reset --confirm
 # Remove todas as chaves locais (não afeta .env)
 ```
-
----
 
 ## Exemplos de Configuração por Caso de Uso
 
@@ -264,8 +256,6 @@ harness:
   enabled: false # Desative métricas para ganho de speed
 ```
 
----
-
 ## Validação de Configuração
 
 ```bash
@@ -278,8 +268,6 @@ vectora config validate
 # Environment variables loaded
 # API keys accessible
 ```
-
----
 
 ## Troubleshooting
 
@@ -317,8 +305,6 @@ export $(cat .env | xargs)
 namespace:
   trust_folder: "." # ou caminho válido
 ```
-
----
 
 ## FAQ
 

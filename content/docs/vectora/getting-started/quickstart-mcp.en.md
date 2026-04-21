@@ -20,8 +20,6 @@ This guide allows you to integrate Vectora with Claude Desktop via MCP in less t
 > [!IMPORTANT]
 > Prerequisites: Vectora installed globally (`vectora --version`) and Claude Desktop installed ([download](https://claude.ai/download)).
 
----
-
 ## Step 1: Locate the Configuration File
 
 ## macOS / Linux
@@ -44,8 +42,6 @@ touch ~/.claude/claude_desktop_config.json
 # If it does not exist, create it with:
 New-Item -Path "$env:APPDATA\Claude" -ItemType Directory -Force
 ```
-
----
 
 ## Step 2: Add Vectora as an MCP Server
 
@@ -82,16 +78,12 @@ If you already have `GEMINI_API_KEY` and `VOYAGE_API_KEY` defined:
 }
 ```
 
----
-
 ## Step 3: Restart Claude Desktop
 
 ```bash
 # Completely close Claude Desktop and open it again
 # This loads the new MCP configuration
 ```
-
----
 
 ## Step 4: Test the Connection
 
@@ -131,8 +123,6 @@ If it is not connected:
 - Check the `claude_desktop_config.json` file (JSON syntax).
 - Restart Claude Desktop.
 
----
-
 ## Step 5: Your First Vectora Command
 
 ## Explore the Codebase
@@ -159,8 +149,6 @@ Read and explain the src/main.ts file
 
 Claude uses `file_read` to read the file.
 
----
-
 ## Project Structure
 
 After running `vectora init`, you will have:
@@ -176,8 +164,6 @@ my-project/
 └── .env # Environment variables (never commit!)
 ```
 
----
-
 ## Available MCP Commands
 
 | Command          | What it does                | Example              |
@@ -188,8 +174,6 @@ my-project/
 | `file_write`     | Writes or modifies a file   | Creating a new file  |
 | `file_edit`      | Edits part of a file        | Changing a function  |
 | `grep_search`    | Search via regex            | Specific patterns    |
-
----
 
 ## Troubleshooting
 
@@ -248,15 +232,11 @@ vectora init --name "My Project"
 Use Vectora to search for information about authentication in this project.
 ```
 
----
-
 ## Next Steps
 
 - **Deep Dive**: Read [Context Engine](../concepts/context-engine.md).
 - **Integrate with Cursor**: [Cursor Integration](../integrations/cursor.md).
 - **Understand Security**: [Guardian & RBAC](../security/guardian.md).
-
----
 
 ## FAQ
 

@@ -16,8 +16,6 @@ tags:
 
 O Vectora utiliza **Cobra** para gerenciar sua interface CLI com estrutura rigorosa de subcomandos, validação de flags e autocompletar nativo. A CLI se integra com o **Systray** para sincronização de estado em tempo real.
 
----
-
 ## Arquitetura de Comandos
 
 ```mermaid
@@ -47,8 +45,6 @@ graph TD
     Service --> Update[update]
 ```
 
----
-
 ## Justificativa de Cobra
 
 | Critério              | Flag-Based Approach            | Cobra Subcommands                        |
@@ -57,8 +53,6 @@ graph TD
 | **Discoverabilidade** | Requer ler docs                | `vectora --help` + `vectora auth --help` |
 | **Shell Completion**  | Manual                         | Automático (Bash, Zsh, Fish, PowerShell) |
 | **Extensibilidade**   | Difícil (flags crescem)        | Fácil (novos subcomandos)                |
-
----
 
 ## Fases de Implementação
 
@@ -144,8 +138,6 @@ func main() {
     }
 }
 ```
-
----
 
 ### **Fase 2: Subcomandos de Autenticação**
 
@@ -263,8 +255,6 @@ func init() {
 }
 ```
 
----
-
 ### **Fase 3: Subcomandos de Configuração**
 
 **Duração**: 1 semana
@@ -368,8 +358,6 @@ func init() {
 }
 ```
 
----
-
 ### **Fase 4: Subcomandos de Indexação**
 
 **Duração**: 2 semanas
@@ -464,8 +452,6 @@ func init() {
 }
 ```
 
----
-
 ### **Fase 5: Subcomandos de Serviço**
 
 **Duração**: 1 semana
@@ -553,8 +539,6 @@ func init() {
 }
 ```
 
----
-
 ### **Fase 6: Shell Completion & Help**
 
 **Duração**: 5 dias
@@ -600,8 +584,6 @@ func init() {
 }
 ```
 
----
-
 ## Integração com Systray via IPC
 
 A CLI e o Systray se comunicam através de **Named Pipes (Windows)** ou **Unix Sockets (Linux/macOS)** para sincronizar estado em tempo real.
@@ -621,8 +603,6 @@ sequenceDiagram
     IPC->>Systray: Broadcast update
     Systray->>Systray: Update menu/icon
 ```
-
----
 
 ## Métricas de Sucesso
 

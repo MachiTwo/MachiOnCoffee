@@ -26,8 +26,6 @@ A transição do Vectora de **TypeScript (Node.js)** para **Golang** é uma reen
 | **Segurança**      | Tipagem em tempo de escrita       | Tipagem forte compilada         | Menos erros de runtime em produção.          |
 | **Startup Time**   | ~300ms (iniciar VM)               | ~10ms (executável nativo)       | Resposta imediata a tool calls MCP.          |
 
----
-
 ## Fases de Implementação
 
 ### **Fase 1: Setup & Infraestrutura de Build**
@@ -77,8 +75,6 @@ vectora/
 ├── Makefile
 └── README.md
 ```
-
----
 
 ### **Fase 2: Núcleo de Validação & Configuração**
 
@@ -148,8 +144,6 @@ func (c *VectoraConfig) Validate() error {
     return nil
 }
 ```
-
----
 
 ### **Fase 3: Harness Runtime - Orquestração**
 
@@ -273,8 +267,6 @@ func (h *Harness) Close() error {
 }
 ```
 
----
-
 ### **Fase 4: Guardian Security Engine**
 
 **Objetivo**: Implementar validação de segurança compilada em Go.
@@ -380,8 +372,6 @@ func (e *Engine) SanitizeOutput(output string) string {
     return sanitized
 }
 ```
-
----
 
 ### **Fase 5: MCP Server Implementation**
 
@@ -517,8 +507,6 @@ func (s *Server) sendError(id interface{}, code int, message string) {
 }
 ```
 
----
-
 ### **Fase 6: Context Engine & RAG Pipeline**
 
 **Objetivo**: Implementar pipeline de embedding, busca e reranking.
@@ -638,8 +626,6 @@ func (ce *ContextEngine) Rerank(ctx context.Context, query string, documents []s
 }
 ```
 
----
-
 ### **Fase 7: Cobra CLI & Systray Integration**
 
 **Objetivo**: Implementar interface CLI com Cobra + Systray em Go.
@@ -700,8 +686,6 @@ func main() {
 }
 ```
 
----
-
 ### **Fase 8: Distribuição via Winget & GoReleaser**
 
 **Objetivo**: Configurar pipeline de release automatizado com assinatura de binários.
@@ -754,8 +738,6 @@ release:
     owner: kaffyn
     name: vectora
 ```
-
----
 
 ## Métricas de Sucesso
 

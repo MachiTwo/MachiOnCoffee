@@ -26,8 +26,6 @@ Questions about plans, pricing, billing, and upgrading Vectora answered clearly.
 - No need for webhooks
 - No SLA
 
----
-
 ## How Do I Upgrade?
 
 ```bash
@@ -45,8 +43,6 @@ vectora upgrade --plan pro
 3. Immediate upgrade.
 4. All data preserved.
 
----
-
 ## Are There Setup Fees or Contracts?
 
 **Free → Pro**: No fees, no contracts.
@@ -54,8 +50,6 @@ vectora upgrade --plan pro
 - Cancel anytime.
 - No penalties.
 - Changes apply to the next billing cycle.
-
----
 
 ## What is the Currency?
 
@@ -67,8 +61,6 @@ vectora upgrade --plan pro
 
 If you are in another region, there will be an automatic conversion at checkout.
 
----
-
 ## When Am I Billed?
 
 **Monthly billing** (cycle renewed each subscription day).
@@ -78,16 +70,12 @@ Example:
 - Subscribed on April 19.
 - Renewals: May 19, June 19, etc.
 
----
-
 ## Can I Pay Annually?
 
 **Yes, there is a discount.**
 
 - **Monthly**: $29/month = $348/year
 - **Annual**: $290/year = ~$24/month (17% discount)
-
----
 
 ## What is the Refund Policy?
 
@@ -96,8 +84,6 @@ Example:
 - Payments are non-refundable.
 - However, you can cancel anytime.
 - No future charges after cancellation.
-
----
 
 ## Can I Downgrade?
 
@@ -113,8 +99,6 @@ vectora downgrade --plan free
 # - Next billing cycle: free again
 ```
 
----
-
 ## Are There Discounts for Startups/Nonprofits?
 
 **Yes, please contact us.**
@@ -126,8 +110,6 @@ We offer:
 - 50% discount for nonprofits (verified).
 - 50% for startups in Y Combinator or similar.
 - Custom pricing for volume/education.
-
----
 
 ## How Do I Cancel My Subscription?
 
@@ -145,8 +127,6 @@ vectora subscription cancel
 - No future charges.
 - Data preserved for 5 days before purge.
 
----
-
 ## What Does It Cost to Exceed Limits?
 
 **Free vs. Pro**:
@@ -161,8 +141,6 @@ vectora subscription cancel
 → Requests are blocked (error 429).
 → Upgrade to Pro to continue.
 
----
-
 ## Are There Transaction Fees?
 
 **No.**
@@ -170,8 +148,6 @@ vectora subscription cancel
 You only pay the base fee ($29 for Pro, custom for Team).
 
 No hidden fees, no gateway fees, no processing fees.
-
----
 
 ## What is the Deleted Data Policy?
 
@@ -188,8 +164,6 @@ No hidden fees, no gateway fees, no processing fees.
 - 30+ days retention.
 - Recovery available (contact support).
 
----
-
 ## Are There Volume Discounts?
 
 **Yes.**
@@ -201,8 +175,6 @@ No hidden fees, no gateway fees, no processing fees.
 Example:
 
 - 100 users: $29 + (50 × $0.50) = $54/month.
-
----
 
 ## How Does Billing Work for Team Plans?
 
@@ -218,8 +190,6 @@ Based on:
 **Contact**:
 **<sales@vectora.app>** for a proposal.
 
----
-
 ## Is There a Free Pro Trial?
 
 **No, use the Free tier indefinitely.**
@@ -232,8 +202,6 @@ The Free tier is sufficient to test:
 - RBAC
 - Guardian
 - CLI
-
----
 
 ## How Can I See My Usage and Invoice?
 
@@ -254,8 +222,6 @@ vectora billing current
 - Usage details.
 - Payment methods.
 
----
-
 ## What is Your Data Privacy Policy?
 
 Read: [BYOK & Privacy](../security/byok-privacy.md)
@@ -268,8 +234,6 @@ Read: [BYOK & Privacy](../security/byok-privacy.md)
 - Optional audit logs.
 - You control everything.
 
----
-
 ## Is There an Uptime Guarantee?
 
 | Plan     | SLA    | Compensation  |
@@ -279,8 +243,6 @@ Read: [BYOK & Privacy](../security/byok-privacy.md)
 | **Team** | 99.99% | 10-50% refund |
 
 If Vectora does not meet the SLA, you automatically receive credit.
-
----
 
 ## What is My API Limit?
 
@@ -292,8 +254,6 @@ If Vectora does not meet the SLA, you automatically receive credit.
 **Pro/Team**:
 
 - Unlimited (you pay Google/Voyage indirectly, not through Vectora).
-
----
 
 ## Can I Use a Corporate Credit Card?
 
@@ -307,8 +267,6 @@ Vectora accepts:
 
 Check with your accounting department regarding corporate card usage.
 
----
-
 ## Is There Tax/VAT?
 
 **Yes, if applicable.**
@@ -318,8 +276,6 @@ Check with your accounting department regarding corporate card usage.
 - **Other**: Depends on local regulation.
 
 Calculated automatically at checkout.
-
----
 
 ## How Do I Cancel and Retrieve My Data?
 

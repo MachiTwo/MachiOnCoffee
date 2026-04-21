@@ -28,8 +28,6 @@ Imagine que você quer encontrar no seu código onde o sistema lida com "cancela
 - **Busca Tradicional**: Procura por `cancel`, `subscription`, `unsub`. Se o programador usou `deactivateAccount`, a busca tradicional falha.
 - **Busca Vetorial**: Entende que "deactivate account" e "cancel subscription" estão no mesmo universo semântico de finalização de serviço e encontra o resultado.
 
----
-
 ## Como Funciona: Do Código ao Vetor
 
 A busca vetorial transforma texto ou código em uma lista de números (um **vetor**) que representa sua posição em um "espaço de pensamento" de alta dimensionalidade.
@@ -58,8 +56,6 @@ graph TD
     Qv -- "Cálculo de Distância" --> B
 ```
 
----
-
 ## Métricas de Similaridade
 
 Para saber o quão "perto" uma query está de um pedaço de código no Vectora, usamos o **Cosine Similarity** (Similaridade de Cosseno).
@@ -69,8 +65,6 @@ Para saber o quão "perto" uma query está de um pedaço de código no Vectora, 
 | **Cosine Similarity**  | Mede o ângulo entre dois vetores.               | É ideal para comparar trechos de tamanhos diferentes (uma frase curta vs. uma função longa). |
 | **Euclidean Distance** | Mede a distância em linha reta entre os pontos. | Útil em dados numéricos puros, mas menos precisa para linguagem natural/código.              |
 | **Dot Product**        | Multiplicação direta dos vetores.               | Extremamente rápida em hardware moderno, usada internamente pelo MongoDB Atlas.              |
-
----
 
 ## O Algoritmo HNSW
 
@@ -82,8 +76,6 @@ O Vectora usa o **HNSW (Hierarchical Navigable Small World)** no MongoDB Atlas. 
   2. O algoritmo pula rapidamente entre pontos distantes.
   3. Conforme chega perto, ele desce para camadas inferiores (ruas locais) com mais detalhes.
 - **Performance no Vectora**: Encontra os 20 melhores resultados em <50ms em base de dados massivas.
-
----
 
 ## Busca Vetorial vs. Full-Text Search no Atlas
 
@@ -97,8 +89,6 @@ O MongoDB Atlas oferece ambos. Aqui está a diferença:
 | **Contexto**      | Ignora a intenção                     | Prioriza a semântica                  |
 
 **A Estratégia do Vectora**: Nós usamos **Hybrid Search** onde aplicável, mas a força motriz é a busca vetorial refinada pelo [Reranker](/concepts/reranker/).
-
----
 
 ## FAQ de Busca Vetorial
 

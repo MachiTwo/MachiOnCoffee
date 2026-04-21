@@ -21,8 +21,6 @@ tags:
 > [!IMPORTANT]
 > RBAC is "allow by role". A user can only do what their role allows. There are no per-user exceptions.
 
----
-
 ## Architecture
 
 ```text
@@ -44,8 +42,6 @@ Action (read|write|delete)
   ↓
 Grant/Deny Decision
 ```
-
----
 
 ## 5 Hierarchical Roles
 
@@ -170,8 +166,6 @@ cannot_perform:
   - anything else
 ```
 
----
-
 ## 15 Granular Permissions
 
 | Permission            | Description             | Roles                               |
@@ -191,8 +185,6 @@ cannot_perform:
 | `custom_integrations` | Custom endpoints        | Owner                               |
 | `support_priority`    | Priority support        | Owner                               |
 | `billing`             | View/change billing     | Owner                               |
-
----
 
 ## Configuration
 
@@ -261,8 +253,6 @@ rbac:
       rate_limit: 100/day
 ```
 
----
-
 ## User Management
 
 User management covers everything from initial provisioning to activity auditing and revoking access when necessary.
@@ -327,8 +317,6 @@ vectora user delete --email dev@company.com
 # - Audit log created
 ```
 
----
-
 ## Namespace-Level Permissions
 
 Granularity per namespace:
@@ -359,8 +347,6 @@ vectora user assign-namespace \
   --namespace kaffyn-vectora-staging \
   --role editor
 ```
-
----
 
 ## Integration with Guardian & Harness
 
@@ -401,8 +387,6 @@ User Request
 If any check fails → Deny + Log
 ```
 
----
-
 ## Audit & Compliance
 
 All permission changes and user assignments are recorded to ensure compliance with security audits and regulatory requirements.
@@ -432,8 +416,6 @@ vectora report rbac --format pdf --output rbac-report.pdf
 # - Access denied attempts
 # - Inactive users (> 30 days)
 ```
-
----
 
 ## Best Practices
 
@@ -488,8 +470,6 @@ export VECTORA_TOKEN="shared-token-for-team"
 export VECTORA_TOKEN="sk-proj-$(whoami)-..."
 ```
 
----
-
 ## Troubleshooting
 
 ## "Permission denied: search"
@@ -517,8 +497,6 @@ vectora user list-namespaces --email dev@company.com
 vectora user assign-namespace --email dev@company.com --namespace kaffyn-prod --role viewer
 ```
 
----
-
 ## Migration from No-RBAC
 
 If you were using Vectora without RBAC:
@@ -536,8 +514,6 @@ vectora migrate-tokens --from v1 --to v2
 # 4. Revoke old tokens
 vectora token revoke-all-old
 ```
-
----
 
 ## Next Steps
 

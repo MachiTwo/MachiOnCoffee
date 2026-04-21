@@ -21,8 +21,6 @@ This is a **complete dictionary** of all MCP tools offered by Vectora. Use them 
 > [!IMPORTANT]
 > All tools respect your **Trust Folder** and **Namespace**. No files outside these boundaries are accessible.
 
----
-
 ## Categories
 
 1. **Search & Retrieval** — Search for context
@@ -31,8 +29,6 @@ This is a **complete dictionary** of all MCP tools offered by Vectora. Use them 
 4. **Indexing** — Manage indexes
 5. **Configuration** — Configure Vectora
 6. **Monitoring** — Metrics and health
-
----
 
 ## Search & Retrieval
 
@@ -81,8 +77,6 @@ Semantic search for relevant chunks.
 @vectora search_context "How to validate JWT tokens?"
 ```
 
----
-
 ## `search_tests`
 
 Search for tests related to a query.
@@ -112,8 +106,6 @@ Search for tests related to a query.
   ]
 }
 ```
-
----
 
 ## Analysis
 
@@ -154,8 +146,6 @@ Finds all references to a symbol.
 }
 ```
 
----
-
 ## `find_similar_code`
 
 Finds code similar to a provided snippet.
@@ -185,8 +175,6 @@ Finds code similar to a provided snippet.
   ]
 }
 ```
-
----
 
 ## `get_file_structure`
 
@@ -223,8 +211,6 @@ Summarizes a file's structure (imports, functions, classes).
 }
 ```
 
----
-
 ## Metadata
 
 Inspect the organization of your workspace, list indexed files, and check vital statistics about your namespaces.
@@ -260,8 +246,6 @@ Lists indexed files in the namespace.
 }
 ```
 
----
-
 ## `list_namespaces`
 
 Lists all available namespaces.
@@ -289,8 +273,6 @@ Lists all available namespaces.
   ]
 }
 ```
-
----
 
 ## `get_namespace_stats`
 
@@ -325,8 +307,6 @@ Returns statistics for a namespace.
 }
 ```
 
----
-
 ## Indexing
 
 Manage your project's indexing state, forcing updates or checking for pending items in the vector database.
@@ -358,8 +338,6 @@ Checks index status (health, pending items).
 }
 ```
 
----
-
 ## `reindex`
 
 Forces file re-indexing.
@@ -384,8 +362,6 @@ Forces file re-indexing.
   "job_id": "index_job_abc123"
 }
 ```
-
----
 
 ## Configuration
 
@@ -418,8 +394,6 @@ Returns current Vectora configuration.
 }
 ```
 
----
-
 ## `set_config`
 
 Modifies configuration (requires authentication).
@@ -432,8 +406,6 @@ Modifies configuration (requires authentication).
   "value": "hybrid"
 }
 ```
-
----
 
 ## Monitoring
 
@@ -468,8 +440,6 @@ Returns execution metrics.
 }
 ```
 
----
-
 ## `get_audit_log`
 
 Returns access and modification logs.
@@ -501,8 +471,6 @@ Returns access and modification logs.
   ]
 }
 ```
-
----
 
 ## Practical Examples (Real Workflows)
 
@@ -669,8 +637,6 @@ Security Summary:
     342 legitimate searches
    → Secure system
 ```
-
----
 
 ## Error Handling
 

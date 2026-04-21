@@ -16,8 +16,6 @@ Imagine you want to find where your system handles "subscription cancellation" i
 - **Traditional Search**: Looks for `cancel`, `subscription`, `unsub`. If the programmer used `deactivateAccount`, traditional search fails.
 - **Vector Search**: Understands that "deactivate account" and "cancel subscription" are in the same semantic universe of service termination and finds the result.
 
----
-
 ## How it Works: From Code to Vector
 
 Vector search transforms text or code into a list of numbers (a **vector**) that represents its position in a high-dimensional "thought space."
@@ -46,8 +44,6 @@ graph TD
     Qv -- "Distance Calculation" --> B
 ```
 
----
-
 ## Similarity Metrics
 
 To know how "close" a query is to a piece of code in Vectora, we use **Cosine Similarity**.
@@ -57,8 +53,6 @@ To know how "close" a query is to a piece of code in Vectora, we use **Cosine Si
 | **Cosine Similarity**  | Measures the angle between two vectors.             | Ideal for comparing snippets of different sizes (a short phrase vs. a long function). |
 | **Euclidean Distance** | Measures the straight-line distance between points. | Useful for pure numerical data, but less accurate for natural language/code.          |
 | **Dot Product**        | Direct multiplication of vectors.                   | Extremely fast on modern hardware, used internally by MongoDB Atlas.                  |
-
----
 
 ## The HNSW Algorithm
 
@@ -70,8 +64,6 @@ Vectora uses **HNSW (Hierarchical Navigable Small World)** in MongoDB Atlas. It 
   2. The algorithm quickly jumps between distant points.
   3. As it gets closer, it moves down to lower layers (local streets) with more detail.
 - **Performance in Vectora**: Finds the top 20 results in <50ms even in massive databases.
-
----
 
 ## Vector Search vs. Full-Text Search in Atlas
 
@@ -85,8 +77,6 @@ MongoDB Atlas offers both. Here is the difference:
 | **Context**     | Ignores intent                        | Prioritizes semantics                  |
 
 **Vectora's Strategy**: We use **Hybrid Search** where applicable, but the driving force is vector search refined by the [Reranker](/concepts/reranker/).
-
----
 
 ## Vector Search FAQ
 

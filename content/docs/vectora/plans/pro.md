@@ -48,8 +48,6 @@ Acesso a mais modelos (BYOK ou Managed Plus):
 | **Reranking** | Voyage Rerank 2.5 | + Custom (Cohere, etc) |
 | **LLM**       | Gemini Flash      | + Claude, GPT-4        |
 
----
-
 ## Limites Pro
 
 ```yaml
@@ -68,8 +66,6 @@ pro_tier_limits:
     max_file_size: 500MB
     max_chunks_per_query: 100
 ```
-
----
 
 ## Webhooks
 
@@ -100,8 +96,6 @@ Content-Type: application/json
 | `error.security`      | Guardian bloqueou acesso |
 | `user.login`          | Novo user login          |
 
----
-
 ## Custom Domain
 
 Acesse seu servidor via domínio customizado:
@@ -122,8 +116,6 @@ https://code-search.seu-dominio.com
 # Seu domínio:
 code-search.seu-dominio.com CNAME vectora-pro.cloud.app
 ```
-
----
 
 ## API Tokens
 
@@ -152,8 +144,6 @@ curl -H "Authorization: Bearer sk-proj-abc123xyz..." \
 - user # Gerenciar users
 - billing # Ver faturas
 ```
-
----
 
 ## Advanced Metrics
 
@@ -184,16 +174,12 @@ Pro Users Dashboard
 
 Exportar em CSV, JSON, ou Prometheus.
 
----
-
 ## Priority Support
 
 - **Email support**: <4h response time
 - **Direct Slack channel**: Para issues críticas
 - **Monthly office hours**: Com time Vectora
 - **Custom onboarding**: Setup + treinamento
-
----
 
 ## Pricing Transparente
 
@@ -216,8 +202,6 @@ Exemplo:
 - Sem contrato longo
 - Faturamento automático
 
----
-
 ## Upgrade do Free
 
 ```bash
@@ -235,8 +219,6 @@ vectora upgrade --plan pro --stripe-token sk_...
 - Namespaces mantidos
 - Configurações intactas
 
----
-
 ## Comparação: Free vs Pro
 
 | Feature              | Free       | Pro          | Team      |
@@ -252,8 +234,6 @@ vectora upgrade --plan pro --stripe-token sk_...
 | **SSO/LDAP**         |            |              |           |
 | **On-Premise**       |            |              |           |
 
----
-
 ## Use Cases Ideais para Pro
 
 - **Startups em crescimento**: 5-50 devs, múltiplos projetos
@@ -261,8 +241,6 @@ vectora upgrade --plan pro --stripe-token sk_...
 - **Teams remotos**: Precisa de 24/7 reliability
 - **CI/CD Automation**: Webhooks para pipelines
 - **Custom domain**: Branding próprio
-
----
 
 ## FAQ Pro
 

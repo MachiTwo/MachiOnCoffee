@@ -96,8 +96,6 @@ compliance:
   soc2_compliance: true
 ```
 
----
-
 ## Pricing
 
 ## Modelo de Pricing
@@ -130,8 +128,6 @@ Total: ~$13,500/mês
 **<sales@vectora.app>**
 **Slack Enterprise Channel**
 **Demo & Proposal: 48h**
-
----
 
 ## Deployment Options
 
@@ -170,8 +166,6 @@ Datacenter seu ou privado:
  Hardware próprio
 ```
 
----
-
 ## SLA & Uptime
 
 ### 99.99% SLA (Team Plan)
@@ -199,8 +193,6 @@ Uptime | Credit
 < 99% | 50% mês
 ```
 
----
-
 ## Support
 
 ## Dedicated Support
@@ -218,8 +210,6 @@ Uptime | Credit
 | High     | 1 hour   | 8 hours    |
 | Medium   | 4 hours  | 24 hours   |
 | Low      | 8 hours  | 5 days     |
-
----
 
 ## Custom Integrations
 
@@ -241,8 +231,6 @@ custom_embedding:
   endpoint: "https://ml.company.com/embed"
   auth: "api_key"
 ```
-
----
 
 ## Compliance & Security
 
@@ -276,8 +264,6 @@ compliance_reports:
   vulnerability_scanning: "continuous"
 ```
 
----
-
 ## Migration from Pro
 
 ```bash
@@ -294,8 +280,6 @@ vectora upgrade --plan team
 3. Migração de dados (zero downtime)
 4. SSO/LDAP setup
 5. Training + onboarding
-
----
 
 ## Use Cases Ideais
 
@@ -320,8 +304,6 @@ vectora upgrade --plan team
 - Real-time analytics
 - Mission-critical operations
 
----
-
 ## Technical Specs (Team)
 
 ```yaml
@@ -343,8 +325,6 @@ regions:
   geo_replication: yes
 ```
 
----
-
 ## FAQ Team
 
 **P: Quanto custa?**
@@ -361,8 +341,6 @@ R: Sim, automated daily com retenção de 30 dias (customizável).
 
 **P: Qual é o tempo de resposta para críticos?**
 R: 15 min para assessment, 4 horas para resolve.
-
----
 
 ## Próximos Passos
 

@@ -19,8 +19,6 @@ Vectora uses a unified architecture based on **MongoDB Atlas**, allowing vectors
 
 ## The Engine Behind Context
 
----
-
 ## Topics in this Section
 
 | Page                                                   | Description                                                                             |
@@ -28,8 +26,6 @@ Vectora uses a unified architecture based on **MongoDB Atlas**, allowing vectors
 | [MongoDB Atlas](/backend/mongodb-atlas/)               | Why we chose Atlas and how it serves as our data foundation.                            |
 | [Vector Search](/concepts/vector-search/)              | Technical deep dive into embeddings, cosine similarity, and the HNSW algorithm.         |
 | [Persistence and Memory](/concepts/state-persistence/) | How Vectora maintains state between sessions and builds long-term memory (`AGENTS.md`). |
-
----
 
 ## Architecture Overview
 
@@ -49,16 +45,12 @@ graph TD
     end
 ```
 
----
-
 ## Backend Principles
 
 1. **Namespace Isolation (RBAC)**: The backend enforces strict boundaries. Data from one project never mixes with others, ensuring multi-tenant privacy.
 2. **Atomicity**: Code vectors and metadata are stored together. If a file is updated, the vector index and the document are updated simultaneously.
 3. **Transparent Scalability**: Using MongoDB Atlas, Vectora scales from small individual projects to enterprise codebases with millions of lines of code without performance loss.
 4. **Active Governance**: Every interaction is persisted and auditable, allowing full transparency over AI actions.
-
----
 
 ## Backend Modes
 
@@ -67,8 +59,6 @@ graph TD
 | **Managed (SaaS)**      | MongoDB Atlas backend provisioned by Kaffyn. Zero configuration.                      | Free, Pro, and Team plans.                 |
 | **Hybrid (BYOK)**       | You provide [Voyage](/concepts/embeddings/) API keys, but Atlas is managed by Kaffyn. | API cost control with easy infrastructure. |
 | **Enterprise / Custom** | Connection to your own MongoDB Atlas cluster or on-premise infrastructure.            | Strict data sovereignty requirements.      |
-
----
 
 ## Frequently Asked Questions
 

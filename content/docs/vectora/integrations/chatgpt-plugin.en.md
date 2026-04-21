@@ -34,7 +34,7 @@ tags:
 
 By default, Vectora runs on `localhost:9090`. For ChatGPT to reach it, expose it:
 
-#### Option A: ngrok (Testing)
+### Option A: ngrok (Testing)
 
 ```bash
 # Install ngrok
@@ -171,8 +171,6 @@ Bad example:
 
 Click **"Publish to Store"** and share with your team.
 
----
-
 ## Detailed Workflows
 
 The workflows below demonstrate real-world use cases of Vectora integrated with ChatGPT, showing practical conversations and concrete results.
@@ -296,8 +294,6 @@ Analyzing changes...
 3. Verify: no SECRET_KEY exposed
 ```
 
----
-
 ## Authentication & Security
 
 ## Token-based Auth
@@ -336,8 +332,6 @@ server:
   max_concurrent: 5
 ```
 
----
-
 ## Privacy & Compliance
 
 ## What's Sent to OpenAI
@@ -364,8 +358,6 @@ openssl req -x509 -newkey rsa:4096 -out cert.pem -keyout key.pem
 # Use with HTTPS
 vectora server --cert cert.pem --key key.pem
 ```
-
----
 
 ## Troubleshooting
 
@@ -413,8 +405,6 @@ curl -X POST https://your-endpoint/search \
   -d "{...}"
 ```
 
----
-
 ## Performance & Limits
 
 | Resource         | Limit  | Upgrade         |
@@ -423,8 +413,6 @@ curl -X POST https://your-endpoint/search \
 | Latency          | <2s    | SSD + more CPU  |
 | Response size    | 5MB    | Compaction      |
 | Concurrent users | 10     | Managed Vectora |
-
----
 
 ## Advanced Examples
 
@@ -452,8 +440,6 @@ Use Vectora to:
 3. List dependencies
 4. Suggest files to read first"
 ```
-
----
 
 ## Monitoring
 

@@ -19,15 +19,11 @@ Vectora offers a **complete CLI interface** for configuration, indexing, and deb
 > [!TIP]
 > Use `vectora --help` to see all commands, or `vectora [command] --help` for specific details.
 
----
-
 ## General Structure
 
 ```bash
 vectora [GLOBAL_OPTIONS] COMMAND [COMMAND_OPTIONS]
 ```
-
----
 
 ## Global Flags
 
@@ -49,8 +45,6 @@ vectora --debug index
 vectora --namespace staging init
 vectora --config ./custom.yaml search "query"
 ```
-
----
 
 ## Commands
 
@@ -80,8 +74,6 @@ vectora init --name "My App" --type codebase
 vectora init --namespace kaffyn-backend-prod --type codebase
 # Creates with specific namespace
 ```
-
----
 
 ## vectora index
 
@@ -118,8 +110,6 @@ vectora index --watch
 vectora index --dry-run
 ```
 
----
-
 ## vectora search
 
 Semantic search via CLI.
@@ -151,8 +141,6 @@ vectora search "validation" --format json
 vectora search "middleware" --include-snippets
 ```
 
----
-
 ## vectora analyze
 
 Deep analysis with LLM (Gemini).
@@ -179,8 +167,6 @@ vectora analyze "Review this code for security" --model gemini-pro --context 20
 # Save to file
 vectora analyze "Write API documentation" --output docs/api.md
 ```
-
----
 
 ## vectora config
 
@@ -217,8 +203,6 @@ vectora config validate
 vectora config show-schema
 ```
 
----
-
 ## vectora namespace
 
 Manage namespaces.
@@ -250,8 +234,6 @@ vectora namespace info --name kaffyn-vectora-prod
 vectora namespace reset --name kaffyn-old-project
 ```
 
----
-
 ## vectora mcp
 
 Starts MCP server for Claude Code, Cursor, etc.
@@ -278,8 +260,6 @@ vectora mcp --port 9091
 # Public server
 vectora mcp --host 0.0.0.0 --port 9090
 ```
-
----
 
 ## vectora server
 
@@ -310,8 +290,6 @@ vectora server --ui
 vectora server --cert cert.pem --key key.pem
 ```
 
----
-
 ## vectora auth
 
 Manage SSO authentication and access tokens.
@@ -335,8 +313,6 @@ vectora auth login
 # Check account status
 vectora auth status
 ```
-
----
 
 ## vectora logs
 
@@ -369,8 +345,6 @@ vectora logs --service search --since 24h
 vectora logs --format json | jq '.[]'
 ```
 
----
-
 ## vectora metrics
 
 View operation metrics.
@@ -396,8 +370,6 @@ vectora metrics --period 7d --export csv --output metrics.csv
 # Prometheus format
 vectora metrics --export prometheus
 ```
-
----
 
 ## vectora audit
 
@@ -426,8 +398,6 @@ vectora audit --action search --since 7d
 vectora audit --action delete --user "your-email@company.com"
 ```
 
----
-
 ## vectora health
 
 Check system health.
@@ -453,8 +423,6 @@ vectora health --detailed
 vectora health --fix
 ```
 
----
-
 ## Exit Codes
 
 ```text
@@ -465,8 +433,6 @@ vectora health --fix
 4 # Authentication failed
 5 # Namespace not found
 ```
-
----
 
 ## Environment Variables
 

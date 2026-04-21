@@ -19,8 +19,6 @@ O **Kaffyn SSO** é a camada de identidade centralizada que conecta todos os com
 > [!IMPORTANT]
 > O Kaffyn SSO é uma oferta **gerenciada (SaaS)**. Ele é exclusivo para os planos Pro, Team e Enterprise. No plano **Free**, a autenticação é local e isolada por dispositivo via `vectora auth login`.
 
----
-
 ## Arquitetura de Identidade
 
 Diferente de sistemas tradicionais, a identidade no Vectora é desacoplada do armazenamento de dados para garantir máxima segurança:
@@ -47,8 +45,6 @@ O SSO atua como o ponto de decisão para:
 3. **Gestão de Quota**: Quanto armazenamento e processamento resta para seu plano?
 4. **Governança**: Logs de auditoria centralizados por usuário.
 
----
-
 ## Funcionalidades Principais
 
 | Recurso                  | Descrição                                                 | Disponibilidade   |
@@ -59,8 +55,6 @@ O SSO atua como o ponto de decisão para:
 | **Gestão de API Keys**   | Interface centralizada para criar e revogar chaves        | Pro / Team        |
 | **RBAC Granular**        | Atribuição de roles como `admin`, `contributor`, `reader` | Team              |
 
----
-
 ## Segurança: Arquitetura "Air Gap"
 
 Para proteger sua privacidade, os dados de identidade (e-mail, perfis) são mantidos em uma infraestrutura isolada do seu conteúdo de código (embeddings e metadados). Mesmo em caso de comprometimento de um cluster de processamento, suas credenciais de pagamento e identidade permanecem protegidas na camada global da Kaffyn.
@@ -70,8 +64,6 @@ Para proteger sua privacidade, os dados de identidade (e-mail, perfis) são mant
 | **Identidade** | Identidade SaaS | UUID, e-mail, perfis OAuth         |
 | **Sessão**     | JWT assinado    | Claims de permissão, expiração     |
 | **Contexto**   | MongoDB Atlas   | Embeddings, AST, código (redigido) |
-
----
 
 ## Fluxo de Login do Agente
 
@@ -84,8 +76,6 @@ Para autenticar seu ambiente local:
 
 > [!TIP]
 > O token JWT tem renovação automática. Você só precisará fazer login manualmente se a sessão for revogada ou após longos períodos de inatividade.
-
----
 
 ## Perguntas Frequentes
 

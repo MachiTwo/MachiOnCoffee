@@ -40,8 +40,6 @@ Respostas rápidas para as dúvidas mais comuns sobre Vectora - funcionamento, c
 
 **Resultado**: Seu agent de IA recebe contexto governado + validado, não alucinações.
 
----
-
 ## Como Funciona?
 
 ```text
@@ -61,8 +59,6 @@ Respostas rápidas para as dúvidas mais comuns sobre Vectora - funcionamento, c
    - Mostra chunks contextuais
    - Você continua trabalhando
 ```
-
----
 
 ## Qual é o Custo?
 
@@ -86,8 +82,6 @@ Respostas rápidas para as dúvidas mais comuns sobre Vectora - funcionamento, c
 - 99.99% SLA
 - Dedicated support
 
----
-
 ## Quanto Tempo Leva para Indexar?
 
 **Pela primeira vez**:
@@ -100,8 +94,6 @@ Respostas rápidas para as dúvidas mais comuns sobre Vectora - funcionamento, c
 
 - Geralmente <30 segundos
 
----
-
 ## Quanto Espaço em Disco?
 
 A razão é aproximadamente **1:10**.
@@ -113,8 +105,6 @@ Se seu código é 50MB:
 
 Total: ~105MB
 
----
-
 ## Posso Usar em Produção?
 
 **Free Tier**: Não (1 usuário simultâneo, sem SLA)
@@ -122,8 +112,6 @@ Total: ~105MB
 **Pro Tier**: Sim (99.9% SLA, até 50 usuários)
 
 **Team Tier**: Sim (99.99% SLA, on-premise option)
-
----
 
 ## Meus Dados São Seguros?
 
@@ -135,8 +123,6 @@ Criptografado em trânsito (TLS 1.3)
 Guardian blocklist (protege .env, secrets)
 RBAC (controle de usuários)
 Audit logging (rastreia tudo)
-
----
 
 ## Funciona com Qual Linguagem?
 
@@ -157,8 +143,6 @@ Audit logging (rastreia tudo)
 
 Voyage 4 (embedding model) entende estruturas semânticas em qualquer linguagem.
 
----
-
 ## Posso Usar Offline?
 
 **Não completamente, mas quase.**
@@ -178,8 +162,6 @@ docker run ollama/ollama
 vectora config set EMBEDDING_PROVIDER ollama
 ```
 
----
-
 ## Quanto Custa para Escalar?
 
 | Aspecto         | Free      | Pro        | Team        |
@@ -194,8 +176,6 @@ vectora config set EMBEDDING_PROVIDER ollama
 - 1 pessoa: Free
 - 5 pessoas: Pro ($29)
 - 50+ pessoas: Team ($X)
-
----
 
 ## Como Funciona com Múltiplos Projetos?
 
@@ -212,8 +192,6 @@ vectora init --namespace "empresa-projectB"
 # Busca em A não encontra chunks de B
 ```
 
----
-
 ## Posso Usar Vectora com Git?
 
 **Sim.**
@@ -229,8 +207,6 @@ vectora index
 
 **Sugestão**: Commit vectora.config.yaml, ignore .vectora/
 
----
-
 ## Qual IDE é Melhor?
 
 | IDE         | Vectora    | Vantagem              |
@@ -241,8 +217,6 @@ vectora index
 | ChatGPT     | Custom GPT | Sem sair do ChatGPT   |
 
 **Recomendação**: Use qual você já usa. Vectora funciona igualmente bem.
-
----
 
 ## Posso Deletar um Arquivo?
 
@@ -264,8 +238,6 @@ vectora index --incremental
 # Chunks relacionados são removidos
 ```
 
----
-
 ## Quanto Tempo Leva para Buscar?
 
 Geralmente:
@@ -279,8 +251,6 @@ Com rede (APIs):
 
 - **Com latência**: ~300-500ms
 
----
-
 ## Há Limite de Tamanho de Projeto?
 
 **Local (Free)**: Não (disk space é o limite)
@@ -288,8 +258,6 @@ Com rede (APIs):
 **Pro**: Não (AWS managed)
 
 **Team**: Testado até 10M chunks
-
----
 
 ## Posso Compartilhar um Projeto?
 
@@ -304,8 +272,6 @@ vectora user create \
 
 # Colleague pode buscar e indexar
 ```
-
----
 
 ## Como Faço Backup?
 
@@ -322,8 +288,6 @@ Para restore:
 ```bash
 vectora import --from backup.tar.gz --namespace seu-projeto
 ```
-
----
 
 ## Posso Usar Meu Próprio LLM?
 
@@ -345,8 +309,6 @@ docker run ollama/ollama
 vectora config set LLM_PROVIDER ollama
 ```
 
----
-
 ## Suporta Múltiplas Linguagens?
 
 **Código**: Sim, todas as linguagens
@@ -358,8 +320,6 @@ vectora config set LLM_PROVIDER ollama
 - Español (coming soon)
 - Français (coming soon)
 
----
-
 ## Há API REST?
 
 **Sim, em Pro e Team.**
@@ -369,8 +329,6 @@ curl -X POST https://seu-dominio.vectora.app/search \
   -H "Authorization: Bearer sk-proj-..." \
   -d '{"query": "login", "top_k": 10}'
 ```
-
----
 
 ## Posso Usar em Monorepo?
 
@@ -388,8 +346,6 @@ indexing:
     - build
     - dist
 ```
-
----
 
 ## Qual é a Comunidade?
 

@@ -20,8 +20,6 @@ Vectora is distributed as a high-performance native binary for Windows, macOS, a
 
 > [!IMPORTANT] > **BYOK (Bring Your Own Key)**: In the Free plan, Vectora requires API keys from Gemini and Voyage. In **Pro** and **Team (Plus)** plans, you can opt for **Managed** mode, where AI credits are already included.
 
----
-
 ## Prerequisites
 
 ## Operating System
@@ -40,8 +38,6 @@ Vectora is distributed as a high-performance native binary for Windows, macOS, a
 ```powershell
 winget --version # Should return v1.4 or higher
 ```
-
----
 
 ## Step 1: Install Vectora
 
@@ -67,8 +63,6 @@ curl -sSf https://vectora.sh/install.sh | sh
 
 You can also download the binary directly from our [GitHub Releases page](https://github.com/kaffyn/vectora/releases).
 
----
-
 ## Step 2: Obtain Free API Keys
 
 ## Gemini API (Google)
@@ -87,8 +81,6 @@ You can also download the binary directly from our [GitHub Releases page](https:
 
 **Free limit**: 50 requests per minute, 100M tokens/month.
 
----
-
 ## Step 3: Configure via Systray
 
 After installation, look for the Vectora icon in your system tray (near the clock).
@@ -97,8 +89,6 @@ After installation, look for the Vectora icon in your system tray (near the cloc
 2. This will open your browser for SSO authentication.
 3. Once authenticated, Vectora will automatically configure your keys.
 
----
-
 ## Step 4: Verify Configuration (CLI)
 
 If you prefer the terminal, verify the status:
@@ -106,8 +96,6 @@ If you prefer the terminal, verify the status:
 ```bash
 vectora auth status
 ```
-
----
 
 ## Step 5: Initialize a Project
 
@@ -126,8 +114,6 @@ This creates:
 - `.vectora/` — Internal directory (cache, local indices).
 - `AGENTS.md` — Agent memory file.
 
----
-
 ## Next Steps
 
 ## For Claude Desktop Users
@@ -145,8 +131,6 @@ Go to [VS Code Extension](../integrations/vscode.md).
 ## To Learn Configuration
 
 Go to [Configuration](./configuration.md).
-
----
 
 ## Troubleshooting
 
@@ -178,8 +162,6 @@ Go to [Configuration](./configuration.md).
 # macOS / Linux
 chmod +x $(which vectora)
 ```
-
----
 
 ## FAQ
 

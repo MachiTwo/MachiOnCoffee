@@ -21,8 +21,6 @@ Trust Folder é o **perímetro de segurança** que limita quais arquivos o Vecto
 > [!IMPORTANT]
 > Trust Folder não é opcional. Sem dele, Vectora poderia indexar .env, chaves privadas, e dados de usuários. Com Trust Folder, apenas arquivos dentro do perímetro são acessíveis.
 
----
-
 ## O Problema
 
 Sem Trust Folder:
@@ -36,8 +34,6 @@ Com Trust Folder:
 - Indexação confinada a `./src`, `./docs` (configurável)
 - Directory traversal é bloqueado: `../../../.env` é rejeitado
 - Audit log rastreia todas as leituras
-
----
 
 ## Configuração
 
@@ -83,8 +79,6 @@ trust_folder: "${PROJECT_ROOT}/src"
 # Resolvido via environment variables
 ```
 
----
-
 ## Resolução de Paths
 
 Vectora resolve paths de forma segura, normalizando caminhos relativos para absolutos e bloqueando tentativas de sair do Trust Folder.
@@ -124,8 +118,6 @@ Resolução:
 2. Is /absolute/path/.env dentro de /absolute/path/to/src?
 3. NÃO → BLOQUEADO
 ```
-
----
 
 ## Casos de Uso
 
@@ -207,8 +199,6 @@ project:
 # vectora init --trust-folder ./sanitized
 ```
 
----
-
 ## Integração com Guardian
 
 Guardian também valida paths:
@@ -234,8 +224,6 @@ guardian:
 - Trust Folder nega: arquivo bloqueado imediatamente
 - Trust Folder permite: Guardian valida pattern
 - Ambos passam: arquivo é indexado
-
----
 
 ## Auditoria
 
@@ -268,8 +256,6 @@ vectora audit --since 24h --filter "DENIED"
 
 vectora audit --filter "file_access" | jq '.[] | {path, result}'
 ```
-
----
 
 ## Cenários de Segurança (O que Trust Folder Previne)
 
@@ -342,8 +328,6 @@ Indices: APENAS ./src/
 Resultado: secrets.json ignorado
 ```
 
----
-
 ## Teste & Verificação
 
 Para validar que Trust Folder está funcionando corretamente, use os comandos abaixo. Um security audit completo garante que nenhum arquivo sensível é acessível.
@@ -397,8 +381,6 @@ done
 echo " PASS: Trust Folder is properly configured"
 ```
 
----
-
 ## Troubleshooting
 
 Problemas comuns ao usar Trust Folder e como resolvê-los, incluindo soluções para symlinks e path resolution.
@@ -447,8 +429,6 @@ project:
   symlink_whitelist:
     - "./src/link-to-shared" # Exceção explícita
 ```
-
----
 
 ## Configuração Avançada
 

@@ -17,8 +17,6 @@ tags:
 
 **Vectora funciona exclusivamente via MCP (Model Context Protocol).** Este documento descreve como Vectora implementa MCP, sua arquitetura, e como IDEs (Claude Code, Cursor, Zed) se integram.
 
----
-
 ## O que é MCP?
 
 **MCP** é um protocolo aberto que permite que LLMs (Large Language Models) chamar "ferramentas" de um computador. Diferente de APIs REST genéricas, MCP é otimizado para:
@@ -48,8 +46,6 @@ tags:
        │
 ```
 
----
-
 ## Por Que Vectora Usa MCP?
 
 | Alternativa               | Problema                                         | Como MCP Resolve                        |
@@ -60,8 +56,6 @@ tags:
 | **LSP (Language Server)** | Projetado para autocompletar, não IA             | MCP é genérico para qualquer ferramenta |
 
 **Resultado**: Uma IDE (Claude Code) ↔ Múltiplos MCPs (Vectora, pytest, git, file-system).
-
----
 
 ## Arquitetura Vectora MCP
 
@@ -111,8 +105,6 @@ Vectora MCP usa **STDIO** (stdin/stdout pipes):
 # STDIN ← mensagens JSON do IDE
 # STDOUT → respostas JSON de Vectora
 ```
-
----
 
 ## Protocol Flow
 
@@ -223,8 +215,6 @@ O fluxo MCP em Vectora passa por três fases: inicialização onde IDE e servido
 }
 ```
 
----
-
 ## Vectora MCP Tools (12 Total)
 
 | Tool               | Input              | Output                      | Latência SLA |
@@ -243,8 +233,6 @@ O fluxo MCP em Vectora passa por três fases: inicialização onde IDE e servido
 | `execute_query`    | query_type, params | generic query               | <500ms       |
 
 Ver [MCP Tools Reference](../reference/mcp-tools.md) para detalhes completos.
-
----
 
 ## Configuração no IDE
 
@@ -299,8 +287,6 @@ Cada IDE tem um processo diferente para configurar MCP servers. Abaixo estão os
 }
 ```
 
----
-
 ## Tratamento de Erros
 
 MCP define erros estruturados:
@@ -329,8 +315,6 @@ Códigos de erro Vectora:
 - `INVALID_SCHEMA` (400)
 - `TIMEOUT` (504)
 - `INTERNAL_ERROR` (500)
-
----
 
 ## Performance & Otimizações
 
@@ -379,8 +363,6 @@ IDE pode fazer múltiplas chamadas em paralelo:
 ]
 ```
 
----
-
 ## Debug & Logging
 
 Para entender o que está acontecendo entre IDE e Vectora, use o MCP Inspector ou active logging estruturado. Ambos ajudam a diagnosticar problemas de integração.
@@ -414,8 +396,6 @@ vectora mcp --debug
 }
 ```
 
----
-
 ## Comparação: MCP vs Alternativas
 
 | Aspecto         | MCP                      | REST API              | LSP           |
@@ -427,8 +407,6 @@ vectora mcp --debug
 | **Suporte IDE** | Claude Code, Cursor, Zed | Todas                 | Algumas       |
 
 **Conclusão**: MCP é ideal para ferramentas que precisam de contexto persistente + discovery.
-
----
 
 ## Especificação Completa
 

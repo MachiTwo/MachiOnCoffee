@@ -17,8 +17,6 @@ tags:
 
 O **Vectora Cloud** é a plataforma SaaS que gerencia autenticação, assinaturas, painel de controle e hosting gerenciado do Vectora. Este documento descreve a arquitetura separada do core (Go) com frontend em React e backend em TypeScript/Node.js.
 
----
-
 ## Stack Técnico - Cloud vs Core
 
 | Componente              | Core Vectora            | Vectora Cloud                                 |
@@ -30,8 +28,6 @@ O **Vectora Cloud** é a plataforma SaaS que gerencia autenticação, assinatura
 | **Auth**                | JWT (local)             | OAuth 2.0 + SSO                               |
 | **Hospedagem**          | User machine + Edge     | Vercel/AWS + Node.js backend                  |
 | **Padrão**              | Sub-Agent               | SaaS Platform                                 |
-
----
 
 ## Arquitetura de Alto Nível
 
@@ -79,8 +75,6 @@ O **Vectora Cloud** é a plataforma SaaS que gerencia autenticação, assinatura
 │ - Hosted on AWS/GCP │
 └─────────────────────────────────────┘
 ```
-
----
 
 ## Fases de Implementação
 
@@ -149,8 +143,6 @@ CREATE TABLE api_keys (
     revoked_at TIMESTAMP NULL
 );
 ```
-
----
 
 ### **Fase 2: Authentication Server (OAuth 2.0 + SSO)**
 
@@ -242,8 +234,6 @@ router.post("/refresh", async (req, res) => {
 
 export default router;
 ```
-
----
 
 ### **Fase 3: API Server (REST para Gestão)**
 
@@ -337,8 +327,6 @@ router.post("/stripe/webhook", express.raw({ type: "application/json" }), async 
 
 export default router;
 ```
-
----
 
 ### **Fase 4: Website em React/Next.js**
 
@@ -452,8 +440,6 @@ export default function Dashboard() {
 }
 ```
 
----
-
 ### **Fase 5: Pricing & Stripe Integration**
 
 **Duração**: 2 semanas
@@ -475,8 +461,6 @@ export default function Dashboard() {
 | **Team**       | $99/mês | 50 GB   | 100M/mês   | 10M/mês   | Slack + Phone |
 | **Enterprise** | Custom  | Custom  | Unlimited  | Unlimited | Dedicated     |
 
----
-
 ### **Fase 6: Dashboard Admin & Analytics**
 
 **Duração**: 2 semanas
@@ -489,8 +473,6 @@ export default function Dashboard() {
 - [ ] Quota management
 - [ ] Support ticket system
 
----
-
 ### **Fase 7: Managed Vectora Instances**
 
 **Duração**: 3 semanas
@@ -502,8 +484,6 @@ export default function Dashboard() {
 - [ ] Monitoring com Prometheus
 - [ ] Backup automático
 - [ ] Disaster recovery
-
----
 
 ## Stack Final - Vectora Cloud
 
@@ -532,8 +512,6 @@ export default function Dashboard() {
 - ElastiCache Redis
 - CloudWatch (logs)
 - Route 53 (DNS)
-
----
 
 ## Métricas de Sucesso
 

@@ -17,8 +17,6 @@ tags:
 
 O Vectora utiliza um pipeline de distribuição totalmente automatizado para garantir que cada versão estável seja compilada, testada e disponibilizada para Windows, macOS e Linux via Winget, GitHub Releases e outros gerenciadores de pacotes.
 
----
-
 ## Visão Geral da Arquitetura
 
 ```mermaid
@@ -41,8 +39,6 @@ graph LR
     N --> O[PR to microsoft/winget-pkgs]
     O --> P[Disponível via winget install]
 ```
-
----
 
 ## Fases de Implementação
 
@@ -135,8 +131,6 @@ jobs:
           name: vectora-${{ runner.os }}
           path: vectora*
 ```
-
----
 
 ### **Fase 2: Configuração de GoReleaser**
 
@@ -254,8 +248,6 @@ changelog:
       order: 2
 ```
 
----
-
 ### **Fase 3: Integração com Winget**
 
 **Duração**: 1 semana
@@ -353,8 +345,6 @@ git commit -m "Submit: Vectora v${VERSION}"
 git push origin "submit/vectora-${VERSION}"
 ```
 
----
-
 ### **Fase 4: CD Workflow (GitHub Actions)**
 
 **Duração**: 1 semana
@@ -429,8 +419,6 @@ jobs:
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 ```
-
----
 
 ### **Fase 5: Instalação Local & Auto-Update**
 
@@ -532,8 +520,6 @@ func (i *Installer) copyFile(src, dst string) error {
 }
 ```
 
----
-
 ### **Fase 6: Local Build & Testing**
 
 **Duração**: 3 dias
@@ -589,8 +575,6 @@ help:
  @echo " clean - Clean build artifacts"
 ```
 
----
-
 ## Estratégia de Versionamento
 
 Vectora segue **Semantic Versioning** (SemVer):
@@ -606,8 +590,6 @@ git tag -a v2.1.0 -m "Release 2.1.0: Add context compaction"
 git push origin v2.1.0
 ```
 
----
-
 ## Checklist de Release
 
 Antes de criar uma tag:
@@ -618,8 +600,6 @@ Antes de criar uma tag:
 - [ ] Versão atualizada em `cmd/vectora/main.go`
 - [ ] Build local validado (`make snapshot`)
 - [ ] Documentação atualizada
-
----
 
 ## Métricas de Sucesso
 

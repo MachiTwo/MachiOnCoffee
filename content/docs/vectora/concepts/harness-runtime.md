@@ -21,8 +21,6 @@ Harness Runtime é o módulo de **validação e proteção** que roda imediatame
 > [!IMPORTANT]
 > Harness não tolera erros silenciosos. Se uma ferramenta falha, Harness para e reporta. Se um Guardian check falha, a execução é bloqueada.
 
----
-
 ## O Problema
 
 Agentes genéricos executam ferramentas "cegamente":
@@ -32,8 +30,6 @@ Agentes genéricos executam ferramentas "cegamente":
 - Sem medir latência ou qualidade
 
 Resultado: respostas confiantes sobre dados inválidos, brechas de segurança, e token waste.
-
----
 
 ## Arquitetura
 
@@ -65,8 +61,6 @@ Depois da ferramenta retornar:
 2. **Metrics Capture**: Latência, tokens, erros, segurança
 3. **Comparison Mode**: Compara resultado vs baseline (opcional)
 4. **Persistence**: Salva execução em AGENTS.md ou logs
-
----
 
 ## Métricas & SLA
 
@@ -103,8 +97,6 @@ Se métricas caem abaixo do SLA:
 | `security_events > 0`        | Bloqueia execução + Alert    |
 | `latency_p95 > 3000ms`       | Ativa compaction + timeout   |
 
----
-
 ## Comparação: Com vs Sem Harness
 
 A diferença fundamental é que Harness adiciona validação, observabilidade e resiliência a cada chamada de tool. O comparativo abaixo mostra os impactos práticos.
@@ -132,8 +124,6 @@ Output Validation → Metrics → Decision (use/retry/fail)
 - Retry automático em falhas transitórias
 - Reranking se precision cai
 - Circuit breaker em cascata
-
----
 
 ## Validação & Debug
 
@@ -229,8 +219,6 @@ Logs incluem:
 - Pre-execution: Guardian checks, preconditions
 - Execution: Timeouts, retries, chunks
 - Post-execution: Validation, metrics, decisions
-
----
 
 ## Configuração
 

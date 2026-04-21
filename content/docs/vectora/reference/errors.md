@@ -140,7 +140,7 @@ vectora auth token create
 # 4. Reinicie Claude Code
 ```
 
-## Relatando Bugs
+## Reportar um Bug Não Documentado
 
 Se vê um erro não documentado:
 

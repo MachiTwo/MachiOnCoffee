@@ -34,8 +34,6 @@ sidebar:
 mesma coisa que entregar **contexto governado**. O Vectora é um Sub-Agent porque RAG de qualidade exige interceptação,
 validação e orquestração que ferramentas passivas não podem fornecer. {{< /callout >}}
 
----
-
 ## A Pergunta Incômoda
 
 Você provavelmente já viu o **Model Context Protocol (MCP)** funcionando: Claude lê arquivos, busca na web, executa
@@ -48,8 +46,6 @@ Mas aqui está a pergunta que poucos fazem:
 A resposta curta: **porque acesso não é entendimento.**
 
 A resposta longa é o que você vai ler abaixo.
-
----
 
 ## O Que MCP Faz (E Seus Limites)
 
@@ -82,8 +78,6 @@ backend, MCP permite que qualquer agent use suas ferramentas.
 | **Validação de qualidade**    | Sem interceptação interna, não há métricas de `tool_accuracy` ou `retrieval_precision` |
 | **Failover entre providers**  | Agente principal lida com erro de cada API individualmente                             |
 
----
-
 ## Por Que Vectora é um Sub-Agent Completo
 
 ### A Decisão Arquitetural
@@ -109,8 +103,6 @@ O **Harness** é a camada crítica que:
 - Coleta métricas de precisão e segurança em tempo real
 
 Nenhuma dessas responsabilidades pode ser delegada ao agente principal sem perder controle.
-
----
 
 ## Parte 1: O Desafio Técnico dos Embeddings
 
@@ -153,8 +145,6 @@ Agente Principal → Vectora (Camada de Interpretação) → Contexto Estruturad
                - Como estruturar para o LLM?
 ```text
 
----
-
 ## Parte 2: O Desafio Estratégico do Controle
 
 ## O Que Você Perde Sem Sub-Agent
@@ -191,8 +181,6 @@ de runtime:
 ```text
 
 > **Prompts são sugestões. Código é lei.** Vectora escolheu código para segurança, validação e governança.
-
----
 
 ## Comparação Direta: Cenário Real
 
@@ -251,8 +239,6 @@ de runtime:
 - Segurança por código (Guardian hard-coded)
 - Isolamento por namespace (RBAC real)
 - Prova de valor: `--compare vectora:on,off`
-
----
 
 ## Arquitetura: Camadas Exclusivas do Sub-Agent
 
@@ -324,8 +310,6 @@ export async function file_read(args: { path: string }): Promise<string> {
 > - MCP tools = funções passivas
 > - Vectora Sub-Agent = sistema ativo de governança
 
----
-
 ## Impacto para Você
 
 ## Desenvolvedores
@@ -355,8 +339,6 @@ export async function file_read(args: { path: string }): Promise<string> {
 | **Validação**          | Harness como serviço — valide seu próprio agente                          |
 | **Foco**               | Você constrói a experiência; Vectora cuida do contexto                    |
 
----
-
 ## E Se Eu Quiser Apenas MCP Tools?
 
 Você **pode** usar Vectora em modo simplificado:
@@ -381,8 +363,6 @@ vectora-agent mcp-serve --mode tools-only
 
 > **Recomendação**: Comece com o Sub-Agent completo. A maioria dos usuários descobre que as camadas de controle são
 > justamente o que faltava para confiar em produção.
-
----
 
 ## Conclusão
 
