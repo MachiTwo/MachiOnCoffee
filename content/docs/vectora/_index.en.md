@@ -23,7 +23,7 @@ tags:
 {{< lang-toggle >}}
 Traditional AI agents operate in **fragmented contexts**, generating hallucinations, wasting tokens, and accidentally exposing secrets. **Vectora** solves this not by being "another chat", but as a **[Tier 2 Sub-Agent](/concepts/sub-agents/)** designed exclusively for software engineering: it intercepts calls via [MCP Protocol](/protocols/mcp/), validates security in real-time with [Guardian](/security/guardian/), orchestrates multi-hop retrieval via [Context Engine](/concepts/context-engine/), and delivers structured context to your principal agent (Claude Code, Gemini CLI, Cursor, etc.).
 
-> [!IMPORTANT] > **Core Formula**: `Functional Agent = Model (Gemini 3 Flash) + [Harness Runtime](/concepts/harness-runtime/) + Governed Context (Voyage 4 + MongoDB Atlas)`
+> [!IMPORTANT] **Core Formula**: `Functional Agent = Model (Gemini 3 Flash) + [Harness Runtime](/concepts/harness-runtime/) + Governed Context (Voyage 4 + MongoDB Atlas)`
 
 ## The Problem Vectora Solves
 
@@ -73,7 +73,7 @@ Vectora **is not provider-agnostic**. We operate with models rigorously calibrat
 | **Vector DB + Metadata** | `MongoDB Atlas`        | Unified backend (vectors + docs + state + audit), scalable, no ETL       | [MongoDB Atlas](/backend/mongodb-atlas/)         |
 | **State Persistence**    | Sessions + `AGENTS.md` | Working memory between MCP calls, continuity for long-horizon context    | [State Persistence](/backend/state-persistence/) |
 
-> [!WARNING] > **Vectora Cloud Only**: Vectora is a 100% cloud-based solution optimized for the Gemini + Voyage stack. **We do not support local models (Ollama, LlamaCpp, etc.)** or other generic providers to ensure engine accuracy.
+> [!WARNING] **Vectora Cloud Only**: Vectora is a 100% cloud-based solution optimized for the Gemini + Voyage stack. **We do not support local models (Ollama, LlamaCpp, etc.)** or other generic providers to ensure engine accuracy.
 
 ## Security, Governance & BYOK
 
@@ -98,7 +98,7 @@ Vectora operates with a **Digital Sovereignty First** model, offering **BYOK (Br
 | **Team**       | Custom    | Custom                    | Unlimited (Plus) or BYOK | Compliance Policy                          | [Team](/plans/team/)         |
 | **Enterprise** | Custom    | Unlimited (VPC/Dedicated) | Per contract             | Custom policy                              | [Overview](/plans/_index.md) |
 
-> [!NOTE] > **Retention Rules**: Free accounts inactive for 30 days have their vector index automatically deleted. Metadata is preserved for +90 days for export via `vectora export`. Downgrades notify of limit reduction and grant 7 days for backup. Details in [Retention Policy](/plans/retention/).
+> [!NOTE] **Retention Rules**: Free accounts inactive for 30 days have their vector index automatically deleted. Metadata is preserved for +90 days for export via `vectora export`. Downgrades notify of limit reduction and grant 7 days for backup. Details in [Retention Policy](/plans/retention/).
 
 ## Operation Flow (MCP-First)
 

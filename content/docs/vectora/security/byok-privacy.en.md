@@ -20,8 +20,7 @@ tags:
 
 Vectora is **100% BYOK** (Bring Your Own Keys). You control your API keys. Your data is NEVER saved on Vectora infrastructure. Complete privacy.
 
-> [!IMPORTANT]
-> BYOK means: You have full control. Vectora never sees your raw data. Only processed results leave your servers.
+> [!IMPORTANT] BYOK means: You have full control. Vectora never sees your raw data. Only processed results leave your servers.
 
 ## Data Model
 

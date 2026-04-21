@@ -19,7 +19,7 @@ Vectora's authentication layer ensures that only authorized users and services c
 
 ## Authentication and Authorization in Vectora
 
-> [!IMPORTANT] > **Security in the application, not the database**: Vectora implements RBAC, namespace validation, and sanitization in the application layer (`Guardian`, `RBAC Logic`). The backend (MongoDB Atlas) stores data; the application decides who can access what.
+> [!IMPORTANT] **Security in the application, not the database**: Vectora implements RBAC, namespace validation, and sanitization in the application layer (`Guardian`, `RBAC Logic`). The backend (MongoDB Atlas) stores data; the application decides who can access what.
 
 ## Topics in this section
 
@@ -65,7 +65,7 @@ graph LR
 **Monitor audit logs**: Use `audit_logs` to detect anomalous access patterns.
 **Never expose keys in the client**: API Keys belong to the backend or the principal agent, never the browser.
 
-> [!WARNING] > **Hard-coded blocklist**: Files like `.env`, `.key`, and `.pem` are blocked by the `Guardian` before any processing — regardless of authentication. Security by code, not by configuration.
+> [!WARNING] **Hard-coded blocklist**: Files like `.env`, `.key`, and `.pem` are blocked by the `Guardian` before any processing — regardless of authentication. Security by code, not by configuration.
 
 ## Integration with Your System
 

@@ -19,8 +19,7 @@ tags:
 
 **APP PRÓPRIO**: Vectora oferece uma extensão nativa para VS Code com UI integrada (painel sidebar, commands, inline hover) - não precisa de MCP. Desenvolvimento totalmente customizado para VS Code.
 
-> [!IMPORTANT]
-> VS Code Extension (app próprio) vs MCP Protocol (genérico para múltiplas IDEs). Use extension se estiver em VS Code.
+> [!IMPORTANT] VS Code Extension (app próprio) vs MCP Protocol (genérico para múltiplas IDEs). Use extension se estiver em VS Code.
 
 ## Instalação
 

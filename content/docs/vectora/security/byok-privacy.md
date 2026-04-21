@@ -20,8 +20,7 @@ tags:
 
 Vectora é **100% BYOK** (Bring Your Own Keys). Você controla suas chaves de API. Seus dados NUNCA são salvos na infraestrutura Vectora. Privacidade completa.
 
-> [!IMPORTANT]
-> BYOK significa: Você tem controle total. Vectora nunca vê seus dados brutos. Apenas resultados processados saem de seus servidores.
+> [!IMPORTANT] BYOK significa: Você tem controle total. Vectora nunca vê seus dados brutos. Apenas resultados processados saem de seus servidores.
 
 ## Modelo de Dados
 

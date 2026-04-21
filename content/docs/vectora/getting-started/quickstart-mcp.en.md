@@ -17,8 +17,7 @@ tags:
 {{< lang-toggle >}}
 This guide allows you to integrate Vectora with Claude Desktop via MCP in less than 5 minutes.
 
-> [!IMPORTANT]
-> Prerequisites: Vectora installed globally (`vectora --version`) and Claude Desktop installed ([download](https://claude.ai/download)).
+> [!IMPORTANT] Prerequisites: Vectora installed globally (`vectora --version`) and Claude Desktop installed ([download](https://claude.ai/download)).
 
 ## Step 1: Locate the Configuration File
 

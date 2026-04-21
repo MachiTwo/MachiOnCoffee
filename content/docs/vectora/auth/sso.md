@@ -16,8 +16,7 @@ O **Kaffyn SSO** é a camada de identidade centralizada que conecta todos os com
 
 ## Identidade Unificada (Kaffyn SSO)
 
-> [!IMPORTANT]
-> O Kaffyn SSO é uma oferta **gerenciada (SaaS)**. Ele é exclusivo para os planos Pro, Team e Enterprise. No plano **Free**, a autenticação é local e isolada por dispositivo via `vectora auth login`.
+> [!IMPORTANT] O Kaffyn SSO é uma oferta **gerenciada (SaaS)**. Ele é exclusivo para os planos Pro, Team e Enterprise. No plano **Free**, a autenticação é local e isolada por dispositivo via `vectora auth login`.
 
 ## Arquitetura de Identidade
 
@@ -74,8 +73,7 @@ Para autenticar seu ambiente local:
 3. Após login bem-sucedido (GitHub, Google ou E-mail), um token JWT é gerado.
 4. O Vectora armazena esse token de forma segura e o utiliza para assinar todas as chamadas MCP subsequentes.
 
-> [!TIP]
-> O token JWT tem renovação automática. Você só precisará fazer login manualmente se a sessão for revogada ou após longos períodos de inatividade.
+> [!TIP] O token JWT tem renovação automática. Você só precisará fazer login manualmente se a sessão for revogada ou após longos períodos de inatividade.
 
 ## Perguntas Frequentes
 

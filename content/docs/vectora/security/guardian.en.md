@@ -18,8 +18,7 @@ tags:
 {{< section-toggle >}}
 The **Guardian** is Vectora's governance engine, compiled directly into the Go binary. It acts as an application firewall, inspecting every command and path before execution.
 
-> [!IMPORTANT]
-> Guardian is not a firewall - it's a gatekeeper. A Guardian violation is BLOCKED before reaching the filesystem, with no exceptions.
+> [!IMPORTANT] Guardian is not a firewall - it's a gatekeeper. A Guardian violation is BLOCKED before reaching the filesystem, with no exceptions.
 
 ## Architecture
 

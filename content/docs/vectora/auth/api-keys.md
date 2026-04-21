@@ -17,8 +17,7 @@ As Chaves de API são credenciais programáticas que permitem acesso seguro e li
 
 ## Chaves de API do Vectora
 
-> [!IMPORTANT]
-> As Chaves de API estão **disponíveis apenas nos planos Pro, Team e Enterprise**. Usuários do plano Free/Local autenticam-se via `vectora auth login` (JWT interativo).
+> [!IMPORTANT] As Chaves de API estão **disponíveis apenas nos planos Pro, Team e Enterprise**. Usuários do plano Free/Local autenticam-se via `vectora auth login` (JWT interativo).
 
 ## Capacidades Principais
 
@@ -39,8 +38,7 @@ As Chaves de API são credenciais programáticas que permitem acesso seguro e li
 | `write`  | `file_write`, `file_edit`, `context_ingest`, `memory_save`   | Bots de indexação em CI/CD, agentes de refatoração automática   |
 | `admin`  | Gestão total de namespace, rotação de chaves, quota          | Automação de plataforma, gestão de times, infraestrutura        |
 
-> [!WARNING]
-> As Chaves de API operam **fora da sessão SSO interativa**. Elas são vinculadas a um namespace específico e à quota do plano. Exceder a quota dispara o fallback para suas [credenciais BYOK](/providers/gemini/) ou retorna `429 Too Many Requests`.
+> [!WARNING] As Chaves de API operam **fora da sessão SSO interativa**. Elas são vinculadas a um namespace específico e à quota do plano. Exceder a quota dispara o fallback para suas [credenciais BYOK](/providers/gemini/) ou retorna `429 Too Many Requests`.
 
 ## Exemplos de Integração
 
@@ -98,8 +96,7 @@ await client.context.ingest("./src");
 **Logs de Auditoria**: Todo uso de chave de API é registrado no seu [Audit Trail](/security/rbac/) com timestamp, IP e ferramenta executada.
 **Validação de Escopo**: O Vectora impõe escopo na camada [Guardian](/security/guardian/) — chaves não ignoram bloqueios hard-coded.
 
-> [!TIP]
-> Combine Chaves de API com [SSO](/auth/sso/) para usuários humanos e [Trust Folders](/security/trust-folder/) para isolamento de filesystem. Chaves de API garantem acesso lógico; políticas de segurança impõem limites de runtime.
+> [!TIP] Combine Chaves de API com [SSO](/auth/sso/) para usuários humanos e [Trust Folders](/security/trust-folder/) para isolamento de filesystem. Chaves de API garantem acesso lógico; políticas de segurança impõem limites de runtime.
 
 ## Gestão do Ciclo de Vida das Chaves
 

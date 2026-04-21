@@ -18,8 +18,7 @@ tags:
 
 Este é um **dicionário completo** de todas as ferramentas MCP oferecidas pelo Vectora. Use-as via Claude Code, Cursor, VS Code ou ChatGPT para interagir com seu codebase.
 
-> [!IMPORTANT]
-> Todas as tools respeitam sua **Trust Folder** e **Namespace**. Nenhum arquivo fora desses limites é acessável.
+> [!IMPORTANT] Todas as tools respeitam sua **Trust Folder** e **Namespace**. Nenhum arquivo fora desses limites é acessável.
 
 ## Categorias
 

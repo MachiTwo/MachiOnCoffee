@@ -18,8 +18,7 @@ tags:
 {{< lang-toggle >}}
 The Context Engine is the heart of Vectora's orchestration. It decides **what, how, and when** to fetch context from your codebase, avoiding noise and overfetch.
 
-> [!IMPORTANT]
-> Context Engine is not just search. It is an intelligent pipeline: **Embed → Search → Rerank → Compose → Validate**.
+> [!IMPORTANT] Context Engine is not just search. It is an intelligent pipeline: **Embed → Search → Rerank → Compose → Validate**.
 
 ## The Problem
 

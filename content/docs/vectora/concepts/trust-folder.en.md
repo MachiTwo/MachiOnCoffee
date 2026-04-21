@@ -18,8 +18,7 @@ tags:
 {{< lang-toggle >}}
 The Trust Folder is the **security perimeter** that limits which files Vectora can index, read, and process. It acts as a "path sandbox" against reading sensitive files.
 
-> [!IMPORTANT]
-> The Trust Folder is not optional. Without it, Vectora could index .env files, private keys, and user data. With the Trust Folder, only files within the perimeter are accessible.
+> [!IMPORTANT] The Trust Folder is not optional. Without it, Vectora could index .env files, private keys, and user data. With the Trust Folder, only files within the perimeter are accessible.
 
 ## The Problem
 

@@ -19,8 +19,7 @@ tags:
 
 **VECTORA CLOUD INTEGRATION**: Vectora functions as a **Custom GPT Plugin** that extends ChatGPT with codebase context search. The plugin connects directly to **Vectora Cloud**, which runs Vectora Core internally with no local server configuration needed.
 
-> [!IMPORTANT]
-> ChatGPT Custom GPT Plugin (via Vectora Cloud) vs MCP Protocol (local IDE). Choose based on your preference: Cloud for ChatGPT, MCP for Claude Code/Cursor.
+> [!IMPORTANT] ChatGPT Custom GPT Plugin (via Vectora Cloud) vs MCP Protocol (local IDE). Choose based on your preference: Cloud for ChatGPT, MCP for Claude Code/Cursor.
 
 ## Installation
 

@@ -16,8 +16,7 @@ tags:
 
 Vectora offers a **complete CLI interface** for configuration, indexing, and debugging. Use it for automation, CI/CD, or local development.
 
-> [!TIP]
-> Use `vectora --help` to see all commands, or `vectora [command] --help` for specific details.
+> [!TIP] Use `vectora --help` to see all commands, or `vectora [command] --help` for specific details.
 
 ## General Structure
 

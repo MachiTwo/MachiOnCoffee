@@ -18,8 +18,7 @@ tags:
 {{< lang-toggle >}}
 Harness Runtime é o módulo de **validação e proteção** que roda imediatamente antes e depois da execução de ferramentas. Ele captura falhas silenciosas, verifica segurança e mede qualidade.
 
-> [!IMPORTANT]
-> Harness não tolera erros silenciosos. Se uma ferramenta falha, Harness para e reporta. Se um Guardian check falha, a execução é bloqueada.
+> [!IMPORTANT] Harness não tolera erros silenciosos. Se uma ferramenta falha, Harness para e reporta. Se um Guardian check falha, a execução é bloqueada.
 
 ## O Problema
 

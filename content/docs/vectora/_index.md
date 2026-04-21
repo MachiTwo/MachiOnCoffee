@@ -23,7 +23,7 @@ tags:
 {{< lang-toggle >}}
 Agentes de IA tradicionais operam em **contextos fragmentados**, gerando alucinações, desperdício de tokens e exposição acidental de segredos. O **Vectora** resolve isso não sendo "mais um chat", mas sim um **[Sub-Agent Tier 2](/concepts/sub-agents/)** projetado exclusivamente para engenharia de software: ele intercepta chamadas via [Protocolo MCP](/protocols/mcp/), valida segurança em tempo real com o [Guardian](/security/guardian/), orquestra recuperação multi-hop via [Context Engine](/concepts/context-engine/) e entrega contexto estruturado ao seu agent principal (Claude Code, Gemini CLI, Cursor, etc.).
 
-> [!IMPORTANT] > **Fórmula Central**:
+> [!IMPORTANT] **Fórmula Central**:
 > `Agente Funcional = Modelo (Gemini 3 Flash) + [Harness Runtime](/concepts/harness-runtime/) + Contexto Governado (Voyage 4 + MongoDB Atlas)`
 
 ## O Problema que Vectora Resolve
@@ -74,7 +74,7 @@ Vectora **não é provider-agnóstico**. Operamos com modelos rigorosamente cali
 | **Vector DB + Metadata** | `MongoDB Atlas`        | Backend unificado (vetores + docs + estado + audit), escalável, sem ETL     | [MongoDB Atlas](/backend/mongodb-atlas/)         |
 | **State Persistence**    | Sessions + `AGENTS.md` | Working memory entre chamadas MCP, continuidade de contexto longo           | [State Persistence](/backend/state-persistence/) |
 
-> [!WARNING] > **Vectora Cloud Only**: O Vectora é uma solução 100% baseada em nuvem otimizada para a stack Gemini + Voyage. **Não oferecemos suporte para modelos locais (Ollama, LlamaCpp, etc.)** ou outros provedores genéricos para garantir a precisão do engine.
+> [!WARNING] **Vectora Cloud Only**: O Vectora é uma solução 100% baseada em nuvem otimizada para a stack Gemini + Voyage. **Não oferecemos suporte para modelos locais (Ollama, LlamaCpp, etc.)** ou outros provedores genéricos para garantir a precisão do engine.
 
 ## Segurança, Governança & BYOK
 
@@ -99,7 +99,7 @@ Vectora opera com modelo **Digital Sovereignty First**, oferecendo **BYOK (Bring
 | **Team**       | Custom  | Custom                    | Unlimited (Plus) ou BYOK | Política de Compliance                            | [Team](/plans/team/)         |
 | **Enterprise** | Custom  | Ilimitado (VPC/Dedicated) | Sob contrato             | Política custom                                   | [Overview](/plans/_index.md) |
 
-> [!NOTE] > **Regras de Retenção**: Contas Free inativas por 30 dias têm o índice vetorial excluído automaticamente. Metadados são preservados por +90 dias para exportação via `vectora export`. Downgrades notificam redução de limites e concedem 7 dias para backup. Detalhes em [Política de Retenção](/plans/retention/).
+> [!NOTE] **Regras de Retenção**: Contas Free inativas por 30 dias têm o índice vetorial excluído automaticamente. Metadados são preservados por +90 dias para exportação via `vectora export`. Downgrades notificam redução de limites e concedem 7 dias para backup. Detalhes em [Política de Retenção](/plans/retention/).
 
 ## Fluxo de Operação (MCP-First)
 

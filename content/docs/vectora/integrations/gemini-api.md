@@ -19,8 +19,7 @@ tags:
 
 **APP PRÓPRIO**: Vectora oferece integração profunda com **Gemini 3 Flash** via API REST própria. Use Gemini como "motor de raciocínio" sobre código - análise, review, geração de código com contexto do Vectora.
 
-> [!IMPORTANT]
-> Gemini API (sistema próprio) vs MCP Protocol ou Extension. Escolha conforme seu workflow: análise de código, code review, documentação automática.
+> [!IMPORTANT] Gemini API (sistema próprio) vs MCP Protocol ou Extension. Escolha conforme seu workflow: análise de código, code review, documentação automática.
 
 ## Configuração Básica
 

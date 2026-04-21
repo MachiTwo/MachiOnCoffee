@@ -17,8 +17,7 @@ tags:
 {{< lang-toggle >}}
 Namespaces são **isoladores lógicos** de índices vetoriais dentro de um único cluster. Cada projeto, ambiente ou contexto roda em seu próprio namespace, evitando contaminação de resultados.
 
-> [!IMPORTANT]
-> Um namespace é como um "banco de dados virtual" dentro do Qdrant. Buscas em um namespace NUNCA retornam chunks de outro namespace.
+> [!IMPORTANT] Um namespace é como um "banco de dados virtual" dentro do Qdrant. Buscas em um namespace NUNCA retornam chunks de outro namespace.
 
 ## O Problema
 

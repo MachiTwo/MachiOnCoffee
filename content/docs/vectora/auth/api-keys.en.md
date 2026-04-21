@@ -13,8 +13,7 @@ API Keys are programmatic credentials that enable secure, scoped access to the V
 
 ## Vectora API Keys
 
-> [!IMPORTANT]
-> API Keys are **only available on Pro, Team, and Enterprise plans**. Free/Local users authenticate via `vectora auth login` (interactive JWT).
+> [!IMPORTANT] API Keys are **only available on Pro, Team, and Enterprise plans**. Free/Local users authenticate via `vectora auth login` (interactive JWT).
 
 ## Key Capabilities
 
@@ -35,8 +34,7 @@ API Keys are programmatic credentials that enable secure, scoped access to the V
 | `write`  | `file_write`, `file_edit`, `context_ingest`, `memory_save` | CI/CD indexing bots, automated refactoring agents            |
 | `admin`  | Full namespace management, key rotation, quota override    | Platform automation, team management, infrastructure scripts |
 
-> [!WARNING]
-> API Keys operate **outside the interactive SSO session**. They are bound to a specific namespace and plan quota. Exceeding quota triggers fallback to your configured [BYOK credentials](/providers/gemini/) or returns `429 Too Many Requests`.
+> [!WARNING] API Keys operate **outside the interactive SSO session**. They are bound to a specific namespace and plan quota. Exceeding quota triggers fallback to your configured [BYOK credentials](/providers/gemini/) or returns `429 Too Many Requests`.
 
 ## Integration Examples
 
@@ -94,8 +92,7 @@ await client.context.ingest("./src");
 **Audit Logging**: All API key usage is logged in your [Audit Trail](/security/rbac/) with timestamp, IP, and executed tool.
 **Scope Validation**: Vectora enforces scope at the [Guardian](/security/guardian/) layer — keys cannot bypass hard-coded blocklists.
 
-> [!TIP]
-> Combine API Keys with [SSO](/auth/sso/) for human users and [Trust Folders](/security/trust-folder/) for filesystem isolation. API Keys grant logical access; security policies enforce runtime boundaries.
+> [!TIP] Combine API Keys with [SSO](/auth/sso/) for human users and [Trust Folders](/security/trust-folder/) for filesystem isolation. API Keys grant logical access; security policies enforce runtime boundaries.
 
 ## Key Management Lifecycle
 

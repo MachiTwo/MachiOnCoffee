@@ -16,8 +16,7 @@ tags:
 
 ## Unified Identity (Kaffyn SSO)
 
-> [!IMPORTANT]
-> Kaffyn SSO is a **managed (SaaS)** offering. It is exclusive to Pro, Team, and Enterprise plans. In the **Free** plan, authentication is local and isolated per device via `vectora auth login`.
+> [!IMPORTANT] Kaffyn SSO is a **managed (SaaS)** offering. It is exclusive to Pro, Team, and Enterprise plans. In the **Free** plan, authentication is local and isolated per device via `vectora auth login`.
 
 ## Identity Architecture
 
@@ -74,8 +73,7 @@ To authenticate your local environment:
 3. After successful login (GitHub, Google, or Email), a JWT token is generated.
 4. Vectora stores this token securely and use it to sign all subsequent MCP calls.
 
-> [!TIP]
-> The JWT token has automatic renewal. You will only need to log in manually if the session is revoked or after long periods of inactivity.
+> [!TIP] The JWT token has automatic renewal. You will only need to log in manually if the session is revoked or after long periods of inactivity.
 
 ## Frequently Asked Questions
 
