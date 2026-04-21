@@ -74,7 +74,9 @@ Vectora **não é provider-agnóstico**. Operamos com modelos rigorosamente cali
 | **Vector DB + Metadata** | `MongoDB Atlas`        | Backend unificado (vetores + docs + estado + audit), escalável, sem ETL     | [MongoDB Atlas](/backend/mongodb-atlas/)         |
 | **State Persistence**    | Sessions + `AGENTS.md` | Working memory entre chamadas MCP, continuidade de contexto longo           | [State Persistence](/backend/state-persistence/) |
 
-> [!WARNING] **Vectora Cloud Only**: O Vectora é uma solução 100% baseada em nuvem otimizada para a stack Gemini + Voyage. **Não oferecemos suporte para modelos locais (Ollama, LlamaCpp, etc.)** ou outros provedores genéricos para garantir a precisão do engine.
+> [!WARNING] **Vectora Cloud Only**:
+> O Vectora é uma solução 100% baseada em nuvem otimizada para a stack Gemini + Voyage.
+> **Não oferecemos suporte para modelos locais (Ollama, LlamaCpp, etc.)** ou outros provedores genéricos para garantir a precisão do engine.
 
 ## Segurança, Governança & BYOK
 
