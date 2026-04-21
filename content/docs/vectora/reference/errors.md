@@ -14,7 +14,7 @@ tags:
 ---
 
 {{< lang-toggle >}}
-
+{{< section-toggle >}}
 Referência completa de códigos de erro: códigos HTTP, mensagens, causas raízes e soluções.
 
 ## 400 - Bad Request
@@ -93,6 +93,10 @@ Erro interno do Vectora ou dependências.
 
 ## Habilitar Debug Mode
 
+Para problemas complexos, o modo de depuração fornece uma visão detalhada das entranhas do sistema, incluindo logs de rede e payloads brutos de API.
+
+## Exemplo: Troubleshoot Erro Comum
+
 ```bash
 # Debug mode mostra stack traces e verbose logging
 VECTORA_DEBUG=true vectora search "query"
@@ -104,7 +108,9 @@ vectora --debug search "query"
 vectora config set DEBUG true
 ```
 
-## Exemplo: Troubleshoot Erro Comum
+Para facilitar a resolução, mantenha seu ambiente atualizado e verifique as configurações de rede antes de realizar procedimentos manuais de troca de tokens.
+
+## Relatando Bugs
 
 **Cenário**: `INVALID_TOKEN` ao usar MCP em Claude Code
 

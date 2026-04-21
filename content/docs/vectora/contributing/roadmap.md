@@ -13,12 +13,13 @@ tags:
 ---
 
 {{< lang-toggle >}}
+{{< section-toggle >}}
 
 Roadmap público de Vectora para 2026. Cada item tem status, impacto estimado, e época target.
 
 ## 2026 Roadmap
 
-### Q2 2026 (Abril - Junho)
+## Q2 2026 (Abril - Junho)
 
 | Feature                            | Status      | Impacto | Owner        |
 | ---------------------------------- | ----------- | ------- | ------------ |
@@ -27,7 +28,7 @@ Roadmap público de Vectora para 2026. Cada item tem status, impacto estimado, e
 | Ollama integration                 | Planned     |         | Community    |
 | WebSocket streaming                | Planned     |         | @performance |
 
-### Q3 2026 (Julho - Setembro)
+## Q3 2026 (Julho - Setembro)
 
 | Feature                     | Status     | Impacto | Owner     |
 | --------------------------- | ---------- | ------- | --------- |
@@ -36,7 +37,7 @@ Roadmap público de Vectora para 2026. Cada item tem status, impacto estimado, e
 | Custom indexing strategies  | Discussion |         | Community |
 | GraphQL API                 | Discussion |         | @api      |
 
-### Q4 2026 (Outubro - Dezembro)
+## Q4 2026 (Outubro - Dezembro)
 
 | Feature             | Status     | Impacto | Owner     |
 | ------------------- | ---------- | ------- | --------- |

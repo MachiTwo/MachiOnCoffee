@@ -14,9 +14,7 @@ tags:
 ---
 
 {{< lang-toggle >}}
-
-## Visão Geral
-
+{{< section-toggle >}}
 Vectora é uma **arquitetura modular** em camadas que combina embedding (Voyage), search (Qdrant), reranking (Voyage), e reasoning (Gemini) para fornecer contexto inteligente e governado.
 
 ```text
@@ -70,7 +68,9 @@ Vectora é uma **arquitetura modular** em camadas que combina embedding (Voyage)
 
 ## Camadas
 
-### 1. Integration Layer (IDEs)
+A arquitetura do Vectora é organizada em quatro camadas principais que garantem desde a interface com o usuário até a persistência segura dos dados.
+
+## 1. Integration Layer (IDEs)
 
 Onde o usuário interage com Vectora:
 
@@ -80,9 +80,9 @@ Onde o usuário interage com Vectora:
 - **ChatGPT**: Custom GPT Plugin
 - **CLI**: Comandos diretos
 
-### 2. MCP Server Layer
+## 2. MCP Server Layer
 
-Interface de protocolo Model Context Protocol (OpenAI standard).
+Esta camada atua como o cérebro da comunicação, seguindo o padrão aberto do Model Context Protocol para garantir interoperabilidade total.
 
 ```typescript
 // Exemplo de tool MCP
@@ -94,9 +94,11 @@ tool: {
 
 Converte requisições em chamadas ao Context Engine.
 
-### 3. Core Logic Layer
+## 3. Core Logic Layer
 
-#### Context Engine
+Aqui reside a inteligência do sistema, onde o contexto é processado, validado e governado antes de chegar ao executor de ferramentas.
+
+## Context Engine
 
 Orquestra busca inteligente:
 
@@ -106,7 +108,7 @@ Orquestra busca inteligente:
 4. **Compaction**: Reduz tamanho mantendo contexto (head/tail)
 5. **Validation**: Harness valida output
 
-#### Harness Runtime
+## Harness Runtime
 
 Proteção e validação:
 
@@ -114,7 +116,7 @@ Proteção e validação:
 - **Execution**: Wrapped tool call com timeout/retry
 - **Post-execution**: Validação, métricas, comparison mode
 
-#### Guardian Blocklist
+## Guardian Blocklist
 
 Segurança hard-coded:
 
@@ -123,7 +125,7 @@ Segurança hard-coded:
 - **Pattern Matching**: Regex rules para bloqueio
 - **Audit Logging**: Todas as tentativas registradas
 
-#### RBAC (Role-Based Access Control)
+## RBAC (Role-Based Access Control)
 
 5 níveis hierárquicos:
 
@@ -142,9 +144,11 @@ Owner
 
 15 permissões granulares: `search`, `index`, `delete`, `configure`, etc.
 
-### 4. Storage Layer
+## 4. Storage Layer
 
-#### Qdrant (Vector Database)
+A camada de armazenamento garante que os índices vetoriais e metadados sejam persistidos com segurança e eficiência em nível local ou distribuído.
+
+## Qdrant (Vector Database)
 
 - **Collections**: Um por namespace
 - **HNSW**: Hierarchical Navigable Small World
@@ -162,7 +166,7 @@ vectors:
     ef_search: 150
 ```
 
-#### Local Storage
+## Local Storage
 
 - **Indexing State**: `.vectora/` (cache)
 - **Configuration**: `vectora.config.yaml`
@@ -173,7 +177,9 @@ vectors:
 
 ## Data Flow
 
-### Busca Semântica
+O fluxo de dados no Vectora é otimizado para latência ultra-baixa, garantindo que o contexto seja recuperado e validado em milissegundos.
+
+## Busca Semântica
 
 ```text
 1. User Query
@@ -204,7 +210,7 @@ vectors:
    Claude/Cursor/VS Code recebem chunks
 ```
 
-### Rate Limiting & SLA
+## Rate Limiting & SLA
 
 ```text
 Request → Guardian (check blocklist) →
@@ -298,13 +304,13 @@ rbac:
 
 ## Escalabilidade
 
-### Horizontal
+## Horizontal
 
 - **Múltiplos clusters Qdrant**: Para isolamento físico
 - **Load balancing**: Entre servidores MCP
 - **Read replicas**: Para busca em larga escala
 
-### Vertical
+## Vertical
 
 - **Quantização**: Reduz tamanho em 4x
 - **Compaction**: Reduz output em 50%
@@ -314,7 +320,7 @@ rbac:
 
 ## Segurança
 
-### Defense in Depth
+## Defense in Depth
 
 ```text
 1. Trust Folder (path isolation)
@@ -325,7 +331,7 @@ rbac:
 6. Encryption (API keys, tokens)
 ```
 
-### Data Privacy
+## Data Privacy
 
 - BYOK (Bring Your Own Key): Você controla as chaves
 - Local processing: Embeddings são calculados local

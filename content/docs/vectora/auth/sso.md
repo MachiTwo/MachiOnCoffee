@@ -12,17 +12,16 @@ tags:
 ---
 
 {{< lang-toggle >}}
+O **Kaffyn SSO** é a camada de identidade centralizada que conecta todos os componentes do ecossistema Vectora. Ele garante que seu contexto, permissões e quotas sejam consistentes em qualquer ambiente, seja na IDE do trabalho ou no seu notebook pessoal.
 
 ## Identidade Unificada (Kaffyn SSO)
-
-O **Kaffyn SSO** é a camada de identidade centralizada que conecta todos os componentes do ecossistema Vectora. Ele garante que seu contexto, permissões e quotas sejam consistentes em qualquer ambiente, seja na IDE do trabalho ou no seu notebook pessoal.
 
 > [!IMPORTANT]
 > O Kaffyn SSO é uma oferta **gerenciada (SaaS)**. Ele é exclusivo para os planos Pro, Team e Enterprise. No plano **Free**, a autenticação é local e isolada por dispositivo via `vectora auth login`.
 
 ---
 
-### Arquitetura de Identidade
+## Arquitetura de Identidade
 
 Diferente de sistemas tradicionais, a identidade no Vectora é desacoplada do armazenamento de dados para garantir máxima segurança:
 
@@ -50,7 +49,7 @@ O SSO atua como o ponto de decisão para:
 
 ---
 
-### Funcionalidades Principais
+## Funcionalidades Principais
 
 | Recurso                  | Descrição                                                 | Disponibilidade   |
 | ------------------------ | --------------------------------------------------------- | ----------------- |
@@ -62,7 +61,7 @@ O SSO atua como o ponto de decisão para:
 
 ---
 
-### Segurança: Arquitetura "Air Gap"
+## Segurança: Arquitetura "Air Gap"
 
 Para proteger sua privacidade, os dados de identidade (e-mail, perfis) são mantidos em uma infraestrutura isolada do seu conteúdo de código (embeddings e metadados). Mesmo em caso de comprometimento de um cluster de processamento, suas credenciais de pagamento e identidade permanecem protegidas na camada global da Kaffyn.
 
@@ -74,7 +73,7 @@ Para proteger sua privacidade, os dados de identidade (e-mail, perfis) são mant
 
 ---
 
-### Fluxo de Login do Agente
+## Fluxo de Login do Agente
 
 Para autenticar seu ambiente local:
 
@@ -88,7 +87,7 @@ Para autenticar seu ambiente local:
 
 ---
 
-### Perguntas Frequentes
+## Perguntas Frequentes
 
 **P: Posso fazer self-host do SSO?**
 R: Não. O Kaffyn SSO é a camada de serviço que permite a orquestração multi-tenant. Para cenários 100% offline ou sem dependência da Kaffyn, use o modo **Local** do agente com BYOK puro.

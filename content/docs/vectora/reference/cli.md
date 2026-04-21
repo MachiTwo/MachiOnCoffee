@@ -12,10 +12,9 @@ tags:
 ---
 
 {{< lang-toggle >}}
+{{< section-toggle >}}
 
-## Visão Geral
-
-Vectora oferece uma **interface CLI completa** para configuração, indexação, e debugging. Use para automação, CI/CD, ou desenvolvimento local.
+Vectora oferece uma **interface CLI completa** para configuração, indexação e debugging. Use para automação, CI/CD ou desenvolvimento local.
 
 > [!TIP]
 > Use `vectora --help` para ver todos os comandos, ou `vectora [command] --help` para detalhes específicos.
@@ -55,7 +54,9 @@ vectora --config ./custom.yaml search "query"
 
 ## Commands
 
-### `vectora init`
+A interface de linha de comando do Vectora é organizada em subcomandos lógicos que facilitam o gerenciamento de todo o ciclo de vida do seu projeto.
+
+## vectora init
 
 Inicializa um novo projeto Vectora.
 
@@ -82,7 +83,7 @@ vectora init --namespace kaffyn-backend-prod --type codebase
 
 ---
 
-### `vectora index`
+## vectora index
 
 Indexa arquivos no namespace.
 
@@ -119,7 +120,7 @@ vectora index --dry-run
 
 ---
 
-### `vectora search`
+## vectora search
 
 Busca semântica pela CLI.
 
@@ -152,7 +153,7 @@ vectora search "middleware" --include-snippets
 
 ---
 
-### `vectora analyze`
+## vectora analyze
 
 Análise profunda com LLM (Gemini).
 
@@ -181,7 +182,7 @@ vectora analyze "Escreva documentação de API" --output docs/api.md
 
 ---
 
-### `vectora config`
+## vectora config
 
 Gerencia configuração.
 
@@ -218,7 +219,7 @@ vectora config show-schema
 
 ---
 
-### `vectora namespace`
+## vectora namespace
 
 Gerenciar namespaces.
 
@@ -251,7 +252,7 @@ vectora namespace reset --name kaffyn-old-project
 
 ---
 
-### `vectora mcp`
+## vectora mcp
 
 Inicia servidor MCP para Claude Code, Cursor, etc.
 
@@ -280,7 +281,7 @@ vectora mcp --host 0.0.0.0 --port 9090
 
 ---
 
-### `vectora server`
+## vectora server
 
 Inicia HTTP server completo (com UI, webhooks).
 
@@ -311,7 +312,7 @@ vectora server --cert cert.pem --key key.pem
 
 ---
 
-### `vectora auth`
+## vectora auth
 
 Gerencia autenticação SSO e tokens de acesso.
 
@@ -337,7 +338,7 @@ vectora auth status
 
 ---
 
-### `vectora logs`
+## vectora logs
 
 Ver logs de execução.
 
@@ -370,7 +371,7 @@ vectora logs --format json | jq '.[]'
 
 ---
 
-### `vectora metrics`
+## vectora metrics
 
 Ver métricas de operação.
 
@@ -398,7 +399,7 @@ vectora metrics --export prometheus
 
 ---
 
-### `vectora audit`
+## vectora audit
 
 Ver log de auditoria (quem fez o quê).
 
@@ -427,7 +428,7 @@ vectora audit --action delete --user "seu-email@company.com"
 
 ---
 
-### `vectora health`
+## vectora health
 
 Verifica saúde do sistema.
 

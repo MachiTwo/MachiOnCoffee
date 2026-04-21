@@ -12,18 +12,15 @@ tags:
 ---
 
 {{< lang-toggle >}}
-
-## Overview
+{{< section-toggle >}}
 
 The **Pro** plan is for scaling teams. We offer two modes: **BYOK** (priority support and increased limits) or **Plus** (with included AI credits and managed storage).
 
 **$29/month** per workspace (up to 50 users) - _Plus Plan includes base credits_
 
----
-
 ## What's Included
 
-### Everything in Free, PLUS
+## Everything in Free, PLUS
 
 | Feature                    | Free       | Pro          |
 | -------------------------- | ---------- | ------------ |
@@ -41,7 +38,7 @@ The **Pro** plan is for scaling teams. We offer two modes: **BYOK** (priority su
 | **99.9% SLA**              | -          | [x]          |
 | **Custom Reranker**        | -          | [x]          |
 
-### Premium Models
+## Premium Models
 
 Access to more models (BYOK or Managed Plus):
 
@@ -93,7 +90,7 @@ Content-Type: application/json
 # Vectora will automatically reindex
 ```
 
-### Available Events
+## Available Events
 
 | Event                 | Trigger                  |
 | --------------------- | ------------------------ |
@@ -119,7 +116,7 @@ https://vectora.your-domain.com
 https://code-search.your-domain.com
 ```
 
-### CNAME Setup
+## CNAME Setup
 
 ```bash
 # Your domain:
@@ -146,7 +143,7 @@ curl -H "Authorization: Bearer sk-proj-abc123xyz..." \
   https://your-domain.vectora.com/search
 ```
 
-### Available Scopes
+## Available Scopes
 
 ```text
 - search # Searches
@@ -200,7 +197,7 @@ Export to CSV, JSON, or Prometheus.
 
 ## Transparent Pricing
 
-### Calculation
+## Calculation
 
 - **Base**: $29/month
 - **Excess users**: $0.50/month per user (above 50)
@@ -212,7 +209,7 @@ Example:
 - 120 users: $29 + (70 × $0.50) = $64
 ```
 
-### No Surprises
+## No Surprises
 
 - No setup fee
 - Cancel anytime
@@ -231,7 +228,7 @@ vectora upgrade --plan pro --stripe-token sk_...
 # https://console.vectora.app/settings/billing
 ```
 
-### Automatic Migration
+## Automatic Migration
 
 - All data preserved
 - No downtime

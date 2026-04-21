@@ -15,26 +15,23 @@ tags:
 ---
 
 {{< lang-toggle >}}
-
-## Visão Geral
+{{< section-toggle >}}
 
 **APP PRÓPRIO**: Vectora oferece uma extensão nativa para VS Code com UI integrada (painel sidebar, commands, inline hover) - não precisa de MCP. Desenvolvimento totalmente customizado para VS Code.
 
 > [!IMPORTANT]
 > VS Code Extension (app próprio) vs MCP Protocol (genérico para múltiplas IDEs). Use extension se estiver em VS Code.
 
----
-
 ## Instalação
 
-### Via VS Code Marketplace
+## Via VS Code Marketplace
 
 1. Abra VS Code
 2. Vá para **Extensions** (Cmd/Ctrl + Shift + X)
 3. Procure: `Vectora`
 4. Clique em **Install**
 
-### Alternativa: Manual Install
+## Alternativa: Manual Install
 
 ```bash
 # Clone do repositório
@@ -48,20 +45,20 @@ ln -s $(pwd)/vectora-vscode ~/.vscode/extensions/
 
 ## Setup Inicial
 
-### Passo 1: Configurar Vectora no Projeto
+## Passo 1: Configurar Vectora no Projeto
 
 ```bash
 cd ~/seu-projeto
 vectora init --name "Meu Projeto" --type codebase
 ```
 
-### Passo 2: Abrir Projeto em VS Code
+## Passo 2: Abrir Projeto em VS Code
 
 ```bash
 code ~/seu-projeto
 ```
 
-### Passo 3: Configurar Keys
+## Passo 3: Configurar Keys
 
 VS Code pedirá chaves de API na primeira execução. Você pode entrar com:
 
@@ -82,7 +79,7 @@ EOF
 
 ## Interface & Features
 
-### Sidebar Panel
+## Sidebar Panel
 
 VS Code mostra um painel "Vectora" na sidebar:
 
@@ -104,7 +101,7 @@ VS Code mostra um painel "Vectora" na sidebar:
 └─────────────────────────┘
 ```
 
-### Command Palette
+## Command Palette
 
 Acesse comandos via `Cmd/Ctrl + Shift + P`:
 
@@ -116,7 +113,7 @@ Vectora: Index Status
 Vectora: Show Metrics
 ```
 
-### Inline Hover
+## Inline Hover
 
 Passe o mouse sobre um identificador para ver contexto:
 
@@ -135,7 +132,7 @@ function getUserById(|id: string) { ← Hover aqui
 
 Os workflows abaixo mostram a experiência típica de uso da extensão Vectora no VS Code, com interface detalhada e passos claros.
 
-### Workflow 1: Busca Rápida (5s de setup)
+## Workflow 1: Busca Rápida (5s de setup)
 
 **Cenário**: Você quer entender como tokens JWT são validados no projeto.
 
@@ -174,7 +171,7 @@ Os workflows abaixo mostram a experiência típica de uso da extensão Vectora n
 
 Clique em qualquer resultado → editor salta para o arquivo.
 
-### Workflow 2: Análise Inteligente de Função
+## Workflow 2: Análise Inteligente de Função
 
 **Cenário**: Você clicou em uma função e quer ver TUDO que está relacionado.
 
@@ -211,7 +208,7 @@ Referências semelhantes não encontradas por AST:
 • getActiveUser() [68% similar]
 ```
 
-### Workflow 3: Code Review com Contexto (Entender PR complexa)
+## Workflow 3: Code Review com Contexto (Entender PR complexa)
 
 **Cenário**: Revisando PR que toca autenticação, precisa entender impacto.
 
@@ -248,7 +245,7 @@ Referências semelhantes não encontradas por AST:
 
 ## Configuração
 
-### settings.json
+## settings.json
 
 ```json
 {
@@ -264,7 +261,7 @@ Referências semelhantes não encontradas por AST:
 }
 ```
 
-### Advanced Config
+## Advanced Config
 
 ```yaml
 # .vscode/vectora.yaml (alternativa)
@@ -302,7 +299,7 @@ Para melhor experiência, instale:
 
 ## Troubleshooting
 
-### Extension não aparece na sidebar
+## Extension não aparece na sidebar
 
 **Causa**: Não está ativada.
 
@@ -312,7 +309,7 @@ Para melhor experiência, instale:
 Cmd/Ctrl + Shift + X → Procure "Vectora" → Clique em "Enable"
 ```
 
-### "Vectora command not found" no terminal integrado
+## "Vectora command not found" no terminal integrado
 
 **Causa**: VS Code usa PATH diferente.
 
@@ -328,7 +325,7 @@ npm install -g @kaffyn/vectora
 "vectora.commandPath": "/usr/local/bin/vectora"
 ```
 
-### "API key not configured"
+## "API key not configured"
 
 **Solução**:
 
@@ -336,7 +333,7 @@ npm install -g @kaffyn/vectora
 2. Cole suas chaves
 3. Ou use `.env` no projeto root
 
-### Extension muito lenta
+## Extension muito lenta
 
 **Reduzir escopo**:
 

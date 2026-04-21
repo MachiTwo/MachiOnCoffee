@@ -16,9 +16,6 @@ tags:
 ---
 
 {{< lang-toggle >}}
-
-## Overview
-
 Vectora is distributed as a high-performance native binary for Windows, macOS, and Linux. On Windows, installation is standardized via **Winget** and resides in your local programs directory, requiring no Node.js or administrator privileges.
 
 > [!IMPORTANT] > **BYOK (Bring Your Own Key)**: In the Free plan, Vectora requires API keys from Gemini and Voyage. In **Pro** and **Team (Plus)** plans, you can opt for **Managed** mode, where AI credits are already included.
@@ -27,18 +24,18 @@ Vectora is distributed as a high-performance native binary for Windows, macOS, a
 
 ## Prerequisites
 
-### Operating System
+## Operating System
 
 - **macOS** 12.0+
 - **Linux** (Ubuntu 20.04+, Fedora 35+, Debian 11+)
 - **Windows 11** (WSL2 recommended)
 
-### Software
+## Software
 
 - **64-bit Systems** (x64 or ARM64)
 - **Internet Connection** for key activation
 
-### Verify Winget Version (Windows)
+## Verify Winget Version (Windows)
 
 ```powershell
 winget --version # Should return v1.4 or higher
@@ -48,7 +45,7 @@ winget --version # Should return v1.4 or higher
 
 ## Step 1: Install Vectora
 
-### Windows (Recommended)
+## Windows (Recommended)
 
 Open your terminal (PowerShell or CMD) and run:
 
@@ -58,7 +55,7 @@ winget install kaffyn.vectora
 
 The binary will be installed in `%LOCALAPPDATA%\Programs\Vectora` and automatically added to your PATH.
 
-### macOS / Linux
+## macOS / Linux
 
 Use our quick installation script:
 
@@ -66,7 +63,7 @@ Use our quick installation script:
 curl -sSf https://vectora.sh/install.sh | sh
 ```
 
-### Manual Download
+## Manual Download
 
 You can also download the binary directly from our [GitHub Releases page](https://github.com/kaffyn/vectora/releases).
 
@@ -74,7 +71,7 @@ You can also download the binary directly from our [GitHub Releases page](https:
 
 ## Step 2: Obtain Free API Keys
 
-### Gemini API (Google)
+## Gemini API (Google)
 
 1. Access [Google AI Studio](https://aistudio.google.com/app/apikey)
 2. Click **"Create API Key"**
@@ -82,7 +79,7 @@ You can also download the binary directly from our [GitHub Releases page](https:
 
 **Free limit**: 60 requests per minute, 1.5M tokens/month.
 
-### Voyage API (VoyageAI)
+## Voyage API (VoyageAI)
 
 1. Access [Voyage AI Dashboard](https://dash.voyageai.com/api-keys)
 2. Click **"Create API Key"**
@@ -133,19 +130,19 @@ This creates:
 
 ## Next Steps
 
-### For Claude Desktop Users
+## For Claude Desktop Users
 
 Go to [Claude Code Integration](../integrations/claude-code.md) and configure MCP.
 
-### For Cursor Users
+## For Cursor Users
 
 Go to [Cursor Integration](../integrations/cursor.md).
 
-### For VS Code Users
+## For VS Code Users
 
 Go to [VS Code Extension](../integrations/vscode.md).
 
-### To Learn Configuration
+## To Learn Configuration
 
 Go to [Configuration](./configuration.md).
 
@@ -155,26 +152,15 @@ Go to [Configuration](./configuration.md).
 
 ### Error: `command not found: vectora`
 
-**Cause**: Node.js is not in your PATH.
+**Cause**: The binary is not in your PATH.
 
-**Solution**:
-
-```bash
-# Reinstall Node.js: https://nodejs.org
-node --version # Must work first
-npm install -g @kaffyn/vectora # Reinstall
-```
+**Solution**: Ensure installation was completed and restart your terminal.
 
 ### Error: `Error: API key not found`
 
-**Cause**: Environment variables not configured.
+**Cause**: Environment variables not set or login failed.
 
-**Solution**: Verify that `GEMINI_API_KEY` and `VOYAGE_API_KEY` are defined:
-
-```bash
-echo $GEMINI_API_KEY
-echo $VOYAGE_API_KEY
-```
+**Solution**: Re-run `vectora auth login` or check status with `vectora auth status`.
 
 ### Error: `403 Quota Exceeded` (Gemini)
 
@@ -184,19 +170,13 @@ echo $VOYAGE_API_KEY
 
 ### Error: `EACCES: permission denied`
 
-**Cause**: Insufficient permission for global installation.
+**Cause**: The binary does not have execution permission.
 
 **Solution**:
 
 ```bash
-# Option 1: Use sudo (not recommended)
-sudo npm install -g @kaffyn/vectora
-
-# Option 2: Configure npm for home directory installation (recommended)
-mkdir ~/.npm-global
-npm config set prefix '~/.npm-global'
-export PATH=~/.npm-global/bin:$PATH
-npm install -g @kaffyn/vectora
+# macOS / Linux
+chmod +x $(which vectora)
 ```
 
 ---

@@ -14,15 +14,13 @@ tags:
 {{< lang-toggle >}}
 {{< section-toggle >}}
 
-## Distribution Pipeline
-
 Vectora uses an automated distribution pipeline to ensure that every stable version is compiled, tested, and made available for multiple operating systems and package managers (such as Winget) without manual intervention.
 
-### CI/CD Architecture
+## CI/CD Architecture
 
 Our workflow is divided into two main stages running on **GitHub Actions**:
 
-#### 1. Continuous Integration (CI)
+## 1. Continuous Integration (CI)
 
 Executed on every Pull Request or Push to the `main` branch:
 
@@ -30,7 +28,7 @@ Executed on every Pull Request or Push to the `main` branch:
 - **Testing**: Execution of unit and integration suites via `go test ./...`.
 - **Smoke Test**: Fast build to verify the binary initializes correctly.
 
-#### 2. Continuous Delivery (CD)
+## 2. Continuous Delivery (CD)
 
 Executed exclusively when a new **Version Tag** (e.g., `v2.1.0`) is detected:
 
@@ -38,7 +36,7 @@ Executed exclusively when a new **Version Tag** (e.g., `v2.1.0`) is detected:
 - **Checksums**: SHA256 hash generation for binary integrity.
 - **GitHub Release**: Automatic file upload and Changelog generation.
 
-### Winget Publication
+## Winget Publication
 
 For Windows users, Vectora is distributed through the official Microsoft repository (`winget-pkgs`).
 
@@ -51,7 +49,7 @@ graph LR
     E -- Bot Validation --> F[Available via winget install]
 ```
 
-### Installation in `%LOCALAPPDATA%`
+## Installation in `%LOCALAPPDATA%`
 
 Unlike global installers that require Administrator permission, Vectora is configured to be installed in:
 `%LOCALAPPDATA%\Programs\Vectora`
@@ -62,7 +60,7 @@ Unlike global installers that require Administrator permission, Vectora is confi
 - **Silent Updates**: The [Systray](./systray-ux.md) can check for and download new versions without interrupting the workflow with UAC (User Account Control) prompts.
 - **Isolation**: Each system user can have their own version and configurations of Vectora independently.
 
-### Local Build Automation
+## Local Build Automation
 
 For developers wanting to replicate the pipeline locally:
 

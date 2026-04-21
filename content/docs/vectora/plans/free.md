@@ -13,8 +13,7 @@ tags:
 ---
 
 {{< lang-toggle >}}
-
-## Visão Geral
+{{< section-toggle >}}
 
 O plano **Free** de Vectora é totalmente **open source e sem limite de tempo**. Use localmente, em qualquer codebase, sem pagar nada. Perfeito para:
 
@@ -23,11 +22,9 @@ O plano **Free** de Vectora é totalmente **open source e sem limite de tempo**.
 - Projetos educacionais
 - Prototipagem e testes
 
----
-
 ## O Que Está Incluído
 
-### Core Features
+## Core Features
 
 | Feature                     | Free |
 | --------------------------- | ---- |
@@ -43,7 +40,7 @@ O plano **Free** de Vectora é totalmente **open source e sem limite de tempo**.
 | **SSO/LDAP**                |      |
 | **SLA Uptime**              |      |
 
-### Integrações
+## Integrações
 
 | Plataforma             | Free          |
 | ---------------------- | ------------- |
@@ -54,7 +51,7 @@ O plano **Free** de Vectora é totalmente **open source e sem limite de tempo**.
 | **ChatGPT Custom GPT** | (self-hosted) |
 | **Gemini Integration** | (BYOK)        |
 
-### Modelos de IA (BYOK)
+## Modelos de IA (BYOK)
 
 Use seus próprios:
 
@@ -71,7 +68,7 @@ Use seus próprios:
 
 ## Limites
 
-### Rate Limiting
+## Rate Limiting
 
 ```yaml
 free_tier_limits:
@@ -88,13 +85,13 @@ free_tier_limits:
     searches_per_day: 1000
 ```
 
-### Storage
+## Storage
 
 - **Vector Index**: Unlimited (local disk)
 - **Embeddings Cache**: 500MB
 - **Logs**: 30 dias retidos
 
-### Performance
+## Performance
 
 - **Search Latency**: <2s
 - **Concurrent Requests**: 1
@@ -105,7 +102,7 @@ free_tier_limits:
 
 ## Como Começar
 
-### Instalação
+## Instalação
 
 ```bash
 # Install globally
@@ -115,7 +112,7 @@ npm install -g @kaffyn/vectora
 vectora --version
 ```
 
-### Primeira Execução
+## Primeira Execução
 
 ```bash
 # 1. Inicializar projeto
@@ -137,7 +134,7 @@ vectora index
 vectora search "Como funciona login?"
 ```
 
-### Com IDE (Claude Code, Cursor)
+## Com IDE (Claude Code, Cursor)
 
 ```json
 // ~/.claude/claude_desktop_config.json
@@ -160,7 +157,7 @@ vectora search "Como funciona login?"
 
 ## Casos de Uso Recomendados
 
-### Melhor em Free
+## Melhor em Free
 
 - **Codebase < 100K linhas**: Indexação em minutos
 - **1 projeto**: 1 namespace, Trust Folder isolado
@@ -168,7 +165,7 @@ vectora search "Como funciona login?"
 - **Desenvolvimento local**: Sem infraestrutura
 - **Educação/pesquisa**: Open source MIT
 
-### Considere Upgrade
+## Considere Upgrade
 
 - **Múltiplos projetos grandes**: > 5 projetos
 - **Equipes > 10 pessoas**: Precisa LDAP/SSO
@@ -180,7 +177,7 @@ vectora search "Como funciona login?"
 
 ## Troubleshooting
 
-### "Quota exceeded"
+## "Quota exceeded"
 
 Você atingiu o limite mensal de API (Gemini ou Voyage).
 
@@ -189,7 +186,7 @@ Você atingiu o limite mensal de API (Gemini ou Voyage).
 1. Aguarde reset no 1º do próximo mês
 2. Upgrade para Pro (unlimited)
 
-### "Rate limit exceeded"
+## "Rate limit exceeded"
 
 Você fez muitas requisições em 1 minuto.
 
@@ -203,7 +200,7 @@ for query in "login" "auth" "token"; do
 done
 ```
 
-### "Concurrent users exceeded"
+## "Concurrent users exceeded"
 
 Apenas 1 usuário por vez no free tier (1 IDE).
 

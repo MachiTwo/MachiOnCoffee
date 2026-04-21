@@ -15,12 +15,13 @@ tags:
 ---
 
 {{< lang-toggle >}}
-
-## Maintaining Context Across Sessions
+{{< section-toggle >}}
 
 Vectora's state persistence layer ensures that agents maintain continuity between interactions, enabling long-horizon tasks, incremental learning, and contextual awareness that survives IDE restarts, MCP disconnections, and system reboots.
 
 Unlike traditional RAG systems that treat each query as independent, Vectora treats state as a first-class concern: what the agent learned yesterday informs what it does today.
+
+## Maintaining Context Across Sessions
 
 ## Architecture Overview
 
@@ -41,7 +42,7 @@ graph TD
     G --> J[Compliance: who did what, when, and why]
 ```
 
-### Operational State (sessions collection)
+## Operational State (sessions collection)
 
 Short-lived state that tracks the current execution context:
 
@@ -56,7 +57,7 @@ Short-lived state that tracks the current execution context:
 | `created_at`    | timestamp | Session start time                                             |
 | `last_activity` | timestamp | Last MCP interaction (used for TTL cleanup)                    |
 
-### Memory Layer (AGENTS.md + embeddings)
+## Memory Layer (AGENTS.md + embeddings)
 
 Long-term knowledge that persists beyond individual sessions:
 
@@ -64,7 +65,7 @@ Long-term knowledge that persists beyond individual sessions:
 - **Vector embeddings**: Semantic representation of AGENTS.md content indexed in MongoDB Atlas for retrieval during context building
 - **Incremental updates**: New learnings are appended to AGENTS.md and re-embedded without re-indexing the entire file
 
-### Audit Trail (audit_logs collection)
+## Audit Trail (audit_logs collection)
 
 Immutable records of agent actions for compliance and debugging:
 
@@ -80,7 +81,7 @@ Immutable records of agent actions for compliance and debugging:
 
 ## Session Lifecycle Management
 
-### Session Creation
+## Session Creation
 
 When an MCP client connects:
 
@@ -90,7 +91,7 @@ When an MCP client connects:
 4. Loads AGENTS.md if present and updates context cache
 5. Returns session_id to client for subsequent requests
 
-### Session Continuation
+## Session Continuation
 
 For ongoing interactions:
 
@@ -100,7 +101,7 @@ For ongoing interactions:
 4. Executes tool call with full context awareness
 5. Persists updated state before responding
 
-### Session Cleanup
+## Session Cleanup
 
 Automatic maintenance via MongoDB TTL indexes:
 
@@ -132,7 +133,7 @@ vectora state export --session-id sess_abc123 --output ./backup.json
 
 AGENTS.md serves as the bridge between human understanding and agent memory:
 
-### Structure
+## Structure
 
 ```markdown
 # Project Memory: my-project
@@ -156,7 +157,7 @@ AGENTS.md serves as the bridge between human understanding and agent memory:
 - Security reviews required for any auth-related changes
 ```
 
-### Integration Workflow
+## Integration Workflow
 
 ```mermaid
 sequenceDiagram
@@ -173,7 +174,7 @@ sequenceDiagram
     A-->>D: Confirm memory update in MCP response
 ```
 
-### Security Considerations
+## Security Considerations
 
 - AGENTS.md is subject to the same Guardian blocklist as other files: `.env`, `.key`, `.pem` patterns are never embedded
 - Sensitive content detected via regex is redacted before embedding
@@ -215,7 +216,7 @@ evaluation:
 
 ## Configuration Reference
 
-### vectora.config.yaml
+## vectora.config.yaml
 
 ```yaml
 state:
@@ -251,7 +252,7 @@ state:
 
 ## Performance Optimizations
 
-### Context Cache Strategy
+## Context Cache Strategy
 
 To minimize latency during session continuation:
 
@@ -259,7 +260,7 @@ To minimize latency during session continuation:
 - **Prefetching**: Load likely-needed context based on current plan step
 - **Delta updates**: Only re-embed changed sections of AGENTS.md, not the entire file
 
-### Batch Operations
+## Batch Operations
 
 MongoDB operations are batched for efficiency:
 
@@ -280,7 +281,7 @@ export async function updateSessionState(sessionId: string, updates: StateUpdate
 
 ## Troubleshooting
 
-### Session Not Found
+## Session Not Found
 
 ```text
 Error: Session sess_abc123 not found for namespace auth-service
@@ -305,7 +306,7 @@ vectora health check --component mongodb
 vectora auth refresh
 ```
 
-### AGENTS.md Not Updating Memory
+## AGENTS.md Not Updating Memory
 
 ```text
 Warning: AGENTS.md changes detected but memory not updated
@@ -330,7 +331,7 @@ vectora memory sync --file AGENTS.md
 vectora logs --filter guardian --namespace auth-service
 ```
 
-### Audit Logs Missing Entries
+## Audit Logs Missing Entries
 
 ```text
 Warning: Expected audit entry for tool_call not found

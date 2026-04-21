@@ -15,10 +15,7 @@ tags:
 ---
 
 {{< lang-toggle >}}
-
-## Visão Geral
-
-Namespaces são **isoladores lógicos** de índices vetoriais dentro de um único Qdrant cluster. Cada projeto, ambiente ou contexto roda em seu próprio namespace, evitando contaminação de resultados.
+Namespaces são **isoladores lógicos** de índices vetoriais dentro de um único cluster. Cada projeto, ambiente ou contexto roda em seu próprio namespace, evitando contaminação de resultados.
 
 > [!IMPORTANT]
 > Um namespace é como um "banco de dados virtual" dentro do Qdrant. Buscas em um namespace NUNCA retornam chunks de outro namespace.
@@ -41,9 +38,11 @@ Com namespaces:
 
 ---
 
-## Nomenclatura & Conventions
+## Nomenclatura & Convenções
 
-### Padrão Recomendado
+A padronização dos nomes de namespaces é fundamental para a organização e automação em clusters multitenant.
+
+## Padrão Recomendado
 
 ```text
 <org>-<project>-<environment>
@@ -58,7 +57,7 @@ acme-backend-staging # Outro projeto
 acme-docs-prod # Documentação do mesmo org
 ```
 
-### Validação
+## Validação
 
 Namespaces devem:
 
@@ -84,7 +83,9 @@ my.app.prod # Ponto
 
 ## Ciclo de Vida
 
-### Criação
+O gerenciamento de namespaces compreende desde a sua inicialização técnica até o descarte seguro dos dados indexados.
+
+## Criação
 
 ```bash
 # Via CLI
@@ -102,7 +103,7 @@ Quando criado:
 2. Indices vazios são inicializados (HNSW para embeddings)
 3. Guardian registra namespace em audit log
 
-### Indexing
+## Indexing
 
 Uma vez criado, o namespace aceita chunks:
 
@@ -125,7 +126,7 @@ namespace: kaffyn-vectora-prod
 # }
 ```
 
-### Busca
+## Busca
 
 Toda busca especifica namespace:
 
@@ -139,7 +140,7 @@ const results = await vectoraClient.search({
 // Retorna APENAS chunks com namespace === "kaffyn-vectora-prod"
 ```
 
-### Deletion & Cleanup
+## Deletion & Cleanup
 
 ```bash
 # Deletar namespace inteiro
@@ -155,7 +156,9 @@ vectora namespace reset --name kaffyn-vectora-prod
 
 ## Multi-Tenancy Patterns
 
-### Pattern 1: One Namespace per Project
+O uso de namespaces permite a implementação de diferentes padrões de isolamento dependendo da necessidade do projeto ou da organização.
+
+## Pattern 1: One Namespace per Project
 
 ```yaml
 # Team A
@@ -170,7 +173,7 @@ namespace: acme-frontend-prod
 
 Use quando: Times completamente separados, compliance/segurança rigorosa.
 
-### Pattern 2: Environments in Same Project
+## Pattern 2: Environments in Same Project
 
 ```yaml
 # Prod
@@ -188,7 +191,7 @@ namespace: acme-backend-dev
 
 Use quando: Mesmo projeto, múltiplos environments.
 
-### Pattern 3: Shared Services + Private Teams
+## Pattern 3: Shared Services + Private Teams
 
 ```yaml
 # Shared (documentação, utilidades)
@@ -210,7 +213,9 @@ Use quando: Equipes paralelas com uma base comum.
 
 ## Métricas por Namespace
 
-### Inspecting
+A observabilidade é aplicada individualmente a cada namespace, permitindo auditorias precisas de performance e uso.
+
+## Inspecting
 
 ```bash
 vectora namespace info --name kaffyn-vectora-prod
@@ -230,7 +235,7 @@ search_latency_p99_ms: 245
 searches_total_24h: 3421
 ```
 
-### Alerts
+## Alerts
 
 Monitor via Harness:
 

@@ -14,10 +14,10 @@ tags:
 ---
 
 {{< lang-toggle >}}
-
+{{< section-toggle >}}
 Complete configuration reference: YAML schema, environment variables, validation, and examples.
 
-### Full Schema
+## Full Schema
 
 ```yaml
 # Project metadata
@@ -127,7 +127,7 @@ metrics:
   export_interval_seconds: 60
 ```
 
-### Environment Variable Reference
+## Environment Variable Reference
 
 ```bash
 GEMINI_API_KEY # Google Gemini API key
@@ -139,7 +139,7 @@ VECTORA_TRUST_FOLDER # Override trust folder
 VECTORA_LOG_LEVEL # Override log level
 ```
 
-### Validation
+## Validation
 
 ```bash
 _Part of the Vectora ecosystem_ · Open Source (MIT)

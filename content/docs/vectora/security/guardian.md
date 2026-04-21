@@ -15,9 +15,7 @@ tags:
 ---
 
 {{< lang-toggle >}}
-
-## Visão Geral
-
+{{< section-toggle >}}
 O **Guardian** é o motor de governança do Vectora, compilado diretamente no binário Go. Ele atua como um firewall de aplicação, inspecionando cada comando e caminho antes da execução.
 Trust Folder (path isolation), pattern matching (regex rules), e audit logging.
 
@@ -61,7 +59,9 @@ Se qualquer check FALHA → Request é BLOQUEADO + Audit Log
 
 ## Configuração
 
-### Trust Folder (Camada 1)
+A configuração do Guardian é dividida em camadas lógicas, permitindo um equilíbrio entre restrição rígida e flexibilidade operacional.
+
+## Trust Folder (Camada 1)
 
 Define o perímetro de segurança:
 
@@ -80,7 +80,7 @@ Trust Folder: ./src
 Resultado: BLOQUEADO (fora do périmetro)
 ```
 
-### Guardian Rules (Camada 2)
+## Guardian Rules (Camada 2)
 
 Padrões de regex para allow/deny:
 
@@ -109,7 +109,7 @@ guardian:
 
 Ordem importa: regras são avaliadas top→bottom, primeira match vence.
 
-### RBAC (Camada 3)
+## RBAC (Camada 3)
 
 Além disso, Vectora respeita permissões de user:
 
@@ -208,7 +208,9 @@ vectora audit --filter "pattern:\.env"
 
 ## Casos de Uso
 
-### Case 1: Proteger .env
+Abaixo estão exemplos práticos de como configurar o Guardian para cenários comuns de segurança em desenvolvimento e produção.
+
+## Case 1: Proteger .env
 
 ```yaml
 guardian:
@@ -220,7 +222,7 @@ guardian:
 
 Resultado: `.env`, `.env.local`, `.env.production` são todos bloqueados.
 
-### Case 2: Proteger dados privados
+## Case 2: Proteger dados privados
 
 ```yaml
 guardian:
@@ -234,7 +236,7 @@ guardian:
       action: "deny"
 ```
 
-### Case 3: Allow-list específico
+## Case 3: Allow-list específico
 
 ```yaml
 project:
@@ -257,7 +259,9 @@ guardian:
 
 ## Violações Conhecidas
 
-### Directory Traversal Attempts
+O Guardian é treinado para identificar e mitigar vetores de ataque comuns baseados em manipulação de caminhos e referências.
+
+## Directory Traversal Attempts
 
 ```text
 Tentativa: ../../.env
@@ -266,7 +270,7 @@ Trust Folder: /absolute/path/src
 Resultado: BLOQUEADO (fora do perímetro)
 ```
 
-### Symlink Attacks
+## Symlink Attacks
 
 ```text
 File: ./src/link-to-secret → ../../secret.key
@@ -284,7 +288,7 @@ guardian:
     - "./src/allowed-link"
 ```
 
-### Case Sensitivity (Windows)
+## Case Sensitivity (Windows)
 
 Windows é case-insensitive, padrões são case-sensitive por padrão:
 
@@ -297,7 +301,9 @@ guardian:
 
 ## Testing & Validation
 
-### Dry-Run Mode
+Antes de aplicar regras em produção, é fundamental validar o comportamento do Guardian usando ferramentas de simulação e teste de padrões.
+
+## Dry-Run Mode
 
 Testar regras sem bloquear:
 
@@ -318,7 +324,7 @@ Guardian Validation Report
    └─ secrets/key.pem → BLOCKED (pattern: secrets/.*)
 ```
 
-### Rule Testing
+## Rule Testing
 
 ```bash
 # Testar padrão específico
@@ -333,7 +339,9 @@ vectora guardian test-pattern "\.env.*" "src/index.ts"
 
 ## Monitoring & Alerts
 
-### Métricas
+Mantenha a visibilidade sobre o estado de segurança do seu servidor através de métricas detalhadas e alertas em tempo real.
+
+## Métricas
 
 Guardian captura métricas de segurança:
 
@@ -361,7 +369,7 @@ guardian_metrics:
     - "secret": 8
 ```
 
-### Alertas
+## Alertas
 
 Configure alertas para violações:
 
@@ -378,7 +386,9 @@ guardian:
 
 ## Best Practices
 
-### 1. Trust Folder Mínimo
+Siga estas recomendações para garantir que o Guardian atue com a máxima eficiência sem prejudicar a produtividade dos desenvolvedores.
+
+## 1. Trust Folder Mínimo
 
 Não confie em `./` - seja específico:
 
@@ -392,7 +402,7 @@ project:
   trust_folder: "./src"
 ```
 
-### 2. Deny-by-Default
+## 2. Deny-by-Default
 
 Quando possível, use padrão "deny all, allow specific":
 
@@ -408,14 +418,14 @@ guardian:
       action: "deny"
 ```
 
-### 3. Audit Regularmente
+## 3. Audit Regularmente
 
 ```bash
 # Weekly review
 vectora audit --since 7d --filter "BLOCKED" | wc -l
 ```
 
-### 4. Avoid Exceptions
+## 4. Avoid Exceptions
 
 Não crie "exception rules" para .env - use valores default:
 
@@ -442,7 +452,9 @@ export GEMINI_API_KEY="..."
 
 ## Troubleshooting
 
-### Arquivo legítimo bloqueado
+Se encontrar problemas de acesso ou mensagens inesperadas, utilize estes procedimentos para diagnosticar e resolver conflitos com o Guardian.
+
+## Arquivo legítimo bloqueado
 
 ```text
 Error: ./src/config.secrets.ts is blocked by pattern
@@ -471,7 +483,7 @@ guardian:
       action: "deny"
 ```
 
-### "Guardian disabled" messages
+## "Guardian disabled" messages
 
 Se Guardian está desabilitado (dev mode):
 

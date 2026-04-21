@@ -14,18 +14,19 @@ tags:
 ---
 
 {{< lang-toggle >}}
+{{< section-toggle >}}
 
 Integrate Vectora with the **Google Gemini CLI** to use Vectora within Gemini workflows.
 
 ## Quick Setup
 
-### 1. Install Gemini CLI
+## 1. Install Gemini CLI
 
 ```bash
 npm install -g @google/generative-ai-cli
 ```
 
-### 2. Configure Vectora as an MCP Server
+## 2. Configure Vectora as an MCP Server
 
 In your `.gemini/config.json`:
 
@@ -43,7 +44,7 @@ In your `.gemini/config.json`:
 }
 ```
 
-### 3. Use in Gemini Prompts
+## 3. Use in Gemini Prompts
 
 ```bash
 gemini chat --system "You have access to Vectora to search for code"

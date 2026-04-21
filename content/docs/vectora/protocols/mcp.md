@@ -13,6 +13,7 @@ tags:
 ---
 
 {{< lang-toggle >}}
+{{< section-toggle >}}
 
 **Vectora funciona exclusivamente via MCP (Model Context Protocol).** Este documento descreve como Vectora implementa MCP, sua arquitetura, e como IDEs (Claude Code, Cursor, Zed) se integram.
 
@@ -66,7 +67,7 @@ tags:
 
 Vectora implementa MCP com uma stack clara: cliente MCP no IDE se conecta ao servidor Vectora via STDIO, que orquestra Harness Runtime, Context Engine e Tool Executor.
 
-### Components
+## Components
 
 ```text
 IDE (Claude Code)
@@ -93,7 +94,7 @@ IDE (Claude Code)
                    └─→ ... (12 tools total)
 ```
 
-### Transport
+## Transport
 
 Vectora MCP usa **STDIO** (stdin/stdout pipes):
 
@@ -117,7 +118,7 @@ Vectora MCP usa **STDIO** (stdin/stdout pipes):
 
 O fluxo MCP em Vectora passa por três fases: inicialização onde IDE e servidor negoceiam capacidades, descoberta de ferramentas disponíveis, e execução de tools com tratamento de erros.
 
-### 1. Inicialização
+## 1. Inicialização
 
 ```json
 // IDE envia
@@ -152,7 +153,7 @@ O fluxo MCP em Vectora passa por três fases: inicialização onde IDE e servido
 }
 ```
 
-### 2. Tool Discovery
+## 2. Tool Discovery
 
 ```json
 // IDE pede lista de tools
@@ -185,7 +186,7 @@ O fluxo MCP em Vectora passa por três fases: inicialização onde IDE e servido
 }
 ```
 
-### 3. Tool Execution
+## 3. Tool Execution
 
 ```json
 // IDE chama tool
@@ -249,7 +250,7 @@ Ver [MCP Tools Reference](../reference/mcp-tools.md) para detalhes completos.
 
 Cada IDE tem um processo diferente para configurar MCP servers. Abaixo estão os exemplos para as plataformas mais usadas.
 
-### Claude Code (Recomendado)
+## Claude Code (Recomendado)
 
 ```json
 // ~/.claude/claude_desktop_config.json
@@ -263,7 +264,7 @@ Cada IDE tem um processo diferente para configurar MCP servers. Abaixo estão os
 }
 ```
 
-### Cursor
+## Cursor
 
 ```json
 // .cursor/settings.json
@@ -280,7 +281,7 @@ Cada IDE tem um processo diferente para configurar MCP servers. Abaixo estão os
 }
 ```
 
-### Zed
+## Zed
 
 ```json
 // .zed/settings.json
@@ -335,7 +336,7 @@ Códigos de erro Vectora:
 
 Vectora implementa várias técnicas para manter latência baixa e escalabilidade alta: streaming para respostas grandes, caching de resultados frequentes, e batch processing.
 
-### Streaming (Para respostas grandes)
+## Streaming (Para respostas grandes)
 
 MCP suporta streaming de tool results:
 
@@ -354,7 +355,7 @@ MCP suporta streaming de tool results:
 }
 ```
 
-### Caching
+## Caching
 
 Vectora cacheia resultados de busca:
 
@@ -366,7 +367,7 @@ Server: Processa + Retorna + **Cacheia com TTL 5min**
 Server: Retorna do cache (0ms vs 230ms)
 ```
 
-### Batch Calls
+## Batch Calls
 
 IDE pode fazer múltiplas chamadas em paralelo:
 
@@ -384,7 +385,7 @@ IDE pode fazer múltiplas chamadas em paralelo:
 
 Para entender o que está acontecendo entre IDE e Vectora, use o MCP Inspector ou active logging estruturado. Ambos ajudam a diagnosticar problemas de integração.
 
-### MCP Inspector
+## MCP Inspector
 
 ```bash
 # Ver mensagens MCP em tempo real
@@ -397,7 +398,7 @@ vectora mcp --debug
 # [MCP] Tool call: search_context | Query: "..." | Time: 234ms
 ```
 
-### Estrutura de Logs
+## Estrutura de Logs
 
 ```yaml
 # logs/mcp.log (JSON)

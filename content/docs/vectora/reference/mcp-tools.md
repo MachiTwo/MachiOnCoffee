@@ -14,10 +14,9 @@ tags:
 ---
 
 {{< lang-toggle >}}
+{{< section-toggle >}}
 
-## Visão Geral
-
-Este é um **dicionário completo** de todas as ferramentas MCP oferecidas por Vectora. Use-as via Claude Code, Cursor, VS Code ou ChatGPT para interagir com seu codebase.
+Este é um **dicionário completo** de todas as ferramentas MCP oferecidas pelo Vectora. Use-as via Claude Code, Cursor, VS Code ou ChatGPT para interagir com seu codebase.
 
 > [!IMPORTANT]
 > Todas as tools respeitam sua **Trust Folder** e **Namespace**. Nenhum arquivo fora desses limites é acessável.
@@ -37,7 +36,9 @@ Este é um **dicionário completo** de todas as ferramentas MCP oferecidas por V
 
 ## Search & Retrieval
 
-### `search_context`
+As ferramentas de busca e recuperação permitem extrair contexto relevante do seu repositório usando algoritmos de similaridade semântica e estrutural.
+
+## `search_context`
 
 Busca semântica por chunks relevantes.
 
@@ -82,7 +83,7 @@ Busca semântica por chunks relevantes.
 
 ---
 
-### `search_tests`
+## `search_tests`
 
 Busca testes relacionados a uma query.
 
@@ -116,7 +117,9 @@ Busca testes relacionados a uma query.
 
 ## Analysis
 
-### `analyze_dependencies`
+As ferramentas de análise permitem entender as relações complexas entre componentes do código, dependências e padrões estruturais.
+
+## `analyze_dependencies`
 
 Encontra todas as referências a um símbolo.
 
@@ -153,7 +156,7 @@ Encontra todas as referências a um símbolo.
 
 ---
 
-### `find_similar_code`
+## `find_similar_code`
 
 Encontra código similar a um trecho fornecido.
 
@@ -185,7 +188,7 @@ Encontra código similar a um trecho fornecido.
 
 ---
 
-### `get_file_structure`
+## `get_file_structure`
 
 Resume a estrutura de um arquivo (imports, funções, classes).
 
@@ -224,7 +227,9 @@ Resume a estrutura de um arquivo (imports, funções, classes).
 
 ## Metadata
 
-### `list_files`
+Inspecione a organização do seu workspace, liste arquivos indexados e verifique estatísticas vitais sobre seus namespaces.
+
+## `list_files`
 
 Lista arquivos indexados no namespace.
 
@@ -257,7 +262,7 @@ Lista arquivos indexados no namespace.
 
 ---
 
-### `list_namespaces`
+## `list_namespaces`
 
 Lista todos os namespaces disponíveis.
 
@@ -287,7 +292,7 @@ Lista todos os namespaces disponíveis.
 
 ---
 
-### `get_namespace_stats`
+## `get_namespace_stats`
 
 Retorna estatísticas de um namespace.
 
@@ -320,11 +325,18 @@ Retorna estatísticas de um namespace.
 }
 ```
 
+</details>
+
 ---
 
 ## Indexing
 
-### `index_status`
+Gerencie o estado de indexação do seu projeto, forcando atualizações ou verificando pendências no banco de dados vetorial.
+
+<details>
+<summary>Expandir/Recolher seção de Indexing</summary>
+
+## `index_status`
 
 Verifica o status do índice (saúde, pendências).
 
@@ -353,7 +365,7 @@ Verifica o status do índice (saúde, pendências).
 
 ---
 
-### `reindex`
+## `reindex`
 
 Força re-indexação de arquivos.
 
@@ -382,7 +394,9 @@ Força re-indexação de arquivos.
 
 ## Configuration
 
-### `get_config`
+Acesse e modifique as configurações operacionais do servidor Vectora em tempo real, permitindo ajustes finos de estratégias de busca.
+
+## `get_config`
 
 Retorna configuração atual do Vectora.
 
@@ -411,7 +425,7 @@ Retorna configuração atual do Vectora.
 
 ---
 
-### `set_config`
+## `set_config`
 
 Modifica configuração (requer autenticação).
 
@@ -428,7 +442,9 @@ Modifica configuração (requer autenticação).
 
 ## Monitoring
 
-### `get_metrics`
+Mantenha a visibilidade total sobre o desempenho do sistema, taxas de erro e logs de auditoria para garantir segurança e performance.
+
+## `get_metrics`
 
 Retorna métricas de execução.
 
@@ -459,7 +475,7 @@ Retorna métricas de execução.
 
 ---
 
-### `get_audit_log`
+## `get_audit_log`
 
 Retorna log de acessos e modificações.
 
@@ -497,7 +513,7 @@ Retorna log de acessos e modificações.
 
 Nesta seção, demonstramos como as ferramentas MCP trabalham em conjunto para resolver problemas reais de desenvolvimento. Cada workflow mostra a sequência de tools chamadas e outputs esperados em cenários práticos.
 
-### Workflow 1: Entender Função Desconhecida
+## Workflow 1: Entender Função Desconhecida
 
 **Cenário**: Você encontrou `validateToken()` em um arquivo. Quer entender onde é usada.
 
@@ -525,7 +541,7 @@ Output Final:
 
 Esse workflow mostra como usar tools em sequência para identificar uma função e seu contexto completo.
 
-### Workflow 2: Debugging de Erro em Production
+## Workflow 2: Debugging de Erro em Production
 
 **Cenário**: API está lenta. Precisa entender se é auth validation.
 
@@ -555,7 +571,7 @@ Conclusão:
 
 Quando performance degrada, as tools ajudam a diagnosticar a causa raiz. Este workflow combina métricas, busca e análise estrutural.
 
-### Workflow 3: Code Review Automático
+## Workflow 3: Code Review Automático
 
 **Cenário**: PR adiciona novo handler. Quer verificar padrão.
 
@@ -587,7 +603,7 @@ Review Output:
 
 Validar que uma PR segue os padrões do projeto envolve buscar código similar e verificar estrutura. Este workflow automatiza boa parte dessa análise.
 
-### Workflow 4: Refatoração em Escala
+## Workflow 4: Refatoração em Escala
 
 **Cenário**: Quer mudar como tokens são validados. Precisa entender impacto.
 
@@ -625,7 +641,7 @@ Impact Assessment:
 
 Entender o impacto de uma mudança é crítico. Este workflow usa tools para mapear todos os locais afetados e o esforço estimado.
 
-### Workflow 5: Monitoramento & Auditoria
+## Workflow 5: Monitoramento & Auditoria
 
 **Cenário**: Segurança. Quer garantir que dados sensíveis não foram acessados.
 

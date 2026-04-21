@@ -15,16 +15,13 @@ tags:
 ---
 
 {{< lang-toggle >}}
-
-## Visão Geral
-
 Guia de solução de problemas mais frequentes durante instalação, configuração e uso do Vectora.
 
 ---
 
 ## Instalação
 
-### Erro: `npm: command not found`
+## Erro: `npm: command not found`
 
 **Causa**: Node.js não está instalado ou não está no PATH.
 
@@ -36,7 +33,7 @@ node --version # Deve retornar v18+
 npm --version # Deve retornar 9+
 ```
 
-### Erro: `EACCES: permission denied`
+## Erro: `EACCES: permission denied`
 
 **Causa**: Permissão insuficiente para instalar globalmente.
 
@@ -52,7 +49,7 @@ export PATH=~/.npm-global/bin:$PATH
 npm install -g @kaffyn/vectora
 ```
 
-### Erro: `vectora: command not found`
+## Erro: `vectora: command not found`
 
 **Causa**: Vectora instalado mas não no PATH.
 
@@ -73,7 +70,7 @@ vectora --version
 
 ## Configuração
 
-### Erro: `API key not found`
+## Erro: `API key not found`
 
 **Causa**: Variáveis de ambiente não configuradas.
 
@@ -95,7 +92,7 @@ VOYAGE_API_KEY=pa-xxx
 EOF
 ```
 
-### Erro: `Config validation failed`
+## Erro: `Config validation failed`
 
 **Causa**: Sintaxe YAML inválida em `vectora.config.yaml`.
 
@@ -113,7 +110,7 @@ yamllint vectora.config.yaml
 # - Símbolos especiais não escapados
 ```
 
-### Erro: `Trust folder does not exist`
+## Erro: `Trust folder does not exist`
 
 **Causa**: Caminho em `trust_folder` não existe.
 
@@ -129,7 +126,7 @@ namespace:
 
 ## MCP Integration
 
-### Erro: `Vectora MCP server not found`
+## Erro: `Vectora MCP server not found`
 
 **Causa**: `claude_desktop_config.json` mal formatado.
 
@@ -152,7 +149,7 @@ Verifique:
 - Arquivo em local correto: `~/.claude/claude_desktop_config.json`
 - Reinicie Claude Desktop após salvar
 
-### Erro: `Connection refused`
+## Erro: `Connection refused`
 
 **Causa**: Vectora não consegue conectar à API.
 
@@ -170,7 +167,7 @@ curl https://generativelanguage.googleapis.com/v1beta/models
 # Gere nova chave em https://aistudio.google.com/app/apikey
 ```
 
-### Claude não usa Vectora automaticamente
+## Claude não usa Vectora automaticamente
 
 **Causa**: Claude não detecta que a ferramenta é relevante.
 
@@ -185,7 +182,7 @@ Procure no codebase por implementações de JWT.
 
 ## API & Providers
 
-### Erro: `403 Quota Exceeded (Gemini)`
+## Erro: `403 Quota Exceeded (Gemini)`
 
 **Causa**: Limite de requisições excedido (60/min no tier gratuito).
 
@@ -199,7 +196,7 @@ Procure no codebase por implementações de JWT.
 vectora stats --provider gemini
 ```
 
-### Erro: `401 Unauthorized (Voyage)`
+## Erro: `401 Unauthorized (Voyage)`
 
 **Causa**: Chave de API inválida ou expirada.
 
@@ -213,7 +210,7 @@ vectora config set --key VOYAGE_API_KEY --value "nova_chave"
 vectora test --provider voyage
 ```
 
-### Erro: `Network timeout`
+## Erro: `Network timeout`
 
 **Causa**: Conexão lenta ou API indisponível.
 
@@ -235,7 +232,7 @@ export HTTPS_PROXY=https://proxy:port
 
 ## Indexação & RAG
 
-### Erro: `Project not found`
+## Erro: `Project not found`
 
 **Causa**: Namespace não existe.
 
@@ -249,7 +246,7 @@ vectora init --name "Meu Projeto"
 "VECTORA_NAMESPACE": "my-project"
 ```
 
-### Erro: `No results found`
+## Erro: `No results found`
 
 **Causa**: Codebase não indexado ou query irrelevante.
 
@@ -266,7 +263,7 @@ vectora status --project .
 # Exemplo: em vez de "auth", tente "JWT validation in middleware"
 ```
 
-### Embedding muito lento
+## Embedding muito lento
 
 **Causa**: Codebase grande ou conexão lenta.
 
@@ -290,7 +287,7 @@ providers:
 
 ## Performance
 
-### Claude Desktop é lento
+## Claude Desktop é lento
 
 **Causa**: Muitas requisições simultâneas ou codebase grande.
 
@@ -304,7 +301,7 @@ vectora config set VECTORA_AUTO_INGEST=false
 vectora schedule ingest --time 02:00 --recurring daily
 ```
 
-### Alto uso de memória
+## Alto uso de memória
 
 **Causa**: Cache local grande ou índices não limpos.
 
@@ -325,7 +322,7 @@ vectora stats --memory
 
 ## Debug & Logging
 
-### Ativar modo debug
+## Ativar modo debug
 
 ```bash
 # Via CLI
@@ -338,7 +335,7 @@ export VECTORA_LOG_LEVEL=debug
 vectora mcp-serve --log-file debug.log
 ```
 
-### Obter mais informações
+## Obter mais informações
 
 ```bash
 # Status geral

@@ -15,6 +15,7 @@ tags:
 ---
 
 {{< lang-toggle >}}
+{{< section-toggle >}}
 
 Vectora works with pluggable AI models for embeddings, reranking, and LLMs. This guide covers supported models and how to customize them.
 

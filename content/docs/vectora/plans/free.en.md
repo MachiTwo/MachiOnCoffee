@@ -13,8 +13,7 @@ tags:
 ---
 
 {{< lang-toggle >}}
-
-## Overview
+{{< section-toggle >}}
 
 Vectora's **Free** plan is fully **open source and time-unlimited**. Use it locally on any codebase without paying anything. Perfect for:
 
@@ -23,11 +22,9 @@ Vectora's **Free** plan is fully **open source and time-unlimited**. Use it loca
 - Educational projects
 - Prototyping and testing
 
----
-
 ## What's Included
 
-### Core Features
+## Core Features
 
 | Feature                     | Free |
 | --------------------------- | ---- |
@@ -43,7 +40,7 @@ Vectora's **Free** plan is fully **open source and time-unlimited**. Use it loca
 | **SSO/LDAP**                | [x]  |
 | **SLA Uptime**              | -    |
 
-### Integrations
+## Integrations
 
 | Platform               | Free          |
 | ---------------------- | ------------- |
@@ -54,7 +51,7 @@ Vectora's **Free** plan is fully **open source and time-unlimited**. Use it loca
 | **ChatGPT Custom GPT** | (self-hosted) |
 | **Gemini Integration** | (BYOK)        |
 
-### AI Models (BYOK)
+## AI Models (BYOK)
 
 Use your own:
 
@@ -71,7 +68,7 @@ Use your own:
 
 ## Limits
 
-### Rate Limiting
+## Rate Limiting
 
 ```yaml
 free_tier_limits:
@@ -88,13 +85,13 @@ free_tier_limits:
     searches_per_day: 1000
 ```
 
-### Storage
+## Storage
 
 - **Vector Index**: Unlimited (local disk)
 - **Embeddings Cache**: 500MB
 - **Logs**: 30 days retention
 
-### Performance
+## Performance
 
 - **Search Latency**: <2s
 - **Concurrent Requests**: 1
@@ -105,7 +102,7 @@ free_tier_limits:
 
 ## How to Start
 
-### Installation
+## Installation
 
 ```bash
 # Install globally
@@ -115,7 +112,7 @@ npm install -g @kaffyn/vectora
 vectora --version
 ```
 
-### First Run
+## First Run
 
 ```bash
 # 1. Initialize project
@@ -137,7 +134,7 @@ vectora index
 vectora search "How does login work?"
 ```
 
-### With IDE (Claude Code, Cursor)
+## With IDE (Claude Code, Cursor)
 
 ```json
 // ~/.claude/claude_desktop_config.json
@@ -160,7 +157,7 @@ vectora search "How does login work?"
 
 ## Recommended Use Cases
 
-### Best in Free
+## Best in Free
 
 - **Codebase < 100K lines**: Indexing in minutes
 - **1 project**: 1 namespace, isolated Trust Folder
@@ -168,7 +165,7 @@ vectora search "How does login work?"
 - **Local development**: No infrastructure needed
 - **Education/research**: Open source (MIT)
 
-### Consider Upgrade
+## Consider Upgrade
 
 - **Multiple large projects**: > 5 projects
 - **Teams > 10 people**: Needs LDAP/SSO
@@ -180,7 +177,7 @@ vectora search "How does login work?"
 
 ## Troubleshooting
 
-### "Quota exceeded"
+## "Quota exceeded"
 
 You have reached the monthly API limit (Gemini or Voyage).
 
@@ -189,7 +186,7 @@ You have reached the monthly API limit (Gemini or Voyage).
 1. Wait for reset on the 1st of the next month
 2. Upgrade to Pro (unlimited)
 
-### "Rate limit exceeded"
+## "Rate limit exceeded"
 
 You made too many requests in 1 minute.
 
@@ -203,7 +200,7 @@ for query in "login" "auth" "token"; do
 done
 ```
 
-### "Concurrent users exceeded"
+## "Concurrent users exceeded"
 
 Only 1 user at a time in the free tier (1 IDE).
 

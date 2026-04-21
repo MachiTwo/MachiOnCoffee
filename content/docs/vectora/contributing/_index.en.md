@@ -13,6 +13,7 @@ tags:
 ---
 
 {{< lang-toggle >}}
+{{< section-toggle >}}
 
 Vectora is an open source project (MIT) and welcomes contributions from the entire community. This guide covers how to report bugs, suggest features, contribute code, and improve documentation.
 

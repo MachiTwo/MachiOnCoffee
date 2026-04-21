@@ -17,6 +17,7 @@ tags:
 ---
 
 {{< lang-toggle >}}
+{{< section-toggle >}}
 
 Vectora implementa **Model Context Protocol (MCP)**, padrão OpenAI que permite qualquer IDE com suporte a MCP se conectar e usar Vectora como servidor de contexto. Funciona nativamente em Claude Code e Cursor.
 
@@ -38,21 +39,21 @@ Vectora Server (localhost:9090 ou remote)
 
 ## Instalação Rápida
 
-### Pré-requisitos
+## Pré-requisitos
 
 - Node.js 18+
 - Vectora instalado: `npm install -g @kaffyn/vectora`
 - Chaves de API (Gemini, Voyage)
 - IDE com suporte a MCP (Claude Code, Cursor, etc)
 
-### Passo 1: Inicializar Projeto
+## Passo 1: Inicializar Projeto
 
 ```bash
 cd ~/seu-projeto
 vectora init --name "Seu Projeto"
 ```
 
-### Passo 2: Configurar MCP em Sua IDE
+## Passo 2: Configurar MCP em Sua IDE
 
 **Arquivo de config** (localização varia por IDE):
 
@@ -78,7 +79,7 @@ vectora init --name "Seu Projeto"
 }
 ```
 
-### Passo 3: Testar
+## Passo 3: Testar
 
 1. Reinicie sua IDE
 2. Procure pela tool `search_context` no menu MCP
@@ -107,7 +108,7 @@ vectora init --name "Seu Projeto"
 
 ## Workflows Práticos
 
-### Workflow 1: Entender Feature
+## Workflow 1: Entender Feature
 
 ```text
 Você: "Explique como funciona autenticação"
@@ -116,7 +117,7 @@ Vectora: Retorna chunks relevantes
 IDE: Mostra chunks no contexto
 ```
 
-### Workflow 2: Debugging
+## Workflow 2: Debugging
 
 ```text
 Você: "Por que esse teste falha?"
@@ -125,7 +126,7 @@ IDE: @vectora analyze_dependencies "função sendo testada"
 Vectora: Retorna contexto relevante
 ```
 
-### Workflow 3: Code Review
+## Workflow 3: Code Review
 
 ```text
 Você: "Revise essa função"
@@ -138,7 +139,7 @@ IDE: Compara com código existente
 
 ## Configuração Avançada
 
-### Custom Namespace
+## Custom Namespace
 
 ```json
 {
@@ -152,7 +153,7 @@ IDE: Compara com código existente
 }
 ```
 
-### Multiple IDEs Sincronizadas
+## Multiple IDEs Sincronizadas
 
 Se usar múltiplas IDEs, ambas apontam para mesma config e namespace:
 
@@ -190,7 +191,7 @@ Ambas veem os mesmos chunks, índices, namespaces.
 
 ## Troubleshooting
 
-### "Vectora command not found"
+## "Vectora command not found"
 
 ```bash
 # Verificar instalação
@@ -200,7 +201,7 @@ npm list -g @kaffyn/vectora
 npm install -g @kaffyn/vectora --force
 ```
 
-### "Connection refused"
+## "Connection refused"
 
 Vectora não está rodando como servidor:
 
@@ -216,7 +217,7 @@ vectora mcp
 }
 ```
 
-### "API key not found"
+## "API key not found"
 
 Verificar variáveis de ambiente:
 

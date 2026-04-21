@@ -15,11 +15,9 @@ tags:
 {{< lang-toggle >}}
 {{< section-toggle >}}
 
-## Engineering Overview
-
 This section documents the internal architecture and engineering decisions behind Vectora's new **Golang-based** stack. Unlike the legacy Node.js version, the current architecture focuses on native portability, high-performance parallel execution, and compiled security.
 
-### Architectural Pillars
+## Architectural Pillars
 
 Vectora has been rebuilt upon four fundamental pillars:
 
@@ -28,7 +26,7 @@ Vectora has been rebuilt upon four fundamental pillars:
 3. **Hybrid Interface (CLI + Systray)**: A powerful CLI via Cobra for automation and a system tray app for session management and login.
 4. **Compiled Security (Guardian)**: Schema validation and blocklists implemented directly in the binary, without reliance on external runtime libraries like Zod.
 
-### Implementation Map
+## Implementation Map
 
 Explore the engineering modules below to understand each part of the ecosystem:
 

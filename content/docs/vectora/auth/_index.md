@@ -15,16 +15,15 @@ tags:
 ---
 
 {{< lang-toggle >}}
+A camada de autenticação do Vectora garante que apenas usuários e serviços autorizados acessem recursos, namespaces e operações sensíveis. Esta seção documenta os mecanismos de identidade, gestão de chaves de API e controle de acesso que protegem sua infraestrutura de contexto.
 
 ## Autenticação e Autorização no Vectora
-
-A camada de autenticação do Vectora garante que apenas usuários e serviços autorizados acessem recursos, namespaces e operações sensíveis. Esta seção documenta os mecanismos de identidade, gestão de chaves de API e controle de acesso que protegem sua infraestrutura de contexto.
 
 > [!IMPORTANT] > **Segurança na aplicação, não no banco**: O Vectora implementa RBAC, validação de namespace e sanitização na camada de aplicação (`Guardian`, `RBAC Logic`). O backend (MongoDB Atlas) armazena dados; a aplicação decide quem pode acessar o quê.
 
 ---
 
-### Tópicos desta seção
+## Tópicos desta seção
 
 | Página                                   | Descrição                                                                                                |
 | ---------------------------------------- | -------------------------------------------------------------------------------------------------------- |
@@ -33,7 +32,7 @@ A camada de autenticação do Vectora garante que apenas usuários e serviços a
 
 ---
 
-### Fluxo de Autenticação Típico
+## Fluxo de Autenticação Típico
 
 ```mermaid
 graph LR
@@ -54,7 +53,7 @@ graph LR
 
 ---
 
-### Conceitos Fundamentais
+## Conceitos Fundamentais
 
 | Termo            | Definição                                                                                        |
 | ---------------- | ------------------------------------------------------------------------------------------------ |
@@ -66,7 +65,7 @@ graph LR
 
 ---
 
-### Boas Práticas de Segurança
+## Boas Práticas de Segurança
 
 **Use API Keys com escopo mínimo**: Conceda apenas `read` se a integração não precisa escrever
 **Rotação periódica de chaves**: Renove API Keys a cada 90 dias ou após incidentes
@@ -78,7 +77,7 @@ graph LR
 
 ---
 
-### Integração com Seu Sistema
+## Integração com Seu Sistema
 
 #### Exemplo: Validação de JWT no seu backend
 
@@ -119,7 +118,7 @@ export async function authMiddleware(req: Request, next: Handler) {
 
 ---
 
-### Perguntas Frequentes
+## Perguntas Frequentes
 
 **P: Preciso de SSO para usar o Vectora?**
 R: Não. O plano Free usa autenticação local via `vectora auth login`. SSO é disponível nos planos Pro/Team para integração com provedores corporativos.

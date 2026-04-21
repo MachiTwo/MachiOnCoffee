@@ -9,17 +9,16 @@ breadcrumbs: true
 ---
 
 {{< lang-toggle >}}
+API Keys are programmatic credentials that enable secure, scoped access to the Vectora backend without interactive authentication. They are designed for machine-to-machine communication, CI/CD pipelines, custom agent integrations, and direct HTTP/REST access to your indexed namespaces.
 
 ## Vectora API Keys
-
-API Keys are programmatic credentials that enable secure, scoped access to the Vectora backend without interactive authentication. They are designed for machine-to-machine communication, CI/CD pipelines, custom agent integrations, and direct HTTP/REST access to your indexed namespaces.
 
 > [!IMPORTANT]
 > API Keys are **only available on Pro, Team, and Enterprise plans**. Free/Local users authenticate via `vectora auth login` (interactive JWT).
 
 ---
 
-### Key Capabilities
+## Key Capabilities
 
 | Feature                | Description                                                              |
 | ---------------------- | ------------------------------------------------------------------------ |
@@ -31,7 +30,7 @@ API Keys are programmatic credentials that enable secure, scoped access to the V
 
 ---
 
-### Available Scopes & Permissions
+## Available Scopes & Permissions
 
 | Scope    | Allowed Operations                                         | Typical Use Case                                             |
 | -------- | ---------------------------------------------------------- | ------------------------------------------------------------ |
@@ -45,7 +44,7 @@ API Keys are programmatic credentials that enable secure, scoped access to the V
 
 ---
 
-### Integration Examples
+## Integration Examples
 
 #### 1. MCP Server Configuration
 
@@ -95,7 +94,7 @@ await client.context.ingest("./src");
 
 ---
 
-### Security Best Practices
+## Security Best Practices
 
 **Principle of Least Privilege**: Use `search` for read-only agents, `write` only for automated indexing pipelines.
 **Environment Injection**: Never hardcode keys. Use `.env`, CI/CD secrets, or cloud KMS.
@@ -108,7 +107,7 @@ await client.context.ingest("./src");
 
 ---
 
-### Key Management Lifecycle
+## Key Management Lifecycle
 
 | Action     | Dashboard                         | CLI                                                     |
 | ---------- | --------------------------------- | ------------------------------------------------------- | --- |
@@ -121,7 +120,7 @@ await client.context.ingest("./src");
 
 ---
 
-### Frequently Asked Questions
+## Frequently Asked Questions
 
 **Q: Can I share an API Key across multiple namespaces?**
 A: No. Each key is strictly bound to a single namespace at creation. Cross-namespace access requires multiple keys or [Team/Enterprise RBAC](/plans/team/).

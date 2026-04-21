@@ -15,9 +15,6 @@ tags:
 ---
 
 {{< lang-toggle >}}
-
-## Visão Geral
-
 A configuração do Vectora é controlada por:
 
 1. **`vectora.config.yaml`** — Configuração do projeto (local)
@@ -30,7 +27,7 @@ A configuração do Vectora é controlada por:
 
 Criado automaticamente com `vectora init`, este arquivo controla o comportamento do agente.
 
-### Estrutura Completa
+## Estrutura Completa
 
 ```yaml
 # Metadados do Projeto
@@ -130,14 +127,14 @@ logging:
 
 ## Variáveis de Ambiente
 
-### Obrigatórias
+## Obrigatórias
 
 ```bash
 GEMINI_API_KEY=sk-xxx... # Google AI Studio
 VOYAGE_API_KEY=pa-xxx... # Voyage AI
 ```
 
-### Opcionais
+## Opcionais
 
 ```bash
 VECTORA_NAMESPACE=my-project # Sobrescreve vectora.config.yaml
@@ -148,7 +145,7 @@ QDRANT_URL=http://localhost:6333 # Se usar Qdrant local
 SUPABASE_URL=https://xxx.supabase.co # Para auth customizada
 ```
 
-### Arquivo `.env`
+## Arquivo `.env`
 
 ```bash
 # .env (nunca commitar!)
@@ -164,7 +161,7 @@ Carregado automaticamente ao executar Vectora.
 
 ## Configuração via CLI
 
-### Listar Configurações
+## Listar Configurações
 
 ```bash
 vectora config list
@@ -174,7 +171,7 @@ vectora config list
 # VECTORA_NAMESPACE: my-project
 ```
 
-### Definir Valores
+## Definir Valores
 
 ```bash
 # Interativo
@@ -189,7 +186,7 @@ vectora config set \
   --key VECTORA_NAMESPACE --value backend
 ```
 
-### Resetar Configuração
+## Resetar Configuração
 
 ```bash
 vectora config reset --confirm
@@ -200,7 +197,7 @@ vectora config reset --confirm
 
 ## Exemplos de Configuração por Caso de Uso
 
-### Caso 1: Projeto Backend (Go/Rust)
+## Caso 1: Projeto Backend (Go/Rust)
 
 ```yaml
 project:
@@ -224,7 +221,7 @@ indexing:
     - "*.md"
 ```
 
-### Caso 2: Documentação Técnica
+## Caso 2: Documentação Técnica
 
 ```yaml
 project:
@@ -243,7 +240,7 @@ indexing:
     - "guides/**/*.md"
 ```
 
-### Caso 3: Desenvolvimento Local (CPU Limitado)
+## Caso 3: Desenvolvimento Local (CPU Limitado)
 
 ```yaml
 providers:

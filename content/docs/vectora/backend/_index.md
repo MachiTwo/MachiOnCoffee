@@ -13,16 +13,15 @@ tags:
 ---
 
 {{< lang-toggle >}}
-
-## O Motor por Trás do Contexto
-
 A infraestrutura de backend do Vectora foi projetada para resolver o maior gargalo dos agentes de IA modernos: a **gestão de estado em escala**. Enquanto o runtime do Vectora processa a inteligência, o backend garante que essa inteligência seja fundamentada em dados persistentes, seguros e buscáveis.
 
 O Vectora utiliza uma arquitetura unificada baseada em **MongoDB Atlas**, permitindo que vetores, metadados e memória operacional coexistam no mesmo ecossistema.
 
+## O Motor por Trás do Contexto
+
 ---
 
-### Tópicos desta seção
+## Tópicos desta seção
 
 | Página                                                 | Descrição                                                                                       |
 | ------------------------------------------------------ | ----------------------------------------------------------------------------------------------- |
@@ -32,7 +31,7 @@ O Vectora utiliza uma arquitetura unificada baseada em **MongoDB Atlas**, permit
 
 ---
 
-### Visão Geral da Arquitetura
+## Visão Geral da Arquitetura
 
 O backend do Vectora não é apenas um local de armazenamento; é uma extensão do **Harness Runtime**.
 
@@ -52,7 +51,7 @@ graph TD
 
 ---
 
-### Princípios de Backend
+## Princípios de Backend
 
 1. **Isolamento por Namespace (RBAC)**: O backend impõe limites rígidos. Dados de um projeto nunca se misturam com outros, garantindo privacidade multi-tenant.
 2. **Atomicidade**: Vetores e metadados de código são armazenados juntos. Se um arquivo é atualizado, o índice vetorial e o documento são atualizados simultaneamente.
@@ -61,7 +60,7 @@ graph TD
 
 ---
 
-### Modos de Backend
+## Modos de Backend
 
 | Modo                    | Descrição                                                                                               | Uso Ideal                                      |
 | ----------------------- | ------------------------------------------------------------------------------------------------------- | ---------------------------------------------- |
@@ -71,7 +70,7 @@ graph TD
 
 ---
 
-### Perguntas Frequentes
+## Perguntas Frequentes
 
 **P: Onde meus vetores ficam armazenados fisicamente?**
 R: Nos clusters do MongoDB Atlas gerenciados pela Kaffyn, geralmente localizados em regiões AWS ou Google Cloud de baixa latência.

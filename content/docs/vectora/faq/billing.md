@@ -13,6 +13,7 @@ tags:
 ---
 
 {{< lang-toggle >}}
+{{< section-toggle >}}
 
 Dúvidas sobre planos, preço, faturamento e upgrade de Vectora respondidas com clareza.
 
@@ -58,7 +59,7 @@ vectora upgrade --plan pro
 
 ## Qual é a Moeda?
 
-### USD (Dólares Americanos)
+## USD (Dólares Americanos)
 
 - Free: $0
 - Pro: $29 USD/mês

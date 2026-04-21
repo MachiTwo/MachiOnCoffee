@@ -14,6 +14,7 @@ tags:
 ---
 
 {{< lang-toggle >}}
+{{< section-toggle >}}
 
 Perguntas frequentes sobre segurança, proteção de dados, criptografia, compliance e boas práticas.
 

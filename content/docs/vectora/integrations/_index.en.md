@@ -14,6 +14,7 @@ tags:
 ---
 
 {{< lang-toggle >}}
+{{< section-toggle >}}
 
 Connect Vectora with your favorite tools and IDEs. Choose between generic integration (MCP Protocol) or proprietary apps with customized UX.
 
@@ -31,7 +32,7 @@ Connect Vectora with your favorite tools and IDEs. Choose between generic integr
 
 ## Generic Integration
 
-### MCP (Model Context Protocol)
+## MCP (Model Context Protocol)
 
 **Best for**: Modern IDEs (Claude Code, Cursor, Zed)
 
@@ -45,7 +46,7 @@ Open standard protocol that allows IDEs to call tools on your computer. Vectora 
 
 ## Customized UI Integrations
 
-### VS Code Extension
+## VS Code Extension
 
 **Best for**: VS Code developers
 
@@ -53,7 +54,7 @@ Native UI with sidebar, integrated commands, and syntax highlighting for retriev
 
 [→ VS Code Extension](./vscode-extension.md)
 
-### ChatGPT Plugin
+## ChatGPT Plugin
 
 **Best for**: Using Vectora inside ChatGPT
 
@@ -61,7 +62,7 @@ Custom GPT Plugin with analysis, documentation, and code review support via Chat
 
 [→ ChatGPT Plugin](./chatgpt-plugin.md)
 
-### Gemini API Integration
+## Gemini API Integration
 
 **Best for**: Workflows using Google Gemini
 
@@ -71,7 +72,7 @@ REST + CLI integration for code analysis, review, and generation with Vectora co
 
 ## Advanced Integrations
 
-### Custom Agents & REST API
+## Custom Agents & REST API
 
 Build agents in Python, Node.js, Go, or any language. Call Vectora via REST API (beta).
 

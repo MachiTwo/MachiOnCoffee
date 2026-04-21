@@ -14,7 +14,6 @@ tags:
 ---
 
 {{< lang-toggle >}}
-
 Local Reranker provides intelligent retrieval without vector database dependency, combining deterministic search with semantic reranking. Ideal for mutable data, dynamic files, and scenarios where embedding cost is prohibitive.
 
 ## The Problem: Why Embeddings Are Expensive
@@ -45,7 +44,7 @@ Result: 95% of embedding quality, 10% of the cost.
 
 ## Detailed Architecture
 
-### Query Understanding with Gemini 3 Flash
+## Query Understanding with Gemini 3 Flash
 
 ```typescript
 interface QueryAnalysis {
@@ -75,7 +74,7 @@ Gemini breaks down "How do I validate JWTs with custom claims?" into:
 - **context**: "code"
 - **urgency**: "immediate"
 
-### search_local() — Deterministic Search
+## search_local() — Deterministic Search
 
 ```typescript
 interface SearchCandidate {
@@ -109,7 +108,7 @@ async function searchLocal(query: QueryAnalysis, namespace: string): Promise<Sea
 }
 ```
 
-### Reranking with Voyage Rerank 2.5
+## Reranking with Voyage Rerank 2.5
 
 ```typescript
 interface RerankedResult {
@@ -179,7 +178,7 @@ graph LR
 
 ## Advanced Optimizations
 
-### Progressive Retrieval
+## Progressive Retrieval
 
 Retrieve in stages, stopping when confidence is sufficient:
 
@@ -205,7 +204,7 @@ async function progressiveRetrieve(query: string) {
 
 Reduces average latency from 30ms to 12ms (60% faster).
 
-### Lazy Embedding
+## Lazy Embedding
 
 Embed only top-10 candidates, not entire library:
 

@@ -15,9 +15,6 @@ tags:
 ---
 
 {{< lang-toggle >}}
-
-## Visão Geral
-
 O Context Engine é o coração da orquestração do Vectora. Ele decide **o quê, como e quando** buscar contexto em seu codebase, evitando ruído e overfetch.
 
 > [!IMPORTANT]
@@ -35,15 +32,15 @@ Agents genéricos retornam 50 arquivos irrelevantes para uma query simples. O Co
 
 O Context Engine oferece três estratégias de busca independentes ou combinadas, dependendo do tipo de consulta e precisão desejada.
 
-### Semântica
+## Semântica
 
 Usa embeddings para encontrar similaridade funcional. Ideal para "Como validar tokens?"
 
-### Estrutural
+## Estrutural
 
 Usa AST parsing para relações de código. Ideal para "Que funções chamam X?"
 
-### Híbrida
+## Híbrida
 
 Combina semântica + estrutura. Ideal para refatoração de módulos.
 
@@ -76,7 +73,7 @@ context_engine:
 
 Abaixo estão dois exemplos detalhados mostrando como o Context Engine processa queries e retorna contexto estruturado.
 
-### Exemplo 1: Busca Semântica
+## Exemplo 1: Busca Semântica
 
 **Query**: "Como validar tokens?"
 
@@ -108,7 +105,7 @@ Output:
   }
 ```
 
-### Exemplo 2: Busca Estrutural
+## Exemplo 2: Busca Estrutural
 
 **Query**: "Quem chama getUserById?"
 

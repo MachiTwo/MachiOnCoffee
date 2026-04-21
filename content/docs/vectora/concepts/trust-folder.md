@@ -16,9 +16,6 @@ tags:
 ---
 
 {{< lang-toggle >}}
-
-## Visão Geral
-
 Trust Folder é o **perímetro de segurança** que limita quais arquivos o Vectora pode indexar, ler e processar. Funciona como um "sandbox de path" contra leitura de arquivos sensíveis.
 
 > [!IMPORTANT]
@@ -46,7 +43,7 @@ Com Trust Folder:
 
 Trust Folder é configurado em vectora.config.yaml e pode usar caminhos relativos ou absolutos, com suporte a expansão de variáveis de ambiente.
 
-### Padrão
+## Padrão
 
 ```yaml
 # vectora.config.yaml
@@ -56,7 +53,7 @@ project:
 
 Significa: "Confio em tudo dentro deste diretório e subdiretórios".
 
-### Explícito (Recomendado)
+## Explícito (Recomendado)
 
 ```yaml
 project:
@@ -71,7 +68,7 @@ project:
     # NÃO incluido: ./node_modules, ./build, ./.env
 ```
 
-### Caminho Absoluto vs Relativo
+## Caminho Absoluto vs Relativo
 
 ```yaml
 # Relativo (recomendado)
@@ -134,7 +131,7 @@ Resolução:
 
 Abaixo apresentamos três padrões de configuração real: monorepo com isolamento entre packages, site de documentação com seções privadas, e sandbox para máxima segurança.
 
-### Case 1: Monorepo com Múltiplos Packages
+## Case 1: Monorepo com Múltiplos Packages
 
 ```text
 project/
@@ -174,7 +171,7 @@ Resultado:
 - Ambos podem acessar shared
 - `.env` está bloqueado para AMBOS
 
-### Case 2: Documentação + Source Code
+## Case 2: Documentação + Source Code
 
 ```text
 docs-website/
@@ -196,7 +193,7 @@ project:
   # private/ e .env são inaccessíveis
 ```
 
-### Case 3: Sandbox Completo
+## Case 3: Sandbox Completo
 
 Para máxima segurança (ex: CI/CD):
 
@@ -242,7 +239,7 @@ guardian:
 
 ## Auditoria
 
-### Logging
+## Logging
 
 ```bash
 VECTORA_AUDIT_LOG=true
@@ -263,7 +260,7 @@ Log output:
 }
 ```
 
-### Inspection
+## Inspection
 
 ```bash
 vectora audit --since 24h --filter "DENIED"
@@ -278,7 +275,7 @@ vectora audit --filter "file_access" | jq '.[] | {path, result}'
 
 Abaixo mostramos 4 ataques potenciais e como Trust Folder previne cada um deles, demonstrando a importância de configuração segura.
 
-### Ataque 1: Path Traversal Simples
+## Ataque 1: Path Traversal Simples
 
 **Sem Trust Folder:**
 
@@ -296,7 +293,7 @@ vectora search --file "../../.env"
 # Resultado: BLOQUEADO SAFE
 ```
 
-### Ataque 2: Symlink Escape
+## Ataque 2: Symlink Escape
 
 **Cenário:**
 
@@ -311,7 +308,7 @@ Vectora vê `src/link` (parece seguro) e indexa.
 Vectora resolve: `src/link` → `../../sensitive/secrets.yml` → `/project/sensitive/secrets.yml`
 Detecta: fora de trust folder → BLOQUEADO
 
-### Ataque 3: Injection via LLM Context
+## Ataque 3: Injection via LLM Context
 
 **Cenário:**
 
@@ -326,9 +323,9 @@ LLM (com Trust Folder):
 "Não posso acessar /etc/passwd - fora do trust folder"
 ```
 
-### Ataque 4: CI/CD Exposure
+## Ataque 4: CI/CD Exposure
 
-**Sem Trust Folder:**
+- **Sem Trust Folder:**
 
 ```text
 CI/CD runner executa: vectora index
@@ -351,7 +348,7 @@ Resultado: secrets.json ignorado
 
 Para validar que Trust Folder está funcionando corretamente, use os comandos abaixo. Um security audit completo garante que nenhum arquivo sensível é acessível.
 
-### Verificar Trust Folder Está Ativo
+## Verificar Trust Folder Está Ativo
 
 ```bash
 # 1. Config
@@ -367,7 +364,7 @@ vectora index --try-path "../.env" --dry-run
 # Output: ERROR: outside_trust_folder
 ```
 
-### Security Audit Completo
+## Security Audit Completo
 
 ```bash
 #!/bin/bash
@@ -406,7 +403,7 @@ echo " PASS: Trust Folder is properly configured"
 
 Problemas comuns ao usar Trust Folder e como resolvê-los, incluindo soluções para symlinks e path resolution.
 
-### Arquivo Válido Bloqueado
+## Arquivo Válido Bloqueado
 
 ```text
 Error: ./src/utils/helpers.ts is outside trust folder
@@ -425,7 +422,9 @@ vectora index --dry-run
 
 **Solução**: Verificar se trust_folder é relativo ao CWD.
 
-### Symlinks
+## Symlinks
+
+-
 
 Por padrão, symlinks são **resolvidos**:
 

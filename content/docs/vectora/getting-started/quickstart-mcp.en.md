@@ -15,9 +15,6 @@ tags:
 ---
 
 {{< lang-toggle >}}
-
-## Overview
-
 This guide allows you to integrate Vectora with Claude Desktop via MCP in less than 5 minutes.
 
 > [!IMPORTANT]
@@ -27,7 +24,7 @@ This guide allows you to integrate Vectora with Claude Desktop via MCP in less t
 
 ## Step 1: Locate the Configuration File
 
-### macOS / Linux
+## macOS / Linux
 
 ```bash
 # Claude Desktop configuration file
@@ -38,7 +35,7 @@ mkdir -p ~/.claude
 touch ~/.claude/claude_desktop_config.json
 ```
 
-### Windows
+## Windows
 
 ```powershell
 # Configuration file (WSL2 or Windows)
@@ -70,7 +67,7 @@ Edit `claude_desktop_config.json`:
 }
 ```
 
-### Alternative: Use System Environment Variables
+## Alternative: Use System Environment Variables
 
 If you already have `GEMINI_API_KEY` and `VOYAGE_API_KEY` defined:
 
@@ -98,7 +95,7 @@ If you already have `GEMINI_API_KEY` and `VOYAGE_API_KEY` defined:
 
 ## Step 4: Test the Connection
 
-### Via Claude Desktop Chat
+## Via Claude Desktop Chat
 
 Open Claude Desktop and test:
 
@@ -120,7 +117,7 @@ Available files in namespace 'my-project':
 ...
 ```
 
-### Verify MCP Status
+## Verify MCP Status
 
 If you receive an error:
 
@@ -138,7 +135,7 @@ If it is not connected:
 
 ## Step 5: Your First Vectora Command
 
-### Explore the Codebase
+## Explore the Codebase
 
 ```text
 What is the structure of this project? List the main directories.
@@ -146,7 +143,7 @@ What is the structure of this project? List the main directories.
 
 Claude uses `file_list` via Vectora.
 
-### Search Context
+## Search Context
 
 ```text
 How does JWT authentication work in this project? Find the implementation.
@@ -154,7 +151,7 @@ How does JWT authentication work in this project? Find the implementation.
 
 Claude uses `context_search` for semantic search.
 
-### Analyze a File
+## Analyze a File
 
 ```text
 Read and explain the src/main.ts file

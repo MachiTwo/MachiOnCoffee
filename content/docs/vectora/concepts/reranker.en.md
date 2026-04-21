@@ -64,11 +64,11 @@ A **Reranker** is a specialized AI model that:
 3. **Reorders the list** so the most relevant appear at the top
 4. **Optionally filters** documents with very low scores
 
-### Bi-Encoder vs Cross-Encoder
+## Bi-Encoder vs Cross-Encoder
 
 There are two fundamental architectures in semantic search:
 
-#### Bi-Encoder (Traditional Embeddings)
+## Bi-Encoder (Traditional Embeddings)
 
 ```text
 Query: "How to implement JWT authentication?"
@@ -82,7 +82,7 @@ Document 2 Embedding: [0.05, 0.23, 0.11, ...] → Cosine Similarity: 0.42
 - Scalable (works with millions of documents)
 - Less precise (can confuse similar items)
 
-#### Cross-Encoder (Reranking)
+## Cross-Encoder (Reranking)
 
 ```text
 Cross-Encoder Input:
@@ -101,21 +101,21 @@ Score: 0.89 (highly relevant)
 
 **Vectora uses ONLY Voyage Rerank 2.5.** No fallbacks, no alternatives.
 
-### Technical Specifications
+## Technical Specifications
 
-| Aspect | Detail |
+| Aspect                    | Detail                                           |
 | ------------------------- | ------------------------------------------------ |
-| **Architecture** | Cross-Encoder (transformers with full attention) |
-| **Training** | 1B+ examples of code and technical documentation |
-| **Latency** | ~50-150ms per ranking (batch of 100 docs) |
-| **Output Dimensionality** | Numeric score (0.0 to 1.0) |
-| **Cost** | $2 per 1M input tokens |
-| **Precision (NDCG@5)** | 96.2% on code benchmarks |
-| **Language Support** | All languages (EN, PT-BR, etc) |
+| **Architecture**          | Cross-Encoder (transformers with full attention) |
+| **Training**              | 1B+ examples of code and technical documentation |
+| **Latency**               | ~50-150ms per ranking (batch of 100 docs)        |
+| **Output Dimensionality** | Numeric score (0.0 to 1.0)                       |
+| **Cost**                  | $2 per 1M input tokens                           |
+| **Precision (NDCG@5)**    | 96.2% on code benchmarks                         |
+| **Language Support**      | All languages (EN, PT-BR, etc)                   |
 
-### How Voyage Rerank 2.5 Works
+## How Voyage Rerank 2.5 Works
 
-#### Phase 1: Preparation
+## Phase 1: Preparation
 
 ```python
 query = "Where do we handle email validation in user registration context?"
@@ -128,7 +128,7 @@ candidates = [
 ]
 ```text
 
-#### Phase 2: Cross-Encoding
+## Phase 2: Cross-Encoding
 
 For each pair (query, document), Voyage Rerank 2.5:
 
@@ -145,7 +145,7 @@ string): boolean { ... } [SEP]
 
 3. **Generates a Score** between 0 and 1 representing relevance
 
-#### Phase 3: Reordering
+## Phase 3: Reordering
 
 ```python
 Reranker Scores:
@@ -165,27 +165,27 @@ Top-3 to send to LLM:
 
 We tested all options:
 
-### Cohere Rerank v3.5
+## Cohere Rerank v3.5
 
 - NDCG@5: 93.1% (3.1% worse)
 - Latency: ~180ms
 - Cost: $3 per 1M tokens (50% more expensive)
 - No optimization for production code
 
-### BM25 (Keyword Search)
+## BM25 (Keyword Search)
 
 - Completely inadequate for code
 - Confuses syntax with semantics
 - No support for abstract concepts
 
-### Custom Training
+## Custom Training
 
 - Requires 100K+ annotated code examples
 - 6-8 months of development
 - Cost: $500K+
 - Continuous maintenance
 
-### Voyage Rerank 2.5
+## Voyage Rerank 2.5
 
 - NDCG@5: **96.2%** (best in market)
 - Latency: 50-150ms
@@ -213,7 +213,7 @@ We tested all options:
 
 The rest (47 documents with score <0.60) are discarded.
 
-### Use Case 2: Feature Refactoring
+## Use Case 2: Feature Refactoring
 
 **Question**: "Which services depend on the `User` struct?"
 
@@ -234,7 +234,7 @@ The rest (47 documents with score <0.60) are discarded.
 4. `src/repositories/user-repository.ts` (0.89)
 5. `src/middleware/verify-user.ts` (0.87)
 
-### Use Case 3: Code Review
+## Use Case 3: Code Review
 
 **PR changed 50 files. Question**: "What's the central file in this change?"
 
@@ -276,7 +276,8 @@ Query: "How to validate JWT tokens?"
 
 ## Performance and Latency
 
-### Batching for Efficiency
+## Batching for Efficiency
++
 
 ```python
 # Scenario: 50 documents to rerank
@@ -293,7 +294,8 @@ scores = reranker.rank(query, documents) # 100-150ms total
 
 Batching is **50x faster**.
 
-### Intelligent Thresholding
+## Intelligent Thresholding
++
 
 ```python
 scores = reranker.rank(query, candidates)
@@ -311,7 +313,7 @@ top_k = [doc for score in scores if score > 0.70]
 
 Voyage Rerank 2.5 is evaluated with specialized metrics:
 
-### NDCG (Normalized Discounted Cumulative Gain)
+## NDCG (Normalized Discounted Cumulative Gain)
 
 Measures if the most relevant docs are at the top:
 
@@ -325,7 +327,7 @@ NDCG@5 = 0.75 (75%)
 Voyage Rerank 2.5: NDCG@5 = 0.962 (96.2%)
 ```text
 
-### MRR (Mean Reciprocal Rank)
+## MRR (Mean Reciprocal Rank)
 
 Measures the position of the first relevant document:
 
@@ -341,7 +343,7 @@ MRR = 1/1 = 1.0
 Voyage Rerank 2.5 MRR: 0.94
 ```text
 
-### Recall@K
+## Recall@K
 
 How many relevant documents appear in top-K:
 
@@ -364,14 +366,14 @@ Voyage Rerank 2.5 Recall@10: 98.7%
 
 In a 500K lines of code project:
 
-| Metric | Without Reranking | With Reranking |
+| Metric                | Without Reranking | With Reranking                      |
 | --------------------- | ----------------- | ----------------------------------- |
-| Documents retrieved | 50 | 5 |
-| Context sent to LLM | ~15KB | ~1.5KB |
-| Cost per query | $0.05 | $0.06 |
-| Response time | 2.1s | 2.3s |
-| Accuracy rate | 82% | 96% |
-| Savings in re-queries | - | 40% (fewer clarification questions) |
+| Documents retrieved   | 50                | 5                                   |
+| Context sent to LLM   | ~15KB             | ~1.5KB                              |
+| Cost per query        | $0.05             | $0.06                               |
+| Response time         | 2.1s              | 2.3s                                |
+| Accuracy rate         | 82%               | 96%                                 |
+| Savings in re-queries | -                 | 40% (fewer clarification questions) |
 
 **ROI**: Despite $0.01 additional cost, reranking reduces re-queries by 40%, generating net savings of 75%.
 

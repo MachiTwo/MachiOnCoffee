@@ -14,7 +14,7 @@ tags:
 ---
 
 {{< lang-toggle >}}
-
+{{< section-toggle >}}
 Security in Vectora is implemented in 3 layers: application (Guardian blocklist), isolation (Trust Folder), and access control (RBAC). Data is yours - Vectora is BYOK (Bring Your Own Key).
 
 ## Security Pillars

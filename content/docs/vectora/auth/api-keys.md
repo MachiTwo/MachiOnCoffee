@@ -13,17 +13,16 @@ tags:
 ---
 
 {{< lang-toggle >}}
+As Chaves de API são credenciais programáticas que permitem acesso seguro e limitado ao backend do Vectora sem necessidade de autenticação interativa. Elas são projetadas para comunicação máquina-a-máquina, pipelines de CI/CD, integrações de agentes personalizados e acesso direto via HTTP/REST aos seus namespaces indexados.
 
 ## Chaves de API do Vectora
-
-As Chaves de API são credenciais programáticas que permitem acesso seguro e limitado ao backend do Vectora sem necessidade de autenticação interativa. Elas são projetadas para comunicação máquina-a-máquina, pipelines de CI/CD, integrações de agentes personalizados e acesso direto via HTTP/REST aos seus namespaces indexados.
 
 > [!IMPORTANT]
 > As Chaves de API estão **disponíveis apenas nos planos Pro, Team e Enterprise**. Usuários do plano Free/Local autenticam-se via `vectora auth login` (JWT interativo).
 
 ---
 
-### Capacidades Principais
+## Capacidades Principais
 
 | Recurso                   | Descrição                                                                      |
 | ------------------------- | ------------------------------------------------------------------------------ |
@@ -35,7 +34,7 @@ As Chaves de API são credenciais programáticas que permitem acesso seguro e li
 
 ---
 
-### Escopos e Permissões Disponíveis
+## Escopos e Permissões Disponíveis
 
 | Escopo   | Operações Permitidas                                         | Caso de Uso Típico                                              |
 | -------- | ------------------------------------------------------------ | --------------------------------------------------------------- |
@@ -49,7 +48,7 @@ As Chaves de API são credenciais programáticas que permitem acesso seguro e li
 
 ---
 
-### Exemplos de Integração
+## Exemplos de Integração
 
 #### 1. Configuração do Servidor MCP
 
@@ -99,7 +98,7 @@ await client.context.ingest("./src");
 
 ---
 
-### Boas Práticas de Segurança
+## Boas Práticas de Segurança
 
 **Princípio do Menor Privilégio**: Use `search` para agentes de leitura, `write` apenas para pipelines de indexação automáticos.
 **Injeção via Ambiente**: Nunca coloque chaves no código. Use `.env`, segredos de CI/CD ou KMS em nuvem.
@@ -112,7 +111,7 @@ await client.context.ingest("./src");
 
 ---
 
-### Gestão do Ciclo de Vida das Chaves
+## Gestão do Ciclo de Vida das Chaves
 
 | Ação          | Dashboard                               | CLI                                                     |
 | ------------- | --------------------------------------- | ------------------------------------------------------- |
@@ -125,7 +124,7 @@ await client.context.ingest("./src");
 
 ---
 
-### Perguntas Frequentes
+## Perguntas Frequentes
 
 **P: Posso compartilhar uma Chave de API entre múltiplos namespaces?**
 R: Não. Cada chave é estritamente vinculada a um único namespace na criação. Acesso cross-namespace requer múltiplas chaves ou [RBAC de Time](/plans/team/).

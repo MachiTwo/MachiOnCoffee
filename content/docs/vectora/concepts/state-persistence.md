@@ -19,7 +19,7 @@ O Vectora resolve isso através de um sistema de **Persistência de Estado e Mem
 
 No Vectora, a persistência é dividida em camadas para otimizar a performance e o custo de tokens:
 
-### 1. Memória Operacional (Curto Prazo)
+## 1. Memória Operacional (Curto Prazo)
 
 Reside na coleção `sessions` do MongoDB Atlas.
 
@@ -27,7 +27,7 @@ Reside na coleção `sessions` do MongoDB Atlas.
 - **Conteúdo**: Histórico das ferramentas chamadas, planos de execução temporários e outputs de ferramentas recentes.
 - **Uso**: Garante que se o agente listou arquivos em um passo, ele não precise listar novamente no próximo passo da mesma tarefa.
 
-### 2. Memória Persistente (Longo Prazo/AGENTS)
+## 2. Memória Persistente (Longo Prazo/AGENTS)
 
 Reside na coleção `memory` e é espelhada no arquivo `AGENTS.md` (opcional).
 
@@ -53,7 +53,7 @@ Quando o agente principal envia uma requisição via MCP, o Vectora:
 
 A persistência no backend não serve apenas para a IA; serve para o desenvolvedor.
 
-### Audit Logs (Coleção `audit_logs`)
+## Audit Logs (Coleção `audit_logs`)
 
 O Vectora registra metadados imutáveis de cada operação:
 

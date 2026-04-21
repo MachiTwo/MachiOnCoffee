@@ -15,11 +15,9 @@ tags:
 {{< lang-toggle >}}
 {{< section-toggle >}}
 
-## Visão Geral da Engenharia
-
 Esta seção documenta a arquitetura interna e as decisões de engenharia que sustentam o Vectora em sua nova stack baseada em **Golang**. Diferente da versão legada em Node.js, a arquitetura atual foca em portabilidade nativa, execução paralela de alta performance e segurança compilada.
 
-### Pilares da Arquitetura
+## Pilares da Arquitetura
 
 Vectora foi reconstruído sobre quatro pilares fundamentais:
 
@@ -28,7 +26,7 @@ Vectora foi reconstruído sobre quatro pilares fundamentais:
 3. **Interface Híbrida (CLI + Systray)**: Uma CLI poderosa via Cobra para automação e uma bandeja do sistema para gerenciamento de sessões e login.
 4. **Segurança Compilada (Guardian)**: Validação de schemas e blocklists implementadas diretamente no binário, sem dependência de bibliotecas externas de runtime como Zod.
 
-### Mapa de Implementação
+## Mapa de Implementação
 
 Navegue pelos módulos de engenharia abaixo para entender cada parte do ecossistema:
 

@@ -64,11 +64,11 @@ Um **Reranker** é um modelo de IA especializado que:
 3. **Reordena a lista** para que os mais relevantes fiquem no topo
 4. **Opcionalmente filtra** documentos com score muito baixo
 
-### Bi-Encoder vs Cross-Encoder
+## Bi-Encoder vs Cross-Encoder
 
 Existem duas arquiteturas fundamentais em busca semântica:
 
-#### Bi-Encoder (Embeddings Tradicionais)
+## Bi-Encoder (Embeddings Tradicionais)
 
 ```text
 Query: "Como fazer autenticação JWT?"
@@ -82,7 +82,7 @@ Document 2 Embedding: [0.05, 0.23, 0.11, ...] → Cosine Similarity: 0.42
 - Escalável (funciona com milhões de documentos)
 - Menos preciso (pode confundir similares)
 
-#### Cross-Encoder (Reranking)
+## Cross-Encoder (Reranking)
 
 ```text
 Cross-Encoder Input:
@@ -101,21 +101,21 @@ Score: 0.89 (muito relevante)
 
 **Vectora usa APENAS Voyage Rerank 2.5.** Sem fallbacks, sem alternativas.
 
-### Especificações Técnicas
+## Especificações Técnicas
 
-| Aspecto | Detalhe |
+| Aspecto                        | Detalhe                                          |
 | ------------------------------ | ------------------------------------------------ |
-| **Arquitetura** | Cross-Encoder (transformers com attention total) |
-| **Treinamento** | 1B+ exemplos de código e documentação técnica |
-| **Latência** | ~50-150ms por ranking (batch de 100 docs) |
-| **Dimensionalidade de Output** | Score numérico (0.0 a 1.0) |
-| **Custo** | $2 por 1M tokens de input |
-| **Precisão (NDCG@5)** | 96.2% em benchmarks de código |
-| **Suporte a linguagens** | Todos os idiomas (PT-BR, EN, etc) |
+| **Arquitetura**                | Cross-Encoder (transformers com attention total) |
+| **Treinamento**                | 1B+ exemplos de código e documentação técnica    |
+| **Latência**                   | ~50-150ms por ranking (batch de 100 docs)        |
+| **Dimensionalidade de Output** | Score numérico (0.0 a 1.0)                       |
+| **Custo**                      | $2 por 1M tokens de input                        |
+| **Precisão (NDCG@5)**          | 96.2% em benchmarks de código                    |
+| **Suporte a linguagens**       | Todos os idiomas (PT-BR, EN, etc)                |
 
-### Como Voyage Rerank 2.5 Funciona
+## Como Voyage Rerank 2.5 Funciona
 
-#### Fase 1: Preparação
+## Fase 1: Preparação
 
 ```python
 query = "Onde tratamos a validação de email no contexto de registros de usuário?"
@@ -128,7 +128,7 @@ candidates = [
 ]
 ```text
 
-#### Fase 2: Cross-Encoding
+## Fase 2: Cross-Encoding
 
 Para cada par (query, documento), o Voyage Rerank 2.5:
 
@@ -145,7 +145,7 @@ string): boolean { ... } [SEP]
 
 3. **Gera um Score** entre 0 e 1 representando a relevância
 
-#### Fase 3: Reordenação
+## Fase 3: Reordenação
 
 ```python
 Scores do Reranker:
@@ -165,27 +165,27 @@ Top-3 para enviar ao LLM:
 
 Testamos todas as opções:
 
-### Cohere Rerank v3.5
+## Cohere Rerank v3.5
 
 - NDCG@5: 93.1% (3.1% pior)
 - Latência: ~180ms
 - Custo: $3 por 1M tokens (50% mais caro)
 - Sem otimização para código de produção
 
-### BM25 (Busca por Palavras-Chave)
+## BM25 (Busca por Palavras-Chave)
 
 - Totalmente inadequado para código
 - Confunde sintaxe com semântica
 - Sem suporte a conceitos abstratos
 
-### Treinamento Custom
+## Treinamento Custom
 
 - Requer 100K+ exemplos de código anotado
 - 6-8 meses de desenvolvimento
 - Custo: $500K+
 - Manutenção contínua
 
-### Voyage Rerank 2.5
+## Voyage Rerank 2.5
 
 - NDCG@5: **96.2%** (melhor do mercado)
 - Latência: 50-150ms
@@ -195,7 +195,7 @@ Testamos todas as opções:
 
 ## Casos de Uso Práticos
 
-### Use Case 1: Resolução de Bugs
+## Use Case 1: Resolução de Bugs
 
 **Pergunta**: "Onde estamos logando erros de autenticação?"
 
@@ -213,7 +213,7 @@ Testamos todas as opções:
 
 O restante (47 documentos com score <0.60) é descartado.
 
-### Use Case 2: Refatoração de Features
+## Use Case 2: Refatoração de Features
 
 **Pergunta**: "Quais serviços dependem da struct `User`?"
 
@@ -234,7 +234,7 @@ O restante (47 documentos com score <0.60) é descartado.
 4. `src/repositories/user-repository.ts` (0.89)
 5. `src/middleware/verify-user.ts` (0.87)
 
-### Use Case 3: Code Review
+## Use Case 3: Code Review
 
 **PR alterou 50 arquivos. Pergunta**: "Qual é o arquivo central dessa mudança?"
 
@@ -276,7 +276,8 @@ Query: "Como validar tokens JWT?"
 
 ## Performance e Latência
 
-### Batching para Eficiência
+## Batching para Eficiência
++
 
 ```python
 # Cenário: 50 documentos para reranquear
@@ -293,7 +294,8 @@ scores = reranker.rank(query, documents) # 100-150ms total
 
 Batching é **50x mais rápido**.
 
-### Threshold Inteligente
+## Threshold Inteligente
++
 
 ```python
 scores = reranker.rank(query, candidates)
@@ -311,7 +313,7 @@ top_k = [doc for score in scores if score > 0.70]
 
 O Voyage Rerank 2.5 é avaliado com métricas especializadas:
 
-### NDCG (Normalized Discounted Cumulative Gain)
+## NDCG (Normalized Discounted Cumulative Gain)
 
 Mede se os docs mais relevantes estão no topo:
 
@@ -325,7 +327,7 @@ NDCG@5 = 0.75 (75%)
 Voyage Rerank 2.5: NDCG@5 = 0.962 (96.2%)
 ```text
 
-### MRR (Mean Reciprocal Rank)
+## MRR (Mean Reciprocal Rank)
 
 Mede a posição do primeiro documento relevante:
 
@@ -341,7 +343,7 @@ MRR = 1/1 = 1.0
 Voyage Rerank 2.5 MRR: 0.94
 ```text
 
-### Recall@K
+## Recall@K
 
 Quantos dos documentos relevantes aparecem no top-K:
 
@@ -365,14 +367,14 @@ salvá-lo
 
 Em projeto de 500K linhas de código:
 
-| Métrica | Sem Reranking | Com Reranking |
+| Métrica                 | Sem Reranking | Com Reranking                         |
 | ----------------------- | ------------- | ------------------------------------- |
-| Documentos recuperados | 50 | 5 |
-| Contexto enviado ao LLM | ~15KB | ~1.5KB |
-| Custo por query | $0.05 | $0.06 |
-| Tempo de resposta | 2.1s | 2.3s |
-| Taxa de acurácia | 82% | 96% |
-| Economia em re-queries | - | 40% (menos perguntas para esclarecer) |
+| Documentos recuperados  | 50            | 5                                     |
+| Contexto enviado ao LLM | ~15KB         | ~1.5KB                                |
+| Custo por query         | $0.05         | $0.06                                 |
+| Tempo de resposta       | 2.1s          | 2.3s                                  |
+| Taxa de acurácia        | 82%           | 96%                                   |
+| Economia em re-queries  | -             | 40% (menos perguntas para esclarecer) |
 
 **ROI**: Apesar do custo adicional de $0.01, o reranking reduz re-queries em 40%, gerando economia líquida de 75%.
 

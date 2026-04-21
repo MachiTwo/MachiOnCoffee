@@ -21,9 +21,6 @@ tags:
 ---
 
 {{< lang-toggle >}}
-
-## Visão Geral
-
 Agentes de IA tradicionais operam em **contextos fragmentados**, gerando alucinações, desperdício de tokens e exposição acidental de segredos. O **Vectora** resolve isso não sendo "mais um chat", mas sim um **[Sub-Agent Tier 2](/concepts/sub-agents/)** projetado exclusivamente para engenharia de software: ele intercepta chamadas via [Protocolo MCP](/protocols/mcp/), valida segurança em tempo real com o [Guardian](/security/guardian/), orquestra recuperação multi-hop via [Context Engine](/concepts/context-engine/) e entrega contexto estruturado ao seu agent principal (Claude Code, Gemini CLI, Cursor, etc.).
 
 > [!IMPORTANT] > **Fórmula Central**:
@@ -60,7 +57,7 @@ graph LR
     H -->|MCP Response| A
 ```
 
-### Componentes Nucleares
+## Componentes Nucleares
 
 | Módulo                                            | Responsabilidade                                                               | Documentação                                                               |
 | ------------------------------------------------- | ------------------------------------------------------------------------------ | -------------------------------------------------------------------------- |
@@ -152,7 +149,7 @@ Vectora opera com modelo **Digital Sovereignty First**, oferecendo **BYOK (Bring
 
 ---
 
-### Guia de Navegação
+## Guia de Navegação
 
 - [**Início Rápido**](./getting-started/) — Instalação, configuração BYOK e integração MCP.
 - [**Conceitos Nucleares**](./concepts/) — Entenda Sub-Agents, Context Engine e Reranking.

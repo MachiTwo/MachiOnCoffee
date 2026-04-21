@@ -24,6 +24,7 @@ sidebar:
 ---
 
 {{< lang-toggle >}}
+{{< section-toggle >}}
 
 ## The Heart of Vectora: Gemini 3 Flash
 
@@ -37,7 +38,7 @@ context refined by Voyage 4 embeddings and the Voyage 2.5 reranker.
 
 We tested every alternative. Here's the reality:
 
-### LLM Model Comparison for Code
+## LLM Model Comparison for Code
 
 | Aspect                 | Gemini 3 Flash | GPT-4o       | Claude 4.7   |
 | ---------------------- | -------------- | ------------ | ------------ |
@@ -49,7 +50,7 @@ We tested every alternative. Here's the reality:
 | **Multimodal support** | Text + Image   | Text + Image | Text         |
 | **Rate limiting**      | Generous       | Restrictive  | Moderate     |
 
-### Why Gemini 3 Flash Wins
+## Why Gemini 3 Flash Wins
 
 1. **Irrelevant Cost**: 200x cheaper than GPT-4o ($0.075 vs $15)
 2. **Low Latency**: 30-50ms (imperceptible to users)
@@ -58,7 +59,7 @@ We tested every alternative. Here's the reality:
 5. **No Rate Limiting**: Supports millions of requests per hour without throttling
 6. **Perfect Vectora Integration**: Trained to work with high-quality embeddings
 
-### Why Alternatives Fail
+## Why Alternatives Fail
 
 **GPT-4o**:
 
@@ -82,7 +83,7 @@ We tested every alternative. Here's the reality:
 
 ## Gemini 3 Flash Internal Architecture
 
-### Foundations: Transformer with Innovations
+## Foundations: Transformer with Innovations
 
 Gemini 3 Flash is based on the classic Transformer architecture, but with Google's proprietary optimizations:
 
@@ -106,7 +107,7 @@ Softmax
 Token Selection (Top-K Sampling / Temperature)
 ```text
 
-### Model Size
+## Model Size
 
 - **Parameters**: ~12B (12 billion)
 - **Quantization**: int8 (8-bit) in production
@@ -115,7 +116,7 @@ Token Selection (Top-K Sampling / Temperature)
 
 This size is **crucial** — large enough for sophisticated comprehension, small enough for <100ms latency.
 
-### KV Cache: The Secret Optimization
+## KV Cache: The Secret Optimization
 
 One reason Gemini 3 Flash is so fast is the optimized **KV Cache**:
 
@@ -136,7 +137,7 @@ Token 3-100 Generation:
 
 Without KV Cache, each token would take 40ms. With KV Cache, latency drops **80%** after the first token.
 
-### Flash Attention (Implementation)
+## Flash Attention (Implementation)
 
 Google natively implemented **Flash Attention v2** in Gemini 3 Flash:
 
@@ -147,7 +148,7 @@ Google natively implemented **Flash Attention v2** in Gemini 3 Flash:
 
 ## Gemini 3 Flash Capabilities
 
-### 1. Code Generation
+## 1. Code Generation
 
 Gemini 3 Flash was **explicitly** trained on code:
 
@@ -178,7 +179,7 @@ gemini.generate(context + query)
 
 **Accuracy**: 96.2% — code is syntactically correct and semantically sensible.
 
-### 2. Structure Analysis
+## 2. Structure Analysis
 
 Understands projects as dependency trees:
 
@@ -192,7 +193,7 @@ Output:
   - src/repositories/user-repository.ts (line 71)
 ```text
 
-### 3. Bug Detection
+## 3. Bug Detection
 
 Can identify common bug types:
 
@@ -207,7 +208,7 @@ Output: " Potential memory leak: cache has no TTL.
          Suggestion: use Map with WeakRef or add expiration."
 ```text
 
-### 4. Multimodal (Text + Image)
+## 4. Multimodal (Text + Image)
 
 Can analyze architecture screenshots, diagrams, etc:
 
@@ -221,7 +222,7 @@ Output: "User has 1:N relationship with Post via user_id.
 
 ## Integration with Vectora: The Complete Pipeline
 
-### Real Query Flow
+## Real Query Flow
 
 ```text
 User: "How do I validate email in the registration function?"
@@ -260,7 +261,7 @@ User: "How do I validate email in the registration function?"
 
 ## Training and Fine-Tuning
 
-### Base Training (Pre-training)
+## Base Training (Pre-training)
 
 Gemini 3 Flash was trained on:
 
@@ -270,7 +271,7 @@ Gemini 3 Flash was trained on:
 
 Result: **code + reasoning** as core strengths.
 
-### Fine-Tuning for Vectora
+## Fine-Tuning for Vectora
 
 We don't do custom fine-tuning (would be $500K+ for optimal results). Instead, we use **sophisticated prompt
 engineering**:
@@ -305,26 +306,26 @@ response = gemini.generate(
 
 ## Alternative Models Tested
 
-### Gemini Pro (Previous Version)
+## Gemini Pro (Previous Version)
 
 - Latency: 100-150ms (2-3x slower)
 - Code quality: 94.1% (2.1% worse)
 - No Flash Attention optimizations
 
-### Llama 2 (Meta, Open Source)
+## Llama 2 (Meta, Open Source)
 
 - Requires self-hosting (operational complexity)
 - Quality: 91.5% (5% worse than Gemini)
 - No 1M token context window support
 - Expensive custom infrastructure
 
-### Mistral
+## Mistral
 
 - Acceptable quality (93.2%) but below Gemini
 - Latency: ~80ms (still slow)
 - Cost: $0.19/M tokens (2.5x more than Gemini)
 
-### Qwen 3.5 (Alibaba)
+## Qwen 3.5 (Alibaba)
 
 - Code quality: 94.8% (good, but not better)
 - Optimized for Chinese (may impact multilingual)
@@ -344,7 +345,7 @@ response = gemini.generate(
 
 ## Production Optimizations
 
-### Temperature for Code
+## Temperature for Code
 
 ```python
 # Exact code: temperature = 0.1
@@ -356,7 +357,7 @@ response = gemini.generate(..., temperature=0.7)
 # "More creative, natural variations"
 ```text
 
-### Prompt Caching
+## Prompt Caching
 
 For large projects, we use Google's prompt caching:
 
@@ -376,7 +377,7 @@ response2 = gemini.generate(
 
 This reduces latency for successive queries by ~50%.
 
-### Async Batching
+## Async Batching
 
 For background operations (repo analysis, indexing):
 
@@ -395,7 +396,7 @@ responses = await asyncio.gather(*[
 
 Vectora is a **very low-cost operation** compared to alternatives:
 
-### Example: Analyzing 50K lines of code
+## Example: Analyzing 50K lines of code
 
 | Operation | Cost |
 | ---------------------------------- | --------------------------------- |

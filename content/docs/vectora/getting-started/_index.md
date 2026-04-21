@@ -15,7 +15,6 @@ tags:
 ---
 
 {{< lang-toggle >}}
-
 Tudo que você precisa para começar com Vectora em 5 minutos: instalação, configuração de chaves, e primeira busca.
 
 ## Sequência Recomendada
@@ -29,7 +28,7 @@ Tudo que você precisa para começar com Vectora em 5 minutos: instalação, con
 
 ## O Que Você Vai Fazer
 
-### Passo 1: Instalar Vectora
+## Passo 1: Instalar Vectora
 
 ```bash
 npm install -g @vectora/cli
@@ -38,7 +37,7 @@ vectora --version
 
 Pré-requisitos: Node.js 18+, npm ou yarn
 
-### Passo 2: Configurar Chaves de API
+## Passo 2: Configurar Chaves de API
 
 Vectora usa BYOK (Bring Your Own Key). Você fornece:
 
@@ -50,7 +49,7 @@ vectora config set GEMINI_API_KEY "sua-chave-aqui"
 vectora config set VOYAGE_API_KEY "sua-chave-aqui"
 ```
 
-### Passo 3: Conectar ao IDE
+## Passo 3: Conectar ao IDE
 
 - **Claude Code**: 1 linha no `claude_desktop_config.json`
 - **Cursor**: 1 linha no `.cursor/settings.json`
@@ -58,7 +57,7 @@ vectora config set VOYAGE_API_KEY "sua-chave-aqui"
 
 Veja [Quickstart MCP](./quickstart-mcp.md) para copiar/colar.
 
-### Passo 4: Fazer sua Primeira Busca
+## Passo 4: Fazer sua Primeira Busca
 
 ```bash
 vectora search "Como authenticar usuários?"

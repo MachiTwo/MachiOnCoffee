@@ -12,6 +12,7 @@ tags:
 ---
 
 {{< lang-toggle >}}
+{{< section-toggle >}}
 
 Perguntas frequentes sobre Vectora, organizadas por categoria. Use a busca abaixo para encontrar respostas rápidas.
 

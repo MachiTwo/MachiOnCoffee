@@ -13,11 +13,9 @@ tags:
 {{< lang-toggle >}}
 {{< section-toggle >}}
 
-## CLI Engine (Cobra Framework)
-
 Vectora uses the **Cobra** framework to manage its command-line interface. This choice ensures a strict command structure, automatic `--help` support, and compliance with POSIX standards.
 
-### Command Architecture
+## Command Architecture
 
 The CLI is organized into a command tree, where the base `vectora` command acts as the main entry point, delegating functions to specialized subcommands.
 
@@ -39,18 +37,18 @@ graph TD
     Service --> Uninstall[uninstall]
 ```
 
-### Why Cobra?
+## Why Cobra?
 
 - **Nested Subcommands**: Allows creating clear namespaces like `vectora auth login` instead of complex flags.
 - **Global vs. Local Flags**: Flags like `--debug` or `--config` can be accessed by any command, while flags like `--force` are exclusive to `index`.
 - **Smart Suggestions**: Provides automatic suggestions ("Did you mean...?") for mistyped commands.
 - **Shell Completion**: Automatically generates completion scripts for Bash, Zsh, Fish, and PowerShell.
 
-### Technical Implementation
+## Technical Implementation
 
 Each command in Vectora is defined as an instance of `&cobra.Command`. The execution logic is kept separate from `main.go`, residing in directories like `cmd/` and functionally linked to the `pkg/core` package.
 
-#### Command Structure Example (Go Mockup)
+## Command Structure Example (Go Mockup)
 
 ```go
 var indexCmd = &cobra.Command{
@@ -62,7 +60,7 @@ var indexCmd = &cobra.Command{
 }
 ```
 
-### Systray Integration
+## Systray Integration
 
 While Vectora has a robust CLI, it also communicates with the [Systray](./systray-ux.md) process through system signals or simple IPC (Inter-Process Communication). This allows actions triggered via the terminal (such as a successful login) to instantly update the visual state in the system tray.
 

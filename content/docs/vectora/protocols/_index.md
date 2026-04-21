@@ -13,6 +13,7 @@ tags:
 ---
 
 {{< lang-toggle >}}
+{{< section-toggle >}}
 
 Vectora implementa dois protocolos de comunicação: MCP (Model Context Protocol) para integração com IDEs, e ACP (Agent Communication Protocol) para comunicação entre sub-agents.
 

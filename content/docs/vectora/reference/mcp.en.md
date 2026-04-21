@@ -14,6 +14,7 @@ tags:
 ---
 
 {{< lang-toggle >}}
+{{< section-toggle >}}
 
 Complete technical reference for Vectora's MCP implementation: tools, authentication, transport, error handling, and examples.
 
@@ -41,7 +42,9 @@ Vectora offers **12 tools** via MCP for search, analysis, indexing, and code mon
 
 ## Authentication
 
-### Method 1: Bearer Token (Recommended)
+Vectora supports multiple authentication methods to ensure that MCP tools are accessed only by authorized clients.
+
+## Method 1: Bearer Token (Recommended)
 
 ```bash
 Authorization: Bearer sk-proj-vectora-abc123...
@@ -55,7 +58,7 @@ vectora auth token create --name "Claude Code"
 
 Token expires in 30 days (configurable).
 
-### Method 2: API Key
+## Method 2: API Key
 
 ```bash
 X-API-Key: sk-...
@@ -63,7 +66,7 @@ X-API-Key: sk-...
 
 Less recommended (doesn't auto-expire).
 
-### Method 3: BYOK (Bring Your Own Key)
+## Method 3: BYOK (Bring Your Own Key)
 
 For Free plans:
 
@@ -75,7 +78,9 @@ Vectora doesn't store, only forwards.
 
 ## Transport
 
-### STDIO (Default for IDE)
+Communication between the MCP client and the Vectora server can occur locally via standard input/output channels or remotely through secure HTTP endpoints.
+
+## STDIO (Default for IDE)
 
 ```bash
 # In .claude/claude_desktop_config.json
@@ -94,7 +99,7 @@ Vectora doesn't store, only forwards.
 
 Ideal for: Claude Code, Cursor, Zed (local, <10ms latency)
 
-### HTTP (For Remote)
+## HTTP (For Remote)
 
 ```bash
 POST https://api.vectora.app/mcp
@@ -114,6 +119,10 @@ Ideal for: Remote servers, CI/CD
 
 ## Error Handling
 
+Vectora follows the JSON-RPC 2.0 specification for reporting errors, providing standardized codes and specific details to facilitate debugging.
+
+## MCP Error Codes
+
 Errors return in JSON-RPC 2.0 format:
 
 ```json
@@ -131,7 +140,7 @@ Errors return in JSON-RPC 2.0 format:
 }
 ```
 
-### MCP Error Codes
+## MCP Error Codes
 
 | Code   | Meaning          | HTTP |
 | ------ | ---------------- | ---- |

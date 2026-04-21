@@ -15,6 +15,7 @@ tags:
 ---
 
 {{< lang-toggle >}}
+{{< section-toggle >}}
 
 Integrate Vectora with custom agents in Python, Node.js, Go, or any language that supports HTTP.
 

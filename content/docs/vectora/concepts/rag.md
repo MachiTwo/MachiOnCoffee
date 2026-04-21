@@ -16,7 +16,6 @@ sidebar:
 ---
 
 {{< lang-toggle >}}
-
 Você já perguntou a um agente de IA sobre uma função no seu projeto e ele respondeu algo que parecia certo, mas que ignorava completamente como aquela função era usada no resto do sistema? Isso é o sintoma clássico do **RAG fragmentado**.
 
 ## O que é RAG?
@@ -71,7 +70,7 @@ Resultado: LLM responde incompleto ou incorreto.
 
 No Vectora, o RAG não é apenas "buscar texto". Ele funciona através de um **Context Engine** que entende a estrutura:
 
-### 1. **Busca Multimodal**
+## 1. Busca Multimodal
 
 Combina 3 estratégias:
 
@@ -85,7 +84,7 @@ Query: "Como validar JWT?"
 Combine results → Top-5 chunks estruturados
 ```
 
-### 2. **Multi-hop Reasoning**
+## 2. Multi-hop Reasoning
 
 O motor não faz só uma busca:
 
@@ -99,7 +98,7 @@ O motor não faz só uma busca:
 Resultado: Token validado → Estrutura completa
 ```
 
-### 3. **Composição Estruturada**
+## 3. Composição Estruturada
 
 O contexto retornado não é lista de strings:
 
@@ -129,7 +128,7 @@ Quando o contexto é **conectado**:
 
 ## Exemplo Comparativo
 
-### Cenário: Refatorar autenticação
+## Cenário: Refatorar autenticação
 
 **RAG Tradicional:**
 

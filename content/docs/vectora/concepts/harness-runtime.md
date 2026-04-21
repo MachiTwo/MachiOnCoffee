@@ -16,9 +16,6 @@ tags:
 ---
 
 {{< lang-toggle >}}
-
-## Visão Geral
-
 Harness Runtime é o módulo de **validação e proteção** que roda imediatamente antes e depois da execução de ferramentas. Ele captura falhas silenciosas, verifica segurança e mede qualidade.
 
 > [!IMPORTANT]
@@ -42,7 +39,7 @@ Resultado: respostas confiantes sobre dados inválidos, brechas de segurança, e
 
 O Harness Runtime implementa três fases de proteção: validação antes da execução, execução envolvida com resiliência, e validação pós-execução com métricas.
 
-### Pre-Execution
+## Pre-Execution
 
 Antes de rodar qualquer ferramenta:
 
@@ -51,7 +48,7 @@ Antes de rodar qualquer ferramenta:
 3. **Rate Limit**: Verifica quota de requisições por minuto
 4. **Input Validation**: Sanitiza strings, arrays e estruturas
 
-### Tool Execution (Wrapped)
+## Tool Execution (Wrapped)
 
 A ferramenta roda com:
 
@@ -60,7 +57,7 @@ A ferramenta roda com:
 - **Streaming**: Output é buffered em chunks de 4KB
 - **Circuit Breaker**: Falhas repetidas disparam fallback
 
-### Post-Execution
+## Post-Execution
 
 Depois da ferramenta retornar:
 
@@ -75,7 +72,7 @@ Depois da ferramenta retornar:
 
 Harness captura 5 métricas-chave de cada execução e define limites para degradação automática quando as métricas caem abaixo dos SLAs.
 
-### Core Metrics
+## Core Metrics
 
 ```yaml
 retrieval_precision: >= 0.65 # Relevância da busca
@@ -95,7 +92,7 @@ execution:
   status: success
 ```
 
-### Degradation Paths
+## Degradation Paths
 
 Se métricas caem abaixo do SLA:
 
@@ -112,7 +109,7 @@ Se métricas caem abaixo do SLA:
 
 A diferença fundamental é que Harness adiciona validação, observabilidade e resiliência a cada chamada de tool. O comparativo abaixo mostra os impactos práticos.
 
-### Sem Harness (MCP genérico)
+## Sem Harness (MCP genérico)
 
 ```text
 Agent → Tool → Output (confiar que é bom) → Response
@@ -123,7 +120,7 @@ Agent → Tool → Output (confiar que é bom) → Response
 - Sem verificação de segurança inline
 - Falhas silenciosas possíveis
 
-### Com Harness
+## Com Harness
 
 ```text
 Agent → Guardian → Preconditions → Tool (Wrapped) →
@@ -142,11 +139,11 @@ Output Validation → Metrics → Decision (use/retry/fail)
 
 Para validar que mudanças de performance foram positivas, Harness oferece um modo de comparação que testa antes/depois automaticamente.
 
-### Mode de Comparação (--compare)
+## Mode de Comparação (--compare)
 
 Use comparison mode para validar mudanças de performance após alterar reranker, embeddings ou índice:
 
-#### Caso 1: Testar novo reranker
+## Caso 1: Testar novo reranker
 
 ```bash
 vectora execute search_context \
@@ -185,7 +182,7 @@ delta:
   verdict: "APPROVE - Reranker upgrade recommended"
 ```
 
-#### Caso 2: Validar reindex após schema change
+## Caso 2: Validar reindex após schema change
 
 ```bash
 # Reindexar com novo schema
@@ -197,7 +194,7 @@ vectora execute search_context \
   --compare backup-20260418 # Compara vs índice anterior
 ```
 
-#### Caso 3: Monitorar degradação de performance
+## Caso 3: Monitorar degradação de performance
 
 ```bash
 # Runbook: detectar problemas antes do SLA cair
@@ -216,7 +213,7 @@ action: "Ativando recompression + rerank pesado"
 fallback: true
 ```
 
-### Logs de Validação
+## Logs de Validação
 
 Ativa logging estruturado:
 

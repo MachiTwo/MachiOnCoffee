@@ -15,25 +15,22 @@ tags:
 ---
 
 {{< lang-toggle >}}
-
-## Overview
+{{< section-toggle >}}
 
 **OWN APP**: Vectora offers deep integration with **Gemini 3 Flash** via proprietary REST API. Use Gemini as the "reasoning engine" for code - analysis, review, code generation with Vectora context.
 
 > [!IMPORTANT]
 > Gemini API (own system) vs MCP Protocol or Extension. Choose based on workflow: code analysis, code review, auto documentation.
 
----
-
 ## Basic Configuration
 
-### Get Gemini API Key
+## Get Gemini API Key
 
 1. Go to [Google AI Studio](https://aistudio.google.com/app/apikey)
 2. Click **"Create API Key"**
 3. Copy the key
 
-### Configure in Vectora
+## Configure in Vectora
 
 ```bash
 # Option A: Via CLI interactive
@@ -51,7 +48,7 @@ providers:
     api_key: "${GEMINI_API_KEY}"
 ```
 
-### Verify
+## Verify
 
 ```bash
 vectora config list
@@ -71,7 +68,7 @@ vectora config list
 
 \*Free tier: 60 req/min, 1.5M tokens/month
 
-### Selecting Model
+## Selecting Model
 
 ```yaml
 # vectora.config.yaml
@@ -92,7 +89,7 @@ providers:
 
 The workflows below illustrate how Gemini 3 Flash can be used with Vectora context for deep code analysis, auto documentation, and performance optimization.
 
-### Workflow 1: Automatic Code Review (Architecture)
+## Workflow 1: Automatic Code Review (Architecture)
 
 **Scenario**: Review new cache module before merge
 
@@ -144,7 +141,7 @@ This code follows 95% of project patterns.
 Ready to merge after feedback above.
 ```
 
-### Workflow 2: Automatic Documentation (API)
+## Workflow 2: Automatic Documentation (API)
 
 **Scenario**: Generate docs for new endpoints
 
@@ -190,7 +187,7 @@ paths:
           description: "Rate limited (see: src/middleware/rate-limit.ts)"
 ```
 
-### Workflow 3: Performance Analysis (Investigation)
+## Workflow 3: Performance Analysis (Investigation)
 
 **Scenario**: API is slow, need to identify bottlenecks
 
@@ -250,7 +247,7 @@ Reranking via Voyage Rerank 2.5 taking 1.2s.
 Apply fix #1 today (10 min change), measure before #2.
 ```
 
-### Workflow 4: Type Generation (TypeScript)
+## Workflow 4: Type Generation (TypeScript)
 
 **Scenario**: API returns complex JSON, need types
 
@@ -296,7 +293,7 @@ export interface SearchChunk {
 
 ## Advanced Configuration
 
-### Custom System Prompt
+## Custom System Prompt
 
 ```yaml
 providers:
@@ -309,7 +306,7 @@ providers:
       Focus on security and performance.
 ```
 
-### Temperature & Parameters
+## Temperature & Parameters
 
 ```yaml
 providers:
@@ -322,7 +319,7 @@ providers:
       - "\n---\n"
 ```
 
-### Streaming
+## Streaming
 
 For real-time responses:
 
@@ -337,7 +334,7 @@ vectora analyze \
 
 ## Context Engine Integration
 
-### Automatic Context Passing
+## Automatic Context Passing
 
 Vectora automatically passes Context Engine chunks to Gemini:
 
@@ -358,7 +355,7 @@ Context sent to Gemini:
 Gemini reads context + your prompt → response
 ```
 
-### Reranking with Gemini
+## Reranking with Gemini
 
 Optionally use Gemini as reranker instead of Voyage:
 
@@ -375,7 +372,7 @@ providers:
 
 ## Safety & Guardrails
 
-### Built-in Guardrails
+## Built-in Guardrails
 
 Gemini has protections against:
 
@@ -383,7 +380,7 @@ Gemini has protections against:
 - Leaking sensitive data
 - Offensive content
 
-### Custom Safety Rules
+## Custom Safety Rules
 
 ```yaml
 providers:
@@ -399,7 +396,7 @@ providers:
         - "malware"
 ```
 
-### Audit Logging
+## Audit Logging
 
 ```bash
 VECTORA_LOG_LEVEL=debug vectora analyze "..."
@@ -413,13 +410,13 @@ VECTORA_LOG_LEVEL=debug vectora analyze "..."
 
 ## Pricing & Quotas
 
-### Free Tier
+## Free Tier
 
 - **Rate**: 60 requests/minute
 - **Tokens**: 1.5M tokens/month
 - **Models**: gemini-3-flash only
 
-### Pro Tier
+## Pro Tier
 
 - **Rate**: 2000 req/min
 - **Tokens**: Unlimited
@@ -427,7 +424,7 @@ VECTORA_LOG_LEVEL=debug vectora analyze "..."
 
 Upgrade at: [Google Cloud Console](https://console.cloud.google.com/billing)
 
-### Monitoring Costs
+## Monitoring Costs
 
 ```bash
 vectora cost-report --period month
@@ -442,7 +439,7 @@ vectora cost-report --period month
 
 ## Troubleshooting
 
-### "API key invalid"
+## "API key invalid"
 
 ```bash
 # Check if key is configured
@@ -458,7 +455,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-f
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-### "Quota exceeded"
+## "Quota exceeded"
 
 **Cause**: Reached free tier limit.
 
@@ -475,7 +472,7 @@ providers:
     fallback_model: "local-mistral" # Ollama local
 ```
 
-### "Model not found"
+## "Model not found"
 
 **Check available models**:
 

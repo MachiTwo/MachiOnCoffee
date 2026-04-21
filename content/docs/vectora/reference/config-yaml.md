@@ -14,10 +14,10 @@ tags:
 ---
 
 {{< lang-toggle >}}
-
+{{< section-toggle >}}
 Referência completa de configuração: esquema YAML, variáveis de ambiente, validação e exemplos.
 
-### Full Schema
+## Full Schema
 
 ```yaml
 # Project metadata
@@ -127,7 +127,7 @@ metrics:
   export_interval_seconds: 60
 ```
 
-### Environment Variable Reference
+## Environment Variable Reference
 
 ```bash
 GEMINI_API_KEY # Google Gemini API key
@@ -139,9 +139,11 @@ VECTORA_TRUST_FOLDER # Override trust folder
 VECTORA_LOG_LEVEL # Override log level
 ```
 
-### Validation
+## Validation
 
-### A configuração é validada nativamente pelo motor em Go no momento da inicialização
+A integridade da configuração é essencial para o funcionamento do servidor. O Vectora realiza checagens automáticas para garantir que todos os campos obrigatórios e segredos necessários estejam acessíveis.
+
+## Validação Nativa
 
 ```bash
 vectora config validate

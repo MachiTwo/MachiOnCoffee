@@ -21,9 +21,6 @@ tags:
 ---
 
 {{< lang-toggle >}}
-
-## Overview
-
 Traditional AI agents operate in **fragmented contexts**, generating hallucinations, wasting tokens, and accidentally exposing secrets. **Vectora** solves this not by being "another chat", but as a **[Tier 2 Sub-Agent](/concepts/sub-agents/)** designed exclusively for software engineering: it intercepts calls via [MCP Protocol](/protocols/mcp/), validates security in real-time with [Guardian](/security/guardian/), orchestrates multi-hop retrieval via [Context Engine](/concepts/context-engine/), and delivers structured context to your principal agent (Claude Code, Gemini CLI, Cursor, etc.).
 
 > [!IMPORTANT] > **Core Formula**: `Functional Agent = Model (Gemini 3 Flash) + [Harness Runtime](/concepts/harness-runtime/) + Governed Context (Voyage 4 + MongoDB Atlas)`
@@ -59,7 +56,7 @@ graph LR
     H -->|MCP Response| A
 ```
 
-### Core Components
+## Core Components
 
 | Module                                            | Responsibility                                                                      | Documentation                                                                   |
 | ------------------------------------------------- | ----------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
@@ -151,7 +148,7 @@ Vectora operates with a **Digital Sovereignty First** model, offering **BYOK (Br
 
 ---
 
-### Navigation Guide
+## Navigation Guide
 
 - [**Getting Started**](./getting-started/) — Installation, BYOK setup, and MCP integration.
 - [**Core Concepts**](./concepts/) — Understand Sub-Agents, Context Engine, and Reranking.

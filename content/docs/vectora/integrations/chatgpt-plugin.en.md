@@ -15,25 +15,22 @@ tags:
 ---
 
 {{< lang-toggle >}}
-
-## Overview
+{{< section-toggle >}}
 
 **OWN APP**: Vectora functions as a **Custom GPT Plugin** that extends ChatGPT with codebase context search. Dedicated architecture with OpenAPI schema, ngrok/public endpoint, and OpenAI plugin store publishing.
 
 > [!IMPORTANT]
 > ChatGPT Custom GPT Plugin (own app) vs MCP Protocol (generic). Choose based on your IDE/platform preference.
 
----
-
 ## Installation
 
-### Prerequisites
+## Prerequisites
 
 - ChatGPT Plus (with Custom GPTs access)
 - Vectora server running (`vectora mcp` or `vectora server`)
 - Public endpoint or ngrok tunnel
 
-### Step 1: Configure Public Vectora Server
+## Step 1: Configure Public Vectora Server
 
 By default, Vectora runs on `localhost:9090`. For ChatGPT to reach it, expose it:
 
@@ -70,14 +67,14 @@ vectora server --host 0.0.0.0 --port 9090
 # https://api.vectora.app/v1/your-project-id
 ```
 
-### Step 2: Create Custom GPT in ChatGPT
+## Step 2: Create Custom GPT in ChatGPT
 
 1. Go to [chatgpt.com/gpts/editor](https://chatgpt.com/gpts/editor)
 2. Click **"Create a new GPT"**
 3. Name: "Vectora Codebase Assistant"
 4. Description: "Intelligent assistant for codebase analysis with Vectora"
 
-### Step 3: Configure OpenAPI Schema
+## Step 3: Configure OpenAPI Schema
 
 In **"Configure"** → **"Actions"**, add your Vectora endpoint:
 
@@ -147,7 +144,7 @@ paths:
           description: File summary
 ```
 
-### Step 4: Add System Instruction
+## Step 4: Add System Instruction
 
 In **"Instructions"** tab, copy:
 
@@ -170,7 +167,7 @@ Bad example:
 "I think the function is somewhere"
 ```
 
-### Step 5: Publish
+## Step 5: Publish
 
 Click **"Publish to Store"** and share with your team.
 
@@ -180,7 +177,7 @@ Click **"Publish to Store"** and share with your team.
 
 The workflows below demonstrate real-world use cases of Vectora integrated with ChatGPT, showing practical conversations and concrete results.
 
-### Workflow 1: Understanding Complex Feature (Onboarding)
+## Workflow 1: Understanding Complex Feature (Onboarding)
 
 **Scenario**: New dev wants to understand how JWT authentication works.
 
@@ -215,7 +212,7 @@ request → AuthGuard.canActivate() → validateToken() → req.user = payload
 
 Click any file → opens in editor/browser.
 
-### Workflow 2: Strategic Debugging
+## Workflow 2: Strategic Debugging
 
 **Scenario**: You have an error and need to understand root cause.
 
@@ -253,7 +250,7 @@ Analyzing userService.create():
 **Suggestion**: Apply same fix in all 3 places.
 ```
 
-### Workflow 3: Assisted Code Review (Complex PR)
+## Workflow 3: Assisted Code Review (Complex PR)
 
 **Scenario**: Reviewing a PR that touches multiple auth files.
 
@@ -303,7 +300,7 @@ Analyzing changes...
 
 ## Authentication & Security
 
-### Token-based Auth
+## Token-based Auth
 
 If your server requires authentication:
 
@@ -328,7 +325,7 @@ Select "API Key"
 Paste your token
 ```
 
-### Rate Limiting
+## Rate Limiting
 
 Protect your server:
 
@@ -343,19 +340,19 @@ server:
 
 ## Privacy & Compliance
 
-### What's Sent to OpenAI
+## What's Sent to OpenAI
 
 - Your question (text)
 - Search parameters (namespace, top_k)
 - **Chunks are NOT saved** on OpenAI
 
-### What Stays Local
+## What Stays Local
 
 - Vector indices (Qdrant)
 - Raw embeddings
 - API credentials
 
-### Encrypted Data
+## Encrypted Data
 
 ```bash
 # Enable end-to-end encryption
@@ -372,7 +369,7 @@ vectora server --cert cert.pem --key key.pem
 
 ## Troubleshooting
 
-### "Plugin not responding"
+## "Plugin not responding"
 
 **Cause**: Vectora server offline.
 
@@ -386,7 +383,7 @@ curl https://your-endpoint/health
 vectora mcp
 ```
 
-### "Unauthorized"
+## "Unauthorized"
 
 **Cause**: Invalid or expired token.
 
@@ -399,7 +396,7 @@ vectora auth create-token --name "ChatGPT Plugin" --ttl 365d
 # Update in Custom GPT settings
 ```
 
-### "Timeout"
+## "Timeout"
 
 **Cause**: Search too slow.
 
@@ -431,7 +428,7 @@ curl -X POST https://your-endpoint/search \
 
 ## Advanced Examples
 
-### Custom GPT for Design Review
+## Custom GPT for Design Review
 
 ```text
 Instruction:
@@ -443,7 +440,7 @@ When user shows code:
 4. Cite codebase examples"
 ```
 
-### Custom GPT for Onboarding
+## Custom GPT for Onboarding
 
 ```text
 Instruction:

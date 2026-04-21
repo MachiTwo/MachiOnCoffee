@@ -22,14 +22,14 @@ Imagine you want to find where your system handles "subscription cancellation" i
 
 Vector search transforms text or code into a list of numbers (a **vector**) that represents its position in a high-dimensional "thought space."
 
-### 1. Embedding (The Coordinate)
+## 1. Embedding (The Coordinate)
 
 [Voyage 4](/concepts/embeddings/) processes a snippet of code and generates a vector of 1,536 numbers.
 
 - Code about "Auth" will have high numbers in the security dimension.
 - Code about "Database" will have high numbers in the persistence dimension.
 
-### 2. Vector Space
+## 2. Vector Space
 
 Think of a 3D map (though in Vectora there are 1,536 dimensions). Similar code stays **physically close** on the map.
 

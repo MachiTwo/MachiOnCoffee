@@ -13,6 +13,7 @@ tags:
 ---
 
 {{< lang-toggle >}}
+{{< section-toggle >}}
 
 Vectora segue o Contributor Covenant v2.1, um código de conduta para comunidades open source inclusivas e respeitosas.
 

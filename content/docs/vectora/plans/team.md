@@ -13,18 +13,15 @@ tags:
 ---
 
 {{< lang-toggle >}}
-
-## Visão Geral
+{{< section-toggle >}}
 
 O plano **Team** é para grandes organizações com requisitos enterprise: SSO, on-premise, suporte 24/7, e SLA garantido. Assim como o Pro, oferece modos **BYOK** ou **Plus** (Gerenciado).
 
 **Pricing Customizado** - Contate [sales@vectora.app](mailto:sales@vectora.app)
 
----
-
 ## O Que Está Incluído
 
-### Tudo do Pro, PLUS
+## Tudo do Pro, PLUS
 
 | Feature                      | Pro          | Team      |
 | ---------------------------- | ------------ | --------- |
@@ -42,9 +39,9 @@ O plano **Team** é para grandes organizações com requisitos enterprise: SSO, 
 | **Advanced Compliance**      | -            | [x]       |
 | **Audit Logging (Detailed)** | -            | [x]       |
 
-### Enterprise Features
+## Enterprise Features
 
-#### SSO & Identity Management
+## SSO & Identity Management
 
 ```yaml
 saml:
@@ -60,7 +57,7 @@ ldap:
   auto_sync: true
 ```
 
-#### On-Premise Deployment
+## On-Premise Deployment
 
 Vectora roda 100% no seu datacenter:
 
@@ -86,7 +83,7 @@ helm install vectora ./vectora-helm \
 - Prometheus + Grafana monitoring
 - Daily backups automatizados
 
-#### Advanced Compliance
+## Advanced Compliance
 
 ```yaml
 compliance:
@@ -103,7 +100,7 @@ compliance:
 
 ## Pricing
 
-### Modelo de Pricing
+## Modelo de Pricing
 
 ```text
 Base Fee: Customizado
@@ -128,7 +125,7 @@ Estimativa:
 Total: ~$13,500/mês
 ```
 
-### Contato para Pricing
+## Contato para Pricing
 
 **<sales@vectora.app>**
 **Slack Enterprise Channel**
@@ -138,7 +135,7 @@ Total: ~$13,500/mês
 
 ## Deployment Options
 
-### Option 1: Managed Cloud
+## Option 1: Managed Cloud
 
 Vectora hospeda em infraestrutura enterprise-grade:
 
@@ -150,7 +147,7 @@ Vectora hospeda em infraestrutura enterprise-grade:
  Daily encrypted backups
 ```
 
-### Option 2: Private Cloud (VPC)
+## Option 2: Private Cloud (VPC)
 
 Infraestrutura isolada na sua conta AWS/Azure/GCP:
 
@@ -161,7 +158,7 @@ Infraestrutura isolada na sua conta AWS/Azure/GCP:
  Você controla backups
 ```
 
-### Option 3: On-Premise
+## Option 3: On-Premise
 
 Datacenter seu ou privado:
 
@@ -206,14 +203,14 @@ Uptime | Credit
 
 ## Support
 
-### Dedicated Support
+## Dedicated Support
 
 - **24/7 Hotline**: Phone + Slack prioritário
 - **Dedicated Account Manager**: Seu ponto de contato
 - **Quarterly Business Reviews**: Strategy & optimization
 - **Technical Consulting**: Arquitetura e best practices
 
-### Support SLA
+## Support SLA
 
 | Severity | Response | Resolution |
 | -------- | -------- | ---------- |
@@ -249,7 +246,7 @@ custom_embedding:
 
 ## Compliance & Security
 
-### Certifications
+## Certifications
 
 - **SOC 2 Type II**
 - **GDPR Compliant**
@@ -258,7 +255,7 @@ custom_embedding:
 - **ISO 27001** (on-request)
 - **FedRAMP Ready** (govtech)
 
-### Data Security
+## Data Security
 
 ```yaml
 encryption:
@@ -302,21 +299,21 @@ vectora upgrade --plan team
 
 ## Use Cases Ideais
 
-### Enterprises
+## Enterprises
 
 - Banco/Fintech com compliance rigoroso
 - Healthcare com HIPAA
 - Governo com segurança de dados
 - SaaS multi-tenant com customers
 
-### Large Teams
+## Large Teams
 
 - 200+ engenheiros
 - Múltiplas regiões
 - Complex infrastructure
 - Compliance requirements
 
-### High-Scale
+## High-Scale
 
 - 1B+ chunks indexados
 - 10K+ requisições/hora

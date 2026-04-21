@@ -15,9 +15,6 @@ tags:
 ---
 
 {{< lang-toggle >}}
-
-## Overview
-
 Vectora configuration is controlled by:
 
 1. **`vectora.config.yaml`** — Project configuration (local).
@@ -30,7 +27,7 @@ Vectora configuration is controlled by:
 
 Created automatically with `vectora init`, this file controls the agent's behavior.
 
-### Full Structure
+## Full Structure
 
 ```yaml
 # Project Metadata
@@ -130,14 +127,14 @@ logging:
 
 ## Environment Variables
 
-### Mandatory
+## Mandatory
 
 ```bash
 GEMINI_API_KEY=sk-xxx... # Google AI Studio
 VOYAGE_API_KEY=pa-xxx... # Voyage AI
 ```
 
-### Optional
+## Optional
 
 ```bash
 VECTORA_NAMESPACE=my-project # Overrides vectora.config.yaml
@@ -148,7 +145,7 @@ QDRANT_URL=http://localhost:6333 # If using local Qdrant
 SUPABASE_URL=https://xxx.supabase.co # For custom auth
 ```
 
-### `.env` File
+## `.env` File
 
 ```bash
 # .env (never commit!)
@@ -164,7 +161,7 @@ Loaded automatically when running Vectora.
 
 ## CLI Configuration
 
-### List Configuration
+## List Configuration
 
 ```bash
 vectora config list
@@ -174,7 +171,7 @@ vectora config list
 # VECTORA_NAMESPACE: my-project
 ```
 
-### Set Values
+## Set Values
 
 ```bash
 # Interactive
@@ -189,7 +186,7 @@ vectora config set \
   --key VECTORA_NAMESPACE --value backend
 ```
 
-### Reset Configuration
+## Reset Configuration
 
 ```bash
 vectora config reset --confirm
@@ -200,7 +197,7 @@ vectora config reset --confirm
 
 ## Configuration Examples by Use Case
 
-### Case 1: Backend Project (Go/Rust)
+## Case 1: Backend Project (Go/Rust)
 
 ```yaml
 project:
@@ -224,7 +221,7 @@ indexing:
     - "*.md"
 ```
 
-### Case 2: Technical Documentation
+## Case 2: Technical Documentation
 
 ```yaml
 project:
@@ -243,7 +240,7 @@ indexing:
     - "guides/**/*.md"
 ```
 
-### Case 3: Local Development (CPU Limited)
+## Case 3: Local Development (CPU Limited)
 
 ```yaml
 providers:

@@ -12,8 +12,7 @@ tags:
 ---
 
 {{< lang-toggle >}}
-
-## Overview
+{{< section-toggle >}}
 
 Vectora offers a **complete CLI interface** for configuration, indexing, and debugging. Use it for automation, CI/CD, or local development.
 
@@ -55,7 +54,9 @@ vectora --config ./custom.yaml search "query"
 
 ## Commands
 
-### `vectora init`
+Vectora's command-line interface is organized into logical subcommands that facilitate management throughout the entire lifecycle of your project.
+
+## vectora init
 
 Initializes a new Vectora project.
 
@@ -82,7 +83,7 @@ vectora init --namespace kaffyn-backend-prod --type codebase
 
 ---
 
-### `vectora index`
+## vectora index
 
 Indexes files in the namespace.
 
@@ -119,7 +120,7 @@ vectora index --dry-run
 
 ---
 
-### `vectora search`
+## vectora search
 
 Semantic search via CLI.
 
@@ -152,7 +153,7 @@ vectora search "middleware" --include-snippets
 
 ---
 
-### `vectora analyze`
+## vectora analyze
 
 Deep analysis with LLM (Gemini).
 
@@ -181,7 +182,7 @@ vectora analyze "Write API documentation" --output docs/api.md
 
 ---
 
-### `vectora config`
+## vectora config
 
 Manages configuration.
 
@@ -218,7 +219,7 @@ vectora config show-schema
 
 ---
 
-### `vectora namespace`
+## vectora namespace
 
 Manage namespaces.
 
@@ -251,7 +252,7 @@ vectora namespace reset --name kaffyn-old-project
 
 ---
 
-### `vectora mcp`
+## vectora mcp
 
 Starts MCP server for Claude Code, Cursor, etc.
 
@@ -280,7 +281,7 @@ vectora mcp --host 0.0.0.0 --port 9090
 
 ---
 
-### `vectora server`
+## vectora server
 
 Starts full HTTP server (with UI, webhooks).
 
@@ -311,7 +312,7 @@ vectora server --cert cert.pem --key key.pem
 
 ---
 
-### `vectora auth`
+## vectora auth
 
 Manage SSO authentication and access tokens.
 
@@ -337,7 +338,7 @@ vectora auth status
 
 ---
 
-### `vectora logs`
+## vectora logs
 
 View execution logs.
 
@@ -370,7 +371,7 @@ vectora logs --format json | jq '.[]'
 
 ---
 
-### `vectora metrics`
+## vectora metrics
 
 View operation metrics.
 
@@ -398,7 +399,7 @@ vectora metrics --export prometheus
 
 ---
 
-### `vectora audit`
+## vectora audit
 
 View audit log (who did what).
 
@@ -427,7 +428,7 @@ vectora audit --action delete --user "your-email@company.com"
 
 ---
 
-### `vectora health`
+## vectora health
 
 Check system health.
 

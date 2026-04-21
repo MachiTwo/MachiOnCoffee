@@ -15,16 +15,15 @@ tags:
 ---
 
 {{< lang-toggle >}}
+Vectora's authentication layer ensures that only authorized users and services can access resources, namespaces, and sensitive operations. This section documents the identity mechanisms, API key management, and access control that protect your context infrastructure.
 
 ## Authentication and Authorization in Vectora
-
-Vectora's authentication layer ensures that only authorized users and services can access resources, namespaces, and sensitive operations. This section documents the identity mechanisms, API key management, and access control that protect your context infrastructure.
 
 > [!IMPORTANT] > **Security in the application, not the database**: Vectora implements RBAC, namespace validation, and sanitization in the application layer (`Guardian`, `RBAC Logic`). The backend (MongoDB Atlas) stores data; the application decides who can access what.
 
 ---
 
-### Topics in this section
+## Topics in this section
 
 | Page                                 | Description                                                                                                    |
 | ------------------------------------ | -------------------------------------------------------------------------------------------------------------- |
@@ -33,7 +32,7 @@ Vectora's authentication layer ensures that only authorized users and services c
 
 ---
 
-### Typical Authentication Flow
+## Typical Authentication Flow
 
 ```mermaid
 graph LR
@@ -54,7 +53,7 @@ graph LR
 
 ---
 
-### Fundamental Concepts
+## Fundamental Concepts
 
 | Term             | Definition                                                                                  |
 | ---------------- | ------------------------------------------------------------------------------------------- |
@@ -66,7 +65,7 @@ graph LR
 
 ---
 
-### Security Best Practices
+## Security Best Practices
 
 **Use scoped API Keys**: Grant only `search` or `read` if the integration doesn't need to write.
 **Rotate keys periodically**: Renew API Keys every 90 days or after any security incident.
@@ -78,7 +77,7 @@ graph LR
 
 ---
 
-### Integration with Your System
+## Integration with Your System
 
 #### Example: JWT Validation in your backend
 
@@ -119,7 +118,7 @@ export async function authMiddleware(req: Request, next: Handler) {
 
 ---
 
-### Frequently Asked Questions
+## Frequently Asked Questions
 
 **Q: Do I need SSO to use Vectora?**
 A: No. The Free plan uses local authentication via `vectora auth login`. SSO is available on Pro/Team plans for integration with corporate providers.

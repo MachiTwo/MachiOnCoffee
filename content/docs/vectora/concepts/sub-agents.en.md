@@ -29,7 +29,6 @@ sidebar:
 ---
 
 {{< lang-toggle >}}
-
 Have you heard of the **Model Context Protocol (MCP)**? It's an open standard that allows AIs (like Claude) to use
 external tools. But being "just an MCP tool" is not enough for Vectora.
 

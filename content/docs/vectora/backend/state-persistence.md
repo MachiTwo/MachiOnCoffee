@@ -15,12 +15,13 @@ tags:
 ---
 
 {{< lang-toggle >}}
-
-## Mantendo Contexto Entre Sessões
+{{< section-toggle >}}
 
 A camada de persistência de estado do Vectora garante que os agentes mantenham continuidade entre interações, permitindo tarefas de longo prazo, aprendizado incremental e consciência contextual que sobrevive a reinicializações da IDE, desconexões de MCP e reboots do sistema.
 
 Diferente de sistemas RAG tradicionais que tratam cada consulta como independente, o Vectora trata o estado como uma prioridade de primeira classe: o que o agente aprendeu ontem informa o que ele faz hoje.
+
+## Mantendo Contexto Entre Sessões
 
 ## Visão Geral da Arquitetura
 
@@ -41,7 +42,7 @@ graph TD
     G --> J[Compliance: quem fez o quê, quando e por quê]
 ```
 
-### Estado Operacional (coleção sessions)
+## Estado Operacional (coleção sessions)
 
 Estado de curta duração que rastreia o contexto de execução atual:
 
@@ -56,7 +57,7 @@ Estado de curta duração que rastreia o contexto de execução atual:
 | `created_at`    | timestamp | Hora de início da sessão                                           |
 | `last_activity` | timestamp | Última interação MCP (usada para limpeza TTL)                      |
 
-### Camada de Memória (AGENTS.md + embeddings)
+## Camada de Memória (AGENTS.md + embeddings)
 
 Conhecimento de longo prazo que persiste além de sessões individuais:
 
@@ -64,7 +65,7 @@ Conhecimento de longo prazo que persiste além de sessões individuais:
 - **Embeddings vetoriais**: Representação semântica do conteúdo do AGENTS.md indexada no MongoDB Atlas para recuperação durante a construção do contexto.
 - **Atualizações incrementais**: Novos aprendizados são anexados ao AGENTS.md e re-embedados sem re-indexar o arquivo inteiro.
 
-### Trilha de Auditoria (coleção audit_logs)
+## Trilha de Auditoria (coleção audit_logs)
 
 Registros imutáveis de ações do agente para compliance e depuração:
 
@@ -80,7 +81,7 @@ Registros imutáveis de ações do agente para compliance e depuração:
 
 ## Gerenciamento de Ciclo de Vida da Sessão
 
-### Criação de Sessão
+## Criação de Sessão
 
 Quando um cliente MCP se conecta:
 
@@ -90,7 +91,7 @@ Quando um cliente MCP se conecta:
 4. Carrega o AGENTS.md se presente e atualiza o cache de contexto.
 5. Retorna o `session_id` ao cliente para solicitações subsequentes.
 
-### Continuação de Sessão
+## Continuação de Sessão
 
 Para interações contínuas:
 
@@ -100,7 +101,7 @@ Para interações contínuas:
 4. Executa a chamada da ferramenta com consciência contextual completa.
 5. Persiste o estado atualizado antes de responder.
 
-### Limpeza de Sessão
+## Limpeza de Sessão
 
 Manutenção automática via índices TTL do MongoDB:
 
@@ -132,7 +133,7 @@ vectora state export --session-id sess_abc123 --output ./backup.json
 
 O AGENTS.md serve como ponte entre a compreensão humana e a memória do agente:
 
-### Estrutura
+## Estrutura
 
 ```markdown
 # Memória do Projeto: meu-projeto
@@ -156,7 +157,7 @@ O AGENTS.md serve como ponte entre a compreensão humana e a memória do agente:
 - Revisões de segurança necessárias para qualquer alteração relacionada a autenticação
 ```
 
-### Fluxo de Integração
+## Fluxo de Integração
 
 ```mermaid
 sequenceDiagram
@@ -173,7 +174,7 @@ sequenceDiagram
     A-->>D: Confirma atualização de memória na resposta MCP
 ```
 
-### Considerações de Segurança
+## Considerações de Segurança
 
 - O AGENTS.md está sujeito à mesma blocklist do Guardian que outros arquivos: padrões `.env`, `.key`, `.pem` nunca são embedados.
 - Conteúdo sensível detectado via regex é redigido antes da geração do embedding.
@@ -215,7 +216,7 @@ evaluation:
 
 ## Referência de Configuração
 
-### vectora.config.yaml
+## vectora.config.yaml
 
 ```yaml
 state:
@@ -251,7 +252,7 @@ state:
 
 ## Otimizações de Performance
 
-### Estratégia de Cache de Contexto
+## Estratégia de Cache de Contexto
 
 Para minimizar a latência durante a continuação da sessão:
 
@@ -259,7 +260,7 @@ Para minimizar a latência durante a continuação da sessão:
 - **Prefetching**: Carrega contexto provavelmente necessário baseado na etapa atual do plano.
 - **Atualizações Delta**: Re-embeda apenas seções alteradas do AGENTS.md, não o arquivo inteiro.
 
-### Operações em Lote
+## Operações em Lote
 
 Operações do MongoDB são feitas em lote para maior eficiência:
 
@@ -280,7 +281,7 @@ export async function updateSessionState(sessionId: string, updates: StateUpdate
 
 ## Solução de Problemas
 
-### Sessão Não Encontrada
+## Sessão Não Encontrada
 
 ```text
 Error: Session sess_abc123 not found for namespace auth-service
@@ -305,7 +306,7 @@ vectora health check --component mongodb
 vectora auth refresh
 ```
 
-### AGENTS.md Não Atualizando a Memória
+## AGENTS.md Não Atualizando a Memória
 
 ```text
 Warning: AGENTS.md changes detected but memory not updated
@@ -330,7 +331,7 @@ vectora memory sync --file AGENTS.md
 vectora logs --filter guardian --namespace auth-service
 ```
 
-### Logs de Auditoria Faltando Entradas
+## Logs de Auditoria Faltando Entradas
 
 ```text
 Warning: Expected audit entry for tool_call not found

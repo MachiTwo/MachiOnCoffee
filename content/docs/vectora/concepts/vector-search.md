@@ -34,14 +34,14 @@ Imagine que você quer encontrar no seu código onde o sistema lida com "cancela
 
 A busca vetorial transforma texto ou código em uma lista de números (um **vetor**) que representa sua posição em um "espaço de pensamento" de alta dimensionalidade.
 
-### 1. Embedding (A Coordenada)
+## 1. Embedding (A Coordenada)
 
 O [Voyage 4](/concepts/embeddings/) processa um trecho de código e gera um vetor de 1.536 números.
 
 - Código sobre "Auth" terá números altos na dimensão de segurança.
 - Código sobre "Database" terá números altos na dimensão de persistência.
 
-### 2. Espaço Vetorial
+## 2. Espaço Vetorial
 
 Pense em um mapa 3D (embora no Vectora sejam 1.536 dimensões). Código similar fica **fisicamente próximo** no mapa.
 

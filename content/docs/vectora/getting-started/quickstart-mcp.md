@@ -15,9 +15,6 @@ tags:
 ---
 
 {{< lang-toggle >}}
-
-## Visão Geral
-
 Este guia permite que você integre o Vectora com Claude Desktop via MCP em menos de 5 minutos.
 
 > [!IMPORTANT]
@@ -27,7 +24,7 @@ Este guia permite que você integre o Vectora com Claude Desktop via MCP em meno
 
 ## Passo 1: Localizar o Arquivo de Configuração
 
-### macOS / Linux
+## macOS / Linux
 
 ```bash
 # Arquivo de configuração do Claude Desktop
@@ -38,7 +35,7 @@ mkdir -p ~/.claude
 touch ~/.claude/claude_desktop_config.json
 ```
 
-### Windows
+## Windows
 
 ```powershell
 # Arquivo de configuração (WSL2 ou Windows)
@@ -70,7 +67,7 @@ Edite `claude_desktop_config.json`:
 }
 ```
 
-### Alternativa: Usar Variáveis de Ambiente do Sistema
+## Alternativa: Usar Variáveis de Ambiente do Sistema
 
 Se já tiver `GEMINI_API_KEY` e `VOYAGE_API_KEY` definidas:
 
@@ -98,7 +95,7 @@ Se já tiver `GEMINI_API_KEY` e `VOYAGE_API_KEY` definidas:
 
 ## Passo 4: Testar a Conexão
 
-### Via Claude Desktop Chat
+## Via Claude Desktop Chat
 
 Abra Claude Desktop e teste:
 
@@ -120,7 +117,7 @@ Available files in namespace 'my-project':
 ...
 ```
 
-### Verificar Status do MCP
+## Verificar Status do MCP
 
 Se receber erro:
 
@@ -136,9 +133,9 @@ Se não estiver conectado:
 
 ---
 
-## Passo 5: Seu Primeiro Comando Vectora
+## Passo 5: Seu Primeiro Comando
 
-### Explorar o Codebase
+## Explorar o Codebase
 
 ```text
 Qual é a estrutura deste projeto? Liste os diretórios principais.
@@ -146,7 +143,7 @@ Qual é a estrutura deste projeto? Liste os diretórios principais.
 
 Claude usa `file_list` via Vectora.
 
-### Buscar Contexto
+## Buscar Contexto
 
 ```text
 Como funciona a autenticação JWT neste projeto? Encontre a implementação.
@@ -154,7 +151,7 @@ Como funciona a autenticação JWT neste projeto? Encontre a implementação.
 
 Claude usa `context_search` para busca semântica.
 
-### Analisar Um Arquivo
+## Analisar Um Arquivo
 
 ```text
 Leia e explique o arquivo src/main.ts
@@ -198,34 +195,15 @@ meu-projeto/
 
 ### Erro: `Vectora MCP server not found`
 
-**Causa**: `vectora` não está no PATH.
+**Causa**: O binário `vectora` não está no PATH.
 
-**Solução**:
-
-```bash
-# Verifique onde vectora está instalado
-which vectora # macOS/Linux
-where.exe vectora # Windows
-
-# Se não encontrar, reinstale:
-npm install -g @kaffyn/vectora
-```
+**Solução**: Verifique se a instalação via Winget ou script foi concluída e reinicie seu terminal.
 
 ### Erro: `Connection refused`
 
 **Causa**: Vectora não consegue conectar à API do Gemini/Voyage.
 
-**Solução**:
-
-```bash
-# Verifique as chaves de API
-echo $GEMINI_API_KEY
-echo $VOYAGE_API_KEY
-
-# Se vazias, configure:
-export GEMINI_API_KEY="sk-xxx"
-export VOYAGE_API_KEY="pa-xxx"
-```
+**Solução**: Verifique seu status de autenticação com `vectora auth status` ou faça login novamente com `vectora auth login`.
 
 ### Erro: `Project not found`
 

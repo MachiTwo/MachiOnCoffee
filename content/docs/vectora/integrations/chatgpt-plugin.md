@@ -15,25 +15,22 @@ tags:
 ---
 
 {{< lang-toggle >}}
-
-## Visão Geral
+{{< section-toggle >}}
 
 **APP PRÓPRIO**: Vectora funciona como um **Custom GPT Plugin** que estende ChatGPT com busca de contexto de codebase. Arquitetura dedicada com OpenAPI schema, ngrok/endpoint público, e publicação na OpenAI plugin store.
 
 > [!IMPORTANT]
 > ChatGPT Custom GPT Plugin (app próprio) vs MCP Protocol (genérico). Escolha conforme sua IDE/plataforma preferida.
 
----
-
 ## Instalação
 
-### Pré-requisitos
+## Pré-requisitos
 
 - ChatGPT Plus (com acesso a Custom GPTs)
 - Servidor Vectora rodando (`vectora mcp` ou `vectora server`)
 - Endpoint público ou ngrok tunnel
 
-### Passo 1: Configurar Servidor Vectora Público
+## Passo 1: Configurar Servidor Vectora Público
 
 Por padrão, Vectora roda em `localhost:9090`. Para ChatGPT alcançar, você precisa expor:
 
@@ -70,14 +67,14 @@ vectora server --host 0.0.0.0 --port 9090
 # https://api.vectora.app/v1/your-project-id
 ```
 
-### Passo 2: Criar Custom GPT no ChatGPT
+## Passo 2: Criar Custom GPT no ChatGPT
 
 1. Vá para [chatgpt.com/gpts/editor](https://chatgpt.com/gpts/editor)
 2. Clique em **"Create a new GPT"**
 3. Nome: "Vectora Codebase Assistant"
 4. Descrição: "Assistente inteligente para análise de codebase com Vectora"
 
-### Passo 3: Configurar Schema OpenAPI
+## Passo 3: Configurar Schema OpenAPI
 
 Na aba **"Configure"** → **"Actions"**, adicione seu endpoint Vectora:
 
@@ -156,7 +153,7 @@ paths:
           description: File summary
 ```
 
-### Passo 4: Adicionar Instrução de Sistema
+## Passo 4: Adicionar Instrução de Sistema
 
 Na aba **"Instructions"**, copie:
 
@@ -179,7 +176,7 @@ Exemplo ruim:
 "Acho que a função está em algum lugar"
 ```
 
-### Passo 5: Publicar
+## Passo 5: Publicar
 
 Clique em **"Publish to Store"** e compartilhe com seu time.
 
@@ -189,7 +186,7 @@ Clique em **"Publish to Store"** e compartilhe com seu time.
 
 Os workflows abaixo demonstram casos de uso reais do Vectora integrado ao ChatGPT, mostrando conversas práticas e resultados concretos.
 
-### Workflow 1: Entender Feature Complexa (Onboarding)
+## Workflow 1: Entender Feature Complexa (Onboarding)
 
 **Cenário**: Novo dev no time quer entender como funciona autenticação JWT.
 
@@ -224,7 +221,7 @@ request → AuthGuard.canActivate() → validateToken() → req.user = payload
 
 Clique em qualquer arquivo → abre em editor/navegador.
 
-### Workflow 2: Debugging Estratégico
+## Workflow 2: Debugging Estratégico
 
 **Cenário**: Você tem um erro e precisa entender causa raiz.
 
@@ -262,7 +259,7 @@ Analisando userService.create():
 **Sugestão**: Aplicar mesmo fix nos 3 lugares.
 ```
 
-### Workflow 3: Code Review Assistido (PR Complexa)
+## Workflow 3: Code Review Assistido (PR Complexa)
 
 **Cenário**: Revisando uma PR que toca múltiplos arquivos de auth.
 
@@ -312,7 +309,7 @@ Analisando mudanças...
 
 ## Autenticação & Segurança
 
-### Token-based Auth
+## Token-based Auth
 
 Se seu servidor requer autenticação:
 
@@ -337,7 +334,7 @@ Selecione "API Key"
 Cole seu token
 ```
 
-### Rate Limiting
+## Rate Limiting
 
 Proteja seu servidor:
 
@@ -352,19 +349,19 @@ server:
 
 ## Privacidade & Compliance
 
-### O que é Enviado para OpenAI
+## O que é Enviado para OpenAI
 
 - Sua pergunta (texto)
 - Parâmetros de busca (namespace, top_k)
 - **Chunks NÃO são salvos** na OpenAI
 
-### O que Permanece Local
+## O que Permanece Local
 
 - Índices vetoriais (Qdrant)
 - Embeddings brutos
 - Credenciais de API
 
-### Dados Criptografados
+## Dados Criptografados
 
 ```bash
 # Habilitar criptografia ponta-a-ponta
@@ -381,7 +378,7 @@ vectora server --cert cert.pem --key key.pem
 
 ## Troubleshooting
 
-### "Plugin not responding"
+## "Plugin not responding"
 
 **Causa**: Servidor Vectora offline.
 
@@ -395,7 +392,7 @@ curl https://seu-endpoint/health
 vectora mcp
 ```
 
-### "Unauthorized"
+## "Unauthorized"
 
 **Causa**: Token inválido ou expirado.
 
@@ -408,7 +405,7 @@ vectora auth create-token --name "ChatGPT Plugin" --ttl 365d
 # Atualizar no Custom GPT settings
 ```
 
-### "Timeout"
+## "Timeout"
 
 **Causa**: Busca muito lenta.
 
@@ -440,7 +437,7 @@ curl -X POST https://seu-endpoint/search \
 
 ## Exemplos Avançados
 
-### Custom GPT para Design Review
+## Custom GPT para Design Review
 
 ```text
 Instrução:
@@ -452,7 +449,7 @@ Quando o usuário mostra código:
 4. Cite exemplos do codebase"
 ```
 
-### Custom GPT para Onboarding
+## Custom GPT para Onboarding
 
 ```text
 Instrução:

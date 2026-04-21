@@ -55,7 +55,7 @@ Treinado com centenas de milhões de exemplos de código real (repositórios pú
 arquiteturais), o Voyage 4 **entende o significado semântico do código** de uma forma que modelos genéricos jamais
 poderão.
 
-### Especificações Técnicas do Voyage 4
+## Especificações Técnicas do Voyage 4
 
 | Aspecto                  | Detalhe                                                            |
 | ------------------------ | ------------------------------------------------------------------ |
@@ -69,7 +69,7 @@ poderão.
 
 ## Arquitetura Interna: Como Funciona
 
-### 1. Tokenização e Pré-processamento
+## 1. Tokenização e Pré-processamento
 
 Quando você envia um trecho de código para o Voyage 4:
 
@@ -89,7 +89,7 @@ O modelo não apenas tokeniza as palavras — ele **compreende a estrutura AST (
 - Nota que a função retorna `User`
 - Percebe o tratamento de erro (`UserNotFound`)
 
-### 2. Encoding Vetorial
+## 2. Encoding Vetorial
 
 O Voyage 4 mapeia esse entendimento para um espaço vetorial de 1,536 dimensões. Cada dimensão captura um aspecto
 semântico:
@@ -113,7 +113,7 @@ async function getUser(userId) {
 Este código JavaScript terá um embedding **muito próximo** do código Python acima, apesar de usar sintaxe completamente
 diferente.
 
-### 3. Normalização L2
+## 3. Normalização L2
 
 Os embeddings são normalizados para unidade L2, o que significa:
 
@@ -128,7 +128,7 @@ Isso permite comparações de similaridade rápidas e confiáveis.
 Um das inovações do Voyage 4 é o suporte **multimodal** — não é "só para código" ou "só para texto", mas ambos
 simultaneamente:
 
-### Scenario 1: Busca em Código Puro
+## Scenario 1: Busca em Código Puro
 
 ```text
 Query: "função que valida email"
@@ -137,7 +137,7 @@ Query: "função que valida email"
 O Voyage 4 encontrará funções com nomes como `validateEmail`, `isValidEmail`, `check_email_format`, `emailValidator`,
 mesmo que nenhuma delas tenha a palavra "email" no corpo da função.
 
-### Scenario 2: Busca em Documentação + Código
+## Scenario 2: Busca em Documentação + Código
 
 ```text
 Query: "Como fazer cache de resultados de banco de dados?"
@@ -150,7 +150,7 @@ O modelo retornará tanto:
 - Decoradores `@cache`
 - Middleware de caching
 
-### Scenario 3: Busca Semântica Avançada
+## Scenario 3: Busca Semântica Avançada
 
 ```text
 Query: "Onde tratamos de race conditions em operações concorrentes?"
@@ -170,28 +170,28 @@ Mesmo que o código não use exatamente a palavra "race condition".
 
 Nós testamos **todas as alternativas**:
 
-### Voyage 3-large (Versão Anterior)
+## Voyage 3-large (Versão Anterior)
 
 - 1,024 dimensões (menos precisão)
 - Treinamento genérico (não otimizado para código)
 - Performance: ~150ms por embedding
 - Custo: $0.03 por 1M tokens (50% mais caro)
 
-### Gemini Embedding 2.0
+## Gemini Embedding 2.0
 
 - 768 dimensões (muito menos que Voyage 4)
 - Otimizado para linguagem natural, não código
 - Integração complexa com Google Cloud
 - NDCG@10: ~92% (6.5% pior que Voyage 4)
 
-### OpenAI text-embedding-3-large
+## OpenAI text-embedding-3-large
 
 - 3,072 dimensões (40% mais caro por dimensão)
 - Sem suporte oficial para código estruturado
 - Rate limiting agressivo
 - Custo: $0.065 por 1M tokens (3.25x mais caro)
 
-### Voyage 4
+## Voyage 4
 
 - 1,536 dimensões otimizadas (sweet spot)
 - Treinado especificamente em código
@@ -206,7 +206,7 @@ Nós testamos **todas as alternativas**:
 
 Os embeddings do Voyage 4 são armazenados e indexados no **Qdrant Cloud**, que oferece:
 
-### HNSW (Hierarchical Navigable Small World)
+## HNSW (Hierarchical Navigable Small World)
 
 Um algoritmo de busca que:
 
@@ -214,7 +214,7 @@ Um algoritmo de busca que:
 - Encontra vizinhos mais próximos em <50ms
 - Escalável para bilhões de vetores
 
-### TurboQuant (Quantização)
+## TurboQuant (Quantização)
 
 Compressão inteligente que:
 
@@ -223,7 +223,7 @@ Compressão inteligente que:
 - Reduz latência de busca em 40%
 - Mantém 99.5% de precisão
 
-### Payload Filtering
+## Payload Filtering
 
 Metadados associados a cada embedding:
 
@@ -245,7 +245,7 @@ real.
 
 ## Casos de Uso Concretos no Vectora
 
-### Use Case 1: Bug Detection
+## Use Case 1: Bug Detection
 
 ```text
 Entrada: Trecho de código com possível buffer overflow
@@ -254,7 +254,7 @@ Output: Similaridade com 5 padrões conhecidos de vulnerabilidade
 
 O Voyage 4 encontra código historicamente vulnerável com 97% de acurácia.
 
-### Use Case 2: Code Review Automation
+## Use Case 2: Code Review Automation
 
 ```text
 Entrada: Novo PR com 3 funções
@@ -263,7 +263,7 @@ Output: "Função 1 segue padrão X | Função 2 tem smell Y | Função 3 é nov
 
 Usa embeddings para classificar modificações por tipo.
 
-### Use Case 3: Refactoring Assistant
+## Use Case 3: Refactoring Assistant
 
 ```text
 Entrada: "Simplifique este código mantendo o comportamento"
@@ -274,7 +274,7 @@ Retrieve by semantic similarity, não por sintaxe.
 
 ## Performance e Otimizações
 
-### Batching de Embeddings
+## Batching de Embeddings
 
 ```python
 # Ruim: embedding um por um
@@ -289,7 +289,7 @@ for batch in batches:
 
 Batching reduz latência total de horas para minutos.
 
-### Caching de Embeddings
+## Caching de Embeddings
 
 ```python
 # Cache em Qdrant: "Já tenho embedding para hash SHA-256 abc123def456?"
@@ -299,7 +299,7 @@ Batching reduz latência total de horas para minutos.
 
 Em projetos grandes, 70-80% dos embeddings já estão em cache.
 
-### Recompressão Periódica
+## Recompressão Periódica
 
 A quantização TurboQuant é aplicada durante indexação. Periodicamente (a cada 1M novos embeddings), o Qdrant:
 
@@ -311,13 +311,13 @@ A quantização TurboQuant é aplicada durante indexação. Periodicamente (a ca
 
 Em benchmark com 10K documentos de código real:
 
-| Modelo | NDCG@10 | MRR | Recall@100 |
+| Modelo                        | NDCG@10   | MRR       | Recall@100 |
 | ----------------------------- | --------- | --------- | ---------- |
-| Voyage 4 | **98.5%** | **0.936** | **99.2%** |
-| Voyage 3-large | 92.1% | 0.891 | 97.5% |
-| Gemini Embedding 2.0 | 92.0% | 0.884 | 97.2% |
-| OpenAI text-embedding-3-large | 95.3% | 0.914 | 98.8% |
-| Semantic Scholar (genérico) | 78.4% | 0.721 | 91.3% |
+| Voyage 4                      | **98.5%** | **0.936** | **99.2%**  |
+| Voyage 3-large                | 92.1%     | 0.891     | 97.5%      |
+| Gemini Embedding 2.0          | 92.0%     | 0.884     | 97.2%      |
+| OpenAI text-embedding-3-large | 95.3%     | 0.914     | 98.8%      |
+| Semantic Scholar (genérico)   | 78.4%     | 0.721     | 91.3%      |
 
 Voyage 4 não é apenas melhor — é **significativamente melhor** em tarefas de código.
 

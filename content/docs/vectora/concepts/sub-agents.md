@@ -30,7 +30,6 @@ sidebar:
 ---
 
 {{< lang-toggle >}}
-
 {{< callout type="tip" >}} **TL;DR**: MCP é um protocolo excelente para expor ferramentas. Mas expor ferramentas não é a
 mesma coisa que entregar **contexto governado**. O Vectora é um Sub-Agent porque RAG de qualidade exige interceptação,
 validação e orquestração que ferramentas passivas não podem fornecer. {{< /callout >}}
@@ -54,7 +53,7 @@ A resposta longa é o que você vai ler abaixo.
 
 ## O Que MCP Faz (E Seus Limites)
 
-### MCP: Acesso Padronizado
+## MCP: Acesso Padronizado
 
 O [Model Context Protocol](https://modelcontextprotocol.io) padroniza como um LLM pode:
 
@@ -65,7 +64,7 @@ O [Model Context Protocol](https://modelcontextprotocol.io) padroniza como um LL
 Pense em MCP como um contrato de interface universal. Assim como APIs REST permitem que qualquer cliente converse com um
 backend, MCP permite que qualquer agent use suas ferramentas.
 
-### O Que Funciona Bem com MCP
+## O Que Funciona Bem com MCP
 
 | Cenário                       | Por que MCP é suficiente                        |
 | ----------------------------- | ----------------------------------------------- |
@@ -73,7 +72,7 @@ backend, MCP permite que qualquer agent use suas ferramentas.
 | Busca web simples             | O agent formula a query e interpreta resultados |
 | Execução isolada de comandos  | O agent controla o comando                      |
 
-### O Que NÃO Funciona Bem com MCP Puro
+## O Que NÃO Funciona Bem com MCP Puro
 
 | Cenário                       | Por que MCP sozinho falha                                                              |
 | ----------------------------- | -------------------------------------------------------------------------------------- |
@@ -115,7 +114,7 @@ Nenhuma dessas responsabilidades pode ser delegada ao agente principal sem perde
 
 ## Parte 1: O Desafio Técnico dos Embeddings
 
-### A Realidade dos Agentes Principais em 2026
+## A Realidade dos Agentes Principais em 2026
 
 | Agent Principal | Embedding Integrado? | RAG Nativo?    | Observação                            |
 | --------------- | -------------------- | -------------- | ------------------------------------- |
@@ -125,7 +124,7 @@ Nenhuma dessas responsabilidades pode ser delegada ao agente principal sem perde
 | Gemini CLI      | Via API cloud        | Não localmente | Sem pipeline integrado                |
 | Windsurf/Trae   | Não                  | Não            | Features próprias, não interoperáveis |
 
-### Por Que Isso Importa para RAG Real
+## Por Que Isso Importa para RAG Real
 
 Para recuperar contexto relevante em um codebase, você precisa de um pipeline completo:
 
@@ -142,7 +141,7 @@ Cada etapa exige decisões especializadas que agentes principais não fazem:
 | **Filtragem** | Manter head/tail de outputs grandes + pointers                 | Limite de contexto exige decisão      |
 | **Injeção**   | Estruturar contexto com metadados e dependências               | Relações se perdem em texto plano     |
 
-### A Solução Vectora: Interpreter Especializado
+## A Solução Vectora: Interpreter Especializado
 
 ```text
 Agente Principal → Vectora (Camada de Interpretação) → Contexto Estruturado
@@ -158,7 +157,7 @@ Agente Principal → Vectora (Camada de Interpretação) → Contexto Estruturad
 
 ## Parte 2: O Desafio Estratégico do Controle
 
-### O Que Você Perde Sem Sub-Agent
+## O Que Você Perde Sem Sub-Agent
 
 Mesmo para ferramentas que NÃO envolvem embeddings, atuar como servidor MCP genérico significa perder:
 
@@ -170,7 +169,7 @@ Mesmo para ferramentas que NÃO envolvem embeddings, atuar como servidor MCP gen
 | **Failover Automático**  | Roteia entre providers se um falhar                                 | Agente principal lida com cada erro                      |
 | **Tool Calling Estável** | Adapter normaliza quirks entre SDKs                                 | Parsing frágil, tool calls inconsistentes                |
 
-### A Ilusão do "Treinamento via Docs"
+## A Ilusão do "Treinamento via Docs"
 
 Você pode escrever `AGENTS.md`, `CLAUDE.md` para ensinar o agente a usar as ferramentas. Mas docs NÃO resolvem problemas
 de runtime:
@@ -329,7 +328,7 @@ export async function file_read(args: { path: string }): Promise<string> {
 
 ## Impacto para Você
 
-### Desenvolvedores
+## Desenvolvedores
 
 | Benefício      | Como Sub-Agent Entrega                                             |
 | -------------- | ------------------------------------------------------------------ |
@@ -338,7 +337,7 @@ export async function file_read(args: { path: string }): Promise<string> {
 | **Controle**   | Você decide namespaces, providers, políticas                       |
 | **Eficiência** | Context Engine evita overfetch (menos tokens)                      |
 
-### Equipes
+## Equipes
 
 | Benefício       | Como Sub-Agent Entrega                        |
 | --------------- | --------------------------------------------- |

@@ -14,8 +14,7 @@ tags:
 ---
 
 {{< lang-toggle >}}
-
-## Overview
+{{< section-toggle >}}
 
 This is a **complete dictionary** of all MCP tools offered by Vectora. Use them via Claude Code, Cursor, VS Code, or ChatGPT to interact with your codebase.
 
@@ -37,7 +36,9 @@ This is a **complete dictionary** of all MCP tools offered by Vectora. Use them 
 
 ## Search & Retrieval
 
-### `search_context`
+Search and retrieval tools allow you to extract relevant context from your repository using semantic and structural similarity algorithms.
+
+## `search_context`
 
 Semantic search for relevant chunks.
 
@@ -82,7 +83,7 @@ Semantic search for relevant chunks.
 
 ---
 
-### `search_tests`
+## `search_tests`
 
 Search for tests related to a query.
 
@@ -116,7 +117,9 @@ Search for tests related to a query.
 
 ## Analysis
 
-### `analyze_dependencies`
+Analysis tools allow you to understand complex relationships between code components, dependencies, and structural patterns.
+
+## `analyze_dependencies`
 
 Finds all references to a symbol.
 
@@ -153,7 +156,7 @@ Finds all references to a symbol.
 
 ---
 
-### `find_similar_code`
+## `find_similar_code`
 
 Finds code similar to a provided snippet.
 
@@ -185,7 +188,7 @@ Finds code similar to a provided snippet.
 
 ---
 
-### `get_file_structure`
+## `get_file_structure`
 
 Summarizes a file's structure (imports, functions, classes).
 
@@ -224,7 +227,9 @@ Summarizes a file's structure (imports, functions, classes).
 
 ## Metadata
 
-### `list_files`
+Inspect the organization of your workspace, list indexed files, and check vital statistics about your namespaces.
+
+## `list_files`
 
 Lists indexed files in the namespace.
 
@@ -257,7 +262,7 @@ Lists indexed files in the namespace.
 
 ---
 
-### `list_namespaces`
+## `list_namespaces`
 
 Lists all available namespaces.
 
@@ -287,7 +292,7 @@ Lists all available namespaces.
 
 ---
 
-### `get_namespace_stats`
+## `get_namespace_stats`
 
 Returns statistics for a namespace.
 
@@ -324,7 +329,9 @@ Returns statistics for a namespace.
 
 ## Indexing
 
-### `index_status`
+Manage your project's indexing state, forcing updates or checking for pending items in the vector database.
+
+## `index_status`
 
 Checks index status (health, pending items).
 
@@ -353,7 +360,7 @@ Checks index status (health, pending items).
 
 ---
 
-### `reindex`
+## `reindex`
 
 Forces file re-indexing.
 
@@ -382,7 +389,9 @@ Forces file re-indexing.
 
 ## Configuration
 
-### `get_config`
+Access and modify Vectora server operational settings in real-time, allowing for fine-tuning of search strategies.
+
+## `get_config`
 
 Returns current Vectora configuration.
 
@@ -411,7 +420,7 @@ Returns current Vectora configuration.
 
 ---
 
-### `set_config`
+## `set_config`
 
 Modifies configuration (requires authentication).
 
@@ -428,7 +437,9 @@ Modifies configuration (requires authentication).
 
 ## Monitoring
 
-### `get_metrics`
+Maintain full visibility into system performance, error rates, and audit logs to ensure security and performance.
+
+## `get_metrics`
 
 Returns execution metrics.
 
@@ -459,7 +470,7 @@ Returns execution metrics.
 
 ---
 
-### `get_audit_log`
+## `get_audit_log`
 
 Returns access and modification logs.
 
@@ -497,11 +508,11 @@ Returns access and modification logs.
 
 In this section, we demonstrate how MCP tools work together to solve real development problems. Each workflow shows the sequence of tools called and expected outputs in practical scenarios.
 
-### Workflow 1: Understanding an Unknown Function
+## Workflow 1: Understanding an Unknown Function
 
-**Scenario**: You found `validateToken()` in a file. You want to understand where it is used.
+- **Scenario**: You found `validateToken()` in a file. You want to understand where it is used.
 
-**Step-by-Step with Tools:**
+  **Step-by-Step with Tools:**
 
 ```text
 1⃣ get_file_structure("src/auth/jwt.ts")
@@ -525,7 +536,7 @@ Final Output:
 
 This workflow shows how to use tools in sequence to identify a function and its complete context.
 
-### Workflow 2: Debugging a Production Error
+## Workflow 2: Debugging a Production Error
 
 **Scenario**: API is slow. Need to understand if it's auth validation.
 
@@ -555,7 +566,7 @@ Conclusion:
 
 When performance degrades, tools help diagnose the root cause. This workflow combines metrics, search, and structural analysis.
 
-### Workflow 3: Automatic Code Review
+## Workflow 3: Automatic Code Review
 
 **Scenario**: PR adds a new handler. Want to verify patterns.
 
@@ -587,7 +598,7 @@ Review Output:
 
 Validating that a PR follows project standards involves searching for similar code and verifying structure. This workflow automates much of this analysis.
 
-### Workflow 4: Large-Scale Refactoring
+## Workflow 4: Large-Scale Refactoring
 
 **Scenario**: Want to change how tokens are validated. Need to understand the impact.
 
@@ -625,7 +636,7 @@ Impact Assessment:
 
 Understanding the impact of a change is critical. This workflow uses tools to map all affected locations and the estimated effort.
 
-### Workflow 5: Monitoring & Audit
+## Workflow 5: Monitoring & Audit
 
 **Scenario**: Security. Want to ensure sensitive data has not been accessed.
 

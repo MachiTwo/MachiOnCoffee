@@ -15,10 +15,8 @@ tags:
 ---
 
 {{< lang-toggle >}}
-
-## Visão Geral
-
-**RBAC** (Role-Based Access Control) é o sistema de permissões granulares em Vectora. 5 roles hierárquicos, 15 permissões específicas, nível de usuário + namespace.
+{{< section-toggle >}}
+**RBAC** (Role-Based Access Control) é o sistema de permissões granulares do Vectora. Ele utiliza 5 roles hierárquicos e 15 permissões específicas para gerenciar o acesso em nível de usuário e namespace.
 
 > [!IMPORTANT]
 > RBAC é "allow by role". Um usuário só pode fazer o que sua role permite. Não há exceções por usuário.
@@ -51,7 +49,9 @@ Grant/Deny Decision
 
 ## 5 Roles Hierárquicos
 
-### 1. Owner (Topo)
+O Vectora define cinco níveis de acesso, organizados de forma que cada nível superior herda todas as capacidades dos níveis abaixo dele.
+
+## 1. Owner (Topo)
 
 Controle total.
 
@@ -86,7 +86,9 @@ examples:
   - Empresa inteira (free tier)
 ```
 
-### 2. Admin
+Cada nível de acesso é otimizado para uma responsabilidade específica dentro da organização, desde o controle total até a visualização restrita.
+
+## 2. Admin
 
 Gerenciamento, sem mudanças estruturais.
 
@@ -110,7 +112,9 @@ cannot_perform:
   - Sso/ldap config
 ```
 
-### 3. Editor
+A separação entre administração e edição permite que a equipe técnica foque na produção de dados sem riscos de alterações estruturais acidentais.
+
+## 3. Editor
 
 Trabalho técnico: busca e indexação.
 
@@ -129,7 +133,9 @@ cannot_perform:
   - Criar webhooks
 ```
 
-### 4. Viewer
+Os papéis de visualização são ideais para consumidores de dados que precisam acessar o conhecimento sem modificar o índice semântico.
+
+## 4. Viewer
 
 Somente leitura.
 
@@ -146,7 +152,9 @@ cannot_perform:
   - manage_anything
 ```
 
-### 5. Guest
+Para acessos temporários ou limitados, o Vectora oferece um perfil de convidado com restrições automáticas de volume de busca.
+
+## 5. Guest
 
 Read-only com rate limiting.
 
@@ -188,7 +196,9 @@ cannot_perform:
 
 ## Configuração
 
-### Criar Usuário com Role
+A implementação do RBAC pode ser realizada de forma dinâmica via linha de comando ou através de definições estáticas em arquivos de configuração.
+
+## Criar Usuário com Role
 
 ```bash
 # Via CLI
@@ -208,7 +218,7 @@ POST /api/users
 }
 ```
 
-### Atualizar Role
+## Atualizar Role
 
 ```bash
 # Promover
@@ -222,7 +232,7 @@ vectora user revoke-permission \
   --permission manage_users
 ```
 
-### YAML Config
+## YAML Config
 
 ```yaml
 # vectora.config.yaml
@@ -255,7 +265,9 @@ rbac:
 
 ## User Management
 
-### Lifecycle
+O gerenciamento de usuários abrange desde o provisionamento inicial até a auditoria de atividades e a revogação de acessos quando necessário.
+
+## Lifecycle
 
 ```text
 Criar User (Owner)
@@ -273,7 +285,7 @@ Admin pode revocar acesso
 User deletion (logs preservados)
 ```
 
-### Criar Usuário
+## Criar Usuário
 
 ```bash
 vectora user create \
@@ -290,7 +302,7 @@ vectora user create \
 # Invite expires in: 7 days
 ```
 
-### Listar Usuários
+## Listar Usuários
 
 ```bash
 vectora user list [--namespace <ns>]
@@ -303,7 +315,7 @@ vectora user list [--namespace <ns>]
 # dev@company.com | editor | 2026-03-20 | offline
 ```
 
-### Revogar Acesso
+## Revogar Acesso
 
 ```bash
 vectora user delete --email dev@company.com
@@ -352,7 +364,9 @@ vectora user assign-namespace \
 
 ## Integration with Guardian & Harness
 
-### Flow Completo
+O RBAC opera em conjunto com o Guardian e o Harness para formar uma defesa em profundidade, validando permissões antes de qualquer inspeção de segurança.
+
+## Flow Completo
 
 ```text
 User Request
@@ -391,7 +405,9 @@ Se qualquer check falha → Deny + Log
 
 ## Audit & Compliance
 
-### RBAC Audit Trail
+Todas as alterações de permissões e atribuições de usuários são registradas para garantir a conformidade com auditorias de segurança e requisitos regulatórios.
+
+## RBAC Audit Trail
 
 ```bash
 vectora audit --filter "rbac" --since 7d
@@ -405,7 +421,7 @@ vectora audit --filter "rbac" --since 7d
 # 2026-04-19 16:45:00 | user_deleted | admin@company.com | alice@company.com
 ```
 
-### Compliance Reports
+## Compliance Reports
 
 ```bash
 vectora report rbac --format pdf --output rbac-report.pdf
@@ -421,7 +437,7 @@ vectora report rbac --format pdf --output rbac-report.pdf
 
 ## Best Practices
 
-### 1. Principle of Least Privilege
+## 1. Principle of Least Privilege
 
 Sempre comece com role mais restritivo:
 
@@ -433,7 +449,7 @@ vectora user create ... --role viewer
 vectora user update ... --role editor
 ```
 
-### 2. Separate Namespaces per Env
+## 2. Separate Namespaces per Env
 
 ```yaml
 prod:
@@ -449,7 +465,7 @@ dev:
   roles: owner, admin, editor
 ```
 
-### 3. Review Regularly
+## 3. Review Regularly
 
 ```bash
 # Mensal review
@@ -459,7 +475,7 @@ vectora audit --since 30d --filter "user_created|role_changed|user_deleted"
 vectora user list --inactive 60d
 ```
 
-### 4. No Shared Accounts
+## 4. No Shared Accounts
 
 Cada pessoa = 1 conta. Nunca compartilhe:
 
@@ -476,7 +492,7 @@ export VECTORA_TOKEN="sk-proj-$(whoami)-..."
 
 ## Troubleshooting
 
-### "Permission denied: search"
+## "Permission denied: search"
 
 User role não inclui `search`:
 
@@ -488,7 +504,7 @@ vectora user list-permissions --email dev@company.com
 vectora user update --email dev@company.com --role editor
 ```
 
-### "Unauthorized in namespace"
+## "Unauthorized in namespace"
 
 User não tem acesso ao namespace específico:
 

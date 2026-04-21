@@ -13,18 +13,15 @@ tags:
 ---
 
 {{< lang-toggle >}}
-
-## Overview
+{{< section-toggle >}}
 
 The **Team** plan is for large organizations with enterprise requirements: SSO, on-premise deployment, 24/7 support, and a guaranteed SLA. Like the Pro plan, it offers **BYOK** or **Plus** (Managed) modes.
 
 **Custom Pricing** - Contact [sales@vectora.app](mailto:sales@vectora.app)
 
----
-
 ## What's Included
 
-### Everything in Pro, PLUS
+## Everything in Pro, PLUS
 
 | Feature                      | Pro          | Team      |
 | ---------------------------- | ------------ | --------- |
@@ -46,7 +43,7 @@ The **Team** plan is for large organizations with enterprise requirements: SSO, 
 
 ## Enterprise Features
 
-### SSO & Identity Management
+## SSO & Identity Management
 
 ```yaml
 saml:
@@ -62,7 +59,7 @@ ldap:
   auto_sync: true
 ```
 
-### On-Premise Deployment
+## On-Premise Deployment
 
 Vectora runs 100% in your datacenter:
 
@@ -88,7 +85,7 @@ helm install vectora ./vectora-helm \
 - Prometheus + Grafana monitoring
 - Automated daily backups
 
-### Advanced Compliance
+## Advanced Compliance
 
 ```yaml
 compliance:
@@ -105,7 +102,7 @@ compliance:
 
 ## Pricing
 
-### Pricing Model
+## Pricing Model
 
 ```text
 Base Fee: Custom
@@ -130,7 +127,7 @@ Estimate:
 Total: ~$13,500/month
 ```
 
-### Pricing Contact
+## Pricing Contact
 
 **<sales@vectora.app>**
 **Slack Enterprise Channel**
@@ -140,7 +137,7 @@ Total: ~$13,500/month
 
 ## Deployment Options
 
-### Option 1: Managed Cloud
+## Option 1: Managed Cloud
 
 Vectora hosts on enterprise-grade infrastructure:
 
@@ -152,7 +149,7 @@ Vectora hosts on enterprise-grade infrastructure:
  Daily encrypted backups
 ```
 
-### Option 2: Private Cloud (VPC)
+## Option 2: Private Cloud (VPC)
 
 Isolated infrastructure on your AWS/Azure/GCP account:
 
@@ -163,7 +160,7 @@ Isolated infrastructure on your AWS/Azure/GCP account:
  You control backups
 ```
 
-### Option 3: On-Premise
+## Option 3: On-Premise
 
 Your own or a private datacenter:
 
@@ -208,14 +205,14 @@ Uptime | Credit
 
 ## Support
 
-### Dedicated Support
+## Dedicated Support
 
 - **24/7 Hotline**: Priority Phone + Slack
 - **Dedicated Account Manager**: Your point of contact
 - **Quarterly Business Reviews**: Strategy & optimization
 - **Technical Consulting**: Architecture and best practices
 
-### Support SLA
+## Support SLA
 
 | Severity | Response | Resolution |
 | -------- | -------- | ---------- |

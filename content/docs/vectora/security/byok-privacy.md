@@ -16,8 +16,7 @@ tags:
 ---
 
 {{< lang-toggle >}}
-
-## Visão Geral
+{{< section-toggle >}}
 
 Vectora é **100% BYOK** (Bring Your Own Keys). Você controla suas chaves de API. Seus dados NUNCA são salvos na infraestrutura Vectora. Privacidade completa.
 
@@ -28,7 +27,9 @@ Vectora é **100% BYOK** (Bring Your Own Keys). Você controla suas chaves de AP
 
 ## Modelo de Dados
 
-### Fluxo Seguro
+O modelo de dados do Vectora é projetado para garantir que a soberania da informação permaneça com o usuário, utilizando infraestrutura local ou nuvens privadas.
+
+## Fluxo Seguro
 
 ```text
 Seu Código
@@ -55,7 +56,9 @@ Seu Código
 
 ## O Que Está Incluído em BYOK
 
-### APIs que Você Controla
+O conceito de Bring Your Own Key no Vectora abrange desde a vetorização até o armazenamento final, garantindo que nenhum segredo seja compartilhado.
+
+## APIs que Você Controla
 
 | Serviço           | Onde Roda          | Você Controla   |
 | ----------------- | ------------------ | --------------- |
@@ -64,7 +67,7 @@ Seu Código
 | **Gemini 3**      | Servers Google     | Via sua API key |
 | **Qdrant**        | Seu servidor local | Completamente   |
 
-### O Que Vectora Pode Ver
+## O Que Vectora Pode Ver
 
 ```text
 Via suas chaves de API:
@@ -75,7 +78,7 @@ Via seus logs:
 - Tudo, se você ativar audit logging
 ```
 
-### O Que Vectora NÃO Pode Ver
+## O Que Vectora NÃO Pode Ver
 
 ```text
  Código-fonte (em .git, arquivos)
@@ -89,7 +92,9 @@ Via seus logs:
 
 ## Configuração BYOK
 
-### Passo 1: Obter Chaves
+Configurar o BYOK no Vectora é um processo simples que envolve a coleta de chaves dos provedores suportados e sua integração segura.
+
+## Passo 1: Obter Chaves
 
 **Gemini** (Google):
 
@@ -115,7 +120,7 @@ QDRANT_URL="http://localhost:6333"
 QDRANT_API_KEY="qdrant-key-xyz" # Se auth habilitada
 ```
 
-### Passo 2: Configurar Vectora
+## Passo 2: Configurar Vectora
 
 ```bash
 # Via .env
@@ -130,7 +135,7 @@ vectora config set --key GEMINI_API_KEY
 vectora config set --key VOYAGE_API_KEY
 ```
 
-### Passo 3: Verificar
+## Passo 3: Verificar
 
 ```bash
 vectora config validate
@@ -145,7 +150,9 @@ vectora config validate
 
 ## Data Residency & Compliance
 
-### Local Deployment
+O Vectora permite que você escolha exatamente onde seus dados residem, oferecendo opções que variam de servidores locais a nuvens privadas isoladas.
+
+## Local Deployment
 
 Tudo roda localmente (máxima privacidade):
 
@@ -163,7 +170,7 @@ Tudo roda localmente (máxima privacidade):
     └─ (Você controla estas chamadas)
 ```
 
-### Private Cloud (VPC)
+## Private Cloud (VPC)
 
 Sua conta cloud, você controla:
 
@@ -176,7 +183,7 @@ deployment:
   encryption: "KMS-managed"
 ```
 
-### On-Premise
+## On-Premise
 
 Sem cloud. Seu datacenter:
 
@@ -192,7 +199,9 @@ docker run \
 
 ## Encryption
 
-### At Rest
+A segurança dos dados é reforçada por múltiplas camadas de criptografia, protegendo a informação tanto em repouso quanto em trânsito.
+
+## At Rest
 
 Dados no disco são criptografados:
 
@@ -217,7 +226,7 @@ vectora search "query" --verify-encryption
 # Encryption verified
 ```
 
-### In Transit
+## In Transit
 
 Todas as comunicações são HTTPS/TLS 1.3:
 
@@ -233,7 +242,9 @@ ssl:
 
 ## Privacy Guarantees
 
-### Vectora Nunca
+Nossa arquitetura técnica impõe garantias de privacidade rigorosas, assegurando que o controle permaneça inteiramente nas mãos do proprietário dos dados.
+
+## Vectora Nunca
 
 - Armazena seu código
 - Armazena embeddings
@@ -243,7 +254,7 @@ ssl:
 - Vende dados
 - Faz correlação entre usuários
 
-### Você Sempre
+## Você Sempre
 
 - Controla suas chaves
 - Pode deletar tudo
@@ -256,9 +267,9 @@ ssl:
 
 ## Compliance Frameworks
 
-Vectora respeita:
+Vectora respeita e ajuda você a cumprir os principais frameworks de conformidade global, adaptando-se às necessidades específicas de cada setor.
 
-### GDPR (EU)
+## GDPR (EU)
 
 ```yaml
 gdpr:
@@ -275,7 +286,7 @@ vectora config set --key GDPR_REGION eu-west-1
 vectora config set --key DATA_RESIDENCY "EU"
 ```
 
-### HIPAA (Healthcare)
+## HIPAA (Healthcare)
 
 ```yaml
 hipaa:
@@ -284,7 +295,7 @@ hipaa:
   data_isolation: "required" # Dados isolados
 ```
 
-### PCI-DSS (Payment Cards)
+## PCI-DSS (Payment Cards)
 
 ```yaml
 pci_dss:
@@ -293,7 +304,7 @@ pci_dss:
   audit_retention: "1 year"
 ```
 
-### SOC 2
+## SOC 2
 
 ```yaml
 soc2:
@@ -308,7 +319,9 @@ soc2:
 
 ## Data Deletion & Export
 
-### Exportar Dados
+Você tem liberdade total sobre seus dados, com ferramentas integradas para exportação completa ou remoção permanente de qualquer informação.
+
+## Exportar Dados
 
 ```bash
 # Exportar tudo
@@ -331,7 +344,7 @@ Output:
 }
 ```
 
-### Deletar Tudo
+## Deletar Tudo
 
 ```bash
 # Deletar namespace
@@ -347,7 +360,9 @@ vectora user delete --email user@company.com
 
 ## Audit & Transparency
 
-### Enable Audit Logging
+Para garantir a transparência total, o Vectora oferece logs de auditoria detalhados que permitem rastrear cada operação realizada no sistema.
+
+## Enable Audit Logging
 
 ```bash
 export VECTORA_AUDIT_LOG=true
@@ -373,7 +388,7 @@ Sample audit entry:
 }
 ```
 
-### Privacy Dashboard
+## Privacy Dashboard
 
 ```bash
 vectora privacy report

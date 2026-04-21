@@ -23,6 +23,7 @@ sidebar:
 ---
 
 {{< lang-toggle >}}
+{{< section-toggle >}}
 
 ## The Heart of Vectora Retrieval: Voyage 4 & Rerank 2.5
 
@@ -32,7 +33,7 @@ While **Gemini 3 Flash** provides the reasoning, the precision of Vectora's sear
 
 We tested leading embedding models. Here is the reality for code retrieval:
 
-### Embedding Model Comparison (Code Retrieval)
+## Embedding Model Comparison (Code Retrieval)
 
 | Aspect                 | Voyage 4 | text-embedding-3-large | Cohere Embed-3 |
 | ---------------------- | -------- | ---------------------- | -------------- |
@@ -42,7 +43,7 @@ We tested leading embedding models. Here is the reality for code retrieval:
 | **Latency**            | <50ms    | ~200ms                 | ~150ms         |
 | **Cost per 1M tokens** | $0.02    | $0.13                  | $0.10          |
 
-### Why Voyage Wins for Developers
+## Why Voyage Wins for Developers
 
 1. **Code-Specific Tuning**: Voyage 4 is trained specifically on vast repositories of source code (Python, TS, Go, Rust), understanding complex syntax better than general-purpose models.
 2. **Efficiency**: 1,536 dimensions provide the perfect balance between retrieval precision and storage cost.
@@ -53,14 +54,14 @@ We tested leading embedding models. Here is the reality for code retrieval:
 
 Vectora uses a two-stage retrieval pipeline:
 
-### 1. Vector Search (Coarse Retrieval)
+## 1. Vector Search (Coarse Retrieval)
 
 1. **Chunking**: Your code is split into optimized chunks with Tree-sitter awareness.
 2. **Embedding**: Voyage 4 converts these chunks into high-dimensional vectors.
 3. **Indexing**: Vectors are stored in a Qdrant HNSW index.
 4. **Query**: When you search, your question is embedded, and Qdrant finds the top 50-100 nearest neighbors.
 
-### 2. Reranking (Fine Filtering)
+## 2. Reranking (Fine Filtering)
 
 Vector search alone can return chunks that are semantically similar but technically irrelevant. Voyage Rerank 2.5 re-evaluates the top results:
 

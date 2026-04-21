@@ -15,12 +15,13 @@ tags:
 ---
 
 {{< lang-toggle >}}
-
-## Vector Search Fundamentals
+{{< section-toggle >}}
 
 Vector search is the core mechanism that allows Vectora to retrieve semantically relevant context in complex codebases. Unlike keyword-based text searches, vector search operates in semantic space, capturing functional similarity between code concepts.
 
-### How It Works
+## Vector Search Fundamentals
+
+## How It Works
 
 1. **Embedding**: Code snippets are transformed into high-dimensional numerical vectors using the `voyage-4` model.
 2. **Indexing**: Vectors are stored in MongoDB Atlas with an HNSW index for Approximate Nearest Neighbor (ANN) search.
@@ -38,7 +39,7 @@ graph LR
     G --> H[Structured Context for LLM]
 ```
 
-### Why Vector Search for Code
+## Why Vector Search for Code
 
 Traditional text searches fail in software engineering scenarios because:
 
@@ -57,7 +58,7 @@ Specialized code embeddings, such as `voyage-4`, are trained on billions of snip
 
 ## Vector Search Architecture in Vectora
 
-### Unified Backend: MongoDB Atlas
+## Unified Backend: MongoDB Atlas
 
 Vectora uses MongoDB Atlas as a unified backend for vectors, metadata, and operational state. This choice eliminates the need for synchronization between separate systems and ensures atomic consistency between embeddings and their associated metadata.
 
@@ -68,7 +69,7 @@ Vectora uses MongoDB Atlas as a unified backend for vectors, metadata, and opera
 | **Filtering**      | Native Atlas payload filtering            | Filter by namespace before vector search             |
 | **Scalability**    | Automatic Atlas sharding                  | Scale from MBs to TBs without manual reconfiguration |
 
-### Atlas Document Structure
+## Atlas Document Structure
 
 Each indexed code chunk is stored as a MongoDB document with the following structure:
 
@@ -92,7 +93,7 @@ Each indexed code chunk is stored as a MongoDB document with the following struc
 }
 ```
 
-### HNSW Index Configuration
+## HNSW Index Configuration
 
 Vectora configures HNSW indices in MongoDB Atlas with parameters optimized for codebases:
 
@@ -122,7 +123,7 @@ Adjustable parameters based on codebase size:
 
 ## Indexing Pipeline
 
-### AST-Guided Chunking
+## AST-Guided Chunking
 
 Before generating embeddings, Vectora parses the code using `tree-sitter` to identify coherent semantic units:
 
@@ -149,7 +150,7 @@ export function chunkCodeByAST(content: string, language: string): CodeChunk[] {
 }
 ```
 
-### Embedding Generation with Voyage 4
+## Embedding Generation with Voyage 4
 
 Each chunk is sent to the Voyage AI API for embedding generation:
 
@@ -174,7 +175,7 @@ The `voyage-4` model was chosen for its:
 - Long context support, allowing chunks with more structure
 - Stable API with integrated retry logic and rate limiting
 
-### Atomic Insertion into Atlas
+## Atomic Insertion into Atlas
 
 Vector and metadata are inserted into MongoDB Atlas in a single atomic operation:
 
@@ -200,7 +201,7 @@ export async function insertChunkWithVector(chunk: CodeChunk, embedding: number[
 
 ## Vector Query with Namespace Filtering
 
-### Query Flow
+## Query Flow
 
 When a main agent requests context via MCP:
 
@@ -254,7 +255,7 @@ export async function semanticSearch(
 }
 ```
 
-### Namespace Isolation
+## Namespace Isolation
 
 All vector queries include mandatory filters for `namespace_id`. This ensures that:
 
@@ -273,7 +274,7 @@ filter:
 
 ## Performance Optimizations
 
-### Query Embedding Cache
+## Query Embedding Cache
 
 Frequent queries are cached to avoid repeated calls to the Voyage API:
 
@@ -298,7 +299,7 @@ export class QueryEmbeddingCache {
 }
 ```
 
-### Batch Insertion for Mass Indexing
+## Batch Insertion for Mass Indexing
 
 During initial ingestion or re-indexing, chunks are processed in batches to maximize throughput:
 
@@ -323,7 +324,7 @@ export async function batchIngest(chunks: CodeChunk[], batchSize: number = 32): 
 }
 ```
 
-### Dynamic `ef_search` Adjustment
+## Dynamic ef_search Adjustment
 
 The `ef_search` parameter controls the trade-off between accuracy and latency. Vectora adjusts it dynamically based on the query context:
 
@@ -362,7 +363,7 @@ graph TD
     F --> G[Structured Context for LLM]
 ```
 
-### Optional Reranking
+## Optional Reranking
 
 For critical queries, vector search results can undergo reranking with `voyage-rerank-2.5` for higher accuracy:
 

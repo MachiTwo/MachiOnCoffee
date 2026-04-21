@@ -16,9 +16,6 @@ tags:
 ---
 
 {{< lang-toggle >}}
-
-## Visão Geral
-
 Vectora é distribuído como um binário nativo de alta performance para Windows, macOS e Linux. No Windows, a instalação é padronizada via **Winget** e reside em seu diretório de programas local, sem necessidade de Node.js ou privilégios de administrador.
 
 > [!IMPORTANT] > **BYOK (Bring Your Own Key)**: No plano Free, o Vectora exige chaves de API do Gemini e Voyage. Nos planos **Pro** e **Team (Plus)**, você pode optar pelo modo **Managed**, onde os créditos de IA já estão inclusos.
@@ -27,18 +24,18 @@ Vectora é distribuído como um binário nativo de alta performance para Windows
 
 ## Pré-requisitos
 
-### Sistema Operacional
+## Sistema Operacional
 
 - **macOS** 12.0+
 - **Linux** (Ubuntu 20.04+, Fedora 35+, Debian 11+)
 - **Windows 11** (WSL2 recomendado)
 
-### Software
+## Software
 
 - **Sistemas 64-bit** (x64 ou ARM64)
 - **Conexão com Internet** para ativação de chaves
 
-### Verificar Versão do Winget (Windows)
+## Verificar Versão do Winget (Windows)
 
 ```powershell
 winget --version # Deve retornar v1.4 ou superior
@@ -48,7 +45,7 @@ winget --version # Deve retornar v1.4 ou superior
 
 ## Passo 1: Instalar Vectora
 
-### Windows (Recomendado)
+## Windows (Recomendado)
 
 Abra o terminal (PowerShell ou CMD) e execute:
 
@@ -58,7 +55,7 @@ winget install kaffyn.vectora
 
 O binário será instalado em `%LOCALAPPDATA%\Programs\Vectora` e adicionado automaticamente ao seu PATH.
 
-### macOS / Linux
+## macOS / Linux
 
 Use nosso script de instalação rápida:
 
@@ -66,7 +63,7 @@ Use nosso script de instalação rápida:
 curl -sSf https://vectora.sh/install.sh | sh
 ```
 
-### Download Manual
+## Download Manual
 
 Você também pode baixar o binário diretamente da nossa [página de Releases no GitHub](https://github.com/kaffyn/vectora/releases).
 
@@ -74,7 +71,7 @@ Você também pode baixar o binário diretamente da nossa [página de Releases n
 
 ## Passo 2: Obter Chaves de API Gratuitas
 
-### Gemini API (Google)
+## Gemini API (Google)
 
 1. Acesse [Google AI Studio](https://aistudio.google.com/app/apikey)
 2. Clique em **"Create API Key"**
@@ -82,7 +79,7 @@ Você também pode baixar o binário diretamente da nossa [página de Releases n
 
 **Limite gratuito**: 60 requisições por minuto, 1.5M tokens/mês
 
-### Voyage API (VoyageAI)
+## Voyage API (VoyageAI)
 
 1. Acesse [Voyage AI Dashboard](https://dash.voyageai.com/api-keys)
 2. Clique em **"Create API Key"**
@@ -133,19 +130,19 @@ Isso cria:
 
 ## Próximos Passos
 
-### Para Usuários de Claude Desktop
+## Para Usuários de Claude Desktop
 
 Vá para [Claude Code Integration](../integrations/claude-code.md) e configure o MCP.
 
-### Para Usuários de Cursor
+## Para Usuários de Cursor
 
 Vá para [Cursor Integration](../integrations/cursor.md).
 
-### Para Usuários de VS Code
+## Para Usuários de VS Code
 
 Vá para [VS Code Extension](../integrations/vscode.md).
 
-### Para Aprender a Configurar
+## Para Aprender a Configurar
 
 Vá para [Configuration](./configuration.md).
 

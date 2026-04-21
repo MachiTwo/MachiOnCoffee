@@ -19,7 +19,6 @@ tags:
 ---
 
 {{< lang-toggle >}}
-
 Entenda os pilares tecnológicos que sustentam o Vectora e como ele resolve o problema do contexto fragmentado em codebases complexos.
 
 ## 5 Pilares Essenciais
@@ -34,20 +33,20 @@ Entenda os pilares tecnológicos que sustentam o Vectora e como ele resolve o pr
 
 ## Conceitos Técnicos Profundos
 
-### Busca & Recuperação
+## Busca & Recuperação
 
 - [**Vector Search**](./vector-search.md) — Como a busca vetorial funciona internamente
 - [**Embeddings & Modelos**](./embeddings.md) — Voyage 4, dimensionalidade, métricas de distância
 - [**Reranker**](./reranker.md) — Cross-encoder para refinamento de top-k
 - [**Reranker Local**](./reranker-local.md) — Recuperação inteligente sem VectorDB, ideal para dados mutáveis
 
-### Arquitetura & Runtime
+## Arquitetura & Runtime
 
 - [**Harness Runtime**](./harness-runtime.md) — Guardian, Preconditions, Circuit Breaker, Workers
 - [**Trust Folder**](./trust-folder.md) — Isolamento de path, symlink detection, BYOK
 - [**Namespaces**](./namespaces.md) — Isolação lógica entre projetos/equipes
 
-### Conceitos Avançados
+## Conceitos Avançados
 
 - [**RAG (Retrieval-Augmented Generation)**](./rag.md) — Padrão de enriquecimento de contexto
 - [**Sub-Agents**](./sub-agents.md) — Como Vectora coordena sub-agents

@@ -15,10 +15,8 @@ tags:
 ---
 
 {{< lang-toggle >}}
-
-## Overview
-
-The **Guardian** is Vectora's governance engine, compiled directly into the Go binary. It acts as an application firewall, inspecting every command and path before execution. It operates in 3 layers: Trust Folder (path isolation), pattern matching (regex rules), and audit logging.
+{{< section-toggle >}}
+The **Guardian** is Vectora's governance engine, compiled directly into the Go binary. It acts as an application firewall, inspecting every command and path before execution.
 
 > [!IMPORTANT]
 > Guardian is not a firewall - it's a gatekeeper. A Guardian violation is BLOCKED before reaching the filesystem, with no exceptions.
@@ -60,7 +58,9 @@ If any check FAILS → Request is BLOCKED + Audit Log
 
 ## Configuration
 
-### Trust Folder (Layer 1)
+The Guardian configuration is divided into logical layers, allowing for a balance between strict restriction and operational flexibility.
+
+## Trust Folder (Layer 1)
 
 Defines the security perimeter:
 
@@ -79,7 +79,7 @@ Trust Folder: ./src
 Result: BLOCKED (outside perimeter)
 ```
 
-### Guardian Rules (Layer 2)
+## Guardian Rules (Layer 2)
 
 Regex patterns for allow/deny:
 
@@ -108,7 +108,7 @@ guardian:
 
 Order matters: rules are evaluated top→bottom, first match wins.
 
-### RBAC (Layer 3)
+## RBAC (Layer 3)
 
 Additionally, Vectora respects user permissions:
 
@@ -207,7 +207,9 @@ vectora audit --filter "pattern:\.env"
 
 ## Use Cases
 
-### Case 1: Protect .env
+Below are practical examples of how to configure the Guardian for common security scenarios in development and production.
+
+## Case 1: Protect .env
 
 ```yaml
 guardian:
@@ -219,7 +221,7 @@ guardian:
 
 Result: `.env`, `.env.local`, `.env.production` are all blocked.
 
-### Case 2: Protect private data
+## Case 2: Protect private data
 
 ```yaml
 guardian:
@@ -233,7 +235,7 @@ guardian:
       action: "deny"
 ```
 
-### Case 3: Specific allow-list
+## Case 3: Specific allow-list
 
 ```yaml
 project:
@@ -256,7 +258,9 @@ guardian:
 
 ## Known Violations
 
-### Directory Traversal Attempts
+The Guardian is trained to identify and mitigate common attack vectors based on path and reference manipulation.
+
+## Directory Traversal Attempts
 
 ```text
 Attempt: ../../.env
@@ -265,7 +269,7 @@ Trust Folder: /absolute/path/src
 Result: BLOCKED (outside perimeter)
 ```
 
-### Symlink Attacks
+## Symlink Attacks
 
 ```text
 File: ./src/link-to-secret → ../../secret.key
@@ -283,7 +287,7 @@ guardian:
     - "./src/allowed-link"
 ```
 
-### Case Sensitivity (Windows)
+## Case Sensitivity (Windows)
 
 Windows is case-insensitive, patterns are case-sensitive by default:
 
@@ -296,7 +300,9 @@ guardian:
 
 ## Testing & Validation
 
-### Dry-Run Mode
+Before applying rules in production, it is essential to validate Guardian's behavior using simulation and pattern testing tools.
+
+## Dry-Run Mode
 
 Test rules without blocking:
 
@@ -317,7 +323,7 @@ Guardian Validation Report
    └─ secrets/key.pem → BLOCKED (pattern: secrets/.*)
 ```
 
-### Rule Testing
+## Rule Testing
 
 ```bash
 # Test specific pattern
@@ -332,7 +338,9 @@ vectora guardian test-pattern "\.env.*" "src/index.ts"
 
 ## Monitoring & Alerts
 
-### Metrics
+Maintain visibility into your server's security status through detailed metrics and real-time alerts.
+
+## Metrics
 
 Guardian captures security metrics:
 
@@ -377,7 +385,9 @@ guardian:
 
 ## Best Practices
 
-### 1. Minimum Trust Folder
+Follow these recommendations to ensure that the Guardian acts with maximum efficiency without hindering developer productivity.
+
+## 1. Minimum Trust Folder
 
 Don't trust `./` - be specific:
 
@@ -441,7 +451,9 @@ export GEMINI_API_KEY="..."
 
 ## Troubleshooting
 
-### Legitimate file blocked
+If you encounter access problems or unexpected messages, use these procedures to diagnose and resolve conflicts with the Guardian.
+
+## Legitimate file blocked
 
 ```text
 Error: ./src/config.secrets.ts is blocked by pattern

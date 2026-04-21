@@ -14,6 +14,7 @@ tags:
 ---
 
 {{< lang-toggle >}}
+{{< section-toggle >}}
 
 Conecte Vectora com suas ferramentas e IDEs preferidas. Escolha entre integração genérica (MCP Protocol) ou apps proprietários com UX customizada.
 
@@ -31,7 +32,7 @@ Conecte Vectora com suas ferramentas e IDEs preferidas. Escolha entre integraç�
 
 ## Integração Genérica
 
-### MCP (Model Context Protocol)
+## MCP (Model Context Protocol)
 
 **Melhor para**: IDEs modernas (Claude Code, Cursor, Zed)
 
@@ -45,7 +46,7 @@ Protocolo padrão aberto que permite que IDEs chamem tools do computador. Vector
 
 ## Integrações com UI Customizada
 
-### VS Code Extension
+## VS Code Extension
 
 **Melhor para**: Desenvolvedores VS Code
 
@@ -53,7 +54,7 @@ UI nativa com sidebar, comandos integrados, syntax highlighting de código encon
 
 [→ VS Code Extension](./vscode-extension.md)
 
-### ChatGPT Plugin
+## ChatGPT Plugin
 
 **Melhor para**: Usar Vectora dentro do ChatGPT
 
@@ -61,7 +62,7 @@ Custom GPT Plugin com suporte a análise, documentação, code review via ChatGP
 
 [→ ChatGPT Plugin](./chatgpt-plugin.md)
 
-### Gemini API Integration
+## Gemini API Integration
 
 **Melhor para**: Workflows com Google Gemini
 
@@ -71,7 +72,7 @@ Integração REST + CLI para análise de código, revisão, geração com contex
 
 ## Integrações Avançadas
 
-### Custom Agents & REST API
+## Custom Agents & REST API
 
 Construa agents em Python, Node.js, Go ou qualquer linguagem. Chame Vectora via REST API (beta).
 

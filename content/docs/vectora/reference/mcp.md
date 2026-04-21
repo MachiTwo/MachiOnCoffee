@@ -14,6 +14,7 @@ tags:
 ---
 
 {{< lang-toggle >}}
+{{< section-toggle >}}
 
 Referência técnica completa da implementação MCP de Vectora: tools, autenticação, transporte, tratamento de erros e exemplos.
 
@@ -41,7 +42,9 @@ Vectora oferece **12 tools** via MCP para busca, análise, indexação e monitor
 
 ## Autenticação
 
-### Método 1: Bearer Token (Recomendado)
+O Vectora suporta múltiplos métodos de autenticação para garantir que as ferramentas MCP sejam acessadas apenas por clientes autorizados.
+
+## Método 1: Bearer Token (Recomendado)
 
 ```bash
 Authorization: Bearer sk-proj-vectora-abc123...
@@ -55,7 +58,7 @@ vectora auth token create --name "Claude Code"
 
 Token expira em 30 dias (configurável).
 
-### Método 2: API Key
+## Método 2: API Key
 
 ```bash
 X-API-Key: sk-...
@@ -63,7 +66,7 @@ X-API-Key: sk-...
 
 Menos recomendado (não expira automaticamente).
 
-### Método 3: BYOK (Bring Your Own Key)
+## Método 3: BYOK (Bring Your Own Key)
 
 Para planos Free:
 
@@ -75,7 +78,9 @@ Vectora não armazena, apenas forwarda.
 
 ## Transport
 
-### STDIO (Padrão para IDE)
+A comunicação entre o cliente MCP e o servidor Vectora pode ocorrer localmente via canais de entrada/saída padrão ou remotamente através de endpoints HTTP seguros.
+
+## STDIO (Padrão para IDE)
 
 ```bash
 # Em .claude/claude_desktop_config.json
@@ -94,7 +99,7 @@ Vectora não armazena, apenas forwarda.
 
 Ideal para: Claude Code, Cursor, Zed (local, <10ms latência)
 
-### HTTP (Para Remote)
+## HTTP (Para Remote)
 
 ```bash
 POST https://api.vectora.app/mcp
@@ -131,7 +136,7 @@ Erros retornam no padrão JSON-RPC 2.0:
 }
 ```
 
-### Códigos de Erro MCP
+## Códigos de Erro MCP
 
 | Código | Significado      | HTTP |
 | ------ | ---------------- | ---- |

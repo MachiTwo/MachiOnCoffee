@@ -15,10 +15,16 @@ tags:
 ---
 
 {{< lang-toggle >}}
+Ao construir sistemas de agentes, os desenvolvedores geralmente enfrentam uma "fragmentação de dados":
+
+- Vetores em um provedor especializado
+- Metadados em Postgres ou outro banco relacional
+- Estado da sessão em Redis ou armazenamento volátil
+- Logs de auditoria em sistemas separados
+
+Essa fragmentação introduz latência, inconsistência entre sistemas e complexidade operacional significativa. O Vectora resolve isso consolidando tudo no MongoDB Atlas.
 
 ## O Desafio: Armazenamento Unificado para Agentes
-
-Ao construir sistemas de agentes, os desenvolvedores geralmente enfrentam uma "fragmentação de dados":
 
 - Vetores em um provedor especializado
 - Metadados em Postgres ou outro banco relacional
@@ -33,7 +39,7 @@ O MongoDB Atlas é uma plataforma de dados multinuvem totalmente gerenciada. Emb
 
 No Vectora, o Atlas não é apenas um banco de dados; é a infraestrutura que sustenta a governança de contexto, permitindo que vetores, metadados, estado operacional e logs de auditoria coexistam no mesmo ecossistema com consistência garantida.
 
-### Especificações Técnicas (Nível Gerenciado Kaffyn)
+## Especificações Técnicas (Nível Gerenciado Kaffyn)
 
 | Recurso            | Detalhe                                         |
 | ------------------ | ----------------------------------------------- |
@@ -49,15 +55,15 @@ No Vectora, o Atlas não é apenas um banco de dados; é a infraestrutura que su
 
 A seleção do MongoDB Atlas como backend unificado foi fundamentada em três pilares arquiteturais:
 
-### 1. Atomicidade Metadado-Vetor
+## 1. Atomicidade Metadado-Vetor
 
 No Atlas, o vetor de embedding e os metadados do código residem no mesmo documento BSON. Isso elimina problemas de consistência como "vetores órfãos" ou metadados desatualizados. Quando um arquivo é modificado, a atualização do embedding e dos metadados ocorre em uma única operação atômica.
 
-### 2. Filtragem de Namespace com Performance Nativa
+## 2. Filtragem de Namespace com Performance Nativa
 
 O Vectora isola dados de diferentes projetos e usuários através de namespaces lógicos. O MongoDB Atlas permite aplicar filtros de metadados diretamente dentro da consulta vetorial HNSW. Isso garante que buscas semânticas nunca retornem dados de namespaces não autorizados, implementando isolamento multi-tenant no nível do índice.
 
-### 3. Estado e Memória em Camada Única
+## 3. Estado e Memória em Camada Única
 
 Diferente de soluções especializadas apenas em vetores, o Atlas armazena de forma eficiente tanto embeddings semânticos quanto dados estruturais como histórico de sessões, estado operacional do agente e memória persistente. Isso permite que o Vectora recupere contexto histórico e vetores semânticos em uma única conexão, reduzindo latência e complexidade.
 
@@ -65,7 +71,7 @@ Diferente de soluções especializadas apenas em vetores, o Atlas armazena de fo
 
 O backend é organizado em coleções otimizadas para suportar o Harness Runtime e o fluxo de operação via MCP:
 
-### Coleção documents
+## Coleção documents
 
 Armazena os chunks de código processados, metadados de AST, caminhos de arquivos e os embeddings gerados pelo Voyage 4.
 
@@ -73,7 +79,7 @@ Armazena os chunks de código processados, metadados de AST, caminhos de arquivo
 - Índice HNSW configurado com efConstruction e maxConnections otimizados
 - Filtros obrigatórios por namespace_id e visibility em todas as consultas
 
-### Coleção sessions
+## Coleção sessions
 
 Armazena o histórico de interações do agent principal via MCP, decisões tomadas pelo Context Engine e estado atual do plano de execução.
 
@@ -81,7 +87,7 @@ Armazena o histórico de interações do agent principal via MCP, decisões toma
 - TTL configurável para limpeza automática de sessões inativas
 - Criptografia em repouso para dados sensíveis de sessão
 
-### Coleção audit_logs
+## Coleção audit_logs
 
 Registros imutáveis de cada ferramenta executada, identificando quem executou, quando, qual ferramenta e resultado da operação (apenas metadados, nunca conteúdo de código).
 
@@ -91,15 +97,15 @@ Registros imutáveis de cada ferramenta executada, identificando quem executou, 
 
 ## Como o Vectora Otimiza o Atlas
 
-### Configuração Dinâmica de Índices HNSW
+## Configuração Dinâmica de Índices HNSW
 
 O Vectora ajusta dinamicamente os parâmetros efConstruction e maxConnections do índice HNSW baseando-se no volume e distribuição dos dados do usuário. Codebases menores recebem configurações otimizadas para baixa latência; codebases grandes recebem configurações que priorizam precisão de recall.
 
-### Compaction Semântica Pré-Indexação
+## Compaction Semântica Pré-Indexação
 
 Antes de salvar documentos no Atlas, o Vectora aplica algoritmos de compaction que removem ruído sintático e preservam apenas conteúdo semanticamente relevante. Isso reduz o volume de armazenamento e melhora a eficiência das buscas vetoriais sem comprometer a qualidade do contexto recuperado.
 
-### Fallback Transparente para Embeddings
+## Fallback Transparente para Embeddings
 
 Em cenários de indisponibilidade do provider primário (Voyage 4), o Vectora roteia automaticamente para gemini-embedding-2, mantendo a mesma dimensão de vetor (1024) para compatibilidade com índices existentes. O fallback é transparente para o agent principal e não requer reindexação.
 

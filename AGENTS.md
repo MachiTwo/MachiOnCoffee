@@ -41,6 +41,11 @@ python build_local.py
 - **Filenames**: Kebab-case and English-standardized names (e.g., `as-ability.md`).
 - **Slugs**: Must match the filename (e.g., `slug: as-ability`).
 - **Dates**: Standardized to `2026-04-18T22:30:00-03:00`.
+- **Text Structure & Flow**:
+  - **No Title Stacking**: NEVER place a header (H2, H3) immediately after another header or the page title (H1 from frontmatter). There must ALWAYS be a descriptive paragraph between them.
+  - **Redundant "Visão Geral"**: Remove "## Visão Geral" or "## Overview" headers if they appear right after the shortcodes. Let the content flow dynamically from the top.
+  - **Hierarchy**: Do not jump from H1 directly to H3. Follow a logical H1 -> Paragraph -> H2 -> Paragraph -> H3 flow.
+- **Reference Headers**: Reference pages like `godot-api` should also follow the paragraph rule before listing methods or properties.
 - **Governance**: The "Iron Law" is defined in `api_sources/BUSINESS_RULES.pt.md`. Never violate architectural boundaries.
 - **Pre-commit**: Strict `markdownlint` and `prettier` rules. No decorative emojis in technical docs.
 

@@ -12,18 +12,15 @@ tags:
 ---
 
 {{< lang-toggle >}}
-
-## Visão Geral
+{{< section-toggle >}}
 
 O plano **Pro** é para equipes que escalam. Oferecemos dois modos: **BYOK** (suporte prioritário e limites aumentados) ou **Plus** (com créditos de IA e armazenamento gerenciado inclusos).
 
 **$29/mês** por workspace (até 50 usuários) - _Plano Plus inclui créditos base_
 
----
-
 ## O Que Está Incluído
 
-### Tudo do Free, PLUS
+## Tudo do Free, PLUS
 
 | Feature                   | Free       | Pro          |
 | ------------------------- | ---------- | ------------ |
@@ -41,7 +38,7 @@ O plano **Pro** é para equipes que escalam. Oferecemos dois modos: **BYOK** (su
 | **99.9% SLA**             | -          | [x]          |
 | **Custom Reranker**       | -          | [x]          |
 
-### Modelos Premium
+## Modelos Premium
 
 Acesso a mais modelos (BYOK ou Managed Plus):
 
@@ -93,7 +90,7 @@ Content-Type: application/json
 # Vectora reindexará automaticamente
 ```
 
-### Eventos Disponíveis
+## Eventos Disponíveis
 
 | Evento                | Trigger                  |
 | --------------------- | ------------------------ |
@@ -119,7 +116,7 @@ https://vectora.seu-dominio.com
 https://code-search.seu-dominio.com
 ```
 
-### Setup CNAME
+## Setup CNAME
 
 ```bash
 # Seu domínio:
@@ -146,7 +143,7 @@ curl -H "Authorization: Bearer sk-proj-abc123xyz..." \
   https://seu-dominio.vectora.com/search
 ```
 
-### Scopes Disponíveis
+## Scopes Disponíveis
 
 ```text
 - search # Buscas
@@ -200,7 +197,7 @@ Exportar em CSV, JSON, ou Prometheus.
 
 ## Pricing Transparente
 
-### Cálculo
+## Cálculo
 
 - **Base**: $29/mês
 - **Usuários excedentes**: $0.50/mês por user (acima de 50)
@@ -212,7 +209,7 @@ Exemplo:
 - 120 usuários: $29 + (70 × $0.50) = $64
 ```
 
-### Sem Surpresas
+## Sem Surpresas
 
 - Sem setup fee
 - Cancelamento anytime
@@ -231,7 +228,7 @@ vectora upgrade --plan pro --stripe-token sk_...
 # https://console.vectora.app/settings/billing
 ```
 
-### Migração Automática
+## Migração Automática
 
 - Todos os dados preservados
 - Sem downtime
