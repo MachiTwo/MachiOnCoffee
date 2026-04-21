@@ -17,74 +17,49 @@ tags:
 {{< lang-toggle >}}
 {{< section-toggle >}}
 
-**OWN APP**: Vectora functions as a **Custom GPT Plugin** that extends ChatGPT with codebase context search. Dedicated architecture with OpenAPI schema, ngrok/public endpoint, and OpenAI plugin store publishing.
+**VECTORA CLOUD INTEGRATION**: Vectora functions as a **Custom GPT Plugin** that extends ChatGPT with codebase context search. The plugin connects directly to **Vectora Cloud**, which runs Vectora Core internally with no local server configuration needed.
 
 > [!IMPORTANT]
-> ChatGPT Custom GPT Plugin (own app) vs MCP Protocol (generic). Choose based on your IDE/platform preference.
+> ChatGPT Custom GPT Plugin (via Vectora Cloud) vs MCP Protocol (local IDE). Choose based on your preference: Cloud for ChatGPT, MCP for Claude Code/Cursor.
 
 ## Installation
 
 ## Prerequisites
 
 - ChatGPT Plus (with Custom GPTs access)
-- Vectora server running (`vectora mcp` or `vectora server`)
-- Public endpoint or ngrok tunnel
+- Account at [Vectora Cloud](https://console.vectora.app) (Pro, Team, or Enterprise)
+- Project with complete indexing
 
-## Step 1: Configure Public Vectora Server
+## Step 1: Get Vectora Cloud Credentials
 
-By default, Vectora runs on `localhost:9090`. For ChatGPT to reach it, expose it:
-
-### Option A: ngrok (Testing)
-
-```bash
-# Install ngrok
-# https://ngrok.com
-
-# Expose port 9090
-ngrok http 9090
-
-# Output:
-# Forwarding: https://xxxx-xx-xxx-xx-x.ngrok.io -> http://localhost:9090
-
-# Copy the URL
-```
-
-#### Option B: VPS with Public IP (Production)
-
-```bash
-# On your server
-vectora server --host 0.0.0.0 --port 9090
-
-# Expose via firewall
-# iptables -A INPUT -p tcp --dport 9090 -j ACCEPT
-```
-
-#### Option C: Managed Vectora (Cloud)
-
-```bash
-# Register at https://console.vectora.app
-# Get automatic endpoint
-# https://api.vectora.app/v1/your-project-id
-```
+1. Visit [console.vectora.app](https://console.vectora.app)
+2. Select your project
+3. Go to **Settings → API Keys**
+4. Click **"New API Key"**
+5. Configure:
+   - **Name**: "ChatGPT Plugin"
+   - **Scope**: `search` (read-only)
+   - **Expires**: 1 year
+6. Copy the generated token: `vca_live_xxxxxxxxxxxxxxxxxxxxxxxx`
 
 ## Step 2: Create Custom GPT in ChatGPT
 
 1. Go to [chatgpt.com/gpts/editor](https://chatgpt.com/gpts/editor)
 2. Click **"Create a new GPT"**
 3. Name: "Vectora Codebase Assistant"
-4. Description: "Intelligent assistant for codebase analysis with Vectora"
+4. Description: "Intelligent assistant for codebase analysis with Vectora Cloud"
 
 ## Step 3: Configure OpenAPI Schema
 
-In **"Configure"** → **"Actions"**, add your Vectora endpoint:
+In **"Configure"** → **"Actions"**, add the Vectora Cloud endpoint:
 
 ```yaml
 openapi: 3.0.0
 info:
-  title: Vectora API
+  title: Vectora Cloud API
   version: 1.0.0
 servers:
-  - url: https://xxxx-xx-xxx-xx-x.ngrok.io # Your endpoint
+  - url: https://api.vectora.app/v1/plugins # Managed Vectora Cloud endpoint
 paths:
   /search:
     post:

@@ -17,74 +17,49 @@ tags:
 {{< lang-toggle >}}
 {{< section-toggle >}}
 
-**APP PRÓPRIO**: Vectora funciona como um **Custom GPT Plugin** que estende ChatGPT com busca de contexto de codebase. Arquitetura dedicada com OpenAPI schema, ngrok/endpoint público, e publicação na OpenAI plugin store.
+**INTEGRAÇÃO COM VECTORA CLOUD**: Vectora funciona como um **Custom GPT Plugin** que estende ChatGPT com busca de contexto de codebase. O plugin conecta diretamente ao **Vectora Cloud**, que executa o Vectora Core gerenciado internamente, sem necessidade de configurar servidores locais.
 
 > [!IMPORTANT]
-> ChatGPT Custom GPT Plugin (app próprio) vs MCP Protocol (genérico). Escolha conforme sua IDE/plataforma preferida.
+> ChatGPT Custom GPT Plugin (via Vectora Cloud) vs MCP Protocol (IDE local). Escolha conforme sua preferência: Cloud para ChatGPT, MCP para Claude Code/Cursor.
 
 ## Instalação
 
 ## Pré-requisitos
 
 - ChatGPT Plus (com acesso a Custom GPTs)
-- Servidor Vectora rodando (`vectora mcp` ou `vectora server`)
-- Endpoint público ou ngrok tunnel
+- Conta em [Vectora Cloud](https://console.vectora.app) (Pro, Team ou Enterprise)
+- Projeto com indexação completa
 
-## Passo 1: Configurar Servidor Vectora Público
+## Passo 1: Obter Credenciais do Vectora Cloud
 
-Por padrão, Vectora roda em `localhost:9090`. Para ChatGPT alcançar, você precisa expor:
-
-### Opção A: ngrok (Teste)
-
-```bash
-# Instale ngrok
-# https://ngrok.com
-
-# Exponha porta 9090
-ngrok http 9090
-
-# Output:
-# Forwarding: https://xxxx-xx-xxx-xx-x.ngrok.io -> http://localhost:9090
-
-# Copie o URL
-```
-
-#### Opção B: VPS com IP público (Produção)
-
-```bash
-# Em seu servidor
-vectora server --host 0.0.0.0 --port 9090
-
-# Expose via firewall
-# iptables -A INPUT -p tcp --dport 9090 -j ACCEPT
-```
-
-#### Opção C: Managed Vectora (Cloud)
-
-```bash
-# Registre em https://console.vectora.app
-# Obtenha endpoint automático
-# https://api.vectora.app/v1/your-project-id
-```
+1. Acesse [console.vectora.app](https://console.vectora.app)
+2. Selecione seu projeto
+3. Vá para **Settings → API Keys**
+4. Clique em **"New API Key"**
+5. Configure:
+   - **Name**: "ChatGPT Plugin"
+   - **Scope**: `search` (leitura apenas)
+   - **Expires**: 1 ano
+6. Copie o token gerado: `vca_live_xxxxxxxxxxxxxxxxxxxxxxxx`
 
 ## Passo 2: Criar Custom GPT no ChatGPT
 
 1. Vá para [chatgpt.com/gpts/editor](https://chatgpt.com/gpts/editor)
 2. Clique em **"Create a new GPT"**
 3. Nome: "Vectora Codebase Assistant"
-4. Descrição: "Assistente inteligente para análise de codebase com Vectora"
+4. Descrição: "Assistente inteligente para análise de codebase com Vectora Cloud"
 
 ## Passo 3: Configurar Schema OpenAPI
 
-Na aba **"Configure"** → **"Actions"**, adicione seu endpoint Vectora:
+Na aba **"Configure"** → **"Actions"**, adicione o endpoint do Vectora Cloud:
 
 ```yaml
 openapi: 3.0.0
 info:
-  title: Vectora API
+  title: Vectora Cloud API
   version: 1.0.0
 servers:
-  - url: https://xxxx-xx-xxx-xx-x.ngrok.io # Seu endpoint
+  - url: https://api.vectora.app/v1/plugins # Endpoint gerenciado Vectora Cloud
 paths:
   /search:
     post:
@@ -313,13 +288,13 @@ Se seu servidor requer autenticação:
 # Schema OpenAPI
 components:
   securitySchemes:
-    bearerAuth:
-      type: http
-      scheme: bearer
-      bearerFormat: JWT
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key
 
 security:
-  - bearerAuth: []
+  - apiKeyAuth: []
 ```
 
 Configure no GPT:
@@ -327,7 +302,8 @@ Configure no GPT:
 ```text
 Vá para "Configure" → "Authentication"
 Selecione "API Key"
-Cole seu token
+Cole sua API Key do Vectora Cloud
+Header name: X-API-Key
 ```
 
 ## Rate Limiting
@@ -372,56 +348,58 @@ vectora server --cert cert.pem --key key.pem
 
 ## "Plugin not responding"
 
-**Causa**: Servidor Vectora offline.
+**Causa**: Índice não está pronto ou instância Cloud offline.
 
 **Solução**:
 
 ```bash
-# Verificar se está rodando
-curl https://seu-endpoint/health
+# Verificar status da indexação em https://console.vectora.app
+# Settings → Indexing → View Progress
 
-# Se retorna 404, inicie
-vectora mcp
+# Se ainda indexando, aguarde conclusão
+# Geralmente leva minutos a horas dependendo do tamanho
 ```
 
 ## "Unauthorized"
 
-**Causa**: Token inválido ou expirado.
+**Causa**: API Key inválida, expirada ou sem escopo `search`.
 
 **Solução**:
 
 ```bash
-# Gerar novo token
-vectora auth create-token --name "ChatGPT Plugin" --ttl 365d
+# Gerar nova API Key em console.vectora.app
+# Settings → API Keys → New API Key
+# Scope: "search"
+# Ttl: 1 year
 
-# Atualizar no Custom GPT settings
+# Atualizar no Custom GPT:
+# Configure → Authentication → Cole a chave nova
 ```
 
-## "Timeout"
+## "Timeout (>30s)"
 
-**Causa**: Busca muito lenta.
+**Causa**: Busca muito complexa ou muitos documentos.
 
 **Solução**:
 
 ```bash
-# Reduzir top_k
-# Na instrução do GPT, modifique para:
-"Use top_k=5 ao invés de 10"
+# Reduzir top_k na instrução do GPT para:
+"Use sempre top_k=5 (máximo 10) para respostas rápidas"
 
-# Ou aumentar timeout
-curl -X POST https://seu-endpoint/search \
-  -H "Timeout: 10000" \
-  -d "{...}"
+# Ou verificar em console.vectora.app:
+# Analytics → Query Performance
+# Se latência > 2s, considere upgrade Pro → Team
 ```
 
-## Performance & Limits
+## Performance & Quotas (Vectora Cloud)
 
-| Recurso              | Limite | Upgrade         |
-| -------------------- | ------ | --------------- |
-| Busca/dia            | 10,000 | Plano Pro       |
-| Latência             | <2s    | SSD + mais CPU  |
-| Tamanho resposta     | 5MB    | Compaction      |
-| Usuários simultâneos | 10     | Managed Vectora |
+| Recurso            | Free  | Pro    | Team    | Enterprise |
+| ------------------ | ----- | ------ | ------- | ---------- |
+| Buscas/dia         | 100   | 10,000 | 100,000 | Ilimitado  |
+| Latência P95       | <3s   | <2s    | <500ms  | <250ms     |
+| Concurrent queries | 1     | 5      | 20      | Ilimitado  |
+| Storage            | 512MB | 5GB    | 50GB    | Custom     |
+| **ChatGPT Plugin** |       |        |         |            |
 
 ## Exemplos Avançados
 
@@ -450,17 +428,28 @@ Use Vectora para:
 4. Sugerir arquivos para ler primeiro"
 ```
 
-## Monitoramento
+## Monitoramento & Analytics
 
-Via console Vectora:
+Via [console.vectora.app](https://console.vectora.app):
 
-```bash
-vectora logs --service chatgpt_plugin --level info
+1. **Analytics → ChatGPT Plugin**
 
-# Exemplo output:
-# [2026-04-19 10:30:45] POST /search - 200 - 234ms
-# [2026-04-19 10:31:12] POST /analyze-dependencies - 200 - 156ms
-# [2026-04-19 10:32:00] POST /file-summary - 200 - 89ms
+   - Queries totais por dia
+   - Latência média/P95
+   - Taxa de erro
+   - Top queries
+
+2. **Logs → Integration**
+   - Últimas 100 chamadas
+   - Status, latência, tokens usados
+   - Erros detalhados
+
+Exemplo:
+
+```text
+[2026-04-19 10:30:45] ChatGPT Plugin /search - 200 OK - 234ms - 5 chunks
+[2026-04-19 10:31:12] ChatGPT Plugin /analyze - 200 OK - 156ms - 3 files
+[2026-04-19 10:32:00] ChatGPT Plugin /file-summary - 200 OK - 89ms
 ```
 
 ---

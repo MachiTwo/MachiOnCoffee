@@ -473,17 +473,178 @@ export default function Dashboard() {
 - [ ] Quota management
 - [ ] Support ticket system
 
-### **Fase 7: Managed Vectora Instances**
+### **Fase 7: Managed Vectora Instances (Core + Integrações)**
 
-**Duração**: 3 semanas
+**Duração**: 4 semanas
 
 **Deliverables**:
 
-- [ ] Kubernetes cluster setup
-- [ ] Auto-scaling
-- [ ] Monitoring com Prometheus
-- [ ] Backup automático
-- [ ] Disaster recovery
+- [ ] Kubernetes cluster setup para instâncias gerenciadas do Core
+- [ ] Auto-scaling por namespace com rate limiting
+- [ ] Integration hooks para ChatGPT Plugin, MCP, REST API
+- [ ] Monitoring com Prometheus + AlertManager
+- [ ] Backup automático + disaster recovery
+- [ ] Plugin gateway (normaliza requisições de diferentes clientes)
+
+**Código de Exemplo - Managed Instance Initialization**:
+
+```go
+// pkg/cloud/managed_instance.go
+package cloud
+
+import (
+    "context"
+    "fmt"
+    "time"
+
+    "vectora/pkg/core"
+    "vectora/pkg/mcp"
+    "vectora/pkg/guardian"
+)
+
+type ManagedInstance struct {
+    ProjectID string
+    Namespace string
+    Core *core.Vectora
+    MCPServer *mcp.Server
+    Guardian *guardian.Engine
+    Created time.Time
+    LastActivity time.Time
+}
+
+func NewManagedInstance(ctx context.Context, projectID, namespace string) (*ManagedInstance, error) {
+    // 1. Inicializar Core (RAM + disk alocados no Kubernetes Pod)
+    coreInstance, err := core.NewVectora(&core.Config{
+        Namespace: namespace,
+        VectorDB: "mongodb+srv://user:pass@vectora-db",
+        ProviderRouter: initProviders(), // Gemini, Voyage
+    })
+    if err != nil {
+        return nil, fmt.Errorf("failed to init core: %w", err)
+    }
+
+    // 2. Inicializar MCP Server (stdio + HTTP gateway)
+    mcpServer := mcp.NewServer()
+    registerTools(mcpServer, coreInstance)
+
+    // 3. Inicializar Guardian com regras do projeto
+    guardianEngine, err := guardian.NewEngine(projectID)
+    if err != nil {
+        return nil, fmt.Errorf("failed to init guardian: %w", err)
+    }
+
+    return &ManagedInstance{
+        ProjectID: projectID,
+        Namespace: namespace,
+        Core: coreInstance,
+        MCPServer: mcpServer,
+        Guardian: guardianEngine,
+        Created: time.Now(),
+        LastActivity: time.Now(),
+    }, nil
+}
+
+// ExecutePluginRequest expõe endpoint para ChatGPT Plugin
+func (mi *ManagedInstance) ExecutePluginRequest(ctx context.Context, req *PluginRequest) (*PluginResponse, error) {
+    // 1. Validar API Key
+    if err := mi.Guardian.ValidateAPIKey(req.APIKey); err != nil {
+        return nil, fmt.Errorf("unauthorized: %w", err)
+    }
+
+    // 2. Validar request
+    if err := mi.Guardian.ValidateRequest(req); err != nil {
+        return nil, fmt.Errorf("invalid request: %w", err)
+    }
+
+    // 3. Executar operação (search, analyze, etc)
+    var result interface{}
+    switch req.Operation {
+    case "search_context":
+        result, _ = mi.Core.SearchContext(ctx, req.Query, req.TopK)
+    case "analyze_dependencies":
+        result, _ = mi.Core.AnalyzeDependencies(ctx, req.SymbolName)
+    case "file_summary":
+        result, _ = mi.Core.GetFileSummary(ctx, req.FilePath)
+    }
+
+    // 4. Sanitizar output
+    sanitized := mi.Guardian.SanitizeOutput(result)
+
+    // 5. Log auditoria
+    mi.Guardian.AuditLog("plugin_call", req.Operation, true)
+
+    mi.LastActivity = time.Now()
+    return &PluginResponse{
+        Success: true,
+        Data: sanitized,
+        Latency: time.Since(ctx.Done()),
+    }, nil
+}
+
+type PluginRequest struct {
+    APIKey string
+    Operation string // search_context, analyze_dependencies, file_summary
+    Query string
+    TopK int
+    SymbolName string
+    FilePath string
+}
+
+type PluginResponse struct {
+    Success bool
+    Data interface{}
+    Latency time.Duration
+}
+```
+
+**Plugin Gateway (HTTP Bridge)**:
+
+```go
+// pkg/cloud/plugin_gateway.go
+package cloud
+
+import (
+    "context"
+    "net/http"
+    "time"
+)
+
+type PluginGateway struct {
+    instances map[string]*ManagedInstance
+}
+
+// POST /v1/plugins/:project-id/search
+func (pg *PluginGateway) HandlePluginRequest(w http.ResponseWriter, r *http.Request) {
+    projectID := r.PathValue("project-id")
+    apiKey := r.Header.Get("X-API-Key")
+
+    // 1. Recuperar instância gerenciada do projeto
+    instance, ok := pg.instances[projectID]
+    if !ok {
+        http.Error(w, "Project not found", 404)
+        return
+    }
+
+    // 2. Parse request body
+    var req PluginRequest
+    json.NewDecoder(r.Body).Decode(&req)
+    req.APIKey = apiKey
+
+    // 3. Executar com timeout de 30s
+    ctx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
+    defer cancel()
+
+    resp, err := instance.ExecutePluginRequest(ctx, &req)
+    if err != nil {
+        http.Error(w, err.Error(), 400)
+        return
+    }
+
+    // 4. Retornar resposta (JSON-RPC 2.0 ou OpenAPI)
+    w.Header().Set("Content-Type", "application/json")
+    json.NewEncoder(w).Encode(resp)
+}
+```
 
 ## Stack Final - Vectora Cloud
 
