@@ -30,7 +30,7 @@ Dúvidas sobre planos, preço, faturamento e upgrade de Vectora respondidas com 
 
 ```bash
 # Via CLI
-vectora upgrade --plan pro
+vectora upgrade --plan plus
 
 # Via Dashboard
 # https://console.vectora.app/settings/billing

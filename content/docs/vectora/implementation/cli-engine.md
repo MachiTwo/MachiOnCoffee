@@ -14,7 +14,7 @@ tags:
 {{< lang-toggle >}}
 {{< section-toggle >}}
 
-O Vectora utiliza **Cobra** para gerenciar sua interface CLI com estrutura rigorosa de subcomandos, validação de flags e autocompletar nativo. A CLI se integra com o **Systray** para sincronização de estado em tempo real.
+O Vectora utiliza **Cobra** para sua interface CLI. Cobra e **Systray** coexistem no mesmo binário daemon — a CLI fornece automação/scripts enquanto Systray fornece a interface visual, ambas sincronizadas em tempo real através de estado compartilhado em memória.
 
 ## Arquitetura de Comandos
 
@@ -145,9 +145,10 @@ func main() {
 
 **Deliverables**:
 
-- [ ] `vectora auth login` (com opção `--gui` para Systray)
+- [ ] `vectora auth login` (abre navegador SSO)
 - [ ] `vectora auth logout`
 - [ ] `vectora auth token` (listar/revogar tokens)
+- [ ] Sincronização de estado com Systray UI
 - [ ] OAuth 2.0 flow com callback local
 
 **Código de Exemplo - Auth Commands**:
@@ -170,31 +171,22 @@ var authCmd = &cobra.Command{
 
 var loginCmd = &cobra.Command{
     Use: "login",
-    Short: "Authenticate via SSO",
+    Short: "Authenticate via SSO (opens browser)",
     RunE: func(cmd *cobra.Command, args []string) error {
-        gui, _ := cmd.Flags().GetBool("gui")
-        openBrowser, _ := cmd.Flags().GetBool("browser")
-
         authMgr, err := auth.NewAuthManager(viper.GetString("config"))
         if err != nil {
             return fmt.Errorf("failed to initialize auth: %w", err)
         }
 
-        var token string
-        if gui {
-            // Disparar Systray para SSO interativo
-            token, err = authMgr.LoginViaSystemtray()
-        } else if openBrowser {
-            token, err = authMgr.LoginWithBrowser()
-        } else {
-            token, err = authMgr.LoginViaCLI()
-        }
-
+        // Login sempre abre navegador; Systray UI sincroniza estado automaticamente
+        token, err := authMgr.LoginWithBrowser()
         if err != nil {
             return fmt.Errorf("login failed: %w", err)
         }
 
         fmt.Println(" Successfully authenticated")
+        // Notifica Systray via shared state (sem chamadas externas)
+        authMgr.NotifyUIStateChange("authenticated")
         return nil
     },
 }
@@ -213,6 +205,7 @@ var logoutCmd = &cobra.Command{
         }
 
         fmt.Println(" Successfully logged out")
+        authMgr.NotifyUIStateChange("unauthenticated")
         return nil
     },
 }
@@ -250,8 +243,7 @@ func init() {
     authCmd.AddCommand(loginCmd, logoutCmd, tokenCmd)
     tokenCmd.AddCommand(tokenListCmd)
 
-    loginCmd.Flags().Bool("gui", false, "Use Systray GUI for authentication")
-    loginCmd.Flags().Bool("browser", true, "Open browser for authentication")
+    // Sem flags --gui; Systray está sempre presente no mesmo processo
 }
 ```
 

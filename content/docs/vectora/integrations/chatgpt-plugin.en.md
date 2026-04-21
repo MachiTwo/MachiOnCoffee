@@ -383,7 +383,7 @@ curl -X POST https://your-endpoint/search \
 
 | Resource         | Limit  | Upgrade         |
 | ---------------- | ------ | --------------- |
-| Searches/day     | 10,000 | Pro Plan        |
+| Searches/day     | 10,000 | Plus Plan       |
 | Latency          | <2s    | SSD + more CPU  |
 | Response size    | 5MB    | Compaction      |
 | Concurrent users | 10     | Managed Vectora |

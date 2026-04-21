@@ -446,7 +446,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-f
 
 **Solução**:
 
-1. Upgrade para plano Pro
+1. Upgrade para plano Plus
 2. Ou aguarde reset mensal (1º do mês)
 3. Ou use fallback model local:
 

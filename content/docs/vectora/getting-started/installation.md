@@ -51,13 +51,35 @@ winget install kaffyn.vectora
 
 O binário será instalado em `%LOCALAPPDATA%\Programs\Vectora` e adicionado automaticamente ao seu PATH.
 
-## macOS / Linux
+## macOS
+
+### Via Homebrew (Recomendado)
+
+```bash
+brew tap kaffyn/vectora
+brew install vectora
+```
+
+Isto instala o daemon core com Systray (interface visual) e CLI Cobra inclusos.
+
+### Via Script de Instalação
+
+```bash
+curl -sSf https://vectora.sh/install.sh | sh
+```
+
+## Linux
 
 Use nosso script de instalação rápida:
 
 ```bash
 curl -sSf https://vectora.sh/install.sh | sh
 ```
+
+Alternativamente, você pode usar gerenciadores de pacotes:
+
+- **Ubuntu/Debian**: `.deb` (suporte via apt em breve)
+- **Fedora/RHEL**: `.rpm` (suporte em desenvolvimento)
 
 ## Download Manual
 
@@ -150,13 +172,18 @@ Vá para [Configuration](./configuration.md).
 
 **Causa**: Limite de requisições excedido (60/min no tier gratuito).
 
-**Solução**: Aguarde ou faça upgrade para o [plano Pro](../plans/pro.md).
+**Solução**: Aguarde ou faça upgrade para o [plano Plus](../plans/plus.md).
 
 ### Erro: `EACCES: permission denied`
 
-npm install -g @kaffyn/vectora
+**Causa**: O binário não tem permissão de execução.
 
-```text
+**Solução**:
+
+```bash
+# macOS / Linux
+chmod +x $(which vectora)
+```
 
 ## FAQ
 
@@ -179,4 +206,7 @@ R: No Windows, use `winget upgrade kaffyn.vectora`. Em outros sistemas, rode o s
 ---
 
 _Parte do ecossistema Vectora_ · Open Source (MIT)
+
+```text
+
 ```

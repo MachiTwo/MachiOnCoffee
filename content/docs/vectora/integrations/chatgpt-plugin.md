@@ -387,7 +387,7 @@ vectora server --cert cert.pem --key key.pem
 
 # Ou verificar em console.vectora.app:
 # Analytics → Query Performance
-# Se latência > 2s, considere upgrade Pro → Team
+# Se latência > 2s, considere upgrade Plus → Team
 ```
 
 ## Performance & Quotas (Vectora Cloud)

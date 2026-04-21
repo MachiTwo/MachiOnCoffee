@@ -176,7 +176,7 @@ Você atingiu o limite mensal de API (Gemini ou Voyage).
 **Soluções**:
 
 1. Aguarde reset no 1º do próximo mês
-2. Upgrade para Pro (unlimited)
+2. Upgrade para Plus (unlimited)
 
 ## "Rate limit exceeded"
 
@@ -199,9 +199,9 @@ Apenas 1 usuário por vez no free tier (1 IDE).
 **Soluções**:
 
 1. Fechar outras instâncias
-2. Upgrade para Pro (até 100 usuários)
+2. Upgrade para Plus (até 100 usuários)
 
-## Roadmap para Pro
+## Roadmap para Plus
 
 Quando crescer:
 
@@ -228,7 +228,7 @@ Nenhuma migração necessária - upgrade é automático.
 
 ---
 
-> **Próximo**: [Pro Plan](./pro.md)
+> **Próximo**: [Plus Plan](./plus.md)
 
 ---
 

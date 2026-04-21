@@ -182,7 +182,7 @@ Procure no codebase por implementações de JWT.
 
 ```bash
 # Aguarde o reset do quota (próximo minuto)
-# Ou faça upgrade para plano Pro em https://vectora.dev/plans
+# Ou faça upgrade para plano Plus em https://vectora.dev/plans
 
 # Para debug: verifique uso
 vectora stats --provider gemini

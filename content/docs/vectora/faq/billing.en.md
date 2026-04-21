@@ -30,7 +30,7 @@ Questions about plans, pricing, billing, and upgrading Vectora answered clearly.
 
 ```bash
 # Via CLI
-vectora upgrade --plan pro
+vectora upgrade --plan plus
 
 # Via Dashboard
 # https://console.vectora.app/settings/billing

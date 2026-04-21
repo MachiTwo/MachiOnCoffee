@@ -19,7 +19,7 @@ Choose the plan that best fits your team size and data sovereignty needs. We off
 
 ## Plan Comparison
 
-| Feature        | Free        | Pro                    | Team                   |
+| Feature        | Free        | Plus                   | Team                   |
 | :------------- | :---------- | :--------------------- | :--------------------- |
 | **Price**      | Free        | $29/month              | Custom                 |
 | **Models**     | BYOK        | BYOK or Plus (Managed) | BYOK or Plus (Managed) |
@@ -30,7 +30,7 @@ Choose the plan that best fits your team size and data sovereignty needs. We off
 ## Plan Details
 
 - [**Free**](./free.md) — For personal use and small projects.
-- [**Pro**](./pro.md) — For startups and growing teams.
+- [**Plus**](./plus.md) — For startups and growing teams.
 - [**Team**](./team.md) — For organizations with compliance and security requirements.
 
 ---

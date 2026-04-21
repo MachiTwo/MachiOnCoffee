@@ -364,7 +364,7 @@ R: Sim. Configure `state.session.persist_on_exit: false` e `state.audit.enabled:
 P: Como o AGENTS.md é diferente da documentação regular do projeto?
 R: O AGENTS.md é especificamente analisado e embedado para a memória do agente. Arquivos de documentação regulares são indexados através do pipeline RAG padrão. O conteúdo do AGENTS.md recebe maior prioridade durante a construção do contexto.
 
-P: O que acontece com o estado quando eu mudo do plano Pro para o Free?
+P: O que acontece com o estado quando eu mudo do plano Plus para o Free?
 R: Sessões e logs de auditoria são mantidos por 90 dias conforme a política de retenção. Se o seu uso exceder os limites do nível Free, novas gravações de estado serão bloqueadas até que você faça o upgrade ou libere espaço. Os dados existentes permanecem acessíveis para exportação.
 
 P: Vários agentes podem compartilhar o mesmo AGENTS.md?

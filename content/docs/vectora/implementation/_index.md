@@ -31,7 +31,7 @@ Vectora é um **Sub-Agent Tier 2** (não genérico) reconstruído em Go com dois
 | :--------------- | :------------------------ | :------------------------------------------------------- |
 | **Core**         | **Go 1.21+**              | Performance, concorrência nativa, binário estático       |
 | **CLI**          | **Cobra Framework**       | Subcomandos estruturados, shell completion, padrão Go    |
-| **Interface**    | **Systray (Go)**          | Cross-platform, integração IPC com CLI                   |
+| **Interface**    | **Systray (Go)**          | Cross-platform, sincronização via shared memory com CLI  |
 | **LLM**          | **Gemini 3 Flash**        | 30ms latência, $0.075/1M tokens, 1M context window       |
 | **Embeddings**   | **Voyage 4**              | AST-aware, similaridade funcional de código              |
 | **Reranking**    | **Voyage Rerank 2.5**     | Cross-encoder, <100ms, +25% vs BM25                      |
@@ -39,7 +39,7 @@ Vectora é um **Sub-Agent Tier 2** (não genérico) reconstruído em Go com dois
 | **Distribution** | **GoReleaser + Winget**   | Multiplataforma, assinatura SHA256, instalação sem admin |
 | **Extensions**   | **TypeScript** _(futuro)_ | VS Code, custom middleware                               |
 
-## Estrutura de 11 Fases
+## Estrutura de 10 Fases
 
 ```mermaid
 graph TD
@@ -50,12 +50,11 @@ graph TD
     F["Fase 6: Vector DB"] -.->|paralelo| B
     G["Fase 7: Provider APIs"] -.->|paralelo| B
     E --> H["Fase 8: MCP Server"]
-    H --> I["Fase 9: CLI Cobra"]
-    I --> J["Fase 10: Systray"]
-    J --> K["Fase 11: Distribution"]
+    H --> I["Fase 9: CLI Cobra + Systray UI"]
+    I --> J["Fase 10: Distribution"]
 
     style A fill:#90EE90
-    style K fill:#FFB6C1
+    style J fill:#FFB6C1
 ```
 
 ## Documento por Fase
@@ -138,26 +137,20 @@ Dependências: Harness, Context Engine, Guardian
 
 Subcomandos: `auth`, `config`, `index`, `service`, `status`
 Global flags: `--debug`, `--config`, `--namespace`, `--json`
-IPC sync com Systray em tempo real
 
-Duração: 2 semanas
-Dependências: Harness, Config
+**[Systray UX](./systray-ux.md)** (integrado no mesmo processo):
 
-### **Fase 10: Systray UX**
-
-**[Systray UX](./systray-ux.md)** — Expansão com implementação
-
-- Aplicativo Systray em Go (tray-go library)
+- UI em Go (tray-go library)
 - Menu: Status, Login, Settings, About
-- SSO flow com browser callback local
-- Real-time sync com CLI (IPC pipes ou sockets)
+- SSO flow com browser callback
+- Real-time sync com CLI (shared memory)
 - Windows Service registry
 - Auto-start on login
 
 Duração: 2 semanas
-Dependências: CLI Engine
+Dependências: Harness, Config
 
-### **Fase 11: Distribution Pipeline**
+### **Fase 10: Distribution Pipeline**
 
 **[Distribution Pipeline](./distribution-pipeline.md)** — Plano completo de 6 fases
 
@@ -176,19 +169,71 @@ Instalação: `%LOCALAPPDATA%\Programs\Vectora`, sem UAC
 Duração: 2 semanas
 Dependências: Todos os componentes acima
 
+### **Fase 11 (Extensão 1): Distribuição via Homebrew (macOS)**
+
+**[Homebrew Distribution](./homebrew-distribution.md)** — Plano completo de 6 fases
+
+- Fase 1: Criar Homebrew Tap (3 dias)
+- Fase 2: Criar Fórmulas Ruby (1 semana)
+- Fase 3: Integração GoReleaser (3 dias)
+- Fase 4: CI/CD Workflow (1 semana)
+- Fase 5: Testes & Validação (3 dias)
+- Fase 6: Documentação (3 dias)
+
+Inclui: Repositório kaffyn/homebrew-vectora, fórmulas para CLI e Systray, auto-update via script, testes de instalação
+Suporte: Intel (amd64) + Apple Silicon (arm64)
+Tempo até Homebrew: <24h após release
+
+Duração: 1 semana
+Dependências: GoReleaser, GitHub Releases
+
+### **Fase 11 (Extensão 2): Distribuição via Docker**
+
+**[Docker Distribution](./docker-distribution.md)** — Plano completo de 7 fases
+
+- Fase 1: Dockerfile multi-stage (1 semana)
+- Fase 2: Dockerfile Managed Instances (1 semana)
+- Fase 3: docker-compose.yml (3 dias)
+- Fase 4: GitHub Actions + GoReleaser (1 semana)
+- Fase 5: Kubernetes Deployment (2 semanas)
+- Fase 6: Testes & Segurança (1 semana)
+- Fase 7: Documentação (3 dias)
+
+Inclui: Build multi-arch (amd64/arm64), docker-compose dev/prod, Kubernetes manifests, HPA, SBOM, security scanning (Trivy)
+Imagem: <150MB, user não-root, healthcheck integrado
+Registry: Docker Hub (kaffyn/vectora)
+CI/CD: Auto push ao tag, SBOM generation, Slack notifications
+
+Duração: 4 semanas
+Dependências: GoReleaser, GitHub Releases
+
+### **Fase 11 (Extensão 3): Distribuição para Linux (apt/yum)**
+
+**[Linux Distribution](./linux-distribution.md)** _(a criar)_
+
+- Fase 1: .deb packages (Debian/Ubuntu)
+- Fase 2: .rpm packages (Fedora/CentOS)
+- Fase 3: Integração GoReleaser
+- Fase 4: Repositórios APT/YUM
+- Fase 5: Testes
+
+Duração: 2 semanas
+Dependências: GoReleaser, distribution-pipeline
+
 ## Verificação de Stack por Documento
 
-| Documento                                           | Go? | Cobra?   | Systray? | Winget?  | Segurança? |
-| :-------------------------------------------------- | :-- | :------- | :------- | :------- | :--------- |
-| [Core Migration](./core-migration.md)               |     | Fase 1-3 | -        | -        | Fase 4     |
-| [CLI Engine](./cli-engine.md)                       |     | Completo | IPC      | -        | Validação  |
-| [Systray UX](./systray-ux.md)                       |     | -        | Completo | -        | SSO        |
-| [Security Engine](./security-engine.md)             |     | -        | -        | -        | Bloklist   |
-| [Distribution Pipeline](./distribution-pipeline.md) |     | -        | -        | Completo | SHA256     |
-| [Context Engine](./context-engine.md)               |     | -        | -        | -        | -          |
-| [Vector Database](./vector-database.md)             |     | -        | -        | -        | -          |
-| [Provider Router](./provider-router.md)             |     | -        | -        | -        | -          |
-| [MCP Server](./mcp-server.md)                       |     | -        | -        | -        | Auth       |
+| Documento                                           | Go?   | Cobra?   | Systray? | Dist.    | Segurança?   |
+| :-------------------------------------------------- | :---- | :------- | :------- | :------- | :----------- |
+| [CLI Engine](./cli-engine.md)                       | -     | Completo | Completo | -        | Validação    |
+| [Systray UX](./systray-ux.md)                       | -     | Integr.  | Completo | -        | SSO          |
+| [Security Engine](./security-engine.md)             | -     | -        | -        | -        | Blocklist    |
+| [Distribution Pipeline](./distribution-pipeline.md) | -     | -        | -        | Winget   | SHA256       |
+| [Homebrew Distribution](./homebrew-distribution.md) | -     | -        | -        | Homebrew | Assinatura   |
+| [Docker Distribution](./docker-distribution.md)     | Multi | -        | -        | Docker   | Trivy + SBOM |
+| [Context Engine](./context-engine.md)               | -     | -        | -        | -        | -            |
+| [Vector Database](./vector-database.md)             | -     | -        | -        | -        | -            |
+| [Provider Router](./provider-router.md)             | -     | -        | -        | -        | -            |
+| [MCP Server](./mcp-server.md)                       | -     | -        | -        | -        | Auth         |
 
 ## Caminho Crítico de Implementação
 
@@ -201,9 +246,8 @@ Fase 1 (Setup)
       → Fase 4 (Guardian)
         → Fase 5 (Context Engine)
           → Fase 8 (MCP Server)
-            → Fase 9 (CLI)
-              → Fase 10 (Systray)
-                → Fase 11 (Distribution)
+            → Fase 9 (CLI + Systray)
+              → Fase 10 (Distribution)
 ```
 
 **Paralelos possíveis**:
@@ -234,7 +278,9 @@ Cada fase inclui:
 | Aprender sobre segurança        | [Security Engine](./security-engine.md)              |
 | Implementar CLI robusta         | [CLI Engine](./cli-engine.md)                        |
 | Integrar com Systray            | [Systray UX](./systray-ux.md)                        |
-| Configurar distribuição         | [Distribution Pipeline](./distribution-pipeline.md)  |
+| Distribuição Windows            | [Distribution Pipeline](./distribution-pipeline.md)  |
+| Distribuição macOS              | [Homebrew Distribution](./homebrew-distribution.md)  |
+| Distribuição Docker/K8s         | [Docker Distribution](./docker-distribution.md)      |
 | Detalhes de RAG/busca           | [Context Engine](./context-engine.md) _(em breve)_   |
 | Persistência de estado          | [Vector Database](./vector-database.md) _(em breve)_ |
 | APIs Gemini/Voyage              | [Provider Router](./provider-router.md) _(em breve)_ |

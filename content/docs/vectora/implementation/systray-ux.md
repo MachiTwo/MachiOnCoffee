@@ -14,42 +14,44 @@ tags:
 {{< lang-toggle >}}
 {{< section-toggle >}}
 
-O Vectora inclui um aplicativo de bandeja do sistema (Systray) projetado para fornecer uma experiência de configuração visual e "sem atritos", especialmente focada em autenticação SSO e monitoramento rápido de status.
+O Vectora inclui uma interface Systray (bandeja do sistema) como parte do daemon core. A Systray UI fornece uma experiência visual complementar à CLI Cobra, ambas operando no mesmo processo para sincronização de estado em tempo real.
 
-## Objetivos do Systray
+## Objetivos da Systray
 
-1. **Login Simplificado**: Automatizar a abertura do navegador para SSO, eliminando a cópia manual de tokens.
-2. **Visibilidade de Status**: Fornecer feedback em tempo real sobre a saúde do servidor MCP e o uso de quota.
-3. **Configuração Rápida**: Alternar entre namespaces ou ligar/desligar o modo debug sem usar o terminal.
+1. **Login Simplificado**: Automatizar a abertura do navegador para SSO a partir da interface visual.
+2. **Visibilidade de Status**: Feedback em tempo real sobre saúde do servidor MCP e quota de uso.
+3. **Configuração Rápida**: Alternar namespaces, ativar modo debug ou reiniciar o servidor sem CLI.
+4. **Sincronização com CLI**: Mudanças feitas via CLI aparecem instantaneamente na Systray (e vice-versa).
 
-## Arquitetura da UI
+## Arquitetura Integrada
 
-O Systray é implementado em Go utilizando bibliotecas cross-platform que se comunicam diretamente com o [Harness Runtime](../core-migration.md). Ele opera em um loop de eventos separado para garantir que a interface permaneça responsiva mesmo durante processos pesados de indexação.
+Systray e CLI Cobra executam no mesmo processo (`vectora` daemon). A Systray opera em um loop de eventos separado para manter responsividade durante operações pesadas de indexação, mas compartilha estado diretamente com o core, sem IPC externo ou processo separado.
 
 ## Fluxo de Autenticação SSO
 
-O Systray facilita o login através do seguinte fluxo:
+O Systray facilita o login através do seguinte fluxo (mesmo processo, sem chamadas externas):
 
 ```mermaid
 sequenceDiagram
     participant U as Usuário
-    participant S as Systray
-    participant C as CLI (Cobra)
+    participant S as Systray (UI)
+    participant D as Daemon Core
     participant B as Navegador
     participant A as Auth Provider
 
     U->>S: Clica em "Login"
-    S->>C: Dispara `vectora auth login --gui`
-    C->>B: Abre URL de Autenticação
+    S->>D: Inicia fluxo auth (via IPC interno)
+    D->>B: Abre URL de Autenticação
     B->>A: Usuário autoriza SSO
-    A-->>C: Retorna Token via Callback Local
-    C-->>S: Atualiza Estado para "Autenticado"
-    S->>U: Notifica Sucesso
+    A-->>D: Retorna Token via Callback Local
+    D->>D: Salva credentials
+    D-->>S: Atualiza estado interno
+    S->>U: Notifica "Autenticado"
 ```
 
-## Integração com o Backend
+## Integração com o Core
 
-O Systray mantém uma conexão persistente com o core do Vectora, garantindo que as mudanças de estado sejam refletidas instantaneamente na interface. Isso permite que ações disparadas via terminal ou alterações no arquivo de configuração atualizem o ícone e o menu da bandeja sem a necessidade de reiniciar o aplicativo.
+Systray e CLI compartilham o mesmo espaço de memória do daemon. Mudanças de estado são refletidas instantaneamente — ações na CLI atualizam a Systray UI (e vice-versa) sem chamadas IPC ou reinicializações.
 
 ## Componentes do Menu
 

@@ -182,7 +182,7 @@ Search the codebase for JWT implementations.
 
 ```bash
 # Wait for quota reset (next minute)
-# Or upgrade to Pro plan at https://vectora.dev/plans
+# Or upgrade to Plus plan at https://vectora.dev/plans
 
 # For debug: verify usage
 vectora stats --provider gemini

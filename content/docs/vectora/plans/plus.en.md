@@ -1,6 +1,6 @@
 ---
-title: Pro
-slug: pro
+title: Plus
+slug: plus
 date: "2026-04-18T22:30:00-03:00"
 type: docs
 sidebar:
@@ -14,7 +14,7 @@ tags:
 {{< lang-toggle >}}
 {{< section-toggle >}}
 
-The **Pro** plan is for scaling teams. We offer two modes: **BYOK** (priority support and increased limits) or **Plus** (with included AI credits and managed storage).
+The **Plus** plan is for scaling teams. We offer two modes: **BYOK** (priority support and increased limits) or **Plus** (with included AI credits and managed storage).
 
 **$29/month** per workspace (up to 50 users) - _Plus Plan includes base credits_
 
@@ -22,7 +22,7 @@ The **Pro** plan is for scaling teams. We offer two modes: **BYOK** (priority su
 
 ## Everything in Free, PLUS
 
-| Feature                    | Free       | Pro          |
+| Feature                    | Free       | Plus         |
 | -------------------------- | ---------- | ------------ |
 | **Unlimited Namespaces**   | [x]        | [x]          |
 | **Searches/month**         | 30K        | Unlimited    |
@@ -42,16 +42,16 @@ The **Pro** plan is for scaling teams. We offer two modes: **BYOK** (priority su
 
 Access to more models (BYOK or Managed Plus):
 
-| Component     | Free              | Pro                     |
+| Component     | Free              | Plus                    |
 | ------------- | ----------------- | ----------------------- |
 | **Embedding** | Voyage 4          | Voyage 4 + Claude 3     |
 | **Reranking** | Voyage Rerank 2.5 | + Custom (Cohere, etc.) |
 | **LLM**       | Gemini Flash      | + Claude, GPT-4         |
 
-## Pro Limits
+## Plus Limits
 
 ```yaml
-pro_tier_limits:
+plus_tier_limits:
   rate_limiting:
     requests_per_minute: 2000
     concurrent_users: 50
@@ -104,7 +104,7 @@ Access your server via a custom domain:
 # Default (free)
 https://api.vectora.app/project-abc123
 
-# Custom (pro)
+# Custom (plus)
 https://vectora.your-domain.com
 # Or
 https://code-search.your-domain.com
@@ -114,7 +114,7 @@ https://code-search.your-domain.com
 
 ```bash
 # Your domain:
-code-search.your-domain.com CNAME vectora-pro.cloud.app
+code-search.your-domain.com CNAME vectora-plus.cloud.app
 ```
 
 ## API Tokens
@@ -150,7 +150,7 @@ curl -H "Authorization: Bearer sk-proj-abc123xyz..." \
 Dashboard with detailed metrics:
 
 ```text
-Pro Users Dashboard
+Plus Users Dashboard
 ├─ Search Performance
 │ ├─ p50 latency: 120ms
 │ ├─ p95 latency: 280ms
@@ -206,7 +206,7 @@ Example:
 
 ```bash
 # Via CLI
-vectora upgrade --plan pro --stripe-token sk_...
+vectora upgrade --plan plus --stripe-token sk_...
 
 # Via dashboard
 # https://console.vectora.app/settings/billing
@@ -221,7 +221,7 @@ vectora upgrade --plan pro --stripe-token sk_...
 
 ## Comparison: Free vs Pro
 
-| Feature              | Free       | Pro          | Team      |
+| Feature              | Free       | Plus         | Team      |
 | -------------------- | ---------- | ------------ | --------- |
 | **Price**            | Free       | $29/month    | Custom    |
 | **Users**            | 1          | 50           | Unlimited |
@@ -234,7 +234,7 @@ vectora upgrade --plan pro --stripe-token sk_...
 | **SSO/LDAP**         | -          | -            | [x]       |
 | **On-Premise**       | -          | -            | [x]       |
 
-## Ideal Use Cases for Pro
+## Ideal Use Cases for Plus
 
 - **Growing startups**: 5-50 devs, multiple projects
 - **Agencies**: Manage different client projects
@@ -242,7 +242,7 @@ vectora upgrade --plan pro --stripe-token sk_...
 - **CI/CD Automation**: Webhooks for pipelines
 - **Custom domain**: Custom branding
 
-## Pro FAQ
+## Plus FAQ
 
 **Q: Can I downgrade to Free later?**
 A: Yes, anytime. Your data is preserved.

@@ -19,7 +19,7 @@ Escolha o plano que melhor se adapta ao tamanho da sua equipe e às necessidades
 
 ## Comparação de Planos
 
-| Recurso      | Free        | Pro                    | Team                   |
+| Recurso      | Free        | Plus                   | Team                   |
 | :----------- | :---------- | :--------------------- | :--------------------- |
 | **Preço**    | Grátis      | $29/mês                | Customizado            |
 | **Modelos**  | BYOK        | BYOK ou Plus (Managed) | BYOK ou Plus (Managed) |
@@ -30,7 +30,7 @@ Escolha o plano que melhor se adapta ao tamanho da sua equipe e às necessidades
 ## Detalhes dos Planos
 
 - [**Free**](./free.md) — Para uso pessoal e pequenos projetos.
-- [**Pro**](./pro.md) — Para startups e equipes em crescimento.
+- [**Plus**](./plus.md) — Para startups e equipes em crescimento.
 - [**Team**](./team.md) — Para organizações com requisitos de conformidade e segurança.
 
 ---

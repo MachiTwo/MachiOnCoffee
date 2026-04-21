@@ -13,7 +13,7 @@ tags:
 {{< lang-toggle >}}
 {{< section-toggle >}}
 
-Vectora uses the **Cobra** framework to manage its command-line interface. This choice ensures a strict command structure, automatic `--help` support, and compliance with POSIX standards.
+Vectora uses the **Cobra** framework for its CLI. Cobra and **Systray** coexist in the same daemon binary — the CLI provides automation/scripting while Systray provides the visual interface, both synchronized in real-time through shared in-memory state.
 
 ## Command Architecture
 
@@ -62,7 +62,7 @@ var indexCmd = &cobra.Command{
 
 ## Systray Integration
 
-While Vectora has a robust CLI, it also communicates with the [Systray](./systray-ux.md) process through system signals or simple IPC (Inter-Process Communication). This allows actions triggered via the terminal (such as a successful login) to instantly update the visual state in the system tray.
+Systray and CLI coexist in the same daemon process. Actions in the CLI (like `vectora auth login`) instantly update the Systray UI state through shared memory — no separate process or IPC needed. See [Systray UX](./systray-ux.md) for details on the unified architecture.
 
 ---
 

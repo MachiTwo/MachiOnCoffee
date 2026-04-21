@@ -117,13 +117,11 @@ jobs:
         if: runner.os != 'Windows'
         run: |
           go build -o vectora ./cmd/vectora
-          go build -o vectora-systray ./cmd/vectora-systray
 
       - name: Build (Windows)
         if: runner.os == 'Windows'
         run: |
           go build -o vectora.exe ./cmd/vectora
-          go build -o vectora-systray.exe ./cmd/vectora-systray
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v3
@@ -180,24 +178,6 @@ builds:
       - -X main.Commit={{.Commit}}
       - -X main.Date={{.Date}}
       - -X main.BuiltBy=GoReleaser
-
-    env:
-      - CGO_ENABLED=0
-
-  # Build do Systray (Windows-only)
-  - id: vectora-systray
-    main: ./cmd/vectora-systray
-    binary: vectora-systray
-
-    goos:
-      - windows
-
-    goarch:
-      - amd64
-
-    ldflags:
-      - -s -w
-      - -X main.Version={{.Version}}
 
     env:
       - CGO_ENABLED=0
@@ -551,7 +531,6 @@ test:
 
 build:
  go build -o bin/vectora ./cmd/vectora
- go build -o bin/vectora-systray ./cmd/vectora-systray
 
 release:
  goreleaser release --clean

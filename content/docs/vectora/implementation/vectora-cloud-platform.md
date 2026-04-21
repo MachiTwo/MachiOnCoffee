@@ -110,7 +110,7 @@ CREATE TABLE users (
 CREATE TABLE subscriptions (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     user_id UUID NOT NULL REFERENCES users(id),
-    plan_id VARCHAR(50) NOT NULL, -- free, pro, team, enterprise
+    plan_id VARCHAR(50) NOT NULL, -- free, plus, team, enterprise
     stripe_subscription_id VARCHAR(255) UNIQUE,
     status VARCHAR(50), -- active, canceled, past_due
     current_period_start TIMESTAMP,
@@ -446,7 +446,7 @@ export default function Dashboard() {
 
 **Deliverables**:
 
-- [ ] 4 planos: Free, Pro, Team, Enterprise
+- [ ] 4 planos: Free, Plus, Team, Enterprise
 - [ ] Checkout com Stripe
 - [ ] Invoice geração automática
 - [ ] Webhook handling

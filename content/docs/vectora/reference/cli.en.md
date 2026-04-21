@@ -306,7 +306,7 @@ COMMANDS:
 **Examples**:
 
 ```bash
-# Interactive Login (opens Systray and Browser)
+# Interactive Login (opens browser for SSO, Systray UI syncs automatically)
 vectora auth login
 
 # Check account status

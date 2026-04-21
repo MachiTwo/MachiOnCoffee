@@ -18,7 +18,7 @@ tags:
 {{< lang-toggle >}}
 Vectora is distributed as a high-performance native binary for Windows, macOS, and Linux. On Windows, installation is standardized via **Winget** and resides in your local programs directory, requiring no Node.js or administrator privileges.
 
-> [!IMPORTANT] **BYOK (Bring Your Own Key)**: In the Free plan, Vectora requires API keys from Gemini and Voyage. In **Pro** and **Team (Plus)** plans, you can opt for **Managed** mode, where AI credits are already included.
+> [!IMPORTANT] **BYOK (Bring Your Own Key)**: In the Free plan, Vectora requires API keys from Gemini and Voyage. In **Plus** and **Team** plans, you can opt for **Managed** mode, where AI credits are already included.
 
 ## Prerequisites
 
@@ -51,13 +51,35 @@ winget install kaffyn.vectora
 
 The binary will be installed in `%LOCALAPPDATA%\Programs\Vectora` and automatically added to your PATH.
 
-## macOS / Linux
+## macOS
+
+### Via Homebrew (Recommended)
+
+```bash
+brew tap kaffyn/vectora
+brew install vectora
+```
+
+This installs the core daemon with Systray (visual interface) and Cobra CLI included.
+
+### Via Installation Script
+
+```bash
+curl -sSf https://vectora.sh/install.sh | sh
+```
+
+## Linux
 
 Use our quick installation script:
 
 ```bash
 curl -sSf https://vectora.sh/install.sh | sh
 ```
+
+Alternatively, you can use package managers:
+
+- **Ubuntu/Debian**: `.deb` (apt support coming soon)
+- **Fedora/RHEL**: `.rpm` (support in development)
 
 ## Manual Download
 
@@ -150,7 +172,7 @@ Go to [Configuration](./configuration.md).
 
 **Cause**: Request limit exceeded (60/min on free tier).
 
-**Solution**: Wait or upgrade to the [Pro plan](../plans/pro.md).
+**Solution**: Wait or upgrade to the [Plus plan](../plans/plus.md).
 
 ### Error: `EACCES: permission denied`
 
