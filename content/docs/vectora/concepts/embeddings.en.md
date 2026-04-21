@@ -22,7 +22,6 @@ tags:
 type: docs
 sidebar:
   open: true
-categories: ["Deep Dive"]
 ---
 
 {{< lang-toggle >}}

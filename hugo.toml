@@ -118,4 +118,12 @@ disableKinds = ["sitemap"]
     twitter = 'BrunoSoarxz'
     youtube = 'machiatodev'
 
-  description = 'MachiOnCoffee - Um blog minimalista sobre tecnologia, café e cafés.'
+  description = 'MachiOnCoffee - Documentação técnica sobre Ability System e Vectora, com guias de implementação, arquitetura e integração.'
+
+  [params.opengraph]
+    image = '/images/logo.jpg'
+    locale = 'pt_BR'
+
+  [params.seo]
+    keywords = 'Ability System, Vectora, Go, TypeScript, RAG, Context Engine, MCP, AI, Sub-Agent'
+    robots = 'index, follow'
