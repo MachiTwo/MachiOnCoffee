@@ -1,5 +1,5 @@
 ---
-title: "Armazenamento Local do Vectora: Arquitetura de Cache Híbrido"
+title: "Vectora Local Storage: Hybrid Cache Architecture"
 slug: local-storage
 date: "2026-04-18T22:30:00-03:00"
 type: docs
@@ -23,34 +23,34 @@ tags:
 {{< lang-toggle >}}
 {{< section-toggle >}}
 
-O Vectora implementa um sistema de cache de duas camadas para otimizar o desempenho e a persistência, garantindo acesso ultra-rápido a dados frequentes e durabilidade para estados de sessão.
+Vectora implements a two-tier cache system to optimize performance and persistence, ensuring ultra-fast access to frequent data and durability for session states.
 
-**Status**: Plano de Design e Implementação
+**Status**: Design & Implementation Plan
 **Date**: 2026-04-21
 **Architecture**: BadgerDB (L2) + LRU+TTL (L1)
 **Target**: Session persistence, search cache, embedding storage
 
 ---
 
-## Sumário Executivo
+## Executive Summary
 
-O Vectora implementa um **sistema de cache de duas camadas** para desempenho e persistência ideais:
+Vectora implements a **two-tier cache system** for optimal performance and persistence:
 
-- **L1: LRU+TTL (Em Memória)** - Cache "quente" para acesso ultra-rápido.
-- **L2: BadgerDB (Persistente)** - Armazenamento "frio" com recuperação automática.
+- **L1: LRU+TTL (In-Memory)** - Hot cache for ultra-fast access
+- **L2: BadgerDB (Persistent)** - Cold storage with automatic recovery
 
-Esta abordagem híbrida oferece:
+This hybrid approach provides:
 
-- **Latência sub-milissegundo** para dados acessados frequentemente.
-- **Persistência de sessão** entre reinicializações.
-- **Promoção automática** do disco para a memória.
-- **Degradação graciosa** se o BadgerDB estiver indisponível.
+- **Sub-millisecond latency** for frequently accessed data
+- **Session persistence** across restarts
+- **Automatic promotion** from disk to memory
+- **Graceful degradation** if BadgerDB unavailable
 
 ---
 
-## Visão Geral da Arquitetura
+## Architecture Overview
 
-### Estratégia de Cache Multi-Camada
+### Multi-Tier Cache Strategy
 
 ```text
 User Request
@@ -87,21 +87,21 @@ User Request
 
 ---
 
-## Locais de Armazenamento
+## Storage Locations
 
-### Caminhos Específicos por Plataforma
+### Platform-Specific Paths
 
 ```text
 WINDOWS:
   %APPDATA%\Vectora\cache\
   └── C:\Users\{username}\AppData\Roaming\Vectora\cache\
-      ├── .badgerdb/ (Diretório BadgerDB)
+      ├── .badgerdb/ (BadgerDB directory)
       │ ├── MANIFEST
       │ ├── 000001.sst
       │ └── ...
-      ├── metadata.json (Metadados do índice)
-      ├── sessions.json (Snapshot de sessões ativas)
-      └── config.yaml (Preferências do usuário)
+      ├── metadata.json (Index metadata)
+      ├── sessions.json (Snapshot of active sessions)
+      └── config.yaml (User preferences)
 
 LINUX:
   ~/.config/vectora/cache/
@@ -118,16 +118,16 @@ MACOS:
   └── config.yaml
 ```
 
-### Por que o Diretório Roaming?
+### Why Roaming Directory?
 
-- **Windows**: `%APPDATA%` é sincronizado com OneDrive/nuvem por padrão.
-- **Linux**: `~/.config/` segue a especificação XDG Base Directory.
-- **macOS**: `~/Library/Preferences/` é o padrão para dados de aplicativos.
-- **Multiplataforma**: Mesma estrutura, diferentes caminhos base.
+- **Windows**: `%APPDATA%` is synced with OneDrive/cloud by default
+- **Linux**: `~/.config/` follows XDG Base Directory specification
+- **macOS**: `~/Library/Preferences/` is standard for app data
+- **Cross-platform**: Same structure, different base paths
 
 ---
 
-## Tipos de Dados de Cache
+## Cache Data Types
 
 ### L1: In-Memory LRU+TTL
 
@@ -148,27 +148,27 @@ type L1Cache struct {
 }
 ```
 
-**Itens Armazenados:**
+**Stored Items:**
 
-| Tipo de Item        | TTL    | Contagem Máx | Caso de Uso               |
-| ------------------- | ------ | ------------ | ------------------------- |
-| Resultados de Busca | 5 min  | 100          | Consultas recentes        |
-| Embeddings          | 10 min | 500          | Vetores frequentes        |
-| Estado de Sessão    | 1 hora | 10           | Sessões de usuário ativas |
-| Chunks de Código    | 15 min | 300          | Cache de análise de files |
-| Metadados do Índice | 1 hora | 1            | Estado atual do índice    |
+| Item Type      | TTL    | Max Count | Use Case                |
+| -------------- | ------ | --------- | ----------------------- |
+| Search Results | 5 min  | 100       | Recent queries          |
+| Embeddings     | 10 min | 500       | Frequently used vectors |
+| Session State  | 1 hour | 10        | Active user sessions    |
+| Code Chunks    | 15 min | 300       | File analysis cache     |
+| Index Metadata | 1 hour | 1         | Current index state     |
 
-### L2: Armazenamento Persistente BadgerDB
+### L2: BadgerDB Persistent Storage
 
 ```go
 type L2CacheItem struct {
     Key string
-    Value []byte // Comprimido
+    Value []byte // Compressed
     TTL time.Duration
     ExpiresAt time.Time
     CreatedAt time.Time
     LastAccess time.Time
-    Tags []string // Para filtragem
+    Tags []string // For filtering
     Compressed bool
 }
 
@@ -178,19 +178,19 @@ type BadgerDBCache struct {
 }
 ```
 
-**Categorias de Armazenamento:**
+**Storage Categories:**
 
-| Categoria  | TTL | Compressão | Índice    | Caso de Uso          |
-| ---------- | --- | ---------- | --------- | -------------------- |
-| embeddings | 7d  | Sim (LZ4)  | timestamp | Histórico de busca   |
-| sessions   | 24h | Sim        | user_id   | Sessões de usuário   |
-| chunks     | 24h | Sim        | file_path | Chunks de código     |
-| queries    | 48h | Sim        | hash      | Cache de consultas   |
-| metadata   | 7d  | Não        | key       | Metadados do sistema |
+| Category   | TTL | Compression | Index     | Use Case        |
+| ---------- | --- | ----------- | --------- | --------------- |
+| embeddings | 7d  | Yes (LZ4)   | timestamp | Search history  |
+| sessions   | 24h | Yes         | user_id   | User sessions   |
+| chunks     | 24h | Yes         | file_path | Code chunks     |
+| queries    | 48h | Yes         | hash      | Query cache     |
+| metadata   | 7d  | No          | key       | System metadata |
 
 ---
 
-## Detalhes de Implementação
+## Implementation Details
 
 ### 1. LRU Cache (L1)
 
@@ -509,28 +509,28 @@ func (h *HybridCache) Stats() CacheStats {
 
 ---
 
-## Configuração
+## Configuration
 
-### Variáveis de Ambiente
+### Environment Variables
 
 ```bash
-# Dimensionamento do cache
-VECTORA_CACHE_L1_SIZE=1000 # Máximo de itens LRU
-VECTORA_CACHE_L1_TTL=5m # TTL do LRU
+# Cache sizing
+VECTORA_CACHE_L1_SIZE=1000 # LRU max items
+VECTORA_CACHE_L1_TTL=5m # LRU TTL
 VECTORA_CACHE_L2_DIR=~/.config/vectora/cache
 
-# Opções do BadgerDB
-VECTORA_CACHE_BADGER_LOG_SIZE=67108864 # Log de valores de 64MB
+# BadgerDB options
+VECTORA_CACHE_BADGER_LOG_SIZE=67108864 # 64MB value log
 VECTORA_CACHE_BADGER_COMPRESSION=true
 VECTORA_CACHE_BADGER_TTL_CHECK=1h
 
-# Comportamento do cache
+# Cache behavior
 VECTORA_CACHE_ENABLE_L1=true
 VECTORA_CACHE_ENABLE_L2=true
 VECTORA_CACHE_AUTOPROMOTION=true
 ```
 
-### Configuração YAML
+### YAML Configuration
 
 ```yaml
 cache:
@@ -545,7 +545,7 @@ cache:
     options:
       valueLogFileSize: 67108864 # 64MB
       compression: true
-      blockCacheSize: 0 # Usar memória do sistema
+      blockCacheSize: 0 # Use system memory
       indexCacheSize: 0
 
   categories:
@@ -565,166 +565,166 @@ cache:
 
 ---
 
-## Características de Desempenho
+## Performance Characteristics
 
-### Perfil de Latência
+### Latency Profile
 
 ```text
-Hit no Cache L1: 0.1-1ms (sub-millisecond)
-Hit no Cache L2: 10-50ms (I/O de disco)
-Compressão L2: 2-5ms (codec LZ4)
-L3 Backend: 50-500ms (chamada de API)
+L1 Cache Hit: 0.1-1ms (sub-millisecond)
+L2 Cache Hit: 10-50ms (disk I/O)
+L2 Compression: 2-5ms (LZ4 codec)
+L3 Backend: 50-500ms (API call)
 
-Distribuição Típica:
-- 85% hits L1 (0.1-1ms)
-- 12% hits L2 (10-50ms)
-- 3% misses L3 (50-500ms)
+Typical Distribution:
+- 85% L1 hits (0.1-1ms)
+- 12% L2 hits (10-50ms)
+- 3% L3 misses (50-500ms)
 
-Latência Média: ~5ms
+Average Latency: ~5ms
 ```
 
-### Uso de Memória
+### Memory Usage
 
 ```text
-Cache L1 (1000 itens):
-- Por item: ~200 bytes overhead + tamanho do valor
-- Típico: 50-100 MB (dependendo do payload)
+L1 Cache (1000 items):
+- Per item: ~200 bytes overhead + value size
+- Typical: 50-100 MB (depending on payload)
 
-Cache L2 (BadgerDB):
-- Depende dos dados armazenados
-- Típico: 50-500 MB para 24h de histórico
-- Compressão automática: 70-80% de redução de tamanho
+L2 Cache (BadgerDB):
+- Depends on stored data
+- Typical: 50-500 MB for 24h history
+- Automatic compression: 70-80% size reduction
 ```
 
-### I/O de Disco
+### Disk I/O
 
 ```text
-Operações BadgerDB:
-- Leitura aleatória: 10-30ms (SSD), 50-100ms (HDD)
-- Leitura sequencial: 1-5ms
-- Escrita: 5-20ms (com durabilidade)
-- Escrita em lote: 2-10ms por item
+BadgerDB Operations:
+- Random read: 10-30ms (SSD), 50-100ms (HDD)
+- Sequential read: 1-5ms
+- Write: 5-20ms (with durability)
+- Batch write: 2-10ms per item
 
-Otimização:
-- Tamanho do log de valores: 64MB (equilíbrio entre tamanho e desempenho)
-- Block cache: Gerenciado automaticamente
-- Index cache: Gerenciado automaticamente
-```
-
----
-
-## Evicção e Limpeza
-
-### Estratégia de Evicção L1
-
-```text
-Híbrido LRU + TTL:
-1. Verifica expiração de TTL (a cada 1 minuto)
-2. Se cheio, remove o item menos recentemente usado (LRU)
-3. Promove itens acessados frequentemente
-
-Prioridade:
-- Estado da sessão (manter por mais tempo)
-- Buscas recentes (prioridade média)
-- Embeddings (baixa prioridade, podem ser recomputados)
-```
-
-### Limpeza L2
-
-```text
-TTL do BadgerDB:
-- Itens expiram automaticamente conforme o TTL
-- Coleta de lixo em background a cada 1 hora
-- Compactação do log de valores a cada 24 horas
-- Limpeza automática na inicialização
+Optimization:
+- Value log file size: 64MB (balance between size and performance)
+- Block cache: Auto-managed
+- Index cache: Auto-managed
 ```
 
 ---
 
-## Modos de Falha e Recuperação
+## Eviction & Cleanup
 
-### Falha L1 (Em Memória)
+### L1 Eviction Strategy
 
 ```text
-Cenário: Perda do cache L1 (ex: reinicialização)
-Impacto: Degradação temporária de 15-20% no desempenho
-Recuperação: L2 restaura automaticamente em até 10 segundos
-Impacto ao Usuário: Mínimo (fallback para o cache L2)
+LRU + TTL Hybrid:
+1. Check TTL expiration (every 1 minute)
+2. If full, evict least recently used
+3. Promote frequently accessed items
+
+Priority:
+- Session state (keep longest)
+- Recent searches (medium priority)
+- Embeddings (low priority, can recompute)
 ```
 
-### Falha L2 (Disco)
+### L2 Cleanup
 
 ```text
-Cenário: Corrupção do BadgerDB
-Impacto: Perda do cache, fallback para L3 (API backend)
-Recuperação:
-  1. Deletar diretório .badgerdb corrompido
-  2. Reiniciar aplicação
-  3. Reconstrução automática a partir do backend
-Mitigação: Habilitar backup antes de operações intensas de escrita
-```
-
-### Falha em Ambas
-
-```text
-Cenário: L1 e L2 indisponíveis
-Impacto: Sem caching, consultas diretas ao backend
-Latência: 50-500ms por requisição (sem cache)
-Recuperação: Reconstrói os caches conforme as consultas ocorrem
-Impacto ao Usuário: Lentidão perceptível, mas funcional
+BadgerDB TTL:
+- Items automatically expire per TTL
+- Background garbage collection every 1 hour
+- Value log compaction every 24 hours
+- Automatic cleanup on startup
 ```
 
 ---
 
-## Estratégia de Teste
+## Failure Modes & Recovery
 
-### Testes Unitários
+### L1 Failure (In-Memory)
+
+```text
+Scenario: L1 cache lost (e.g., restart)
+Impact: 15-20% performance degradation temporarily
+Recovery: L2 automatically restores within 10 seconds
+User Impact: Minimal (fallback to L2 cache)
+```
+
+### L2 Failure (Disk)
+
+```text
+Scenario: BadgerDB corrupted
+Impact: Cache loss, fallback to L3 (backend API)
+Recovery:
+  1. Delete corrupted .badgerdb directory
+  2. Restart application
+  3. Automatic rebuild from backend
+Mitigation: Enable backup before write-heavy operations
+```
+
+### Both Failures
+
+```text
+Scenario: Both L1 and L2 unavailable
+Impact: No caching, direct backend queries
+Latency: 50-500ms per request (no cache)
+Recovery: Rebuild caches as queries come in
+User Impact: Noticeable slowdown but functional
+```
+
+---
+
+## Testing Strategy
+
+### Unit Tests
 
 ```go
-TestLRUSet() // Definir itens no LRU
-TestLRUGet() // Recuperar itens
-TestLRUExpiration() // Expiração de TTL
-TestLRUEviction() // Evicção LRU
-TestBadgerSet() // Definir no BadgerDB
-TestBadgerTTL() // TTL no BadgerDB
-TestHybridPromotion() // Promoção L2 para L1
-TestHybridFallback() // Miss L1 → Fallback L2
+TestLRUSet() // Set items in LRU
+TestLRUGet() // Retrieve items
+TestLRUExpiration() // TTL expiration
+TestLRUEviction() // LRU eviction
+TestBadgerSet() // Set in BadgerDB
+TestBadgerTTL() // TTL in BadgerDB
+TestHybridPromotion() // L2 to L1 promotion
+TestHybridFallback() // L1 miss → L2 fallback
 ```
 
-### Testes de Integração
+### Integration Tests
 
 ```go
-TestCacheUnderLoad() // 1000 requisições concorrentes
-TestRecoveryAfterCrash() // Recuperação após crash
-TestCacheConsistency() // Consistência do cache
-TestCachePerformance() // Desempenho do cache
+TestCacheUnderLoad() // 1000 concurrent requests
+TestRecoveryAfterCrash()
+TestCacheConsistency()
+TestCachePerformance()
 ```
 
 ---
 
-## Monitoramento e Observabilidade
+## Monitoring & Observability
 
-### Métricas para Acompanhar
+### Metrics to Track
 
 ```text
-Cache L1:
-- Taxa de acerto (target: >80%)
-- Taxa de erro (miss)
-- Taxa de evicção
-- Latência média
-- Latência máxima (p99)
+L1 Cache:
+- Hit rate (target: >80%)
+- Miss rate
+- Eviction rate
+- Average latency
+- Max latency (p99)
 
-Cache L2:
-- Tamanho (bytes)
-- Contagem de itens
-- Razão de compressão
-- Frequência de GC
-- Tempo de compactação
+L2 Cache:
+- Size (bytes)
+- Item count
+- Compression ratio
+- GC frequency
+- Compaction time
 
-Sistema:
-- Uso de memória (L1)
-- Uso de disco (L2)
-- Tempo de CPU (compressão)
+System:
+- Memory usage (L1)
+- Disk usage (L2)
+- CPU time (compression)
 ```
 
 ### Health Checks
@@ -748,81 +748,81 @@ Sistema:
 
 ---
 
-## Caminho de Migração
+## Migration Path
 
-### Fase 1: Somente em Memória (Atual)
+### Phase 1: In-Memory Only (Current)
 
-- Usa apenas LRU+TTL
-- Sem persistência
-- Ideal para testes em instância única
+- Use only LRU+TTL
+- No persistence
+- Perfect for single-instance testing
 
-### Fase 2: Adição do BadgerDB (Próxima)
+### Phase 2: Add BadgerDB (Next)
 
-- Introdução do cache L2
-- Persistência automática
-- Melhor recuperação
+- Introduce L2 cache
+- Automatic persistence
+- Improved recovery
 
-### Fase 3: Cache Distribuído (Futuro)
+### Phase 3: Distributed Cache (Future)
 
-- Redis para multi-instância
-- Protocolo de invalidação de cache
-- Armazenamento de sessão distribuído
+- Redis for multi-instance
+- Cache invalidation protocol
+- Distributed session storage
 
 ---
 
-## Dependências
+## Dependencies
 
 ```go
 go get github.com/dgraph-io/badger/v3
-// Tamanho: ~1.5MB
-// Pure Go, sem dependências C
-// Licença: Apache 2.0
+// Size: ~1.5MB
+// Pure Go, no C dependencies
+// License: Apache 2.0
 ```
 
 ---
 
-## Resumo de Trade-offs
+## Trade-offs Summary
 
-| Aspecto      | LRU+TTL | BadgerDB | Híbrido    |
-| ------------ | ------- | -------- | ---------- |
-| Velocidade   | Alta    | Média    | Alta       |
-| Persistência | Não     | Sim      | Sim        |
-| Memória      | Baixa   | Média    | Média      |
-| Complexidade | Baixa   | Média    | Média-Alta |
-| Recuperação  | Ruim    | Boa      | Excelente  |
-
----
-
-## Conclusão
-
-A **Arquitetura de Cache Híbrido** (BadgerDB + LRU+TTL) fornece ao Vectora:
-
-1. Acesso ultra-rápido em memória (L1)
-2. Armazenamento persistente com TTL (L2)
-3. Degradação graciosa em falhas
-4. Promoção/demoção automática
-5. Suporte a roaming multiplataforma
-6. Zero dependências de serviços externos
-
-Este design escala desde o desenvolvimento em instância única até implantações de produção multi-instância.
+| Aspect      | LRU+TTL | BadgerDB | Hybrid      |
+| ----------- | ------- | -------- | ----------- |
+| Speed       | High    | Medium   | High        |
+| Persistence | No      | Yes      | Yes         |
+| Memory      | Low     | Medium   | Medium      |
+| Complexity  | Low     | Medium   | Medium-High |
+| Recovery    | Poor    | Good     | Excellent   |
 
 ---
 
-## Checklist de Implementação
+## Conclusion
 
-- [ ] Criar `internal/cache/interface.go` (interfaces)
-- [ ] Implementar `internal/cache/lru.go` (L1)
-- [ ] Implementar `internal/cache/badger.go` (L2)
-- [ ] Implementar `internal/cache/hybrid.go` (orquestração)
-- [ ] Adicionar resolução de caminho específico da plataforma
-- [ ] Adicionar configuração de variáveis de ambiente
-- [ ] Adicionar endpoint de health check
-- [ ] Adicionar coleta de métricas
-- [ ] Escrever testes abrangentes
-- [ ] Adicionar documentação
-- [ ] Integração com o servidor principal
-- [ ] Benchmark de desempenho
+The **Hybrid Cache Architecture** (BadgerDB + LRU+TTL) provides Vectora with:
+
+1. Ultra-fast in-memory access (L1)
+2. Persistent storage with TTL (L2)
+3. Graceful degradation on failures
+4. Automatic promotion/demotion
+5. Cross-platform roaming support
+6. Zero external service dependencies
+
+This design scales from single-instance development to multi-instance production deployments.
 
 ---
 
-_Parte do ecossistema Vectora_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contribuidores](https://github.com/Kaffyn/Vectora/graphs/contributors)
+## Implementation Checklist
+
+- [ ] Create `internal/cache/interface.go` (interfaces)
+- [ ] Implement `internal/cache/lru.go` (L1)
+- [ ] Implement `internal/cache/badger.go` (L2)
+- [ ] Implement `internal/cache/hybrid.go` (orchestration)
+- [ ] Add platform-specific path resolution
+- [ ] Add environment variable configuration
+- [ ] Add health check endpoint
+- [ ] Add metrics collection
+- [ ] Write comprehensive tests
+- [ ] Add documentation
+- [ ] Integration with main server
+- [ ] Benchmark performance
+
+---
+
+_Part of the Vectora ecosystem_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contributors](https://github.com/Kaffyn/Vectora/graphs/contributors)

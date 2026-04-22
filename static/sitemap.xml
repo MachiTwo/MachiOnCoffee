@@ -835,6 +835,15 @@
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/implementation/homebrew-distribution/"/>
   </url>
   <url>
+    <loc>https://cafegame.dev/docs/vectora/implementation/local-storage/</loc>
+    <lastmod>2026-04-18T22:30:00-03:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/implementation/local-storage/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/implementation/local-storage/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/implementation/local-storage/"/>
+  </url>
+  <url>
     <loc>https://cafegame.dev/docs/vectora/implementation/mcp-server/</loc>
     <lastmod>2026-04-20T10:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -1958,6 +1967,15 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/implementation/distribution-pipeline/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/implementation/distribution-pipeline/"/>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/implementation/distribution-pipeline/"/>
+  </url>
+  <url>
+    <loc>https://cafegame.dev/en/docs/vectora/implementation/local-storage/</loc>
+    <lastmod>2026-04-18T22:30:00-03:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/implementation/local-storage/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/implementation/local-storage/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/implementation/local-storage/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/vectora/implementation/security-engine/</loc>

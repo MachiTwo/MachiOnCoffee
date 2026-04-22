@@ -113,7 +113,7 @@ def run():
                 # Print relative path for clarity
                 try:
                     rel_path = os.path.relpath(path, os.getcwd())
-                except:
+                except Exception:
                     rel_path = os.path.basename(path)
                 print(f"MODIFICADO: {rel_path}")
                 count += 1
