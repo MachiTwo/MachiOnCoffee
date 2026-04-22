@@ -117,9 +117,7 @@ Resolution:
 1. Normalize: ../../../.env → /absolute/path/.env
 2. Is /absolute/path/.env inside /absolute/path/to/src?
 3. NO → BLOCKED
-```
-
-```text
+text
 Trust Folder: ./src
 File Requested: ./src/../../.env
 

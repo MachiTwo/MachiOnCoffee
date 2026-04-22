@@ -38,16 +38,10 @@ Imagine you ask Vectora a question:
 
 > "Where do we handle JWT authentication?"
 
-The [Voyage 4](./embeddings) (our embeddings model) returns the 50 most similar documents:
-
-`````
-1. src/auth/jwt.ts (95% similarity)
-2. src/middleware/auth.ts (94% similarity)
-3. tests/auth.test.ts (93% similarity)
-4. docs/auth.md (92% similarity)
-5. src/utils/token-utils.ts (91% similarity)
+The [Voyage 4](./embeddings) (our embeddings model) returns the 50 most similar documents:1. src/auth/jwt.ts (95% similarity) 2. src/middleware/auth.ts (94% similarity) 3. tests/auth.test.ts (93% similarity) 4. docs/auth.md (92% similarity) 5. src/utils/token-utils.ts (91% similarity)
 ... and 45 more
-```
+
+````text
 
 **Problem**: All 50 are "similar," but you **don't need all of them**. Sending 50 fragments to the LLM is:
 
@@ -81,7 +75,7 @@ Query: "How to implement JWT authentication?"
 Query Embedding: [0.12, -0.45, 0.89, ...]
 Document 1 Embedding: [0.11, -0.46, 0.88, ...] → Cosine Similarity: 0.95
 Document 2 Embedding: [0.05, 0.23, 0.11, ...] → Cosine Similarity: 0.42
-```
+```text
 
 - Fast (pre-computes embeddings)
 - Scalable (works with millions of documents)
@@ -96,7 +90,7 @@ Cross-Encoder Input:
   ↓ Model with Full Attention ↓
 
 Score: 0.89 (highly relevant)
-```
+```text
 
 - Highly precise (examines query + document simultaneously)
 - Understands nuances (can detect deceptively similar documents)
@@ -131,21 +125,15 @@ candidates = [
     "tests/email-validation.test.ts", # Embedding score: 0.85
     "README.md", # Embedding score: 0.72
 ]
-```
+```text
 
 ## Phase 2: Cross-Encoding
 
 For each pair (query, document), Voyage Rerank 2.5:
 
 1. **Tokenizes** the pair with special tokens:
-
-````
-
 [CLS] Where do we handle email validation in user registration context? [SEP] export function validateEmail(email:
 string): boolean { ... } [SEP]
-
-````
-
 2. **Applies Attention** through all layers (unlike bi-encoders that process separately)
 
 3. **Generates a Score** between 0 and 1 representing relevance
@@ -164,7 +152,7 @@ Top-3 to send to LLM:
 1. src/services/user-service.ts (0.97)
 2. src/auth/email-validation.ts (0.94)
 3. src/types/user.ts (0.71)
-```
+```text
 
 ## Why Voyage Rerank 2.5 and Not Alternatives?
 
@@ -277,12 +265,13 @@ Query: "How to validate JWT tokens?"
  Gemini 3 Flash (LLM)
  [reads refined context]
  [generates high-quality response]
-```
+```text
 
 ## Performance and Latency
 
 ## Batching for Efficiency
-+
+
+-
 
 ```python
 # Scenario: 50 documents to rerank
@@ -295,12 +284,13 @@ for doc in documents:
 # Good: batch of 50
 scores = reranker.rank(query, documents) # 100-150ms total
 # Total: 100-150ms
-```
+```text
 
 Batching is **50x faster**.
 
 ## Intelligent Thresholding
-+
+
+-
 
 ```python
 scores = reranker.rank(query, candidates)
@@ -312,7 +302,7 @@ top_k = [doc for score in scores if score > 0.70]
 
 # Context reduction: 4 docs instead of 50 (92% reduction)
 # Cost reduction: 92% savings on LLM tokens
-```
+```text
 
 ## Evaluation Metrics
 
@@ -330,7 +320,7 @@ Bad ranking: [Doc_D (not), Doc_A (relevant), Doc_B (relevant)]
 NDCG@5 = 0.75 (75%)
 
 Voyage Rerank 2.5: NDCG@5 = 0.962 (96.2%)
-```
+```text
 
 ## MRR (Mean Reciprocal Rank)
 
@@ -346,7 +336,7 @@ Ranking 2: [Relevant, ...]
 MRR = 1/1 = 1.0
 
 Voyage Rerank 2.5 MRR: 0.94
-```
+```text
 
 ## Recall@K
 
@@ -358,7 +348,7 @@ Top-5 returns: 4 relevant documents
 Recall@5 = 4/5 = 0.80 (80%)
 
 Voyage Rerank 2.5 Recall@10: 98.7%
-```
+```text
 
 ## Known Limitations
 
@@ -392,8 +382,8 @@ In a 500K lines of code project:
 
 _This is a supporting guide for the [Vectora](docs/vectora/) project. Specifically about reranking with Voyage
 Rerank 2.5._
-````
-`````
+
+
 
 ## External Linking
 
@@ -409,3 +399,4 @@ Rerank 2.5._
 ---
 
 _Part of the Vectora ecosystem_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contributors](https://github.com/Kaffyn/Vectora/graphs/contributors)
+````

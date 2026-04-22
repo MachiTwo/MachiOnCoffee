@@ -550,15 +550,6 @@
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/backend/mongodb-atlas/"/>
   </url>
   <url>
-    <loc>https://cafegame.dev/docs/vectora/backend/state-persistence/</loc>
-    <lastmod>2026-04-18T22:30:00-03:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/backend/state-persistence/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/backend/state-persistence/"/>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/backend/state-persistence/"/>
-  </url>
-  <url>
     <loc>https://cafegame.dev/docs/vectora/backend/vector-search/</loc>
     <lastmod>2026-04-18T22:30:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -1699,15 +1690,6 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/backend/mongodb-atlas/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/backend/mongodb-atlas/"/>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/backend/mongodb-atlas/"/>
-  </url>
-  <url>
-    <loc>https://cafegame.dev/en/docs/vectora/backend/state-persistence/</loc>
-    <lastmod>2026-04-18T22:30:00-03:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/backend/state-persistence/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/backend/state-persistence/"/>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/backend/state-persistence/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/vectora/backend/vector-search/</loc>

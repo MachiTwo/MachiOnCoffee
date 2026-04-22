@@ -89,13 +89,12 @@ graph LR
 
 Vectora **is not provider-agnostic**. We operate with models rigorously calibrated to guarantee metric consistency, parsing stability, and predictable costs:
 
-| Layer                    | Technology             | Why we chose it                                                          | Docs                                             |
-| ------------------------ | ---------------------- | ------------------------------------------------------------------------ | ------------------------------------------------ |
-| **LLM (Inference)**      | `gemini-3-flash`       | Latency <30ms, stable tool calling, 90% lower cost vs Pro                | [Gemini 3](/models/gemini/)                      |
-| **Embeddings**           | `voyage-4`             | AST-aware, captures functional similarity (`validateToken` ≈ `checkJWT`) | [Voyage 4](/models/voyage/)                      |
-| **Reranking**            | `voyage-rerank-2.5`    | Cross-encoder optimized for code, latency <100ms, +25% precision vs BM25 | [Reranker](/concepts/reranker/)                  |
-| **Vector DB + Metadata** | `MongoDB Atlas`        | Unified backend (vectors + docs + state + audit), scalable, no ETL       | [MongoDB Atlas](/backend/mongodb-atlas/)         |
-| **State Persistence**    | Sessions + `AGENTS.md` | Working memory between MCP calls, continuity for long-horizon context    | [State Persistence](/backend/state-persistence/) |
+| Layer                    | Technology          | Why we chose it                                                          | Docs                                     |
+| ------------------------ | ------------------- | ------------------------------------------------------------------------ | ---------------------------------------- |
+| **LLM (Inference)**      | `gemini-3-flash`    | Latency <30ms, stable tool calling, 90% lower cost vs Pro                | [Gemini 3](/models/gemini/)              |
+| **Embeddings**           | `voyage-4`          | AST-aware, captures functional similarity (`validateToken` ≈ `checkJWT`) | [Voyage 4](/models/voyage/)              |
+| **Reranking**            | `voyage-rerank-2.5` | Cross-encoder optimized for code, latency <100ms, +25% precision vs BM25 | [Reranker](/concepts/reranker/)          |
+| **Vector DB + Metadata** | `MongoDB Atlas`     | Unified backend (vectors + docs + state + audit), scalable, no ETL       | [MongoDB Atlas](/backend/mongodb-atlas/) |
 
 > [!WARNING] **Vectora Cloud Only**:
 > Vectora is a 100% cloud-based solution optimized for the Gemini + Voyage stack.
@@ -165,7 +164,7 @@ Vectora operates with a **Digital Sovereignty First** model, offering **BYOK (Br
 - [**Security & Governance**](./security/) — Details on Guardian, Trust Folder, and RBAC.
 - [**Authentication**](./auth/) — SSO flows, Unified Identity, and API Keys.
 - [**Models & Providers**](./models/) — Curated stack with Gemini 3 and Voyage AI.
-- [**Backend & Persistence**](./backend/) — MongoDB Atlas, Sessions, and State Persistence.
+- [**Backend**](./backend/) — MongoDB Atlas.
 - [**Integrations**](./integrations/) — How to use with Claude Code, Gemini CLI, and Cursor.
 - [**Plans & Pricing**](./plans/) — Feature comparison and retention policy.
 - [**Technical Reference**](./reference/) — MCP tool schema and Config YAML.

@@ -77,7 +77,7 @@ patterns), Voyage 4 **understands the semantic meaning of code** in ways generic
 
 When you send a code snippet to Voyage 4:
 
-`````python
+```python
 def fetch_user(user_id: int) -> User:
     """Retrieves a user by ID from the database."""
     user = db.query(User).filter(User.id == user_id).first()
@@ -340,8 +340,6 @@ Voyage 4 isn't just better — it's **significantly better** at code tasks.
 ---
 
 _This is a supporting guide for the [Vectora](docs/vectora/) project. Specifically about embeddings with Voyage 4._
-````
-`````
 
 ## External Linking
 

@@ -39,7 +39,7 @@ Imagine que você faz uma pergunta ao Vectora:
 
 O [Voyage 4](./embeddings) (nosso modelo de embeddings) retorna os 50 documentos mais similares:
 
-```
+```text
 1. src/auth/jwt.ts (95% similidade)
 2. src/middleware/auth.ts (94% similidade)
 3. tests/auth.test.ts (93% similidade)

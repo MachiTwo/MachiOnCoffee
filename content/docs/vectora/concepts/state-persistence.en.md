@@ -31,7 +31,7 @@ tags:
 
 Most AI tools operate on a _stateless_ model: every question is a new blank slate. For code applications, this is disastrous. If the agent forgets that you've already explained that the database port has changed, or that it shouldn't touch the `src/legacy` folder, it will commit the same errors repeatedly.
 
-Vectora solves this through a system of **State Persistence and Operational Memory**.
+Vectora solves this through a system of **Operational Memory**.
 
 ## Short-Term vs. Long-Term Memory
 
@@ -80,7 +80,7 @@ This allows security teams and technical leads to audit **exactly** what agents 
 
 ## Isolation and Encryption (RBAC)
 
-State persistence is strictly isolated by **Namespace**.
+Persistence is strictly isolated by **Namespace**.
 
 - An agent running in `namespace: front-end` will never see the memory or session state of `namespace: back-end`.
 - Sensitive data in the state (such as code snippets in memory) are encrypted at rest in MongoDB Atlas (AES-256).

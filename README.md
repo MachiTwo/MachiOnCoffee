@@ -60,9 +60,9 @@ tags:
   - programacao
 draft: false
 ---
+```
 
 E agora você é livre para dissertar livremente... Tudo suportado pelo ecosistema de texto **Markdown** puro.
-```
 
 3. Salve, jogue pro repositório pelo `git add .` e `git commit -m "novo post"`. Seu terminal vai acionar a trava
    automática de prévias, formatar espaçamentos faltantes, recriar magicamente a Homepage interativa, e o seu commit

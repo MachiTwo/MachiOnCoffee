@@ -828,106 +828,6 @@ echo " All Docker tests passed!"
 - [ ] Security best practices
 - [ ] Performance tuning
 
-**Documentação (content/docs/vectora/getting-started/docker.md)**:
-
-`````markdown
-# Instalação via Docker
-
-O Vectora está disponível como imagem Docker para fácil deployment em qualquer ambiente.
-
-## Pré-requisitos
-
-- Docker 20.10+
-- Docker Compose 2.0+ (opcional)
-
-## Uso Rápido
-
-### Docker CLI
-
-````bash
-docker run -it \
-  -e MONGODB_URI=mongodb://user:pass@host:27017/vectora \
-  -e GEMINI_API_KEY=your-key \
-  kaffyn/vectora:latest \
-  vectora --help
-```text
-
-### Docker Compose (Recomendado)
-
-1. Criar `.env`:
-```bash
-MONGODB_PASSWORD=secure-password
-GEMINI_API_KEY=your-key
-VOYAGE_API_KEY=your-key
-```text
-
-2. Clonar docker-compose.yml:
-```bash
-git clone https://github.com/kaffyn/vectora.git
-cd vectora
-docker-compose up -d
-```text
-
-3. Verificar:
-```bash
-docker-compose logs -f vectora
-```text
-
-## Arquiteturas Suportadas
-
-- `linux/amd64` (Intel/AMD x86-64)
-- `linux/arm64` (Apple Silicon, ARM64 Linux)
-
-## Tags Disponíveis
-
-- `kaffyn/vectora:latest` - Versão estável mais recente
-- `kaffyn/vectora:v2.1.0` - Versão específica
-- `kaffyn/vectora:nightly` - Build nightly (experimental)
-
-## Variáveis de Ambiente
-
-| Variável       | Descrição                 | Obrigatória |
-| :------------- | :------------------------ | :---------- |
-| MONGODB_URI    | Connection string MongoDB | Sim         |
-| GEMINI_API_KEY | Chave da API Gemini       | Sim         |
-| VOYAGE_API_KEY | Chave da API Voyage       | Sim         |
-| LOG_LEVEL      | debug\|info\|warn\|error  | Não         |
-| VECTORA_MODE   | development\|production   | Não         |
-
-## Volumes
-
-```bash
-docker run -v vectora_cache:/home/vectora/.cache/vectora \
-  kaffyn/vectora:latest
-```text
-
-## Segurança
-
-- Imagem roda como usuário não-root (UID 1000)
-- Filesystem read-only
-- Sem privilégios elevados
-
-## Troubleshooting
-
-### Container não inicia
-
-```bash
-docker logs vectora
-```text
-
-### Connection refused para MongoDB
-
-Verifique MONGODB_URI:
-```bash
-docker run -e MONGODB_URI=mongodb://user:pass@mongodb:27017/vectora ...
-```text
-
-## Documentação Completa
-
-- [Docker Hub](https://hub.docker.com/r/kaffyn/vectora)
-- [GitHub Releases](https://github.com/kaffyn/vectora/releases)
-```
-
 ## Checklist de Release
 
 Antes de publicar Docker images:
@@ -962,17 +862,15 @@ Antes de publicar Docker images:
 
 ## External Linking
 
-| Concept | Resource | Link |
-|---------|----------|------|
-| **Docker** | Docker Documentation | [docs.docker.com/](https://docs.docker.com/) |
-| **MongoDB Atlas** | Atlas Vector Search Documentation | [www.mongodb.com/docs/atlas/atlas-vector-search/](https://www.mongodb.com/docs/atlas/atlas-vector-search/) |
-| **Kubernetes** | Kubernetes Official Documentation | [kubernetes.io/docs/](https://kubernetes.io/docs/) |
-| **MCP** | Model Context Protocol Specification | [modelcontextprotocol.io/specification](https://modelcontextprotocol.io/specification) |
-| **MCP Go SDK** | Go SDK for MCP (mark3labs) | [github.com/mark3labs/mcp-go](https://github.com/mark3labs/mcp-go) |
-| **GitHub Actions** | Automate your workflow from idea to production | [docs.github.com/en/actions](https://docs.github.com/en/actions) |
+| Concept            | Resource                                       | Link                                                                                                       |
+| ------------------ | ---------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| **Docker**         | Docker Documentation                           | [docs.docker.com/](https://docs.docker.com/)                                                               |
+| **MongoDB Atlas**  | Atlas Vector Search Documentation              | [www.mongodb.com/docs/atlas/atlas-vector-search/](https://www.mongodb.com/docs/atlas/atlas-vector-search/) |
+| **Kubernetes**     | Kubernetes Official Documentation              | [kubernetes.io/docs/](https://kubernetes.io/docs/)                                                         |
+| **MCP**            | Model Context Protocol Specification           | [modelcontextprotocol.io/specification](https://modelcontextprotocol.io/specification)                     |
+| **MCP Go SDK**     | Go SDK for MCP (mark3labs)                     | [github.com/mark3labs/mcp-go](https://github.com/mark3labs/mcp-go)                                         |
+| **GitHub Actions** | Automate your workflow from idea to production | [docs.github.com/en/actions](https://docs.github.com/en/actions)                                           |
 
 ---
 
 _Parte do ecossistema Vectora_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contribuidores](https://github.com/Kaffyn/Vectora/graphs/contributors)
-````
-`````

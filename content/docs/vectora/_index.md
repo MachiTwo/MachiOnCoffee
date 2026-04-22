@@ -91,13 +91,12 @@ graph LR
 
 Vectora **não é provider-agnóstico**. Operamos com modelos rigorosamente calibrados para garantir consistência de métricas, estabilidade de parsing e custos previsíveis:
 
-| Camada                   | Tecnologia             | Por que escolhemos                                                          | Docs                                             |
-| ------------------------ | ---------------------- | --------------------------------------------------------------------------- | ------------------------------------------------ |
-| **LLM (Inferência)**     | `gemini-3-flash`       | Latência <30ms, tool calling estável, custo 90% menor vs Pro                | [Gemini 3](/models/gemini/)                      |
-| **Embeddings**           | `voyage-4`             | AST-aware, captura similaridade funcional (`validateToken` ≈ `checkJWT`)    | [Voyage 4](/models/voyage/)                      |
-| **Reranking**            | `voyage-rerank-2.5`    | Cross-encoder otimizado para código, latência <100ms, precisão +25% vs BM25 | [Reranker](/concepts/reranker/)                  |
-| **Vector DB + Metadata** | `MongoDB Atlas`        | Backend unificado (vetores + docs + estado + audit), escalável, sem ETL     | [MongoDB Atlas](/backend/mongodb-atlas/)         |
-| **State Persistence**    | Sessions + `AGENTS.md` | Working memory entre chamadas MCP, continuidade de contexto longo           | [State Persistence](/backend/state-persistence/) |
+| Camada                   | Tecnologia          | Por que escolhemos                                                          | Docs                                     |
+| ------------------------ | ------------------- | --------------------------------------------------------------------------- | ---------------------------------------- |
+| **LLM (Inferência)**     | `gemini-3-flash`    | Latência <30ms, tool calling estável, custo 90% menor vs Pro                | [Gemini 3](/models/gemini/)              |
+| **Embeddings**           | `voyage-4`          | AST-aware, captura similaridade funcional (`validateToken` ≈ `checkJWT`)    | [Voyage 4](/models/voyage/)              |
+| **Reranking**            | `voyage-rerank-2.5` | Cross-encoder otimizado para código, latência <100ms, precisão +25% vs BM25 | [Reranker](/concepts/reranker/)          |
+| **Vector DB + Metadata** | `MongoDB Atlas`     | Backend unificado (vetores + docs + estado + audit), escalável, sem ETL     | [MongoDB Atlas](/backend/mongodb-atlas/) |
 
 > [!WARNING] **Vectora Cloud Only**:
 > O Vectora é uma solução 100% baseada em nuvem otimizada para a stack Gemini + Voyage.
@@ -167,7 +166,7 @@ Vectora opera com modelo **Digital Sovereignty First**, oferecendo **BYOK (Bring
 - [**Segurança & Governança**](./security/) — Detalhes sobre o Guardian, Trust Folder e RBAC.
 - [**Autenticação**](./auth/) — Fluxos de SSO, Identidade Unificada e API Keys.
 - [**Modelos & Providers**](./models/) — Stack curada com Gemini 3 e Voyage AI.
-- [**Backend & Persistência**](./backend/) — MongoDB Atlas, Sessões e State Persistence.
+- [**Backend**](./backend/) — MongoDB Atlas.
 - [**Integrações**](./integrations/) — Como usar com Claude Code, Gemini CLI e Cursor.
 - [**Planos & Preços**](./plans/) — Comparativo de recursos e política de retenção.
 - [**Referência Técnica**](./reference/) — Schema de ferramentas MCP e Config YAML.

@@ -96,27 +96,25 @@ Testamos todas as alternativas. Aqui está a realidade:
 
 ## Fundamentos: Transformer com Inovações
 
-Gemini 3 Flash é baseado na arquitetura Transformer clássica, mas com otimizações propriet árias do Google:
-
-`````
-Input (Embeddings)
-    ↓
+Gemini 3 Flash é baseado na arquitetura Transformer clássica, mas com otimizações propriet árias do Google:Input (Embeddings)
+↓
 Token Embedding Layer
-    ↓
+↓
 Positional Encoding (Rotary Position Embeddings)
-    ↓
+↓
 [Transformer Block × 26 layers]
-    ├─ Multi-Head Self-Attention (32 heads)
-    ├─ Feed-Forward Network
-    ├─ Layer Normalization
-    └─ Residual Connections
-    ↓
+├─ Multi-Head Self-Attention (32 heads)
+├─ Feed-Forward Network
+├─ Layer Normalization
+└─ Residual Connections
+↓
 Output Logits
-    ↓
+↓
 Softmax
-    ↓
+↓
 Token Selection (Top-K Sampling / Temperature)
-```
+
+````text
 
 ## Tamanho do Modelo
 
@@ -145,7 +143,7 @@ Geração de Token 2:
 
 Geração de Token 3-100:
   - Cada um leva ~8ms (graças ao KV Cache)
-```
+```text
 
 Sem KV Cache, cada token levaria 40ms. Com KV Cache, a latência cai **80%** após o primeiro token.
 
@@ -187,7 +185,7 @@ gemini.generate(context + query)
 # const newToken = generateToken(user.id);
 # res.json({ token: newToken });
 # }
-```
+```text
 
 **Precisão**: 96.2% — código está sintaticamente correto e semanticamente sensato.
 
@@ -203,7 +201,7 @@ Output:
   - src/controllers/user-controller.ts (linha 88)
   - src/middleware/verify-user.ts (linha 15)
   - src/repositories/user-repository.ts (linha 71)
-```
+```text
 
 ## 3. Bug Detection
 
@@ -218,7 +216,7 @@ Input: src/utils/cache.js:
 
 Output: " Potencial memory leak: cache não tem TTL.
          Sugestão: usar Map com WeakRef ou adicionar expiração."
-```
+```text
 
 ## 4. Multimodal (Texto + Imagem)
 
@@ -230,7 +228,7 @@ Query: "Qual é a relação entre User e Post?"
 
 Output: "User tem relação 1:N com Post via user_id.
          Há índice em user_id para otimizar queries."
-```
+```text
 
 ## Integração com Vectora: O Pipeline Completo
 
@@ -269,7 +267,7 @@ User: "Como validar email na função de registro?"
    ├─ Avalia qualidade da resposta
    ├─ Compara com benchmark
    └─ Retorna ao usuário com score de confiança
-```
+```text
 
 ## Treinamento e Fine-Tuning
 
@@ -314,7 +312,7 @@ response = gemini.generate(
     top_k=40,
     max_tokens=2048,
 )
-```
+```text
 
 ## Modelos Alternativosfoi Testados
 
@@ -369,7 +367,7 @@ response = gemini.generate(..., temperature=0.1)
 # Análise / Explicação: temperature = 0.7
 response = gemini.generate(..., temperature=0.7)
 # "Mais criativo, variações naturais"
-```
+```text
 
 ## Prompt Caching
 
@@ -387,7 +385,7 @@ response2 = gemini.generate(
     system_prompt=CACHED_SYSTEM_PROMPT, # Do cache
     user_prompt=query2,
 )
-```
+```text
 
 Isso reduz latência p/ queries sucessivas em ~50%.
 
@@ -404,7 +402,7 @@ responses = await asyncio.gather(*[
 ])
 
 # Throughput: ~10 queries/segundo
-```
+```text
 
 ## O Custo Total
 
@@ -457,8 +455,8 @@ Mesmo o plano Free ($0 para usuários, BYOK) tem custo mínimo de ~$150/mês par
 ---
 
 _Este é um guia técnico do projeto [Vectora](docs/vectora/). Especificamente sobre Gemini 3 Flash._
-````
-`````
+
+
 
 ## External Linking
 
@@ -474,3 +472,4 @@ _Este é um guia técnico do projeto [Vectora](docs/vectora/). Especificamente s
 ---
 
 _Parte do ecossistema Vectora_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contribuidores](https://github.com/Kaffyn/Vectora/graphs/contributors)
+````
