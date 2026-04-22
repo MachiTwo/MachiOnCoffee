@@ -6,13 +6,29 @@ type: docs
 sidebar:
   open: true
 tags:
+  - ai
+  - api-keys
+  - auth
+  - byok
+  - concepts
+  - config
+  - embeddings
+  - errors
+  - gemini
   - getting-started
   - installation
-  - setup
+  - integration
+  - mcp
   - npm
+  - protocol
+  - reranker
+  - setup
+  - sso
+  - system
+  - troubleshooting
   - vectora
-  - byok
-  - api-keys
+  - voyage
+  - yaml
 ---
 
 {{< lang-toggle >}}
@@ -205,8 +221,17 @@ R: No Windows, use `winget upgrade kaffyn.vectora`. Em outros sistemas, rode o s
 
 ---
 
-_Parte do ecossistema Vectora_ · Open Source (MIT)
+## External Linking
 
-```text
+| Concept               | Resource                             | Link                                                                                   |
+| --------------------- | ------------------------------------ | -------------------------------------------------------------------------------------- |
+| **Voyage Embeddings** | Voyage Embeddings Documentation      | [docs.voyageai.com/docs/embeddings](https://docs.voyageai.com/docs/embeddings)         |
+| **Voyage Reranker**   | Voyage Reranker API                  | [docs.voyageai.com/docs/reranker](https://docs.voyageai.com/docs/reranker)             |
+| **MCP**               | Model Context Protocol Specification | [modelcontextprotocol.io/specification](https://modelcontextprotocol.io/specification) |
+| **MCP Go SDK**        | Go SDK for MCP (mark3labs)           | [github.com/mark3labs/mcp-go](https://github.com/mark3labs/mcp-go)                     |
+| **Anthropic Claude**  | Claude Documentation                 | [docs.anthropic.com/](https://docs.anthropic.com/)                                     |
+| **Gemini API**        | Google AI Studio Documentation       | [ai.google.dev/docs](https://ai.google.dev/docs)                                       |
 
-```
+---
+
+_Parte do ecossistema Vectora_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contribuidores](https://github.com/Kaffyn/Vectora/graphs/contributors)

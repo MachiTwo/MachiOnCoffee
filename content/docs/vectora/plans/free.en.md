@@ -7,9 +7,24 @@ sidebar:
   open: true
 tags:
   - ai
+  - auth
+  - byok
+  - chatgpt
+  - config
+  - embeddings
   - free
+  - gemini
+  - guardian
+  - harness-runtime
+  - integration
   - mcp
+  - rbac
+  - sso
+  - troubleshooting
+  - trust-folder
   - vectora
+  - voyage
+  - yaml
 ---
 
 {{< lang-toggle >}}
@@ -232,4 +247,4 @@ No migration required - upgrade is automatic.
 
 ---
 
-_Part of the Vectora ecosystem_ · Open Source (MIT)
+_Part of the Vectora ecosystem_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contributors](https://github.com/Kaffyn/Vectora/graphs/contributors)

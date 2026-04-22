@@ -8,8 +8,11 @@ sidebar:
 tags:
   - ai
   - code
+  - concepts
   - conduct
   - mcp
+  - protocol
+  - reference
   - vectora
 ---
 
@@ -46,3 +49,14 @@ All complainants will receive a prompt and fair response.
 ---
 
 > Questions about conduct? Contact us: <conduct@vectora.app>
+
+## External Linking
+
+| Concept        | Resource                             | Link                                                                                   |
+| -------------- | ------------------------------------ | -------------------------------------------------------------------------------------- |
+| **MCP**        | Model Context Protocol Specification | [modelcontextprotocol.io/specification](https://modelcontextprotocol.io/specification) |
+| **MCP Go SDK** | Go SDK for MCP (mark3labs)           | [github.com/mark3labs/mcp-go](https://github.com/mark3labs/mcp-go)                     |
+
+---
+
+_Part of the Vectora ecosystem_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contributors](https://github.com/Kaffyn/Vectora/graphs/contributors)

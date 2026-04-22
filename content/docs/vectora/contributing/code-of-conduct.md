@@ -9,6 +9,7 @@ tags:
   - ai
   - code-of-conduct
   - community
+  - reference
   - vectora
 ---
 
@@ -45,3 +46,7 @@ Todos os reclamantes receberão resposta rápida e justa.
 ---
 
 > Dúvidas sobre conduta? Entre em contato: <conduct@vectora.app>
+
+---
+
+_Parte do ecossistema Vectora_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contribuidores](https://github.com/Kaffyn/Vectora/graphs/contributors)

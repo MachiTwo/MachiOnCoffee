@@ -7,11 +7,24 @@ sidebar:
   open: true
 tags:
   - ai
+  - architecture
+  - byok
+  - concepts
+  - config
+  - errors
   - governance
   - guardian
   - mcp
+  - privacy
+  - rbac
+  - reference
   - security
+  - system
+  - tools
+  - troubleshooting
+  - trust-folder
   - vectora
+  - yaml
 ---
 
 {{< lang-toggle >}}
@@ -507,4 +520,4 @@ guardian:
 
 ---
 
-_Part of the Vectora ecosystem_ · Open Source (MIT)
+_Part of the Vectora ecosystem_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contributors](https://github.com/Kaffyn/Vectora/graphs/contributors)

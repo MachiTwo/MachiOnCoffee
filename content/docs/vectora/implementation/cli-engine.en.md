@@ -4,10 +4,18 @@ slug: cli-engine
 date: "2026-04-20T10:30:00-03:00"
 type: docs
 tags:
-  - engineering
-  - golang
+  - ai
+  - architecture
   - cli
   - cobra
+  - config
+  - context-engine
+  - engineering
+  - golang
+  - integration
+  - mcp
+  - state
+  - vectora
 ---
 
 {{< lang-toggle >}}
@@ -66,4 +74,4 @@ Systray and CLI coexist in the same daemon process. Actions in the CLI (like `ve
 
 ---
 
-_Part of the Vectora ecosystem_ · Internal Engineering
+_Part of the Vectora ecosystem_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contributors](https://github.com/Kaffyn/Vectora/graphs/contributors)

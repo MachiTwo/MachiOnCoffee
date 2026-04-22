@@ -9,10 +9,21 @@ tags:
   - ai
   - architecture
   - concepts
+  - config
+  - errors
   - folder
+  - guardian
+  - integration
   - mcp
+  - reference
+  - security
+  - system
+  - troubleshooting
   - trust
+  - trust-folder
+  - vector-search
   - vectora
+  - yaml
 ---
 
 {{< lang-toggle >}}
@@ -454,4 +465,4 @@ project:
 
 ---
 
-_Part of the Vectora ecosystem_ · Open Source (MIT)
+_Part of the Vectora ecosystem_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contributors](https://github.com/Kaffyn/Vectora/graphs/contributors)

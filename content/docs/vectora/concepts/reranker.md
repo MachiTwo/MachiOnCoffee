@@ -8,10 +8,14 @@ categories:
 tags:
   - ai
   - architecture
+  - auth
   - concepts
+  - config
   - context-engine
   - contexto
   - embeddings
+  - errors
+  - gemini
   - mcp
   - rag
   - refinador
@@ -35,14 +39,14 @@ Imagine que você faz uma pergunta ao Vectora:
 
 O [Voyage 4](./embeddings) (nosso modelo de embeddings) retorna os 50 documentos mais similares:
 
-`````text
+```
 1. src/auth/jwt.ts (95% similidade)
 2. src/middleware/auth.ts (94% similidade)
 3. tests/auth.test.ts (93% similidade)
 4. docs/auth.md (92% similidade)
 5. src/utils/token-utils.ts (91% similidade)
 ... e mais 45 documentos
-```text
+```
 
 **Problema**: Todos os 50 são "similares", mas você **não precisa de todos**. Enviar 50 fragmentos para o LLM é:
 
@@ -76,7 +80,7 @@ Query: "Como fazer autenticação JWT?"
 Query Embedding: [0.12, -0.45, 0.89, ...]
 Document 1 Embedding: [0.11, -0.46, 0.88, ...] → Cosine Similarity: 0.95
 Document 2 Embedding: [0.05, 0.23, 0.11, ...] → Cosine Similarity: 0.42
-```text
+```
 
 - Rápido (pré-computa embeddings)
 - Escalável (funciona com milhões de documentos)
@@ -91,7 +95,7 @@ Cross-Encoder Input:
   ↓ Modelo com Atenção Total ↓
 
 Score: 0.89 (muito relevante)
-```text
+```
 
 - Altamente preciso (examina query + documento simultaneamente)
 - Entende nuances (pode detectar quando um documento é enganosamente similar)
@@ -126,7 +130,7 @@ candidates = [
     "tests/email-validation.test.ts", # Embedding score: 0.85
     "README.md", # Embedding score: 0.72
 ]
-```text
+```
 
 ## Fase 2: Cross-Encoding
 
@@ -134,16 +138,12 @@ Para cada par (query, documento), o Voyage Rerank 2.5:
 
 1. **Tokeniza** a dupla com tokens especiais:
 
-````text
-
 [CLS] Onde tratamos a validação de email no contexto de registros de usuário? [SEP] export function validateEmail(email:
 string): boolean { ... } [SEP]
 
-````text
+1. **Aplica Attention** através de todas as camadas (ao contrário de bi-encoders que processam separadamente)
 
-2. **Aplica Attention** através de todas as camadas (ao contrário de bi-encoders que processam separadamente)
-
-3. **Gera um Score** entre 0 e 1 representando a relevância
+2. **Gera um Score** entre 0 e 1 representando a relevância
 
 ## Fase 3: Reordenação
 
@@ -159,7 +159,7 @@ Top-3 para enviar ao LLM:
 1. src/services/user-service.ts (0.97)
 2. src/auth/email-validation.ts (0.94)
 3. src/types/user.ts (0.71)
-```text
+```
 
 ## Por que Voyage Rerank 2.5 e Não Alternativas?
 
@@ -272,12 +272,13 @@ Query: "Como validar tokens JWT?"
  Gemini 3 Flash (LLM)
  [lê contexto refinado]
  [gera resposta de qualidade]
-```text
+```
 
 ## Performance e Latência
 
 ## Batching para Eficiência
-+
+
+-
 
 ```python
 # Cenário: 50 documentos para reranquear
@@ -290,12 +291,13 @@ for doc in documents:
 # Bom: batch de 50
 scores = reranker.rank(query, documents) # 100-150ms total
 # Total: 100-150ms
-```text
+```
 
 Batching é **50x mais rápido**.
 
 ## Threshold Inteligente
-+
+
+-
 
 ```python
 scores = reranker.rank(query, candidates)
@@ -307,7 +309,7 @@ top_k = [doc for score in scores if score > 0.70]
 
 # Redução de contexto: 4 docs em vez de 50 (92% redução)
 # Redução de custo: 92% economia em tokens do LLM
-```text
+```
 
 ## Métricas de Avaliação
 
@@ -325,7 +327,7 @@ Ranking ruim: [Doc_D (não), Doc_A (relevante), Doc_B (relevante)]
 NDCG@5 = 0.75 (75%)
 
 Voyage Rerank 2.5: NDCG@5 = 0.962 (96.2%)
-```text
+```
 
 ## MRR (Mean Reciprocal Rank)
 
@@ -341,7 +343,7 @@ Ranking 2: [Relevante, ...]
 MRR = 1/1 = 1.0
 
 Voyage Rerank 2.5 MRR: 0.94
-```text
+```
 
 ## Recall@K
 
@@ -353,13 +355,13 @@ Top-5 retorna: 4 documentos relevantes
 Recall@5 = 4/5 = 0.80 (80%)
 
 Voyage Rerank 2.5 Recall@10: 98.7%
-```text
+```
 
 ## Limitações Conhecidas
 
 1. **Latência não-zero**: Reranking leva tempo (50-150ms). Use com cuidado em aplicações real-time ultra-críticas
 2. **Dependência de qualidade dos candidatos**: Se o Embedding retornar 0 documentos relevantes, o Reranker não pode
-salvá-lo
+   salvá-lo
 3. **Custo**: $2 por 1M tokens é adicional ao custo do Embedding ($0.02) e do LLM
 4. **Sem fine-tuning**: Não é possível treinar uma versão customizada
 
@@ -387,5 +389,18 @@ Em projeto de 500K linhas de código:
 ---
 
 _Este é um guia técnico do projeto [Vectora](/docs/vectora/). Especificamente sobre reranking com Voyage 2.5._
-````text
-`````
+
+## External Linking
+
+| Concept               | Resource                                                   | Link                                                                                   |
+| --------------------- | ---------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| **Voyage Embeddings** | Voyage Embeddings Documentation                            | [docs.voyageai.com/docs/embeddings](https://docs.voyageai.com/docs/embeddings)         |
+| **Voyage Reranker**   | Voyage Reranker API                                        | [docs.voyageai.com/docs/reranker](https://docs.voyageai.com/docs/reranker)             |
+| **JWT**               | RFC 7519: JSON Web Token Standard                          | [datatracker.ietf.org/doc/html/rfc7519](https://datatracker.ietf.org/doc/html/rfc7519) |
+| **RAG**               | Retrieval-Augmented Generation for Knowledge-Intensive NLP | [arxiv.org/abs/2005.11401](https://arxiv.org/abs/2005.11401)                           |
+| **Qdrant**            | Vector Database Documentation                              | [qdrant.tech/documentation/](https://qdrant.tech/documentation/)                       |
+| **HNSW**              | Efficient and robust approximate nearest neighbor search   | [arxiv.org/abs/1603.09320](https://arxiv.org/abs/1603.09320)                           |
+
+---
+
+_Parte do ecossistema Vectora_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contribuidores](https://github.com/Kaffyn/Vectora/graphs/contributors)

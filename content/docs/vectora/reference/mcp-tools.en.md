@@ -7,10 +7,20 @@ sidebar:
   open: true
 tags:
   - ai
+  - auth
+  - chatgpt
+  - config
+  - errors
   - mcp
   - mcp-protocol
+  - reference
+  - security
+  - state
+  - system
   - tools
+  - trust-folder
   - vectora
+  - yaml
 ---
 
 {{< lang-toggle >}}
@@ -658,4 +668,4 @@ All tools return structured errors:
 
 ---
 
-_Part of the Vectora ecosystem_ · Open Source (MIT)
+_Part of the Vectora ecosystem_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contributors](https://github.com/Kaffyn/Vectora/graphs/contributors)

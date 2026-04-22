@@ -6,12 +6,32 @@ type: docs
 sidebar:
   open: true
 tags:
-  - engineering
-  - docker
-  - containers
-  - kubernetes
-  - goreleaser
+  - ai
+  - architecture
   - cloud
+  - concepts
+  - config
+  - containers
+  - docker
+  - engineering
+  - errors
+  - gemini
+  - goreleaser
+  - guardian
+  - kubernetes
+  - mcp
+  - mongodb-atlas
+  - protocol
+  - security
+  - state
+  - sub-agents
+  - system
+  - tools
+  - troubleshooting
+  - vector-search
+  - vectora
+  - voyage
+  - yaml
 ---
 
 {{< lang-toggle >}}
@@ -866,13 +886,13 @@ docker-compose logs -f vectora
 
 ## Variáveis de Ambiente
 
-| Variável | Descrição | Obrigatória |
-| :-------------- | :--------------------------- | :---------- |
-| MONGODB_URI | Connection string MongoDB | Sim |
-| GEMINI_API_KEY | Chave da API Gemini | Sim |
-| VOYAGE_API_KEY | Chave da API Voyage | Sim |
-| LOG_LEVEL | debug\|info\|warn\|error | Não |
-| VECTORA_MODE | development\|production | Não |
+| Variável       | Descrição                 | Obrigatória |
+| :------------- | :------------------------ | :---------- |
+| MONGODB_URI    | Connection string MongoDB | Sim         |
+| GEMINI_API_KEY | Chave da API Gemini       | Sim         |
+| VOYAGE_API_KEY | Chave da API Voyage       | Sim         |
+| LOG_LEVEL      | debug\|info\|warn\|error  | Não         |
+| VECTORA_MODE   | development\|production   | Não         |
 
 ## Volumes
 
@@ -940,7 +960,19 @@ Antes de publicar Docker images:
 
 ---
 
-_Parte do ecossistema Vectora_ · Engenharia Interna
-```text
+## External Linking
+
+| Concept | Resource | Link |
+|---------|----------|------|
+| **Docker** | Docker Documentation | [docs.docker.com/](https://docs.docker.com/) |
+| **MongoDB Atlas** | Atlas Vector Search Documentation | [www.mongodb.com/docs/atlas/atlas-vector-search/](https://www.mongodb.com/docs/atlas/atlas-vector-search/) |
+| **Kubernetes** | Kubernetes Official Documentation | [kubernetes.io/docs/](https://kubernetes.io/docs/) |
+| **MCP** | Model Context Protocol Specification | [modelcontextprotocol.io/specification](https://modelcontextprotocol.io/specification) |
+| **MCP Go SDK** | Go SDK for MCP (mark3labs) | [github.com/mark3labs/mcp-go](https://github.com/mark3labs/mcp-go) |
+| **GitHub Actions** | Automate your workflow from idea to production | [docs.github.com/en/actions](https://docs.github.com/en/actions) |
+
+---
+
+_Parte do ecossistema Vectora_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contribuidores](https://github.com/Kaffyn/Vectora/graphs/contributors)
 ````
 `````

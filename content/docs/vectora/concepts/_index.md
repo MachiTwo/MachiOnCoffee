@@ -8,14 +8,29 @@ sidebar:
 tags:
   - ai
   - architecture
+  - auth
+  - byok
   - concepts
+  - context-engine
   - embeddings
+  - governance
+  - guardian
+  - harness-runtime
   - mcp
+  - mongodb-atlas
+  - persistence
+  - protocol
   - rag
+  - rbac
   - reranker
+  - security
+  - state
+  - sub-agents
+  - tools
   - trust-folder
   - vector-search
   - vectora
+  - voyage
 ---
 
 {{< lang-toggle >}}
@@ -83,3 +98,18 @@ Entenda os pilares tecnológicos que sustentam o Vectora e como ele resolve o pr
 ---
 
 > Dúvidas sobre um conceito? [GitHub Discussions](https://github.com/Kaffyn/Vectora/discussions)
+
+## External Linking
+
+| Concept               | Resource                                                   | Link                                                                                                       |
+| --------------------- | ---------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| **MongoDB Atlas**     | Atlas Vector Search Documentation                          | [www.mongodb.com/docs/atlas/atlas-vector-search/](https://www.mongodb.com/docs/atlas/atlas-vector-search/) |
+| **MCP**               | Model Context Protocol Specification                       | [modelcontextprotocol.io/specification](https://modelcontextprotocol.io/specification)                     |
+| **MCP Go SDK**        | Go SDK for MCP (mark3labs)                                 | [github.com/mark3labs/mcp-go](https://github.com/mark3labs/mcp-go)                                         |
+| **Voyage Embeddings** | Voyage Embeddings Documentation                            | [docs.voyageai.com/docs/embeddings](https://docs.voyageai.com/docs/embeddings)                             |
+| **Voyage Reranker**   | Voyage Reranker API                                        | [docs.voyageai.com/docs/reranker](https://docs.voyageai.com/docs/reranker)                                 |
+| **RAG**               | Retrieval-Augmented Generation for Knowledge-Intensive NLP | [arxiv.org/abs/2005.11401](https://arxiv.org/abs/2005.11401)                                               |
+
+---
+
+_Parte do ecossistema Vectora_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contribuidores](https://github.com/Kaffyn/Vectora/graphs/contributors)

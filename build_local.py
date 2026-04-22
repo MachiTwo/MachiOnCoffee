@@ -1,11 +1,20 @@
 import subprocess
 import sys
 
+
 def main():
     print("Starting Hugo Build...")
     try:
         # Construct the command
-        command = ["npx", "--yes", "hugo-bin", "--gc", "--minify", "--destination", "static"]
+        command = [
+            "npx",
+            "--yes",
+            "hugo-bin",
+            "--gc",
+            "--minify",
+            "--destination",
+            "static",
+        ]
 
         # Execute the command
         result = subprocess.run(command, shell=True, check=True)
@@ -22,6 +31,7 @@ def main():
     except Exception as e:
         print(f"\nUnexpected error: {e}")
         sys.exit(1)
+
 
 if __name__ == "__main__":
     main()

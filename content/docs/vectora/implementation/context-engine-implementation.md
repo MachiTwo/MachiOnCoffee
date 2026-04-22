@@ -4,11 +4,24 @@ slug: context-engine-implementation
 date: "2026-04-20T10:30:00-03:00"
 type: docs
 tags:
-  - engineering
-  - golang
-  - rag
-  - embeddings
+  - ai
+  - architecture
+  - ast-parsing
+  - auth
+  - concepts
   - context-engine
+  - embeddings
+  - engineering
+  - errors
+  - golang
+  - guardian
+  - mcp
+  - mongodb-atlas
+  - rag
+  - reranker
+  - vector-search
+  - vectora
+  - voyage
 ---
 
 {{< lang-toggle >}}
@@ -342,7 +355,7 @@ type SearchResult struct {
     Metadata map[string]interface{} `bson:"metadata"`
 }
 
-func (ce *ContextEngine) SearchVector(ctx context.Context, embedding []float32, namespace string, k int) ([]SearchResult, error) {
+func (ce *engine) SearchVector(ctx context.Context, embedding []float32, namespace string, k int) ([]SearchResult, error) {
     collection := ce.mongoClient.Database("vectora").Collection("documents")
 
     // Pipeline de aggregation com busca vetorial + filtragem
@@ -507,7 +520,7 @@ type CompactedChunk struct {
 
 const MAX_TOKENS = 1024
 
-func (ce *ContextEngine) CompactChunk(content string, maxTokens int) *CompactedChunk {
+func (ce *engine) CompactChunk(content string, maxTokens int) *CompactedChunk {
     // Estimar tokens (rough: 1 token ≈ 4 caracteres)
     estimatedTokens := len(content) / 4
 
@@ -541,7 +554,7 @@ func (ce *ContextEngine) CompactChunk(content string, maxTokens int) *CompactedC
     }
 }
 
-func (ce *ContextEngine) extractHeadLines(lines []string, targetTokens int) []string {
+func (ce *engine) extractHeadLines(lines []string, targetTokens int) []string {
     tokens := 0
     var result []string
 
@@ -557,7 +570,7 @@ func (ce *ContextEngine) extractHeadLines(lines []string, targetTokens int) []st
     return result
 }
 
-func (ce *ContextEngine) extractTailLines(lines []string, targetTokens int) []string {
+func (ce *engine) extractTailLines(lines []string, targetTokens int) []string {
     tokens := 0
     var result []string
 
@@ -626,7 +639,7 @@ type SearchMetrics struct {
     CompactionRatio float32 `json:"compaction_ratio"` // original / compressed
 }
 
-func (ce *ContextEngine) ComposeContext(
+func (ce *engine) ComposeContext(
     ctx context.Context,
     chunks []SearchResult,
     query string,
@@ -707,4 +720,17 @@ func (ce *ContextEngine) ComposeContext(
 
 ---
 
-_Parte do ecossistema Vectora_ · Engenharia Interna
+## External Linking
+
+| Concept               | Resource                                                 | Link                                                                                                       |
+| --------------------- | -------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| **AST Parsing**       | Tree-sitter Official Documentation                       | [tree-sitter.github.io/tree-sitter/](https://tree-sitter.github.io/tree-sitter/)                           |
+| **BSON Spec**         | Binary JSON Specification                                | [bsonspec.org/](https://bsonspec.org/)                                                                     |
+| **MongoDB Atlas**     | Atlas Vector Search Documentation                        | [www.mongodb.com/docs/atlas/atlas-vector-search/](https://www.mongodb.com/docs/atlas/atlas-vector-search/) |
+| **Voyage Embeddings** | Voyage Embeddings Documentation                          | [docs.voyageai.com/docs/embeddings](https://docs.voyageai.com/docs/embeddings)                             |
+| **Voyage Reranker**   | Voyage Reranker API                                      | [docs.voyageai.com/docs/reranker](https://docs.voyageai.com/docs/reranker)                                 |
+| **HNSW**              | Efficient and robust approximate nearest neighbor search | [arxiv.org/abs/1603.09320](https://arxiv.org/abs/1603.09320)                                               |
+
+---
+
+_Parte do ecossistema Vectora_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contribuidores](https://github.com/Kaffyn/Vectora/graphs/contributors)

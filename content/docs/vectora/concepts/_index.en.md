@@ -8,14 +8,28 @@ sidebar:
 tags:
   - ai
   - architecture
+  - auth
+  - byok
   - concepts
+  - context-engine
   - embeddings
+  - governance
+  - guardian
+  - harness-runtime
   - mcp
+  - mongodb-atlas
+  - persistence
   - rag
+  - rbac
   - reranker
+  - security
+  - state
+  - sub-agents
+  - tools
   - trust-folder
   - vector-search
   - vectora
+  - voyage
 ---
 
 {{< lang-toggle >}}
@@ -82,4 +96,4 @@ Understand the technological pillars that underpin Vectora and how it solves the
 
 ---
 
-_Part of the Vectora ecosystem_ · Open Source (MIT)
+_Part of the Vectora ecosystem_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contributors](https://github.com/Kaffyn/Vectora/graphs/contributors)

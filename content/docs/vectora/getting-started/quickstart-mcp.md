@@ -6,12 +6,29 @@ type: docs
 sidebar:
   open: true
 tags:
-  - getting-started
-  - mcp
-  - quickstart
+  - ai
+  - auth
   - claude-desktop
+  - concepts
+  - config
+  - context-engine
+  - embeddings
+  - errors
+  - gemini
+  - getting-started
+  - guardian
   - integration
+  - mcp
+  - protocol
+  - quickstart
+  - rbac
+  - security
+  - system
+  - tools
+  - troubleshooting
   - vectora
+  - voyage
+  - yaml
 ---
 
 {{< lang-toggle >}}
@@ -235,4 +252,17 @@ R: Use o MCP Inspector em Claude Desktop (Menu → Developer Tools → MCP Inspe
 
 ---
 
-_Parte do ecossistema Vectora_ · Open Source (MIT)
+## External Linking
+
+| Concept               | Resource                             | Link                                                                                   |
+| --------------------- | ------------------------------------ | -------------------------------------------------------------------------------------- |
+| **Anthropic Claude**  | Claude Documentation                 | [docs.anthropic.com/](https://docs.anthropic.com/)                                     |
+| **MCP**               | Model Context Protocol Specification | [modelcontextprotocol.io/specification](https://modelcontextprotocol.io/specification) |
+| **MCP Go SDK**        | Go SDK for MCP (mark3labs)           | [github.com/mark3labs/mcp-go](https://github.com/mark3labs/mcp-go)                     |
+| **JWT**               | RFC 7519: JSON Web Token Standard    | [datatracker.ietf.org/doc/html/rfc7519](https://datatracker.ietf.org/doc/html/rfc7519) |
+| **Gemini API**        | Google AI Studio Documentation       | [ai.google.dev/docs](https://ai.google.dev/docs)                                       |
+| **Voyage Embeddings** | Voyage Embeddings Documentation      | [docs.voyageai.com/docs/embeddings](https://docs.voyageai.com/docs/embeddings)         |
+
+---
+
+_Parte do ecossistema Vectora_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contribuidores](https://github.com/Kaffyn/Vectora/graphs/contributors)

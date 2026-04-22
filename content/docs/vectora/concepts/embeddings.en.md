@@ -8,12 +8,18 @@ categories:
 tags:
   - ai
   - architecture
+  - ast-parsing
+  - auth
   - code
   - concepts
   - embeddings
+  - errors
+  - gemini
   - generation
+  - integration
   - mcp
   - next
+  - openai
   - rag
   - reranker
   - vector-search
@@ -78,7 +84,7 @@ def fetch_user(user_id: int) -> User:
     if not user:
         raise UserNotFound(f"User {user_id} not found")
     return user
-```text
+```
 
 The model doesn't just tokenize words — it **comprehends the AST (Abstract Syntax Tree)**:
 
@@ -105,7 +111,7 @@ async function getUser(userId) {
   if (!user) throw new UserNotFoundError();
   return user;
 }
-```text
+```
 
 This JavaScript code will have an embedding **very similar** to the Python code above, despite using completely
 different syntax.
@@ -129,7 +135,7 @@ simultaneously:
 
 ```text
 Query: "function that validates email"
-```text
+```
 
 Voyage 4 will find functions named `validateEmail`, `isValidEmail`, `check_email_format`, `emailValidator`, even if none
 have the word "email" in the function body.
@@ -138,7 +144,7 @@ have the word "email" in the function body.
 
 ```text
 Query: "How to cache database query results?"
-```text
+```
 
 The model returns both:
 
@@ -151,7 +157,7 @@ The model returns both:
 
 ```text
 Query: "Where do we handle race conditions in concurrent operations?"
-```text
+```
 
 Voyage 4 understands you're looking for:
 
@@ -235,7 +241,7 @@ Metadata associated with each embedding:
     "user_id": "user-456"
   }
 }
-```text
+```
 
 Enables filters like: "search embeddings where `language == 'typescript'` AND `namespace == 'project-123'`" in
 real-time.
@@ -247,7 +253,7 @@ real-time.
 ```text
 Input: Code snippet with possible buffer overflow
 Output: Similarity to 5 known vulnerability patterns
-```text
+```
 
 Voyage 4 finds historically vulnerable code with 97% accuracy.
 
@@ -256,7 +262,7 @@ Voyage 4 finds historically vulnerable code with 97% accuracy.
 ```text
 Input: New PR with 3 functions
 Output: "Function 1 follows pattern X | Function 2 has smell Y | Function 3 is new"
-```text
+```
 
 Uses embeddings to classify modifications by type.
 
@@ -265,7 +271,7 @@ Uses embeddings to classify modifications by type.
 ```text
 Input: "Simplify this code while keeping behavior"
 Output: 10 similar simplification patterns already applied in the project
-```text
+```
 
 Retrieve by semantic similarity, not syntax.
 
@@ -282,7 +288,7 @@ for file in codebase:
 batches = [codebase[i:i+100] for i in range(0, len(codebase), 100)]
 for batch in batches:
     embeddings = voyage.embed([f.content for f in batch]) # 50-100ms for all 100
-```text
+```
 
 Batching reduces total latency from hours to minutes.
 
@@ -292,7 +298,7 @@ Batching reduces total latency from hours to minutes.
 # Cache in Qdrant: "Do I already have embedding for SHA-256 hash abc123def456?"
 # Yes? Return from cache (~5ms)
 # No? Generate new (~75ms) + save to cache
-```text
+```
 
 In large projects, 70-80% of embeddings are already cached.
 
@@ -334,5 +340,20 @@ Voyage 4 isn't just better — it's **significantly better** at code tasks.
 ---
 
 _This is a supporting guide for the [Vectora](docs/vectora/) project. Specifically about embeddings with Voyage 4._
-````text
+````
 `````
+
+## External Linking
+
+| Concept               | Resource                                                   | Link                                                                           |
+| --------------------- | ---------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| **Voyage Embeddings** | Voyage Embeddings Documentation                            | [docs.voyageai.com/docs/embeddings](https://docs.voyageai.com/docs/embeddings) |
+| **Voyage Reranker**   | Voyage Reranker API                                        | [docs.voyageai.com/docs/reranker](https://docs.voyageai.com/docs/reranker)     |
+| **Qdrant**            | Vector Database Documentation                              | [qdrant.tech/documentation/](https://qdrant.tech/documentation/)               |
+| **RAG**               | Retrieval-Augmented Generation for Knowledge-Intensive NLP | [arxiv.org/abs/2005.11401](https://arxiv.org/abs/2005.11401)                   |
+| **Gemini API**        | Google AI Studio Documentation                             | [ai.google.dev/docs](https://ai.google.dev/docs)                               |
+| **HNSW**              | Efficient and robust approximate nearest neighbor search   | [arxiv.org/abs/1603.09320](https://arxiv.org/abs/1603.09320)                   |
+
+---
+
+_Part of the Vectora ecosystem_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contributors](https://github.com/Kaffyn/Vectora/graphs/contributors)

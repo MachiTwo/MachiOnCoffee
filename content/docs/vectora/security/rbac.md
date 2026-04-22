@@ -7,11 +7,26 @@ sidebar:
   open: true
 tags:
   - ai
+  - architecture
+  - auth
+  - byok
+  - concepts
+  - config
   - governance
+  - guardian
+  - harness-runtime
+  - integration
   - mcp
+  - privacy
+  - protocol
   - rbac
   - security
+  - sso
+  - system
+  - troubleshooting
+  - trust-folder
   - vectora
+  - yaml
 ---
 
 {{< lang-toggle >}}
@@ -520,4 +535,14 @@ vectora token revoke-all-old
 
 ---
 
-_Parte do ecossistema Vectora_ · Open Source (MIT)
+## External Linking
+
+| Concept        | Resource                                | Link                                                                                   |
+| -------------- | --------------------------------------- | -------------------------------------------------------------------------------------- |
+| **RBAC**       | NIST Role-Based Access Control Standard | [csrc.nist.gov/projects/rbac](https://csrc.nist.gov/projects/rbac)                     |
+| **MCP**        | Model Context Protocol Specification    | [modelcontextprotocol.io/specification](https://modelcontextprotocol.io/specification) |
+| **MCP Go SDK** | Go SDK for MCP (mark3labs)              | [github.com/mark3labs/mcp-go](https://github.com/mark3labs/mcp-go)                     |
+
+---
+
+_Parte do ecossistema Vectora_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contribuidores](https://github.com/Kaffyn/Vectora/graphs/contributors)

@@ -8,7 +8,10 @@ categories:
 tags:
   - ai
   - architecture
+  - ast-parsing
+  - auth
   - concepts
+  - config
   - connected
   - context
   - context-engine
@@ -16,7 +19,11 @@ tags:
   - kills
   - mcp
   - productivity
+  - protocol
   - rag
+  - reference
+  - system
+  - vector-search
   - vectora
 type: docs
 sidebar:
@@ -70,3 +77,17 @@ Traditional RAG gives you data. Vectora's Connected RAG gives you **knowledge**.
 ---
 
 _This is a supporting post for the [Vectora](docs/vectora/) project._
+
+## External Linking
+
+| Concept         | Resource                                                   | Link                                                                                   |
+| --------------- | ---------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| **RAG**         | Retrieval-Augmented Generation for Knowledge-Intensive NLP | [arxiv.org/abs/2005.11401](https://arxiv.org/abs/2005.11401)                           |
+| **AST Parsing** | Tree-sitter Official Documentation                         | [tree-sitter.github.io/tree-sitter/](https://tree-sitter.github.io/tree-sitter/)       |
+| **MCP**         | Model Context Protocol Specification                       | [modelcontextprotocol.io/specification](https://modelcontextprotocol.io/specification) |
+| **MCP Go SDK**  | Go SDK for MCP (mark3labs)                                 | [github.com/mark3labs/mcp-go](https://github.com/mark3labs/mcp-go)                     |
+| **JWT**         | RFC 7519: JSON Web Token Standard                          | [datatracker.ietf.org/doc/html/rfc7519](https://datatracker.ietf.org/doc/html/rfc7519) |
+
+---
+
+_Part of the Vectora ecosystem_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contributors](https://github.com/Kaffyn/Vectora/graphs/contributors)

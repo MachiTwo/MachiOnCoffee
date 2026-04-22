@@ -8,16 +8,40 @@ sidebar:
 breadcrumbs: true
 tags:
   - ai
+  - architecture
+  - ast-parsing
+  - auth
+  - byok
+  - concepts
+  - config
   - context-engine
   - embeddings
+  - errors
+  - gemini
+  - governance
   - guardian
+  - harness-runtime
+  - integration
   - mcp
   - mcp-protocol
+  - mongodb-atlas
+  - persistence
+  - protocol
   - rag
+  - rbac
+  - reference
   - reranker
+  - security
+  - sso
+  - state
   - sub-agents
+  - tools
+  - troubleshooting
+  - trust-folder
   - vector-search
   - vectora
+  - voyage
+  - yaml
 ---
 
 {{< lang-toggle >}}
@@ -149,6 +173,17 @@ Vectora operates with a **Digital Sovereignty First** model, offering **BYOK (Br
 - [**FAQ**](./faq/) — Troubleshooting and common questions.
 - [**Protocols**](./protocols/) — MCP Protocol specifications in Vectora.
 
+## External Linking
+
+| Concept               | Resource                             | Link                                                                                                       |
+| --------------------- | ------------------------------------ | ---------------------------------------------------------------------------------------------------------- |
+| **MongoDB Atlas**     | Atlas Vector Search Documentation    | [www.mongodb.com/docs/atlas/atlas-vector-search/](https://www.mongodb.com/docs/atlas/atlas-vector-search/) |
+| **MCP**               | Model Context Protocol Specification | [modelcontextprotocol.io/specification](https://modelcontextprotocol.io/specification)                     |
+| **MCP Go SDK**        | Go SDK for MCP (mark3labs)           | [github.com/mark3labs/mcp-go](https://github.com/mark3labs/mcp-go)                                         |
+| **Voyage Embeddings** | Voyage Embeddings Documentation      | [docs.voyageai.com/docs/embeddings](https://docs.voyageai.com/docs/embeddings)                             |
+| **Voyage Reranker**   | Voyage Reranker API                  | [docs.voyageai.com/docs/reranker](https://docs.voyageai.com/docs/reranker)                                 |
+| **Gemini API**        | Google AI Studio Documentation       | [ai.google.dev/docs](https://ai.google.dev/docs)                                                           |
+
 ---
 
-Part of the Vectora ecosystem · Open Source (MIT)
+_Part of the Vectora ecosystem_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contributors](https://github.com/Kaffyn/Vectora/graphs/contributors)

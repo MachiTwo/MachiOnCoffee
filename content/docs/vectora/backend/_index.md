@@ -7,9 +7,25 @@ sidebar:
   open: true
 tags:
   - ai
+  - architecture
   - backend
+  - byok
+  - concepts
+  - config
+  - embeddings
+  - governance
+  - harness-runtime
   - mcp
+  - mongodb-atlas
+  - persistence
+  - privacy
+  - protocol
+  - rag
+  - rbac
+  - state
+  - vector-search
   - vectora
+  - voyage
 ---
 
 {{< lang-toggle >}}
@@ -73,5 +89,22 @@ R: O Vectora permite caching local de alguns metadados, mas a busca vetorial sem
 
 ---
 
+## External Linking
+
+| Concept           | Resource                                                   | Link                                                                                                       |
+| ----------------- | ---------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| **MongoDB Atlas** | Atlas Vector Search Documentation                          | [www.mongodb.com/docs/atlas/atlas-vector-search/](https://www.mongodb.com/docs/atlas/atlas-vector-search/) |
+| **MCP**           | Model Context Protocol Specification                       | [modelcontextprotocol.io/specification](https://modelcontextprotocol.io/specification)                     |
+| **MCP Go SDK**    | Go SDK for MCP (mark3labs)                                 | [github.com/mark3labs/mcp-go](https://github.com/mark3labs/mcp-go)                                         |
+| **RBAC**          | NIST Role-Based Access Control Standard                    | [csrc.nist.gov/projects/rbac](https://csrc.nist.gov/projects/rbac)                                         |
+| **RAG**           | Retrieval-Augmented Generation for Knowledge-Intensive NLP | [arxiv.org/abs/2005.11401](https://arxiv.org/abs/2005.11401)                                               |
+| **HNSW**          | Efficient and robust approximate nearest neighbor search   | [arxiv.org/abs/1603.09320](https://arxiv.org/abs/1603.09320)                                               |
+
+---
+
 > **Frase para lembrar**:
 > _"O runtime é o cérebro; o backend é a biblioteca. Sem uma biblioteca organizada, o cérebro não tem onde buscar as respostas."_
+
+---
+
+_Parte do ecossistema Vectora_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contribuidores](https://github.com/Kaffyn/Vectora/graphs/contributors)

@@ -6,11 +6,37 @@ type: docs
 sidebar:
   open: true
 tags:
+  - ai
   - architecture
+  - auth
+  - byok
+  - chatgpt
   - concepts
+  - config
+  - context-engine
+  - embeddings
+  - errors
+  - gemini
+  - guardian
+  - harness-runtime
+  - integration
+  - mcp
+  - persistence
+  - plugins
+  - privacy
+  - protocol
+  - rbac
   - reference
+  - reranker
+  - security
+  - state
   - system
+  - tools
+  - trust-folder
+  - vector-search
   - vectora
+  - voyage
+  - yaml
 ---
 
 {{< lang-toggle >}}
@@ -330,4 +356,4 @@ rbac:
 
 ---
 
-_Part of the Vectora ecosystem_ · Open Source (MIT)
+_Part of the Vectora ecosystem_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contributors](https://github.com/Kaffyn/Vectora/graphs/contributors)

@@ -6,10 +6,18 @@ type: docs
 sidebar:
   open: true
 tags:
-  - engineering
+  - ai
   - architecture
+  - engineering
   - golang
+  - governance
+  - guardian
   - implementation
+  - rag
+  - security
+  - system
+  - vector-search
+  - vectora
 ---
 
 {{< lang-toggle >}}
@@ -40,4 +48,4 @@ Explore the engineering modules below to understand each part of the ecosystem:
 
 ---
 
-_Part of the Vectora ecosystem_ · Internal Engineering
+_Part of the Vectora ecosystem_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contributors](https://github.com/Kaffyn/Vectora/graphs/contributors)

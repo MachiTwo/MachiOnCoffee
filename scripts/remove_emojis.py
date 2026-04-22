@@ -3,8 +3,8 @@ import re
 import sys
 
 # Ensure stdout can handle UTF-8 if possible, or fallback to ignoring errors
-if hasattr(sys.stdout, 'reconfigure'):
-    sys.stdout.reconfigure(encoding='utf-8')
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8")
 
 # A comprehensive list of literal emojis to remove, plus a broad range for others.
 # Using literal characters as the user requested.
@@ -13,9 +13,12 @@ EMOJI_LIST = "🎯🔍🧩📦🛡️💰🔄🧭💡📂🟢🔵🟣⚫🚀🧠
 # Pattern to match literal emojis and the common symbol ranges
 # This includes the specific ones the user pointed out: 🔑 🚀 🧠 🎯 🔍
 EMOJI_PATTERN = re.compile(
-    r'[' + EMOJI_LIST + r'\U00010000-\U0010ffff\u2600-\u27bf\u2b50\u2b55\u231a\u231b\u23e9-\u23f3\u23f8-\u23fa]',
-    flags=re.UNICODE
+    r"["
+    + EMOJI_LIST
+    + r"\U00010000-\U0010ffff\u2600-\u27bf\u2b50\u2b55\u231a\u231b\u23e9-\u23f3\u23f8-\u23fa]",
+    flags=re.UNICODE,
 )
+
 
 def clean_text(text):
     """
@@ -25,7 +28,7 @@ def clean_text(text):
         return text
 
     # Remove emojis
-    text = EMOJI_PATTERN.sub('', text)
+    text = EMOJI_PATTERN.sub("", text)
 
     # Process line by line to handle double spaces and preserve indentation
     # but only for lines that were potentially changed or have odd spacing.
@@ -35,22 +38,23 @@ def clean_text(text):
 
     for line in original_lines:
         # Preserve indentation
-        match = re.match(r'^(\s*)', line)
+        match = re.match(r"^(\s*)", line)
         indent = match.group(1) if match else ""
 
         # Get the content without indentation AND without the trailing newline
-        content_with_newline = line[len(indent):]
-        newline_match = re.search(r'[\r\n]+$', content_with_newline)
+        content_with_newline = line[len(indent) :]
+        newline_match = re.search(r"[\r\n]+$", content_with_newline)
         newline = newline_match.group(0) if newline_match else ""
-        content = content_with_newline[:len(content_with_newline)-len(newline)]
+        content = content_with_newline[: len(content_with_newline) - len(newline)]
 
         # Remove multiple spaces inside content (e.g., "Word1  Word2" -> "Word1 Word2")
         # and strip trailing spaces (not the newline itself)
-        content = re.sub(r' +', ' ', content).rstrip()
+        content = re.sub(r" +", " ", content).rstrip()
 
         lines.append(indent + content + newline)
 
-    return ''.join(lines)
+    return "".join(lines)
+
 
 def run():
     # If arguments are provided (e.g. from pre-commit), use them.
@@ -61,21 +65,25 @@ def run():
             if os.path.isdir(arg):
                 for root, _, files in os.walk(arg):
                     for file in files:
-                        if file.endswith('.md'):
+                        if file.endswith(".md"):
                             md_files.append(os.path.join(root, file))
-            elif os.path.isfile(arg) and arg.endswith('.md'):
+            elif os.path.isfile(arg) and arg.endswith(".md"):
                 md_files.append(arg)
 
         if not md_files:
             return
 
-        target_dir = os.path.commonpath([os.path.abspath(f) for f in md_files]) if len(md_files) > 1 else os.path.dirname(os.path.abspath(md_files[0]))
+        target_dir = (
+            os.path.commonpath([os.path.abspath(f) for f in md_files])
+            if len(md_files) > 1
+            else os.path.dirname(os.path.abspath(md_files[0]))
+        )
         print(f"Limpando emojis em {len(md_files)} arquivos...")
     else:
-        target_dir = 'content'
+        target_dir = "content"
         if not os.path.exists(target_dir):
             # Allow running from scripts/ folder
-            target_dir = os.path.join('..', 'content')
+            target_dir = os.path.join("..", "content")
 
         if not os.path.exists(target_dir):
             print("Erro: Diretorio 'content' nao encontrado.")
@@ -86,20 +94,20 @@ def run():
         md_files = []
         for root, _, files in os.walk(target_dir):
             for file in files:
-                if file.endswith('.md'):
+                if file.endswith(".md"):
                     md_files.append(os.path.join(root, file))
 
     count = 0
     for path in sorted(md_files):
         try:
             # Use 'newline=""' to preserve original line endings
-            with open(path, 'r', encoding='utf-8', newline='') as f:
+            with open(path, "r", encoding="utf-8", newline="") as f:
                 original = f.read()
 
             cleaned = clean_text(original)
 
             if original != cleaned:
-                with open(path, 'w', encoding='utf-8', newline='') as f:
+                with open(path, "w", encoding="utf-8", newline="") as f:
                     f.write(cleaned)
 
                 # Print relative path for clarity
@@ -114,6 +122,7 @@ def run():
 
     if count > 0 or len(sys.argv) == 1:
         print(f"\nSucesso! {count} arquivos foram limpos.")
+
 
 if __name__ == "__main__":
     run()

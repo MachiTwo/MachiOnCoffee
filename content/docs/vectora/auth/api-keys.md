@@ -7,8 +7,21 @@ sidebar:
   open: true
 tags:
   - ai
+  - auth
+  - byok
+  - concepts
+  - config
+  - gemini
+  - guardian
+  - integration
   - keys
   - mcp
+  - protocol
+  - rag
+  - rbac
+  - security
+  - sso
+  - tools
   - vectora
 ---
 
@@ -122,5 +135,22 @@ R: Absolutamente não. O [Guardian](/security/guardian/) roda na camada de aplic
 
 ---
 
+## External Linking
+
+| Concept            | Resource                                       | Link                                                                                   |
+| ------------------ | ---------------------------------------------- | -------------------------------------------------------------------------------------- |
+| **MCP**            | Model Context Protocol Specification           | [modelcontextprotocol.io/specification](https://modelcontextprotocol.io/specification) |
+| **MCP Go SDK**     | Go SDK for MCP (mark3labs)                     | [github.com/mark3labs/mcp-go](https://github.com/mark3labs/mcp-go)                     |
+| **RBAC**           | NIST Role-Based Access Control Standard        | [csrc.nist.gov/projects/rbac](https://csrc.nist.gov/projects/rbac)                     |
+| **GitHub Actions** | Automate your workflow from idea to production | [docs.github.com/en/actions](https://docs.github.com/en/actions)                       |
+| **JWT**            | RFC 7519: JSON Web Token Standard              | [datatracker.ietf.org/doc/html/rfc7519](https://datatracker.ietf.org/doc/html/rfc7519) |
+| **WebAuthn**       | Web Authentication: Public Key Credentials     | [www.w3.org/TR/webauthn-2/](https://www.w3.org/TR/webauthn-2/)                         |
+
+---
+
 > **Frase para lembrar**:
 > _"API Keys abrem a porta. Escopos definem a sala. Guardian tranca o cofre."_
+
+---
+
+_Parte do ecossistema Vectora_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contribuidores](https://github.com/Kaffyn/Vectora/graphs/contributors)

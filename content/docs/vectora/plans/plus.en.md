@@ -7,8 +7,20 @@ sidebar:
   open: true
 tags:
   - ai
+  - auth
+  - byok
+  - config
+  - embeddings
+  - errors
+  - gemini
+  - guardian
   - mcp
+  - reranker
+  - security
+  - sso
   - vectora
+  - voyage
+  - yaml
 ---
 
 {{< lang-toggle >}}
@@ -262,4 +274,4 @@ A: Yes, with 99.9% SLA (guaranteed uptime).
 
 ---
 
-_Part of the Vectora ecosystem_ · Open Source (MIT)
+_Part of the Vectora ecosystem_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contributors](https://github.com/Kaffyn/Vectora/graphs/contributors)

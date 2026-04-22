@@ -7,8 +7,12 @@ sidebar:
   open: true
 tags:
   - ai
+  - byok
+  - concepts
   - mcp
   - plans
+  - protocol
+  - security
   - vectora
 ---
 
@@ -36,3 +40,14 @@ Escolha o plano que melhor se adapta ao tamanho da sua equipe e às necessidades
 ---
 
 > Dúvidas sobre faturamento? Veja o [FAQ de Billing](../faq/billing.md).
+
+## External Linking
+
+| Concept        | Resource                             | Link                                                                                   |
+| -------------- | ------------------------------------ | -------------------------------------------------------------------------------------- |
+| **MCP**        | Model Context Protocol Specification | [modelcontextprotocol.io/specification](https://modelcontextprotocol.io/specification) |
+| **MCP Go SDK** | Go SDK for MCP (mark3labs)           | [github.com/mark3labs/mcp-go](https://github.com/mark3labs/mcp-go)                     |
+
+---
+
+_Parte do ecossistema Vectora_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contribuidores](https://github.com/Kaffyn/Vectora/graphs/contributors)

@@ -7,9 +7,15 @@ sidebar:
   open: true
 tags:
   - ai
-  - gemini
   - cli
+  - concepts
+  - config
+  - gemini
   - integration
+  - mcp
+  - protocol
+  - system
+  - troubleshooting
   - vectora
 ---
 
@@ -69,3 +75,15 @@ gemini chat --system "Você tem acesso a Vectora para buscar código"
 ---
 
 > Dúvidas? [GitHub Discussions](https://github.com/Kaffyn/Vectora/discussions)
+
+## External Linking
+
+| Concept        | Resource                             | Link                                                                                   |
+| -------------- | ------------------------------------ | -------------------------------------------------------------------------------------- |
+| **Gemini API** | Google AI Studio Documentation       | [ai.google.dev/docs](https://ai.google.dev/docs)                                       |
+| **MCP**        | Model Context Protocol Specification | [modelcontextprotocol.io/specification](https://modelcontextprotocol.io/specification) |
+| **MCP Go SDK** | Go SDK for MCP (mark3labs)           | [github.com/mark3labs/mcp-go](https://github.com/mark3labs/mcp-go)                     |
+
+---
+
+_Parte do ecossistema Vectora_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contribuidores](https://github.com/Kaffyn/Vectora/graphs/contributors)

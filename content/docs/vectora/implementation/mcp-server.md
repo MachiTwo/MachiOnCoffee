@@ -4,11 +4,22 @@ slug: mcp-server
 date: "2026-04-20T10:30:00-03:00"
 type: docs
 tags:
+  - ai
+  - auth
+  - concepts
+  - embeddings
   - engineering
+  - errors
   - golang
-  - mcp
+  - harness-runtime
+  - integration
   - json-rpc
+  - mcp
   - protocol
+  - rbac
+  - tools
+  - vector-search
+  - vectora
 ---
 
 {{< lang-toggle >}}
@@ -217,7 +228,7 @@ type SearchContextResult struct {
     Metrics map[string]interface{} `json:"metrics"`
 }
 
-func RegisterSearchContext(server *Server, engine *ContextEngine) {
+func RegisterSearchContext(server *Server, engine *engine) {
     server.RegisterMethod("search_context", func(rawParams json.RawMessage) (interface{}, error) {
         var params SearchContextParams
         if err := json.Unmarshal(rawParams, &params); err != nil {
@@ -452,4 +463,16 @@ func TestInvalidMethod(t *testing.T) {
 
 ---
 
-_Parte do ecossistema Vectora_ · Engenharia Interna
+## External Linking
+
+| Concept        | Resource                                | Link                                                                                   |
+| -------------- | --------------------------------------- | -------------------------------------------------------------------------------------- |
+| **MCP**        | Model Context Protocol Specification    | [modelcontextprotocol.io/specification](https://modelcontextprotocol.io/specification) |
+| **MCP Go SDK** | Go SDK for MCP (mark3labs)              | [github.com/mark3labs/mcp-go](https://github.com/mark3labs/mcp-go)                     |
+| **JSON-RPC**   | JSON-RPC 2.0 Specification              | [www.jsonrpc.org/specification](https://www.jsonrpc.org/specification)                 |
+| **JWT**        | RFC 7519: JSON Web Token Standard       | [datatracker.ietf.org/doc/html/rfc7519](https://datatracker.ietf.org/doc/html/rfc7519) |
+| **RBAC**       | NIST Role-Based Access Control Standard | [csrc.nist.gov/projects/rbac](https://csrc.nist.gov/projects/rbac)                     |
+
+---
+
+_Parte do ecossistema Vectora_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contribuidores](https://github.com/Kaffyn/Vectora/graphs/contributors)

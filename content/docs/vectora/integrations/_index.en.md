@@ -7,9 +7,16 @@ sidebar:
   open: true
 tags:
   - ai
+  - chatgpt
+  - concepts
+  - config
+  - gemini
   - integration
   - integrations
   - mcp
+  - plugins
+  - protocol
+  - tools
   - vectora
 ---
 
@@ -95,3 +102,16 @@ Build agents in Python, Node.js, Go, or any language. Call Vectora via REST API 
 ---
 
 > Didn't find your IDE? [Open an Issue](https://github.com/Kaffyn/Vectora/issues)
+
+## External Linking
+
+| Concept              | Resource                             | Link                                                                                   |
+| -------------------- | ------------------------------------ | -------------------------------------------------------------------------------------- |
+| **MCP**              | Model Context Protocol Specification | [modelcontextprotocol.io/specification](https://modelcontextprotocol.io/specification) |
+| **MCP Go SDK**       | Go SDK for MCP (mark3labs)           | [github.com/mark3labs/mcp-go](https://github.com/mark3labs/mcp-go)                     |
+| **Gemini API**       | Google AI Studio Documentation       | [ai.google.dev/docs](https://ai.google.dev/docs)                                       |
+| **Anthropic Claude** | Claude Documentation                 | [docs.anthropic.com/](https://docs.anthropic.com/)                                     |
+
+---
+
+_Part of the Vectora ecosystem_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contributors](https://github.com/Kaffyn/Vectora/graphs/contributors)

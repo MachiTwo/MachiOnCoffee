@@ -7,11 +7,24 @@ sidebar:
   open: true
 tags:
   - ai
+  - auth
   - chatgpt
+  - concepts
+  - config
+  - embeddings
+  - errors
+  - gemini
   - integration
-  - plugins
+  - mcp
   - openai
+  - plugins
+  - privacy
+  - protocol
+  - security
+  - system
+  - troubleshooting
   - vectora
+  - yaml
 ---
 
 {{< lang-toggle >}}
@@ -457,4 +470,17 @@ Exemplo:
 
 ---
 
-_Parte do ecossistema Vectora_ · Open Source (MIT)
+## External Linking
+
+| Concept        | Resource                             | Link                                                                                   |
+| -------------- | ------------------------------------ | -------------------------------------------------------------------------------------- |
+| **MCP**        | Model Context Protocol Specification | [modelcontextprotocol.io/specification](https://modelcontextprotocol.io/specification) |
+| **MCP Go SDK** | Go SDK for MCP (mark3labs)           | [github.com/mark3labs/mcp-go](https://github.com/mark3labs/mcp-go)                     |
+| **JWT**        | RFC 7519: JSON Web Token Standard    | [datatracker.ietf.org/doc/html/rfc7519](https://datatracker.ietf.org/doc/html/rfc7519) |
+| **OpenAI**     | OpenAI API Documentation             | [platform.openai.com/docs/](https://platform.openai.com/docs/)                         |
+| **OpenAPI**    | OpenAPI Specification                | [swagger.io/specification/](https://swagger.io/specification/)                         |
+| **Gemini API** | Google AI Studio Documentation       | [ai.google.dev/docs](https://ai.google.dev/docs)                                       |
+
+---
+
+_Parte do ecossistema Vectora_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contribuidores](https://github.com/Kaffyn/Vectora/graphs/contributors)

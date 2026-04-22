@@ -7,9 +7,26 @@ sidebar:
   open: true
 tags:
   - ai
+  - auth
+  - byok
+  - chatgpt
+  - concepts
+  - config
+  - embeddings
+  - gemini
   - general
+  - guardian
   - mcp
+  - openai
+  - protocol
+  - rbac
+  - reranker
+  - security
+  - sso
+  - vector-search
   - vectora
+  - voyage
+  - yaml
 ---
 
 {{< lang-toggle >}}
@@ -362,4 +379,17 @@ indexing:
 
 ---
 
-_Parte do ecossistema Vectora_ · Open Source (MIT)
+## External Linking
+
+| Concept               | Resource                             | Link                                                                                   |
+| --------------------- | ------------------------------------ | -------------------------------------------------------------------------------------- |
+| **Voyage Embeddings** | Voyage Embeddings Documentation      | [docs.voyageai.com/docs/embeddings](https://docs.voyageai.com/docs/embeddings)         |
+| **Voyage Reranker**   | Voyage Reranker API                  | [docs.voyageai.com/docs/reranker](https://docs.voyageai.com/docs/reranker)             |
+| **MCP**               | Model Context Protocol Specification | [modelcontextprotocol.io/specification](https://modelcontextprotocol.io/specification) |
+| **MCP Go SDK**        | Go SDK for MCP (mark3labs)           | [github.com/mark3labs/mcp-go](https://github.com/mark3labs/mcp-go)                     |
+| **Anthropic Claude**  | Claude Documentation                 | [docs.anthropic.com/](https://docs.anthropic.com/)                                     |
+| **Qdrant**            | Vector Database Documentation        | [qdrant.tech/documentation/](https://qdrant.tech/documentation/)                       |
+
+---
+
+_Parte do ecossistema Vectora_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contribuidores](https://github.com/Kaffyn/Vectora/graphs/contributors)

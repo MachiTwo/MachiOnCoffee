@@ -7,11 +7,22 @@ sidebar:
   open: true
 tags:
   - ai
+  - ast-parsing
+  - auth
+  - chatgpt
+  - config
+  - embeddings
   - extension
   - integration
   - mcp
-  - vscode
+  - plugins
+  - privacy
+  - protocol
+  - system
+  - troubleshooting
   - vectora
+  - vscode
+  - yaml
 ---
 
 {{< lang-toggle >}}
@@ -405,4 +416,4 @@ Customize in: **Code** → **Preferences** → **Keyboard Shortcuts**
 
 ---
 
-_Part of the Vectora ecosystem_ · Open Source (MIT)
+_Part of the Vectora ecosystem_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contributors](https://github.com/Kaffyn/Vectora/graphs/contributors)

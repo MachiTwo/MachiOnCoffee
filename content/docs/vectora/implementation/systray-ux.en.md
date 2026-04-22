@@ -4,11 +4,21 @@ slug: systray-ux
 date: "2026-04-20T10:30:00-03:00"
 type: docs
 tags:
-  - engineering
-  - ux
-  - systray
-  - golang
+  - ai
+  - architecture
   - auth
+  - config
+  - engineering
+  - golang
+  - harness-runtime
+  - integration
+  - mcp
+  - sso
+  - state
+  - system
+  - systray
+  - ux
+  - vectora
 ---
 
 {{< lang-toggle >}}
@@ -71,4 +81,4 @@ To ensure the Systray works correctly on Windows, the installer places the execu
 
 ---
 
-_Part of the Vectora ecosystem_ · Internal Engineering
+_Part of the Vectora ecosystem_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contributors](https://github.com/Kaffyn/Vectora/graphs/contributors)

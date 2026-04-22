@@ -7,10 +7,19 @@ sidebar:
   open: true
 tags:
   - ai
+  - auth
+  - byok
+  - config
+  - embeddings
   - faq
+  - guardian
+  - mongodb-atlas
   - privacy
+  - rbac
   - security
+  - sso
   - vectora
+  - voyage
 ---
 
 {{< lang-toggle >}}
@@ -158,4 +167,4 @@ A: Through [GitHub Security Advisory](https://github.com/Kaffyn/Vectora/security
 
 ---
 
-_Part of the Vectora ecosystem_ · Open Source (MIT)
+_Part of the Vectora ecosystem_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contributors](https://github.com/Kaffyn/Vectora/graphs/contributors)

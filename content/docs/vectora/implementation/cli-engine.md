@@ -4,11 +4,29 @@ slug: cli-engine
 date: "2026-04-20T10:30:00-03:00"
 type: docs
 tags:
-  - engineering
-  - golang
+  - ai
+  - architecture
+  - auth
   - cli
   - cobra
+  - concepts
+  - config
+  - engineering
+  - errors
+  - gemini
+  - golang
+  - governance
+  - harness-runtime
+  - mcp
+  - protocol
+  - rag
+  - security
+  - sso
+  - state
+  - sub-agents
   - systray
+  - vectora
+  - yaml
 ---
 
 {{< lang-toggle >}}
@@ -606,4 +624,17 @@ sequenceDiagram
 
 ---
 
-_Parte do ecossistema Vectora_ · Engenharia Interna
+## External Linking
+
+| Concept        | Resource                                                   | Link                                                                                   |
+| -------------- | ---------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| **Cobra**      | A Commander for modern Go CLI interactions                 | [cobra.dev/](https://cobra.dev/)                                                       |
+| **MCP**        | Model Context Protocol Specification                       | [modelcontextprotocol.io/specification](https://modelcontextprotocol.io/specification) |
+| **MCP Go SDK** | Go SDK for MCP (mark3labs)                                 | [github.com/mark3labs/mcp-go](https://github.com/mark3labs/mcp-go)                     |
+| **OAuth 2.0**  | RFC 6749: The OAuth 2.0 Authorization Framework            | [datatracker.ietf.org/doc/html/rfc6749](https://datatracker.ietf.org/doc/html/rfc6749) |
+| **RAG**        | Retrieval-Augmented Generation for Knowledge-Intensive NLP | [arxiv.org/abs/2005.11401](https://arxiv.org/abs/2005.11401)                           |
+| **Gemini API** | Google AI Studio Documentation                             | [ai.google.dev/docs](https://ai.google.dev/docs)                                       |
+
+---
+
+_Parte do ecossistema Vectora_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contribuidores](https://github.com/Kaffyn/Vectora/graphs/contributors)

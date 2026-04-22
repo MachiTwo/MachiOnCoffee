@@ -7,8 +7,11 @@ sidebar:
   open: true
 tags:
   - ai
+  - byok
   - guidelines
   - mcp
+  - security
+  - vector-search
   - vectora
 ---
 
@@ -94,4 +97,4 @@ go test -coverprofile=coverage.out ./... # Coverage report
 
 ---
 
-_Part of the Vectora ecosystem_ · Open Source (MIT)
+_Part of the Vectora ecosystem_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contributors](https://github.com/Kaffyn/Vectora/graphs/contributors)

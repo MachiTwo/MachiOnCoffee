@@ -7,11 +7,23 @@ sidebar:
   open: true
 tags:
   - ai
+  - ast-parsing
+  - auth
+  - chatgpt
+  - concepts
+  - config
+  - embeddings
   - extension
   - integration
   - mcp
-  - vscode
+  - plugins
+  - privacy
+  - protocol
+  - system
+  - troubleshooting
   - vectora
+  - vscode
+  - yaml
 ---
 
 {{< lang-toggle >}}
@@ -405,4 +417,16 @@ Customize em: **Code** → **Preferences** → **Keyboard Shortcuts**
 
 ---
 
-_Parte do ecossistema Vectora_ · Open Source (MIT)
+## External Linking
+
+| Concept              | Resource                             | Link                                                                                   |
+| -------------------- | ------------------------------------ | -------------------------------------------------------------------------------------- |
+| **MCP**              | Model Context Protocol Specification | [modelcontextprotocol.io/specification](https://modelcontextprotocol.io/specification) |
+| **MCP Go SDK**       | Go SDK for MCP (mark3labs)           | [github.com/mark3labs/mcp-go](https://github.com/mark3labs/mcp-go)                     |
+| **AST Parsing**      | Tree-sitter Official Documentation   | [tree-sitter.github.io/tree-sitter/](https://tree-sitter.github.io/tree-sitter/)       |
+| **Anthropic Claude** | Claude Documentation                 | [docs.anthropic.com/](https://docs.anthropic.com/)                                     |
+| **JWT**              | RFC 7519: JSON Web Token Standard    | [datatracker.ietf.org/doc/html/rfc7519](https://datatracker.ietf.org/doc/html/rfc7519) |
+
+---
+
+_Parte do ecossistema Vectora_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contribuidores](https://github.com/Kaffyn/Vectora/graphs/contributors)

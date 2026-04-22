@@ -7,11 +7,29 @@ sidebar:
   open: true
 tags:
   - ai
+  - architecture
+  - auth
+  - concepts
+  - config
+  - context-engine
+  - embeddings
   - gemini
   - google
+  - guardian
   - integration
   - llm
+  - mcp
+  - protocol
+  - rag
+  - reference
+  - reranker
+  - security
+  - system
+  - tools
+  - troubleshooting
   - vectora
+  - voyage
+  - yaml
 ---
 
 {{< lang-toggle >}}
@@ -483,4 +501,17 @@ vectora models list
 
 ---
 
-_Parte do ecossistema Vectora_ · Open Source (MIT)
+## External Linking
+
+| Concept               | Resource                             | Link                                                                                   |
+| --------------------- | ------------------------------------ | -------------------------------------------------------------------------------------- |
+| **Gemini API**        | Google AI Studio Documentation       | [ai.google.dev/docs](https://ai.google.dev/docs)                                       |
+| **MCP**               | Model Context Protocol Specification | [modelcontextprotocol.io/specification](https://modelcontextprotocol.io/specification) |
+| **MCP Go SDK**        | Go SDK for MCP (mark3labs)           | [github.com/mark3labs/mcp-go](https://github.com/mark3labs/mcp-go)                     |
+| **Voyage Embeddings** | Voyage Embeddings Documentation      | [docs.voyageai.com/docs/embeddings](https://docs.voyageai.com/docs/embeddings)         |
+| **Voyage Reranker**   | Voyage Reranker API                  | [docs.voyageai.com/docs/reranker](https://docs.voyageai.com/docs/reranker)             |
+| **OpenAPI**           | OpenAPI Specification                | [swagger.io/specification/](https://swagger.io/specification/)                         |
+
+---
+
+_Parte do ecossistema Vectora_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contribuidores](https://github.com/Kaffyn/Vectora/graphs/contributors)

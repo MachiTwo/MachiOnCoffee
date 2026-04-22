@@ -8,10 +8,29 @@ sidebar:
 breadcrumbs: true
 tags:
   - ai
+  - ast-parsing
   - atlas
+  - concepts
+  - config
+  - context-engine
+  - embeddings
+  - gemini
+  - governance
+  - guardian
+  - harness-runtime
   - mcp
   - mongodb
+  - mongodb-atlas
+  - protocol
+  - rbac
+  - reranker
+  - security
+  - state
+  - tools
+  - vector-search
   - vectora
+  - voyage
+  - yaml
 ---
 
 {{< lang-toggle >}}
@@ -137,5 +156,22 @@ A: All Atlas queries include mandatory filters by `namespace_id` and `visibility
 **Q: Can I export my data from Atlas?**
 A: Yes. The `vectora export` command allows exporting metadata, embeddings (as base64), and audit logs in a portable format. Exporting is available at any time, regardless of plan or subscription status.
 
+## External Linking
+
+| Concept               | Resource                                                 | Link                                                                                                       |
+| --------------------- | -------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| **MongoDB Atlas**     | Atlas Vector Search Documentation                        | [www.mongodb.com/docs/atlas/atlas-vector-search/](https://www.mongodb.com/docs/atlas/atlas-vector-search/) |
+| **MCP**               | Model Context Protocol Specification                     | [modelcontextprotocol.io/specification](https://modelcontextprotocol.io/specification)                     |
+| **MCP Go SDK**        | Go SDK for MCP (mark3labs)                               | [github.com/mark3labs/mcp-go](https://github.com/mark3labs/mcp-go)                                         |
+| **Voyage Embeddings** | Voyage Embeddings Documentation                          | [docs.voyageai.com/docs/embeddings](https://docs.voyageai.com/docs/embeddings)                             |
+| **Voyage Reranker**   | Voyage Reranker API                                      | [docs.voyageai.com/docs/reranker](https://docs.voyageai.com/docs/reranker)                                 |
+| **HNSW**              | Efficient and robust approximate nearest neighbor search | [arxiv.org/abs/1603.09320](https://arxiv.org/abs/1603.09320)                                               |
+
+---
+
 **Phrase to remember:**
 "MongoDB Atlas is where Vectora stores structured knowledge. The intelligence is in the runtime; the memory is in Atlas; governance is in the application."
+
+---
+
+_Part of the Vectora ecosystem_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contributors](https://github.com/Kaffyn/Vectora/graphs/contributors)

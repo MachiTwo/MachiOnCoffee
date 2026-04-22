@@ -11,19 +11,32 @@ tags:
   - ai
   - architecture
   - ativa
+  - auth
   - concepts
+  - config
   - context-engine
   - embeddings
+  - errors
   - ferramentas
+  - gemini
+  - governance
   - governança
   - guardian
+  - harness-runtime
   - mcp
   - mcp-protocol
   - passivas
+  - protocol
   - rag
+  - rbac
+  - security
   - sub-agents
+  - system
+  - tools
   - vector-search
   - vectora
+  - voyage
+  - yaml
 type: docs
 sidebar:
   open: true
@@ -84,15 +97,15 @@ backend, MCP permite que qualquer agent use suas ferramentas.
 
 A escolha de construir Vectora como um **Sub-Agent** — e não como servidor MCP genérico — foi deliberada:
 
-````text
+````
 Agente Funcional = Modelo de Linguagem + Harness de Orquestração
-```text
+```
 
 No caso do Vectora:
 
 ```text
 Vectora = Gemini 3.5 (LLM) + Voyage 4 (Embeddings) + Harness Runtime (TypeScript)
-```text
+```
 
 O **Harness** é a camada crítica que:
 
@@ -122,7 +135,7 @@ Para recuperar contexto relevante em um codebase, você precisa de um pipeline c
 
 ```text
 Query → Embedding → Busca Vetorial → Filtragem → Compaction → Injeção Estruturada → LLM
-```text
+```
 
 Cada etapa exige decisões especializadas que agentes principais não fazem:
 
@@ -143,7 +156,7 @@ Agente Principal → Vectora (Camada de Interpretação) → Contexto Estruturad
                - De quais fontes?
                - Com quais filtros?
                - Como estruturar para o LLM?
-```text
+```
 
 ## Parte 2: O Desafio Estratégico do Controle
 
@@ -178,7 +191,7 @@ de runtime:
  Controlar fallover entre providers
  Acessar SDK do provider para parsing estável
  Sanitizar output antes de retornar ao agente
-```text
+```
 
 > **Prompts são sugestões. Código é lei.** Vectora escolheu código para segurança, validação e governança.
 
@@ -195,7 +208,7 @@ de runtime:
 4. Claude filtra manualmente (consome tokens)
 5. Claude propõe refatoração
 6. Claude escreve: file_write() → modifica arquivo
-```text
+```
 
 **Problemas**:
 
@@ -230,7 +243,7 @@ de runtime:
    - Git snapshot automático
    - Lint + type-check
    - Output sanitization
-```text
+```
 
 **Vantagens**:
 
@@ -253,7 +266,7 @@ export class VectoraSubAgent {
   private guardian: Guardian;
 
   // 3. Context Engine (decisão multi-hop)
-  private contextEngine: ContextEngine;
+  private engine: engine;
 
   // 4. Harness (interceptação e métricas)
   private harnessInterceptor?: HarnessInterceptor;
@@ -273,7 +286,7 @@ export class VectoraSubAgent {
     }
 
     // Decisão de contexto: o que/como/quando buscar
-    const context = await this.contextEngine.build(request);
+    const context = await this.engine.build(request);
 
     // Execução com validação via Go Struct Tags
     const result = await this.router.execute(request.tool, request.args, context);
@@ -288,7 +301,7 @@ export class VectoraSubAgent {
     };
   }
 }
-```text
+```
 
 ### Contraste: Tool MCP Genérica
 
@@ -303,7 +316,7 @@ export async function file_read(args: { path: string }): Promise<string> {
 
   return fs.readFileSync(args.path, "utf-8");
 }
-```text
+```
 
 > **Diferença fundamental**:
 >
@@ -345,7 +358,7 @@ Você **pode** usar Vectora em modo simplificado:
 
 ```bash
 vectora-agent mcp-serve --mode tools-only
-```text
+```
 
 **O que você ganha**:
 
@@ -374,9 +387,24 @@ vectora-agent mcp-serve --mode tools-only
 | Tools genéricas de arquivo/busca                               | MCP tools do mercado  |
 | **Contexto correto + execução confiável + validação objetiva** | **Vectora Sub-Agent** |
 
+## External Linking
+
+| Concept | Resource | Link |
+|---------|----------|------|
+| **MCP** | Model Context Protocol Specification | [modelcontextprotocol.io/specification](https://modelcontextprotocol.io/specification) |
+| **MCP Go SDK** | Go SDK for MCP (mark3labs) | [github.com/mark3labs/mcp-go](https://github.com/mark3labs/mcp-go) |
+| **Anthropic Claude** | Claude Documentation | [docs.anthropic.com/](https://docs.anthropic.com/) |
+| **RBAC** | NIST Role-Based Access Control Standard | [csrc.nist.gov/projects/rbac](https://csrc.nist.gov/projects/rbac) |
+| **Gemini API** | Google AI Studio Documentation | [ai.google.dev/docs](https://ai.google.dev/docs) |
+| **RAG** | Retrieval-Augmented Generation for Knowledge-Intensive NLP | [arxiv.org/abs/2005.11401](https://arxiv.org/abs/2005.11401) |
+
 > **Frase para guardar**: _"Tools MCP te dão funções. Vectora Sub-Agent te dá governança."_
 
 ---
 
 <!-- Parte do ecossistema Vectora · Open Source · Provider-Agnostic -->
 ````
+
+---
+
+_Parte do ecossistema Vectora_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contribuidores](https://github.com/Kaffyn/Vectora/graphs/contributors)

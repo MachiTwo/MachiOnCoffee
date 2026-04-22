@@ -8,8 +8,18 @@ sidebar:
 tags:
   - ai
   - billing
+  - byok
+  - errors
+  - gemini
+  - guardian
+  - integration
   - mcp
+  - privacy
+  - rbac
+  - security
+  - sso
   - vectora
+  - voyage
 ---
 
 {{< lang-toggle >}}
@@ -298,4 +308,4 @@ mv backup.tar.gz ~/backups/
 
 ---
 
-_Part of the Vectora ecosystem_ · Open Source (MIT)
+_Part of the Vectora ecosystem_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contributors](https://github.com/Kaffyn/Vectora/graphs/contributors)

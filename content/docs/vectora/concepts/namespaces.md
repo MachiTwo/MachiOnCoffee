@@ -8,10 +8,20 @@ sidebar:
 tags:
   - ai
   - architecture
+  - auth
   - concepts
+  - config
+  - embeddings
+  - guardian
+  - harness-runtime
   - mcp
   - namespaces
+  - protocol
+  - security
+  - trust-folder
+  - vector-search
   - vectora
+  - yaml
 ---
 
 {{< lang-toggle >}}
@@ -273,4 +283,15 @@ Para isolamento **físico** (compliance rigorosa):
 
 ---
 
-_Parte do ecossistema Vectora_ · Open Source (MIT)
+## External Linking
+
+| Concept        | Resource                                                 | Link                                                                                   |
+| -------------- | -------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| **Qdrant**     | Vector Database Documentation                            | [qdrant.tech/documentation/](https://qdrant.tech/documentation/)                       |
+| **MCP**        | Model Context Protocol Specification                     | [modelcontextprotocol.io/specification](https://modelcontextprotocol.io/specification) |
+| **MCP Go SDK** | Go SDK for MCP (mark3labs)                               | [github.com/mark3labs/mcp-go](https://github.com/mark3labs/mcp-go)                     |
+| **HNSW**       | Efficient and robust approximate nearest neighbor search | [arxiv.org/abs/1603.09320](https://arxiv.org/abs/1603.09320)                           |
+
+---
+
+_Parte do ecossistema Vectora_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contribuidores](https://github.com/Kaffyn/Vectora/graphs/contributors)

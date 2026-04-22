@@ -8,10 +8,15 @@ sidebar:
 tags:
   - ai
   - architecture
+  - auth
   - concepts
+  - config
   - mcp
   - namespaces
+  - security
+  - system
   - vectora
+  - yaml
 ---
 
 {{< lang-toggle >}}
@@ -116,4 +121,4 @@ Use when: Completely separate teams, rigorous compliance/security.
 
 ---
 
-_Part of the Vectora ecosystem_ · Open Source (MIT)
+_Part of the Vectora ecosystem_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contributors](https://github.com/Kaffyn/Vectora/graphs/contributors)

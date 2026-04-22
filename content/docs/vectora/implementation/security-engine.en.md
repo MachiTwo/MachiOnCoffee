@@ -4,11 +4,24 @@ slug: security-engine
 date: "2026-04-20T10:30:00-03:00"
 type: docs
 tags:
+  - ai
+  - auth
+  - config
   - engineering
-  - security
-  - guardian
+  - errors
   - golang
+  - governance
+  - guardian
+  - harness-runtime
+  - mcp
+  - security
+  - sub-agents
+  - system
+  - tools
+  - trust-folder
   - validation
+  - vectora
+  - yaml
 ---
 
 {{< lang-toggle >}}
@@ -60,4 +73,4 @@ Guardian doesn't just monitor what goes in, but also what comes out of the sub-a
 
 ---
 
-_Part of the Vectora ecosystem_ · Internal Engineering
+_Part of the Vectora ecosystem_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contributors](https://github.com/Kaffyn/Vectora/graphs/contributors)

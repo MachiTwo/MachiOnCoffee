@@ -6,6 +6,25 @@ type: docs
 sidebar:
   open: true
 breadcrumbs: true
+tags:
+  - ai
+  - auth
+  - byok
+  - concepts
+  - config
+  - embeddings
+  - gemini
+  - guardian
+  - integration
+  - mcp
+  - protocol
+  - rag
+  - rbac
+  - security
+  - sso
+  - tools
+  - trust-folder
+  - vectora
 ---
 
 {{< lang-toggle >}}
@@ -124,9 +143,26 @@ A: Default: 100 req/min for `search`, 20 req/min for `write`. Custom limits avai
 
 ---
 
+## External Linking
+
+| Concept            | Resource                                       | Link                                                                                   |
+| ------------------ | ---------------------------------------------- | -------------------------------------------------------------------------------------- |
+| **MCP**            | Model Context Protocol Specification           | [modelcontextprotocol.io/specification](https://modelcontextprotocol.io/specification) |
+| **MCP Go SDK**     | Go SDK for MCP (mark3labs)                     | [github.com/mark3labs/mcp-go](https://github.com/mark3labs/mcp-go)                     |
+| **RBAC**           | NIST Role-Based Access Control Standard        | [csrc.nist.gov/projects/rbac](https://csrc.nist.gov/projects/rbac)                     |
+| **GitHub Actions** | Automate your workflow from idea to production | [docs.github.com/en/actions](https://docs.github.com/en/actions)                       |
+| **JWT**            | RFC 7519: JSON Web Token Standard              | [datatracker.ietf.org/doc/html/rfc7519](https://datatracker.ietf.org/doc/html/rfc7519) |
+| **WebAuthn**       | Web Authentication: Public Key Credentials     | [www.w3.org/TR/webauthn-2/](https://www.w3.org/TR/webauthn-2/)                         |
+
+---
+
 > **Phrase to remember**:
 > _"API Keys open the door. Scopes define the room. Guardian locks the vault."_
 
 _Part of Vectora Auth · Available on Pro, Team & Enterprise_
 _Security: Hashed storage, scope enforcement, instant revocation_
 _Next: [SSO & Identity](/auth/sso/) · Previous: [Trust Folder](/security/trust-folder/)_
+
+---
+
+_Part of the Vectora ecosystem_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contributors](https://github.com/Kaffyn/Vectora/graphs/contributors)

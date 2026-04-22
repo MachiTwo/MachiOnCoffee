@@ -7,9 +7,24 @@ sidebar:
   open: true
 tags:
   - ai
+  - auth
+  - byok
+  - chatgpt
+  - config
+  - embeddings
+  - gemini
   - general
+  - guardian
+  - integration
   - mcp
+  - openai
+  - rbac
+  - security
+  - sso
+  - vector-search
   - vectora
+  - voyage
+  - yaml
 ---
 
 {{< lang-toggle >}}
@@ -362,4 +377,4 @@ indexing:
 
 ---
 
-_Part of the Vectora ecosystem_ · Open Source (MIT)
+_Part of the Vectora ecosystem_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contributors](https://github.com/Kaffyn/Vectora/graphs/contributors)

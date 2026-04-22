@@ -6,12 +6,23 @@ type: docs
 sidebar:
   open: true
 tags:
+  - ai
+  - ast-parsing
+  - auth
   - concepts
+  - config
   - context-engine
+  - embeddings
+  - guardian
+  - harness-runtime
   - rag
+  - reranker
   - search
   - semantic
+  - vector-search
   - vectora
+  - voyage
+  - yaml
 ---
 
 {{< lang-toggle >}}
@@ -119,10 +130,21 @@ Output:
   ]
 ```
 
+## External Linking
+
+| Concept               | Resource                                                   | Link                                                                             |
+| --------------------- | ---------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| **AST Parsing**       | Tree-sitter Official Documentation                         | [tree-sitter.github.io/tree-sitter/](https://tree-sitter.github.io/tree-sitter/) |
+| **Voyage Embeddings** | Voyage Embeddings Documentation                            | [docs.voyageai.com/docs/embeddings](https://docs.voyageai.com/docs/embeddings)   |
+| **Voyage Reranker**   | Voyage Reranker API                                        | [docs.voyageai.com/docs/reranker](https://docs.voyageai.com/docs/reranker)       |
+| **Anthropic Claude**  | Claude Documentation                                       | [docs.anthropic.com/](https://docs.anthropic.com/)                               |
+| **Qdrant**            | Vector Database Documentation                              | [qdrant.tech/documentation/](https://qdrant.tech/documentation/)                 |
+| **RAG**               | Retrieval-Augmented Generation for Knowledge-Intensive NLP | [arxiv.org/abs/2005.11401](https://arxiv.org/abs/2005.11401)                     |
+
 ---
 
 > **Próximo**: [Harness Runtime](./harness-runtime.md)
 
 ---
 
-_Parte do ecossistema Vectora_ · Open Source (MIT)
+_Parte do ecossistema Vectora_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contribuidores](https://github.com/Kaffyn/Vectora/graphs/contributors)

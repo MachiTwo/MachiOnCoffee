@@ -6,12 +6,28 @@ type: docs
 sidebar:
   open: true
 tags:
+  - ai
+  - auth
+  - claude-desktop
+  - concepts
+  - config
+  - context-engine
+  - embeddings
+  - errors
+  - gemini
   - getting-started
+  - guardian
+  - integration
   - mcp
   - quickstart
-  - claude-desktop
-  - integration
+  - rbac
+  - security
+  - system
+  - tools
+  - troubleshooting
   - vectora
+  - voyage
+  - yaml
 ---
 
 {{< lang-toggle >}}
@@ -254,4 +270,4 @@ A: Use the MCP Inspector in Claude Desktop (Menu → Developer Tools → MCP Ins
 
 ---
 
-_Part of the Vectora ecosystem_ · Open Source (MIT)
+_Part of the Vectora ecosystem_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contributors](https://github.com/Kaffyn/Vectora/graphs/contributors)

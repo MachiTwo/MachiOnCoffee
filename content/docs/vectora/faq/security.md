@@ -7,10 +7,22 @@ sidebar:
   open: true
 tags:
   - ai
+  - auth
+  - byok
+  - concepts
+  - config
+  - embeddings
   - faq
+  - guardian
+  - mongodb-atlas
   - privacy
+  - rbac
+  - reranker
   - security
+  - sso
+  - vector-search
   - vectora
+  - voyage
 ---
 
 {{< lang-toggle >}}
@@ -156,3 +168,18 @@ Resposta em < 24h, coordinated disclosure.
 ---
 
 > Mais dúvidas? [GitHub Security](https://github.com/Kaffyn/Vectora/security) ou [Email](mailto:security@vectora.app)
+
+## External Linking
+
+| Concept               | Resource                                | Link                                                                                                       |
+| --------------------- | --------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| **MongoDB Atlas**     | Atlas Vector Search Documentation       | [www.mongodb.com/docs/atlas/atlas-vector-search/](https://www.mongodb.com/docs/atlas/atlas-vector-search/) |
+| **Voyage Embeddings** | Voyage Embeddings Documentation         | [docs.voyageai.com/docs/embeddings](https://docs.voyageai.com/docs/embeddings)                             |
+| **Voyage Reranker**   | Voyage Reranker API                     | [docs.voyageai.com/docs/reranker](https://docs.voyageai.com/docs/reranker)                                 |
+| **RBAC**              | NIST Role-Based Access Control Standard | [csrc.nist.gov/projects/rbac](https://csrc.nist.gov/projects/rbac)                                         |
+| **JWT**               | RFC 7519: JSON Web Token Standard       | [datatracker.ietf.org/doc/html/rfc7519](https://datatracker.ietf.org/doc/html/rfc7519)                     |
+| **OpenID Connect**    | OIDC Core 1.0 Specification             | [openid.net/specs/openid-connect-core-1_0.html](https://openid.net/specs/openid-connect-core-1_0.html)     |
+
+---
+
+_Parte do ecossistema Vectora_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contribuidores](https://github.com/Kaffyn/Vectora/graphs/contributors)

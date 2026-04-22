@@ -6,11 +6,21 @@ type: docs
 sidebar:
   open: true
 tags:
+  - ai
+  - architecture
+  - concepts
+  - config
+  - distribution
   - engineering
+  - goreleaser
   - homebrew
   - macos
-  - distribution
-  - goreleaser
+  - mcp
+  - protocol
+  - sub-agents
+  - troubleshooting
+  - vectora
+  - yaml
 ---
 
 {{< lang-toggle >}}
@@ -434,4 +444,15 @@ echo " All Homebrew tests passed!"
 
 ---
 
-_Parte do ecossistema Vectora_ · Plano de Implementação
+## External Linking
+
+| Concept            | Resource                                       | Link                                                                                   |
+| ------------------ | ---------------------------------------------- | -------------------------------------------------------------------------------------- |
+| **MCP**            | Model Context Protocol Specification           | [modelcontextprotocol.io/specification](https://modelcontextprotocol.io/specification) |
+| **MCP Go SDK**     | Go SDK for MCP (mark3labs)                     | [github.com/mark3labs/mcp-go](https://github.com/mark3labs/mcp-go)                     |
+| **Cobra**          | A Commander for modern Go CLI interactions     | [cobra.dev/](https://cobra.dev/)                                                       |
+| **GitHub Actions** | Automate your workflow from idea to production | [docs.github.com/en/actions](https://docs.github.com/en/actions)                       |
+
+---
+
+_Parte do ecossistema Vectora_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contribuidores](https://github.com/Kaffyn/Vectora/graphs/contributors)

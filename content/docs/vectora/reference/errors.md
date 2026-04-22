@@ -7,10 +7,24 @@ sidebar:
   open: true
 tags:
   - ai
+  - auth
+  - concepts
+  - config
+  - embeddings
   - errors
+  - gemini
+  - mcp
+  - mongodb-atlas
+  - protocol
+  - rbac
   - reference
+  - reranker
+  - system
   - troubleshooting
+  - vector-search
   - vectora
+  - voyage
+  - yaml
 ---
 
 {{< lang-toggle >}}
@@ -152,3 +166,18 @@ Se vê um erro não documentado:
 ---
 
 > Encontrou um erro não documentado aqui? [Reporte](https://github.com/Kaffyn/Vectora/issues)
+
+## External Linking
+
+| Concept               | Resource                             | Link                                                                                                       |
+| --------------------- | ------------------------------------ | ---------------------------------------------------------------------------------------------------------- |
+| **MongoDB Atlas**     | Atlas Vector Search Documentation    | [www.mongodb.com/docs/atlas/atlas-vector-search/](https://www.mongodb.com/docs/atlas/atlas-vector-search/) |
+| **MCP**               | Model Context Protocol Specification | [modelcontextprotocol.io/specification](https://modelcontextprotocol.io/specification)                     |
+| **MCP Go SDK**        | Go SDK for MCP (mark3labs)           | [github.com/mark3labs/mcp-go](https://github.com/mark3labs/mcp-go)                                         |
+| **Anthropic Claude**  | Claude Documentation                 | [docs.anthropic.com/](https://docs.anthropic.com/)                                                         |
+| **Voyage Embeddings** | Voyage Embeddings Documentation      | [docs.voyageai.com/docs/embeddings](https://docs.voyageai.com/docs/embeddings)                             |
+| **Voyage Reranker**   | Voyage Reranker API                  | [docs.voyageai.com/docs/reranker](https://docs.voyageai.com/docs/reranker)                                 |
+
+---
+
+_Parte do ecossistema Vectora_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contribuidores](https://github.com/Kaffyn/Vectora/graphs/contributors)

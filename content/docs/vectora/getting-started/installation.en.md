@@ -6,13 +6,25 @@ type: docs
 sidebar:
   open: true
 tags:
+  - ai
+  - api-keys
+  - auth
+  - byok
+  - config
+  - errors
+  - gemini
   - getting-started
   - installation
-  - setup
+  - integration
+  - mcp
   - npm
+  - setup
+  - sso
+  - system
+  - troubleshooting
   - vectora
-  - byok
-  - api-keys
+  - voyage
+  - yaml
 ---
 
 {{< lang-toggle >}}
@@ -205,4 +217,4 @@ R: On Windows, use `winget upgrade kaffyn.vectora`. On other systems, re-run the
 
 ---
 
-_Part of the Vectora ecosystem_ · Open Source (MIT)
+_Part of the Vectora ecosystem_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contributors](https://github.com/Kaffyn/Vectora/graphs/contributors)

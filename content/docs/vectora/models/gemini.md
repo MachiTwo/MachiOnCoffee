@@ -7,17 +7,28 @@ categories:
   - Deep Dive
 tags:
   - ai
+  - architecture
+  - ast-parsing
+  - auth
+  - byok
+  - concepts
   - embeddings
+  - errors
   - flash
   - gemini
   - guardian
+  - harness-runtime
   - impulsiona
   - inteligência
   - mcp
+  - mongodb-atlas
+  - openai
   - rag
   - reranker
+  - security
   - vector-search
   - vectora
+  - voyage
 type: docs
 sidebar:
   open: true
@@ -87,7 +98,7 @@ Testamos todas as alternativas. Aqui está a realidade:
 
 Gemini 3 Flash é baseado na arquitetura Transformer clássica, mas com otimizações propriet árias do Google:
 
-`````text
+`````
 Input (Embeddings)
     ↓
 Token Embedding Layer
@@ -105,7 +116,7 @@ Output Logits
 Softmax
     ↓
 Token Selection (Top-K Sampling / Temperature)
-```text
+```
 
 ## Tamanho do Modelo
 
@@ -134,7 +145,7 @@ Geração de Token 2:
 
 Geração de Token 3-100:
   - Cada um leva ~8ms (graças ao KV Cache)
-```text
+```
 
 Sem KV Cache, cada token levaria 40ms. Com KV Cache, a latência cai **80%** após o primeiro token.
 
@@ -176,7 +187,7 @@ gemini.generate(context + query)
 # const newToken = generateToken(user.id);
 # res.json({ token: newToken });
 # }
-```text
+```
 
 **Precisão**: 96.2% — código está sintaticamente correto e semanticamente sensato.
 
@@ -192,7 +203,7 @@ Output:
   - src/controllers/user-controller.ts (linha 88)
   - src/middleware/verify-user.ts (linha 15)
   - src/repositories/user-repository.ts (linha 71)
-```text
+```
 
 ## 3. Bug Detection
 
@@ -207,7 +218,7 @@ Input: src/utils/cache.js:
 
 Output: " Potencial memory leak: cache não tem TTL.
          Sugestão: usar Map com WeakRef ou adicionar expiração."
-```text
+```
 
 ## 4. Multimodal (Texto + Imagem)
 
@@ -219,7 +230,7 @@ Query: "Qual é a relação entre User e Post?"
 
 Output: "User tem relação 1:N com Post via user_id.
          Há índice em user_id para otimizar queries."
-```text
+```
 
 ## Integração com Vectora: O Pipeline Completo
 
@@ -258,7 +269,7 @@ User: "Como validar email na função de registro?"
    ├─ Avalia qualidade da resposta
    ├─ Compara com benchmark
    └─ Retorna ao usuário com score de confiança
-```text
+```
 
 ## Treinamento e Fine-Tuning
 
@@ -303,7 +314,7 @@ response = gemini.generate(
     top_k=40,
     max_tokens=2048,
 )
-```text
+```
 
 ## Modelos Alternativosfoi Testados
 
@@ -358,7 +369,7 @@ response = gemini.generate(..., temperature=0.1)
 # Análise / Explicação: temperature = 0.7
 response = gemini.generate(..., temperature=0.7)
 # "Mais criativo, variações naturais"
-```text
+```
 
 ## Prompt Caching
 
@@ -376,7 +387,7 @@ response2 = gemini.generate(
     system_prompt=CACHED_SYSTEM_PROMPT, # Do cache
     user_prompt=query2,
 )
-```text
+```
 
 Isso reduz latência p/ queries sucessivas em ~50%.
 
@@ -393,7 +404,7 @@ responses = await asyncio.gather(*[
 ])
 
 # Throughput: ~10 queries/segundo
-```text
+```
 
 ## O Custo Total
 
@@ -401,13 +412,13 @@ Vectora é uma **operação de custo muito baixo** comparado com alternativas:
 
 ## Exemplo: Análise de 50K linhas de código
 
-| Operação | Custo |
+| Operação                         | Custo                              |
 | -------------------------------- | ---------------------------------- |
-| Voyage 4 Embeddings | $1.00 (50K linhas × 0.02/M tokens) |
-| Armazenamento Qdrant | $1.50/mês (para 50K documentos) |
-| Voyage Rerank (100 queries/mês) | $0.20 |
-| Gemini 3 Flash (100 queries/mês) | $0.08 |
-| **Total Mensal** | **~$1.80** |
+| Voyage 4 Embeddings              | $1.00 (50K linhas × 0.02/M tokens) |
+| Armazenamento Qdrant             | $1.50/mês (para 50K documentos)    |
+| Voyage Rerank (100 queries/mês)  | $0.20                              |
+| Gemini 3 Flash (100 queries/mês) | $0.08                              |
+| **Total Mensal**                 | **~$1.80**                         |
 
 Comparação:
 
@@ -446,5 +457,20 @@ Mesmo o plano Free ($0 para usuários, BYOK) tem custo mínimo de ~$150/mês par
 ---
 
 _Este é um guia técnico do projeto [Vectora](docs/vectora/). Especificamente sobre Gemini 3 Flash._
-````text
+````
 `````
+
+## External Linking
+
+| Concept                      | Resource                        | Link                                                                           |
+| ---------------------------- | ------------------------------- | ------------------------------------------------------------------------------ |
+| **Gemini API**               | Google AI Studio Documentation  | [ai.google.dev/docs](https://ai.google.dev/docs)                               |
+| **Voyage Embeddings**        | Voyage Embeddings Documentation | [docs.voyageai.com/docs/embeddings](https://docs.voyageai.com/docs/embeddings) |
+| **Voyage Reranker**          | Voyage Reranker API             | [docs.voyageai.com/docs/reranker](https://docs.voyageai.com/docs/reranker)     |
+| **Transformer Architecture** | Attention Is All You Need       | [arxiv.org/abs/1706.03762](https://arxiv.org/abs/1706.03762)                   |
+| **OpenAI**                   | OpenAI API Documentation        | [platform.openai.com/docs/](https://platform.openai.com/docs/)                 |
+| **Qdrant**                   | Vector Database Documentation   | [qdrant.tech/documentation/](https://qdrant.tech/documentation/)               |
+
+---
+
+_Parte do ecossistema Vectora_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contribuidores](https://github.com/Kaffyn/Vectora/graphs/contributors)

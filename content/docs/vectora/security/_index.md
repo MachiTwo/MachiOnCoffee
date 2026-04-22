@@ -7,9 +7,17 @@ sidebar:
   open: true
 tags:
   - ai
+  - byok
+  - concepts
+  - config
   - governance
+  - guardian
   - mcp
+  - privacy
+  - protocol
+  - rbac
   - security
+  - trust-folder
   - vectora
 ---
 
@@ -55,3 +63,15 @@ Suporta frameworks de conformidade:
 ---
 
 > Vulnerabilidade de segurança? [Reporte aqui](https://github.com/Kaffyn/Vectora/security)
+
+## External Linking
+
+| Concept        | Resource                                | Link                                                                                   |
+| -------------- | --------------------------------------- | -------------------------------------------------------------------------------------- |
+| **RBAC**       | NIST Role-Based Access Control Standard | [csrc.nist.gov/projects/rbac](https://csrc.nist.gov/projects/rbac)                     |
+| **MCP**        | Model Context Protocol Specification    | [modelcontextprotocol.io/specification](https://modelcontextprotocol.io/specification) |
+| **MCP Go SDK** | Go SDK for MCP (mark3labs)              | [github.com/mark3labs/mcp-go](https://github.com/mark3labs/mcp-go)                     |
+
+---
+
+_Parte do ecossistema Vectora_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contribuidores](https://github.com/Kaffyn/Vectora/graphs/contributors)

@@ -8,11 +8,16 @@ categories:
 tags:
   - ai
   - architecture
+  - ast-parsing
+  - auth
   - concepts
   - código
   - embeddings
+  - errors
+  - gemini
   - geração
   - mcp
+  - openai
   - próxima
   - rag
   - reranker
@@ -73,14 +78,14 @@ poderão.
 
 Quando você envia um trecho de código para o Voyage 4:
 
-`````python
+```python
 def fetch_user(user_id: int) -> User:
     """Retrieves a user by ID from the database."""
     user = db.query(User).filter(User.id == user_id).first()
     if not user:
         raise UserNotFound(f"User {user_id} not found")
     return user
-```text
+```
 
 O modelo não apenas tokeniza as palavras — ele **compreende a estrutura AST (Abstract Syntax Tree)**:
 
@@ -108,7 +113,7 @@ async function getUser(userId) {
   if (!user) throw new UserNotFoundError();
   return user;
 }
-```text
+```
 
 Este código JavaScript terá um embedding **muito próximo** do código Python acima, apesar de usar sintaxe completamente
 diferente.
@@ -132,7 +137,7 @@ simultaneamente:
 
 ```text
 Query: "função que valida email"
-```text
+```
 
 O Voyage 4 encontrará funções com nomes como `validateEmail`, `isValidEmail`, `check_email_format`, `emailValidator`,
 mesmo que nenhuma delas tenha a palavra "email" no corpo da função.
@@ -141,7 +146,7 @@ mesmo que nenhuma delas tenha a palavra "email" no corpo da função.
 
 ```text
 Query: "Como fazer cache de resultados de banco de dados?"
-```text
+```
 
 O modelo retornará tanto:
 
@@ -154,7 +159,7 @@ O modelo retornará tanto:
 
 ```text
 Query: "Onde tratamos de race conditions em operações concorrentes?"
-```text
+```
 
 O Voyage 4 entenderá que você está procurando por:
 
@@ -238,7 +243,7 @@ Metadados associados a cada embedding:
     "user_id": "user-456"
   }
 }
-```text
+```
 
 Permite filtros como: "buscar embeddings onde `language == 'typescript'` AND `namespace == 'project-123'`" em tempo
 real.
@@ -250,7 +255,7 @@ real.
 ```text
 Entrada: Trecho de código com possível buffer overflow
 Output: Similaridade com 5 padrões conhecidos de vulnerabilidade
-```text
+```
 
 O Voyage 4 encontra código historicamente vulnerável com 97% de acurácia.
 
@@ -259,7 +264,7 @@ O Voyage 4 encontra código historicamente vulnerável com 97% de acurácia.
 ```text
 Entrada: Novo PR com 3 funções
 Output: "Função 1 segue padrão X | Função 2 tem smell Y | Função 3 é novo"
-```text
+```
 
 Usa embeddings para classificar modificações por tipo.
 
@@ -268,7 +273,7 @@ Usa embeddings para classificar modificações por tipo.
 ```text
 Entrada: "Simplifique este código mantendo o comportamento"
 Output: 10 padrões similares de simplificação já aplicados no projeto
-```text
+```
 
 Retrieve by semantic similarity, não por sintaxe.
 
@@ -285,7 +290,7 @@ for file in codebase:
 batches = [codebase[i:i+100] for i in range(0, len(codebase), 100)]
 for batch in batches:
     embeddings = voyage.embed([f.content for f in batch]) # 50-100ms for all 100
-```text
+```
 
 Batching reduz latência total de horas para minutos.
 
@@ -295,7 +300,7 @@ Batching reduz latência total de horas para minutos.
 # Cache em Qdrant: "Já tenho embedding para hash SHA-256 abc123def456?"
 # Sim? Retorna do cache (~5ms)
 # Não? Gera novo (~75ms) + salva no cache
-```text
+```
 
 Em projetos grandes, 70-80% dos embeddings já estão em cache.
 
@@ -334,8 +339,21 @@ Voyage 4 não é apenas melhor — é **significativamente melhor** em tarefas d
 2. Entenda como o [Reranker Voyage 2.5](./reranker) complementa estes embeddings
 3. Explore [RAG Conectado](./rag) — como os embeddings são usados no contexto completo
 
+## External Linking
+
+| Concept               | Resource                                                   | Link                                                                             |
+| --------------------- | ---------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| **Voyage Embeddings** | Voyage Embeddings Documentation                            | [docs.voyageai.com/docs/embeddings](https://docs.voyageai.com/docs/embeddings)   |
+| **Voyage Reranker**   | Voyage Reranker API                                        | [docs.voyageai.com/docs/reranker](https://docs.voyageai.com/docs/reranker)       |
+| **AST Parsing**       | Tree-sitter Official Documentation                         | [tree-sitter.github.io/tree-sitter/](https://tree-sitter.github.io/tree-sitter/) |
+| **Qdrant**            | Vector Database Documentation                              | [qdrant.tech/documentation/](https://qdrant.tech/documentation/)                 |
+| **RAG**               | Retrieval-Augmented Generation for Knowledge-Intensive NLP | [arxiv.org/abs/2005.11401](https://arxiv.org/abs/2005.11401)                     |
+| **HNSW**              | Efficient and robust approximate nearest neighbor search   | [arxiv.org/abs/1603.09320](https://arxiv.org/abs/1603.09320)                     |
+
 ---
 
-_Este é um guia técnico do projeto [Vectora](/docs/vectora/). Especificamente sobre embeddings com Voyage 4._
-````text
-`````
+\_Este é um guia técnico do projeto [Vectora](/docs/vectora/). Especificamente sobre embeddings com Voyage 4.
+
+---
+
+_Parte do ecossistema Vectora_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contribuidores](https://github.com/Kaffyn/Vectora/graphs/contributors)

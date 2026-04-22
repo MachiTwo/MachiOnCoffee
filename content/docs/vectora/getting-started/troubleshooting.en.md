@@ -6,12 +6,26 @@ type: docs
 sidebar:
   open: true
 tags:
-  - getting-started
-  - troubleshooting
-  - help
+  - ai
+  - auth
+  - config
   - debug
+  - embeddings
   - errors
+  - gemini
+  - getting-started
+  - guardian
+  - help
+  - integration
+  - mcp
+  - rag
+  - security
+  - tools
+  - troubleshooting
+  - trust-folder
   - vectora
+  - voyage
+  - yaml
 ---
 
 {{< lang-toggle >}}
@@ -377,4 +391,4 @@ A: Partially. Semantic search needs an API. File operations work offline.
 
 ---
 
-_Part of the Vectora ecosystem_ · Open Source (MIT)
+_Part of the Vectora ecosystem_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contributors](https://github.com/Kaffyn/Vectora/graphs/contributors)

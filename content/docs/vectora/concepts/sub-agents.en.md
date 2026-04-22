@@ -13,12 +13,18 @@ tags:
   - concepts
   - context-engine
   - embeddings
+  - gemini
   - governance
   - guardian
+  - harness-runtime
+  - integration
   - mcp
   - mcp-protocol
   - passive
+  - protocol
   - rag
+  - rbac
+  - security
   - sub-agents
   - tools
   - vector-search
@@ -69,3 +75,18 @@ best possible context, in the safest and cheapest way, without you needing to co
 ---
 
 _This is a supporting post for the [Vectora](docs/vectora/) project._
+
+## External Linking
+
+| Concept              | Resource                                                   | Link                                                                                   |
+| -------------------- | ---------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| **MCP**              | Model Context Protocol Specification                       | [modelcontextprotocol.io/specification](https://modelcontextprotocol.io/specification) |
+| **MCP Go SDK**       | Go SDK for MCP (mark3labs)                                 | [github.com/mark3labs/mcp-go](https://github.com/mark3labs/mcp-go)                     |
+| **Anthropic Claude** | Claude Documentation                                       | [docs.anthropic.com/](https://docs.anthropic.com/)                                     |
+| **RBAC**             | NIST Role-Based Access Control Standard                    | [csrc.nist.gov/projects/rbac](https://csrc.nist.gov/projects/rbac)                     |
+| **Gemini API**       | Google AI Studio Documentation                             | [ai.google.dev/docs](https://ai.google.dev/docs)                                       |
+| **RAG**              | Retrieval-Augmented Generation for Knowledge-Intensive NLP | [arxiv.org/abs/2005.11401](https://arxiv.org/abs/2005.11401)                           |
+
+---
+
+_Part of the Vectora ecosystem_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contributors](https://github.com/Kaffyn/Vectora/graphs/contributors)

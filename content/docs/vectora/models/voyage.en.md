@@ -7,16 +7,23 @@ categories:
   - Deep Dive
 tags:
   - ai
+  - architecture
+  - auth
+  - byok
+  - config
   - embeddings
   - flash
   - gemini
   - guardian
+  - integration
   - intelligence
   - mcp
   - rag
   - reranker
   - vector-search
   - vectora
+  - voyage
+  - yaml
 type: docs
 sidebar:
   open: true
@@ -107,4 +114,4 @@ Most small to medium projects cost less than **$1/month** in Voyage API fees on 
 
 ---
 
-_Part of the Vectora ecosystem_ · Open Source (MIT)
+_Part of the Vectora ecosystem_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contributors](https://github.com/Kaffyn/Vectora/graphs/contributors)

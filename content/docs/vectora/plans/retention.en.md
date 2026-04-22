@@ -7,8 +7,14 @@ sidebar:
   open: true
 tags:
   - ai
+  - byok
+  - concepts
+  - embeddings
   - mcp
+  - privacy
+  - protocol
   - retention
+  - security
   - vectora
 ---
 
@@ -37,3 +43,14 @@ If you cancel your subscription or your account expires:
 ---
 
 > To exercise your privacy rights, please refer to our [Privacy Policy](../security/byok-privacy.md).
+
+## External Linking
+
+| Concept        | Resource                             | Link                                                                                   |
+| -------------- | ------------------------------------ | -------------------------------------------------------------------------------------- |
+| **MCP**        | Model Context Protocol Specification | [modelcontextprotocol.io/specification](https://modelcontextprotocol.io/specification) |
+| **MCP Go SDK** | Go SDK for MCP (mark3labs)           | [github.com/mark3labs/mcp-go](https://github.com/mark3labs/mcp-go)                     |
+
+---
+
+_Part of the Vectora ecosystem_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contributors](https://github.com/Kaffyn/Vectora/graphs/contributors)

@@ -7,13 +7,25 @@ sidebar:
   open: true
 tags:
   - ai
+  - auth
+  - chatgpt
   - claude
+  - concepts
+  - config
   - cursor
+  - embeddings
+  - gemini
   - ide
   - integration
   - mcp
   - mcp-protocol
+  - plugins
+  - protocol
+  - reranker
+  - tools
+  - troubleshooting
   - vectora
+  - voyage
 ---
 
 {{< lang-toggle >}}
@@ -245,4 +257,17 @@ For VS Code, use [VS Code Extension](./vscode-extension.md).
 
 ---
 
-_Part of Vectora ecosystem_ · Open Source (MIT)
+## External Linking
+
+| Concept               | Resource                             | Link                                                                                   |
+| --------------------- | ------------------------------------ | -------------------------------------------------------------------------------------- |
+| **MCP**               | Model Context Protocol Specification | [modelcontextprotocol.io/specification](https://modelcontextprotocol.io/specification) |
+| **MCP Go SDK**        | Go SDK for MCP (mark3labs)           | [github.com/mark3labs/mcp-go](https://github.com/mark3labs/mcp-go)                     |
+| **Anthropic Claude**  | Claude Documentation                 | [docs.anthropic.com/](https://docs.anthropic.com/)                                     |
+| **Gemini API**        | Google AI Studio Documentation       | [ai.google.dev/docs](https://ai.google.dev/docs)                                       |
+| **Voyage Embeddings** | Voyage Embeddings Documentation      | [docs.voyageai.com/docs/embeddings](https://docs.voyageai.com/docs/embeddings)         |
+| **Voyage Reranker**   | Voyage Reranker API                  | [docs.voyageai.com/docs/reranker](https://docs.voyageai.com/docs/reranker)             |
+
+---
+
+_Part of the Vectora ecosystem_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contributors](https://github.com/Kaffyn/Vectora/graphs/contributors)

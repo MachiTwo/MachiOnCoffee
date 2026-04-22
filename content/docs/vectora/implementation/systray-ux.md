@@ -4,11 +4,21 @@ slug: systray-ux
 date: "2026-04-20T10:30:00-03:00"
 type: docs
 tags:
-  - engineering
-  - ux
-  - systray
-  - golang
+  - ai
+  - architecture
   - auth
+  - concepts
+  - config
+  - engineering
+  - golang
+  - mcp
+  - protocol
+  - sso
+  - state
+  - system
+  - systray
+  - ux
+  - vectora
 ---
 
 {{< lang-toggle >}}
@@ -73,4 +83,15 @@ Para garantir que o Systray funcione corretamente no Windows, o instalador coloc
 
 ---
 
-_Parte do ecossistema Vectora_ · Engenharia Interna
+## External Linking
+
+| Concept              | Resource                                   | Link                                                                                   |
+| -------------------- | ------------------------------------------ | -------------------------------------------------------------------------------------- |
+| **MCP**              | Model Context Protocol Specification       | [modelcontextprotocol.io/specification](https://modelcontextprotocol.io/specification) |
+| **MCP Go SDK**       | Go SDK for MCP (mark3labs)                 | [github.com/mark3labs/mcp-go](https://github.com/mark3labs/mcp-go)                     |
+| **Anthropic Claude** | Claude Documentation                       | [docs.anthropic.com/](https://docs.anthropic.com/)                                     |
+| **Cobra**            | A Commander for modern Go CLI interactions | [cobra.dev/](https://cobra.dev/)                                                       |
+
+---
+
+_Parte do ecossistema Vectora_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contribuidores](https://github.com/Kaffyn/Vectora/graphs/contributors)

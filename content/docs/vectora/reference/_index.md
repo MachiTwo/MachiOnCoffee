@@ -6,11 +6,37 @@ type: docs
 sidebar:
   open: true
 tags:
+  - ai
   - architecture
+  - auth
+  - byok
+  - chatgpt
   - concepts
+  - config
+  - context-engine
+  - embeddings
+  - errors
+  - gemini
+  - guardian
+  - harness-runtime
+  - integration
+  - mcp
+  - persistence
+  - plugins
+  - privacy
+  - protocol
+  - rbac
   - reference
+  - reranker
+  - security
+  - state
   - system
+  - tools
+  - trust-folder
+  - vector-search
   - vectora
+  - voyage
+  - yaml
 ---
 
 {{< lang-toggle >}}
@@ -330,4 +356,17 @@ rbac:
 
 ---
 
-_Parte do ecossistema Vectora_ · Open Source (MIT)
+## External Linking
+
+| Concept               | Resource                                                 | Link                                                                                   |
+| --------------------- | -------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| **Voyage Embeddings** | Voyage Embeddings Documentation                          | [docs.voyageai.com/docs/embeddings](https://docs.voyageai.com/docs/embeddings)         |
+| **Voyage Reranker**   | Voyage Reranker API                                      | [docs.voyageai.com/docs/reranker](https://docs.voyageai.com/docs/reranker)             |
+| **MCP**               | Model Context Protocol Specification                     | [modelcontextprotocol.io/specification](https://modelcontextprotocol.io/specification) |
+| **MCP Go SDK**        | Go SDK for MCP (mark3labs)                               | [github.com/mark3labs/mcp-go](https://github.com/mark3labs/mcp-go)                     |
+| **Qdrant**            | Vector Database Documentation                            | [qdrant.tech/documentation/](https://qdrant.tech/documentation/)                       |
+| **HNSW**              | Efficient and robust approximate nearest neighbor search | [arxiv.org/abs/1603.09320](https://arxiv.org/abs/1603.09320)                           |
+
+---
+
+_Parte do ecossistema Vectora_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contribuidores](https://github.com/Kaffyn/Vectora/graphs/contributors)

@@ -7,10 +7,22 @@ sidebar:
   open: true
 tags:
   - ai
+  - auth
+  - chatgpt
+  - concepts
+  - config
+  - errors
   - mcp
   - mcp-protocol
+  - protocol
+  - reference
+  - security
+  - state
+  - system
   - tools
+  - trust-folder
   - vectora
+  - yaml
 ---
 
 {{< lang-toggle >}}
@@ -663,4 +675,15 @@ Todas as tools retornam erros estruturados:
 
 ---
 
-_Parte do ecossistema Vectora_ · Open Source (MIT)
+## External Linking
+
+| Concept              | Resource                             | Link                                                                                   |
+| -------------------- | ------------------------------------ | -------------------------------------------------------------------------------------- |
+| **JWT**              | RFC 7519: JSON Web Token Standard    | [datatracker.ietf.org/doc/html/rfc7519](https://datatracker.ietf.org/doc/html/rfc7519) |
+| **MCP**              | Model Context Protocol Specification | [modelcontextprotocol.io/specification](https://modelcontextprotocol.io/specification) |
+| **MCP Go SDK**       | Go SDK for MCP (mark3labs)           | [github.com/mark3labs/mcp-go](https://github.com/mark3labs/mcp-go)                     |
+| **Anthropic Claude** | Claude Documentation                 | [docs.anthropic.com/](https://docs.anthropic.com/)                                     |
+
+---
+
+_Parte do ecossistema Vectora_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contribuidores](https://github.com/Kaffyn/Vectora/graphs/contributors)

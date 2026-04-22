@@ -7,9 +7,20 @@ sidebar:
   open: true
 tags:
   - ai
+  - architecture
+  - auth
+  - byok
+  - config
+  - embeddings
+  - guardian
+  - integration
   - mcp
+  - security
+  - sso
+  - system
   - team
   - vectora
+  - yaml
 ---
 
 {{< lang-toggle >}}
@@ -357,4 +368,4 @@ A: 15 minutes for assessment, 4 hours for resolution.
 
 ---
 
-_Part of the Vectora ecosystem_ · Open Source (MIT)
+_Part of the Vectora ecosystem_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contributors](https://github.com/Kaffyn/Vectora/graphs/contributors)

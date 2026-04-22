@@ -4,11 +4,22 @@ slug: vector-database-implementation
 date: "2026-04-20T10:30:00-03:00"
 type: docs
 tags:
+  - ai
+  - architecture
+  - backend
+  - concepts
+  - config
+  - embeddings
   - engineering
+  - errors
   - golang
   - mongodb
+  - mongodb-atlas
+  - security
+  - state
   - vector-database
-  - backend
+  - vector-search
+  - vectora
 ---
 
 {{< lang-toggle >}}
@@ -580,4 +591,14 @@ func (qb *QueryBuilder) UpdateMetadata(ctx context.Context, docID string, metada
 
 ---
 
-_Parte do ecossistema Vectora_ · Engenharia Interna
+## External Linking
+
+| Concept           | Resource                                                 | Link                                                                                                       |
+| ----------------- | -------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| **BSON Spec**     | Binary JSON Specification                                | [bsonspec.org/](https://bsonspec.org/)                                                                     |
+| **MongoDB Atlas** | Atlas Vector Search Documentation                        | [www.mongodb.com/docs/atlas/atlas-vector-search/](https://www.mongodb.com/docs/atlas/atlas-vector-search/) |
+| **HNSW**          | Efficient and robust approximate nearest neighbor search | [arxiv.org/abs/1603.09320](https://arxiv.org/abs/1603.09320)                                               |
+
+---
+
+_Parte do ecossistema Vectora_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contribuidores](https://github.com/Kaffyn/Vectora/graphs/contributors)

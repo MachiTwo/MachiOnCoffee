@@ -7,8 +7,18 @@ sidebar:
   open: true
 tags:
   - ai
+  - architecture
+  - auth
+  - config
+  - errors
+  - gemini
   - mcp
+  - security
+  - sso
+  - system
+  - trust-folder
   - vectora
+  - yaml
 ---
 
 {{< lang-toggle >}}
@@ -450,4 +460,4 @@ VECTORA_TRUST_FOLDER=./src vectora index
 
 ---
 
-_Part of the Vectora ecosystem_ · Open Source (MIT)
+_Part of the Vectora ecosystem_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contributors](https://github.com/Kaffyn/Vectora/graphs/contributors)

@@ -6,12 +6,31 @@ type: docs
 sidebar:
   open: true
 tags:
-  - getting-started
+  - ai
+  - ast-parsing
+  - auth
+  - config
   - configuration
-  - yaml
+  - context-engine
+  - embeddings
   - environment
-  - vectora
+  - errors
+  - gemini
+  - getting-started
+  - guardian
+  - harness-runtime
+  - mcp
+  - openai
+  - rag
+  - rbac
+  - reranker
+  - security
   - setup
+  - troubleshooting
+  - trust-folder
+  - vectora
+  - voyage
+  - yaml
 ---
 
 {{< lang-toggle >}}
@@ -331,4 +350,4 @@ A: Use `vectora config reset --confirm`, or delete `~/.vectora/config.json`.
 
 ---
 
-_Part of the Vectora ecosystem_ · Open Source (MIT)
+_Part of the Vectora ecosystem_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contributors](https://github.com/Kaffyn/Vectora/graphs/contributors)

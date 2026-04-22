@@ -8,10 +8,26 @@ sidebar:
 breadcrumbs: true
 tags:
   - ai
+  - architecture
+  - ast-parsing
+  - auth
+  - concepts
+  - config
+  - context-engine
+  - embeddings
+  - errors
+  - gemini
   - mcp
+  - mongodb-atlas
+  - rbac
+  - reranker
   - search
+  - state
   - vector
+  - vector-search
   - vectora
+  - voyage
+  - yaml
 ---
 
 {{< lang-toggle >}}
@@ -212,7 +228,9 @@ export async function semanticSearch(
   options: SearchOptions,
 ): Promise<SearchResult[]> {
   // 1. Embedding da query
-  const queryEmbedding = await generateEmbedding({ content: query } as CodeChunk);
+  const queryEmbedding = await generateEmbedding({
+    content: query,
+  } as CodeChunk);
 
   // 2. Busca vetorial com filtros obrigatórios
   const results = await mongodb
@@ -396,3 +414,18 @@ R: Sim. O modelo `voyage-4` é treinado em código e documentação técnica, ca
 
 Frase para lembrar:
 "Embedding transforma código em vetor. HNSW encontra similares. Namespace filtra o escopo. Context Engine orquestra o resultado."
+
+## External Linking
+
+| Concept               | Resource                                                 | Link                                                                                                       |
+| --------------------- | -------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| **MongoDB Atlas**     | Atlas Vector Search Documentation                        | [www.mongodb.com/docs/atlas/atlas-vector-search/](https://www.mongodb.com/docs/atlas/atlas-vector-search/) |
+| **Voyage Embeddings** | Voyage Embeddings Documentation                          | [docs.voyageai.com/docs/embeddings](https://docs.voyageai.com/docs/embeddings)                             |
+| **Voyage Reranker**   | Voyage Reranker API                                      | [docs.voyageai.com/docs/reranker](https://docs.voyageai.com/docs/reranker)                                 |
+| **AST Parsing**       | Tree-sitter Official Documentation                       | [tree-sitter.github.io/tree-sitter/](https://tree-sitter.github.io/tree-sitter/)                           |
+| **HNSW**              | Efficient and robust approximate nearest neighbor search | [arxiv.org/abs/1603.09320](https://arxiv.org/abs/1603.09320)                                               |
+| **JWT**               | RFC 7519: JSON Web Token Standard                        | [datatracker.ietf.org/doc/html/rfc7519](https://datatracker.ietf.org/doc/html/rfc7519)                     |
+
+---
+
+_Parte do ecossistema Vectora_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contribuidores](https://github.com/Kaffyn/Vectora/graphs/contributors)

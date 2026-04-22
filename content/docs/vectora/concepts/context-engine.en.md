@@ -8,11 +8,20 @@ sidebar:
 tags:
   - ai
   - architecture
+  - ast-parsing
+  - auth
   - concepts
+  - config
   - context
   - context-engine
+  - embeddings
+  - guardian
+  - harness-runtime
   - mcp
+  - vector-search
   - vectora
+  - voyage
+  - yaml
 ---
 
 {{< lang-toggle >}}
@@ -126,4 +135,4 @@ Output:
 
 ---
 
-_Part of the Vectora ecosystem_ · Open Source (MIT)
+_Part of the Vectora ecosystem_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contributors](https://github.com/Kaffyn/Vectora/graphs/contributors)

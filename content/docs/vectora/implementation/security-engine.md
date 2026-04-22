@@ -4,11 +4,26 @@ slug: security-engine
 date: "2026-04-20T10:30:00-03:00"
 type: docs
 tags:
+  - ai
+  - architecture
+  - auth
+  - concepts
+  - config
   - engineering
-  - security
-  - guardian
+  - errors
   - golang
+  - governance
+  - guardian
+  - harness-runtime
+  - mongodb-atlas
+  - security
+  - system
+  - tools
+  - trust-folder
   - validation
+  - vector-search
+  - vectora
+  - yaml
 ---
 
 {{< lang-toggle >}}
@@ -634,4 +649,12 @@ func TestOutputSanitization(t *testing.T) {
 
 ---
 
-_Parte do ecossistema Vectora_ · Engenharia Interna
+## External Linking
+
+| Concept           | Resource                          | Link                                                                                                       |
+| ----------------- | --------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| **MongoDB Atlas** | Atlas Vector Search Documentation | [www.mongodb.com/docs/atlas/atlas-vector-search/](https://www.mongodb.com/docs/atlas/atlas-vector-search/) |
+
+---
+
+_Parte do ecossistema Vectora_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contribuidores](https://github.com/Kaffyn/Vectora/graphs/contributors)

@@ -4,10 +4,24 @@ slug: core-migration
 date: "2026-04-20T10:30:00-03:00"
 type: docs
 tags:
+  - ai
+  - context-engine
   - engineering
+  - errors
   - golang
+  - guardian
+  - harness-runtime
+  - mcp
   - migration
+  - mongodb-atlas
   - performance
+  - protocol
+  - rag
+  - security
+  - sub-agents
+  - system
+  - vectora
+  - voyage
 ---
 
 {{< lang-toggle >}}
@@ -45,4 +59,4 @@ The `Embed → Search → Rerank` pipeline is now orchestrated via Go's `Channel
 
 ---
 
-_Part of the Vectora ecosystem_ · Internal Engineering
+_Part of the Vectora ecosystem_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contributors](https://github.com/Kaffyn/Vectora/graphs/contributors)

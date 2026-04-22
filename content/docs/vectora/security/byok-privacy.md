@@ -7,12 +7,27 @@ sidebar:
   open: true
 tags:
   - ai
+  - architecture
+  - auth
   - byok
+  - concepts
+  - config
+  - embeddings
+  - gemini
   - governance
+  - guardian
+  - harness-runtime
   - mcp
   - privacy
+  - rbac
+  - reranker
   - security
+  - system
+  - tools
+  - trust-folder
   - vectora
+  - voyage
+  - yaml
 ---
 
 {{< lang-toggle >}}
@@ -438,4 +453,17 @@ R: Você controla. Local storage = você mantém backups. Cloud storage = você 
 
 ---
 
-_Parte do ecossistema Vectora_ · Open Source (MIT)
+## External Linking
+
+| Concept               | Resource                                | Link                                                                           |
+| --------------------- | --------------------------------------- | ------------------------------------------------------------------------------ |
+| **Voyage Embeddings** | Voyage Embeddings Documentation         | [docs.voyageai.com/docs/embeddings](https://docs.voyageai.com/docs/embeddings) |
+| **Voyage Reranker**   | Voyage Reranker API                     | [docs.voyageai.com/docs/reranker](https://docs.voyageai.com/docs/reranker)     |
+| **Qdrant**            | Vector Database Documentation           | [qdrant.tech/documentation/](https://qdrant.tech/documentation/)               |
+| **Gemini API**        | Google AI Studio Documentation          | [ai.google.dev/docs](https://ai.google.dev/docs)                               |
+| **Docker**            | Docker Documentation                    | [docs.docker.com/](https://docs.docker.com/)                                   |
+| **RBAC**              | NIST Role-Based Access Control Standard | [csrc.nist.gov/projects/rbac](https://csrc.nist.gov/projects/rbac)             |
+
+---
+
+_Parte do ecossistema Vectora_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contribuidores](https://github.com/Kaffyn/Vectora/graphs/contributors)

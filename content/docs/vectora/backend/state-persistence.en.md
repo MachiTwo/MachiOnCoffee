@@ -8,10 +8,34 @@ sidebar:
 breadcrumbs: true
 tags:
   - ai
+  - architecture
+  - auth
+  - concepts
+  - config
+  - embeddings
+  - errors
+  - gemini
+  - guardian
+  - harness-runtime
+  - integration
   - mcp
+  - mongodb-atlas
   - persistence
+  - privacy
+  - protocol
+  - rag
+  - reference
+  - reranker
+  - security
+  - sso
   - state
+  - system
+  - tools
+  - troubleshooting
+  - vector-search
   - vectora
+  - voyage
+  - yaml
 ---
 
 {{< lang-toggle >}}
@@ -383,3 +407,18 @@ vectora state import --namespace my-project --input ./state-backup.json --region
 
 Phrase to remember:
 "State persistence turns isolated queries into continuous collaboration. Operational state tracks the now, memory preserves the learned, and audit ensures the accountable."
+
+## External Linking
+
+| Concept               | Resource                             | Link                                                                                                       |
+| --------------------- | ------------------------------------ | ---------------------------------------------------------------------------------------------------------- |
+| **MongoDB Atlas**     | Atlas Vector Search Documentation    | [www.mongodb.com/docs/atlas/atlas-vector-search/](https://www.mongodb.com/docs/atlas/atlas-vector-search/) |
+| **MCP**               | Model Context Protocol Specification | [modelcontextprotocol.io/specification](https://modelcontextprotocol.io/specification)                     |
+| **MCP Go SDK**        | Go SDK for MCP (mark3labs)           | [github.com/mark3labs/mcp-go](https://github.com/mark3labs/mcp-go)                                         |
+| **Voyage Embeddings** | Voyage Embeddings Documentation      | [docs.voyageai.com/docs/embeddings](https://docs.voyageai.com/docs/embeddings)                             |
+| **Voyage Reranker**   | Voyage Reranker API                  | [docs.voyageai.com/docs/reranker](https://docs.voyageai.com/docs/reranker)                                 |
+| **JWT**               | RFC 7519: JSON Web Token Standard    | [datatracker.ietf.org/doc/html/rfc7519](https://datatracker.ietf.org/doc/html/rfc7519)                     |
+
+---
+
+_Part of the Vectora ecosystem_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contributors](https://github.com/Kaffyn/Vectora/graphs/contributors)

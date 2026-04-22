@@ -8,13 +8,24 @@ sidebar:
 tags:
   - ai
   - architecture
+  - auth
   - concepts
   - embeddings
+  - errors
   - hnsw
+  - mongodb-atlas
+  - persistence
+  - plugins
   - qdrant
+  - reranker
+  - security
   - semantic-search
+  - state
+  - system
   - vector-database
+  - vector-search
   - vectora
+  - voyage
 ---
 
 {{< lang-toggle >}}
@@ -101,7 +112,22 @@ R: Sim, graças ao Voyage 4, as estruturas semânticas de loops, condicionais e 
 **P: Como os namespaces afetam a busca?**
 R: O Vectora aplica um **filtro de metadados** ("Pre-filtering") antes da busca vetorial. Isso garante que o algoritmo HNSW só percorra os vetores que pertencem ao seu projeto autorizado.
 
+## External Linking
+
+| Concept               | Resource                                                 | Link                                                                                                       |
+| --------------------- | -------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| **MongoDB Atlas**     | Atlas Vector Search Documentation                        | [www.mongodb.com/docs/atlas/atlas-vector-search/](https://www.mongodb.com/docs/atlas/atlas-vector-search/) |
+| **HNSW**              | Efficient and robust approximate nearest neighbor search | [arxiv.org/abs/1603.09320](https://arxiv.org/abs/1603.09320)                                               |
+| **Voyage Embeddings** | Voyage Embeddings Documentation                          | [docs.voyageai.com/docs/embeddings](https://docs.voyageai.com/docs/embeddings)                             |
+| **Voyage Reranker**   | Voyage Reranker API                                      | [docs.voyageai.com/docs/reranker](https://docs.voyageai.com/docs/reranker)                                 |
+| **Qdrant**            | Vector Database Documentation                            | [qdrant.tech/documentation/](https://qdrant.tech/documentation/)                                           |
+| **JWT**               | RFC 7519: JSON Web Token Standard                        | [datatracker.ietf.org/doc/html/rfc7519](https://datatracker.ietf.org/doc/html/rfc7519)                     |
+
 ---
 
 > **Frase para lembrar**:
 > _"Na busca tradicional você digita palavras. Na busca vetorial do Vectora, você expressa intenções."_
+
+---
+
+_Parte do ecossistema Vectora_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contribuidores](https://github.com/Kaffyn/Vectora/graphs/contributors)

@@ -7,12 +7,26 @@ sidebar:
   open: true
 tags:
   - ai
+  - architecture
+  - auth
   - byok
+  - concepts
+  - config
+  - embeddings
+  - gemini
   - governance
+  - guardian
+  - harness-runtime
   - mcp
   - privacy
+  - rbac
   - security
+  - system
+  - tools
+  - trust-folder
   - vectora
+  - voyage
+  - yaml
 ---
 
 {{< lang-toggle >}}
@@ -440,4 +454,4 @@ A: You control it. Local storage = you maintain backups. Cloud storage = you cho
 
 ---
 
-_Part of the Vectora ecosystem_ · Open Source (MIT)
+_Part of the Vectora ecosystem_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contributors](https://github.com/Kaffyn/Vectora/graphs/contributors)

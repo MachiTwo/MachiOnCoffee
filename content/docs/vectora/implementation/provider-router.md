@@ -4,10 +4,20 @@ slug: provider-router
 date: "2026-04-20T10:30:00-03:00"
 type: docs
 tags:
-  - engineering
-  - golang
+  - ai
   - api-clients
+  - auth
+  - byok
+  - concepts
+  - config
+  - embeddings
+  - engineering
+  - errors
   - gemini
+  - golang
+  - reranker
+  - tools
+  - vectora
   - voyage
 ---
 
@@ -511,4 +521,14 @@ func (hm *HealthMonitor) alert(provider, status, message string) {
 
 ---
 
-_Parte do ecossistema Vectora_ · Engenharia Interna
+## External Linking
+
+| Concept               | Resource                        | Link                                                                           |
+| --------------------- | ------------------------------- | ------------------------------------------------------------------------------ |
+| **Voyage Embeddings** | Voyage Embeddings Documentation | [docs.voyageai.com/docs/embeddings](https://docs.voyageai.com/docs/embeddings) |
+| **Voyage Reranker**   | Voyage Reranker API             | [docs.voyageai.com/docs/reranker](https://docs.voyageai.com/docs/reranker)     |
+| **Gemini API**        | Google AI Studio Documentation  | [ai.google.dev/docs](https://ai.google.dev/docs)                               |
+
+---
+
+_Parte do ecossistema Vectora_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contribuidores](https://github.com/Kaffyn/Vectora/graphs/contributors)

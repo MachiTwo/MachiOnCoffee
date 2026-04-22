@@ -7,10 +7,16 @@ sidebar:
   open: true
 tags:
   - ai
+  - auth
+  - byok
+  - concepts
+  - errors
   - mcp
   - protocol
   - reference
+  - tools
   - vectora
+  - yaml
 ---
 
 {{< lang-toggle >}}
@@ -252,3 +258,18 @@ Logs show all JSON messages exchanged.
 ---
 
 > Complete spec: [Model Context Protocol Spec](https://modelcontextprotocol.io)
+
+## External Linking
+
+| Concept              | Resource                                       | Link                                                                                   |
+| -------------------- | ---------------------------------------------- | -------------------------------------------------------------------------------------- |
+| **MCP**              | Model Context Protocol Specification           | [modelcontextprotocol.io/specification](https://modelcontextprotocol.io/specification) |
+| **MCP Go SDK**       | Go SDK for MCP (mark3labs)                     | [github.com/mark3labs/mcp-go](https://github.com/mark3labs/mcp-go)                     |
+| **Anthropic Claude** | Claude Documentation                           | [docs.anthropic.com/](https://docs.anthropic.com/)                                     |
+| **JSON-RPC**         | JSON-RPC 2.0 Specification                     | [www.jsonrpc.org/specification](https://www.jsonrpc.org/specification)                 |
+| **JWT**              | RFC 7519: JSON Web Token Standard              | [datatracker.ietf.org/doc/html/rfc7519](https://datatracker.ietf.org/doc/html/rfc7519) |
+| **GitHub Actions**   | Automate your workflow from idea to production | [docs.github.com/en/actions](https://docs.github.com/en/actions)                       |
+
+---
+
+_Part of the Vectora ecosystem_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contributors](https://github.com/Kaffyn/Vectora/graphs/contributors)

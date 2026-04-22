@@ -3,6 +3,22 @@ title: "Vector Search: The Science of Meaning"
 type: docs
 sidebar:
   open: true
+tags:
+  - ai
+  - auth
+  - concepts
+  - embeddings
+  - errors
+  - mongodb-atlas
+  - persistence
+  - plugins
+  - reranker
+  - security
+  - state
+  - system
+  - vector-search
+  - vectora
+  - voyage
 ---
 
 {{< lang-toggle >}}
@@ -89,7 +105,21 @@ A: Yes, thanks to Voyage 4, semantic structures of loops, conditionals, and type
 **Q: How do namespaces affect search?**
 A: Vectora applies a **metadata filter** ("Pre-filtering") before the vector search. This ensures the HNSW algorithm only traverses vectors belonging to your authorized project.
 
+## External Linking
+
+| Concept               | Resource                                                 | Link                                                                                                       |
+| --------------------- | -------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| **MongoDB Atlas**     | Atlas Vector Search Documentation                        | [www.mongodb.com/docs/atlas/atlas-vector-search/](https://www.mongodb.com/docs/atlas/atlas-vector-search/) |
+| **Voyage Embeddings** | Voyage Embeddings Documentation                          | [docs.voyageai.com/docs/embeddings](https://docs.voyageai.com/docs/embeddings)                             |
+| **Voyage Reranker**   | Voyage Reranker API                                      | [docs.voyageai.com/docs/reranker](https://docs.voyageai.com/docs/reranker)                                 |
+| **HNSW**              | Efficient and robust approximate nearest neighbor search | [arxiv.org/abs/1603.09320](https://arxiv.org/abs/1603.09320)                                               |
+| **JWT**               | RFC 7519: JSON Web Token Standard                        | [datatracker.ietf.org/doc/html/rfc7519](https://datatracker.ietf.org/doc/html/rfc7519)                     |
+
 ---
 
 > **Phrase to remember**:
 > _"In traditional search you type words. In Vectora's vector search, you express intentions."_
+
+---
+
+_Part of the Vectora ecosystem_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contributors](https://github.com/Kaffyn/Vectora/graphs/contributors)

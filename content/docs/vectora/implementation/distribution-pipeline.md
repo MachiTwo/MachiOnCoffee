@@ -4,12 +4,23 @@ slug: distribution-pipeline
 date: "2026-04-20T10:30:00-03:00"
 type: docs
 tags:
-  - engineering
-  - ci-cd
-  - goreleaser
-  - winget
+  - ai
+  - architecture
   - automation
+  - ci-cd
+  - concepts
+  - config
+  - engineering
+  - errors
   - github-actions
+  - goreleaser
+  - mcp
+  - protocol
+  - security
+  - sub-agents
+  - vectora
+  - winget
+  - yaml
 ---
 
 {{< lang-toggle >}}
@@ -591,4 +602,15 @@ Antes de criar uma tag:
 
 ---
 
-_Parte do ecossistema Vectora_ · Engenharia Interna
+## External Linking
+
+| Concept            | Resource                                       | Link                                                                                   |
+| ------------------ | ---------------------------------------------- | -------------------------------------------------------------------------------------- |
+| **MCP**            | Model Context Protocol Specification           | [modelcontextprotocol.io/specification](https://modelcontextprotocol.io/specification) |
+| **MCP Go SDK**     | Go SDK for MCP (mark3labs)                     | [github.com/mark3labs/mcp-go](https://github.com/mark3labs/mcp-go)                     |
+| **GitHub Actions** | Automate your workflow from idea to production | [docs.github.com/en/actions](https://docs.github.com/en/actions)                       |
+| **Docker**         | Docker Documentation                           | [docs.docker.com/](https://docs.docker.com/)                                           |
+
+---
+
+_Parte do ecossistema Vectora_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contribuidores](https://github.com/Kaffyn/Vectora/graphs/contributors)

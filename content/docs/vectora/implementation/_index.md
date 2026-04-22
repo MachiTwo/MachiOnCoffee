@@ -6,11 +6,39 @@ type: docs
 sidebar:
   open: true
 tags:
-  - engineering
+  - ai
   - architecture
+  - ast-parsing
+  - auth
+  - byok
+  - concepts
+  - config
+  - context-engine
+  - embeddings
+  - engineering
+  - errors
+  - gemini
   - golang
+  - guardian
+  - harness-runtime
   - implementation
+  - integration
+  - mcp
+  - mongodb-atlas
+  - persistence
+  - protocol
+  - rag
+  - reranker
   - roadmap
+  - security
+  - sso
+  - state
+  - sub-agents
+  - tools
+  - vector-search
+  - vectora
+  - voyage
+  - yaml
 ---
 
 {{< lang-toggle >}}
@@ -288,4 +316,17 @@ Cada fase inclui:
 
 ---
 
-_Parte do ecossistema Vectora_ · Engenharia Interna
+## External Linking
+
+| Concept               | Resource                                   | Link                                                                                   |
+| --------------------- | ------------------------------------------ | -------------------------------------------------------------------------------------- |
+| **MCP**               | Model Context Protocol Specification       | [modelcontextprotocol.io/specification](https://modelcontextprotocol.io/specification) |
+| **MCP Go SDK**        | Go SDK for MCP (mark3labs)                 | [github.com/mark3labs/mcp-go](https://github.com/mark3labs/mcp-go)                     |
+| **Docker**            | Docker Documentation                       | [docs.docker.com/](https://docs.docker.com/)                                           |
+| **Voyage Embeddings** | Voyage Embeddings Documentation            | [docs.voyageai.com/docs/embeddings](https://docs.voyageai.com/docs/embeddings)         |
+| **Voyage Reranker**   | Voyage Reranker API                        | [docs.voyageai.com/docs/reranker](https://docs.voyageai.com/docs/reranker)             |
+| **Cobra**             | A Commander for modern Go CLI interactions | [cobra.dev/](https://cobra.dev/)                                                       |
+
+---
+
+_Parte do ecossistema Vectora_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contribuidores](https://github.com/Kaffyn/Vectora/graphs/contributors)

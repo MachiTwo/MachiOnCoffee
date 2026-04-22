@@ -4,12 +4,33 @@ slug: vectora-cloud-platform
 date: "2026-04-20T10:30:00-03:00"
 type: docs
 tags:
-  - engineering
-  - cloud
-  - saas
-  - react
+  - ai
+  - architecture
+  - auth
   - authentication
+  - chatgpt
+  - cloud
+  - concepts
+  - config
+  - embeddings
+  - engineering
+  - errors
+  - gemini
+  - guardian
+  - integration
+  - mcp
+  - mongodb-atlas
+  - plugins
+  - protocol
+  - react
+  - saas
+  - sso
+  - sub-agents
   - subscriptions
+  - system
+  - vector-search
+  - vectora
+  - voyage
 ---
 
 {{< lang-toggle >}}
@@ -685,4 +706,17 @@ func (pg *PluginGateway) HandlePluginRequest(w http.ResponseWriter, r *http.Requ
 
 ---
 
-_Parte do ecossistema Vectora Cloud_ · Plataforma SaaS
+## External Linking
+
+| Concept           | Resource                                        | Link                                                                                                       |
+| ----------------- | ----------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| **MongoDB Atlas** | Atlas Vector Search Documentation               | [www.mongodb.com/docs/atlas/atlas-vector-search/](https://www.mongodb.com/docs/atlas/atlas-vector-search/) |
+| **MCP**           | Model Context Protocol Specification            | [modelcontextprotocol.io/specification](https://modelcontextprotocol.io/specification)                     |
+| **MCP Go SDK**    | Go SDK for MCP (mark3labs)                      | [github.com/mark3labs/mcp-go](https://github.com/mark3labs/mcp-go)                                         |
+| **JWT**           | RFC 7519: JSON Web Token Standard               | [datatracker.ietf.org/doc/html/rfc7519](https://datatracker.ietf.org/doc/html/rfc7519)                     |
+| **OAuth 2.0**     | RFC 6749: The OAuth 2.0 Authorization Framework | [datatracker.ietf.org/doc/html/rfc6749](https://datatracker.ietf.org/doc/html/rfc6749)                     |
+| **Vercel**        | Vercel Platform Documentation                   | [vercel.com/docs](https://vercel.com/docs)                                                                 |
+
+---
+
+_Parte do ecossistema Vectora_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contribuidores](https://github.com/Kaffyn/Vectora/graphs/contributors)

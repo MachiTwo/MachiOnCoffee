@@ -7,9 +7,22 @@ sidebar:
   open: true
 tags:
   - ai
+  - architecture
+  - auth
+  - byok
+  - concepts
+  - config
+  - embeddings
+  - guardian
+  - integration
   - mcp
+  - protocol
+  - security
+  - sso
+  - system
   - team
   - vectora
+  - yaml
 ---
 
 {{< lang-toggle >}}
@@ -357,4 +370,17 @@ R: 15 min para assessment, 4 horas para resolve.
 
 ---
 
-_Parte do ecossistema Vectora_ · Open Source (MIT)
+## External Linking
+
+| Concept            | Resource                             | Link                                                                                                   |
+| ------------------ | ------------------------------------ | ------------------------------------------------------------------------------------------------------ |
+| **MCP**            | Model Context Protocol Specification | [modelcontextprotocol.io/specification](https://modelcontextprotocol.io/specification)                 |
+| **MCP Go SDK**     | Go SDK for MCP (mark3labs)           | [github.com/mark3labs/mcp-go](https://github.com/mark3labs/mcp-go)                                     |
+| **Docker**         | Docker Documentation                 | [docs.docker.com/](https://docs.docker.com/)                                                           |
+| **Kubernetes**     | Kubernetes Official Documentation    | [kubernetes.io/docs/](https://kubernetes.io/docs/)                                                     |
+| **Qdrant**         | Vector Database Documentation        | [qdrant.tech/documentation/](https://qdrant.tech/documentation/)                                       |
+| **OpenID Connect** | OIDC Core 1.0 Specification          | [openid.net/specs/openid-connect-core-1_0.html](https://openid.net/specs/openid-connect-core-1_0.html) |
+
+---
+
+_Parte do ecossistema Vectora_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contribuidores](https://github.com/Kaffyn/Vectora/graphs/contributors)

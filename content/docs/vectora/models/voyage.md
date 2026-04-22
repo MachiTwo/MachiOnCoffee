@@ -7,6 +7,12 @@ categories:
   - Deep Dive
 tags:
   - ai
+  - architecture
+  - ast-parsing
+  - auth
+  - byok
+  - concepts
+  - config
   - embeddings
   - flash
   - gemini
@@ -15,8 +21,11 @@ tags:
   - mcp
   - rag
   - reranker
+  - state
   - vector-search
   - vectora
+  - voyage
+  - yaml
 type: docs
 sidebar:
   open: true
@@ -109,4 +118,17 @@ A maioria dos projetos de pequeno a médio porte custa menos de **$1/mês** em t
 
 ---
 
-_Parte do ecossistema Vectora_ · Open Source (MIT)
+## External Linking
+
+| Concept               | Resource                                                   | Link                                                                             |
+| --------------------- | ---------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| **Voyage Embeddings** | Voyage Embeddings Documentation                            | [docs.voyageai.com/docs/embeddings](https://docs.voyageai.com/docs/embeddings)   |
+| **Voyage Reranker**   | Voyage Reranker API                                        | [docs.voyageai.com/docs/reranker](https://docs.voyageai.com/docs/reranker)       |
+| **AST Parsing**       | Tree-sitter Official Documentation                         | [tree-sitter.github.io/tree-sitter/](https://tree-sitter.github.io/tree-sitter/) |
+| **Qdrant**            | Vector Database Documentation                              | [qdrant.tech/documentation/](https://qdrant.tech/documentation/)                 |
+| **Gemini API**        | Google AI Studio Documentation                             | [ai.google.dev/docs](https://ai.google.dev/docs)                                 |
+| **RAG**               | Retrieval-Augmented Generation for Knowledge-Intensive NLP | [arxiv.org/abs/2005.11401](https://arxiv.org/abs/2005.11401)                     |
+
+---
+
+_Parte do ecossistema Vectora_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contribuidores](https://github.com/Kaffyn/Vectora/graphs/contributors)

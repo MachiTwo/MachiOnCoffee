@@ -7,11 +7,23 @@ sidebar:
   open: true
 tags:
   - ai
+  - byok
+  - concepts
+  - config
+  - embeddings
+  - errors
   - getting
+  - integration
   - mcp
+  - protocol
+  - reranker
+  - security
   - setup
   - started
+  - tools
+  - troubleshooting
   - vectora
+  - voyage
 ---
 
 {{< lang-toggle >}}
@@ -83,3 +95,17 @@ Após configurar:
 ---
 
 > Tempo total: ~5-10 minutos. Vamos lá!
+
+## External Linking
+
+| Concept               | Resource                             | Link                                                                                   |
+| --------------------- | ------------------------------------ | -------------------------------------------------------------------------------------- |
+| **MCP**               | Model Context Protocol Specification | [modelcontextprotocol.io/specification](https://modelcontextprotocol.io/specification) |
+| **MCP Go SDK**        | Go SDK for MCP (mark3labs)           | [github.com/mark3labs/mcp-go](https://github.com/mark3labs/mcp-go)                     |
+| **Voyage Embeddings** | Voyage Embeddings Documentation      | [docs.voyageai.com/docs/embeddings](https://docs.voyageai.com/docs/embeddings)         |
+| **Voyage Reranker**   | Voyage Reranker API                  | [docs.voyageai.com/docs/reranker](https://docs.voyageai.com/docs/reranker)             |
+| **Anthropic Claude**  | Claude Documentation                 | [docs.anthropic.com/](https://docs.anthropic.com/)                                     |
+
+---
+
+_Parte do ecossistema Vectora_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contribuidores](https://github.com/Kaffyn/Vectora/graphs/contributors)

@@ -6,11 +6,23 @@ type: docs
 sidebar:
   open: true
 tags:
-  - reranker
-  - embeddings
-  - retrieval
-  - performance
+  - ai
   - architecture
+  - ast-parsing
+  - auth
+  - concepts
+  - config
+  - embeddings
+  - gemini
+  - integration
+  - performance
+  - reranker
+  - retrieval
+  - system
+  - vector-search
+  - vectora
+  - voyage
+  - yaml
 ---
 
 {{< lang-toggle >}}
@@ -319,3 +331,18 @@ A: Hybrid strategy with Vector DB fallback. Configure `fallback_on_low_confidenc
 ---
 
 > Want to explore Local Reranker? [Open a Discussion](https://github.com/Kaffyn/Vectora/discussions)
+
+## External Linking
+
+| Concept               | Resource                           | Link                                                                                   |
+| --------------------- | ---------------------------------- | -------------------------------------------------------------------------------------- |
+| **AST Parsing**       | Tree-sitter Official Documentation | [tree-sitter.github.io/tree-sitter/](https://tree-sitter.github.io/tree-sitter/)       |
+| **Voyage Embeddings** | Voyage Embeddings Documentation    | [docs.voyageai.com/docs/embeddings](https://docs.voyageai.com/docs/embeddings)         |
+| **Voyage Reranker**   | Voyage Reranker API                | [docs.voyageai.com/docs/reranker](https://docs.voyageai.com/docs/reranker)             |
+| **Gemini API**        | Google AI Studio Documentation     | [ai.google.dev/docs](https://ai.google.dev/docs)                                       |
+| **Llama**             | Meta Llama Models                  | [llama.meta.com/](https://llama.meta.com/)                                             |
+| **JWT**               | RFC 7519: JSON Web Token Standard  | [datatracker.ietf.org/doc/html/rfc7519](https://datatracker.ietf.org/doc/html/rfc7519) |
+
+---
+
+_Part of the Vectora ecosystem_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contributors](https://github.com/Kaffyn/Vectora/graphs/contributors)

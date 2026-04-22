@@ -8,8 +8,21 @@ sidebar:
 tags:
   - ai
   - billing
+  - byok
+  - concepts
+  - embeddings
+  - errors
+  - gemini
+  - guardian
   - mcp
+  - privacy
+  - protocol
+  - rbac
+  - reranker
+  - security
+  - sso
   - vectora
+  - voyage
 ---
 
 {{< lang-toggle >}}
@@ -298,4 +311,17 @@ mv backup.tar.gz ~/backups/
 
 ---
 
-_Parte do ecossistema Vectora_ · Open Source (MIT)
+## External Linking
+
+| Concept               | Resource                                | Link                                                                                   |
+| --------------------- | --------------------------------------- | -------------------------------------------------------------------------------------- |
+| **Voyage Embeddings** | Voyage Embeddings Documentation         | [docs.voyageai.com/docs/embeddings](https://docs.voyageai.com/docs/embeddings)         |
+| **Voyage Reranker**   | Voyage Reranker API                     | [docs.voyageai.com/docs/reranker](https://docs.voyageai.com/docs/reranker)             |
+| **MCP**               | Model Context Protocol Specification    | [modelcontextprotocol.io/specification](https://modelcontextprotocol.io/specification) |
+| **MCP Go SDK**        | Go SDK for MCP (mark3labs)              | [github.com/mark3labs/mcp-go](https://github.com/mark3labs/mcp-go)                     |
+| **RBAC**              | NIST Role-Based Access Control Standard | [csrc.nist.gov/projects/rbac](https://csrc.nist.gov/projects/rbac)                     |
+| **Gemini API**        | Google AI Studio Documentation          | [ai.google.dev/docs](https://ai.google.dev/docs)                                       |
+
+---
+
+_Parte do ecossistema Vectora_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contribuidores](https://github.com/Kaffyn/Vectora/graphs/contributors)

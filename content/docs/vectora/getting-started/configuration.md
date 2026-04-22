@@ -6,12 +6,33 @@ type: docs
 sidebar:
   open: true
 tags:
-  - getting-started
+  - ai
+  - ast-parsing
+  - auth
+  - concepts
+  - config
   - configuration
-  - yaml
+  - context-engine
+  - embeddings
   - environment
-  - vectora
+  - errors
+  - gemini
+  - getting-started
+  - guardian
+  - harness-runtime
+  - mcp
+  - openai
+  - protocol
+  - rag
+  - rbac
+  - reranker
+  - security
   - setup
+  - troubleshooting
+  - trust-folder
+  - vectora
+  - voyage
+  - yaml
 ---
 
 {{< lang-toggle >}}
@@ -331,4 +352,17 @@ R: Use `vectora config reset --confirm`, ou delete `~/.vectora/config.json`.
 
 ---
 
-_Parte do ecossistema Vectora_ · Open Source (MIT)
+## External Linking
+
+| Concept               | Resource                                | Link                                                                                   |
+| --------------------- | --------------------------------------- | -------------------------------------------------------------------------------------- |
+| **Voyage Embeddings** | Voyage Embeddings Documentation         | [docs.voyageai.com/docs/embeddings](https://docs.voyageai.com/docs/embeddings)         |
+| **Voyage Reranker**   | Voyage Reranker API                     | [docs.voyageai.com/docs/reranker](https://docs.voyageai.com/docs/reranker)             |
+| **Gemini API**        | Google AI Studio Documentation          | [ai.google.dev/docs](https://ai.google.dev/docs)                                       |
+| **RBAC**              | NIST Role-Based Access Control Standard | [csrc.nist.gov/projects/rbac](https://csrc.nist.gov/projects/rbac)                     |
+| **Qdrant**            | Vector Database Documentation           | [qdrant.tech/documentation/](https://qdrant.tech/documentation/)                       |
+| **MCP**               | Model Context Protocol Specification    | [modelcontextprotocol.io/specification](https://modelcontextprotocol.io/specification) |
+
+---
+
+_Parte do ecossistema Vectora_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contribuidores](https://github.com/Kaffyn/Vectora/graphs/contributors)

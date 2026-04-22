@@ -7,11 +7,25 @@ sidebar:
   open: true
 tags:
   - ai
+  - architecture
+  - auth
+  - byok
+  - concepts
+  - config
   - governance
+  - guardian
+  - harness-runtime
+  - integration
   - mcp
+  - privacy
   - rbac
   - security
+  - sso
+  - system
+  - troubleshooting
+  - trust-folder
   - vectora
+  - yaml
 ---
 
 {{< lang-toggle >}}
@@ -523,4 +537,4 @@ vectora token revoke-all-old
 
 ---
 
-_Part of the Vectora ecosystem_ · Open Source (MIT)
+_Part of the Vectora ecosystem_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contributors](https://github.com/Kaffyn/Vectora/graphs/contributors)

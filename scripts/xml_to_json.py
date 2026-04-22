@@ -1,4 +1,3 @@
-import os
 import json
 import xml.etree.ElementTree as ET
 from pathlib import Path
@@ -6,6 +5,7 @@ from pathlib import Path
 # Configurações
 SOURCE_DIR = Path("data/api_sources")
 OUTPUT_BASE_DIR = Path("data/api")
+
 
 def parse_xml(xml_path):
     try:
@@ -20,21 +20,23 @@ def parse_xml(xml_path):
             "properties": [],
             "methods": [],
             "signals": [],
-            "constants": []
+            "constants": [],
         }
 
         # Membros (Propriedades)
         members = root.find("members")
         if members is not None:
             for member in members.findall("member"):
-                data["properties"].append({
-                    "name": member.attrib.get("name", ""),
-                    "type": member.attrib.get("type", ""),
-                    "setter": member.attrib.get("setter", ""),
-                    "getter": member.attrib.get("getter", ""),
-                    "default": member.attrib.get("default", ""),
-                    "description": member.text.strip() if member.text else ""
-                })
+                data["properties"].append(
+                    {
+                        "name": member.attrib.get("name", ""),
+                        "type": member.attrib.get("type", ""),
+                        "setter": member.attrib.get("setter", ""),
+                        "getter": member.attrib.get("getter", ""),
+                        "default": member.attrib.get("default", ""),
+                        "description": member.text.strip() if member.text else "",
+                    }
+                )
 
         # Métodos
         methods = root.find("methods")
@@ -45,7 +47,7 @@ def parse_xml(xml_path):
                     "qualifiers": method.attrib.get("qualifiers", ""),
                     "description": method.findtext("description", "").strip(),
                     "return_type": "",
-                    "params": []
+                    "params": [],
                 }
 
                 ret = method.find("return")
@@ -53,11 +55,13 @@ def parse_xml(xml_path):
                     m_data["return_type"] = ret.attrib.get("type", "void")
 
                 for param in method.findall("param"):
-                    m_data["params"].append({
-                        "name": param.attrib.get("name", ""),
-                        "type": param.attrib.get("type", ""),
-                        "default": param.attrib.get("default", "")
-                    })
+                    m_data["params"].append(
+                        {
+                            "name": param.attrib.get("name", ""),
+                            "type": param.attrib.get("type", ""),
+                            "default": param.attrib.get("default", ""),
+                        }
+                    )
 
                 data["methods"].append(m_data)
 
@@ -68,29 +72,34 @@ def parse_xml(xml_path):
                 s_data = {
                     "name": signal.attrib.get("name", ""),
                     "description": signal.findtext("description", "").strip(),
-                    "params": []
+                    "params": [],
                 }
                 for param in signal.findall("param"):
-                    s_data["params"].append({
-                        "name": param.attrib.get("name", ""),
-                        "type": param.attrib.get("type", "")
-                    })
+                    s_data["params"].append(
+                        {
+                            "name": param.attrib.get("name", ""),
+                            "type": param.attrib.get("type", ""),
+                        }
+                    )
                 data["signals"].append(s_data)
 
         # Constantes
         constants = root.find("constants")
         if constants is not None:
             for constant in constants.findall("constant"):
-                data["constants"].append({
-                    "name": constant.attrib.get("name", ""),
-                    "value": constant.attrib.get("value", ""),
-                    "description": constant.text.strip() if constant.text else ""
-                })
+                data["constants"].append(
+                    {
+                        "name": constant.attrib.get("name", ""),
+                        "value": constant.attrib.get("value", ""),
+                        "description": constant.text.strip() if constant.text else "",
+                    }
+                )
 
         return data
     except Exception as e:
         print(f"Erro ao processar {xml_path}: {e}")
         return None
+
 
 def main():
     if not SOURCE_DIR.exists():
@@ -117,6 +126,7 @@ def main():
                 json.dump(class_data, f, indent=4, ensure_ascii=False)
 
     print("Conversão concluída!")
+
 
 if __name__ == "__main__":
     main()

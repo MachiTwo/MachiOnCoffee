@@ -6,9 +6,15 @@ type: docs
 sidebar:
   open: true
 tags:
-  - ai
   - acp
+  - ai
+  - auth
+  - concepts
+  - mcp
   - protocol
+  - state
+  - sub-agents
+  - system
   - vectora
 ---
 
@@ -66,3 +72,15 @@ ACP does not yet have full public documentation. For early access:
 ---
 
 > Interested in ACP? [Open a Discussion](https://github.com/Kaffyn/Vectora/discussions)
+
+## External Linking
+
+| Concept        | Resource                             | Link                                                                                   |
+| -------------- | ------------------------------------ | -------------------------------------------------------------------------------------- |
+| **MCP**        | Model Context Protocol Specification | [modelcontextprotocol.io/specification](https://modelcontextprotocol.io/specification) |
+| **MCP Go SDK** | Go SDK for MCP (mark3labs)           | [github.com/mark3labs/mcp-go](https://github.com/mark3labs/mcp-go)                     |
+| **JWT**        | RFC 7519: JSON Web Token Standard    | [datatracker.ietf.org/doc/html/rfc7519](https://datatracker.ietf.org/doc/html/rfc7519) |
+
+---
+
+_Part of the Vectora ecosystem_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contributors](https://github.com/Kaffyn/Vectora/graphs/contributors)

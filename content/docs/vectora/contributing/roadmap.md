@@ -7,8 +7,13 @@ sidebar:
   open: true
 tags:
   - ai
+  - concepts
+  - integration
   - mcp
+  - protocol
   - roadmap
+  - security
+  - sso
   - vectora
 ---
 
@@ -63,3 +68,14 @@ Roadmap público de Vectora para 2026. Cada item tem status, impacto estimado, e
 ---
 
 > Quer sugerir uma feature? [Feature Request](https://github.com/Kaffyn/Vectora/discussions/new?category=feature-requests)
+
+## External Linking
+
+| Concept        | Resource                             | Link                                                                                   |
+| -------------- | ------------------------------------ | -------------------------------------------------------------------------------------- |
+| **MCP**        | Model Context Protocol Specification | [modelcontextprotocol.io/specification](https://modelcontextprotocol.io/specification) |
+| **MCP Go SDK** | Go SDK for MCP (mark3labs)           | [github.com/mark3labs/mcp-go](https://github.com/mark3labs/mcp-go)                     |
+
+---
+
+_Parte do ecossistema Vectora_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contribuidores](https://github.com/Kaffyn/Vectora/graphs/contributors)

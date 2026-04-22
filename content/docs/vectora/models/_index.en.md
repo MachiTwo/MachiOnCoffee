@@ -7,11 +7,16 @@ sidebar:
   open: true
 tags:
   - ai
+  - byok
+  - concepts
+  - config
   - embeddings
   - gemini
   - models
-  - voyage
+  - privacy
+  - reranker
   - vectora
+  - voyage
 ---
 
 {{< lang-toggle >}}
@@ -46,3 +51,15 @@ Vectora works with pluggable AI models for embeddings, reranking, and LLMs. This
 ---
 
 > Want to use another model? [Open an Issue](https://github.com/Kaffyn/Vectora/issues)
+
+## External Linking
+
+| Concept               | Resource                        | Link                                                                           |
+| --------------------- | ------------------------------- | ------------------------------------------------------------------------------ |
+| **Voyage Embeddings** | Voyage Embeddings Documentation | [docs.voyageai.com/docs/embeddings](https://docs.voyageai.com/docs/embeddings) |
+| **Voyage Reranker**   | Voyage Reranker API             | [docs.voyageai.com/docs/reranker](https://docs.voyageai.com/docs/reranker)     |
+| **Gemini API**        | Google AI Studio Documentation  | [ai.google.dev/docs](https://ai.google.dev/docs)                               |
+
+---
+
+_Part of the Vectora ecosystem_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contributors](https://github.com/Kaffyn/Vectora/graphs/contributors)

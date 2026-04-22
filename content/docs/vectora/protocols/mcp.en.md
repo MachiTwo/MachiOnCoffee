@@ -7,9 +7,29 @@ sidebar:
   open: true
 tags:
   - ai
+  - architecture
+  - auth
+  - concepts
+  - config
+  - context-engine
+  - embeddings
+  - errors
+  - guardian
+  - harness-runtime
+  - integration
   - mcp
   - mcp-protocol
+  - protocol
+  - reference
+  - reranker
+  - security
+  - state
+  - system
+  - tools
+  - vector-search
   - vectora
+  - voyage
+  - yaml
 ---
 
 {{< lang-toggle >}}
@@ -407,11 +427,17 @@ vectora mcp --debug
 
 **Conclusion**: MCP is ideal for tools that need persistent context + discovery.
 
-## Full Specification
+## External Linking
 
-MCP is defined by Anthropic. See:
+| Concept               | Resource                             | Link                                                                                   |
+| --------------------- | ------------------------------------ | -------------------------------------------------------------------------------------- |
+| **MCP**               | Model Context Protocol Specification | [modelcontextprotocol.io/specification](https://modelcontextprotocol.io/specification) |
+| **MCP Go SDK**        | Go SDK for MCP (mark3labs)           | [github.com/mark3labs/mcp-go](https://github.com/mark3labs/mcp-go)                     |
+| **Anthropic Claude**  | Claude Documentation                 | [docs.anthropic.com/](https://docs.anthropic.com/)                                     |
+| **Voyage Embeddings** | Voyage Embeddings Documentation      | [docs.voyageai.com/docs/embeddings](https://docs.voyageai.com/docs/embeddings)         |
+| **Voyage Reranker**   | Voyage Reranker API                  | [docs.voyageai.com/docs/reranker](https://docs.voyageai.com/docs/reranker)             |
+| **JWT**               | RFC 7519: JSON Web Token Standard    | [datatracker.ietf.org/doc/html/rfc7519](https://datatracker.ietf.org/doc/html/rfc7519) |
 
-- [MCP Specification](https://modelcontextprotocol.io/docs)
-- [GitHub: anthropics/mcp](https://github.com/anthropics/mcp)
+---
 
-Vectora follows specification v2024-11-05 (latest).
+_Part of the Vectora ecosystem_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contributors](https://github.com/Kaffyn/Vectora/graphs/contributors)

@@ -7,8 +7,20 @@ sidebar:
   open: true
 tags:
   - ai
+  - architecture
+  - auth
+  - concepts
+  - config
+  - errors
+  - gemini
   - mcp
+  - protocol
+  - security
+  - sso
+  - system
+  - trust-folder
   - vectora
+  - yaml
 ---
 
 {{< lang-toggle >}}
@@ -450,4 +462,16 @@ VECTORA_TRUST_FOLDER=./src vectora index
 
 ---
 
-_Parte do ecossistema Vectora_ · Open Source (MIT)
+## External Linking
+
+| Concept              | Resource                                       | Link                                                                                   |
+| -------------------- | ---------------------------------------------- | -------------------------------------------------------------------------------------- |
+| **MCP**              | Model Context Protocol Specification           | [modelcontextprotocol.io/specification](https://modelcontextprotocol.io/specification) |
+| **MCP Go SDK**       | Go SDK for MCP (mark3labs)                     | [github.com/mark3labs/mcp-go](https://github.com/mark3labs/mcp-go)                     |
+| **Anthropic Claude** | Claude Documentation                           | [docs.anthropic.com/](https://docs.anthropic.com/)                                     |
+| **Gemini API**       | Google AI Studio Documentation                 | [ai.google.dev/docs](https://ai.google.dev/docs)                                       |
+| **GitHub Actions**   | Automate your workflow from idea to production | [docs.github.com/en/actions](https://docs.github.com/en/actions)                       |
+
+---
+
+_Parte do ecossistema Vectora_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contribuidores](https://github.com/Kaffyn/Vectora/graphs/contributors)

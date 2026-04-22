@@ -7,8 +7,15 @@ sidebar:
   open: true
 tags:
   - ai
+  - concepts
+  - config
   - mcp
+  - protocol
   - protocols
+  - state
+  - sub-agents
+  - system
+  - tools
   - vectora
 ---
 
@@ -57,3 +64,16 @@ Veja [MCP](./mcp.md) para detalhes completos de implementação.
 ---
 
 > Próximo: [MCP Specification](./mcp.md)
+
+## External Linking
+
+| Concept              | Resource                             | Link                                                                                   |
+| -------------------- | ------------------------------------ | -------------------------------------------------------------------------------------- |
+| **MCP**              | Model Context Protocol Specification | [modelcontextprotocol.io/specification](https://modelcontextprotocol.io/specification) |
+| **MCP Go SDK**       | Go SDK for MCP (mark3labs)           | [github.com/mark3labs/mcp-go](https://github.com/mark3labs/mcp-go)                     |
+| **Anthropic Claude** | Claude Documentation                 | [docs.anthropic.com/](https://docs.anthropic.com/)                                     |
+| **Zod**              | TypeScript-first schema validation   | [zod.dev/](https://zod.dev/)                                                           |
+
+---
+
+_Parte do ecossistema Vectora_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contribuidores](https://github.com/Kaffyn/Vectora/graphs/contributors)

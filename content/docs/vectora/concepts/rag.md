@@ -6,11 +6,20 @@ type: docs
 tags:
   - ai
   - architecture
+  - ast-parsing
+  - auth
   - concepts
+  - config
   - context-engine
+  - embeddings
   - mcp
+  - protocol
   - rag
+  - reranker
+  - system
+  - vector-search
   - vectora
+  - voyage
 sidebar:
   open: true
 ---
@@ -152,3 +161,18 @@ Quando o contexto é **conectado**:
 ---
 
 > RAG Conectado é o diferencial do Vectora para código.
+
+## External Linking
+
+| Concept               | Resource                                                   | Link                                                                                   |
+| --------------------- | ---------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| **RAG**               | Retrieval-Augmented Generation for Knowledge-Intensive NLP | [arxiv.org/abs/2005.11401](https://arxiv.org/abs/2005.11401)                           |
+| **JWT**               | RFC 7519: JSON Web Token Standard                          | [datatracker.ietf.org/doc/html/rfc7519](https://datatracker.ietf.org/doc/html/rfc7519) |
+| **AST Parsing**       | Tree-sitter Official Documentation                         | [tree-sitter.github.io/tree-sitter/](https://tree-sitter.github.io/tree-sitter/)       |
+| **MCP**               | Model Context Protocol Specification                       | [modelcontextprotocol.io/specification](https://modelcontextprotocol.io/specification) |
+| **MCP Go SDK**        | Go SDK for MCP (mark3labs)                                 | [github.com/mark3labs/mcp-go](https://github.com/mark3labs/mcp-go)                     |
+| **Voyage Embeddings** | Voyage Embeddings Documentation                            | [docs.voyageai.com/docs/embeddings](https://docs.voyageai.com/docs/embeddings)         |
+
+---
+
+_Parte do ecossistema Vectora_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contribuidores](https://github.com/Kaffyn/Vectora/graphs/contributors)
