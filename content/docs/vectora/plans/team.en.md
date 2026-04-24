@@ -24,7 +24,6 @@ tags:
 ---
 
 {{< lang-toggle >}}
-{{< section-toggle >}}
 
 The **Team** plan is for large organizations with enterprise requirements: SSO, on-premise deployment, 24/7 support, and a guaranteed SLA. Like the Plus plan, it offers **BYOK** or **Plus** (Managed) modes.
 

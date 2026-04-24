@@ -32,7 +32,6 @@ tags:
 ---
 
 {{< lang-toggle >}}
-{{< section-toggle >}}
 
 **Vectora funciona exclusivamente via MCP (Model Context Protocol).** Este documento descreve como Vectora implementa MCP, sua arquitetura, e como IDEs (Claude Code, Cursor, Zed) se integram.
 

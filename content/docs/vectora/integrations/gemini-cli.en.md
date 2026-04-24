@@ -19,7 +19,6 @@ tags:
 ---
 
 {{< lang-toggle >}}
-{{< section-toggle >}}
 
 Integrate Vectora with the **Google Gemini CLI** to use Vectora within Gemini workflows.
 

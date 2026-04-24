@@ -28,7 +28,7 @@ tags:
 ---
 
 {{< lang-toggle >}}
-{{< section-toggle >}}
+
 Referência completa de códigos de erro: códigos HTTP, mensagens, causas raízes e soluções.
 
 ## 400 - Bad Request

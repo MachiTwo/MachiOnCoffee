@@ -34,6 +34,7 @@ tags:
 ---
 
 {{< lang-toggle >}}
+
 Vectora configuration is controlled by:
 
 1. **`vectora.config.yaml`** — Project configuration (local).

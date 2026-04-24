@@ -21,7 +21,6 @@ tags:
 ---
 
 {{< lang-toggle >}}
-{{< section-toggle >}}
 
 O Vectora implementa um sistema de cache de duas camadas para otimizar o desempenho e a persistência, garantindo acesso ultra-rápido a dados frequentes e durabilidade para estados de sessão.
 

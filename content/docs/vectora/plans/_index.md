@@ -17,7 +17,6 @@ tags:
 ---
 
 {{< lang-toggle >}}
-{{< section-toggle >}}
 
 Escolha o plano que melhor se adapta ao tamanho da sua equipe e às necessidades de soberania de dados. Oferecemos desde o plano **Free** para desenvolvedores individuais até soluções **Enterprise** on-premise.
 

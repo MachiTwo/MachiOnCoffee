@@ -19,7 +19,6 @@ tags:
 ---
 
 {{< lang-toggle >}}
-{{< section-toggle >}}
 
 Frequently asked questions about Vectora, organized by category. Use the links below to find quick answers.
 

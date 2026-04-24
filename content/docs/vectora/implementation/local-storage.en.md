@@ -21,7 +21,6 @@ tags:
 ---
 
 {{< lang-toggle >}}
-{{< section-toggle >}}
 
 Vectora implements a two-tier cache system to optimize performance and persistence, ensuring ultra-fast access to frequent data and durability for session states.
 

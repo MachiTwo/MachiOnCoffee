@@ -28,7 +28,7 @@ tags:
 ---
 
 {{< lang-toggle >}}
-{{< section-toggle >}}
+
 Complete configuration reference: YAML schema, environment variables, validation, and examples.
 
 ## Full Schema

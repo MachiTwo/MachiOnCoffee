@@ -36,6 +36,7 @@ tags:
 ---
 
 {{< lang-toggle >}}
+
 A configuração do Vectora é controlada por:
 
 1. **`vectora.config.yaml`** — Configuração do projeto (local)

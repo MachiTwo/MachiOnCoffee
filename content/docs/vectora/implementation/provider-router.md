@@ -22,7 +22,6 @@ tags:
 ---
 
 {{< lang-toggle >}}
-{{< section-toggle >}}
 
 O **Provider Router** encapsula clientes para Gemini 3 Flash (LLM), Voyage 4 (embeddings) e Voyage Rerank 2.5 (reranking). Este documento descreve implementação em Go puro com retry logic, rate limiting e fallback BYOK.
 

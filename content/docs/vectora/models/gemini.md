@@ -35,7 +35,6 @@ sidebar:
 ---
 
 {{< lang-toggle >}}
-{{< section-toggle >}}
 
 ## O Coração do Vectora: Gemini 3 Flash
 

@@ -28,7 +28,6 @@ tags:
 ---
 
 {{< lang-toggle >}}
-{{< section-toggle >}}
 
 Quick answers to the most common questions about Vectora — functionality, cost, production use, security, and more.
 

@@ -28,7 +28,6 @@ tags:
 ---
 
 {{< lang-toggle >}}
-{{< section-toggle >}}
 
 **VECTORA CLOUD INTEGRATION**: Vectora functions as a **Custom GPT Plugin** that extends ChatGPT with codebase context search. The plugin connects directly to **Vectora Cloud**, which runs Vectora Core internally with no local server configuration needed.
 

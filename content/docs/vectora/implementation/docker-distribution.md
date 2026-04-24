@@ -35,7 +35,6 @@ tags:
 ---
 
 {{< lang-toggle >}}
-{{< section-toggle >}}
 
 O Vectora é distribuído via **Docker** para facilitar deployment em qualquer ambiente: máquinas locais, servidores, Kubernetes (para Managed Instances na Cloud), e ambientes de desenvolvimento. Este documento descreve como criar, testar e publicar imagens Docker.
 

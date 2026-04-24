@@ -18,7 +18,6 @@ tags:
 ---
 
 {{< lang-toggle >}}
-{{< section-toggle >}}
 
 Guia completo para contribuir com Vectora: setup, código, commits, PRs e melhores práticas.
 

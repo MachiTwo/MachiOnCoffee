@@ -29,6 +29,7 @@ tags:
 ---
 
 {{< lang-toggle >}}
+
 Guide to solving the most frequent problems during installation, configuration, and use of Vectora.
 
 ## Installation

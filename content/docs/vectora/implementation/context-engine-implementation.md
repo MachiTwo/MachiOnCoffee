@@ -25,7 +25,6 @@ tags:
 ---
 
 {{< lang-toggle >}}
-{{< section-toggle >}}
 
 O **Context Engine** é o coração da recuperação de contexto no Vectora. Ele implementa um pipeline completo: **Query → Embed → Search → Rerank → Compose → Validate**. Este documento detalha a implementação em Go puro.
 

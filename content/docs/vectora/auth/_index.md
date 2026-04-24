@@ -30,6 +30,7 @@ tags:
 ---
 
 {{< lang-toggle >}}
+
 A camada de autenticação do Vectora garante que apenas usuários e serviços autorizados acessem recursos, namespaces e operações sensíveis. Esta seção documenta os mecanismos de identidade, gestão de chaves de API e controle de acesso que protegem sua infraestrutura de contexto.
 
 ## Autenticação e Autorização no Vectora

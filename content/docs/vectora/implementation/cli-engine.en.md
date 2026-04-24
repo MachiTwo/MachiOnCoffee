@@ -19,7 +19,6 @@ tags:
 ---
 
 {{< lang-toggle >}}
-{{< section-toggle >}}
 
 Vectora uses the **Cobra** framework for its CLI. Cobra and **Systray** coexist in the same daemon binary — the CLI provides automation/scripting while Systray provides the visual interface, both synchronized in real-time through shared in-memory state.
 

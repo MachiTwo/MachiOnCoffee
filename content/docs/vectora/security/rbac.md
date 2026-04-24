@@ -30,7 +30,7 @@ tags:
 ---
 
 {{< lang-toggle >}}
-{{< section-toggle >}}
+
 **RBAC** (Role-Based Access Control) é o sistema de permissões granulares do Vectora. Ele utiliza 5 roles hierárquicos e 15 permissões específicas para gerenciar o acesso em nível de usuário e namespace.
 
 > [!IMPORTANT] RBAC é "allow by role". Um usuário só pode fazer o que sua role permite. Não há exceções por usuário.

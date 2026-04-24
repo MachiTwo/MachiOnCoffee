@@ -31,6 +31,7 @@ tags:
 ---
 
 {{< lang-toggle >}}
+
 Vectora's authentication layer ensures that only authorized users and services can access resources, namespaces, and sensitive operations. This section documents the identity mechanisms, API key management, and access control that protect your context infrastructure.
 
 ## Authentication and Authorization in Vectora

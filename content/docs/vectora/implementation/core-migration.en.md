@@ -25,7 +25,6 @@ tags:
 ---
 
 {{< lang-toggle >}}
-{{< section-toggle >}}
 
 The transition of Vectora from **TypeScript (Node.js)** to **Golang** was not just a language swap, but a complete re-engineering to meet performance and native distribution requirements. This document details the technical motivations and structural changes.
 

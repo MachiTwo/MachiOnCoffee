@@ -26,7 +26,6 @@ tags:
 ---
 
 {{< lang-toggle >}}
-{{< section-toggle >}}
 
 O plano **Team** é para grandes organizações com requisitos enterprise: SSO, on-premise, suporte 24/7, e SLA garantido. Assim como o Pro, oferece modos **BYOK** ou **Plus** (Gerenciado).
 

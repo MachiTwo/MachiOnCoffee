@@ -18,7 +18,6 @@ tags:
 ---
 
 {{< lang-toggle >}}
-{{< section-toggle >}}
 
 Vectora uses an automated distribution pipeline to ensure that every stable version is compiled, tested, and made available for multiple operating systems and package managers (such as Winget) without manual intervention.
 

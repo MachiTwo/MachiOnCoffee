@@ -34,7 +34,6 @@ tags:
 ---
 
 {{< lang-toggle >}}
-{{< section-toggle >}}
 
 O **Vectora Cloud** é a plataforma SaaS que gerencia autenticação, assinaturas, painel de controle e hosting gerenciado do Vectora. Este documento descreve a arquitetura separada do core (Go) com frontend em React e backend em TypeScript/Node.js.
 

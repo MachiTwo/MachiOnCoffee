@@ -28,7 +28,7 @@ tags:
 ---
 
 {{< lang-toggle >}}
-{{< section-toggle >}}
+
 Referência completa de configuração: esquema YAML, variáveis de ambiente, validação e exemplos.
 
 ## Full Schema

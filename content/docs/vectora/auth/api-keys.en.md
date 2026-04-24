@@ -1,168 +1,59 @@
 ---
 title: API Keys
 slug: api-keys
-date: "2026-04-18T22:30:00-03:00"
+date: "2026-04-23T00:00:00-03:00"
 type: docs
-sidebar:
-  open: true
-breadcrumbs: true
 tags:
-  - ai
   - auth
-  - byok
-  - concepts
-  - config
-  - embeddings
-  - gemini
-  - guardian
-  - integration
-  - mcp
-  - protocol
-  - rag
-  - rbac
+  - api-keys
   - security
-  - sso
-  - tools
-  - trust-folder
-  - vectora
+  - integration
 ---
 
 {{< lang-toggle >}}
-API Keys are programmatic credentials that enable secure, scoped access to the Vectora backend without interactive authentication. They are designed for machine-to-machine communication, CI/CD pipelines, custom agent integrations, and direct HTTP/REST access to your indexed namespaces.
 
-## Vectora API Keys
+Vectora API Keys are used for programmatic authentication and integration with third-party tools that do not support interactive SSO flows.
 
-> [!IMPORTANT] API Keys are **only available on Pro, Team, and Enterprise plans**. Free/Local users authenticate via `vectora auth login` (interactive JWT).
+## Overview
 
-## Key Capabilities
+Unlike JWT, which is intended for short-lived sessions, API Keys are persistent and allow controlled access to specific Vectora namespaces.
 
-| Feature                | Description                                                              |
-| ---------------------- | ------------------------------------------------------------------------ |
-| **Granular Scopes**    | `read`, `write`, `search`, `admin` — assign minimum privilege required   |
-| **Rate Limiting**      | Configurable requests/minute per key to prevent quota exhaustion         |
-| **Auto-Rotation**      | Seamless key rollover with overlap period (zero downtime during updates) |
-| **Instant Revocation** | Immediate invalidation across all Vectora nodes via dashboard or CLI     |
-| **Secure Storage**     | Keys are stored as cryptographic hashes (bcrypt) — never in plaintext    |
+## Security
 
-## Available Scopes & Permissions
+Vectora uses one-way hashing (SHA-256) to store your keys. This means that even if the database is compromised, your original keys cannot be recovered.
 
-| Scope    | Allowed Operations                                         | Typical Use Case                                             |
-| -------- | ---------------------------------------------------------- | ------------------------------------------------------------ |
-| `search` | `context_search`, `context_build`, namespace read-only     | RAG agents, documentation bots, read-only analytics          |
-| `read`   | `file_read`, `file_list`, `file_find`, `context_search`    | Code navigation tools, static analysis, audit scripts        |
-| `write`  | `file_write`, `file_edit`, `context_ingest`, `memory_save` | CI/CD indexing bots, automated refactoring agents            |
-| `admin`  | Full namespace management, key rotation, quota override    | Platform automation, team management, infrastructure scripts |
+## How to Use
 
-> [!WARNING] API Keys operate **outside the interactive SSO session**. They are bound to a specific namespace and plan quota. Exceeding quota triggers fallback to your configured [BYOK credentials](/providers/gemini/) or returns `429 Too Many Requests`.
-
-## Integration Examples
-
-### 1. MCP Server Configuration
-
-Pass the API key via environment variables when starting the Vectora MCP server:
-
-```json
-{
-  "mcpServers": {
-    "vectora": {
-      "command": "npx",
-      "args": ["@kaffyn/vectora", "mcp-serve"],
-      "env": {
-        "VECTORA_API_KEY": "vca_live_xxxxxxxxxxxxxxxxxxxxxxxx",
-        "VECTORA_NAMESPACE": "my-team-auth-service",
-        "VECTORA_SCOPE": "search"
-      }
-    }
-  }
-}
-```
-
-#### 2. Direct HTTP/REST Access
-
-Authenticate via `Authorization` header for custom tooling:
+To authenticate a REST request using an API Key, send the `X-API-Key` header:
 
 ```bash
-curl -X POST "https://api.vectora.dev/v1/search" \
-  -H "Authorization: Bearer vca_live_xxxxxxxxxxxxxxxxxxxxxxxx" \
+curl -X POST https://api.vectora.app/v1/search \
+  -H "X-API-Key: vca_live_xxxxxxxxxxxx" \
   -H "Content-Type: application/json" \
-  -d '{"query": "JWT validation middleware", "namespace": "my-project", "top_k": 5}'
+  -d '{"query": "how does auth work?"}'
 ```
 
-#### 3. Programmatic Usage (TypeScript)
+## Key Management
 
-```ts
-import { VectoraClient } from "@vectora/sdk";
+You can manage your keys through the Vectora CLI:
 
-const client = new VectoraClient({
-  apiKey: process.env.VECTORA_API_KEY!,
-  namespace: "ci-pipeline-indexer",
-  scope: "write",
-});
+```bash
+# Create a new key
+vectora auth keys create --name "GitHub Actions" --namespace "prod"
 
-// Ingest codebase on push
-await client.context.ingest("./src");
+# List active keys
+vectora auth keys list
+
+# Revoke a key
+vectora auth keys revoke <key_id>
 ```
-
-## Security Best Practices
-
-**Principle of Least Privilege**: Use `search` for read-only agents, `write` only for automated indexing pipelines.
-**Environment Injection**: Never hardcode keys. Use `.env`, CI/CD secrets, or cloud KMS.
-**Rotation Policy**: Rotate keys every 90 days or immediately after a security incident.
-**Audit Logging**: All API key usage is logged in your [Audit Trail](/security/rbac/) with timestamp, IP, and executed tool.
-**Scope Validation**: Vectora enforces scope at the [Guardian](/security/guardian/) layer — keys cannot bypass hard-coded blocklists.
-
-> [!TIP] Combine API Keys with [SSO](/auth/sso/) for human users and [Trust Folders](/security/trust-folder/) for filesystem isolation. API Keys grant logical access; security policies enforce runtime boundaries.
-
-## Key Management Lifecycle
-
-| Action     | Dashboard                         | CLI                                                     |
-| ---------- | --------------------------------- | ------------------------------------------------------- | --- |
-| Create Key | `Settings → API Keys → New`       | `vectora api-key create --scope search --name "ci-bot"` |
-| Revoke Key | `Revoke` button (immediate)       | `vectora api-key revoke --id vca_live_...`              |
-| Rotate Key | `Rotate` (creates overlap window) | `vectora api-key rotate --id vca_live_...`              |
-| View Usage | Quota usage meter + history       | `vectora api-key usage --id vca_live_...`               |     |
-
-**Overlap Period Explained**: When rotating, the old key remains valid for a configurable window (default: 2h). Both keys count against your quota. This prevents downtime during CI/CD or agent deployments.
-
-## Frequently Asked Questions
-
-**Q: Can I share an API Key across multiple namespaces?**
-A: No. Each key is strictly bound to a single namespace at creation. Cross-namespace access requires multiple keys or [Team/Enterprise RBAC](/plans/team/).
-
-**Q: What happens if my key is compromised?**
-A: Revoke it immediately via dashboard or CLI. All active sessions using that key are terminated within seconds. Audit logs capture the last usage for forensic analysis.
-
-**Q: Do API Keys bypass the Guardian blocklist?**
-A: Absolutely not. [Guardian](/security/guardian/) validation runs at the application layer before any tool execution, regardless of authentication method. `.env`, `.key`, and `node_modules/` remain inaccessible.
-
-**Q: Can I use API Keys with my own LLM provider?**
-A: Yes. API Keys authenticate you to the Vectora backend. LLM/embedding quotas are managed separately via [BYOK configuration](/providers/gemini/) or managed plan limits.
-
-**Q: Is there a rate limit?**
-A: Default: 100 req/min for `search`, 20 req/min for `write`. Custom limits available on Team/Enterprise plans.
-
----
 
 ## External Linking
 
-| Concept            | Resource                                       | Link                                                                                   |
-| ------------------ | ---------------------------------------------- | -------------------------------------------------------------------------------------- |
-| **MCP**            | Model Context Protocol Specification           | [modelcontextprotocol.io/specification](https://modelcontextprotocol.io/specification) |
-| **MCP Go SDK**     | Go SDK for MCP (mark3labs)                     | [github.com/mark3labs/mcp-go](https://github.com/mark3labs/mcp-go)                     |
-| **RBAC**           | NIST Role-Based Access Control Standard        | [csrc.nist.gov/projects/rbac](https://csrc.nist.gov/projects/rbac)                     |
-| **GitHub Actions** | Automate your workflow from idea to production | [docs.github.com/en/actions](https://docs.github.com/en/actions)                       |
-| **JWT**            | RFC 7519: JSON Web Token Standard              | [datatracker.ietf.org/doc/html/rfc7519](https://datatracker.ietf.org/doc/html/rfc7519) |
-| **WebAuthn**       | Web Authentication: Public Key Credentials     | [www.w3.org/TR/webauthn-2/](https://www.w3.org/TR/webauthn-2/)                         |
+### Security & Management Reference
 
----
-
-> **Phrase to remember**:
-> _"API Keys open the door. Scopes define the room. Guardian locks the vault."_
-
-_Part of Vectora Auth · Available on Pro, Team & Enterprise_
-_Security: Hashed storage, scope enforcement, instant revocation_
-_Next: [SSO & Identity](/auth/sso/) · Previous: [Trust Folder](/security/trust-folder/)_
-
----
-
-_Part of the Vectora ecosystem_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contributors](https://github.com/Kaffyn/Vectora/graphs/contributors)
+| Concept                    | Resource          | Link                                                                                                   |
+| :------------------------- | :---------------- | :----------------------------------------------------------------------------------------------------- |
+| **API Key Best Practices** | Google Cloud Docs | [cloud.google.com/docs/authentication/api-keys](https://cloud.google.com/docs/authentication/api-keys) |
+| **SHA-256**                | NIST Standard     | [csrc.nist.gov/projects/hash-functions](https://csrc.nist.gov/projects/hash-functions)                 |
+| **RBAC**                   | Auth0 Blog        | [auth0.com/blog/role-based-access-control/](https://auth0.com/blog/role-based-access-control/)         |

@@ -20,6 +20,7 @@ tags:
 ---
 
 {{< lang-toggle >}}
+
 Namespaces are **logical isolators** of vector indices within a single cluster. Each project, environment, or context runs in its own namespace, preventing results contamination.
 
 > [!IMPORTANT] A namespace is like a "virtual database" within the system. Searches in one namespace NEVER return chunks from another namespace.

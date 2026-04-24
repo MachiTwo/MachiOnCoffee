@@ -20,7 +20,6 @@ tags:
 ---
 
 {{< lang-toggle >}}
-{{< section-toggle >}}
 
 Referência técnica completa da implementação MCP de Vectora: tools, autenticação, transporte, tratamento de erros e exemplos.
 

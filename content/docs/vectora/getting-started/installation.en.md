@@ -28,6 +28,7 @@ tags:
 ---
 
 {{< lang-toggle >}}
+
 Vectora is distributed as a high-performance native binary for Windows, macOS, and Linux. On Windows, installation is standardized via **Winget** and resides in your local programs directory, requiring no Node.js or administrator privileges.
 
 > [!IMPORTANT] **BYOK (Bring Your Own Key)**: In the Free plan, Vectora requires API keys from Gemini and Voyage. In **Plus** and **Team** plans, you can opt for **Managed** mode, where AI credits are already included.

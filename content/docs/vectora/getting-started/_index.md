@@ -27,6 +27,7 @@ tags:
 ---
 
 {{< lang-toggle >}}
+
 Tudo que você precisa para começar com Vectora em 5 minutos: instalação, configuração de chaves, e primeira busca.
 
 ## Sequência Recomendada

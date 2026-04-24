@@ -32,7 +32,6 @@ sidebar:
 ---
 
 {{< lang-toggle >}}
-{{< section-toggle >}}
 
 Enquanto o **Gemini 3 Flash** fornece o raciocínio, a precisão da busca do Vectora depende do **Voyage AI**. Especificamente, usamos o **Voyage 4** para embeddings e o **Voyage Rerank 2.5** para garantir que apenas os trechos de código mais relevantes alcancem o LLM.
 

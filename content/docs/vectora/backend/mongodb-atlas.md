@@ -34,6 +34,7 @@ tags:
 ---
 
 {{< lang-toggle >}}
+
 Ao construir sistemas de agentes, os desenvolvedores geralmente enfrentam uma "fragmentação de dados":
 
 - Vetores em um provedor especializado

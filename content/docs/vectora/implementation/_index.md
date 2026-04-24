@@ -42,7 +42,6 @@ tags:
 ---
 
 {{< lang-toggle >}}
-{{< section-toggle >}}
 
 Esta seção contém os **planos de implementação detalhados** para cada área de desenvolvimento do Vectora. Cada documento descreve arquitetura, fases de implementação, exemplos de código Go/TypeScript, dependências entre componentes, e métricas de sucesso.
 

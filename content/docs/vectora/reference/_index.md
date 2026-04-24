@@ -40,7 +40,7 @@ tags:
 ---
 
 {{< lang-toggle >}}
-{{< section-toggle >}}
+
 Vectora é uma **arquitetura modular** em camadas que combina embedding (Voyage), search (Qdrant), reranking (Voyage), e reasoning (Gemini) para fornecer contexto inteligente e governado.
 
 ```text

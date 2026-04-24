@@ -24,7 +24,6 @@ tags:
 ---
 
 {{< lang-toggle >}}
-{{< section-toggle >}}
 
 This is a **complete dictionary** of all MCP tools offered by Vectora. Use them via Claude Code, Cursor, VS Code, or ChatGPT to interact with your codebase.
 

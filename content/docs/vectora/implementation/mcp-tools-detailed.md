@@ -31,7 +31,6 @@ tags:
 ---
 
 {{< lang-toggle >}}
-{{< section-toggle >}}
 
 Este documento detalha a implementação de cada uma das **12 ferramentas MCP** que constituem a interface pública do Vectora. Cada ferramenta tem especificação de entrada/saída, exemplos de código Go, dependências internas, testes, e critérios de aceitação.
 

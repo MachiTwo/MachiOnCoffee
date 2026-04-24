@@ -23,7 +23,6 @@ tags:
 ---
 
 {{< lang-toggle >}}
-{{< section-toggle >}}
 
 O Vectora usa **MongoDB Atlas** como backend unificado para vetores, metadados, sessões e audit logs. Este documento descreve a implementação do cliente MongoDB em Go com isolamento multi-tenant.
 

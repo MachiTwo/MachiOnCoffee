@@ -26,7 +26,6 @@ tags:
 ---
 
 {{< lang-toggle >}}
-{{< section-toggle >}}
 
 O plano **Plus** é para equipes que escalam. Oferecemos dois modos: **BYOK** (suporte prioritário e limites aumentados) ou **Plus** (com créditos de IA e armazenamento gerenciado inclusos).
 

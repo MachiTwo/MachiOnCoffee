@@ -23,7 +23,6 @@ tags:
 ---
 
 {{< lang-toggle >}}
-{{< section-toggle >}}
 
 Frequently asked questions about security, data protection, encryption, compliance, and best practices.
 

@@ -29,6 +29,7 @@ tags:
 ---
 
 {{< lang-toggle >}}
+
 A infraestrutura de backend do Vectora foi projetada para resolver o maior gargalo dos agentes de IA modernos: a **gestão de estado em escala**. Enquanto o runtime do Vectora processa a inteligência, o backend garante que essa inteligência seja fundamentada em dados persistentes, seguros e buscáveis.
 
 O Vectora utiliza uma arquitetura unificada baseada em **MongoDB Atlas**, permitindo que vetores, metadados e memória operacional coexistam no mesmo ecossistema.

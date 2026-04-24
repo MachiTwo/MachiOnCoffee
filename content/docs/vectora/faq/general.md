@@ -30,7 +30,6 @@ tags:
 ---
 
 {{< lang-toggle >}}
-{{< section-toggle >}}
 
 Respostas rápidas para as dúvidas mais comuns sobre Vectora - funcionamento, custo, uso em produção, segurança e muito mais.
 

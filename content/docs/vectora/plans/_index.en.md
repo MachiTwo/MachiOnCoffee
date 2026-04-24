@@ -17,7 +17,6 @@ tags:
 ---
 
 {{< lang-toggle >}}
-{{< section-toggle >}}
 
 Choose the plan that best fits your team size and data sovereignty needs. We offer everything from the **Free** plan for individual developers to on-premise **Enterprise** solutions.
 

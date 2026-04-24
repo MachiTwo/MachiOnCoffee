@@ -27,7 +27,6 @@ tags:
 ---
 
 {{< lang-toggle >}}
-{{< section-toggle >}}
 
 O **Guardian** é o motor de governança do Vectora, responsável por interceptar todas as chamadas de ferramentas e garantir que elas cumpram as políticas de segurança antes da execução. Na transição para Golang, o Guardian opera como código compilado e imutável.
 

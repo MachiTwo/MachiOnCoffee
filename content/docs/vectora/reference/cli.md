@@ -24,7 +24,6 @@ tags:
 ---
 
 {{< lang-toggle >}}
-{{< section-toggle >}}
 
 Vectora oferece uma **interface CLI completa** para configuração, indexação e debugging. Use para automação, CI/CD ou desenvolvimento local.
 

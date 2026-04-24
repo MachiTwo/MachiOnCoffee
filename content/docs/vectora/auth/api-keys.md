@@ -1,156 +1,59 @@
 ---
 title: API Keys
 slug: api-keys
-date: "2026-04-18T22:30:00-03:00"
+date: "2026-04-23T00:00:00-03:00"
 type: docs
-sidebar:
-  open: true
 tags:
-  - ai
   - auth
-  - byok
-  - concepts
-  - config
-  - gemini
-  - guardian
-  - integration
-  - keys
-  - mcp
-  - protocol
-  - rag
-  - rbac
+  - api-keys
   - security
-  - sso
-  - tools
-  - vectora
+  - integration
 ---
 
 {{< lang-toggle >}}
-As Chaves de API são credenciais programáticas que permitem acesso seguro e limitado ao backend do Vectora sem necessidade de autenticação interativa. Elas são projetadas para comunicação máquina-a-máquina, pipelines de CI/CD, integrações de agentes personalizados e acesso direto via HTTP/REST aos seus namespaces indexados.
 
-## Chaves de API do Vectora
+As API Keys do Vectora são usadas para autenticação programática e integração com ferramentas de terceiros que não suportam fluxos interativos de SSO.
 
-> [!IMPORTANT] As Chaves de API estão **disponíveis apenas nos planos Pro, Team e Enterprise**. Usuários do plano Free/Local autenticam-se via `vectora auth login` (JWT interativo).
+## Visão Geral
 
-## Capacidades Principais
+Diferente do JWT, que é destinado a sessões de curta duração, as API Keys são persistentes e permitem o acesso controlado a namespaces específicos do Vectora.
 
-| Recurso                   | Descrição                                                                      |
-| ------------------------- | ------------------------------------------------------------------------------ |
-| **Escopos Granulares**    | `read`, `write`, `search`, `admin` — atribua o privilégio mínimo necessário    |
-| **Rate Limiting**         | Requisições/minuto configuráveis por chave para evitar exaustão de quota       |
-| **Auto-Rotação**          | Troca de chave sem interrupção (zero downtime durante atualizações)            |
-| **Revogação Instantânea** | Invalidação imediata em todos os nós via dashboard ou CLI                      |
-| **Armazenamento Seguro**  | Chaves são armazenadas como hash criptográfico (bcrypt) — nunca em texto claro |
+## Segurança
 
-## Escopos e Permissões Disponíveis
+O Vectora utiliza hashing unidirecional (SHA-256) para armazenar suas chaves. Isso significa que, mesmo se o banco de dados for comprometido, suas chaves originais não podem ser recuperadas.
 
-| Escopo   | Operações Permitidas                                         | Caso de Uso Típico                                              |
-| -------- | ------------------------------------------------------------ | --------------------------------------------------------------- |
-| `search` | `context_search`, `context_build`, leitura de namespace only | Agentes RAG, bots de documentação, analytics read-only          |
-| `read`   | `file_read`, `file_list`, `file_find`, `context_search`      | Ferramentas de navegação de código, análise estática, auditoria |
-| `write`  | `file_write`, `file_edit`, `context_ingest`, `memory_save`   | Bots de indexação em CI/CD, agentes de refatoração automática   |
-| `admin`  | Gestão total de namespace, rotação de chaves, quota          | Automação de plataforma, gestão de times, infraestrutura        |
+## Como Usar
 
-> [!WARNING] As Chaves de API operam **fora da sessão SSO interativa**. Elas são vinculadas a um namespace específico e à quota do plano. Exceder a quota dispara o fallback para suas [credenciais BYOK](/providers/gemini/) ou retorna `429 Too Many Requests`.
-
-## Exemplos de Integração
-
-### 1. Configuração do Servidor MCP
-
-Passe a chave de API via variáveis de ambiente ao iniciar o servidor MCP do Vectora:
-
-```json
-{
-  "mcpServers": {
-    "vectora": {
-      "command": "npx",
-      "args": ["@kaffyn/vectora", "mcp-serve"],
-      "env": {
-        "VECTORA_API_KEY": "vca_live_xxxxxxxxxxxxxxxxxxxxxxxx",
-        "VECTORA_NAMESPACE": "meu-projeto-auth",
-        "VECTORA_SCOPE": "search"
-      }
-    }
-  }
-}
-```
-
-#### 2. Acesso Direto via HTTP/REST
-
-Autentique usando o cabeçalho `Authorization` para ferramentas customizadas:
+Para autenticar uma requisição REST usando uma API Key, envie o cabeçalho `X-API-Key`:
 
 ```bash
-curl -X POST "https://api.vectora.dev/v1/search" \
-  -H "Authorization: Bearer vca_live_xxxxxxxxxxxxxxxxxxxxxxxx" \
+curl -X POST https://api.vectora.app/v1/search \
+  -H "X-API-Key: vca_live_xxxxxxxxxxxx" \
   -H "Content-Type: application/json" \
-  -d '{"query": "JWT validation middleware", "namespace": "meu-projeto", "top_k": 5}'
+  -d '{"query": "como funciona o auth?"}'
 ```
 
-#### 3. Uso Programático (TypeScript)
+## Gestão de Chaves
 
-```ts
-import { VectoraClient } from "@kaffyn/sdk";
+Você pode gerenciar suas chaves através da CLI do Vectora:
 
-const client = new VectoraClient({
-  apiKey: process.env.VECTORA_API_KEY!,
-  namespace: "ci-pipeline-indexer",
-  scope: "write",
-});
+```bash
+# Criar uma nova chave
+vectora auth keys create --name "GitHub Actions" --namespace "prod"
 
-// Indexa codebase no push
-await client.context.ingest("./src");
+# Listar chaves ativas
+vectora auth keys list
+
+# Revogar uma chave
+vectora auth keys revoke <key_id>
 ```
-
-## Boas Práticas de Segurança
-
-**Princípio do Menor Privilégio**: Use `search` para agentes de leitura, `write` apenas para pipelines de indexação automáticos.
-**Injeção via Ambiente**: Nunca coloque chaves no código. Use `.env`, segredos de CI/CD ou KMS em nuvem.
-**Política de Rotação**: Rotacione chaves a cada 90 dias ou imediatamente após qualquer incidente.
-**Logs de Auditoria**: Todo uso de chave de API é registrado no seu [Audit Trail](/security/rbac/) com timestamp, IP e ferramenta executada.
-**Validação de Escopo**: O Vectora impõe escopo na camada [Guardian](/security/guardian/) — chaves não ignoram bloqueios hard-coded.
-
-> [!TIP] Combine Chaves de API com [SSO](/auth/sso/) para usuários humanos e [Trust Folders](/security/trust-folder/) para isolamento de filesystem. Chaves de API garantem acesso lógico; políticas de segurança impõem limites de runtime.
-
-## Gestão do Ciclo de Vida das Chaves
-
-| Ação          | Dashboard                               | CLI                                                     |
-| ------------- | --------------------------------------- | ------------------------------------------------------- |
-| Criar Chave   | `Settings → API Keys → New`             | `vectora api-key create --scope search --name "ci-bot"` |
-| Revogar Chave | Botão `Revoke` (imediato)               | `vectora api-key revoke --id vca_live_...`              |
-| Rotacionar    | `Rotate` (cria período de sobreposição) | `vectora api-key rotate --id vca_live_...`              |
-| Ver Uso       | Medidor de quota + histórico            | `vectora api-key usage --id vca_live_...`               |
-
-**Período de Sobreposição**: Ao rotacionar, a chave antiga permanece válida por uma janela configurável (padrão: 2h). Ambas contam contra sua quota. Isso evita downtime durante deploys de agentes ou CI/CD.
-
-## Perguntas Frequentes
-
-**P: Posso compartilhar uma Chave de API entre múltiplos namespaces?**
-R: Não. Cada chave é estritamente vinculada a um único namespace na criação. Acesso cross-namespace requer múltiplas chaves ou [RBAC de Time](/plans/team/).
-
-**P: O que acontece se minha chave for comprometida?**
-R: Revogue-a imediatamente via dashboard ou CLI. Todas as sessões ativas usando essa chave são encerradas em segundos.
-
-**P: Chaves de API ignoram o Guardian?**
-R: Absolutamente não. O [Guardian](/security/guardian/) roda na camada de aplicação antes de qualquer execução de ferramenta, independente do método de autenticação. `.env`, `.key` e `node_modules/` permanecem inacessíveis.
-
----
 
 ## External Linking
 
-| Concept            | Resource                                       | Link                                                                                   |
-| ------------------ | ---------------------------------------------- | -------------------------------------------------------------------------------------- |
-| **MCP**            | Model Context Protocol Specification           | [modelcontextprotocol.io/specification](https://modelcontextprotocol.io/specification) |
-| **MCP Go SDK**     | Go SDK for MCP (mark3labs)                     | [github.com/mark3labs/mcp-go](https://github.com/mark3labs/mcp-go)                     |
-| **RBAC**           | NIST Role-Based Access Control Standard        | [csrc.nist.gov/projects/rbac](https://csrc.nist.gov/projects/rbac)                     |
-| **GitHub Actions** | Automate your workflow from idea to production | [docs.github.com/en/actions](https://docs.github.com/en/actions)                       |
-| **JWT**            | RFC 7519: JSON Web Token Standard              | [datatracker.ietf.org/doc/html/rfc7519](https://datatracker.ietf.org/doc/html/rfc7519) |
-| **WebAuthn**       | Web Authentication: Public Key Credentials     | [www.w3.org/TR/webauthn-2/](https://www.w3.org/TR/webauthn-2/)                         |
+### Referência de Segurança e Gestão
 
----
-
-> **Frase para lembrar**:
-> _"API Keys abrem a porta. Escopos definem a sala. Guardian tranca o cofre."_
-
----
-
-_Parte do ecossistema Vectora_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contribuidores](https://github.com/Kaffyn/Vectora/graphs/contributors)
+| Conceito                   | Recurso           | Link                                                                                                   |
+| :------------------------- | :---------------- | :----------------------------------------------------------------------------------------------------- |
+| **API Key Best Practices** | Google Cloud Docs | [cloud.google.com/docs/authentication/api-keys](https://cloud.google.com/docs/authentication/api-keys) |
+| **SHA-256**                | NIST Standard     | [csrc.nist.gov/projects/hash-functions](https://csrc.nist.gov/projects/hash-functions)                 |
+| **RBAC**                   | Auth0 Blog        | [auth0.com/blog/role-based-access-control/](https://auth0.com/blog/role-based-access-control/)         |

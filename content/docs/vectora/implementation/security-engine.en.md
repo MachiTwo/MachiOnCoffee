@@ -25,7 +25,6 @@ tags:
 ---
 
 {{< lang-toggle >}}
-{{< section-toggle >}}
 
 **Guardian** is Vectora's governance engine, responsible for intercepting all tool calls and ensuring they comply with security policies before execution. In the transition to Golang, Guardian was rewritten to operate natively and in a compiled manner.
 

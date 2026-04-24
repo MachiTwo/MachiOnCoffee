@@ -29,6 +29,7 @@ tags:
 ---
 
 {{< lang-toggle >}}
+
 Vectora's backend infrastructure is designed to solve the biggest bottleneck for modern AI agents: **state management at scale**. While the Vectora runtime processes intelligence, the backend ensures that this intelligence is grounded in persistent, secure, and searchable data.
 
 Vectora uses a unified architecture based on **MongoDB Atlas**, allowing vectors, metadata, and operational memory to coexist within the same ecosystem.

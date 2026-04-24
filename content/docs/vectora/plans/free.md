@@ -31,7 +31,6 @@ tags:
 ---
 
 {{< lang-toggle >}}
-{{< section-toggle >}}
 
 O plano **Free** de Vectora é totalmente **open source e sem limite de tempo**. Use localmente, em qualquer codebase, sem pagar nada. Perfeito para:
 

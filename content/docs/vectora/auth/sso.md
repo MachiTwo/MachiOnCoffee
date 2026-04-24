@@ -1,122 +1,65 @@
 ---
-title: SSO
+title: SSO (Vectora Auth)
 slug: sso
-date: "2026-04-18T22:30:00-03:00"
+date: "2026-04-23T00:00:00-03:00"
 type: docs
-sidebar:
-  open: true
 tags:
   - ai
-  - architecture
-  - ast-parsing
   - auth
-  - byok
   - concepts
-  - embeddings
-  - governance
-  - guardian
+  - config
   - mcp
-  - mongodb-atlas
-  - privacy
-  - rbac
+  - oidc
+  - saml
   - security
   - sso
-  - vector-search
+  - system
+  - tools
   - vectora
 ---
 
 {{< lang-toggle >}}
-O **Kaffyn SSO** é a camada de identidade centralizada que conecta todos os componentes do ecossistema Vectora. Ele garante que seu contexto, permissões e quotas sejam consistentes em qualquer ambiente, seja na IDE do trabalho ou no seu notebook pessoal.
 
-## Identidade Unificada (Kaffyn SSO)
+O **Vectora Auth** é o sistema de identidade independente do Vectora. Ele permite que organizações gerenciem o acesso à inteligência de código de forma soberana e isolada.
 
-> [!IMPORTANT] O Kaffyn SSO é uma oferta **gerenciada (SaaS)**. Ele é exclusivo para os planos Pro, Team e Enterprise. No plano **Free**, a autenticação é local e isolada por dispositivo via `vectora auth login`.
+## Identidade Standalone
 
-## Arquitetura de Identidade
+Diferente de versões anteriores, o Vectora agora opera seu próprio provedor de identidade ou permite a conexão com provedores externos (BYOI - Bring Your Own Identity).
 
-Diferente de sistemas tradicionais, a identidade no Vectora é desacoplada do armazenamento de dados para garantir máxima segurança:
+## Opções de SSO
 
-```mermaid
-graph TD
-    A[Usuário / Agent] --> B[Kaffyn SSO]
-    B -->|JWT| C[Vectora Runtime]
-    C -->|RBAC + Guardian| D[MongoDB Atlas Namespace]
+O Vectora suporta integração com os principais provedores do mercado via protocolos padrão:
 
-    subgraph "Identidade (Gerenciada)"
-        B
-    end
+1. **OAuth2 / OpenID Connect (OIDC)**: Conecte o Vectora diretamente ao Google Workspace, GitHub Enterprise, Okta ou Auth0.
+2. **SAML 2.0**: Integração robusta com Microsoft Azure AD e outros provedores corporativos.
 
-    subgraph "Contexto (Namespace)"
-        D
-    end
+## Configuração do Provedor
+
+Para configurar um provedor externo, adicione as credenciais no seu arquivo de configuração ou variáveis de ambiente:
+
+```env
+VECTORA_AUTH_METHOD=oidc
+VECTORA_OIDC_ISSUER=https://accounts.google.com
+VECTORA_OIDC_CLIENT_ID=seu_client_id
+VECTORA_OIDC_CLIENT_SECRET=seu_client_secret
 ```
 
-O SSO atua como o ponto de decisão para:
+## Fluxo de Autenticação
 
-1. **Identificação**: Quem é você e a qual organização pertence?
-2. **Autorização**: Quais namespaces você pode ler ou escrever?
-3. **Gestão de Quota**: Quanto armazenamento e processamento resta para seu plano?
-4. **Governança**: Logs de auditoria centralizados por usuário.
-
-## Funcionalidades Principais
-
-| Recurso                  | Descrição                                                 | Disponibilidade   |
-| ------------------------ | --------------------------------------------------------- | ----------------- |
-| **Login Social**         | Autenticação rápida via GitHub ou Google                  | Pro / Team        |
-| **Integração SAML/OIDC** | Conecte seu provedor corporativo (Okta, Azure AD, Auth0)  | Team / Enterprise |
-| **Sessão Unificada**     | Login único que persiste entre IDE, CLI e Dashboard       | Pro / Team        |
-| **Gestão de API Keys**   | Interface centralizada para criar e revogar chaves        | Pro / Team        |
-| **RBAC Granular**        | Atribuição de roles como `admin`, `contributor`, `reader` | Team              |
-
-## Segurança: Arquitetura "Air Gap"
-
-Para proteger sua privacidade, os dados de identidade (e-mail, perfis) são mantidos em uma infraestrutura isolada do seu conteúdo de código (embeddings e metadados). Mesmo em caso de comprometimento de um cluster de processamento, suas credenciais de pagamento e identidade permanecem protegidas na camada global da Kaffyn.
-
-| Camada         | Tecnologia      | O que armazena                     |
-| -------------- | --------------- | ---------------------------------- |
-| **Identidade** | Identidade SaaS | UUID, e-mail, perfis OAuth         |
-| **Sessão**     | JWT assinado    | Claims de permissão, expiração     |
-| **Contexto**   | MongoDB Atlas   | Embeddings, AST, código (redigido) |
-
-## Fluxo de Login do Agente
-
-Para autenticar seu ambiente local:
-
-1. Execute: `vectora auth login`
-2. O navegador abrirá automaticamente a página de login da Kaffyn.
-3. Após login bem-sucedido (GitHub, Google ou E-mail), um token JWT é gerado.
-4. O Vectora armazena esse token de forma segura e o utiliza para assinar todas as chamadas MCP subsequentes.
-
-> [!TIP] O token JWT tem renovação automática. Você só precisará fazer login manualmente se a sessão for revogada ou após longos períodos de inatividade.
-
-## Perguntas Frequentes
-
-**P: Posso fazer self-host do SSO?**
-R: Não. O Kaffyn SSO é a camada de serviço que permite a orquestração multi-tenant. Para cenários 100% offline ou sem dependência da Kaffyn, use o modo **Local** do agente com BYOK puro.
-
-**P: O SSO tem acesso ao meu código?**
-R: Não. O SSO gerencia apenas sua **identidade e permissões**. O tráfego de código e busca ocorre entre seu agente local e o backend MongoDB (também isolado por seu namespace), governado pela lógica do [Guardian](/security/guardian/).
-
-**P: Como funcionam as roles no plano Team?**
-R: O administrador do time convida membros. Cada membro tem sua identidade SSO, mas as permissões de acesso ao namespace do time são definidas por roles: `reader` (apenas busca), `contributor` (pode indexar novos arquivos) e `admin` (gestão total).
-
----
+1. O usuário solicita acesso via CLI ou Interface.
+2. O Vectora redireciona para o provedor SSO configurado.
+3. Após o login, o Vectora emite um **Vectora JWT** assinado localmente.
+4. Este token é usado para todas as interações com o motor de busca e ferramentas MCP.
 
 ## External Linking
 
-| Concept            | Resource                                        | Link                                                                                                       |
-| ------------------ | ----------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| **MongoDB Atlas**  | Atlas Vector Search Documentation               | [www.mongodb.com/docs/atlas/atlas-vector-search/](https://www.mongodb.com/docs/atlas/atlas-vector-search/) |
-| **RBAC**           | NIST Role-Based Access Control Standard         | [csrc.nist.gov/projects/rbac](https://csrc.nist.gov/projects/rbac)                                         |
-| **JWT**            | RFC 7519: JSON Web Token Standard               | [datatracker.ietf.org/doc/html/rfc7519](https://datatracker.ietf.org/doc/html/rfc7519)                     |
-| **OAuth 2.0**      | RFC 6749: The OAuth 2.0 Authorization Framework | [datatracker.ietf.org/doc/html/rfc6749](https://datatracker.ietf.org/doc/html/rfc6749)                     |
-| **OpenID Connect** | OIDC Core 1.0 Specification                     | [openid.net/specs/openid-connect-core-1_0.html](https://openid.net/specs/openid-connect-core-1_0.html)     |
-| **WebAuthn**       | Web Authentication: Public Key Credentials      | [www.w3.org/TR/webauthn-2/](https://www.w3.org/TR/webauthn-2/)                                             |
-
----
-
-> **Frase para lembrar**:
-> _"O SSO diz quem você é. O RBAC diz onde você pode entrar. O Vectora garante que você só veja o que é seu."_
+| Concept            | Resource                                        | Link                                                                                                   |
+| ------------------ | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
+| **OpenID Connect** | OIDC Core 1.0 Specification                     | [openid.net/specs/openid-connect-core-1_0.html](https://openid.net/specs/openid-connect-core-1_0.html) |
+| **JWT**            | RFC 7519: JSON Web Token Standard               | [datatracker.ietf.org/doc/html/rfc7519](https://datatracker.ietf.org/doc/html/rfc7519)                 |
+| **OAuth 2.0**      | RFC 6749: The OAuth 2.0 Authorization Framework | [datatracker.ietf.org/doc/html/rfc6749](https://datatracker.ietf.org/doc/html/rfc6749)                 |
+| **MCP**            | Model Context Protocol Specification            | [modelcontextprotocol.io/specification](https://modelcontextprotocol.io/specification)                 |
+| **MCP Go SDK**     | Go SDK for MCP (mark3labs)                      | [github.com/mark3labs/mcp-go](https://github.com/mark3labs/mcp-go)                                     |
 
 ---
 

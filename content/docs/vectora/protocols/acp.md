@@ -19,7 +19,6 @@ tags:
 ---
 
 {{< lang-toggle >}}
-{{< section-toggle >}}
 
 **ACP** (Agent Communication Protocol) é um protocolo de comunicação entre Vectora e agents customizados ou outros sistemas. Está em **Beta** para early adopters.
 

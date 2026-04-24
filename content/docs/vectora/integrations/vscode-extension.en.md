@@ -26,7 +26,6 @@ tags:
 ---
 
 {{< lang-toggle >}}
-{{< section-toggle >}}
 
 **OWN APP**: Vectora offers a native VS Code extension with integrated UI (sidebar panel, commands, inline hover) — no MCP required. Fully customized development for VS Code.
 

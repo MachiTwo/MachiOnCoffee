@@ -22,7 +22,7 @@ tags:
 ---
 
 {{< lang-toggle >}}
-{{< section-toggle >}}
+
 Segurança no Vectora é implementada em 3 camadas: aplicação (Guardian blocklist), isolamento (Trust Folder), e controle de acesso (RBAC). Dados são seus - Vectora é BYOK (Bring Your Own Key).
 
 ## Pilares de Segurança

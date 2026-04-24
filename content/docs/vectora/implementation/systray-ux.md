@@ -22,7 +22,6 @@ tags:
 ---
 
 {{< lang-toggle >}}
-{{< section-toggle >}}
 
 O Vectora inclui uma interface Systray (bandeja do sistema) como parte do daemon core. A Systray UI fornece uma experiência visual complementar à CLI Cobra, ambas operando no mesmo processo para sincronização de estado em tempo real.
 

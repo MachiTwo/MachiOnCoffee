@@ -19,7 +19,6 @@ tags:
 ---
 
 {{< lang-toggle >}}
-{{< section-toggle >}}
 
 This page details the data retention policies for different plans and types of information in Vectora.
 

@@ -24,7 +24,6 @@ tags:
 ---
 
 {{< lang-toggle >}}
-{{< section-toggle >}}
 
 O Vectora para macOS é distribuído via **Homebrew**, um gerenciador de pacotes nativo do macOS. Este documento descreve como criar, manter e integrar a fórmula Homebrew ao pipeline de CI/CD existente.
 

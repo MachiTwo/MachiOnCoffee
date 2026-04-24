@@ -29,7 +29,6 @@ tags:
 ---
 
 {{< lang-toggle >}}
-{{< section-toggle >}}
 
 Vectora implements **Model Context Protocol (MCP)**, a standardized protocol that allows any IDE with MCP support to connect and use Vectora as a context server. Works natively in Claude Code and Cursor.
 

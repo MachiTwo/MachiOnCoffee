@@ -26,6 +26,7 @@ tags:
 ---
 
 {{< lang-toggle >}}
+
 Reranker Local oferece recuperação inteligente sem dependência de vector databases, combinando busca determinística com reranking semântico. Ideal para dados mutáveis, arquivos dinâmicos e cenários onde custo de embedding é proibitivo.
 
 ## O Problema: Por Que Embeddings Custam Caro

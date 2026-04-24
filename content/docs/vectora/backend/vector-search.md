@@ -31,7 +31,6 @@ tags:
 ---
 
 {{< lang-toggle >}}
-{{< section-toggle >}}
 
 A busca vetorial é o mecanismo central que permite ao Vectora recuperar contexto semanticamente relevante em codebases complexos. Diferente de buscas textuais baseadas em palavras-chave, a busca vetorial opera no espaço semântico, capturando similaridade funcional entre conceitos de código.
 

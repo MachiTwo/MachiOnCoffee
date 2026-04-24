@@ -400,6 +400,7 @@ vectora-agent mcp-serve --mode tools-only
 ---
 
 <!-- Parte do ecossistema Vectora · Open Source · Provider-Agnostic -->
+
 ---
 
 _Parte do ecossistema Vectora_ · [Open Source (MIT)](https://github.com/Kaffyn/Vectora) · [Contribuidores](https://github.com/Kaffyn/Vectora/graphs/contributors)

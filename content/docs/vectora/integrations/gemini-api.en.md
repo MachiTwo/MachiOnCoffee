@@ -33,7 +33,6 @@ tags:
 ---
 
 {{< lang-toggle >}}
-{{< section-toggle >}}
 
 **OWN APP**: Vectora offers deep integration with **Gemini 3 Flash** via proprietary REST API. Use Gemini as the "reasoning engine" for code - analysis, review, code generation with Vectora context.
 

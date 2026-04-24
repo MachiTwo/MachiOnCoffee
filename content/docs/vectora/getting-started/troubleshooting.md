@@ -33,6 +33,7 @@ tags:
 ---
 
 {{< lang-toggle >}}
+
 Guia de solução de problemas mais frequentes durante instalação, configuração e uso do Vectora.
 
 ## Instalação

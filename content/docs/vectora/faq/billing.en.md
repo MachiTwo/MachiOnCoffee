@@ -23,7 +23,6 @@ tags:
 ---
 
 {{< lang-toggle >}}
-{{< section-toggle >}}
 
 Questions about plans, pricing, billing, and upgrading Vectora answered clearly.
 

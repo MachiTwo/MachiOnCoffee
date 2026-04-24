@@ -31,7 +31,6 @@ tags:
 ---
 
 {{< lang-toggle >}}
-{{< section-toggle >}}
 
 Vectora é **100% BYOK** (Bring Your Own Keys). Você controla suas chaves de API. Seus dados NUNCA são salvos na infraestrutura Vectora. Privacidade completa.
 

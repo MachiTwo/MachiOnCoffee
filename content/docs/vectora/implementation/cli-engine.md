@@ -30,7 +30,6 @@ tags:
 ---
 
 {{< lang-toggle >}}
-{{< section-toggle >}}
 
 O Vectora utiliza **Cobra** para sua interface CLI. Cobra e **Systray** coexistem no mesmo binário daemon — a CLI fornece automação/scripts enquanto Systray fornece a interface visual, ambas sincronizadas em tempo real através de estado compartilhado em memória.
 

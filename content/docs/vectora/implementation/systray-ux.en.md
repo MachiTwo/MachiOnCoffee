@@ -22,7 +22,6 @@ tags:
 ---
 
 {{< lang-toggle >}}
-{{< section-toggle >}}
 
 Vectora includes a system tray application (Systray) designed to provide a "frictionless" visual configuration experience, specifically focused on SSO authentication and quick status monitoring.
 

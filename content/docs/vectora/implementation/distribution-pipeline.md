@@ -24,7 +24,6 @@ tags:
 ---
 
 {{< lang-toggle >}}
-{{< section-toggle >}}
 
 O Vectora utiliza um pipeline de distribuição totalmente automatizado para garantir que cada versão estável seja compilada, testada e disponibilizada para Windows, macOS e Linux via Winget, GitHub Releases e outros gerenciadores de pacotes.
 

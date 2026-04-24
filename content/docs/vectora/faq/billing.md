@@ -26,7 +26,6 @@ tags:
 ---
 
 {{< lang-toggle >}}
-{{< section-toggle >}}
 
 Dúvidas sobre planos, preço, faturamento e upgrade de Vectora respondidas com clareza.
 

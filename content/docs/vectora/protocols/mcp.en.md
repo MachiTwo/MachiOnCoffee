@@ -33,7 +33,6 @@ tags:
 ---
 
 {{< lang-toggle >}}
-{{< section-toggle >}}
 
 **Vectora works exclusively via MCP (Model Context Protocol).** This document describes how Vectora implements MCP, its architecture, and how IDEs (Claude Code, Cursor, Zed) integrate.
 

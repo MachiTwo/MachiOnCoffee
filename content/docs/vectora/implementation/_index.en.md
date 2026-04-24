@@ -21,7 +21,6 @@ tags:
 ---
 
 {{< lang-toggle >}}
-{{< section-toggle >}}
 
 This section documents the internal architecture and engineering decisions behind Vectora's new **Golang-based** stack. Unlike the legacy Node.js version, the current architecture focuses on native portability, high-performance parallel execution, and compiled security.
 

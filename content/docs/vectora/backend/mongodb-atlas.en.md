@@ -34,7 +34,6 @@ tags:
 ---
 
 {{< lang-toggle >}}
-{{< section-toggle >}}
 
 When building agentic systems, developers often face "data fragmentation":
 

@@ -21,7 +21,6 @@ tags:
 ---
 
 {{< lang-toggle >}}
-{{< section-toggle >}}
 
 Conecte Vectora com suas ferramentas e IDEs preferidas. Escolha entre integração genérica (MCP Protocol) ou apps proprietários com UX customizada.
 

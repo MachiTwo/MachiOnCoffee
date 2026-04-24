@@ -18,7 +18,6 @@ tags:
 ---
 
 {{< lang-toggle >}}
-{{< section-toggle >}}
 
 Vectora's public roadmap for 2026. Each item has a status, estimated impact, and target period.
 

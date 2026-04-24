@@ -40,7 +40,7 @@ tags:
 ---
 
 {{< lang-toggle >}}
-{{< section-toggle >}}
+
 Vectora is a **modular layered architecture** that combines embedding (Voyage), search (Qdrant), reranking (Voyage), and reasoning (Gemini) to provide intelligent and governed context.
 
 ```text

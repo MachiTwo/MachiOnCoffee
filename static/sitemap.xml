@@ -515,7 +515,7 @@
   </url>
   <url>
     <loc>https://cafegame.dev/docs/vectora/auth/api-keys/</loc>
-    <lastmod>2026-04-18T22:30:00-03:00</lastmod>
+    <lastmod>2026-04-23T00:00:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/auth/api-keys/"/>
@@ -524,7 +524,7 @@
   </url>
   <url>
     <loc>https://cafegame.dev/docs/vectora/auth/sso/</loc>
-    <lastmod>2026-04-18T22:30:00-03:00</lastmod>
+    <lastmod>2026-04-23T00:00:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/auth/sso/"/>
@@ -548,6 +548,15 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/backend/mongodb-atlas/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/backend/mongodb-atlas/"/>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/backend/mongodb-atlas/"/>
+  </url>
+  <url>
+    <loc>https://cafegame.dev/docs/vectora/backend/state-persistence/</loc>
+    <lastmod>2026-04-18T22:30:00-03:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/backend/state-persistence/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/backend/state-persistence/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/backend/state-persistence/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/vectora/backend/vector-search/</loc>
@@ -701,6 +710,33 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/contributing/roadmap/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/contributing/roadmap/"/>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/contributing/roadmap/"/>
+  </url>
+  <url>
+    <loc>https://cafegame.dev/docs/vectora/deployment/</loc>
+    <lastmod>2026-04-18T22:30:00-03:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/deployment/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/deployment/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/deployment/"/>
+  </url>
+  <url>
+    <loc>https://cafegame.dev/docs/vectora/deployment/docker/</loc>
+    <lastmod>2026-04-18T22:30:00-03:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/deployment/docker/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/deployment/docker/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/deployment/docker/"/>
+  </url>
+  <url>
+    <loc>https://cafegame.dev/docs/vectora/deployment/kubernetes/</loc>
+    <lastmod>2026-04-18T22:30:00-03:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/deployment/kubernetes/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/deployment/kubernetes/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/deployment/kubernetes/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/docs/vectora/faq/</loc>
@@ -1152,6 +1188,126 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/security/rbac/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/security/rbac/"/>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/security/rbac/"/>
+  </url>
+  <url>
+    <loc>https://cafegame.dev/docs/vectora/tests/</loc>
+    <lastmod>2026-04-23T22:00:00-03:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/tests/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/tests/"/>
+  </url>
+  <url>
+    <loc>https://cafegame.dev/docs/vectora/tests/caching-hybrid-search/</loc>
+    <lastmod>2026-04-23T22:00:00-03:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/tests/caching-hybrid-search/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/tests/caching-hybrid-search/"/>
+  </url>
+  <url>
+    <loc>https://cafegame.dev/docs/vectora/tests/code-quality/</loc>
+    <lastmod>2026-04-23T22:00:00-03:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/tests/code-quality/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/tests/code-quality/"/>
+  </url>
+  <url>
+    <loc>https://cafegame.dev/docs/vectora/tests/database-persistence-tests/</loc>
+    <lastmod>2026-04-23T22:00:00-03:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/tests/database-persistence-tests/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/tests/database-persistence-tests/"/>
+  </url>
+  <url>
+    <loc>https://cafegame.dev/docs/vectora/tests/documentation/</loc>
+    <lastmod>2026-04-23T22:00:00-03:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/tests/documentation/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/tests/documentation/"/>
+  </url>
+  <url>
+    <loc>https://cafegame.dev/docs/vectora/tests/e2e-workflows/</loc>
+    <lastmod>2026-04-23T22:00:00-03:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/tests/e2e-workflows/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/tests/e2e-workflows/"/>
+  </url>
+  <url>
+    <loc>https://cafegame.dev/docs/vectora/tests/error-handling/</loc>
+    <lastmod>2026-04-23T22:00:00-03:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/tests/error-handling/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/tests/error-handling/"/>
+  </url>
+  <url>
+    <loc>https://cafegame.dev/docs/vectora/tests/gemini-cli-integration-tests/</loc>
+    <lastmod>2026-04-23T22:00:00-03:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/tests/gemini-cli-integration-tests/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/tests/gemini-cli-integration-tests/"/>
+  </url>
+  <url>
+    <loc>https://cafegame.dev/docs/vectora/tests/gemini-self-aware-tests/</loc>
+    <lastmod>2026-04-23T22:00:00-03:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/tests/gemini-self-aware-tests/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/tests/gemini-self-aware-tests/"/>
+  </url>
+  <url>
+    <loc>https://cafegame.dev/docs/vectora/tests/mcp-server-tests/</loc>
+    <lastmod>2026-04-23T22:00:00-03:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/tests/mcp-server-tests/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/tests/mcp-server-tests/"/>
+  </url>
+  <url>
+    <loc>https://cafegame.dev/docs/vectora/tests/performance/</loc>
+    <lastmod>2026-04-23T22:00:00-03:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/tests/performance/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/tests/performance/"/>
+  </url>
+  <url>
+    <loc>https://cafegame.dev/docs/vectora/tests/queries-tools-tests/</loc>
+    <lastmod>2026-04-23T22:00:00-03:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/tests/queries-tools-tests/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/tests/queries-tools-tests/"/>
+  </url>
+  <url>
+    <loc>https://cafegame.dev/docs/vectora/tests/regression-testing/</loc>
+    <lastmod>2026-04-23T22:00:00-03:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/tests/regression-testing/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/tests/regression-testing/"/>
+  </url>
+  <url>
+    <loc>https://cafegame.dev/docs/vectora/tests/security-auth/</loc>
+    <lastmod>2026-04-23T22:00:00-03:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/tests/security-auth/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/tests/security-auth/"/>
+  </url>
+  <url>
+    <loc>https://cafegame.dev/docs/vectora/tests/vscode-integration-tests/</loc>
+    <lastmod>2026-04-23T22:00:00-03:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/tests/vscode-integration-tests/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/tests/vscode-integration-tests/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/</loc>
@@ -1666,7 +1822,7 @@
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/vectora/auth/api-keys/</loc>
-    <lastmod>2026-04-18T22:30:00-03:00</lastmod>
+    <lastmod>2026-04-23T00:00:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/auth/api-keys/"/>
@@ -1675,7 +1831,7 @@
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/vectora/auth/sso/</loc>
-    <lastmod>2026-04-18T22:30:00-03:00</lastmod>
+    <lastmod>2026-04-23T00:00:00-03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/auth/sso/"/>
@@ -1699,6 +1855,15 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/backend/mongodb-atlas/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/backend/mongodb-atlas/"/>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/backend/mongodb-atlas/"/>
+  </url>
+  <url>
+    <loc>https://cafegame.dev/en/docs/vectora/backend/state-persistence/</loc>
+    <lastmod>2026-04-18T22:30:00-03:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/backend/state-persistence/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/backend/state-persistence/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/backend/state-persistence/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/vectora/backend/vector-search/</loc>
@@ -1852,6 +2017,33 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/contributing/roadmap/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/contributing/roadmap/"/>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/contributing/roadmap/"/>
+  </url>
+  <url>
+    <loc>https://cafegame.dev/en/docs/vectora/deployment/</loc>
+    <lastmod>2026-04-18T22:30:00-03:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/deployment/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/deployment/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/deployment/"/>
+  </url>
+  <url>
+    <loc>https://cafegame.dev/en/docs/vectora/deployment/docker/</loc>
+    <lastmod>2026-04-18T22:30:00-03:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/deployment/docker/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/deployment/docker/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/deployment/docker/"/>
+  </url>
+  <url>
+    <loc>https://cafegame.dev/en/docs/vectora/deployment/kubernetes/</loc>
+    <lastmod>2026-04-18T22:30:00-03:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cafegame.dev/docs/vectora/deployment/kubernetes/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cafegame.dev/en/docs/vectora/deployment/kubernetes/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cafegame.dev/docs/vectora/deployment/kubernetes/"/>
   </url>
   <url>
     <loc>https://cafegame.dev/en/docs/vectora/faq/</loc>

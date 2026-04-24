@@ -26,6 +26,7 @@ tags:
 ---
 
 {{< lang-toggle >}}
+
 Local Reranker provides intelligent retrieval without vector database dependency, combining deterministic search with semantic reranking. Ideal for mutable data, dynamic files, and scenarios where embedding cost is prohibitive.
 
 ## The Problem: Why Embeddings Are Expensive

@@ -24,7 +24,6 @@ tags:
 ---
 
 {{< lang-toggle >}}
-{{< section-toggle >}}
 
 The **Plus** plan is for scaling teams. We offer two modes: **BYOK** (priority support and increased limits) or **Plus** (with included AI credits and managed storage).
 

@@ -28,7 +28,6 @@ tags:
 ---
 
 {{< lang-toggle >}}
-{{< section-toggle >}}
 
 Vectora's **Free** plan is fully **open source and time-unlimited**. Use it locally on any codebase without paying anything. Perfect for:
 

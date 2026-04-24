@@ -30,7 +30,6 @@ sidebar:
 ---
 
 {{< lang-toggle >}}
-{{< section-toggle >}}
 
 ## The Heart of Vectora Retrieval: Voyage 4 & Rerank 2.5
 

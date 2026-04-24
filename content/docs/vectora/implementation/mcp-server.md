@@ -23,7 +23,6 @@ tags:
 ---
 
 {{< lang-toggle >}}
-{{< section-toggle >}}
 
 O **MCP Server** é a interface pública do Vectora, expondo 12 ferramentas via JSON-RPC 2.0 sobre stdio. Este documento detalha a implementação em Go com conformidade total ao spec MCP.
 

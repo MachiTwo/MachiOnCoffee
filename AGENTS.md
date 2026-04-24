@@ -30,9 +30,9 @@ python build_local.py
 
 - **Theme**: Hextra v0.11.1
 - **Multi-language**: Portuguese (canonical) and English (translations).
-- **Required Shortcodes (in every doc page)**:
-  - `{{< lang-toggle >}}`: Must be at the top.
-  - `{{< section-toggle >}}`: Must follow the lang-toggle.
+- **Required Shortcodes**:
+  - `{{< lang-toggle >}}`: Must be at the top of EVERY documentation page.
+  - `{{< section-toggle >}}`: ONLY on Home and main Docs index (`content/docs/_index.md`). Prohibited on internal documentation pages.
 - **API Documentation**:
   - Uses `{{< godot-api class="ClassName" >}}` to pull data from `data/api/pt/ClassName.json`.
 

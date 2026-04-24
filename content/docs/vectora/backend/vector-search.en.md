@@ -32,7 +32,6 @@ tags:
 ---
 
 {{< lang-toggle >}}
-{{< section-toggle >}}
 
 Vector search is the core mechanism that allows Vectora to retrieve semantically relevant context in complex codebases. Unlike keyword-based text searches, vector search operates in semantic space, capturing functional similarity between code concepts.
 
